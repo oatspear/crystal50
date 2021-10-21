@@ -12,5 +12,6 @@
 
 ### Changed
 - Made time- and weather-sensitive moves only weather dependent (Synthesis, Morning Sun and Moonlight).
+- Introduced Physical Special split.
 
 ### Fixed
