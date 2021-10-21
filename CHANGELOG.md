@@ -9,5 +9,6 @@
 - Removed the redundant move grammar table.
 
 ### Changed
+- Made time- and weather-sensitive moves only weather dependent (Synthesis, Morning Sun and Moonlight).
 
 ### Fixed
