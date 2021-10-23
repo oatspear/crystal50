@@ -252,4 +252,5 @@ MoveNames::
 	li "WHIRLPOOL"
 	li "BEAT UP"
 	li "FAIRY VOICE"
+	li "DAZZLE GLEAM"
 	assert_list_length NUM_ATTACKS

@@ -254,6 +254,7 @@ BattleAnimations::
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
 	dw BattleAnim_FairyVoice
+	dw BattleAnim_DazzleGleam
 	assert_table_length NUM_ATTACKS + 1
 	dw BattleAnim_253
 	dw BattleAnim_254
@@ -2527,6 +2528,7 @@ BattleAnim_Guillotine:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_DazzleGleam:
 BattleAnim_Flash:
 	anim_1gfx ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH

@@ -264,4 +264,5 @@ Moves:
 	move WHIRLPOOL,    EFFECT_TRAP_TARGET,        15, WATER,         SPECIAL,   70, 15,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,          PHYSICAL, 100, 10,   0
 	move FAIRY_VOICE,  EFFECT_ALWAYS_HIT,         40, FAIRY,         SPECIAL,  100, 15,   0
+	move DAZZLE_GLEAM, EFFECT_NORMAL_HIT,         80, FAIRY,         SPECIAL,  100, 10,   0
 	assert_table_length NUM_ATTACKS

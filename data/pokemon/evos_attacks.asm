@@ -1671,6 +1671,7 @@ MrMimeEvosAttacks:
 	db 31, ENCORE
 	db 36, PSYBEAM
 	db 41, BATON_PASS
+	db 44, DAZZLE_GLEAM
 	db 46, SAFEGUARD
 	db 0 ; no more level-up moves
 
