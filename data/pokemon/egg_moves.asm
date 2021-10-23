@@ -513,6 +513,7 @@ PichuEggMoves:
 	db PRESENT
 	db ENCORE
 	db DOUBLESLAP
+	db FAIRY_VOICE
 	db -1 ; end
 
 CleffaEggMoves:

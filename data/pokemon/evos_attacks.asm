@@ -470,6 +470,7 @@ ClefairyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, GROWL
+	db 1, FAIRY_VOICE
 	db 4, ENCORE
 	db 8, SING
 	db 13, DOUBLESLAP
@@ -486,6 +487,7 @@ ClefableEvosAttacks:
 	db 1, DOUBLESLAP
 	db 1, METRONOME
 	db 1, MOONLIGHT
+	db 1, FAIRY_VOICE
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
@@ -516,6 +518,7 @@ JigglypuffEvosAttacks:
 	db 1, SING
 	db 4, DEFENSE_CURL
 	db 9, POUND
+	db 11, FAIRY_VOICE
 	db 14, DISABLE
 	db 19, ROLLOUT
 	db 24, DOUBLESLAP
@@ -526,10 +529,11 @@ JigglypuffEvosAttacks:
 
 WigglytuffEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, DOUBLESLAP
 	db 1, SING
 	db 1, DISABLE
 	db 1, DEFENSE_CURL
-	db 1, DOUBLESLAP
+	db 1, FAIRY_VOICE
 	db 0 ; no more level-up moves
 
 ZubatEvosAttacks:
@@ -1536,6 +1540,7 @@ ChanseyEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, BLISSEY
 	db 0 ; no more evolutions
 	db 1, POUND
+	db 1, FAIRY_VOICE
 	db 5, GROWL
 	db 9, TAIL_WHIP
 	db 13, SOFTBOILED
@@ -2364,6 +2369,7 @@ CleffaEvosAttacks:
 	db 1, CHARM
 	db 4, ENCORE
 	db 8, SING
+	db 12, FAIRY_VOICE
 	db 13, SWEET_KISS
 	db 0 ; no more level-up moves
 
@@ -2374,6 +2380,7 @@ IgglybuffEvosAttacks:
 	db 1, CHARM
 	db 4, DEFENSE_CURL
 	db 9, POUND
+	db 12, FAIRY_VOICE
 	db 14, SWEET_KISS
 	db 0 ; no more level-up moves
 
@@ -3219,6 +3226,7 @@ MiltankEvosAttacks:
 BlisseyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
+	db 1, FAIRY_VOICE
 	db 4, GROWL
 	db 7, TAIL_WHIP
 	db 10, SOFTBOILED

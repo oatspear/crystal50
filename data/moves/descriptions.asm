@@ -252,15 +252,14 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw FairyVoiceDescription
 	assert_table_length NUM_ATTACKS
-	dw MoveFCDescription
 	dw MoveFDDescription
 	dw MoveFEDescription
 	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
-MoveFCDescription:
 MoveFDDescription:
 MoveFEDescription:
 MoveFFDescription:
@@ -1004,6 +1003,7 @@ ScaryFaceDescription:
 	next "the foe's SPEED.@"
 
 FaintAttackDescription:
+FairyVoiceDescription:
 	db   "An attack that"
 	next "never misses.@"
 
