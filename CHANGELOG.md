@@ -6,7 +6,7 @@
 - Introduced Physical/Special split.
 - Added `FAIRY` type.
 - Added moves: `FAIRY VOICE` (Disarming Voice), `DAZZLE GLEAM` (Dazzling Gleam), `PLAY ROUGH`.
-- Added TMs: `TM51` (Dazzling Gleam).
+- Added TMs: `TM51` (Dazzling Gleam), `TM52` (Play Rough).
 
 ### Removed
 - Removed the 25% failure chance for AI status moves.
