@@ -255,9 +255,8 @@ BattleAnimations::
 	dw BattleAnim_BeatUp
 	dw BattleAnim_FairyVoice
 	dw BattleAnim_DazzleGleam
+	dw BattleAnim_PlayRough
 	assert_table_length NUM_ATTACKS + 1
-	dw BattleAnim_253
-	dw BattleAnim_254
 	dw BattleAnim_SweetScent2
 	assert_table_length $100
 ; $100
@@ -286,8 +285,6 @@ BattleAnimations::
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_0:
-BattleAnim_253:
-BattleAnim_254:
 BattleAnim_MirrorMove:
 	anim_ret
 
@@ -2145,6 +2142,7 @@ BattleAnim_DoubleEdge:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_PlayRough:
 BattleAnim_Submission:
 	anim_1gfx ANIM_GFX_HIT
 	anim_call BattleAnim_UserObj_1Row

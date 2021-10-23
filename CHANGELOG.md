@@ -5,7 +5,7 @@
 ### Added
 - Introduced Physical/Special split.
 - Added `FAIRY` type.
-- Added moves: `FAIRY VOICE` (Disarming Voice), `DAZZLE GLEAM` (Dazzling Gleam).
+- Added moves: `FAIRY VOICE` (Disarming Voice), `DAZZLE GLEAM` (Dazzling Gleam), `PLAY ROUGH`.
 - Added TMs: `TM51` (Dazzling Gleam).
 
 ### Removed

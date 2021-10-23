@@ -525,6 +525,7 @@ JigglypuffEvosAttacks:
 	db 29, REST
 	db 34, BODY_SLAM
 	db 39, DOUBLE_EDGE
+	db 40, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 WigglytuffEvosAttacks:
@@ -534,6 +535,7 @@ WigglytuffEvosAttacks:
 	db 1, DISABLE
 	db 1, DEFENSE_CURL
 	db 1, FAIRY_VOICE
+	db 1, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 ZubatEvosAttacks:
@@ -697,6 +699,7 @@ MeowthEvosAttacks:
 	db 28, FAINT_ATTACK
 	db 35, SCREECH
 	db 41, FURY_SWIPES
+	db 44, PLAY_ROUGH
 	db 46, SLASH
 	db 0 ; no more level-up moves
 
@@ -711,6 +714,7 @@ PersianEvosAttacks:
 	db 38, SCREECH
 	db 46, FURY_SWIPES
 	db 53, SLASH
+	db 54, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 PsyduckEvosAttacks:
@@ -783,6 +787,7 @@ GrowlitheEvosAttacks:
 	db 26, TAKE_DOWN
 	db 34, FLAME_WHEEL
 	db 42, AGILITY
+	db 48, PLAY_ROUGH
 	db 50, FLAMETHROWER
 	db 0 ; no more level-up moves
 
@@ -792,6 +797,7 @@ ArcanineEvosAttacks:
 	db 1, LEER
 	db 1, TAKE_DOWN
 	db 1, FLAME_WHEEL
+	db 1, PLAY_ROUGH
 	db 50, EXTREMESPEED
 	db 0 ; no more level-up moves
 
@@ -2489,6 +2495,7 @@ MarillEvosAttacks:
 	db 10, WATER_GUN
 	db 15, ROLLOUT
 	db 21, BUBBLEBEAM
+	db 21, PLAY_ROUGH
 	db 28, DOUBLE_EDGE
 	db 36, RAIN_DANCE
 	db 0 ; no more level-up moves
@@ -2504,6 +2511,7 @@ AzumarillEvosAttacks:
 	db 10, WATER_GUN
 	db 15, ROLLOUT
 	db 25, BUBBLEBEAM
+	db 25, PLAY_ROUGH
 	db 36, DOUBLE_EDGE
 	db 48, RAIN_DANCE
 	db 0 ; no more level-up moves
@@ -2816,6 +2824,7 @@ SnubbullEvosAttacks:
 	db 19, LICK
 	db 26, ROAR
 	db 34, RAGE
+	db 37, PLAY_ROUGH
 	db 43, TAKE_DOWN
 	db 0 ; no more level-up moves
 
@@ -2829,6 +2838,7 @@ GranbullEvosAttacks:
 	db 19, LICK
 	db 28, ROAR
 	db 38, RAGE
+	db 43, GRANBULL
 	db 51, TAKE_DOWN
 	db 0 ; no more level-up moves
 
@@ -3221,6 +3231,7 @@ MiltankEvosAttacks:
 	db 26, BIDE
 	db 34, ROLLOUT
 	db 43, BODY_SLAM
+	db 45, PLAY_ROUGH
 	db 53, HEAL_BELL
 	db 0 ; no more level-up moves
 

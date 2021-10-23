@@ -265,4 +265,5 @@ Moves:
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,          PHYSICAL, 100, 10,   0
 	move FAIRY_VOICE,  EFFECT_ALWAYS_HIT,         40, FAIRY,         SPECIAL,  100, 15,   0
 	move DAZZLE_GLEAM, EFFECT_NORMAL_HIT,         80, FAIRY,         SPECIAL,  100, 10,   0
+	move PLAY_ROUGH,   EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90, 10,  10
 	assert_table_length NUM_ATTACKS

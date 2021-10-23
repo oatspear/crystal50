@@ -691,6 +691,7 @@ TeddiursaEggMoves:
 	db FOCUS_ENERGY
 	db COUNTER
 	db METAL_CLAW
+	db PLAY_ROUGH
 	db -1 ; end
 
 SlugmaEggMoves:
@@ -758,6 +759,7 @@ PhanpyEggMoves:
 	db BODY_SLAM
 	db ANCIENTPOWER
 	db WATER_GUN
+	db PLAY_ROUGH
 	db -1 ; end
 
 StantlerEggMoves:

@@ -253,4 +253,5 @@ MoveNames::
 	li "BEAT UP"
 	li "FAIRY VOICE"
 	li "DAZZLE GLEAM"
+	li "PLAY ROUGH"
 	assert_list_length NUM_ATTACKS

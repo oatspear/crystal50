@@ -254,13 +254,12 @@ MoveDescriptions::
 	dw BeatUpDescription
 	dw FairyVoiceDescription
 	dw DazzleGleamDescription
+	dw PlayRoughDescription
 	assert_table_length NUM_ATTACKS
-	dw MoveFEDescription
 	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
-MoveFEDescription:
 MoveFFDescription:
 Move00Description:
 	db "?@"
@@ -509,6 +508,7 @@ BubblebeamDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
 
+PlayRoughDescription:
 AuroraBeamDescription:
 	db   "An attack that may"
 	next "lower ATTACK.@"
