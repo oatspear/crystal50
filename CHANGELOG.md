@@ -52,3 +52,4 @@
 - BRN/PSN/PAR now affect catch rate.
 - Moon Ball does boost catch rate.
 - Love Ball boosts catch rate for the correct gender.
+- Fast Ball boosts catch rate for the intended Pokémon.
