@@ -35,3 +35,4 @@
 - Counter and Mirror Coat no longer work if the opponent uses an item.
 - Disabled but PP Up–enhanced moves may no longer trigger Struggle.
 - A Pokémon that fainted from Pursuit will no longer have its old status condition when revived.
+- Lock-On and Mind Reader always bypass Fly and Dig.
