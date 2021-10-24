@@ -55,3 +55,4 @@
 - Fast Ball boosts catch rate for the intended Pokémon.
 - Heavy Ball uses correct weight value for all Pokémon.
 - Glacier Badge boosts Special Defense and Special Attack.
+- Smart AI encourages Mean Look if the opposing Pokémon is badly poisoned.
