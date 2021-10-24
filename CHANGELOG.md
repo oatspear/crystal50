@@ -19,6 +19,7 @@
 - Changed Pokémon and moves to use the `FAIRY` type.
 - Changed Pokémon learnsets to include added moves.
 - Improved the event initialization system to be independent of the map.
+- Made Sandstorm raise the Special Defense of Rock type Pokémon by 50%.
 
 ### Fixed
 - Removed experience gain at max. level.
