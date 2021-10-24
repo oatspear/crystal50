@@ -44,3 +44,4 @@
 - Dragon Fang boosts Dragon-type moves, instead of Dragon Scale.
 - HP bar animation is no longer slow for high HP.
 - Fixed HP bar animation off-by-one error for low HP.
+- Moves that do damage and increase stats can increase stats after a KO.

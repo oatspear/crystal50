@@ -705,10 +705,10 @@ DefenseUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkfaint
-	buildopponentrage
 	defenseup
 	statupmessage
+	checkfaint
+	buildopponentrage
 	endmove
 
 AttackUpHit:
@@ -727,10 +727,10 @@ AttackUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkfaint
-	buildopponentrage
 	attackup
 	statupmessage
+	checkfaint
+	buildopponentrage
 	endmove
 
 AllUpHit:
@@ -749,9 +749,9 @@ AllUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
+	allstatsup
 	checkfaint
 	buildopponentrage
-	allstatsup
 	endmove
 
 PayDay:
