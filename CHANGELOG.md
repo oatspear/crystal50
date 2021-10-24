@@ -27,3 +27,4 @@
 - Perish Song and Spikes can no longer leave a Pokémon with 0 HP and not faint.
 - Thick Club and Light Ball can no longer make (Special) Attack wrap around above 1024.
 - Metal Powder can no longer increase damage taken with boosted (Special) Defense.
+- Moves with a 100% secondary effect chance will always trigger it.
