@@ -32,3 +32,4 @@
 - Berserk Gene's confusion lasts the normal confusion count.
 - Confusion damage is no longer affected by type-boosting items and Explosion/Self-Destruct doubling.
 - Moves that lower Defense no longer do so after breaking a Substitute.
+- Counter and Mirror Coat no longer work if the opponent uses an item.
