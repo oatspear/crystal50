@@ -18,7 +18,6 @@
 - Changed moves to their respective Physical/Special categories.
 - Changed Pokémon and moves to use the `FAIRY` type.
 - Changed Pokémon learnsets to include added moves.
-- Changed Trainer parties to use added moves.
 
 ### Fixed
 - Removed experience gain at max. level.
