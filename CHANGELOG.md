@@ -29,3 +29,4 @@
 - Metal Powder can no longer increase damage taken with boosted (Special) Defense.
 - Moves with a 100% secondary effect chance will always trigger it.
 - Belly Drum no longer sharply boosts Attack under 50% HP.
+- Berserk Gene's confusion lasts the normal confusion count.
