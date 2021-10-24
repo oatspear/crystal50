@@ -50,3 +50,4 @@
 - Fixed experience underflow for level 1 Pokémon with Medium-Slow growth rate.
 - The Dude's catching tutorial no longer crashes if his Poké Ball can't be used.
 - BRN/PSN/PAR now affect catch rate.
+- Moon Ball does boost catch rate.
