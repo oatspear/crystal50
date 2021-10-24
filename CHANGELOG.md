@@ -25,3 +25,4 @@
 - Removed experience gain at max. level.
 - Reflect and Light Screen no longer make (Special) Defense wrap around above 1024.
 - Perish Song and Spikes can no longer leave a Pokémon with 0 HP and not faint.
+- Thick Club and Light Ball can no longer make (Special) Attack wrap around above 1024.
