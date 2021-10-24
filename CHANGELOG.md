@@ -53,3 +53,4 @@
 - Moon Ball does boost catch rate.
 - Love Ball boosts catch rate for the correct gender.
 - Fast Ball boosts catch rate for the intended Pokémon.
+- Heavy Ball uses correct weight value for all Pokémon.
