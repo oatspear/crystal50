@@ -39,3 +39,4 @@
 - Beat Up can no longer desynchronize link battles.
 - Beat Up works correctly with only one Pokémon in the party.
 - Beat Up no longer fails to raise Substitute.
+- Beat Up no longer triggers King's Rock if it fails.
