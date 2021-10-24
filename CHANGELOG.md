@@ -43,3 +43,4 @@
 - Present damage is correct in link battles.
 - Dragon Fang boosts Dragon-type moves, instead of Dragon Scale.
 - HP bar animation is no longer slow for high HP.
+- Fixed HP bar animation off-by-one error for low HP.
