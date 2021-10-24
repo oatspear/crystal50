@@ -42,3 +42,4 @@
 - Beat Up no longer triggers King's Rock if it fails.
 - Present damage is correct in link battles.
 - Dragon Fang boosts Dragon-type moves, instead of Dragon Scale.
+- HP bar animation is no longer slow for high HP.
