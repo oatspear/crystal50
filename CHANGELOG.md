@@ -46,3 +46,4 @@
 - Fixed HP bar animation off-by-one error for low HP.
 - Moves that do damage and increase stats can increase stats after a KO.
 - A Transformed Pokémon can no longer use Sketch to learn otherwise unobtainable moves.
+- Catching a Transformed Pokémon catches the correct species.
