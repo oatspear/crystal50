@@ -38,3 +38,4 @@
 - Lock-On and Mind Reader always bypass Fly and Dig.
 - Beat Up can no longer desynchronize link battles.
 - Beat Up works correctly with only one Pokémon in the party.
+- Beat Up no longer fails to raise Substitute.
