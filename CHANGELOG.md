@@ -23,3 +23,4 @@
 
 ### Fixed
 - Removed experience gain at max. level.
+- Reflect and Light Screen no longer make (Special) Defense wrap around above 1024.
