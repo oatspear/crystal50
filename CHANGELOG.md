@@ -54,3 +54,4 @@
 - Love Ball boosts catch rate for the correct gender.
 - Fast Ball boosts catch rate for the intended Pokémon.
 - Heavy Ball uses correct weight value for all Pokémon.
+- Glacier Badge boosts Special Defense and Special Attack.
