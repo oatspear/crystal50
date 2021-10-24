@@ -31,3 +31,4 @@
 - Belly Drum no longer sharply boosts Attack under 50% HP.
 - Berserk Gene's confusion lasts the normal confusion count.
 - Confusion damage is no longer affected by type-boosting items and Explosion/Self-Destruct doubling.
+- Moves that lower Defense no longer do so after breaking a Substitute.
