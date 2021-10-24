@@ -51,3 +51,4 @@
 - The Dude's catching tutorial no longer crashes if his Poké Ball can't be used.
 - BRN/PSN/PAR now affect catch rate.
 - Moon Ball does boost catch rate.
+- Love Ball boosts catch rate for the correct gender.

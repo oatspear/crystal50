@@ -981,7 +981,7 @@ LoveBallMultiplier:
 	pop de
 	cp d
 	pop bc
-	ret nz ; for the intended effect, this should be "ret z"
+	ret z
 
 	sla b
 	jr c, .max
