@@ -45,3 +45,4 @@
 - HP bar animation is no longer slow for high HP.
 - Fixed HP bar animation off-by-one error for low HP.
 - Moves that do damage and increase stats can increase stats after a KO.
+- A Transformed Pokémon can no longer use Sketch to learn otherwise unobtainable moves.
