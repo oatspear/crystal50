@@ -60,3 +60,4 @@
 - Smart AI encourages Solar Beam, Flame Wheel and Moonlight during Sunny Day.
 - AI discourages Future Sight when it's already been used.
 - Fixed AI `CheckTypeMatchup`.
+- AI use of Full Heal or Full Restore cures Nightmare status.
