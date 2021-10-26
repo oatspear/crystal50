@@ -61,3 +61,4 @@
 - AI discourages Future Sight when it's already been used.
 - Fixed AI `CheckTypeMatchup`.
 - AI use of Full Heal or Full Restore cures Nightmare status.
+- AI use of Full Heal cures confusion status.
