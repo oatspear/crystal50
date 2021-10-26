@@ -64,3 +64,4 @@
 - AI use of Full Heal cures confusion status.
 - Wild Pokémon cannot always Teleport.
 - `RIVAL2` has the same DVs as `RIVAL1`.
+- `HELD_CATCH_CHANCE` has no effect.
