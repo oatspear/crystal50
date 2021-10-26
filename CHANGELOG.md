@@ -58,3 +58,4 @@
 - Smart AI encourages Mean Look if the opposing Pokémon is badly poisoned.
 - Smart AI no longer discourages Conversion2 after the first turn.
 - Smart AI encourages Solar Beam, Flame Wheel and Moonlight during Sunny Day.
+- AI discourages Future Sight when it's already been used.
