@@ -75,3 +75,4 @@
 - Using a Park Ball in non-Contest battles no longer has a corrupt animation.
 - Battle transitions now account for the enemy's level.
 - Team Rocket battle music is now used for Executives or Scientists.
+- Restored bump noise if standing on tile `$3E`.
