@@ -69,3 +69,4 @@
 - `LoadMetatiles` no longer wraps around past 128 blocks.
 - Surfing directly across a map connection loads the new map.
 - Swimming NPCs are limited by their movement radius.
+- In-battle ellipsis is no longer too high.
