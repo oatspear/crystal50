@@ -72,3 +72,4 @@
 - In-battle ellipsis is no longer too high.
 - Fixed: two tiles in the port tileset were drawn incorrectly.
 - The Ruins of Alph research center's roof color at night looks better.
+- Using a Park Ball in non-Contest battles no longer has a corrupt animation.
