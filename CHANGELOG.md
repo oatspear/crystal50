@@ -83,3 +83,4 @@
 - Clair can no longer give TM24 Dragonbreath twice.
 - Daisy's grooming always increases happiness.
 - Fixed a number of bugs related to Magikarp lengths.
+- `CheckOwnMon` only checks the first five letters of OT names.
