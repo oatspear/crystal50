@@ -76,3 +76,4 @@
 - Battle transitions now account for the enemy's level.
 - Team Rocket battle music is now used for Executives or Scientists.
 - Restored bump noise if standing on tile `$3E`.
+- Playing Entei's Pokédex cry no longer distorts Raikou's and Suicune's.
