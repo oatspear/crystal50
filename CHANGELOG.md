@@ -67,3 +67,4 @@
 - `HELD_CATCH_CHANCE` has no effect.
 - Credits sequence does not change move selection menu behavior.
 - `LoadMetatiles` no longer wraps around past 128 blocks.
+- Surfing directly across a map connection loads the new map.
