@@ -80,3 +80,4 @@
 - Five-digit experience gain is printed correctly.
 - Up to six evolution entries can have Stone compatibility reported correctly.
 - A "HOF Master!" title for 200-Time Famers is now accessible.
+- Clair can no longer give TM24 Dragonbreath twice.
