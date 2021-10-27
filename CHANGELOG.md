@@ -71,3 +71,4 @@
 - Swimming NPCs are limited by their movement radius.
 - In-battle ellipsis is no longer too high.
 - Fixed: two tiles in the port tileset were drawn incorrectly.
+- The Ruins of Alph research center's roof color at night looks better.
