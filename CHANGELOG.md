@@ -82,3 +82,4 @@
 - A "HOF Master!" title for 200-Time Famers is now accessible.
 - Clair can no longer give TM24 Dragonbreath twice.
 - Daisy's grooming always increases happiness.
+- Fixed a number of bugs related to Magikarp lengths.
