@@ -79,3 +79,4 @@
 - Playing Entei's Pokédex cry no longer distorts Raikou's and Suicune's.
 - Five-digit experience gain is printed correctly.
 - Up to six evolution entries can have Stone compatibility reported correctly.
+- A "HOF Master!" title for 200-Time Famers is now accessible.
