@@ -68,3 +68,4 @@
 - Credits sequence does not change move selection menu behavior.
 - `LoadMetatiles` no longer wraps around past 128 blocks.
 - Surfing directly across a map connection loads the new map.
+- Swimming NPCs are limited by their movement radius.
