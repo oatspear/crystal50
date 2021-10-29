@@ -88,3 +88,4 @@
 - The unused `phonecall` script command no longer crashes.
 - `ScriptCall` no longer overflows `wScriptStack`.
 - `LoadSpriteGFX` now limits the capacity of `UsedSprites`.
+- `ChooseWildEncounter` validates the wild Pokémon species.
