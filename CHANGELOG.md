@@ -86,3 +86,4 @@
 - `CheckOwnMon` only checks the first five letters of OT names.
 - `CheckOwnMonAnywhere` checks the Day-Care.
 - The unused `phonecall` script command no longer crashes.
+- `ScriptCall` no longer overflows `wScriptStack`.
