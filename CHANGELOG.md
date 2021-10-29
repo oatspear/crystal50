@@ -91,3 +91,4 @@
 - `ChooseWildEncounter` validates the wild Pokémon species.
 - Fixed: `TryObjectEvent` arbitrary code execution.
 - `ReadObjectEvents` no longer overflows into `wObjectMasks`.
+- `ClearWRAM` clears all WRAM banks.
