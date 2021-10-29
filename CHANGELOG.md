@@ -92,3 +92,4 @@
 - Fixed: `TryObjectEvent` arbitrary code execution.
 - `ReadObjectEvents` no longer overflows into `wObjectMasks`.
 - `ClearWRAM` clears all WRAM banks.
+- `BattleAnimCmd_ClearObjs` clears all objects.
