@@ -89,3 +89,4 @@
 - `ScriptCall` no longer overflows `wScriptStack`.
 - `LoadSpriteGFX` now limits the capacity of `UsedSprites`.
 - `ChooseWildEncounter` validates the wild Pokémon species.
+- Fixed: `TryObjectEvent` arbitrary code execution.
