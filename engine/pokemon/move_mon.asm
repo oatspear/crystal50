@@ -1557,7 +1557,10 @@ CalcMonStatC:
 	ldh [hMultiplicand + 1], a
 	xor a
 	ldh [hMultiplicand + 0], a
-	ld a, [wCurPartyLevel]
+; begin set level to 50
+	; ld a, [wCurPartyLevel]
+	ld a, 50
+; end set level to 50
 	ldh [hMultiplier], a
 	call Multiply
 	ldh a, [hProduct + 1]
@@ -1575,7 +1578,10 @@ CalcMonStatC:
 	cp STAT_HP
 	ld a, STAT_MIN_NORMAL
 	jr nz, .not_hp
-	ld a, [wCurPartyLevel]
+; begin set level to 50
+	; ld a, [wCurPartyLevel]
+	ld a, 50
+; end set level to 50
 	ld b, a
 	ldh a, [hQuotient + 3]
 	add b
