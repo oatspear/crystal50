@@ -2911,7 +2911,8 @@ EnemyAttackDamage:
 .done
 	call TruncateHL_BC
 
-	ld a, [wEnemyMonLevel]
+	;ld a, [wEnemyMonLevel]
+	ld a, 50
 	ld e, a
 	call DittoMetalPowder
 
@@ -2935,12 +2936,14 @@ HitSelfInConfusion:
 	and a
 	ld hl, wBattleMonDefense
 	ld de, wPlayerScreens
-	ld a, [wBattleMonLevel]
+	;ld a, [wBattleMonLevel]
+	ld a, 50
 	jr z, .got_it
 
 	ld hl, wEnemyMonDefense
 	ld de, wEnemyScreens
-	ld a, [wEnemyMonLevel]
+	;ld a, [wEnemyMonLevel]
+	ld a, 50
 .got_it
 	push af
 	ld a, [hli]
@@ -3228,7 +3231,8 @@ BattleCommand_ConstantDamage:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_LEVEL_DAMAGE
-	ld b, [hl]
+	;ld b, [hl]
+	ld b, 50
 	ld a, 0
 	jr z, .got_power
 
