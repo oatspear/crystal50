@@ -1431,9 +1431,13 @@ CalcMonStatC:
 	push hl
 	push de
 	push bc
+
+; begin remove stat experience
 	;ld a, b
 	;ld d, a
 	ld d, 0
+; end remove stat experience
+
 	push hl
 	ld hl, wBaseStats
 	dec hl ; has to be decreased, because 'c' begins with 1
