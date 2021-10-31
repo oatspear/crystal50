@@ -9,6 +9,10 @@
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
 
+### To do
+- Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
+- Hi Jump Kick: The user can now crash due to a target's type immunity.
+
 
 ## v0.1 (Base)
 
