@@ -12,6 +12,7 @@
 - Sky Attack now has a 30% chance to flinch and increased critical-hit ratio.
 - Flail and Reversal can be critical hits and are affected by damage variation.
 - Spite always depletes 4 PP.
+- Updated Sandstorm damage to 1/16 HP.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
