@@ -5,11 +5,12 @@
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.
-- `SELFDESTRUCT` and `EXPLOSION` no longer halve Defense.
+- Selfdestruct and Explosion no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
 - Glare can now hit Ghost-type Pokémon.
 - Sky Attack now has a 30% chance to flinch and increased critical-hit ratio.
+- Flail and Reversal can be critical hits and are affected by damage variation.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.

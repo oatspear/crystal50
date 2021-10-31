@@ -1252,8 +1252,10 @@ Reversal:
 	checkobedience
 	usedmovetext
 	doturn
+	critical
 	constantdamage
 	stab
+	damagevariation
 	checkhit
 	moveanim
 	failuretext
