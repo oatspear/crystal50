@@ -2666,7 +2666,8 @@ PlayerAttackDamage:
 	call TruncateHL_BC
 
 	ld a, [wBattleMonLevel]
-	ld e, a
+	; ld e, a
+	ld e, 50
 	call DittoMetalPowder
 
 	ld a, 1
@@ -3022,7 +3023,8 @@ ConfusionDamageCalc:
 	ld [hl], a
 
 ; Level * 2
-	ld a, e
+	;ld a, e
+	ld a, 50
 	add a
 	jr nc, .level_not_overflowing
 	ld [hl], 1
