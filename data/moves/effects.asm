@@ -1567,11 +1567,11 @@ Swagger:
 	lowersub
 	statupanim
 	raisesub
+	confusetarget
 	failuretext
 	switchturn
 	statupmessage
 	switchturn
-	confusetarget
 	endmove
 
 FuryCutter:
