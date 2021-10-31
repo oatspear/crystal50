@@ -83,8 +83,8 @@ Moves:
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,      PHYSICAL, 100, 20,   0
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      PHYSICAL, 100, 20,   0
 	move STRENGTH,     EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL, 100, 15,   0
-	move ABSORB,       EFFECT_LEECH_HIT,          20, GRASS,         SPECIAL,  100, 20,   0
-	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          40, GRASS,         SPECIAL,  100, 10,   0
+	move ABSORB,       EFFECT_LEECH_HIT,          20, GRASS,         SPECIAL,  100, 25,   0
+	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          40, GRASS,         SPECIAL,  100, 15,   0
 	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         STATUS,    90, 10,   0
 	move GROWTH,       EFFECT_SP_ATK_UP,           0, NORMAL,        STATUS,   100, 40,   0
 	move RAZOR_LEAF,   EFFECT_NORMAL_HIT,         55, GRASS,         PHYSICAL,  95, 25,   0
@@ -92,7 +92,7 @@ Moves:
 	move POISONPOWDER, EFFECT_POISON,              0, POISON,        STATUS,    75, 35,   0
 	move STUN_SPORE,   EFFECT_PARALYZE,            0, GRASS,         STATUS,    75, 30,   0
 	move SLEEP_POWDER, EFFECT_SLEEP,               0, GRASS,         STATUS,    75, 15,   0
-	move PETAL_DANCE,  EFFECT_RAMPAGE,            70, GRASS,         SPECIAL,  100, 20,   0
+	move PETAL_DANCE,  EFFECT_RAMPAGE,           120, GRASS,         SPECIAL,  100, 10,   0
 	move STRING_SHOT,  EFFECT_SPEED_DOWN,          0, BUG,           STATUS,    95, 40,   0
 	move DRAGON_RAGE,  EFFECT_STATIC_DAMAGE,      40, DRAGON,        SPECIAL,  100, 10,   0
 	move FIRE_SPIN,    EFFECT_TRAP_TARGET,        15, FIRE,          SPECIAL,   70, 15,   0
