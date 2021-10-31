@@ -1329,6 +1329,10 @@ BattleCommand_Stab:
 	jr .SkipType
 
 .GotMatchup:
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp GLARE
+	jr z, .NotImmune
 	push hl
 	push bc
 	inc hl
