@@ -1,6 +1,13 @@
 # Changelog
 
-## v0.1
+## v0.2 (Set to Level 50)
+
+### Changed
+- Pokémon stats and damage calculation are now set to level 50.
+- Halved required experience to level up.
+
+
+## v0.1 (Base)
 
 ### Added
 - Introduced Physical/Special split.
@@ -20,8 +27,6 @@
 - Changed Pokémon learnsets to include added moves.
 - Improved the event initialization system to be independent of the map.
 - Made Sandstorm raise the Special Defense of Rock type Pokémon by 50%.
-- Pokémon stats and damage calculation are now set to level 50.
-- Halved required experience to level up.
 
 ### Fixed
 - Removed experience gain at max. level.
