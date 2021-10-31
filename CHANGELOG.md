@@ -21,6 +21,7 @@
 - Improved the event initialization system to be independent of the map.
 - Made Sandstorm raise the Special Defense of Rock type Pokémon by 50%.
 - Pokémon stats and damage calculation are now set to level 50.
+- Halved required experience to level up.
 
 ### Fixed
 - Removed experience gain at max. level.

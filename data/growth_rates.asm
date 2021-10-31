@@ -12,10 +12,14 @@ ENDM
 GrowthRates:
 ; entries correspond to GROWTH_* (see constants/pokemon_data_constants.asm)
 	table_width 4, GrowthRates
-	growth_rate 1, 1,   0,   0,   0 ; Medium Fast
+	;growth_rate 1, 1,   0,   0,   0 ; Medium Fast
+	growth_rate 1, 2,   0,   0,   0 ; Medium Fast
 	growth_rate 3, 4,  10,   0,  30 ; Slightly Fast
 	growth_rate 3, 4,  20,   0,  70 ; Slightly Slow
-	growth_rate 6, 5, -15, 100, 140 ; Medium Slow
-	growth_rate 4, 5,   0,   0,   0 ; Fast
-	growth_rate 5, 4,   0,   0,   0 ; Slow
+	;growth_rate 6, 5, -15, 100, 140 ; Medium Slow
+	growth_rate 6, 10, -8, 50, 70 ; Medium Slow
+	;growth_rate 4, 5,   0,   0,   0 ; Fast
+	growth_rate 4, 10,   0,   0,   0 ; Fast
+	;growth_rate 5, 4,   0,   0,   0 ; Slow
+	growth_rate 5, 8,   0,   0,   0 ; Slow
 	assert_table_length NUM_GROWTH_RATES
