@@ -5,6 +5,9 @@
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.
+- `SELFDESTRUCT` and `EXPLOSION` no longer halve Defense.
+- Updated various moves to current power, PP and accuracy.
+- Updated trap damage to 1/8 HP.
 
 
 ## v0.1 (Base)
