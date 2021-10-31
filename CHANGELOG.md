@@ -8,6 +8,7 @@
 - `SELFDESTRUCT` and `EXPLOSION` no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
+- Glare can now hit Ghost-type Pokémon.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
