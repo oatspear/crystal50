@@ -19,6 +19,7 @@
 - Safeguard no longer protects against self-confusion from rampage effects.
 - Pain Split bypasses accuracy checks.
 - Encore lasts exactly 3 turns.
+- Rapid Spin increases the user's Speed.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
