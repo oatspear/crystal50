@@ -22,10 +22,12 @@
 - Rapid Spin increases the user's Speed.
 - Psych Up copies Focus Energy status.
 - Updated priorities of moves to current values.
+- Future Sight now benefits from STAB and critical hit.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
 - Hi Jump Kick: The user can now crash due to a target's type immunity.
+- Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation.
 
 
 ## v0.1 (Base)

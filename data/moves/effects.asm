@@ -1937,8 +1937,10 @@ FutureSight:
 	checkobedience
 	usedmovetext
 	doturn
+	critical
 	damagestats
 	damagecalc
+	stab
 	futuresight
 	damagevariation ; skip here if last turn
 	checkhit
