@@ -27,7 +27,8 @@
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
 - Hi Jump Kick: The user can now crash due to a target's type immunity.
-- Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation.
+- Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation. Use the code from Beat Up for inspiration.
+- Beat Up should use Attack of move user, including boosts, benefit from STAB and deal Dark-type damage. Its formula also changed.
 
 
 ## v0.1 (Base)

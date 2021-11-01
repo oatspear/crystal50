@@ -68,12 +68,13 @@ BattleCommand_BeatUp:
 	pop bc
 	ld b, a
 
-	push bc
-	ld a, MON_LEVEL
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld e, a
-	pop bc
+	;push bc
+	;ld a, MON_LEVEL
+	;call GetBeatupMonLocation
+	;ld a, [hl]
+	;ld e, a
+	;pop bc
+	ld e, 50
 
 	ld a, [wPlayerMoveStructPower]
 	ld d, a
