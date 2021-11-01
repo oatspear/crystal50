@@ -14,8 +14,25 @@ MAX_STAT_LEVEL EQU 13
 REST_SLEEP_TURNS EQU 2
 TREEMON_SLEEP_TURNS EQU 7
 
+; Move priorities go from -7 to +5 in current generations.
+; We will add 7 to the priorities, so we can keep them unsigned.
+	const_def
+	const PRIORITY_M7 ; Trick Room
+	const PRIORITY_M6 ; Circle Throw, Dragon Tail, Roar, Whirlwind, Teleport
+	const PRIORITY_M5 ; Counter, Mirror Coat
+	const PRIORITY_M4 ; Avalanche, Revenge
+	const PRIORITY_M3 ; Focus Punch, Shell Trap
+	const PRIORITY_M2 ; none
+	const PRIORITY_M1 ; Vital Throw
+	const PRIORITY_0  ; All other moves
+	const PRIORITY_P1 ; Aqua Jet, Mach Punch, Quick Attack, etc.
+	const PRIORITY_P2 ; Extreme Speed, Feint, First Impression, Rage Powder
+	const PRIORITY_P3 ; Fake Out
+	const PRIORITY_P4 ; Detect, Endure, Magic Coat, Protect
+	const PRIORITY_P5 ; none (for Single Battle)
+
 ; default move priority
-BASE_PRIORITY EQU 1
+BASE_PRIORITY EQU PRIORITY_0
 
 ; type effectiveness factors, scaled by 10
 SUPER_EFFECTIVE    EQU 20

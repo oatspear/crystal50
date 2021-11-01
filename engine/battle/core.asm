@@ -860,13 +860,18 @@ CompareMovePriority:
 	ret
 
 GetMovePriority:
-; Return the priority (0-3) of move a.
-
+; Return the priority (from PRIORITY_M7 to PRIORITY_P5) of move a.
 	ld b, a
 
-	; Vital Throw goes last.
+; Exceptions to the priority by effect table.
+; For now there are only two. If more are added later on, uncomment the
+; INCLUDE "data/moves/priorities.asm" below and repeat this loop.
 	cp VITAL_THROW
-	ld a, 0
+	ld a, PRIORITY_M1
+	ret z
+	ld a, b
+	cp EXTREMESPEED
+	ld a, PRIORITY_P2
 	ret z
 
 	call GetMoveEffect
@@ -887,6 +892,7 @@ GetMovePriority:
 	ret
 
 INCLUDE "data/moves/effects_priorities.asm"
+; INCLUDE "data/moves/priorities.asm"
 
 GetMoveEffect:
 	ld a, b
