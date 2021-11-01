@@ -20,6 +20,7 @@
 - Pain Split bypasses accuracy checks.
 - Encore lasts exactly 3 turns.
 - Rapid Spin increases the user's Speed.
+- Psych Up copies Focus Energy status.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
