@@ -5,6 +5,8 @@
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.
+
+### Updated
 - Selfdestruct and Explosion no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
@@ -14,6 +16,7 @@
 - Spite always depletes 4 PP.
 - Updated Sandstorm damage to 1/16 HP.
 - Swagger always confuses the target.
+- Safeguard no longer protects against self-confusion from rampage effects.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
