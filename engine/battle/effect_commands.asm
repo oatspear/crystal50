@@ -1593,6 +1593,8 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	cp EFFECT_PAIN_SPLIT
+	ret z
 
 	call .StatModifiers
 
