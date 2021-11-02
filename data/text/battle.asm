@@ -1,4 +1,4 @@
-scroll BattleText:: ; used only for BANK(BattleText)
+BattleText:: ; used only for BANK(BattleText)
 
 BattleText_PlayerPickedUpPayDayMoney:
 	text "<PLAYER> picked up"
