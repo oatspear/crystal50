@@ -4,6 +4,7 @@
 
 ### Added
 - Move and weather condition: Hail.
+- Added Hail to the learn sets of compatible Pokémon.
 
 ### Removed
 - Move: Frustration.
