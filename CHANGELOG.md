@@ -31,6 +31,7 @@
 - Updated priorities of moves to current values.
 - Future Sight now benefits from STAB and critical hit.
 - Replaced battle text prompts with auto-prompts.
+- Grass-type Pokémon are immune to powder moves.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.
