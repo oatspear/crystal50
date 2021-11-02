@@ -297,7 +297,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$62`: `damagecalc`
 
 
-## `$63`: `frustrationpower`
+## `$63`: `starthail`
 
 
 ## `$64`: `safeguard`

@@ -84,6 +84,11 @@ SandstormHitsText:
 	line "<USER>!"
 	autodone
 
+PeltedByHailText:
+	text "<USER>"
+	line "is pelted by HAIL!"
+	autodone
+
 PerishCountText:
 	text "<USER>'s"
 	line "PERISH count is @"
@@ -145,6 +150,11 @@ BattleText_TheSandstormRages:
 	line "rages."
 	autodone
 
+BattleText_HailContinuesToFall:
+	text "HAIL continues to"
+	line "fall."
+	autodone
+
 BattleText_TheRainStopped:
 	text "The rain stopped."
 	autodone
@@ -157,6 +167,10 @@ BattleText_TheSunlightFaded:
 BattleText_TheSandstormSubsided:
 	text "The SANDSTORM"
 	line "subsided."
+	autodone
+
+BattleText_TheHailStopped:
+	text "The HAIL stopped."
 	autodone
 
 BattleText_EnemyMonFainted:
@@ -1005,6 +1019,11 @@ StartPerishText:
 SandstormBrewedText:
 	text "A SANDSTORM"
 	line "brewed!"
+	autodone
+
+ItStartedToHailText:
+	text "It started"
+	line "to HAIL!"
 	autodone
 
 BracedItselfText:

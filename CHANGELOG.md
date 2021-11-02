@@ -2,6 +2,12 @@
 
 ## v0.2 (Set to Level 50)
 
+### Added
+- Move and weather condition: Hail.
+
+### Removed
+- Move: Frustration.
+
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.

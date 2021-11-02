@@ -218,7 +218,7 @@ MoveDescriptions::
 	dw HealBellDescription
 	dw ReturnDescription
 	dw PresentDescription
-	dw FrustrationDescription
+	dw HailDescription
 	dw SafeguardDescription
 	dw PainSplitDescription
 	dw SacredFireDescription
@@ -1066,6 +1066,7 @@ OutrageDescription:
 	db   "Works 2-3 turns"
 	next "and confuses user.@"
 
+HailDescription:
 SandstormDescription:
 	db   "Inflicts damage"
 	next "every turn.@"
@@ -1133,10 +1134,6 @@ ReturnDescription:
 PresentDescription:
 	db   "A bomb that may"
 	next "restore HP.@"
-
-FrustrationDescription:
-	db   "An attack based on"
-	next "lack of loyalty.@"
 
 SafeguardDescription:
 	db   "Prevents all"

@@ -124,7 +124,7 @@ MoveEffectsPointers:
 	dw Attract
 	dw Return
 	dw Present
-	dw Frustration
+	dw Hail
 	dw Safeguard
 	dw SacredFire
 	dw Magnitude
@@ -158,4 +158,5 @@ MoveEffectsPointers:
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw FreezeHit ; for Blizzard, purposefully with different EFFECT_* constant
 	assert_table_length NUM_MOVE_EFECTS
