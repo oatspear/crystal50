@@ -6432,6 +6432,12 @@ BattleCommand_ArenaTrap:
 	bit SUBSTATUS_CANT_RUN, [hl]
 	jr nz, .failed
 
+; Don't trap if the opponent is a Ghost-type.
+
+	ld a, GHOST
+	call CheckTypeAMatchesTarget
+	jr z, .failed
+
 ; Otherwise trap the opponent.
 
 	set SUBSTATUS_CANT_RUN, [hl]

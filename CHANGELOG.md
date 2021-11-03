@@ -33,6 +33,7 @@
 - Replaced battle text prompts with auto-prompts.
 - Grass-type Pokémon are immune to powder moves.
 - Electric-type Pokémon are immune to paralysis.
+- Ghost-type Pokémon are immune to arena trap effects.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -45,6 +46,7 @@
 - Hi Jump Kick: The user can now crash due to a target's type immunity.
 - Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation. Use the code from Beat Up for inspiration.
 - Beat Up should use Attack of move user, including boosts, benefit from STAB and deal Dark-type damage. Its formula also changed.
+- Ghost-type Pokémon should be able to switch from binding moves.
 
 
 ## v0.1 (Base)
