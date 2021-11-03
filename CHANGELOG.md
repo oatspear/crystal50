@@ -32,6 +32,13 @@
 - Future Sight now benefits from STAB and critical hit.
 - Replaced battle text prompts with auto-prompts.
 - Grass-type Pokémon are immune to powder moves.
+- Electric-type Pokémon are immune to paralysis.
+
+### Fixed
+- Fire-type Pokémon are immune to burn.
+- Ice-type Pokémon are immune to freeze.
+- Poison-type Pokémon are immune to poison.
+- Steel-type Pokémon are immune to poison.
 
 ### To do
 - Hi Jump Kick crash damage is now (always) equal to half of the user's max HP, rounded down.

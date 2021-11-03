@@ -3754,7 +3754,11 @@ BattleCommand_PoisonTarget:
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckTypeAMatchesTarget ; do not poison a Poison-type
+	ret z
+	ld a, STEEL
+	call CheckTypeAMatchesTarget ; do not poison a Steel-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -3785,7 +3789,11 @@ BattleCommand_Poison:
 	and $7f
 	jp z, .failed
 
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckTypeAMatchesTarget ; do not poison a Poison-type
+	jp z, .failed
+	ld a, STEEL
+	call CheckTypeAMatchesTarget ; do not poison a Steel-type
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -3863,20 +3871,20 @@ BattleCommand_Poison:
 	cp EFFECT_TOXIC
 	ret
 
-CheckIfTargetIsPoisonType:
-	ld de, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wBattleMonType1
-.ok
-	ld a, [de]
-	inc de
-	cp POISON
-	ret z
-	ld a, [de]
-	cp POISON
-	ret
+; CheckIfTargetIsPoisonType: ; unreferenced
+; 	ld de, wEnemyMonType1
+; 	ldh a, [hBattleTurn]
+; 	and a
+; 	jr z, .ok
+; 	ld de, wBattleMonType1
+; .ok
+; 	ld a, [de]
+; 	inc de
+; 	cp POISON
+; 	ret z
+; 	ld a, [de]
+; 	cp POISON
+; 	ret
 
 PoisonOpponent:
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -4003,7 +4011,8 @@ BattleCommand_BurnTarget:
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
+	ld a, FIRE
+	call CheckTypeAMatchesTarget ; do not burn a Fire-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4072,7 +4081,8 @@ BattleCommand_FreezeTarget:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
+	ld a, ICE
+	call CheckTypeAMatchesTarget ; do not freeze an Ice-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4121,6 +4131,9 @@ BattleCommand_ParalyzeTarget:
 	ret nz
 	ld a, [wTypeModifier]
 	and $7f
+	ret z
+	ld a, ELECTRIC
+	call CheckTypeAMatchesTarget ; do not paralyze an Electric-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -5956,6 +5969,9 @@ BattleCommand_Paralyze:
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect
+	ld a, ELECTRIC
+	call CheckTypeAMatchesTarget ; do not paralyze an Electric-type
+	jr z, .didnt_affect
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
@@ -6005,26 +6021,38 @@ BattleCommand_Paralyze:
 	call AnimateFailedMove
 	jp PrintDoesntAffect
 
-CheckMoveTypeMatchesTarget:
-; Compare move type to opponent type.
-; Return z if matching the opponent type,
-; unless the move is Normal (Tri Attack).
+; CheckMoveTypeMatchesTarget: ; unreferenced
+; ; Compare move type to opponent type.
+; ; Return z if matching the opponent type,
+; ; unless the move is Normal (Tri Attack).
+;
+; 	ld a, BATTLE_VARS_MOVE_TYPE
+; 	call GetBattleVar
+; 	and TYPE_MASK
+; 	cp NORMAL
+; 	jr nz, CheckTypeAMatchesTarget
+;
+; ;.normal
+; 	ld a, 1
+; 	and a
+; 	pop hl
+; 	ret
+
+CheckTypeAMatchesTarget:
+; Compare the type in a to the opponent's types.
+; Return z if any of the types match.
 
 	push hl
+	push af ; preserve the argument type
 
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
 	ld hl, wBattleMonType1
+
 .ok
-
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	and TYPE_MASK
-	cp NORMAL
-	jr z, .normal
-
+	pop af ; get back the argument type
 	cp [hl]
 	jr z, .return
 
@@ -6032,12 +6060,6 @@ CheckMoveTypeMatchesTarget:
 	cp [hl]
 
 .return
-	pop hl
-	ret
-
-.normal
-	ld a, 1
-	and a
 	pop hl
 	ret
 
