@@ -3407,28 +3407,40 @@ INCLUDE "engine/battle/move_effects/sketch.asm"
 
 BattleCommand_DefrostOpponent:
 ; defrostopponent
-; Thaw the opponent if frozen, and
-; raise the user's Attack one stage.
+; Previous: Thaw the opponent if frozen, and raise the user's Attack one stage.
+; Current: Thaw the opponent if frozen, the move hits and is a Fire-type move.
 
-	call AnimateCurrentMove
+	; call AnimateCurrentMove
+
+	; + added
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .done
+
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	and TYPE_MASK
+	cp FIRE
+	jr nz, .done
 
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	call Defrost
 
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
-	ld a, [hl]
-	push hl
-	push af
-
-	ld a, EFFECT_ATTACK_UP
-	ld [hl], a
-	call BattleCommand_StatUp
-
-	pop af
-	pop hl
-	ld [hl], a
+	; ld a, BATTLE_VARS_MOVE_EFFECT
+	; call GetBattleVarAddr
+	; ld a, [hl]
+	; push hl
+	; push af
+	;
+	; ld a, EFFECT_ATTACK_UP
+	; ld [hl], a
+	; call BattleCommand_StatUp
+	;
+	; pop af
+	; pop hl
+	; ld [hl], a
+.done
 	ret
 
 INCLUDE "engine/battle/move_effects/sleep_talk.asm"

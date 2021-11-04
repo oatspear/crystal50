@@ -34,6 +34,7 @@
 - Grass-type Pokémon are immune to powder moves.
 - Electric-type Pokémon are immune to paralysis.
 - Ghost-type Pokémon are immune to arena trap effects.
+- Fire Spin is now able to defrost opponents.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.

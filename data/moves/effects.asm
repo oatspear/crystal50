@@ -1231,6 +1231,7 @@ TrapTarget:
 	criticaltext
 	supereffectivetext
 	checkfaint
+	defrostopponent
 	buildopponentrage
 	traptarget
 	endmove
