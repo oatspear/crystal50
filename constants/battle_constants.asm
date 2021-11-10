@@ -34,6 +34,16 @@ TREEMON_SLEEP_TURNS EQU 7
 ; default move priority
 BASE_PRIORITY EQU PRIORITY_0
 
+; constants for HP percent
+	const_def
+	const SIXTEENTH_MAX_HP
+	const EIGHTH_MAX_HP
+	const QUARTER_MAX_HP
+	const THIRD_MAX_HP
+	const HALF_MAX_HP
+	const TWO_THIRDS_MAX_HP
+	const FULL_MAX_HP
+
 ; type effectiveness factors, scaled by 10
 SUPER_EFFECTIVE    EQU 20
 MORE_EFFECTIVE     EQU 15

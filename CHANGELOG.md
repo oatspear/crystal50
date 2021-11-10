@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3 (Custom Changes)
+
+### Changed
+- `BERRY`, `BERRY_JUICE` and `GOLD_BERRY` recover 1/8th, 1/4th and 1/3rd max HP, respectively.
+
 ## v0.2 (Set to Level 50)
 
 ### Added
