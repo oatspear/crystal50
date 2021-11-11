@@ -2012,7 +2012,7 @@ QuarterPart_DE:
 EighthPart_DE:
 ; de: max HP
 ; output: de
-	call _QuarterPart
+	call QuarterPart_DE
 ; halve result
 	srl e
 ; at least 1
