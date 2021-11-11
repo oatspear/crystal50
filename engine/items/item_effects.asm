@@ -1938,13 +1938,53 @@ LoadHPFromBuffer1:
 	ld e, a
 	ret
 
-GetOneFifthMaxHP:
+GetOneNthMaxHP:
+; a: nth part *_MAX_HP constants (see constants/battle_constants.asm)
 	push bc
+	push af
 	ld a, MON_MAXHP
 	call GetPartyParamLocation
+; store max HP in de
 	ld a, [hli]
-	ldh [hDividend + 0], a
+	ld d, a
 	ld a, [hl]
+	ld e, a
+	pop af
+	dec a
+	ld hl, .NthPartPointers
+; add a to hl
+	add l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+; hl points to the correct function
+	call _hl_
+	pop bc
+	ret
+
+.NthPartPointers:
+	dw Zero_DE ; SIXTEENTH_MAX_HP
+	dw EighthPart_DE ; EIGHTH_MAX_HP
+	dw Zero_DE ; SIXTH_MAX_HP
+	dw FifthPart_DE ; FIFTH_MAX_HP
+	dw QuarterPart_DE ; QUARTER_MAX_HP
+	dw ThirdPart_DE ; THIRD_MAX_HP
+	; HALF_MAX_HP
+	; TWO_THIRDS_MAX_HP
+	; FULL_MAX_HP
+
+Zero_DE:
+	ld d, 0
+	ld e, 0
+	ret
+
+FifthPart_DE:
+; de: max HP
+; output: de
+	ld a, d
+	ldh [hDividend + 0], a
+	ld a, e
 	ldh [hDividend + 1], a
 	ld a, 5
 	ldh [hDivisor], a
@@ -1954,8 +1994,56 @@ GetOneFifthMaxHP:
 	ld d, a
 	ldh a, [hQuotient + 3]
 	ld e, a
-	pop bc
 	ret
+
+QuarterPart_DE:
+; de: max HP
+; output: de
+	; quarter result
+	srl d
+	rr e
+	srl d
+	rr e
+	; assumes nothing can have 1024 or more hp
+	; at least 1
+	ld a, e
+	and a
+	ret nz
+	inc e
+	ret
+
+EighthPart_DE:
+; de: max HP
+; output: de
+	call _QuarterPart
+; halve result
+	srl e
+; at least 1
+	ld a, e
+	and a
+	ret nz
+	inc e
+	ret
+
+ThirdPart_DE:
+; de: max HP
+; output: de
+	xor a
+	inc d
+.loop
+	dec d
+	inc a
+	dec de
+	dec de
+	dec de
+	inc d
+	jr nz, .loop
+	dec a
+	ld e, a
+	ret nz
+	inc e ; At least 1.
+	ret
+
 
 GetHealingItemAmount:
 	push hl
@@ -1976,8 +2064,7 @@ GetHealingItemAmount:
 	scf
 .done
 	ld e, [hl]
-	inc hl
-	ld d, [hl]
+	ld d, 0
 	pop hl
 	ret
 
@@ -1993,12 +2080,14 @@ Softboiled_MilkDrinkFunction:
 	ld a, b
 	ld [wCurPartyMon], a
 	call IsMonFainted
-	call GetOneFifthMaxHP
+	ld a, FIFTH_MAX_HP
+	call GetOneNthMaxHP
 	call RemoveHP
 	push bc
 	call HealHP_SFX_GFX
 	pop bc
-	call GetOneFifthMaxHP
+	ld a, FIFTH_MAX_HP
+	call GetOneNthMaxHP
 	ld a, c
 	ld [wCurPartyMon], a
 	call IsMonFainted
