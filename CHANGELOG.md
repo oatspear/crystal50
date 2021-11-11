@@ -4,6 +4,7 @@
 
 ### Changed
 - `BERRY`, `BERRY_JUICE` and `GOLD_BERRY` recover 1/8th, 1/4th and 1/3rd max HP, respectively.
+- Changed the amount of HP restored by most healing items.
 
 ## v0.2 (Set to Level 50)
 

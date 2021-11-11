@@ -36,15 +36,16 @@ BASE_PRIORITY EQU PRIORITY_0
 
 ; constants for HP percent
 	const_def 1
-	const SIXTEENTH_MAX_HP
-	const EIGHTH_MAX_HP
-	const SIXTH_MAX_HP
-	const FIFTH_MAX_HP
-	const QUARTER_MAX_HP
-	const THIRD_MAX_HP
-	const HALF_MAX_HP
-	const TWO_THIRDS_MAX_HP
-	const FULL_MAX_HP
+	const SIXTEENTH_MAX_HP  ; 1
+	const EIGHTH_MAX_HP     ; 2
+	const SIXTH_MAX_HP      ; 3
+	const FIFTH_MAX_HP      ; 4
+	const QUARTER_MAX_HP    ; 5
+	const THIRD_MAX_HP      ; 6
+	const HALF_MAX_HP       ; 7
+	const TWO_THIRDS_MAX_HP ; 8
+	const FULL_MAX_HP       ; 9
+; NUM_MAX_HP_CONSTANTS EQU const_value
 
 ; type effectiveness factors, scaled by 10
 SUPER_EFFECTIVE    EQU 20

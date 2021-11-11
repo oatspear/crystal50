@@ -1940,7 +1940,6 @@ LoadHPFromBuffer1:
 
 GetOneNthMaxHP:
 ; a: nth part *_MAX_HP constants (see constants/battle_constants.asm)
-	push bc
 	push af
 	ld a, MON_MAXHP
 	call GetPartyParamLocation
@@ -1959,9 +1958,7 @@ GetOneNthMaxHP:
 	sub l
 	ld h, a
 ; hl points to the correct function
-	call _hl_
-	pop bc
-	ret
+	jp hl
 
 .NthPartPointers:
 	dw Zero_DE ; SIXTEENTH_MAX_HP
@@ -2057,14 +2054,19 @@ GetHealingItemAmount:
 	cp d
 	jr z, .done
 	inc hl
-	inc hl
 	jr .next
 
 .NotFound:
 	scf
 .done
+	ld a, FULL_MAX_HP
 	ld e, [hl]
 	ld d, 0
+	cp e
+	jr c, .end ; e > FULL_MAX_HP means an absolute value was given
+	ld a, e
+	call GetOneNthMaxHP ; output: de
+.end
 	pop hl
 	ret
 
@@ -2081,13 +2083,17 @@ Softboiled_MilkDrinkFunction:
 	ld [wCurPartyMon], a
 	call IsMonFainted
 	ld a, FIFTH_MAX_HP
+	push bc
 	call GetOneNthMaxHP
+	pop bc
 	call RemoveHP
 	push bc
 	call HealHP_SFX_GFX
-	pop bc
+	;pop bc
 	ld a, FIFTH_MAX_HP
+	;push bc
 	call GetOneNthMaxHP
+	pop bc
 	ld a, c
 	ld [wCurPartyMon], a
 	call IsMonFainted

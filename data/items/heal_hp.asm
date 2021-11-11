@@ -1,17 +1,25 @@
+; Drinks: fixed amount, cost-efficient, cannot be used in battle
+; Potions: fixed amount, expensive, usable in battle
+; Berries: fixed amount out of battle (use), relative amount in battle (held)
+
 HealingHPAmounts:
-	dbw FRESH_WATER,   50
-	dbw SODA_POP,      60
-	dbw LEMONADE,      80
-	dbw HYPER_POTION, 200
-	dbw SUPER_POTION,  50
-	dbw POTION,        20
-	dbw MAX_POTION,   MAX_STAT_VALUE
-	dbw FULL_RESTORE, MAX_STAT_VALUE
-	dbw MOOMOO_MILK,  100
-	dbw BERRY,         10
-	dbw GOLD_BERRY,    30
-	dbw ENERGYPOWDER,  50
-	dbw ENERGY_ROOT,  200
-	dbw RAGECANDYBAR,  20
-	dbw BERRY_JUICE,   20
-	dbw -1, 0 ; end
+; battle items first, for speed
+	db HYPER_POTION, 150 ; 120
+	db SUPER_POTION, 100 ;  60
+	db POTION,        50 ;  20
+	db MAX_POTION,   FULL_MAX_HP ; MAX_STAT_VALUE
+	db FULL_RESTORE, FULL_MAX_HP ; MAX_STAT_VALUE
+; drinks, for cost-efficient healing
+	db FRESH_WATER,   60 ;  30
+	db SODA_POP,      90 ;  50
+	db LEMONADE,     120 ;  70
+	db MOOMOO_MILK,  180 ; 100
+; berries
+	db BERRY,        EIGHTH_MAX_HP  ;  10
+	db BERRY_JUICE,  QUARTER_MAX_HP ;  20
+	db GOLD_BERRY,   THIRD_MAX_HP   ;  30
+; other
+	db ENERGYPOWDER,  60
+	db ENERGY_ROOT,  120
+	db RAGECANDYBAR,  20
+	db -1, 0 ; end
