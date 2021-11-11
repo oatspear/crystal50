@@ -35,10 +35,11 @@ TREEMON_SLEEP_TURNS EQU 7
 BASE_PRIORITY EQU PRIORITY_0
 
 ; constants for HP percent
-	const_def
+	const_def 1
 	const SIXTEENTH_MAX_HP
 	const EIGHTH_MAX_HP
 	const SIXTH_MAX_HP
+	const FIFTH_MAX_HP
 	const QUARTER_MAX_HP
 	const THIRD_MAX_HP
 	const HALF_MAX_HP
