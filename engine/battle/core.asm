@@ -4442,14 +4442,14 @@ HandleHPHealingItem:
 .less
 	call ItemRecoveryAnim
 	ld a, c
-	cp QUARTER_MAX_HP
-	jr c, .recover_one_sixth ; a < 1/4
-	call GetQuarterMaxHP ; stores max HP in wHPBuffer1, inc hl
+	cp THIRD_MAX_HP
+	jr c, .recover_one_quarter ; a < 1/3
+	call GetThirdMaxHP ; stores max HP in wHPBuffer1, inc hl
 	jr .got_amount
-.recover_one_sixth
-	cp SIXTH_MAX_HP
-	jr c, .recover_one_eighth ; a < 1/6
-	call GetSixthMaxHP ; stores max HP in wHPBuffer1, inc hl
+.recover_one_quarter
+	cp QUARTER_MAX_HP
+	jr c, .recover_one_eighth ; a < 1/4
+	call GetQuarterMaxHP ; stores max HP in wHPBuffer1, inc hl
 	jr .got_amount
 .recover_one_eighth
 	call GetEighthMaxHP ; stores max HP in wHPBuffer1, inc hl
