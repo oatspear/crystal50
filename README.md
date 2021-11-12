@@ -2,6 +2,14 @@
 
 ## My Notes
 
+### Healing Items
+
+- `BERRY_JUICE` and `MOOMOO_MILK` are considered drinks.
+- Drinks are not usable in battle; they are cost-efficient healing on the field.
+- Potions remain usable in battle, but are expensive when compared to drinks.
+- Berries have relative HP healing, and can be used as held items.
+- Feasts/snacks could be used to heal the whole party, out of battle.
+
 ### Levels
 
 - All Pokémon will play with lv. 50 stats
