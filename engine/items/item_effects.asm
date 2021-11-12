@@ -1949,20 +1949,9 @@ GetOneNthMaxHP:
 	ld e, a
 	ld a, c ; set the relative HP constant
 	dec a   ; make it zero based
-	add a   ; double it to skip 2 bytes at a time
 	ld hl, .NthPartPointers
-; add a to hl
-	add l
-	ld l, a
-	adc h
-	sub l
-	ld h, a
-; load function address from table
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-; hl points to the correct function
-	jp hl
+	rst JumpTable
+	ret
 
 .NthPartPointers:
 	dw Zero_DE ; SIXTEENTH_MAX_HP
