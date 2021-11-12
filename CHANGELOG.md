@@ -4,11 +4,10 @@
 
 ### Changed
 - Renamed Berries to their modern counterparts.
-- `ORAN_BERRY` and `SITRUS_BERRY` recover 1/8th and 1/4th max HP, respectively.
-- `BERRY_JUICE` is no longer an held item.
 - Changed the amount of HP restored by most healing items.
 - `RAGECANDYBAR` heals status conditions out of battle.
 - Updated prices for medicine items.
+- Drinks (`BERRY_JUICE`, `MOOMOO_MILK`, `FRESH_WATER`, `SODA_POP`, `LEMONADE`) are no longer usable in battle.
 
 ## v0.2 (Set to Level 50)
 
