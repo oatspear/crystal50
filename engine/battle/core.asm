@@ -4441,6 +4441,8 @@ HandleHPHealingItem:
 
 .less
 	call ItemRecoveryAnim
+; must switch turns to get the relative HP of the correct mon
+	call SwitchTurnCore
 	ld a, c
 	cp THIRD_MAX_HP
 	jr c, .recover_one_quarter ; a < 1/3
@@ -4454,6 +4456,8 @@ HandleHPHealingItem:
 .recover_one_eighth
 	call GetEighthMaxHP ; stores max HP in wHPBuffer1, inc hl
 .got_amount ; in bc
+; revert the turn switch again
+	call SwitchTurnCore
 	ld a, [de]
 	add c
 	ld [wHPBuffer3], a
@@ -4463,21 +4467,24 @@ HandleHPHealingItem:
 	adc b
 	ld [wHPBuffer3 + 1], a
 	ld b, a
-	ld a, [hld]
-	cp c
-	ld a, [hl]
-	sbc b
-	jr nc, .okay
-	ld a, [hli]
-	ld [wHPBuffer3 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer3], a
+; optimization: HELD_BERRY triggers at HALF_MAX_HP or less.
+;   We never heal more than THIRD_MAX_HP, so we never go over max HP.
+;	ld a, [hld]
+;	cp c
+;	ld a, [hl]
+;	sbc b
+;	jr nc, .okay
+;	ld a, [hli]
+;	ld [wHPBuffer3 + 1], a
+;	ld a, [hl]
+;	ld [wHPBuffer3], a
 
-.okay
-	ld a, [wHPBuffer3 + 1]
+;.okay
+;	ld a, [wHPBuffer3 + 1]
 	ld [de], a
 	inc de
-	ld a, [wHPBuffer3]
+;	ld a, [wHPBuffer3]
+	ld a, c
 	ld [de], a
 	ldh a, [hBattleTurn]
 	ld [wWhichHPBar], a
