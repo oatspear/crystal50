@@ -1967,7 +1967,7 @@ GetOneNthMaxHP:
 .NthPartPointers:
 	dw Zero_DE ; SIXTEENTH_MAX_HP
 	dw EighthPart_DE ; EIGHTH_MAX_HP
-	dw Zero_DE ; SIXTH_MAX_HP
+	dw SixthPart_DE ; SIXTH_MAX_HP
 	dw FifthPart_DE ; FIFTH_MAX_HP
 	dw QuarterPart_DE ; QUARTER_MAX_HP
 	dw ThirdPart_DE ; THIRD_MAX_HP
@@ -2045,6 +2045,18 @@ ThirdPart_DE:
 	inc e ; At least 1.
 	ret
 
+SixthPart_DE:
+; de: max HP
+; output: de
+	call ThirdPart_DE
+; halve result
+	srl e
+; at least 1
+	ld a, e
+	and a
+	ret nz
+	inc e
+	ret
 
 GetHealingItemAmount:
 	push hl
