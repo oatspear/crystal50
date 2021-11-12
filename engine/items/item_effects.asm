@@ -1957,6 +1957,10 @@ GetOneNthMaxHP:
 	adc h
 	sub l
 	ld h, a
+; load function address from table
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 ; hl points to the correct function
 	jp hl
 
