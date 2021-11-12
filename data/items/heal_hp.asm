@@ -16,8 +16,8 @@ HealingHPAmounts:
 	db BERRY_JUICE,  150 ;  20
 	db MOOMOO_MILK,  180 ; 100
 ; berries
-	db BERRY,        EIGHTH_MAX_HP  ; 10
-	db GOLD_BERRY,   QUARTER_MAX_HP ; 30
+	db ORAN_BERRY,   EIGHTH_MAX_HP  ; 10
+	db SITRUS_BERRY, QUARTER_MAX_HP ; 30
 ; other
 	db ENERGYPOWDER,  60
 	db ENERGY_ROOT,  120

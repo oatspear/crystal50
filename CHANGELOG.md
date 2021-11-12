@@ -3,7 +3,8 @@
 ## v0.3 (Custom Changes)
 
 ### Changed
-- `BERRY` and `GOLD_BERRY` recover 1/8th and 1/4th max HP, respectively.
+- Renamed Berries to their modern counterparts.
+- `ORAN_BERRY` and `SITRUS_BERRY` recover 1/8th and 1/4th max HP, respectively.
 - `BERRY_JUICE` is no longer an held item.
 - Changed the amount of HP restored by most healing items.
 

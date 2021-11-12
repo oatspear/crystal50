@@ -163,7 +163,7 @@ BitterMerchantScript:
 	sjump GoldenrodUndergroundScript_ShopClosed
 
 .Open:
-	pokemart MARTTYPE_BITTER, MART_UNDERGROUND
+	pokemart MARTTYPE_PERSIM, MART_UNDERGROUND
 	closetext
 	end
 
