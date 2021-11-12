@@ -1374,7 +1374,7 @@ HealPowderEffect:
 	cp FALSE
 	jr nz, .not_used
 
-	ld c, HAPPINESS_PERSIMPOWDER
+	ld c, HAPPINESS_BITTERPOWDER
 	farcall ChangeHappiness
 	call LooksBitterMessage
 
@@ -1631,7 +1631,7 @@ RestoreHPEffect:
 	jp StatusHealer_Jumptable
 
 EnergypowderEffect:
-	ld c, HAPPINESS_PERSIMPOWDER
+	ld c, HAPPINESS_BITTERPOWDER
 	jr EnergypowderEnergyRootCommon
 
 EnergyRootEffect:
