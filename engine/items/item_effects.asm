@@ -1950,6 +1950,8 @@ GetOneNthMaxHP:
 	ld e, a
 	pop af
 	dec a
+; double a to skip 2 bytes at a time
+	add a
 	ld hl, .NthPartPointers
 ; add a to hl
 	add l
