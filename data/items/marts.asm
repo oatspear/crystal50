@@ -38,7 +38,8 @@ Marts:
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
-	db 4 ; # items
+	db 5 ; # items
+	db FRESH_WATER
 	db POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
@@ -46,7 +47,8 @@ MartCherrygrove:
 	db -1 ; end
 
 MartCherrygroveDex:
-	db 5 ; # items
+	db 6 ; # items
+	db FRESH_WATER
 	db POKE_BALL
 	db POTION
 	db ANTIDOTE
@@ -56,6 +58,7 @@ MartCherrygroveDex:
 
 MartViolet:
 	db 10 ; # items
+	db FRESH_WATER
 	db POKE_BALL
 	db POTION
 	db ESCAPE_ROPE
@@ -64,13 +67,13 @@ MartViolet:
 	db AWAKENING
 	db X_DEFEND
 	db X_ATTACK
-	db X_SPEED
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartAzalea:
-	db 9 ; # items
+	db 10 ; # items
 	db CHARCOAL
+	db FRESH_WATER
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
@@ -82,7 +85,8 @@ MartAzalea:
 	db -1 ; end
 
 MartCianwood:
-	db 5 ; # items
+	db 6 ; # items
+	db FRESH_WATER
 	db POTION
 	db SUPER_POTION
 	db HYPER_POTION
@@ -91,7 +95,8 @@ MartCianwood:
 	db -1 ; end
 
 MartGoldenrod2F1:
-	db 7 ; # items
+	db 8 ; # items
+	db FRESH_WATER
 	db POTION
 	db SUPER_POTION
 	db ANTIDOTE
@@ -166,7 +171,8 @@ MartGoldenrod5F4:
 	db -1 ; end
 
 MartOlivine:
-	db 9 ; # items
+	db 10 ; # items
+	db FRESH_WATER
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION
@@ -180,9 +186,9 @@ MartOlivine:
 
 MartEcruteak:
 	db 10 ; # items
+	db FRESH_WATER
 	db POKE_BALL
 	db GREAT_BALL
-	db POTION
 	db SUPER_POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
@@ -201,8 +207,9 @@ MartMahogany1:
 	db -1 ; end
 
 MartMahogany2:
-	db 9 ; # items
+	db 10 ; # items
 	db RAGECANDYBAR
+	db FRESH_WATER
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION
@@ -214,7 +221,8 @@ MartMahogany2:
 	db -1 ; end
 
 MartBlackthorn:
-	db 9 ; # items
+	db 10 ; # items
+	db FRESH_WATER
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
