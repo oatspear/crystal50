@@ -315,20 +315,20 @@ FullRestoreDesc:
 	next "& status.@"
 
 MaxPotionDesc:
-	db   "Fully restores"
-	next "#MON HP.@"
+	db   "Fully restores HP."
+	next "(BATTLE)@"
 
 HyperPotionDesc:
-	db   "Restores #MON"
-	next "HP by 200.@"
+	db   "Restores 120 HP."
+	next "(BATTLE)@"
 
 SuperPotionDesc:
-	db   "Restores #MON"
-	next "HP by 50.@"
+	db   "Restores 60 HP."
+	next "(BATTLE)@"
 
 PotionDesc:
-	db   "Restores #MON"
-	next "HP by 20.@"
+	db   "Restores 30 HP."
+	next "(BATTLE)@"
 
 EscapeRopeDesc:
 	db   "Use for escaping"
@@ -406,8 +406,8 @@ PokeDollDesc:
 	next "a wild #MON.@"
 
 FullHealDesc:
-	db   "Eliminates all"
-	next "status problems.@"
+	db   "Cures all status."
+	next "(BATTLE)@"
 
 ReviveDesc:
 	db   "Restores a fainted"
@@ -437,16 +437,16 @@ TeruSama3Desc:
 	db   "?@"
 
 FreshWaterDesc:
-	db   "Restores #MON"
-	next "HP by 50.@"
+	db   "Restores 50 HP."
+	next "(FIELD)@"
 
 SodaPopDesc:
-	db   "Restores #MON"
-	next "HP by 60.@"
+	db   "Restores 80 HP."
+	next "(FIELD)@"
 
 LemonadeDesc:
-	db   "Restores #MON"
-	next "HP by 80.@"
+	db   "Restores 120 HP."
+	next "(FIELD)@"
 
 XAttackDesc:
 	db   "Raises ATTACK."
@@ -539,8 +539,8 @@ SilverWingDesc:
 	next "colored feather.@"
 
 MoomooMilkDesc:
-	db   "Restores #MON"
-	next "HP by 100.@"
+	db   "Fully restores HP."
+	next "(FIELD)@"
 
 QuickClawDesc:
 	db   "Raises 1st strike"
@@ -700,8 +700,8 @@ SpellTagDesc:
 	next "type moves. (HOLD)@"
 
 RageCandyBarDesc:
-	db   "Restores #MON"
-	next "HP by 20.@"
+	db   "Cures all status."
+	next "(FIELD)@"
 
 GSBallDesc:
 	db   "The mysterious"
@@ -795,8 +795,8 @@ CharcoalDesc:
 	next "type moves. (HOLD)@"
 
 BerryJuiceDesc:
-	db   "Restores #MON"
-	next "HP by 20.@"
+	db   "Restores 1/2 HP."
+	next "(FIELD)@"
 
 ScopeLensDesc:
 	db   "Raises critical"

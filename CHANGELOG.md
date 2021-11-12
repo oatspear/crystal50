@@ -7,6 +7,8 @@
 - `ORAN_BERRY` and `SITRUS_BERRY` recover 1/8th and 1/4th max HP, respectively.
 - `BERRY_JUICE` is no longer an held item.
 - Changed the amount of HP restored by most healing items.
+- `RAGECANDYBAR` heals status conditions out of battle.
+- Updated prices for medicine items.
 
 ## v0.2 (Set to Level 50)
 

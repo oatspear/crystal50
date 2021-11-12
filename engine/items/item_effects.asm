@@ -127,7 +127,7 @@ ItemEffects:
 	dw NoEffect            ; BIG_PEARL
 	dw NoEffect            ; EVERSTONE
 	dw NoEffect            ; SPELL_TAG
-	dw RestoreHPEffect     ; RAGECANDYBAR
+	dw StatusHealingEffect ; RAGECANDYBAR
 	dw NoEffect            ; GS_BALL
 	dw BlueCardEffect      ; BLUE_CARD
 	dw NoEffect            ; MIRACLE_SEED
@@ -1960,13 +1960,16 @@ GetOneNthMaxHP:
 	dw FifthPart_DE ; FIFTH_MAX_HP
 	dw QuarterPart_DE ; QUARTER_MAX_HP
 	dw ThirdPart_DE ; THIRD_MAX_HP
-	; HALF_MAX_HP
-	; TWO_THIRDS_MAX_HP
-	; FULL_MAX_HP
+	dw HalfOf_DE ; HALF_MAX_HP
+	dw Zero_DE ; TWO_THIRDS_MAX_HP
+	dw Keep_DE ; FULL_MAX_HP
 
 Zero_DE:
+; de: max HP
+; output: de
 	ld d, 0
 	ld e, 0
+Keep_DE:
 	ret
 
 FifthPart_DE:
@@ -1992,6 +1995,8 @@ QuarterPart_DE:
 	; quarter result
 	srl d
 	rr e
+	; fallthrough
+HalfOf_DE:
 	srl d
 	rr e
 	; assumes nothing can have 1024 or more hp
