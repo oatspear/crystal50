@@ -13,11 +13,11 @@ HealingHPAmounts:
 	db FRESH_WATER,   60 ;  30
 	db SODA_POP,      90 ;  50
 	db LEMONADE,     120 ;  70
+	db BERRY_JUICE,  150 ;  20
 	db MOOMOO_MILK,  180 ; 100
 ; berries
-	db BERRY,        EIGHTH_MAX_HP  ;  10
-	db BERRY_JUICE,  QUARTER_MAX_HP ;  20
-	db GOLD_BERRY,   THIRD_MAX_HP   ;  30
+	db BERRY,        EIGHTH_MAX_HP  ; 10
+	db GOLD_BERRY,   QUARTER_MAX_HP ; 30
 ; other
 	db ENERGYPOWDER,  60
 	db ENERGY_ROOT,  120

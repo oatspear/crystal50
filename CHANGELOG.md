@@ -3,7 +3,8 @@
 ## v0.3 (Custom Changes)
 
 ### Changed
-- `BERRY`, `BERRY_JUICE` and `GOLD_BERRY` recover 1/8th, 1/4th and 1/3rd max HP, respectively.
+- `BERRY` and `GOLD_BERRY` recover 1/8th and 1/4th max HP, respectively.
+- `BERRY_JUICE` is no longer an held item.
 - Changed the amount of HP restored by most healing items.
 
 ## v0.2 (Set to Level 50)
