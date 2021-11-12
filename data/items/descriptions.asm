@@ -920,12 +920,12 @@ UpGradeDesc:
 	next "made by SILPH CO.@"
 
 BerryDesc:
-	db   "A self-restore"
-	next "item. (10HP, HOLD)@"
+	db   "Restores 1/8 HP."
+	next "(USE, HOLD)@"
 
 GoldBerryDesc:
-	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	db   "Restores 1/4 HP."
+	next "(USE, HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
