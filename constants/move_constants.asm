@@ -190,7 +190,7 @@
 	const PROTECT      ; b6
 	const MACH_PUNCH   ; b7
 	const SCARY_FACE   ; b8
-	const FAINT_ATTACK ; b9
+	const FEINT_ATTACK ; b9
 	const SWEET_KISS   ; ba
 	const BELLY_DRUM   ; bb
 	const SLUDGE_BOMB  ; bc
@@ -257,8 +257,8 @@
 	const ROCK_SMASH   ; f9
 	const WHIRLPOOL    ; fa
 	const BEAT_UP      ; fb
-	const FAIRY_VOICE  ; fc
-	const DAZZLE_GLEAM ; fd
+	const DISARMING_VOICE  ; fc
+	const DAZZLING_GLEAM ; fd
 	const PLAY_ROUGH   ; fe
 NUM_ATTACKS EQU const_value - 1
 

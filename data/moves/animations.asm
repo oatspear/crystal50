@@ -186,7 +186,7 @@ BattleAnimations::
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
 	dw BattleAnim_ScaryFace
-	dw BattleAnim_FaintAttack
+	dw BattleAnim_FeintAttack
 	dw BattleAnim_SweetKiss
 	dw BattleAnim_BellyDrum
 	dw BattleAnim_SludgeBomb
@@ -253,8 +253,8 @@ BattleAnimations::
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
-	dw BattleAnim_FairyVoice
-	dw BattleAnim_DazzleGleam
+	dw BattleAnim_DisarmingVoice
+	dw BattleAnim_DazzlingGleam
 	dw BattleAnim_PlayRough
 	assert_table_length NUM_ATTACKS + 1
 	dw BattleAnim_SweetScent2
@@ -1883,7 +1883,7 @@ BattleAnim_Supersonic:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_FairyVoice:
+BattleAnim_DisarmingVoice:
 BattleAnim_Screech:
 	anim_1gfx ANIM_GFX_PSYCHIC
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $8, $1, $20
@@ -2527,7 +2527,7 @@ BattleAnim_Guillotine:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_DazzleGleam:
+BattleAnim_DazzlingGleam:
 BattleAnim_Flash:
 	anim_1gfx ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH
@@ -3427,7 +3427,7 @@ BattleAnim_ScaryFace:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_FaintAttack:
+BattleAnim_FeintAttack:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_CURSE
 	anim_call BattleAnim_TargetObj_1Row

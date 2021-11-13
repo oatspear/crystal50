@@ -185,7 +185,7 @@ MoveDescriptions::
 	dw ProtectDescription
 	dw MachPunchDescription
 	dw ScaryFaceDescription
-	dw FaintAttackDescription
+	dw FeintAttackDescription
 	dw SweetKissDescription
 	dw BellyDrumDescription
 	dw SludgeBombDescription
@@ -252,8 +252,8 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
-	dw FairyVoiceDescription
-	dw DazzleGleamDescription
+	dw DisarmingVoiceDescription
+	dw DazzlingGleamDescription
 	dw PlayRoughDescription
 	assert_table_length NUM_ATTACKS
 	dw MoveFFDescription
@@ -1001,8 +1001,8 @@ ScaryFaceDescription:
 	db   "Sharply reduces"
 	next "the foe's SPEED.@"
 
-FaintAttackDescription:
-FairyVoiceDescription:
+FeintAttackDescription:
+DisarmingVoiceDescription:
 	db   "An attack that"
 	next "never misses.@"
 
@@ -1267,6 +1267,6 @@ BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
 
-DazzleGleamDescription:
+DazzlingGleamDescription:
 	db   "Attacks with a"
 	next "powerful flash.@"
