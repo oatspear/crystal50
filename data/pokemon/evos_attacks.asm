@@ -332,16 +332,31 @@ EkansEvosAttacks:
 
 ArbokEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, CRUNCH
+	; db 1, THUNDER_FANG
+	; db 1, ICE_FANG
+	; db 1, FIRE_FANG
 	db 1, WRAP
 	db 1, LEER
 	db 1, POISON_STING
 	db 1, BITE
-	db 9, POISON_STING
-	db 15, BITE
-	db 25, GLARE
-	db 33, SCREECH
-	db 43, ACID
+	; db EVO, CRUNCH
+	; db 4, POISON_STING
+	; db 9, BITE
+	db 12, GLARE
+	db 17, SCREECH
+	db 20, ACID
+	db 22, CRUNCH ; FIXME: EVO
+	; db 27, STOCKPILE
+	; db 27, SPIT_UP
+	; db 27, SWALLOW
+	; db 32, ACID_SPRAY
+	; db 39, MUD_BOMB
+	; db 44, GASTRO_ACID
+	; db 48, BELCH
 	db 51, HAZE
+	; db 56, COIL
+	; db 63, GUNK_SHOT
 	db 0 ; no more level-up moves
 
 PikachuEvosAttacks:
@@ -863,16 +878,20 @@ KadabraEvosAttacks:
 
 AlakazamEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TELEPORT
-	db 1, KINESIS
 	db 1, CONFUSION
-	db 16, CONFUSION
-	db 18, DISABLE
-	db 21, PSYBEAM
-	db 26, RECOVER
-	db 31, FUTURE_SIGHT
-	db 38, PSYCHIC_M
-	db 45, REFLECT
+	db 1, KINESIS
+	db 1, DISABLE
+	db 1, TELEPORT
+	db 5, PSYBEAM
+	db 10, REFLECT
+	; db 15, ALLY_SWITCH
+	; db 20, PSYCHO_CUT
+	db 25, RECOVER
+	; db 30, PSYSHOCK
+	db 35, PSYCHIC_M
+	; db 40, ROLE_PLAY
+	db 45, FUTURE_SIGHT
+	; db 50, CALM_MIND
 	db 0 ; no more level-up moves
 
 MachopEvosAttacks:
@@ -1938,14 +1957,20 @@ KabutopsEvosAttacks:
 
 AerodactylEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, WING_ATTACK
-	db 8, AGILITY
-	db 15, BITE
-	db 22, SUPERSONIC
-	db 29, ANCIENTPOWER
-	db 36, SCARY_FACE
-	db 43, TAKE_DOWN
-	db 50, HYPER_BEAM
+	db 1, BITE
+	db 1, ANCIENTPOWER
+	db 5, SUPERSONIC
+	db 10, WING_ATTACK
+	db 15, SCARY_FACE
+	db 20, ROCK_SLIDE
+	db 25, ROAR
+	db 30, CRUNCH
+	; db 35, IRON_HEAD
+	db 40, TAKE_DOWN
+	; db 45, STONE_EDGE
+	db 50, AGILITY
+	db 55, HYPER_BEAM
+	; db 60, GIGA_IMPACT
 	db 0 ; no more level-up moves
 
 SnorlaxEvosAttacks:
