@@ -1,6 +1,8 @@
 INCLUDE "constants.asm"
 
-; useful script to get learnsets from Bulbapedia tables:
+; useful script to get learnsets from Bulbapedia tables
+; just be sure to change the CSS selector
+
 ; (function() {
 ;     let out = [];
 ;     let rows = $("table.roundy:nth-child(189) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(2)").children();
@@ -9,7 +11,7 @@ INCLUDE "constants.asm"
 ;         let lvl = cells.eq(0).contents().eq(1).text().trim();
 ;         lvl = lvl.replace("Evo.", "LEVEL_EVO");
 ;         let move = cells.eq(1).children().children().text().trim();
-;         move = move.toUpperCase().replace(" ", "_");
+;         move = move.toUpperCase().replace(" ", "_").replace("-", "_");
 ;         out.push(`\tdb ${lvl}, ${move}`);
 ;     });
 ;     console.log(out.join("\n"));
@@ -40,16 +42,20 @@ BulbasaurEvosAttacks:
 	db EVOLVE_LEVEL, 16, IVYSAUR
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, GROWL
-	db 7, LEECH_SEED
-	db 10, VINE_WHIP
+	db 1, GROWL
+	db 3, VINE_WHIP
+	db 6, GROWTH
+	db 9, LEECH_SEED
+	db 12, RAZOR_LEAF
 	db 15, POISONPOWDER
 	db 15, SLEEP_POWDER
-	db 20, RAZOR_LEAF
-	db 25, SWEET_SCENT
-	db 32, GROWTH
-	db 39, SYNTHESIS
-	db 46, SOLARBEAM
+	; db 18, SEED_BOMB
+	db 21, TAKE_DOWN
+	db 24, SWEET_SCENT
+	db 27, SYNTHESIS
+	; db 30, WORRY_SEED
+	db 33, DOUBLE_EDGE
+	db 36, SOLAR_BEAM
 	db 0 ; no more level-up moves
 
 IvysaurEvosAttacks:
