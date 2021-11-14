@@ -2258,6 +2258,7 @@ wSwitchMon::
 wSwitchItem::
 wSwappingMove::
 wd0e3:: ; mobile
+wSwitchLevel::
 	db
 
 wMenuScrollPosition:: ds 4

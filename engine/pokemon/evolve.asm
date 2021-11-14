@@ -484,7 +484,22 @@ LearnLevelMoves:
 
 FillMoves:
 ; Fill in moves at de for wCurPartySpecies at wCurPartyLevel
+; EDIT: also learn evolution moves afterwards
+	call OldFillMoves
+; FillMoves with evolution moves
+; alternative code: use push/pop
+	ld a, [wCurPartyLevel]
+	; push af
+	ld [wSwitchLevel], a
+	ld a, LEVEL_EVO
+	ld [wCurPartyLevel], a
+	call OldFillMoves
+	ld a, [wSwitchLevel]
+	; pop af
+	ld [wCurPartyLevel], a
+	ret
 
+OldFillMoves:
 	push hl
 	push de
 	push bc
