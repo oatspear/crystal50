@@ -1,5 +1,20 @@
 INCLUDE "constants.asm"
 
+; useful script to get learnsets from Bulbapedia tables:
+; (function() {
+;     let out = [];
+;     let rows = $("table.roundy:nth-child(189) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(2)").children();
+;     rows.each(function(i, r) {
+;         let cells = $(r).children();
+;         let lvl = cells.eq(0).contents().eq(1).text().trim();
+;         lvl = lvl.replace("Evo.", "LEVEL_EVO");
+;         let move = cells.eq(1).children().children().text().trim();
+;         move = move.toUpperCase().replace(" ", "_");
+;         out.push(`\tdb ${lvl}, ${move}`);
+;     });
+;     console.log(out.join("\n"));
+; })();
+
 
 SECTION "Evolutions and Attacks", ROMX
 
@@ -157,20 +172,22 @@ WartortleEvosAttacks:
 
 BlastoiseEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	; db 1, FLASH_CANNON
+	; db 1, TACKLE
 	db 1, TAIL_WHIP
-	db 1, BUBBLE
+	db 1, WATER_GUN
 	db 1, WITHDRAW
-	db 4, TAIL_WHIP
-	db 7, BUBBLE
-	db 10, WITHDRAW
-	db 13, WATER_GUN
-	db 19, BITE
-	db 25, RAPID_SPIN
-	db 31, PROTECT
-	db 42, RAIN_DANCE
-	db 55, SKULL_BASH
-	db 68, HYDRO_PUMP
+	; db LEVEL_EVO, FLASH_CANNON
+	db 9, RAPID_SPIN
+	db 12, BITE
+	; db 15, WATER_PULSE
+	db 20, PROTECT
+	db 25, RAIN_DANCE
+	db 30, WATERFALL ; FIXME: AQUA_TAIL
+	; db 35, SHELL_SMASH
+	; db 42, IRON_DEFENSE
+	db 49, HYDRO_PUMP
+	db 56, SKULL_BASH
 	db 0 ; no more level-up moves
 
 CaterpieEvosAttacks:
@@ -217,14 +234,21 @@ KakunaEvosAttacks:
 
 BeedrillEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, FURY_ATTACK
-	db 10, FURY_ATTACK
-	db 15, FOCUS_ENERGY
-	db 20, TWINEEDLE
-	db 25, RAGE
-	db 30, PURSUIT
-	db 35, PIN_MISSILE
-	db 40, AGILITY
+	; db 1, TWINEEDLE
+	; db 1, FURY_ATTACK
+	db LEVEL_EVO, TWINEEDLE
+	db 11, FURY_ATTACK
+	db 14, RAGE
+	db 17, PURSUIT
+	db 20, FOCUS_ENERGY
+	; db 23, VENOSHOCK
+	; db 26, ASSURANCE
+	; db 29, TOXIC_SPIKES
+	db 32, PIN_MISSILE
+	; db 35, POISON_JAB
+	db 38, AGILITY
+	; db 41, ENDEAVOR
+	; db 44, FELL_STINGER
 	db 0 ; no more level-up moves
 
 PidgeyEvosAttacks:
@@ -960,15 +984,19 @@ BellsproutEvosAttacks:
 	db EVOLVE_LEVEL, 21, WEEPINBELL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
-	db 6, GROWTH
+	db 7, GROWTH
 	db 11, WRAP
-	db 15, SLEEP_POWDER
-	db 17, POISONPOWDER
-	db 19, STUN_SPORE
+	db 13, SLEEP_POWDER
+	db 15, POISONPOWDER
+	db 17, STUN_SPORE
 	db 23, ACID
-	db 30, SWEET_SCENT
-	db 37, RAZOR_LEAF
-	db 45, SLAM
+	; db 27, KNOCK_OFF
+	db 29, SWEET_SCENT
+	; db 35, GASTRO_ACID
+	db 39, RAZOR_LEAF
+	; db 41, POISON_JAB
+	db 47, SLAM
+	; db 50, WRING_OUT
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
