@@ -15,6 +15,10 @@ SECTION "Evolutions and Attacks", ROMX
 ;    * db level, move
 ; - db 0 ; no more level-up moves
 
+; NOTE: due to changes to FillMoves, it is pointless for Pokémon with
+;       evolution moves to have 4 lv. 1 moves, because evolution moves
+;       are added afterwards and will override previous moves.
+
 INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 
 BulbasaurEvosAttacks:
@@ -336,17 +340,16 @@ ArbokEvosAttacks:
 	; db 1, THUNDER_FANG
 	; db 1, ICE_FANG
 	; db 1, FIRE_FANG
+	; db 1, BITE
 	db 1, WRAP
 	db 1, LEER
 	db 1, POISON_STING
-	db 1, BITE
-	; db EVO, CRUNCH
+	db LEVEL_EVO, CRUNCH
 	; db 4, POISON_STING
 	; db 9, BITE
 	db 12, GLARE
 	db 17, SCREECH
 	db 20, ACID
-	db 22, CRUNCH ; FIXME: EVO
 	; db 27, STOCKPILE
 	; db 27, SPIT_UP
 	; db 27, SWALLOW
@@ -2139,23 +2142,22 @@ MeganiumEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, PETAL_DANCE
 	; db 1, PETAL_BLIZZARD
-	db 1, TACKLE
+	; db 1, TACKLE
 	db 1, GROWL
 	db 1, RAZOR_LEAF
 	db 1, POISONPOWDER
-	; db EVO, PETAL_DANCE
-	db 6, RAZOR_LEAF
-	db 9, POISONPOWDER
+	db LEVEL_EVO, PETAL_DANCE
+	; db 6, RAZOR_LEAF
+	; db 9, POISONPOWDER
 	db 12, SYNTHESIS
 	db 18, REFLECT
 	; db 22, MAGICAL_LEAF
 	; db 26, NATURAL_GIFT
-	db 32, PETAL_DANCE ; FIXME: EVO
 	db 34, SWEET_SCENT
 	db 40, LIGHT_SCREEN
 	db 46, BODY_SLAM
 	db 54, SAFEGUARD
-	db 60, HEAL_BELL ; FIXME: AROMATHERAPY
+	db 60, HEAL_BELL ; FIXME: AROMATHERAPY (variation)
 	db 66, SOLARBEAM
 	; db 70, PETAL_BLIZZARD
 	db 0 ; no more level-up moves
@@ -2308,15 +2310,14 @@ FurretEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, AGILITY
 	; db 1, COIL
-	db 1, SCRATCH
+	; db 1, SCRATCH
 	db 1, FORESIGHT
 	db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
-	; db EVO, AGILITY
-	db 4, DEFENSE_CURL
-	db 7, QUICK_ATTACK
+	db LEVEL_EVO, AGILITY
+	; db 4, DEFENSE_CURL
+	; db 7, QUICK_ATTACK
 	db 13, FURY_SWIPES
-	db 15, AGILITY ; FIXME: EVO
 	; db 17, HELPING_HAND
 	; db 21, FOLLOW_ME
 	db 28, SLAM
@@ -2669,18 +2670,17 @@ FlaaffyEvosAttacks:
 
 AmpharosEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	; db 1, TACKLE
 	db 1, GROWL
 	db 1, THUNDERSHOCK
 	db 1, THUNDER_WAVE
-	; db EVO, THUNDERPUNCH
-	db 4, THUNDER_WAVE
-	db 8, THUNDERSHOCK
+	db LEVEL_EVO, THUNDERPUNCH
+	; db 4, THUNDER_WAVE
+	; db 8, THUNDERSHOCK
 	db 11, COTTON_SPORE
 	; db 16, CHARGE
 	db 20, TAKE_DOWN
 	db 29, CONFUSE_RAY
-	db 30, THUNDERPUNCH
 	; db 35, POWER_GEM
 	db 40, THUNDERBOLT ; FIXME: DISCHARGE
 	; db 46, COTTON_GUARD
@@ -2956,10 +2956,9 @@ QuagsireEvosAttacks:
 
 EspeonEvosAttacks: ; based on gen 7
 	db 0 ; no more evolutions
-	db 1, CONFUSION
 	db 1, TACKLE
 	db 1, TAIL_WHIP
-	; db EVO, CONFUSION
+	db LEVEL_EVO, CONFUSION
 	db 5, SAND_ATTACK
 	; db 9, BABY_DOLL_EYES
 	db 13, QUICK_ATTACK
@@ -2976,16 +2975,15 @@ EspeonEvosAttacks: ; based on gen 7
 UmbreonEvosAttacks: ; based on gen 7
 	db 0 ; no more evolutions
 	; db 1, HELPING_HAND
-	db 1, PURSUIT
 	db 1, TACKLE
 	db 1, TAIL_WHIP
-	; db EVO, PURSUIT
+	db LEVEL_EVO, PURSUIT
 	db 5, SAND_ATTACK
 	db 9, GROWL ; FIXME: BABY_DOLL_EYES
 	db 13, QUICK_ATTACK
 	db 17, CONFUSE_RAY
 	db 20, FEINT_ATTACK
-	db 25, PURSUIT ; FIXME: ASSURANCE
+	; db 25, ASSURANCE
 	db 29, SCREECH
 	db 33, MOONLIGHT
 	db 37, MEAN_LOOK
@@ -3468,20 +3466,18 @@ PiloswineEvosAttacks: ; based on gen 7
 	db 0 ; no more evolutions
 	; db 1, PECK
 	; db 1, MUD_SPORT
-	db 1, FURY_ATTACK
 	db 1, ANCIENTPOWER
 	db 1, POWDER_SNOW
 	db 1, FORESIGHT ; FIXME: ODOR_SLEUTH
-	; db EVO, FURY_ATTACK
+	db LEVEL_EVO, FURY_ATTACK
 	; db 5, MUD_SPORT
-	db 8, POWDER_SNOW
+	; db 8, POWDER_SNOW
 	db 11, MUD_SLAP
 	db 14, ENDURE
 	; db 18, MUD_BOMB
 	db 21, ICY_WIND
 	; db 24, ICE_FANG
 	db 28, TAKE_DOWN
-	db 33, FURY_ATTACK ; FIXME: EVO
 	db 37, MIST
 	db 41, THRASH
 	db 46, EARTHQUAKE
@@ -3528,12 +3524,11 @@ OctilleryEvosAttacks:
 	db 1, WATER_GUN
 	db 1, WRAP
 	db 1, FOCUS_ENERGY
-	; db EVO, OCTAZOOKA
+	db LEVEL_EVO, OCTAZOOKA
 	db 12, PSYBEAM
 	db 16, AURORA_BEAM
 	db 20, BUBBLEBEAM
 	db 24, LOCK_ON
-	db 25, OCTAZOOKA ; FIXME: EVO
 	; db 30, BULLET_SEED
 	db 36, ICE_BEAM
 	db 42, HYDRO_PUMP
@@ -3673,17 +3668,16 @@ DonphanEvosAttacks:
 	; db 1, FIRE_FANG
 	; db 1, THUNDER_FANG
 	; db 1, FURY_ATTACK
+	; db 1, BULLDOZE
 	db 1, HORN_ATTACK
 	db 1, GROWL
-	db 1, MAGNITUDE ; FIXME: BULLDOZE
 	db 1, DEFENSE_CURL
-	; db EVO, FURY_ATTACK
+	db LEVEL_EVO, FURY_ATTACK
 	db 6, RAPID_SPIN
 	db 10, ROLLOUT
 	; db 15, ASSURANCE
 	; db 19, KNOCK_OFF
 	db 24, SLAM
-	db 25, FURY_ATTACK
 	db 30, MAGNITUDE
 	db 37, SCARY_FACE
 	db 43, EARTHQUAKE
