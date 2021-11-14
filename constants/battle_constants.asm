@@ -2,6 +2,7 @@
 MAX_LEVEL EQU 100
 MIN_LEVEL EQU 2
 EGG_LEVEL EQU 5
+LEVEL_EVO EQU 101 ; EVOLVE_LEVEL might have worked, but just to separate things
 
 ; maximum moves known per mon
 NUM_MOVES EQU 4

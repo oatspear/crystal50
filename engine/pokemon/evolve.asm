@@ -296,6 +296,7 @@ EvolveAfterBattle_MasterLoop:
 	ld [wTempSpecies], a
 	xor a
 	ld [wMonType], a
+	call LearnEvolutionMoves
 	call LearnLevelMoves
 	ld a, [wTempSpecies]
 	dec a
@@ -409,6 +410,13 @@ StoppedEvolvingText:
 EvolvingText:
 	text_far _EvolvingText
 	text_end
+
+LearnEvolutionMoves:
+	ld a, LEVEL_EVO
+	ld [wCurPartyLevel], a
+	call LearnLevelMoves
+	ld a, [wTempMonLevel]
+	ld [wCurPartyLevel], a
 
 LearnLevelMoves:
 	ld a, [wTempSpecies]
