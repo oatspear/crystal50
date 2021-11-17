@@ -1572,7 +1572,7 @@ SlowpokeEvosAttacks:
 	db 33, RECOVER ; FIXME: SLACK_OFF
 	db 36, PSYCHIC_M
 	db 39, PSYCH_UP
-	db 42 RAIN_DANCE
+	db 42, RAIN_DANCE
 	; db 45, HEAL_PULSE
 	db 0 ; no more level-up moves
 
@@ -1594,7 +1594,7 @@ SlowbroEvosAttacks:
 	db 33, RECOVER ; FIXME: SLACK_OFF
 	db 36, PSYCHIC_M
 	db 41, PSYCH_UP
-	db 46 RAIN_DANCE
+	db 46, RAIN_DANCE
 	; db 51, HEAL_PULSE
 	db 0 ; no more level-up moves
 
@@ -2042,7 +2042,7 @@ ElectrodeEvosAttacks:
 	db 26, SELFDESTRUCT
 	db 29, LIGHT_SCREEN
 	; db 36, MAGNET_RISE
-	db 41, DISCHARGE
+	db 41, THUNDERBOLT; FIXME: DISCHARGE
 	db 47, EXPLOSION
 	; db 54, GYRO_BALL
 	db 58, MIRROR_COAT
@@ -2146,7 +2146,7 @@ HitmonleeEvosAttacks:
 	db 32, MEGA_KICK
 	; db 36, CLOSE_COMBAT
 	db 40, REVERSAL
-	db 44, HIGH_JUMP KICK
+	db 44, HI_JUMP_KICK
 	db 0 ; no more level-up moves
 
 HitmonchanEvosAttacks:
@@ -2894,7 +2894,7 @@ SnorlaxEvosAttacks:
 	; db 44, HAMMER_ARM
 	db 48, BELLY_DRUM
 	; db 52, BELCH
-	db 56, GIGA_IMPACT
+	; db 56, GIGA_IMPACT
 	db 0 ; no more level-up moves
 
 ArticunoEvosAttacks:
