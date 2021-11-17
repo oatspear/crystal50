@@ -4,7 +4,6 @@
 
 ### Added
 - Move and weather condition: Hail.
-- Added Hail to the learn sets of compatible Pokémon.
 
 ### Removed
 - Move: Frustration.
@@ -35,6 +34,7 @@
 - Electric-type Pokémon are immune to paralysis.
 - Ghost-type Pokémon are immune to arena trap effects.
 - Fire Spin is now able to defrost opponents.
+- Updated the learnsets of all Pokémon to resemble current generations.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
