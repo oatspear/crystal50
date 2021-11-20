@@ -6510,6 +6510,8 @@ INCLUDE "engine/battle/move_effects/rollout.asm"
 
 BattleCommand_Unused5D:
 ; effect0x5d
+BattleCommand_Unused66:
+; effect0x66
 	ret
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
