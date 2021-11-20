@@ -222,7 +222,7 @@ MoveDescriptions::
 	dw SafeguardDescription
 	dw PainSplitDescription
 	dw SacredFireDescription
-	dw MagnitudeDescription
+	dw BulldozeDescription
 	dw DynamicpunchDescription
 	dw MegahornDescription
 	dw DragonbreathDescription
@@ -504,6 +504,7 @@ PsybeamDescription:
 	db   "An attack that may"
 	next "confuse the foe.@"
 
+BulldozeDescription:
 BubblebeamDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
@@ -1146,10 +1147,6 @@ PainSplitDescription:
 SacredFireDescription:
 	db   "An attack that may"
 	next "inflict a burn.@"
-
-MagnitudeDescription:
-	db   "A ground attack"
-	next "with random power.@"
 
 DynamicpunchDescription:
 	db   "An attack that"

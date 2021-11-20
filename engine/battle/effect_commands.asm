@@ -1686,7 +1686,7 @@ BattleCommand_CheckHit:
 
 .LockOn:
 ; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Magnitude on a monster that is flying.
+; Fissure or Bulldoze on a monster that is flying.
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
@@ -1705,7 +1705,7 @@ BattleCommand_CheckHit:
 	ret z
 	cp FISSURE
 	ret z
-	cp MAGNITUDE
+	cp BULLDOZE
 	ret z
 
 .LockedOn:
@@ -1762,8 +1762,6 @@ BattleCommand_CheckHit:
 	cp EARTHQUAKE
 	ret z
 	cp FISSURE
-	ret z
-	cp MAGNITUDE
 	ret
 
 .ThunderRain:
@@ -6553,8 +6551,6 @@ BattleCommand_CheckSafeguard:
 	ld hl, SafeguardProtectText
 	call StdBattleTextbox
 	jp EndMoveEffect
-
-INCLUDE "engine/battle/move_effects/magnitude.asm"
 
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 

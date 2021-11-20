@@ -1679,28 +1679,6 @@ SacredFire:
 	burntarget
 	endmove
 
-Magnitude:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	getmagnitude
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	doubleundergrounddamage
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 BatonPass:
 	checkobedience
 	usedmovetext

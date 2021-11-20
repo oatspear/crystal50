@@ -127,7 +127,7 @@ MoveEffectsPointers:
 	dw Hail
 	dw Safeguard
 	dw SacredFire
-	dw Magnitude
+	dw SpeedDownHit
 	dw BatonPass
 	dw Pursuit
 	dw RapidSpin

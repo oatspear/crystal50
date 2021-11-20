@@ -1047,12 +1047,6 @@ SafeguardProtectText:
 	scroll "SAFEGUARD!"
 	autodone
 
-MagnitudeText:
-	text "Magnitude @"
-	text_decimal wTextDecimalByte, 1, 1
-	text "!"
-	autodone
-
 ReleasedByText:
 	text "<USER>"
 	line "was released by"

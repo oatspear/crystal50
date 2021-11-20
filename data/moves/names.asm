@@ -221,7 +221,7 @@ MoveNames::
 	li "SAFEGUARD"
 	li "PAIN SPLIT"
 	li "SACRED FIRE"
-	li "MAGNITUDE"
+	li "BULLDOZE"
 	li "DYNAMICPUNCH"
 	li "MEGAHORN"
 	li "DRAGONBREATH"

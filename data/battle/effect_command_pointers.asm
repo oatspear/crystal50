@@ -106,7 +106,7 @@ BattleCommandPointers:
 	dw BattleCommand_StartHail
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
-	dw BattleCommand_GetMagnitude
+	dw BattleCommand_Unused66
 	dw BattleCommand_BatonPass
 	dw BattleCommand_Pursuit
 	dw BattleCommand_ClearHazards

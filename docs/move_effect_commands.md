@@ -306,7 +306,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$65`: `checksafeguard`
 
 
-## `$66`: `getmagnitude`
+## `$66`: `effect0x66`
 
 
 ## `$67`: `batonpass`
