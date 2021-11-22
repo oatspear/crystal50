@@ -3359,7 +3359,6 @@ SpinarakEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, STRING_SHOT
-	db 1, CONSTRICT
 	db 5, ABSORB
 	; db 8, INFESTATION
 	db 12, SCARY_FACE
@@ -3367,31 +3366,41 @@ SpinarakEvosAttacks:
 	; db 19, SHADOW_SNEAK
 	db 22, FURY_SWIPES
 	; db 26, SUCKER_PUNCH
-	db 29, SPIDER_WEB
+	db 29, LEECH_LIFE
 	db 33, AGILITY
 	db 36, PIN_MISSILE
 	db 40, PSYCHIC_M
 	db 43, POISON_JAB
-	db 47, LEECH_LIFE ; FIXME: CROSS_POISON
+	; db 47, CROSS_POISON
 	; db 50, STICKY_WEB
 	; db 54, TOXIC_THREAD
 	db 0 ; no more level-up moves
 
 AriadosEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, SWORDS_DANCE
+	; db 1, FOCUS_ENERGY
+	; db 1, VENOM_DRENCH
+	; db 1, FELL_STINGER
+	; db 1, BUG_BITE
 	db 1, POISON_STING
 	db 1, STRING_SHOT
-	db 1, SCARY_FACE
-	db 1, CONSTRICT
+	db LEVEL_EVO, SWORDS_DANCE
 	db 5, ABSORB
+	; db 8, INFESTATION
 	db 12, SCARY_FACE
 	db 15, NIGHT_SHADE
-	db 22, SWORDS_DANCE
+	; db 19, SHADOW_SNEAK
 	db 23, FURY_SWIPES
-	db 32, SPIDER_WEB
+	; db 28, SUCKER_PUNCH
+	db 32, LEECH_LIFE
 	db 37, AGILITY
-	db 41, LEECH_LIFE
+	db 41, PIN_MISSILE
 	db 46, PSYCHIC_M
+	db 50, POISON_JAB
+	; db 55, CROSS_POISON
+	; db 58, STICKY_WEB
+	; db 63, TOXIC_THREAD
 	db 0 ; no more level-up moves
 
 CrobatEvosAttacks: ; based on gen 7
