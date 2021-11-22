@@ -41,7 +41,7 @@ MoveDescriptions::
 	dw DoubleEdgeDescription
 	dw TailWhipDescription
 	dw PoisonStingDescription
-	dw TwineedleDescription
+	dw PoisonJabDescription
 	dw PinMissileDescription
 	dw LeerDescription
 	dw BiteDescription
@@ -420,13 +420,10 @@ TailWhipDescription:
 	db   "Lowers the foe's"
 	next "DEFENSE.@"
 
+PoisonJabDescription:
 PoisonStingDescription:
 	db   "An attack that may"
 	next "poison the target.@"
-
-TwineedleDescription:
-	db   "Jabs the foe twice"
-	next "using stingers.@"
 
 PinMissileDescription:
 	db   "Fires pins that"

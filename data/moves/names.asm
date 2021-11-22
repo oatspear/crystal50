@@ -40,7 +40,7 @@ MoveNames::
 	li "DOUBLE-EDGE"
 	li "TAIL WHIP"
 	li "POISON STING"
-	li "TWINEEDLE"
+	li "POISON JAB"
 	li "PIN MISSILE"
 	li "LEER"
 	li "BITE"

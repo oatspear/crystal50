@@ -247,10 +247,9 @@ KakunaEvosAttacks:
 
 BeedrillEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, TWINEEDLE
 	; db 1, FURY_ATTACK
-	db LEVEL_EVO, TWINEEDLE
-	db 11, FURY_ATTACK
+	db LEVEL_EVO, FURY_ATTACK
+	; db 11, FURY_ATTACK
 	db 14, RAGE
 	db 17, PURSUIT
 	db 20, FOCUS_ENERGY
@@ -258,7 +257,7 @@ BeedrillEvosAttacks:
 	; db 26, ASSURANCE
 	; db 29, TOXIC_SPIKES
 	db 32, PIN_MISSILE
-	; db 35, POISON_JAB
+	db 35, POISON_JAB
 	db 38, AGILITY
 	; db 41, ENDEAVOR
 	; db 44, FELL_STINGER
@@ -618,7 +617,7 @@ NidoranMEvosAttacks:
 	; db 35, HELPING_HAND
 	db 40, TOXIC
 	; db 45, FLATTER
-	; db 50, POISON_JAB
+	db 50, POISON_JAB
 	; db 55, EARTH_POWER
 	db 0 ; no more level-up moves
 
@@ -636,7 +635,7 @@ NidorinoEvosAttacks:
 	; db 43, HELPING_HAND
 	db 50, TOXIC
 	; db 57, FLATTER
-	; db 64, POISON_JAB
+	db 64, POISON_JAB
 	; db 71, EARTH_POWER
 	db 0 ; no more level-up moves
 
@@ -648,9 +647,9 @@ NidokingEvosAttacks:
 	db 1, DOUBLE_KICK
 	; db 1, HORN_ATTACK
 	; db 1, HELPING_HAND
-	db 1, TOXIC
+	; db 1, TOXIC
 	; db 1, FLATTER
-	; db 1, POISON_JAB
+	db 1, POISON_JAB
 	; db 1, EARTH_POWER
 	; db 1, LEER
 	; db 1, POISON_STING
@@ -1366,7 +1365,7 @@ BellsproutEvosAttacks:
 	db 29, SWEET_SCENT
 	; db 35, GASTRO_ACID
 	db 39, RAZOR_LEAF
-	db 41, SLUDGE_BOMB ; FIXME: POISON_JAB
+	db 41, POISON_JAB
 	db 47, SLAM
 	; db 50, WRING_OUT
 	db 0 ; no more level-up moves
@@ -1387,7 +1386,7 @@ WeepinbellEvosAttacks:
 	db 32, SWEET_SCENT
 	; db 39, GASTRO_ACID
 	db 44, RAZOR_LEAF
-	db 47, SLUDGE_BOMB ; FIXME: POISON_JAB
+	db 47, POISON_JAB
 	db 54, SLAM
 	; db 58, WRING_OUT
 	db 0 ; no more level-up moves
@@ -1420,7 +1419,7 @@ TentacoolEvosAttacks:
 	db 24, BUBBLEBEAM
 	; db 28, HEX
 	db 32, ACID_ARMOR
-	; db 36, POISON_JAB
+	db 36, POISON_JAB
 	db 40, SURF
 	db 44, SLUDGE_BOMB ; FIXME: SLUDGE_WAVE
 	db 48, HYDRO_PUMP
@@ -1439,7 +1438,7 @@ TentacruelEvosAttacks:
 	db 24, BUBBLEBEAM
 	; db 28, HEX
 	db 34, ACID_ARMOR
-	; db 40, POISON_JAB
+	db 40, POISON_JAB
 	db 46, SURF
 	db 52, SLUDGE_BOMB ; FIXME: SLUDGE_WAVE
 	db 58, HYDRO_PUMP
@@ -3372,7 +3371,7 @@ SpinarakEvosAttacks:
 	db 33, AGILITY
 	db 36, PIN_MISSILE
 	db 40, PSYCHIC_M
-	; db 43, POISON_JAB
+	db 43, POISON_JAB
 	db 47, LEECH_LIFE ; FIXME: CROSS_POISON
 	; db 50, STICKY_WEB
 	; db 54, TOXIC_THREAD
@@ -4203,7 +4202,7 @@ QwilfishEvosAttacks: ; based on gen 7
 	db 37, PIN_MISSILE
 	db 41, TAKE_DOWN
 	db 45, WATERFALL ; FIXME: AQUA_TAIL
-	; db 49, POISON_JAB
+	db 49, POISON_JAB
 	db 53, DESTINY_BOND
 	db 57, HYDRO_PUMP
 	; db 60, FELL_STINGER

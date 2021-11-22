@@ -3,11 +3,11 @@
 ## v0.2 (Set to Level 50)
 
 ### Added
-- Moves: Hail, Bulldoze.
+- Moves: Hail, Bulldoze, Poison Jab.
 - Weather condition: Hail.
 
 ### Removed
-- Moves: Frustration, Magnitude.
+- Moves: Frustration, Magnitude, Twineedle.
 
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.

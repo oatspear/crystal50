@@ -864,34 +864,6 @@ MultiHit:
 	kingsrock
 	endmove
 
-PoisonMultiHit:
-	checkobedience
-	usedmovetext
-	doturn
-	startloop
-	lowersub
-	checkhit
-	effectchance
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
-	moveanimnosub
-	failuretext
-	applydamage
-	criticaltext
-	cleartext
-	supereffectivelooptext
-	checkfaint
-	buildopponentrage
-	endloop
-	raisesub
-	kingsrock
-	poisontarget
-	endmove
-
 FlinchHit:
 	checkobedience
 	usedmovetext

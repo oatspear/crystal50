@@ -42,7 +42,7 @@ BattleAnimations::
 	dw BattleAnim_DoubleEdge
 	dw BattleAnim_TailWhip
 	dw BattleAnim_PoisonSting
-	dw BattleAnim_Twineedle
+	dw BattleAnim_PoisonJab
 	dw BattleAnim_PinMissile
 	dw BattleAnim_Leer
 	dw BattleAnim_Bite
@@ -2237,6 +2237,7 @@ BattleAnim_PoisonGas:
 	anim_wait 128
 	anim_ret
 
+BattleAnim_PoisonJab:
 BattleAnim_HornAttack:
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_obj ANIM_OBJ_HORN, 72, 80, $1
@@ -2292,18 +2293,6 @@ BattleAnim_PoisonSting:
 	anim_wait 16
 	anim_sound 0, 1, SFX_POISON_STING
 	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
-	anim_wait 16
-	anim_ret
-
-BattleAnim_Twineedle:
-	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $14
-	anim_obj ANIM_OBJ_NEEDLE, 56, 84, $14
-	anim_wait 16
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
-	anim_obj ANIM_OBJ_HIT_SMALL, 128, 48, $0
 	anim_wait 16
 	anim_ret
 
