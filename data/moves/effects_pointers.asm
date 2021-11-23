@@ -89,7 +89,7 @@ MoveEffectsPointers:
 	dw Splash
 	dw Disable
 	dw StaticDamage
-	dw Psywave
+	dw NormalHit
 	dw Counter
 	dw Encore
 	dw PainSplit

@@ -943,16 +943,16 @@ VenonatEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, DISABLE
-	db 1, FORESIGHT
+	; db 1, STRUGGLE_BUG
 	db 5, SUPERSONIC
 	db 11, CONFUSION
 	db 13, POISONPOWDER
 	db 17, PSYBEAM
 	db 23, STUN_SPORE
-	; db 25, SIGNAL_BEAM
+	db 25, MEGA_DRAIN
 	db 29, SLEEP_POWDER
 	db 35, LEECH_LIFE
-	; db 37, ZEN_HEADBUTT
+	db 37, ZEN_HEADBUTT
 	; db 41, POISON_FANG
 	db 47, PSYCHIC_M
 	db 0 ; no more level-up moves
@@ -962,10 +962,10 @@ VenomothEvosAttacks:
 	; db 1, GUST
 	; db 1, QUIVER_DANCE
 	; db 1, BUG_BUZZ
-	; db 1, SILVER_WIND
-	; db 1, TACKLE
+	; db 1, WHIRLWIND
+	db 1, TACKLE
 	db 1, DISABLE
-	db 1, FORESIGHT
+	; db 1, STRUGGLE_BUG
 	db 1, SUPERSONIC
 	db LEVEL_EVO, GUST
 	; db 5, SUPERSONIC
@@ -973,10 +973,10 @@ VenomothEvosAttacks:
 	db 13, POISONPOWDER
 	db 17, PSYBEAM
 	db 23, STUN_SPORE
-	; db 25, SIGNAL_BEAM
+	db 25, MEGA_DRAIN
 	db 29, SLEEP_POWDER
 	db 37, LEECH_LIFE
-	; db 41, ZEN_HEADBUTT
+	db 41, ZEN_HEADBUTT
 	; db 47, POISON_FANG
 	db 55, PSYCHIC_M
 	; db 59, BUG_BUZZ
@@ -1070,7 +1070,7 @@ PsyduckEvosAttacks:
 	db 9, FURY_SWIPES
 	; db 12, WATER_PULSE
 	db 15, DISABLE
-	; db 18, ZEN_HEADBUTT
+	db 18, ZEN_HEADBUTT
 	db 21, SCREECH
 	db 24, WATERFALL ; FIXME: AQUA_TAIL
 	; db 27, SOAK
@@ -1090,7 +1090,7 @@ GolduckEvosAttacks:
 	db 9, FURY_SWIPES
 	; db 12, WATER_PULSE
 	db 15, DISABLE
-	; db 18, ZEN_HEADBUTT
+	db 18, ZEN_HEADBUTT
 	db 21, SCREECH
 	db 24, WATERFALL ; FIXME: AQUA_TAIL
 	; db 27, SOAK
@@ -1562,7 +1562,7 @@ SlowpokeEvosAttacks:
 	db 15, DISABLE
 	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
 	db 21, HEADBUTT
-	; db 24, ZEN_HEADBUTT
+	db 24, ZEN_HEADBUTT
 	db 27, AMNESIA
 	db 30, SURF
 	db 33, RECOVER ; FIXME: SLACK_OFF
@@ -1584,7 +1584,7 @@ SlowbroEvosAttacks:
 	db 15, DISABLE
 	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
 	db 21, HEADBUTT
-	; db 24, ZEN_HEADBUTT
+	db 24, ZEN_HEADBUTT
 	db 27, AMNESIA
 	db 30, SURF
 	db 33, RECOVER ; FIXME: SLACK_OFF
@@ -1913,8 +1913,8 @@ OnixEvosAttacks:
 DrowzeeEvosAttacks:
 	db EVOLVE_LEVEL, 26, HYPNO
 	db 0 ; no more evolutions
-	db 1, HYPNOSIS
 	db 1, POUND
+	db 1, HYPNOSIS
 	db 5, DISABLE
 	db 9, CONFUSION
 	db 13, HEADBUTT
@@ -1924,7 +1924,7 @@ DrowzeeEvosAttacks:
 	; db 29, WAKE_UP_SLAP
 	db 33, PSYCH_UP
 	; db 37, SYNCHRONOISE
-	; db 41, ZEN_HEADBUTT
+	db 41, ZEN_HEADBUTT
 	db 45, SWAGGER
 	db 49, PSYCHIC_M
 	; db 53, NASTY_PLOT
@@ -1951,7 +1951,7 @@ HypnoEvosAttacks:
 	; db 29, WAKE_UP_SLAP
 	db 33, PSYCH_UP
 	; db 37, SYNCHRONOISE
-	; db 41, ZEN_HEADBUTT
+	db 41, ZEN_HEADBUTT
 	db 45, SWAGGER
 	db 49, PSYCHIC_M
 	; db 53, NASTY_PLOT
@@ -2572,7 +2572,7 @@ TaurosEvosAttacks:
 	; db 15, ASSURANCE
 	db 20, HORN_ATTACK
 	db 25, SCARY_FACE
-	; db 30, ZEN_HEADBUTT
+	db 30, ZEN_HEADBUTT
 	db 35, TAKE_DOWN
 	db 40, REST
 	db 45, SWAGGER
@@ -3268,50 +3268,44 @@ FurretEvosAttacks:
 	; db 56, HYPER_VOICE
 	db 0 ; no more level-up moves
 
-HoothootEvosAttacks: ; based on gen 7
+HoothootEvosAttacks:
 	db EVOLVE_LEVEL, 20, NOCTOWL
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, PECK
 	db 1, GROWL
-	db 1, FORESIGHT
-	db 4, HYPNOSIS
-	db 7, PECK
-	db 10, CONFUSION
-	; db 13, ECHOED_VOICE
-	; db 16, ZEN_HEADBUTT
-	; db 19, PSYCHO_SHIFT
-	db 22, PSYCHIC_M ; FIXME: EXTRASENSORY
-	db 25, TAKE_DOWN
-	db 28, REFLECT
-	; db 31, AIR_SLASH
-	; db 34, UPROAR
-	db 37, RECOVER ; FIXME: ROOST
-	db 40, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	db 46, DREAM_EATER
+	db 3, TACKLE
+	; db 6, ECHOED_VOICE
+	db 9, CONFUSION
+	db 12, REFLECT
+	; db 15, PSYCHO_SHIFT
+	; db 18, AIR_SLASH
+	db 21, PSYCHIC_M ; FIXME: EXTRASENSORY
+	db 24, TAKE_DOWN
+	; db 27, UPROAR
+	db 30, RECOVER ; FIXME: ROOST
+	db 33, DAZZLING_GLEAM ; FIXME: MOONBLAST
+	db 36, HYPNOSIS
+	db 39, DREAM_EATER
 	db 0 ; no more level-up moves
 
-NoctowlEvosAttacks: ; based on gen 7
+NoctowlEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, DREAM_EATER
 	; db 1, SKY_ATTACK
-	db 1, TACKLE
+	db 1, PECK
 	db 1, GROWL
-	db 1, FORESIGHT
-	; db 1, HYPNOSIS
-	db 4, HYPNOSIS
-	db 7, PECK
-	db 10, CONFUSION
-	; db 13, ECHOED_VOICE
-	; db 16, ZEN_HEADBUTT
-	; db 19, PSYCHO_SHIFT
+	db 1, TACKLE
+	; db 1, ECHOED_VOICE
+	db 9, CONFUSION
+	db 12, REFLECT
+	; db 15, PSYCHO_SHIFT
+	; db 18, AIR_SLASH
 	db 23, PSYCHIC_M ; FIXME: EXTRASENSORY
-	db 27, TAKE_DOWN
-	db 31, REFLECT
-	; db 35, AIR_SLASH
-	; db 39, UPROAR
-	db 43, RECOVER ; FIXME: ROOST
-	db 47, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	db 55, DREAM_EATER
+	db 28, TAKE_DOWN
+	; db 33, UPROAR
+	db 38, RECOVER ; FIXME: ROOST
+	db 43, DAZZLING_GLEAM ; FIXME: MOONBLAST
+	db 48, HYPNOSIS
+	db 53, DREAM_EATER
 	db 0 ; no more level-up moves
 
 LedybaEvosAttacks:
@@ -3968,9 +3962,9 @@ SlowkingEvosAttacks:
 	; db 9, YAWN
 	db 12, CONFUSION
 	db 15, DISABLE
-	; db 18, WATER_PULSE
+	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
 	db 21, HEADBUTT
-	; db 24, ZEN_HEADBUTT
+	db 24, ZEN_HEADBUTT
 	db 27, AMNESIA
 	db 30, SURF
 	db 33, RECOVER ; FIXME: SLACK_OFF (variation)
@@ -3983,7 +3977,7 @@ SlowkingEvosAttacks:
 MisdreavusEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, PSYWAVE
+	db 1, CONFUSION
 	db 5, SPITE
 	db 10, LICK ; FIXME: ASTONISH
 	db 14, CONFUSE_RAY
@@ -4018,14 +4012,13 @@ GirafarigEvosAttacks:
 	; db 1, ASTONISH
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, CONFUSION
-	db 5, FORESIGHT ; FIXME: ODOR_SLEUTH (variation)
+	db 5, CONFUSION
 	; db 10, ASSURANCE
 	db 14, STOMP
 	db 19, PSYBEAM
 	db 23, AGILITY
 	; db 28, DOUBLE_HIT
-	; db 32, ZEN_HEADBUTT
+	db 32, ZEN_HEADBUTT
 	db 37, CRUNCH
 	db 41, BATON_PASS
 	; db 46, NASTY_PLOT
@@ -4662,11 +4655,11 @@ StantlerEvosAttacks:
 	db 23, CONFUSE_RAY
 	; db 27, CALM_MIND
 	; db 33, ROLE_PLAY
-	; db 38, ZEN_HEADBUTT
-	db 43, JUMP_KICK
+	db 38, ZEN_HEADBUTT
+	; db 43, LUNGE
 	db 49, DISABLE ; FIXME: IMPRISON
-	; db 50, CAPTIVATE
-	; db 55, ME_FIRST
+	; db 50, ENTRAINMENT
+	db 55, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 SmeargleEvosAttacks:
@@ -4783,7 +4776,7 @@ MiltankEvosAttacks:
 	db 15, STOMP
 	db 20, HEAL_BELL
 	db 25, HEADBUTT
-	; db 30, ZEN_HEADBUTT
+	db 30, ZEN_HEADBUTT
 	db 35, MILK_DRINK
 	db 40, BODY_SLAM
 	db 45, PLAY_ROUGH

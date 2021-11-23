@@ -149,7 +149,7 @@ MoveDescriptions::
 	dw DizzyPunchDescription
 	dw SporeDescription
 	dw FlashDescription
-	dw PsywaveDescription
+	dw ZenHeadbuttDescription
 	dw SplashDescription
 	dw AcidArmorDescription
 	dw CrabhammerDescription
@@ -376,6 +376,7 @@ SandAttackDescription:
 	db   "Reduces accuracy"
 	next "by throwing sand.@"
 
+ZenHeadbuttDescription:
 HeadbuttDescription:
 	db   "An attack that may"
 	next "make foe flinch.@"
@@ -851,10 +852,6 @@ SporeDescription:
 FlashDescription:
 	db   "Blinds the foe to"
 	next "reduce accuracy.@"
-
-PsywaveDescription:
-	db   "An attack with"
-	next "variable power.@"
 
 SplashDescription:
 	db   "Has no effect"
