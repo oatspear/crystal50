@@ -145,7 +145,7 @@ MoveDescriptions::
 	dw LovelyKissDescription
 	dw SkyAttackDescription
 	dw TransformDescription
-	dw BubbleDescription
+	dw AquaJetDescription
 	dw DizzyPunchDescription
 	dw SporeDescription
 	dw FlashDescription
@@ -651,6 +651,7 @@ AgilityDescription:
 	db   "Sharply increases"
 	next "the user's SPEED.@"
 
+AquaJetDescription:
 QuickAttackDescription:
 	db   "Lets the user get"
 	next "in the first hit.@"
@@ -838,10 +839,6 @@ SkyAttackDescription:
 TransformDescription:
 	db   "The user assumes"
 	next "the foe's guise.@"
-
-BubbleDescription:
-	db   "An attack that may"
-	next "reduce SPEED.@"
 
 DizzyPunchDescription:
 	db   "An attack that may"

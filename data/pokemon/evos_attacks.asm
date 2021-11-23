@@ -2354,7 +2354,6 @@ HorseaEvosAttacks:
 SeadraEvosAttacks:
 	db EVOLVE_TRADE, DRAGON_SCALE, KINGDRA
 	db 0 ; no more evolutions
-	; db 1, BUBBLE
 	db 1, WATER_GUN
 	db 1, LEER
 	db 1, SMOKESCREEN
@@ -2810,7 +2809,7 @@ KabutoEvosAttacks:
 	db 1, HARDEN
 	db 5, SCRATCH
 	db 10, SAND_ATTACK
-	db 15, WATER_GUN ; FIXME: AQUA_JET
+	db 15, AQUA_JET
 	db 20, LEER
 	db 25, MUD_SLAP ; FIXME: MUD_SHOT
 	db 30, ANCIENTPOWER
@@ -2832,7 +2831,7 @@ KabutopsEvosAttacks:
 	; db 1, SCRATCH
 	db 1, SAND_ATTACK
 	db LEVEL_EVO, SLASH
-	db 15, WATER_GUN ; FIXME: AQUA_JET
+	db 15, AQUA_JET
 	db 20, LEER
 	db 25, MUD_SLAP ; FIXME: MUD_SHOT
 	db 30, ANCIENTPOWER
@@ -3421,41 +3420,42 @@ CrobatEvosAttacks: ; based on gen 7
 ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
 	db 0 ; no more evolutions
-	db 1, BUBBLE
+	db 1, WATER_GUN
 	db 1, SUPERSONIC
-	db 6, THUNDER_WAVE
-	db 9, THUNDERSHOCK
-	db 12, WATER_GUN
-	db 17, CONFUSE_RAY
-	db 20, BUBBLEBEAM
-	db 23, SPARK
-	db 31, FLAIL
-	db 39, TAKE_DOWN
-	db 45, HYDRO_PUMP
+	db 4, THUNDERSHOCK ; FIXME: ELECTRO_BALL
+	db 8, THUNDER_WAVE
+	db 12, BUBBLEBEAM
+	db 16, CONFUSE_RAY
+	db 20, SPARK
+	; db 24, CHARGE
+	db 28, THUNDERBOLT ; FIXME: DISCHARGE
+	; db 32, AQUA_RING
+	db 36, FLAIL
+	db 40, TAKE_DOWN
+	db 44, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
-LanturnEvosAttacks: ; based on gen 7
+LanturnEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BUBBLE
+	; db 1, STOCKPILE
+	; db 1, SWALLOW
+	; db 1, SPIT_UP
+	db 1, WATER_GUN
 	db 1, SUPERSONIC
 	db 1, THUNDER_WAVE
 	db 1, THUNDERSHOCK ; FIXME: ELECTRO_BALL
-	; db EVO, STOCKPILE
-	; db EVO, SWALLOW
-	; db EVO, SPIT_UP
-	; db 6, THUNDER_WAVE
-	; db 9, ELECTRO_BALL
-	db 12, WATER_GUN
-	db 17, CONFUSE_RAY
-	db 20, BUBBLEBEAM
-	db 23, SPARK
-	; db 29, SIGNAL_BEAM
-	db 33, FLAIL
-	db 37, THUNDERBOLT ; FIXME: DISCHARGE
-	db 43, TAKE_DOWN
-	; db 47, AQUA_RING
-	db 51, HYDRO_PUMP
-	; db 58, CHARGE
+	; db LEVEL_EVO, STOCKPILE
+	; db LEVEL_EVO, SWALLOW
+	; db LEVEL_EVO, SPIT_UP
+	db 12, BUBBLEBEAM
+	db 16, CONFUSE_RAY
+	db 20, SPARK
+	; db 24, CHARGE
+	db 30, THUNDERBOLT ; FIXME: DISCHARGE
+	; db 36, AQUA_RING
+	db 42, FLAIL
+	db 48, TAKE_DOWN
+	db 54, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:
@@ -4192,29 +4192,25 @@ GranbullEvosAttacks:
 
 QwilfishEvosAttacks: ; based on gen 7
 	db 0 ; no more evolutions
-	; db 1, FELL_STINGER
-	; db 1, HYDRO_PUMP
-	; db 1, DESTINY_BOND
-	db 1, WATER_GUN
-	db 1, SPIKES
-	db 1, TACKLE
 	db 1, POISON_STING
-	db 9, HARDEN
-	db 9, MINIMIZE
-	db 13, BUBBLE
-	db 17, ROLLOUT
-	db 21, TOXIC ; FIXME: TOXIC_SPIKES
-	; db 25, STOCKPILE
-	; db 25, SPIT_UP
-	; db 29, REVENGE
-	db 33, BUBBLEBEAM ; FIXME: BRINE
-	db 37, PIN_MISSILE
-	db 41, TAKE_DOWN
-	db 45, WATERFALL ; FIXME: AQUA_TAIL
-	db 49, POISON_JAB
-	db 53, DESTINY_BOND
-	db 57, HYDRO_PUMP
-	; db 60, FELL_STINGER
+	db 1, TACKLE
+	db 4, HARDEN
+	db 8, WATER_GUN
+	; db 12, FELL_STINGER
+	db 16, MINIMIZE
+	db 20, SPIKES
+	db 24, BUBBLEBEAM ; FIXME: BRINE
+	; db 28, REVENGE
+	db 32, PIN_MISSILE
+	db 36, TOXIC ; FIXME: TOXIC_SPIKES
+	db 40, POISON_JAB
+	; db 44, STOCKPILE
+	; db 44, SPIT_UP
+	db 48, TAKE_DOWN
+	; db 52, TOXIC
+	db 56, WATERFALL ; FIXME: AQUA_TAIL
+	; db 60, ACCUPRESSURE
+	db 66, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 ScizorEvosAttacks: ; based on gen 7
@@ -4438,7 +4434,7 @@ CorsolaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
-	db 5, BUBBLE
+	db 5, WATER_GUN
 	db 15, ENDURE
 	db 20, ANCIENTPOWER
 	db 25, BUBBLEBEAM
@@ -4491,29 +4487,25 @@ DelibirdEvosAttacks:
 	db 25, DRILL_PECK
 	db 0 ; no more level-up moves
 
-MantineEvosAttacks: ; based on gen 7
+MantineEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, PSYBEAM
 	; db 1, BULLET_SEED
-	; db 1, SIGNAL_BEAM
-	; db 1, SUPERSONIC
-	; db 1, BUBBLEBEAM
+	; db 1, ROOST
 	db 1, TACKLE
-	db 1, BUBBLE
-	db 1, RECOVER ; FIXME: ROOST
-	db 3, SUPERSONIC
-	db 7, BUBBLEBEAM
-	db 11, CONFUSE_RAY
-	db 14, WING_ATTACK
-	db 16, HEADBUTT
-	; db 19, WATER_PULSE
-	db 23, PROTECT ; FIXME: WIDE_GUARD
-	db 27, TAKE_DOWN
-	db 32, AGILITY
-	; db 36, AIR_SLASH
-	; db 39, AQUA_RING
-	db 46, FLY ; FIXME: BOUNCE
-	db 49, HYDRO_PUMP
+	db 1, WATER_GUN
+	db 1, SUPERSONIC
+	db 1, WING_ATTACK
+	db 12, BUBBLEBEAM ; FIXME: WATER_PULSE
+	db 16, PROTECT ; FIXME: WIDE_GUARD
+	db 20, AGILITY
+	; db 24, BUBBLEBEAM
+	db 28, HEADBUTT
+	; db 32, AIR_SLASH
+	; db 36, AQUA_RING
+	db 40, FLY ; FIXME: BOUNCE
+	db 44, TAKE_DOWN
+	db 48, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 SkarmoryEvosAttacks: ; based on gen 7
@@ -4577,21 +4569,23 @@ HoundoomEvosAttacks:
 	; db 65, INFERNO
 	db 0 ; no more level-up moves
 
-KingdraEvosAttacks: ; based on gen 7
+KingdraEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, WHIRLPOOL
 	; db 1, YAWN
-	db 1, BUBBLE
-	db 1, SMOKESCREEN
+	; db 1, WATER_GUN
 	db 1, LEER
-	db 1, WATER_GUN
-	db 17, TWISTER
-	db 21, BUBBLEBEAM
-	db 26, FOCUS_ENERGY
-	db 31, WHIRLPOOL ; FIXME: BRINE
-	db 38, AGILITY
-	db 45, DRAGONBREATH ; FIXME: DRAGON_PULSE
-	db 52, RAIN_DANCE ; FIXME: DRAGON_DANCE
-	db 60, HYDRO_PUMP
+	db 1, SMOKESCREEN
+	db 1, TWISTER
+	db 15, FOCUS_ENERGY
+	db 20, DRAGONBREATH
+	db 25, BUBBLEBEAM
+	db 30, AGILITY
+	; db 37, LASER_FOCUS
+	; db 44, DRAGON_PULSE
+	db 51, HYDRO_PUMP
+	; db 58, DRAGON_DANCE
+	db 65, RAIN_DANCE
 	db 0 ; no more level-up moves
 
 PhanpyEvosAttacks:
