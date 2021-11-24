@@ -168,7 +168,7 @@ MoveNames::
 	li "SKETCH"
 	li "TRIPLE KICK"
 	li "THIEF"
-	li "SPIDER WEB"
+	li "INFESTATION"
 	li "MIND READER"
 	li "NIGHTMARE"
 	li "FLAME WHEEL"

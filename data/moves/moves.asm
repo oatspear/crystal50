@@ -1,6 +1,6 @@
 ; List of move replacements, based on Generation VIII mechanics.
 
-; Spider Web
+; Spider Web    : Mean Look + Infestation
 ; Twineedle     : Poison Jab
 ; Feint Attack
 ; Pursuit
@@ -32,6 +32,7 @@
 ; Psywave       : Zen Headbutt
 ; Clamp
 ; Bubble        : Aqua Jet
+; Bind          : Wrap + ?
 
 ; Characteristics of each move.
 
@@ -216,7 +217,7 @@ Moves:
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,        STATUS,   100,  1,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      PHYSICAL,  90, 10,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,          PHYSICAL, 100, 25, 100
-	move SPIDER_WEB,   EFFECT_MEAN_LOOK,           0, BUG,           STATUS,   100, 10,   0
+	move INFESTATION,  EFFECT_TRAP_TARGET,        20, BUG,           SPECIAL,  100, 20,   0
 	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,        STATUS,   100,  5,   0
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,         STATUS,   100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100, 25,  10

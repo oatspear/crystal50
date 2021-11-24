@@ -169,7 +169,7 @@ MoveDescriptions::
 	dw SketchDescription
 	dw TripleKickDescription
 	dw ThiefDescription
-	dw SpiderWebDescription
+	dw InfestationDescription
 	dw MindReaderDescription
 	dw NightmareDescription
 	dw FlameWheelDescription
@@ -925,10 +925,6 @@ ThiefDescription:
 	db   "An attack that may"
 	next "steal a held item.@"
 
-SpiderWebDescription:
-	db   "Prevents fleeing"
-	next "or switching.@"
-
 MindReaderDescription:
 	db   "Ensures the next"
 	next "attack will hit.@"
@@ -1244,6 +1240,7 @@ RockSmashDescription:
 	db   "An attack that may"
 	next "lower DEFENSE.@"
 
+InfestationDescription:
 WhirlpoolDescription:
 	db   "Traps the foe for"
 	next "2-5 turns.@"

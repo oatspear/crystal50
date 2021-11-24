@@ -486,6 +486,11 @@ ClampedByText:
 	scroll "<USER>!"
 	autodone
 
+InfestedText:
+	text "<TARGET>"
+	line "was INFESTED!"
+	autodone
+
 StoringEnergyText:
 	text "<USER>"
 	line "is storing energy!"
