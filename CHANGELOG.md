@@ -17,6 +17,7 @@
 - Selfdestruct and Explosion no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
+- Updated trap duration to 4-5 turns.
 - Glare can now hit Ghost-type Pokémon.
 - Sky Attack now has a 30% chance to flinch and increased critical-hit ratio.
 - Flail and Reversal can be critical hits and are affected by damage variation.

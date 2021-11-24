@@ -342,7 +342,7 @@ FlyDescription:
 
 BindDescription:
 	db   "Binds the target"
-	next "for 2-5 turns.@"
+	next "for 4-5 turns.@"
 
 SlamDescription:
 	db   "Slams the foe with"
@@ -403,7 +403,7 @@ BodySlamDescription:
 
 WrapDescription:
 	db   "Squeezes the foe"
-	next "for 2-5 turns.@"
+	next "for 4-5 turns.@"
 
 TakeDownDescription:
 	db   "A tackle that also"
@@ -594,7 +594,7 @@ DragonRageDescription:
 
 FireSpinDescription:
 	db   "Traps foe in fire"
-	next "for 2-5 turns.@"
+	next "for 4-5 turns.@"
 
 ThundershockDescription:
 	db   "An attack that may"
@@ -771,7 +771,7 @@ WaterfallDescription:
 
 ClampDescription:
 	db   "Traps the foe for"
-	next "2-5 turns.@"
+	next "4-5 turns.@"
 
 SwiftDescription:
 	db   "An attack that"
@@ -1243,7 +1243,7 @@ RockSmashDescription:
 InfestationDescription:
 WhirlpoolDescription:
 	db   "Traps the foe for"
-	next "2-5 turns.@"
+	next "4-5 turns.@"
 
 BeatUpDescription:
 	db   "Party #MON join"
