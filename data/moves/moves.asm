@@ -1,3 +1,38 @@
+; List of move replacements, based on Generation VIII mechanics.
+
+; Spider Web
+; Twineedle     : Poison Jab
+; Feint Attack
+; Pursuit
+; Dragon Rage
+; Jump Kick
+; Karate Chop
+; Rolling Kick
+; Mirror Move
+; Nightmare
+; Bone Club
+; Magnitude     : Bulldoze
+; Double Slap
+; Comet Punch
+; Razor Wind
+; Sonic Boom
+; Rage
+; Bide
+; Egg Bomb
+; Spike Cannon
+; Constrict
+; Barrage
+; Dizzy Punch
+; Sharpen
+; Foresight
+; Return
+; Frustration   : Hail
+; Meditate
+; Barrier
+; Psywave       : Zen Headbutt
+; Clamp
+; Bubble        : Aqua Jet
+
 ; Characteristics of each move.
 
 move: MACRO
