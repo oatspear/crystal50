@@ -124,7 +124,7 @@ MoveNames::
 	li "LICK"
 	li "SMOG"
 	li "SLUDGE"
-	li "BONE CLUB"
+	li "EARTH POWER"
 	li "FIRE BLAST"
 	li "WATERFALL"
 	li "CLAMP"

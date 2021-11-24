@@ -563,7 +563,7 @@ NidoranFEvosAttacks:
 	db 40, TOXIC
 	; db 45, FLATTER
 	db 50, CRUNCH
-	; db 55, EARTH_POWER
+	db 55, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidorinaEvosAttacks:
@@ -581,11 +581,12 @@ NidorinaEvosAttacks:
 	db 50, TOXIC
 	; db 57, FLATTER
 	db 64, CRUNCH
-	; db 71, EARTH_POWER
+	db 71, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidoqueenEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, SLUDGE_WAVE
 	; db 1, SUPERPOWER
 	; db 1, FURY_SWIPES
 	; db 1, TOXIC_SPIKES
@@ -595,12 +596,12 @@ NidoqueenEvosAttacks:
 	db 1, TOXIC
 	; db 1, FLATTER
 	db 1, CRUNCH
-	; db 1, EARTH_POWER
+	db 1, EARTH_POWER
 	; db 1, GROWL
 	; db 1, POISON_STING
 	; db 1, SCRATCH
 	; db 1, TAIL_WHIP
-	db LEVEL_EVO, BODY_SLAM ; FIXME: SUPERPOWER
+	; db LEVEL_EVO, SUPERPOWER
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
@@ -618,7 +619,7 @@ NidoranMEvosAttacks:
 	db 40, TOXIC
 	; db 45, FLATTER
 	db 50, POISON_JAB
-	; db 55, EARTH_POWER
+	db 55, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidorinoEvosAttacks:
@@ -636,7 +637,7 @@ NidorinoEvosAttacks:
 	db 50, TOXIC
 	; db 57, FLATTER
 	db 64, POISON_JAB
-	; db 71, EARTH_POWER
+	db 71, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidokingEvosAttacks:
@@ -650,11 +651,11 @@ NidokingEvosAttacks:
 	; db 1, TOXIC
 	; db 1, FLATTER
 	db 1, POISON_JAB
-	; db 1, EARTH_POWER
+	db 1, EARTH_POWER
 	; db 1, LEER
 	; db 1, POISON_STING
 	; db 1, PECK
-	db 1, FOCUS_ENERGY
+	; db 1, FOCUS_ENERGY
 	db LEVEL_EVO, MEGAHORN
 	db 0 ; no more level-up moves
 
@@ -996,7 +997,7 @@ DiglettEvosAttacks:
 	db 24, SLASH
 	db 28, SANDSTORM
 	db 32, DIG
-	; db 36, EARTH_POWER
+	db 36, EARTH_POWER
 	db 40, EARTHQUAKE
 	db 44, FISSURE
 	db 0 ; no more level-up moves
@@ -1017,7 +1018,7 @@ DugtrioEvosAttacks:
 	db 24, SLASH
 	db 30, SANDSTORM
 	db 36, DIG
-	; db 42, EARTH_POWER
+	db 42, EARTH_POWER
 	db 48, EARTHQUAKE
 	db 54, FISSURE
 	db 0 ; no more level-up moves
@@ -1204,7 +1205,7 @@ PoliwagEvosAttacks:
 	db 18, BUBBLEBEAM
 	db 24, RAIN_DANCE
 	db 30, BODY_SLAM
-	; db 36, EARTH_POWER
+	db 36, EARTH_POWER
 	db 42, HYDRO_PUMP
 	db 48, BELLY_DRUM
 	db 54, DOUBLE_EDGE
@@ -1221,7 +1222,7 @@ PoliwhirlEvosAttacks:
 	db 18, BUBBLEBEAM
 	db 24, RAIN_DANCE
 	db 32, BODY_SLAM
-	; db 40, EARTH_POWER
+	db 40, EARTH_POWER
 	db 48, HYDRO_PUMP
 	db 56, BELLY_DRUM
 	db 66, DOUBLE_EDGE
@@ -4352,7 +4353,7 @@ SlugmaEvosAttacks:
 	db 41, BODY_SLAM
 	db 43, RECOVER
 	; db 48, FLAMETHROWER
-	; db 50, EARTH_POWER
+	db 50, EARTH_POWER
 	db 0 ; no more level-up moves
 
 MagcargoEvosAttacks:
@@ -4377,7 +4378,7 @@ MagcargoEvosAttacks:
 	db 43, BODY_SLAM
 	db 47, RECOVER
 	; db 54, FLAMETHROWER
-	; db 58, EARTH_POWER
+	db 58, EARTH_POWER
 	db 0 ; no more level-up moves
 
 SwinubEvosAttacks: ; based on gen 7

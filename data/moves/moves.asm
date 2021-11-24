@@ -10,7 +10,7 @@
 ; Rolling Kick
 ; Mirror Move
 ; Nightmare
-; Bone Club
+; Bone Club     : Earth Power
 ; Magnitude     : Bulldoze
 ; Double Slap
 ; Comet Punch
@@ -172,7 +172,7 @@ Moves:
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100, 30,  30
 	move SMOG,         EFFECT_POISON_HIT,         30, POISON,        SPECIAL,   70, 20,  40
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100, 20,  30
-	move BONE_CLUB,    EFFECT_FLINCH_HIT,         65, GROUND,        PHYSICAL,  85, 20,  10
+	move EARTH_POWER,  EFFECT_SP_DEF_DOWN_HIT,    90, GROUND,        SPECIAL,  100, 10,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          110, FIRE,          SPECIAL,   85,  5,  10
 	move WATERFALL,    EFFECT_FLINCH_HIT,         80, WATER,         PHYSICAL, 100, 15,  20
 	move CLAMP,        EFFECT_TRAP_TARGET,        35, WATER,         PHYSICAL,  85, 10,   0

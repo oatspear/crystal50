@@ -125,7 +125,7 @@ MoveDescriptions::
 	dw LickDescription
 	dw SmogDescription
 	dw SludgeDescription
-	dw BoneClubDescription
+	dw EarthPowerDescription
 	dw FireBlastDescription
 	dw WaterfallDescription
 	dw ClampDescription
@@ -761,10 +761,6 @@ SludgeDescription:
 	db   "An attack that may"
 	next "poison the foe.@"
 
-BoneClubDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
-
 FireBlastDescription:
 	db   "An attack that"
 	next "may cause a burn.@"
@@ -1235,6 +1231,7 @@ AncientpowerDescription:
 	db   "An attack that may"
 	next "raise all stats.@"
 
+EarthPowerDescription:
 ShadowBallDescription:
 	db   "An attack that may"
 	next "lower SPCL.DEF.@"
