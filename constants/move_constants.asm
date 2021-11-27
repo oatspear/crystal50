@@ -117,7 +117,7 @@
 	const CONFUSE_RAY  ; 6d
 	const WITHDRAW     ; 6e
 	const DEFENSE_CURL ; 6f
-	const BARRIER      ; 70
+	const DRAGON_DANCE ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
 	const REFLECT      ; 73

@@ -20,7 +20,7 @@ StallMoves:
 	db HARDEN
 	db WITHDRAW
 	db DEFENSE_CURL
-	db BARRIER
+	db DRAGON_DANCE
 	db LIGHT_SCREEN
 	db HAZE
 	db REFLECT

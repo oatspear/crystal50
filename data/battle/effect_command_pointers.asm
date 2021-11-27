@@ -182,4 +182,5 @@ BattleCommandPointers:
 	dw BattleCommand_Curl
 	dw BattleCommand_Growth
 	dw BattleCommand_CalmMind
+	dw BattleCommand_DragonDance
 	assert_table_length NUM_EFFECT_COMMANDS

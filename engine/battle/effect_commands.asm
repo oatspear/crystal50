@@ -4826,6 +4826,8 @@ INCLUDE "engine/battle/move_effects/growth.asm"
 
 INCLUDE "engine/battle/move_effects/calm_mind.asm"
 
+INCLUDE "engine/battle/move_effects/dragon_dance.asm"
+
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
 	ldh a, [hBattleTurn]

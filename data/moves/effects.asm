@@ -368,6 +368,13 @@ CalmMind:
 	calmmind
 	endmove
 
+DragonDance:
+	checkobedience
+	usedmovetext
+	doturn
+	dragondance
+	endmove
+
 AttackDown:
 	checkobedience
 	usedmovetext

@@ -2349,7 +2349,7 @@ HorseaEvosAttacks:
 	db 35, LOCK_ON ; FIXME: LASER_FOCUS
 	; db 40, DRAGON_PULSE
 	db 45, HYDRO_PUMP
-	; db 50, DRAGON_DANCE
+	db 50, DRAGON_DANCE
 	db 55, RAIN_DANCE
 	db 0 ; no more level-up moves
 
@@ -2367,7 +2367,7 @@ SeadraEvosAttacks:
 	; db 37, LASER_FOCUS
 	; db 44, DRAGON_PULSE
 	db 51, HYDRO_PUMP
-	; db 58, DRAGON_DANCE
+	db 58, DRAGON_DANCE
 	db 65, RAIN_DANCE
 	db 0 ; no more level-up moves
 
@@ -2604,7 +2604,7 @@ GyaradosEvosAttacks: ; based on gen 7
 	db 36, DRAGON_RAGE
 	db 39, CRUNCH
 	db 42, HYDRO_PUMP
-	; db 45, DRAGON_DANCE
+	db 45, DRAGON_DANCE
 	; db 48, HURRICANE
 	db 51, RAIN_DANCE
 	db 54, HYPER_BEAM
@@ -2968,7 +2968,7 @@ DratiniEvosAttacks:
 	; db 35, DRAGON_RUSH
 	db 40, SAFEGUARD
 	db 45, RAIN_DANCE
-	; db 50, DRAGON_DANCE
+	db 50, DRAGON_DANCE
 	db 55, OUTRAGE
 	db 60, HYPER_BEAM
 	db 0 ; no more level-up moves
@@ -2987,7 +2987,7 @@ DragonairEvosAttacks:
 	; db 39, DRAGON_RUSH
 	db 46, SAFEGUARD
 	db 53, RAIN_DANCE
-	; db 60, DRAGON_DANCE
+	db 60, DRAGON_DANCE
 	db 67, OUTRAGE
 	db 74, HYPER_BEAM
 	db 0 ; no more level-up moves
@@ -3012,7 +3012,7 @@ DragoniteEvosAttacks:
 	; db 39, DRAGON_RUSH
 	db 46, SAFEGUARD
 	db 53, RAIN_DANCE
-	; db 62, DRAGON_DANCE
+	db 62, DRAGON_DANCE
 	db 71, OUTRAGE
 	db 80, HYPER_BEAM
 	db 0 ; no more level-up moves
@@ -3021,7 +3021,6 @@ MewtwoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, CONFUSION
 	db 1, DISABLE
-	db 11, BARRIER
 	db 22, SWIFT
 	db 33, PSYCH_UP
 	db 44, FUTURE_SIGHT
@@ -4594,7 +4593,7 @@ KingdraEvosAttacks:
 	; db 37, LASER_FOCUS
 	; db 44, DRAGON_PULSE
 	db 51, HYDRO_PUMP
-	; db 58, DRAGON_DANCE
+	db 58, DRAGON_DANCE
 	db 65, RAIN_DANCE
 	db 0 ; no more level-up moves
 

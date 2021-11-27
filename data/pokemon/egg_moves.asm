@@ -27,6 +27,7 @@ CharmanderEggMoves:
 	db BITE
 	db OUTRAGE
 	db BEAT_UP
+	db DRAGON_DANCE
 	db -1 ; end
 
 SquirtleEggMoves:
@@ -190,7 +191,6 @@ PoliwagEggMoves:
 AbraEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
-	db BARRIER
 	db -1 ; end
 
 MachopEggMoves:
@@ -270,7 +270,6 @@ GrimerEggMoves:
 ShellderEggMoves:
 	db BUBBLEBEAM
 	db TAKE_DOWN
-	db BARRIER
 	db RAPID_SPIN
 	db SCREECH
 	db -1 ; end
@@ -287,7 +286,6 @@ OnixEggMoves:
 
 DrowzeeEggMoves:
 	db LIGHT_SCREEN
-	db BARRIER
 	db -1 ; end
 
 KrabbyEggMoves:
@@ -396,6 +394,7 @@ PinsirEggMoves:
 LaprasEggMoves:
 	db AURORA_BEAM
 	db FORESIGHT
+	db DRAGON_DANCE
 	db -1 ; end
 
 EeveeEggMoves:
@@ -460,6 +459,7 @@ TotodileEggMoves:
 	db HYDRO_PUMP
 	db ANCIENTPOWER
 	db ROCK_SLIDE
+	db DRAGON_DANCE
 	db -1 ; end
 
 SentretEggMoves:
@@ -773,7 +773,6 @@ SmoochumEggMoves:
 
 ElekidEggMoves:
 	db KARATE_CHOP
-	db BARRIER
 	db ROLLING_KICK
 	db CROSS_CHOP
 	db -1 ; end
@@ -781,7 +780,6 @@ ElekidEggMoves:
 MagbyEggMoves:
 	db KARATE_CHOP
 	db MEGA_PUNCH
-	db BARRIER
 	db SCREECH
 	db CROSS_CHOP
 	db -1 ; end
@@ -798,6 +796,7 @@ LarvitarEggMoves:
 	db OUTRAGE
 	db FOCUS_ENERGY
 	db ANCIENTPOWER
+	db DRAGON_DANCE
 	db -1 ; end
 
 NoEggMoves:

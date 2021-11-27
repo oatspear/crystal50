@@ -112,7 +112,7 @@ MoveDescriptions::
 	dw ConfuseRayDescription
 	dw WithdrawDescription
 	dw DefenseCurlDescription
-	dw BarrierDescription
+	dw DragonDanceDescription
 	dw LightScreenDescription
 	dw HazeDescription
 	dw ReflectDescription
@@ -706,9 +706,9 @@ DefenseCurlDescription:
 	db   "Heightens the"
 	next "user's DEFENSE.@"
 
-BarrierDescription:
-	db   "Sharply increases"
-	next "user's DEFENSE.@"
+DragonDanceDescription:
+	db   "Raises both ATTACK"
+	next "and SPEED.@"
 
 LightScreenDescription:
 	db   "Ups SPCL.DEF with"

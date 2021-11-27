@@ -111,7 +111,7 @@ MoveNames::
 	li "CONFUSE RAY"
 	li "WITHDRAW"
 	li "DEFENSE CURL"
-	li "BARRIER"
+	li "DRAGON DANCE"
 	li "LIGHT SCREEN"
 	li "HAZE"
 	li "REFLECT"
