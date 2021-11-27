@@ -125,7 +125,7 @@ CharizardEvosAttacks:
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
-	db LEVEL_EVO, WING_ATTACK ; FIXME: AIR_SLASH
+	db LEVEL_EVO, AIR_SLASH
 	db 12, DRAGONBREATH
 	; db 19, FIRE_FANG
 	db 24, SLASH
@@ -208,26 +208,27 @@ MetapodEvosAttacks:
 	db LEVEL_EVO, HARDEN
 	db 0 ; no more level-up moves
 
-ButterfreeEvosAttacks: ; based on gen 7
+ButterfreeEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, GUST
-	; db 1, CONFUSION
+	db 1, HARDEN
+	db 1, TACKLE
+	db 1, STRING_SHOT
+	; db 1, BUG_BITE
 	db LEVEL_EVO, GUST
-	db 11, CONFUSION
-	db 13, POISONPOWDER
-	db 13, STUN_SPORE
-	db 13, SLEEP_POWDER
-	db 17, PSYBEAM
-	; db 19, SILVER_WIND
-	db 23, SUPERSONIC
-	db 25, SAFEGUARD
-	db 29, WHIRLWIND
-	; db 31, BUG_BUZZ
-	; db 35, RAGE_POWDER
-	; db 37, CAPTIVATE
-	; db 41, TAILWIND
-	; db 43, AIR_SLASH
-	; db 47, QUIVER_DANCE
+	db 4, SUPERSONIC
+	db 8, CONFUSION
+	db 12, POISONPOWDER
+	db 12, STUN_SPORE
+	db 12, SLEEP_POWDER
+	db 16, PSYBEAM
+	db 20, WHIRLWIND
+	db 24, AIR_SLASH
+	db 28, SAFEGUARD
+	; db 32, BUG_BUZZ
+	; db 36, TAILWIND
+	; db 40, RAGE_POWDER
+	; db 44, QUIVER_DANCE
 	db 0 ; no more level-up moves
 
 WeedleEvosAttacks:
@@ -277,8 +278,8 @@ PidgeyEvosAttacks:
 	db 33, WING_ATTACK
 	db 37, RECOVER ; FIXME: ROOST
 	; db 41, TAILWIND
-	db 45, MIRROR_MOVE
-	; db 49, AIR_SLASH
+	db 45, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 49, AIR_SLASH
 	; db 53, HURRICANE
 	db 0 ; no more level-up moves
 
@@ -298,8 +299,8 @@ PidgeottoEvosAttacks:
 	db 37, WING_ATTACK
 	db 42, RECOVER ; FIXME: ROOST
 	; db 47, TAILWIND
-	db 52, MIRROR_MOVE
-	; db 57, AIR_SLASH
+	db 52, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 57, AIR_SLASH
 	; db 62, HURRICANE
 	db 0 ; no more level-up moves
 
@@ -320,8 +321,8 @@ PidgeotEvosAttacks:
 	db 38, WING_ATTACK
 	db 44, RECOVER ; FIXME: ROOST
 	; db 50, TAILWIND
-	db 56, MIRROR_MOVE
-	; db 62, AIR_SLASH
+	db 56, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 62, AIR_SLASH
 	; db 68, HURRICANE
 	db 0 ; no more level-up moves
 
@@ -819,7 +820,7 @@ ZubatEvosAttacks:
 	db 35, HAZE
 	; db 40, VENOSHOCK
 	db 45, CONFUSE_RAY
-	; db 50, AIR_SLASH
+	db 50, AIR_SLASH
 	db 55, LEECH_LIFE
 	db 0 ; no more level-up moves
 
@@ -838,7 +839,7 @@ GolbatEvosAttacks:
 	db 41, HAZE
 	; db 48, VENOSHOCK
 	db 55, CONFUSE_RAY
-	; db 62, AIR_SLASH
+	db 62, AIR_SLASH
 	db 69, LEECH_LIFE
 	db 0 ; no more level-up moves
 
@@ -1650,7 +1651,7 @@ FarfetchDEvosAttacks:
 	db 35, FALSE_SWIPE
 	db 40, SLASH
 	db 45, SWORDS_DANCE
-	; db 50, AIR_SLASH
+	db 50, AIR_SLASH
 	; db 55, LEAF_BLADE
 	db 60, AGILITY
 	; db 65, BRAVE_BIRD
@@ -2482,7 +2483,7 @@ ScytherEvosAttacks:
 	db 24, SLASH
 	db 28, FOCUS_ENERGY
 	db 32, AGILITY
-	; db 36, AIR_SLASH
+	db 36, AIR_SLASH
 	; db 40, X_SCISSOR
 	; db 44, LASER_FOCUS
 	db 48, SWORDS_DANCE
@@ -2943,7 +2944,7 @@ MoltresEvosAttacks:
 	db 20, AGILITY
 	db 25, ANCIENTPOWER
 	; db 30, INCINERATE
-	; db 35, AIR_SLASH
+	db 35, AIR_SLASH
 	db 40, RECOVER ; FIXME: ROOST
 	db 45, FLAMETHROWER ; FIXME: HEAT_WAVE
 	db 50, SUNNY_DAY
@@ -3279,7 +3280,7 @@ HoothootEvosAttacks:
 	db 9, CONFUSION
 	db 12, REFLECT
 	; db 15, PSYCHO_SHIFT
-	; db 18, AIR_SLASH
+	db 18, AIR_SLASH
 	db 21, PSYCHIC_M ; FIXME: EXTRASENSORY
 	db 24, TAKE_DOWN
 	; db 27, UPROAR
@@ -3299,7 +3300,7 @@ NoctowlEvosAttacks:
 	db 9, CONFUSION
 	db 12, REFLECT
 	; db 15, PSYCHO_SHIFT
-	; db 18, AIR_SLASH
+	db 18, AIR_SLASH
 	db 23, PSYCHIC_M ; FIXME: EXTRASENSORY
 	db 28, TAKE_DOWN
 	; db 33, UPROAR
@@ -3324,7 +3325,7 @@ LedybaEvosAttacks:
 	db 26, BATON_PASS
 	db 29, AGILITY
 	; db 33, BUG_BUZZ
-	; db 36, AIR_SLASH
+	db 36, AIR_SLASH
 	db 40, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -3344,7 +3345,7 @@ LedianEvosAttacks:
 	db 29, BATON_PASS
 	db 33, AGILITY
 	; db 38, BUG_BUZZ
-	; db 42, AIR_SLASH
+	db 42, AIR_SLASH
 	db 47, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -3397,19 +3398,26 @@ AriadosEvosAttacks:
 	; db 63, TOXIC_THREAD
 	db 0 ; no more level-up moves
 
-CrobatEvosAttacks: ; based on gen 7
+CrobatEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
+	; db 1, CROSS_POISON
+	; db 1, TAILWIND
+	db 1, TOXIC
 	db 1, SCREECH
+	; db 1, ABSORB
 	db 1, SUPERSONIC
-	db 1, BITE
-	db 13, WING_ATTACK
-	db 17, CONFUSE_RAY
-	db 24, SWIFT
-	db 32, MEAN_LOOK
-	db 35, LEECH_LIFE
-	db 40, HAZE
-	db 43, TOXIC
+	; db 1, ASTONISH
+	db 1, MEAN_LOOK
+	db LEVEL_EVO, POISON_JAB ; FIXME: CROSS_POISON
+	db 15, POISON_STING ; FIXME: POISON_FANG
+	; db 20, QUICK_GUARD
+	db 27, WING_ATTACK ; FIXME: AIR_CUTTER
+	db 34, BITE
+	db 41, HAZE
+	; db 48, VENOSHOCK
+	db 55, CONFUSE_RAY
+	db 62, AIR_SLASH
+	db 69, LEECH_LIFE
 	db 0 ; no more level-up moves
 
 ChinchouEvosAttacks:
@@ -3559,7 +3567,7 @@ XatuEvosAttacks:
 	db 1, LEER
 	; db 1, STORED_POWER
 	db 1, TELEPORT
-	; db EVO, AIR_SLASH
+	db EVO, AIR_SLASH
 	db 15, CONFUSE_RAY
 	db 20, NIGHT_SHADE
 	; db 28, PSYCHO_SHIFT
@@ -3859,7 +3867,7 @@ YanmaEvosAttacks:
 	db 43, WING_ATTACK
 	db 46, SCREECH
 	; db 49, U_TURN
-	; db 54, AIR_SLASH
+	db 54, AIR_SLASH
 	; db 57, BUG_BUZZ
 	db 0 ; no more level-up moves
 
@@ -4089,7 +4097,7 @@ DunsparceEvosAttacks: ; based on gen 7
 	db 36, GLARE
 	db 38, DOUBLE_EDGE
 	; db 41, ENDEAVOR
-	; db 43, AIR_SLASH
+	db 43, AIR_SLASH
 	; db 46, DRAGON_RUSH
 	db 48, ENDURE
 	db 51, FLAIL
@@ -4496,7 +4504,7 @@ MantineEvosAttacks:
 	db 20, AGILITY
 	; db 24, BUBBLEBEAM
 	db 28, HEADBUTT
-	; db 32, AIR_SLASH
+	db 32, AIR_SLASH
 	; db 36, AQUA_RING
 	db 40, FLY ; FIXME: BOUNCE
 	db 44, TAKE_DOWN
@@ -4518,7 +4526,7 @@ SkarmoryEvosAttacks: ; based on gen 7
 	db 34, STEEL_WING
 	db 39, SLASH
 	; db 42, METAL_SOUND
-	; db 45, AIR_SLASH
+	db 45, AIR_SLASH
 	; db 50, AUTOTOMIZE
 	; db 53, NIGHT_SLASH
 	db 0 ; no more level-up moves
