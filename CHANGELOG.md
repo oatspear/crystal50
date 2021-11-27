@@ -3,11 +3,11 @@
 ## v0.2 (Set to Level 50)
 
 ### Added
-- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation.
+- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash.
 - Weather condition: Hail.
 
 ### Removed
-- Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web.
+- Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind.
 
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.

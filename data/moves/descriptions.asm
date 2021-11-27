@@ -13,7 +13,7 @@ MoveDescriptions::
 	dw ScratchDescription
 	dw VicegripDescription
 	dw GuillotineDescription
-	dw RazorWindDescription
+	dw AirSlashDescription
 	dw SwordsDanceDescription
 	dw CutDescription
 	dw GustDescription
@@ -312,10 +312,6 @@ GuillotineDescription:
 	db   "A one-hit KO,"
 	next "pincer attack.@"
 
-RazorWindDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
-
 SwordsDanceDescription:
 	db   "A dance that in-"
 	next "creases ATTACK.@"
@@ -352,6 +348,7 @@ VineWhipDescription:
 	db   "Whips the foe with"
 	next "slender vines.@"
 
+AirSlashDescription:
 StompDescription:
 	db   "An attack that may"
 	next "cause flinching.@"

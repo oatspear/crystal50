@@ -4207,26 +4207,27 @@ QwilfishEvosAttacks: ; based on gen 7
 	db 66, DESTINY_BOND
 	db 0 ; no more level-up moves
 
-ScizorEvosAttacks: ; based on gen 7
+ScizorEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, FEINT
 	; db 1, BULLET_PUNCH
+	; db 1, WING_ATTACK
+	; db 1, AGILITY
+	; db 1, AIR_SLASH
 	db 1, QUICK_ATTACK
 	db 1, LEER
-	db 5, FOCUS_ENERGY
-	db 9, PURSUIT
-	db 13, FALSE_SWIPE
-	db 17, AGILITY
-	db 21, METAL_CLAW
-	db 25, FURY_CUTTER
-	db 29, SLASH
-	db 33, RAZOR_WIND
-	; db 37, IRON_DEFENSE
-	; db 41, X_SCISSOR
-	; db 49, DOUBLE_HIT
-	; db 50, IRON_HEAD
-	db 57, SWORDS_DANCE
-	; db 61, FEINT
+	db 1, FURY_CUTTER
+	db 1, FALSE_SWIPE
+	; db LEVEL_EVO, BULLET_PUNCH
+	db 12, METAL_CLAW
+	db 16, DOUBLE_TEAM
+	; db 20, DOUBLE_HIT
+	db 24, SLASH
+	db 28, FOCUS_ENERGY
+	db 32, HARDEN ; FIXME: IRON_DEFENSE
+	db 36, STEEL_WING ; FIXME: IRON_HEAD
+	; db 40, X_SCISSOR
+	; db 44, LASER_FOCUS
+	db 48, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 ShuckleEvosAttacks: ; based on gen 7

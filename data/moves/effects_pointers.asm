@@ -40,7 +40,7 @@ MoveEffectsPointers:
 	dw TriAttack
 	dw NormalHit
 	dw OHKOHit
-	dw RazorWind
+	dw NormalHit
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget
