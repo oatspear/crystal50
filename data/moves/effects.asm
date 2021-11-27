@@ -354,6 +354,13 @@ EvasionUp2:
 	statupfailtext
 	endmove
 
+Growth:
+	checkobedience
+	usedmovetext
+	doturn
+	growth
+	endmove
+
 AttackDown:
 	checkobedience
 	usedmovetext

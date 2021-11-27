@@ -36,6 +36,7 @@
 - Electric-type Pokémon are immune to paralysis.
 - Ghost-type Pokémon are immune to arena trap effects.
 - Fire Spin is now able to defrost opponents.
+- Growth raises both Attack and Special Attack. Raises twice in sunlight.
 - Updated the learnsets of all Pokémon to resemble current generations.
 
 ### Fixed

@@ -4822,6 +4822,8 @@ BattleCommand_Curl:
 	set SUBSTATUS_CURLED, [hl]
 	ret
 
+INCLUDE "engine/battle/move_effects/growth.asm"
+
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
 	ldh a, [hBattleTurn]
