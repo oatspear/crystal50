@@ -361,6 +361,13 @@ Growth:
 	growth
 	endmove
 
+CalmMind:
+	checkobedience
+	usedmovetext
+	doturn
+	calmmind
+	endmove
+
 AttackDown:
 	checkobedience
 	usedmovetext

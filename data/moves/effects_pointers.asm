@@ -40,7 +40,7 @@ MoveEffectsPointers:
 	dw TriAttack
 	dw Growth
 	dw OHKOHit
-	dw NormalHit
+	dw CalmMind
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget

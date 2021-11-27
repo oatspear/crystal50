@@ -181,6 +181,7 @@ ENDM
 	command startloop               ; ae
 	command curl                    ; af
 	command growth                  ; b0
+	command calmmind                ; b1
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

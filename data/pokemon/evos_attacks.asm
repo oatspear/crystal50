@@ -1272,7 +1272,7 @@ KadabraEvosAttacks:
 	db 35, PSYCHIC_M
 	; db 40, ROLE_PLAY
 	db 45, FUTURE_SIGHT
-	; db 50, CALM_MIND
+	db 50, CALM_MIND
 	db 0 ; no more level-up moves
 
 AlakazamEvosAttacks:
@@ -1290,7 +1290,7 @@ AlakazamEvosAttacks:
 	db 35, PSYCHIC_M
 	; db 40, ROLE_PLAY
 	db 45, FUTURE_SIGHT
-	; db 50, CALM_MIND
+	db 50, CALM_MIND
 	db 0 ; no more level-up moves
 
 MachopEvosAttacks:
@@ -1921,9 +1921,9 @@ DrowzeeEvosAttacks:
 	db 9, CONFUSION
 	db 13, HEADBUTT
 	db 17, POISON_GAS
-	db 21, MEDITATE
+	db 21, CALM_MIND
 	db 25, PSYBEAM
-	; db 29, WAKE_UP_SLAP
+	db 29, MIND_READER
 	db 33, PSYCH_UP
 	; db 37, SYNCHRONOISE
 	db 41, ZEN_HEADBUTT
@@ -1948,9 +1948,9 @@ HypnoEvosAttacks:
 	; db 9, CONFUSION
 	db 13, HEADBUTT
 	db 17, POISON_GAS
-	db 21, MEDITATE
+	db 21, CALM_MIND
 	db 25, PSYBEAM
-	; db 29, WAKE_UP_SLAP
+	db 29, MIND_READER
 	db 33, PSYCH_UP
 	; db 37, SYNCHRONOISE
 	db 41, ZEN_HEADBUTT
@@ -4663,7 +4663,7 @@ StantlerEvosAttacks:
 	db 16, SAND_ATTACK
 	db 21, TAKE_DOWN
 	db 23, CONFUSE_RAY
-	; db 27, CALM_MIND
+	db 27, CALM_MIND
 	; db 33, ROLE_PLAY
 	db 38, ZEN_HEADBUTT
 	; db 43, LUNGE

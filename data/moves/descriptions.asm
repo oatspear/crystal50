@@ -96,7 +96,7 @@ MoveDescriptions::
 	dw ConfusionDescription
 	dw PsychicMDescription
 	dw HypnosisDescription
-	dw MeditateDescription
+	dw CalmMindDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
 	dw RageDescription
@@ -641,9 +641,9 @@ HypnosisDescription:
 	db   "May put the foe to"
 	next "sleep.@"
 
-MeditateDescription:
-	db   "Raises the user's"
-	next "ATTACK.@"
+CalmMindDescription:
+	db   "Raises SP. ATTACK"
+	next "and SP. DEFENSE.@"
 
 AgilityDescription:
 	db   "Sharply increases"
