@@ -159,7 +159,7 @@ MoveDescriptions::
 	dw RestDescription
 	dw RockSlideDescription
 	dw HyperFangDescription
-	dw SharpenDescription
+	dw NastyPlotDescription
 	dw ConversionDescription
 	dw TriAttackDescription
 	dw SuperFangDescription
@@ -882,9 +882,9 @@ HyperFangDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
 
-SharpenDescription:
-	db   "A move that raises"
-	next "the user's ATTACK.@"
+NastyPlotDescription:
+	db   "Sharply raises"
+	next "SP. ATTACK.@"
 
 ConversionDescription:
 	db   "Change user's type"

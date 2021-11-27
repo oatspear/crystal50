@@ -1038,7 +1038,7 @@ MeowthEvosAttacks:
 	db 29, FURY_SWIPES
 	db 32, SCREECH
 	db 36, SLASH
-	; db 40, NASTY_PLOT
+	db 40, NASTY_PLOT
 	db 44, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
@@ -1058,7 +1058,7 @@ PersianEvosAttacks:
 	db 31, FURY_SWIPES
 	db 36, SCREECH
 	db 42, SLASH
-	; db 48, NASTY_PLOT
+	db 48, NASTY_PLOT
 	db 54, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
@@ -1929,7 +1929,7 @@ DrowzeeEvosAttacks:
 	db 41, ZEN_HEADBUTT
 	db 45, SWAGGER
 	db 49, PSYCHIC_M
-	; db 53, NASTY_PLOT
+	db 53, NASTY_PLOT
 	; db 57, PSYSHOCK
 	db 61, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1956,7 +1956,7 @@ HypnoEvosAttacks:
 	db 41, ZEN_HEADBUTT
 	db 45, SWAGGER
 	db 49, PSYCHIC_M
-	; db 53, NASTY_PLOT
+	db 53, NASTY_PLOT
 	; db 57, PSYSHOCK
 	db 61, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -2751,7 +2751,7 @@ PorygonEvosAttacks: ; based on gen 7
 	db 1, CONVERSION2
 	db 1, TACKLE
 	db 1, CONVERSION
-	db 1, SHARPEN
+	; db 1, SHARPEN
 	db 7, PSYBEAM
 	db 12, AGILITY
 	db 18, RECOVER
@@ -3470,7 +3470,7 @@ PichuEvosAttacks:
 	db 4, GROWL ; FIXME: PLAY_NICE
 	db 8, SWEET_KISS
 	db 12, THUNDER_WAVE ; FIXME: NUZZLE
-	; db 16, NASTY_PLOT
+	db 16, NASTY_PLOT
 	db 20, CHARM
 	db 0 ; no more level-up moves
 
@@ -3805,6 +3805,10 @@ AipomEvosAttacks:
 	db 22, SWIFT
 	db 25, SCREECH
 	db 29, AGILITY
+	; db 32, DOUBLE_HIT
+	; db 36, FLING
+	db 39, NASTY_PLOT
+	; db 43, LAST_RESORT
 	db 0 ; no more level-up moves
 
 SunkernEvosAttacks:
@@ -4030,7 +4034,7 @@ GirafarigEvosAttacks:
 	db 32, ZEN_HEADBUTT
 	db 37, CRUNCH
 	db 41, BATON_PASS
-	; db 46, NASTY_PLOT
+	db 46, NASTY_PLOT
 	db 50, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -4540,35 +4544,38 @@ HoundourEvosAttacks:
 	db 8, SMOG
 	db 13, ROAR
 	db 16, BITE
-	db 20, FORESIGHT ; FIXME: ODOR_SLEUTH (variation)
+	; db 20, TAUNT
 	db 25, BEAT_UP
 	db 28, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 32, FEINT_ATTACK
-	; db 37, EMBARGO
+	db 32, FEINT_ATTACK ; FIXME: PAYBACK
+	; db 37, FLAME_CHARGE
 	; db 40, FOUL_PLAY
 	db 44, FLAMETHROWER
 	db 49, CRUNCH
-	; db 52, NASTY_PLOT
+	db 52, NASTY_PLOT
 	; db 56, INFERNO
 	db 0 ; no more level-up moves
 
 HoundoomEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, INFERNO
+	; db 1, NASTY_PLOT
+	; db 1, THUNDER_FANG
 	db 1, LEER
 	db 1, EMBER
 	; db 4, HOWL
 	db 8, SMOG
 	db 13, ROAR
 	db 16, BITE
-	db 20, FORESIGHT ; FIXME: ODOR_SLEUTH (variation)
+	; db 20, TAUNT
 	db 26, BEAT_UP
 	db 30, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 35, FEINT_ATTACK
-	; db 41, EMBARGO
+	db 35, FEINT_ATTACK ; FIXME: PAYBACK
+	; db 41, FLAME_CHARGE
 	; db 45, FOUL_PLAY
 	db 50, FLAMETHROWER
 	db 56, CRUNCH
-	; db 60, NASTY_PLOT
+	db 60, NASTY_PLOT
 	; db 65, INFERNO
 	db 0 ; no more level-up moves
 

@@ -158,7 +158,7 @@ MoveNames::
 	li "REST"
 	li "ROCK SLIDE"
 	li "HYPER FANG"
-	li "SHARPEN"
+	li "NASTY PLOT"
 	li "CONVERSION"
 	li "TRI ATTACK"
 	li "SUPER FANG"
