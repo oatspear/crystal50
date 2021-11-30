@@ -1656,27 +1656,6 @@ BatonPass:
 	batonpass
 	endmove
 
-Pursuit:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	pursuit
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 RapidSpin:
 	checkobedience
 	usedmovetext

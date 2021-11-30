@@ -40,7 +40,6 @@ SquirtleEggMoves:
 	db -1 ; end
 
 PidgeyEggMoves:
-	db PURSUIT
 	db FORESIGHT
 	db AIR_SLASH
 	db -1 ; end
@@ -62,7 +61,7 @@ SpearowEggMoves:
 	db -1 ; end
 
 EkansEggMoves:
-	db PURSUIT
+	db DARK_PULSE
 	db SLAM
 	db SPITE
 	db BEAT_UP
@@ -108,7 +107,6 @@ VulpixEggMoves:
 
 ZubatEggMoves:
 	db QUICK_ATTACK
-	db PURSUIT
 	db GUST
 	db WHIRLWIND
 	db -1 ; end
@@ -127,7 +125,6 @@ ParasEggMoves:
 	db PSYBEAM
 	db FLAIL
 	db LIGHT_SCREEN
-	db PURSUIT
 	db -1 ; end
 
 VenonatEggMoves:
@@ -139,7 +136,6 @@ VenonatEggMoves:
 DiglettEggMoves:
 	db SCREECH
 	db ANCIENTPOWER
-	db PURSUIT
 	db BEAT_UP
 	db -1 ; end
 
@@ -327,7 +323,6 @@ RhyhornEggMoves:
 	db REVERSAL
 	db ROCK_SLIDE
 	db THRASH
-	db PURSUIT
 	db COUNTER
 	db -1 ; end
 
@@ -416,7 +411,6 @@ KabutoEggMoves:
 
 AerodactylEggMoves:
 	db WHIRLWIND
-	db PURSUIT
 	db FORESIGHT
 	db -1 ; end
 
@@ -460,7 +454,6 @@ TotodileEggMoves:
 
 SentretEggMoves:
 	db DOUBLE_EDGE
-	db PURSUIT
 	db SLASH
 	db FOCUS_ENERGY
 	db REVERSAL
@@ -485,7 +478,6 @@ SpinarakEggMoves:
 	db DISABLE
 	db SONICBOOM
 	db BATON_PASS
-	db PURSUIT
 	db -1 ; end
 
 ChinchouEggMoves:
@@ -570,7 +562,6 @@ HoppipEggMoves:
 AipomEggMoves:
 	db COUNTER
 	db SCREECH
-	db PURSUIT
 	db AGILITY
 	db SPITE
 	db SLAM
@@ -724,7 +715,6 @@ MantineEggMoves:
 
 SkarmoryEggMoves:
 	db DRILL_PECK
-	db PURSUIT
 	db WHIRLWIND
 	db SKY_ATTACK
 	db -1 ; end
@@ -732,7 +722,6 @@ SkarmoryEggMoves:
 HoundourEggMoves:
 	db FIRE_SPIN
 	db RAGE
-	db PURSUIT
 	db COUNTER
 	db SPITE
 	db REVERSAL
@@ -786,7 +775,6 @@ MiltankEggMoves:
 	db -1 ; end
 
 LarvitarEggMoves:
-	db PURSUIT
 	db STOMP
 	db OUTRAGE
 	db FOCUS_ENERGY

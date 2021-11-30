@@ -227,7 +227,7 @@ MoveNames::
 	li "DRAGONBREATH"
 	li "BATON PASS"
 	li "ENCORE"
-	li "PURSUIT"
+	li "DARK PULSE"
 	li "RAPID SPIN"
 	li "SWEET SCENT"
 	li "IRON TAIL"

@@ -108,7 +108,7 @@ ENDM
 	command checksafeguard          ; 65
 	command effect0x66              ; 66
 	command batonpass               ; 67
-	command pursuit                 ; 68
+	command effect0x68              ; 68
 	command clearhazards            ; 69
 	command healmorn                ; 6a
 	command healday                 ; 6b

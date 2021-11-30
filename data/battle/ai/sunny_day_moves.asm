@@ -12,4 +12,5 @@ SunnyDayMoves:
 	db MORNING_SUN
 	db SYNTHESIS
 	db MOONLIGHT
+	db GROWTH
 	db -1 ; end

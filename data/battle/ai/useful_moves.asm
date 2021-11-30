@@ -20,4 +20,7 @@ UsefulMoves:
 	db FIRE_BLAST
 	db SOFTBOILED
 	db SUPER_FANG
+	db DARK_PULSE
+	db EARTH_POWER
+	db POISON_JAB
 	db -1 ; end

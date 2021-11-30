@@ -108,7 +108,7 @@ BattleCommandPointers:
 	dw BattleCommand_CheckSafeguard
 	dw BattleCommand_Unused66
 	dw BattleCommand_BatonPass
-	dw BattleCommand_Pursuit
+	dw BattleCommand_DarkPulse
 	dw BattleCommand_ClearHazards
 	dw BattleCommand_HealMorn
 	dw BattleCommand_HealDay

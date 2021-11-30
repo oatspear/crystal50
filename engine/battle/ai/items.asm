@@ -680,9 +680,7 @@ AI_Switch:
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ldh [hBattleTurn], a
-	callfar PursuitSwitch
 
-	push af
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Status
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -692,13 +690,10 @@ AI_Switch:
 	ld hl, wEnemyMonStatus
 	ld bc, MON_MAXHP - MON_STATUS
 	call CopyBytes
-	pop af
 
-	jr c, .skiptext
 	ld hl, EnemyWithdrewText
 	call PrintText
 
-.skiptext
 	ld a, 1
 	ld [wBattleHasJustStarted], a
 	callfar NewEnemyMonStatus

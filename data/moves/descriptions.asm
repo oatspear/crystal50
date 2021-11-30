@@ -228,7 +228,7 @@ MoveDescriptions::
 	dw DragonbreathDescription
 	dw BatonPassDescription
 	dw EncoreDescription
-	dw PursuitDescription
+	dw DarkPulseDescription
 	dw RapidSpinDescription
 	dw SweetScentDescription
 	dw IronTailDescription
@@ -348,6 +348,7 @@ VineWhipDescription:
 	db   "Whips the foe with"
 	next "slender vines.@"
 
+DarkPulseDescription:
 AirSlashDescription:
 StompDescription:
 	db   "An attack that may"
@@ -1150,10 +1151,6 @@ BatonPassDescription:
 EncoreDescription:
 	db   "Makes the foe re-"
 	next "peat 2-6 times.@"
-
-PursuitDescription:
-	db   "Heavily strikes"
-	next "switching #MON.@"
 
 RapidSpinDescription:
 	db   "A high-speed"

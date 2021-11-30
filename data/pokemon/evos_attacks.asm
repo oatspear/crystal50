@@ -249,10 +249,14 @@ KakunaEvosAttacks:
 BeedrillEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FURY_ATTACK
+	; db 1, HARDEN
+	db 1, POISON_STING
+	db 1, STRING_SHOT
+	; db 1, BUG_BITE
 	db LEVEL_EVO, FURY_ATTACK
-	; db 11, FURY_ATTACK
-	db 14, RAGE
-	db 17, PURSUIT
+	db 11, FURY_CUTTER
+	; db 14, LASER_FOCUS
+	db 17, POISON_STING
 	db 20, FOCUS_ENERGY
 	; db 23, VENOSHOCK
 	; db 26, ASSURANCE
@@ -334,11 +338,11 @@ RattataEvosAttacks:
 	db 4, QUICK_ATTACK
 	db 7, FOCUS_ENERGY
 	db 10, BITE
-	db 13, PURSUIT
-	db 16, HYPER_FANG
+	; db 13, LASER_FOCUS
+	db 16, TAKE_DOWN
 	; db 19, ASSURANCE
 	db 22, CRUNCH
-	; db 25, SUCKER_PUNCH
+	db 25, SUCKER_PUNCH
 	db 28, SUPER_FANG
 	db 31, DOUBLE_EDGE
 	; db 34, ENDEAVOR
@@ -356,11 +360,11 @@ RaticateEvosAttacks:
 	; db 4, QUICK_ATTACK
 	; db 7, FOCUS_ENERGY
 	db 10, BITE
-	db 13, PURSUIT
-	db 16, HYPER_FANG
+	; db 13, LASER_FOCUS
+	db 16, TAKE_DOWN
 	; db 19, ASSURANCE
 	db 24, CRUNCH
-	; db 29, SUCKER_PUNCH
+	db 29, SUCKER_PUNCH
 	db 34, SUPER_FANG
 	db 39, DOUBLE_EDGE
 	; db 44, ENDEAVOR
@@ -372,11 +376,11 @@ SpearowEvosAttacks:
 	db 1, PECK
 	db 1, GROWL
 	db 4, LEER
-	db 8, PURSUIT
+	; db 8, ASSURANCE
 	db 11, FURY_ATTACK
-	db 15, WING_ATTACK ; FIXME: AERIAL_ACE
-	db 18, MIRROR_MOVE
-	; db 22, ASSURANCE
+	; db 15, AERIAL_ACE
+	db 18, WING_ATTACK
+	; db 22, TAKE_DOWN
 	db 25, AGILITY
 	db 29, FOCUS_ENERGY
 	db 32, RECOVER ; FIXME: ROOST
@@ -390,13 +394,12 @@ FearowEvosAttacks:
 	db 1, PECK
 	db 1, GROWL
 	db 1, LEER
-	db 1, PURSUIT
 	; db 4, LEER
-	; db 8, PURSUIT
+	; db 8, ASSURANCE
 	db 11, FURY_ATTACK
 	; db 15, AERIAL_ACE
-	db 18, MIRROR_MOVE
-	; db 23, ASSURANCE
+	db 18, WING_ATTACK
+	; db 23, TAKE_DOWN
 	db 27, AGILITY
 	db 32, FOCUS_ENERGY
 	db 36, RECOVER ; FIXME: ROOST
@@ -994,7 +997,7 @@ DiglettEvosAttacks:
 	; db 8, ASTONISH
 	db 12, MUD_SLAP
 	db 16, BULLDOZE
-	; db 20, SUCKER_PUNCH
+	db 20, SUCKER_PUNCH
 	db 24, SLASH
 	db 28, SANDSTORM
 	db 32, DIG
@@ -1015,7 +1018,7 @@ DugtrioEvosAttacks:
 	db LEVEL_EVO, TRI_ATTACK ; FIXME: SAND_TOMB
 	db 12, MUD_SLAP
 	db 16, BULLDOZE
-	; db 20, SUCKER_PUNCH
+	db 20, SUCKER_PUNCH
 	db 24, SLASH
 	db 30, SANDSTORM
 	db 36, DIG
@@ -1111,13 +1114,13 @@ MankeyEvosAttacks:
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	db 5, FURY_SWIPES
-	db 8, KARATE_CHOP
-	db 12, PURSUIT
-	db 15, SEISMIC_TOSS
+	db 8, MUD_SLAP
+	db 12, SEISMIC_TOSS
+	; db 15, RETALIATE
 	db 19, SWAGGER
 	db 22, CROSS_CHOP
 	; db 26, ASSURANCE
-	; db 29, PUNISHMENT
+	db 29, SKULL_BASH
 	db 33, THRASH
 	; db 36, CLOSE_COMBAT
 	db 40, SCREECH
@@ -1128,22 +1131,21 @@ MankeyEvosAttacks:
 
 PrimeapeEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, RAGE
 	; db 1, FINAL_GAMBIT
 	; db 1, FLING
 	; db 1, SCRATCH
 	db 1, LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
-	db LEVEL_EVO, RAGE
+	; db 1, COVET
 	db 5, FURY_SWIPES
-	db 8, KARATE_CHOP
-	db 12, PURSUIT
-	db 15, SEISMIC_TOSS
+	db 8, MUD_SLAP
+	db 12, SEISMIC_TOSS
+	; db 15, RETALIATE
 	db 19, SWAGGER
 	db 22, CROSS_CHOP
 	; db 26, ASSURANCE
-	; db 30, PUNISHMENT
+	db 30, SKULL_BASH
 	db 35, THRASH
 	; db 39, CLOSE_COMBAT
 	db 44, SCREECH
@@ -1663,16 +1665,16 @@ DoduoEvosAttacks:
 	db 1, PECK
 	db 1, GROWL
 	db 5, QUICK_ATTACK
-	db 8, RAGE
+	db 8, LEER
 	db 12, FURY_ATTACK
-	db 15, PURSUIT
+	db 15, WING_ATTACK
 	; db 19, PLUCK
 	; db 22, DOUBLE_HIT
 	db 26, AGILITY
 	; db 29, UPROAR
 	; db 33, ACUPRESSURE
 	db 36, SWORDS_DANCE
-	db 40, JUMP_KICK
+	; db 40, LUNGE
 	db 43, DRILL_PECK
 	; db 47, ENDEAVOR
 	db 50, THRASH
@@ -1681,22 +1683,21 @@ DoduoEvosAttacks:
 DodrioEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, TRI_ATTACK
-	; db 1, PECK
+	db 1, PECK
 	db 1, GROWL
 	db 1, QUICK_ATTACK
-	db 1, RAGE
 	db LEVEL_EVO, TRI_ATTACK
 	; db 5, QUICK_ATTACK
-	; db 8, RAGE
+	db 8, LEER
 	db 12, FURY_ATTACK
-	db 15, PURSUIT
-	db 19, PECK ; FIXME: PLUCK
+	db 15, WING_ATTACK
+	; db 19, PLUCK
 	; db 22, DOUBLE_HIT
 	db 26, AGILITY
 	; db 29, UPROAR
 	; db 34, ACUPRESSURE
 	db 38, SWORDS_DANCE
-	db 43, JUMP_KICK
+	; db 43, LUNGE
 	db 47, DRILL_PECK
 	; db 52, ENDEAVOR
 	db 56, THRASH
@@ -1840,8 +1841,8 @@ GastlyEvosAttacks:
 	db 20, CURSE
 	; db 24, HEX
 	db 28, NIGHT_SHADE
-	; db 32, SUCKER_PUNCH
-	; db 36, DARK_PULSE
+	db 32, SUCKER_PUNCH
+	db 36, DARK_PULSE
 	db 40, SHADOW_BALL
 	db 44, DESTINY_BOND
 	db 48, DREAM_EATER
@@ -1861,8 +1862,8 @@ HaunterEvosAttacks:
 	db 20, CURSE
 	; db 24, HEX
 	db 30, NIGHT_SHADE
-	; db 36, SUCKER_PUNCH
-	; db 42, DARK_PULSE
+	db 36, SUCKER_PUNCH
+	db 42, DARK_PULSE
 	db 48, SHADOW_BALL
 	db 54, DESTINY_BOND
 	db 60, DREAM_EATER
@@ -1882,8 +1883,8 @@ GengarEvosAttacks:
 	db 20, CURSE
 	; db 24, HEX
 	db 30, NIGHT_SHADE
-	; db 36, SUCKER_PUNCH
-	; db 42, DARK_PULSE
+	db 36, SUCKER_PUNCH
+	db 42, DARK_PULSE
 	db 48, SHADOW_BALL
 	db 54, DESTINY_BOND
 	db 60, DREAM_EATER
@@ -2326,7 +2327,7 @@ KangaskhanEvosAttacks:
 	db 16, STOMP
 	db 20, FOCUS_ENERGY
 	db 24, HEADBUTT
-	; db 28, SUCKER_PUNCH
+	db 28, SUCKER_PUNCH
 	; db 32, DOUBLE_HIT
 	db 36, CRUNCH
 	db 40, ENDURE
@@ -2464,7 +2465,7 @@ MrMimeEvosAttacks:
 	db 36, LIGHT_SCREEN
 	db 36, REFLECT
 	db 36, SAFEGUARD
-	; db 40, SUCKER_PUNCH
+	db 40, SUCKER_PUNCH
 	db 44, DAZZLING_GLEAM
 	db 48, PSYCHIC_M
 	; db 52, TEETER_DANCE
@@ -3239,7 +3240,7 @@ SentretEvosAttacks:
 	; db 19, FOLLOW_ME
 	db 25, SLAM
 	db 28, REST
-	; db 31, SUCKER_PUNCH
+	db 31, SUCKER_PUNCH
 	db 36, AMNESIA
 	db 39, BATON_PASS
 	; db 42, ME_FIRST
@@ -3262,7 +3263,7 @@ FurretEvosAttacks:
 	; db 21, FOLLOW_ME
 	db 28, SLAM
 	db 32, REST
-	; db 36, SUCKER_PUNCH
+	db 36, SUCKER_PUNCH
 	db 42, AMNESIA
 	db 46, BATON_PASS
 	; db 50, ME_FIRST
@@ -3359,7 +3360,7 @@ SpinarakEvosAttacks:
 	db 15, NIGHT_SHADE
 	; db 19, SHADOW_SNEAK
 	db 22, FURY_SWIPES
-	; db 26, SUCKER_PUNCH
+	db 26, SUCKER_PUNCH
 	db 29, LEECH_LIFE
 	db 33, AGILITY
 	db 36, PIN_MISSILE
@@ -3386,7 +3387,7 @@ AriadosEvosAttacks:
 	db 15, NIGHT_SHADE
 	; db 19, SHADOW_SNEAK
 	db 23, FURY_SWIPES
-	; db 28, SUCKER_PUNCH
+	db 28, SUCKER_PUNCH
 	db 32, LEECH_LIFE
 	db 37, AGILITY
 	db 41, PIN_MISSILE
@@ -3854,14 +3855,14 @@ SunfloraEvosAttacks:
 YanmaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, FORESIGHT
+	db 1, GUST
 	db 6, QUICK_ATTACK
 	db 11, DOUBLE_TEAM
-	db 14, SONICBOOM
+	; db 14, AERIAL_ACE
 	db 17, DETECT
 	db 22, SUPERSONIC
 	; db 27, UPROAR
-	db 30, PURSUIT
+	db 30, STRING_SHOT
 	db 33, ANCIENTPOWER
 	db 38, HYPNOSIS
 	db 43, WING_ATTACK
@@ -3929,7 +3930,7 @@ UmbreonEvosAttacks: ; based on gen 7
 	; db 1, HELPING_HAND
 	db 1, TACKLE
 	db 1, TAIL_WHIP
-	db LEVEL_EVO, PURSUIT
+	db LEVEL_EVO, BITE
 	db 5, SAND_ATTACK
 	db 9, GROWL ; FIXME: BABY_DOLL_EYES
 	db 13, QUICK_ATTACK
@@ -4077,30 +4078,24 @@ ForretressEvosAttacks:
 	; db 64, HEAVY_SLAM
 	db 0 ; no more level-up moves
 
-DunsparceEvosAttacks: ; based on gen 7
+DunsparceEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, RAGE
+	db 1, FLAIL
 	db 1, DEFENSE_CURL
-	db 3, ROLLOUT
-	db 6, SPITE
-	db 8, PURSUIT
-	db 11, SCREECH
-	db 13, MUD_SLAP
-	; db 16, YAWN
-	db 18, ANCIENTPOWER
-	db 21, BODY_SLAM
-	db 23, BULLDOZE ; FIXME: DRILL_RUN
-	db 26, RECOVER ; FIXME: ROOST
-	db 28, TAKE_DOWN
-	; db 31, COIL
-	db 33, DIG
-	db 36, GLARE
-	db 38, DOUBLE_EDGE
-	; db 41, ENDEAVOR
-	db 43, AIR_SLASH
-	; db 46, DRAGON_RUSH
-	db 48, ENDURE
-	db 51, FLAIL
+	db 4, MUD_SLAP
+	db 8, ROLLOUT
+	db 12, GLARE
+	db 16, SCREECH
+	db 20, ANCIENTPOWER
+	db 24, BULLDOZE ; FIXME: DRILL_RUN
+	; db 28, YAWN
+	db 32, BODY_SLAM
+	db 36, TAKE_DOWN
+	db 40, RECOVER ; FIXME: ROOST
+	; db 44, DRAGON_RUSH
+	; db 48, COIL
+	db 52, DOUBLE_EDGE
+	; db 56, ENDEAVOR
 	db 0 ; no more level-up moves
 
 GligarEvosAttacks:
@@ -4705,18 +4700,17 @@ HitmontopEvosAttacks:
 	; db 1, FEINT
 	; db 1, HELPING_HAND
 	; db 1, FAKE_OUT
-	db 1, TRIPLE_KICK
 	db 1, RAPID_SPIN
 	db 1, TACKLE
 	db 1, FOCUS_ENERGY
+	db LEVEL_EVO, TRIPLE_KICK
 	db 4, QUICK_ATTACK
 	; db 8, GYRO_BALL
 	db 12, DETECT
-	db 16, PURSUIT ; FIXME: REVENGE
-	db 20, TRIPLE_KICK ; FIXME: EVO
+	db 16, ROCK_SMASH ; FIXME: REVENGE
 	; db 21, WIDE_GUARD
 	; db 21, QUICK_GUARD
-	db 24, RAPID_SPIN ; FIXME: SUCKER_PUNCH
+	db 24, SUCKER_PUNCH
 	db 28, AGILITY
 	db 32, DIG
 	; db 36, CLOSE_COMBAT
@@ -4865,7 +4859,7 @@ LarvitarEvosAttacks:
 	db 12, SCARY_FACE
 	db 18, BULLDOZE ; FIXME: STOMPING_TANTRUM
 	db 21, SCREECH
-	; db 24, DARK_PULSE
+	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 31, EARTHQUAKE
 	db 33, ROCK_SLIDE ; FIXME: STONE_EDGE
@@ -4888,7 +4882,7 @@ PupitarEvosAttacks:
 	; db 15, ROCK_SLIDE
 	db 18, BULLDOZE ; FIXME: STOMPING_TANTRUM
 	db 21, SCREECH
-	; db 24, DARK_PULSE
+	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 33, EARTHQUAKE
 	db 37, ROCK_SLIDE ; FIXME: STONE_EDGE
@@ -4912,7 +4906,7 @@ TyranitarEvosAttacks:
 	db 15, ROCK_SLIDE
 	db 18, BULLDOZE ; FIXME: STOMPING_TANTRUM
 	db 21, SCREECH
-	; db 24, DARK_PULSE
+	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 33, EARTHQUAKE
 	; db 37, STONE_EDGE

@@ -367,7 +367,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
 	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
-	dbw EFFECT_PURSUIT,          AI_Smart_Pursuit
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_MORNING_SUN,      AI_Smart_MorningSun
 	dbw EFFECT_SYNTHESIS,        AI_Smart_Synthesis
@@ -388,6 +387,9 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_HAIL,             AI_Smart_Hail
+	dbw EFFECT_GROWTH,           AI_Smart_Growth
+	dbw EFFECT_CALM_MIND,        AI_Smart_CalmMind
+	dbw EFFECT_DRAGON_DANCE,     AI_Smart_DragonDance
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -1101,6 +1103,93 @@ AI_Smart_Confuse:
 ; Discourage again if player's HP is below 25%.
 	call AICheckPlayerQuarterHP
 	ret c
+	inc [hl]
+	ret
+
+AI_Smart_Growth:
+; Discourage this move if enemy's HP is lower than 50%.
+	call AICheckEnemyHalfHP
+	jr nc, .discourage
+
+; Discourage this move if enemy's (special) attack level is higher than +3.
+	ld a, [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+	ld a, [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+
+; 80% chance to encourage this move when it's sunny.
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr nz, .discourage
+
+; .encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
+	ret
+
+.discourage
+	inc [hl]
+	ret
+
+AI_Smart_CalmMind:
+; Discourage this move if enemy's HP is lower than 50%.
+	call AICheckEnemyHalfHP
+	jr nc, .discourage
+
+; Discourage this move if enemy's special stats level is higher than +3.
+	ld a, [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+	ld a, [wEnemySDefLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+
+; 80% chance to greatly encourage this move if
+; enemy's Special stats level is lower than +2.
+	cp BASE_STAT_LEVEL + 2
+	ret nc
+
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
+	ret
+
+.discourage
+	inc [hl]
+	ret
+
+AI_Smart_DragonDance:
+; Discourage this move if enemy's HP is lower than 50%.
+	call AICheckEnemyHalfHP
+	jr nc, .discourage
+
+; Discourage this move if enemy's attack or speed level is higher than +3.
+	ld a, [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+	ld a, [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL + 4
+	jr nc, .discourage
+
+; 80% chance to greatly encourage this move if
+; enemy's Attack level is lower than +2.
+	cp BASE_STAT_LEVEL + 2
+	ret nc
+
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
+	ret
+
+.discourage
 	inc [hl]
 	ret
 
@@ -2310,24 +2399,6 @@ AI_Smart_BatonPass:
 	pop hl
 	ret c
 	inc [hl]
-	ret
-
-AI_Smart_Pursuit:
-; 50% chance to greatly encourage this move if player's HP is below 25%.
-; 80% chance to discourage this move otherwise.
-
-	call AICheckPlayerQuarterHP
-	jr nc, .encourage
-	call AI_80_20
-	ret c
-	inc [hl]
-	ret
-
-.encourage
-	call AI_50_50
-	ret c
-	dec [hl]
-	dec [hl]
 	ret
 
 AI_Smart_RapidSpin:

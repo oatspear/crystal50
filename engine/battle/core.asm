@@ -4268,87 +4268,6 @@ SpikesDamage:
 .hl
 	jp hl
 
-PursuitSwitch:
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
-	ld b, a
-	call GetMoveEffect
-	ld a, b
-	cp EFFECT_PURSUIT
-	jr nz, .done
-
-	ld a, [wCurBattleMon]
-	push af
-
-	ld hl, DoPlayerTurn
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .do_turn
-	ld hl, DoEnemyTurn
-	ld a, [wLastPlayerMon]
-	ld [wCurBattleMon], a
-.do_turn
-	ld a, BANK(DoPlayerTurn) ; aka BANK(DoEnemyTurn)
-	rst FarCall
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
-	ld a, $ff
-	ld [hl], a
-
-	pop af
-	ld [wCurBattleMon], a
-
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .check_enemy_fainted
-
-	ld a, [wLastPlayerMon]
-	call UpdateBattleMon
-	ld hl, wBattleMonHP
-	ld a, [hli]
-	or [hl]
-	jr nz, .done
-
-	ld a, $f0
-	ld [wCryTracks], a
-	ld a, [wBattleMonSpecies]
-	call PlayStereoCry
-	ld a, [wCurBattleMon]
-	push af
-	ld a, [wLastPlayerMon]
-	ld [wCurBattleMon], a
-	call UpdateFaintedPlayerMon
-	pop af
-	ld [wCurBattleMon], a
-	call PlayerMonFaintedAnimation
-	ld hl, BattleText_MonFainted
-	jr .done_fainted
-
-.check_enemy_fainted
-	ld hl, wEnemyMonHP
-	ld a, [hli]
-	or [hl]
-	jr nz, .done
-
-	ld de, SFX_KINESIS
-	call PlaySFX
-	call WaitSFX
-	ld de, SFX_FAINT
-	call PlaySFX
-	call WaitSFX
-	call EnemyMonFaintedAnimation
-	ld hl, BattleText_EnemyMonFainted
-
-.done_fainted
-	call StdBattleTextbox
-	scf
-	ret
-
-.done
-	and a
-	ret
-
 RecallPlayerMon:
 	ldh a, [hBattleTurn]
 	push af
@@ -5369,10 +5288,7 @@ BattleMonEntrance:
 	res SUBSTATUS_RAGE, [hl]
 
 	call SetEnemyTurn
-	call PursuitSwitch
-	jr c, .ok
 	call RecallPlayerMon
-.ok
 
 	hlcoord 9, 7
 	lb bc, 5, 11

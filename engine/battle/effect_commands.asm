@@ -6547,8 +6547,6 @@ BattleCommand_CheckSafeguard:
 
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 
-INCLUDE "engine/battle/move_effects/pursuit.asm"
-
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
 BattleCommand_HealMorn:
