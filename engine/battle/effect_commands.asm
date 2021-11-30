@@ -3485,6 +3485,9 @@ DoEnemyDamage:
 	jp nz, DoSubstituteDamage
 
 .ignore_substitute
+	ld a, [wTurnBasedFlags]
+	or THIS_TURN_ENEMY_TOOK_DAMAGE
+	ld [wTurnBasedFlags], a
 	; Subtract wCurDamage from wEnemyMonHP.
 	;  store original HP in little endian wHPBuffer2
 	ld a, [hld]
@@ -3562,6 +3565,9 @@ DoPlayerDamage:
 	jp nz, DoSubstituteDamage
 
 .ignore_substitute
+	ld a, [wTurnBasedFlags]
+	or THIS_TURN_PLAYER_TOOK_DAMAGE
+	ld [wTurnBasedFlags], a
 	; Subtract wCurDamage from wBattleMonHP.
 	;  store original HP in little endian wHPBuffer2
 	;  store new HP in little endian wHPBuffer3

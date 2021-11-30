@@ -485,7 +485,7 @@ wPlayerTurnsTaken:: db
 wPlayerSubstituteHP:: db
 wEnemySubstituteHP::  db
 
-wUnusedPlayerLockedMove:: db
+wTurnBasedFlags:: db
 	ds 1
 
 wCurPlayerMove:: db

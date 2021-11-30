@@ -175,6 +175,7 @@ BattleTurn:
 	ld [wEnemyJustGotFrozen], a
 	ld [wCurDamage], a
 	ld [wCurDamage + 1], a
+	ld [wTurnBasedFlags], a
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
@@ -1892,9 +1893,13 @@ SubtractHP:
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
+	ld a, THIS_TURN_PLAYER_TOOK_DAMAGE
 	jr z, .ok
 	ld hl, wEnemyMonHP
+	ld a, THIS_TURN_ENEMY_TOOK_DAMAGE
 .ok
+	or [wTurnBasedFlags]
+	ld [wTurnBasedFlags], a
 	inc hl
 	ld a, [hl]
 	ld [wHPBuffer2], a
@@ -5534,17 +5539,12 @@ MoveSelectionScreen:
 	dec a
 	cp c
 	jr z, .move_disabled
-	ld a, [wUnusedPlayerLockedMove]
-	and a
-	jr nz, .skip2
 	ld a, [wMenuCursorY]
 	ld hl, wBattleMonMoves
 	ld c, a
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-
-.skip2
 	ld [wCurPlayerMove], a
 	xor a
 	ret
