@@ -186,7 +186,7 @@ BattleAnimations::
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
 	dw BattleAnim_ScaryFace
-	dw BattleAnim_FeintAttack
+	dw BattleAnim_SuckerPunch
 	dw BattleAnim_SweetKiss
 	dw BattleAnim_BellyDrum
 	dw BattleAnim_SludgeBomb
@@ -3321,6 +3321,7 @@ BattleAnim_Protect:
 	anim_wait 96
 	anim_ret
 
+BattleAnim_SuckerPunch:
 BattleAnim_MachPunch:
 	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_HIT
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
@@ -3347,26 +3348,6 @@ BattleAnim_ScaryFace:
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_call BattleAnimSub_EyeBeams
 	anim_wait 64
-	anim_ret
-
-BattleAnim_FeintAttack:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 0, SFX_CURSE
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_FADE_MON_TO_WHITE_WAIT_FADE_BACK, $0, BG_EFFECT_USER, $80
-	anim_wait 96
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT, 120, 32, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT, 152, 40, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT, 136, 48, $0
-	anim_wait 32
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_WHITE_WAIT_FADE_BACK
-	anim_call BattleAnim_ShowMon_0
-	anim_wait 4
 	anim_ret
 
 BattleAnim_SweetKiss:

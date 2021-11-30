@@ -1587,6 +1587,9 @@ BattleCommand_CheckHit:
 	call .BlizzardHail
 	ret z
 
+	call .SuckerPunch
+	jp z, .Miss
+
 	call .XAccuracy
 	ret nz
 
@@ -1660,6 +1663,26 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVar
 	and SLP
+	ret
+
+.SuckerPunch:
+; Return z if the opponent did not select a damaging move,
+; or if we are not attacking first.
+	call CheckOpponentWentFirst
+	ret z
+	ld hl, wCurEnemyMove
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_opponent_move
+	ld hl, wCurPlayerMove
+.got_opponent_move
+	ld a, [hl]
+	dec a
+	ld de, wStringBuffer1
+	call GetMoveData
+	ld a, [wStringBuffer1 + MOVE_TYPE]
+	and STATUS
+	cp STATUS
 	ret
 
 .Protect:

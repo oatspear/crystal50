@@ -190,7 +190,7 @@
 	const PROTECT      ; b6
 	const MACH_PUNCH   ; b7
 	const SCARY_FACE   ; b8
-	const FEINT_ATTACK ; b9
+	const SUCKER_PUNCH ; b9
 	const SWEET_KISS   ; ba
 	const BELLY_DRUM   ; bb
 	const SLUDGE_BOMB  ; bc

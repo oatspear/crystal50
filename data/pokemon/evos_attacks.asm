@@ -3689,28 +3689,25 @@ AzumarillEvosAttacks:
 
 SudowoodoEvosAttacks: ; based on gen 7
 	db 0 ; no more evolutions
-	; db 1, WOOD_HAMMER
-	; db 1, COPYCAT
 	db 1, SLAM
+	; db 1, STONE_EDGE
+	; db 1, HAMMER_ARM
+	; db 1, WOOD_HAMMER
+	; db 1, FAKE_TEARS
+	; db 1, COPYCAT
 	db 1, FLAIL
-	db 1, LOW_KICK
 	db 1, ROCK_THROW
 	; db EVO, SLAM
-	; db 5, FLAIL
-	; db 8, LOW_KICK
-	; db 12, ROCK_THROW
-	db 15, MIMIC
-	db 19, FEINT_ATTACK
-	; db 22, TEARFUL_LOOK
-	; db 26, ROCK_TOMB
-	; db 29, BLOCK
-	db 33, ROCK_SLIDE
-	db 36, COUNTER
-	; db 40, SUCKER_PUNCH
-	db 43, DOUBLE_EDGE
-	; db 47, STONE_EDGE
-	; db 50, HAMMER_ARM
-	; db 54, HEAD_SMASH
+	db 12, MEAN_LOOK ; FIXME: BLOCK
+	db 16, MIMIC
+	; db 20, ROCK_TOMB
+	; db 24, TEARFUL_LOOK
+	db 28, SUCKER_PUNCH
+	db 32, ROCK_SLIDE
+	db 36, LOW_KICK
+	db 40, COUNTER
+	db 44, DOUBLE_EDGE
+	; db 48, HEAD_SMASH
 	db 0 ; no more level-up moves
 
 PolitoedEvosAttacks:
@@ -3937,7 +3934,7 @@ UmbreonEvosAttacks: ; based on gen 7
 	db 9, GROWL ; FIXME: BABY_DOLL_EYES
 	db 13, QUICK_ATTACK
 	db 17, CONFUSE_RAY
-	db 20, FEINT_ATTACK
+	db 20, BITE
 	; db 25, ASSURANCE
 	db 29, SCREECH
 	db 33, MOONLIGHT
@@ -3950,17 +3947,17 @@ MurkrowEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	; db 1, ASTONISH
-	db 5, PURSUIT
+	db 5, GUST
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
 	; db 25, ASSURANCE
 	; db 31, TAUNT
-	db 35, FEINT_ATTACK
+	; db 35, AIR_CUTTER
 	db 41, MEAN_LOOK
 	; db 45, FOUL_PLAY
 	; db 50, TAILWIND
-	; db 55, SUCKER_PUNCH
+	db 55, SUCKER_PUNCH
 	; db 61, TORMENT
 	; db 65, QUASH
 	db 0 ; no more level-up moves
@@ -4114,13 +4111,13 @@ GligarEvosAttacks:
 	; db 10, KNOCK_OFF
 	db 13, QUICK_ATTACK
 	db 16, FURY_CUTTER
-	db 19, FEINT_ATTACK
+	db 19, MUD_SLAP
 	; db 22, ACROBATICS
 	db 27, SLASH
 	; db 30, U_TURN
 	db 35, SCREECH
 	; db 40, X_SCISSOR
-	; db 45, SKY_UPPERCUT
+	db 45, EARTHQUAKE
 	db 50, SWORDS_DANCE
 	db 55, GUILLOTINE
 	db 0 ; no more level-up moves
@@ -4287,24 +4284,20 @@ HeracrossEvosAttacks: ; based on gen 7
 	db 46, REVERSAL
 	db 0 ; no more level-up moves
 
-SneaselEvosAttacks: ; based on gen 7
+SneaselEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	; db 1, TAUNT
-	db 8, QUICK_ATTACK
-	db 10, FEINT_ATTACK
-	db 14, ICY_WIND
-	db 16, FURY_SWIPES
-	db 20, AGILITY
-	db 22, METAL_CLAW
-	; db 25, HONE_CLAWS
-	db 28, BEAT_UP
-	db 32, SCREECH
-	db 35, SLASH
-	; db 40, SNATCH
-	; db 44, PUNISHMENT
-	; db 47, ICE_SHARD
+	; db 6, TAUNT
+	db 12, QUICK_ATTACK
+	db 18, METAL_CLAW
+	db 24, ICY_WIND
+	db 30, FURY_SWIPES
+	; db 36, HONE_CLAWS
+	db 42, BEAT_UP
+	db 48, AGILITY
+	db 54, SCREECH
+	db 60, SLASH
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
@@ -4312,12 +4305,12 @@ TeddiursaEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FLING
 	; db 1, COVET
-	; db 1, FAKE_TEARS
 	db 1, SCRATCH
 	db 1, GROWL ; FIXME: BABY_DOLL_EYES
 	db 1, LICK
+	; db 1, FAKE_TEARS
 	db 8, FURY_SWIPES
-	db 15, FEINT_ATTACK
+	db 15, BITE ; FIXME: PAYBACK
 	db 22, SWEET_SCENT
 	; db 25, PLAY_NICE
 	db 29, SLASH
@@ -4331,12 +4324,16 @@ TeddiursaEvosAttacks:
 UrsaringEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, HAMMER_ARM
+	; db 1, FLING
+	db 1, GROWL ; FIXME: BABY_DOLL_EYES
+	; db 1, CHARM
 	; db 1, COVET
-	; db 1, FAKE_TEARS
 	db 1, SCRATCH
+	db 1, LEER
 	db 1, LICK
+	; db 1, FAKE_TEARS
 	db 8, FURY_SWIPES
-	db 15, FEINT_ATTACK
+	db 15, BITE ; FIXME: PAYBACK
 	db 22, SWEET_SCENT
 	; db 25, PLAY_NICE
 	db 29, SLASH
@@ -4546,7 +4543,7 @@ HoundourEvosAttacks:
 	; db 20, TAUNT
 	db 25, BEAT_UP
 	db 28, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 32, FEINT_ATTACK ; FIXME: PAYBACK
+	db 32, THIEF ; FIXME: PAYBACK
 	; db 37, FLAME_CHARGE
 	; db 40, FOUL_PLAY
 	db 44, FLAMETHROWER
@@ -4569,7 +4566,7 @@ HoundoomEvosAttacks:
 	; db 20, TAUNT
 	db 26, BEAT_UP
 	db 30, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 35, FEINT_ATTACK ; FIXME: PAYBACK
+	db 35, THIEF ; FIXME: PAYBACK
 	; db 41, FLAME_CHARGE
 	; db 45, FOUL_PLAY
 	db 50, FLAMETHROWER

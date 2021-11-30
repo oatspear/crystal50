@@ -1,8 +1,7 @@
 ; List of move replacements, based on Generation VIII mechanics.
 
-; Spider Web    : Mean Look + Infestation
 ; Twineedle     : Poison Jab
-; Feint Attack
+; Feint Attack	: Sucker Punch
 ; Pursuit
 ; Dragon Rage
 ; Jump Kick
@@ -32,7 +31,17 @@
 ; Psywave       : Zen Headbutt
 ; Clamp
 ; Bubble        : Aqua Jet
+
+; Move replacements by similarity:
+
+; Mean Look     : Block
 ; Bind          : Wrap + ?
+; Spider Web    : Mean Look + Infestation
+; Leer
+; Tail Whip
+; Tackle
+; Scratch
+; Pound
 
 ; Characteristics of each move.
 
@@ -233,7 +242,7 @@ Moves:
 	move PROTECT,      EFFECT_PROTECT,             0, NORMAL,        STATUS,   100, 10,   0
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING,      PHYSICAL, 100, 30,   0
 	move SCARY_FACE,   EFFECT_SPEED_DOWN_2,        0, NORMAL,        STATUS,   100, 10,   0
-	move FEINT_ATTACK, EFFECT_ALWAYS_HIT,         60, DARK,          PHYSICAL, 100, 20,   0
+	move SUCKER_PUNCH, EFFECT_PRIORITY_HIT,       70, DARK,          PHYSICAL, 100,  5,   0
 	move SWEET_KISS,   EFFECT_CONFUSE,             0, FAIRY,         STATUS,    75, 10,   0
 	move BELLY_DRUM,   EFFECT_BELLY_DRUM,          0, NORMAL,        STATUS,   100, 10,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,        SPECIAL,  100, 10,  30

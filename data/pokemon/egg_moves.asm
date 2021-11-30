@@ -41,7 +41,6 @@ SquirtleEggMoves:
 
 PidgeyEggMoves:
 	db PURSUIT
-	db FEINT_ATTACK
 	db FORESIGHT
 	db AIR_SLASH
 	db -1 ; end
@@ -56,7 +55,6 @@ RattataEggMoves:
 	db -1 ; end
 
 SpearowEggMoves:
-	db FEINT_ATTACK
 	db FALSE_SWIPE
 	db SCARY_FACE
 	db QUICK_ATTACK
@@ -69,6 +67,7 @@ EkansEggMoves:
 	db SPITE
 	db BEAT_UP
 	db CRUNCH
+	db SUCKER_PUNCH
 	db -1 ; end
 
 SandshrewEggMoves:
@@ -97,10 +96,10 @@ NidoranMEggMoves:
 	db AMNESIA
 	db COUNTER
 	db BEAT_UP
+	db SUCKER_PUNCH
 	db -1 ; end
 
 VulpixEggMoves:
-	db FEINT_ATTACK
 	db HYPNOSIS
 	db FLAIL
 	db SPITE
@@ -110,7 +109,6 @@ VulpixEggMoves:
 ZubatEggMoves:
 	db QUICK_ATTACK
 	db PURSUIT
-	db FEINT_ATTACK
 	db GUST
 	db WHIRLWIND
 	db -1 ; end
@@ -139,7 +137,6 @@ VenonatEggMoves:
 	db -1 ; end
 
 DiglettEggMoves:
-	db FEINT_ATTACK
 	db SCREECH
 	db ANCIENTPOWER
 	db PURSUIT
@@ -248,7 +245,6 @@ DoduoEggMoves:
 	db QUICK_ATTACK
 	db SUPERSONIC
 	db HAZE
-	db FEINT_ATTACK
 	db FLAIL
 	db -1 ; end
 
@@ -473,7 +469,6 @@ SentretEggMoves:
 HoothootEggMoves:
 	db MIRROR_MOVE
 	db SUPERSONIC
-	db FEINT_ATTACK
 	db WING_ATTACK
 	db WHIRLWIND
 	db SKY_ATTACK
@@ -520,7 +515,6 @@ CleffaEggMoves:
 IgglybuffEggMoves:
 	db PERISH_SONG
 	db PRESENT
-	db FEINT_ATTACK
 	db -1 ; end
 
 TogepiEggMoves:
@@ -535,7 +529,7 @@ NatuEggMoves:
 	db HAZE
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db FEINT_ATTACK
+	db SUCKER_PUNCH
 	db STEEL_WING
 	db -1 ; end
 
@@ -608,6 +602,7 @@ MurkrowEggMoves:
 MisdreavusEggMoves:
 	db SCREECH
 	db DESTINY_BOND
+	db SUCKER_PUNCH
 	db -1 ; end
 
 GirafarigEggMoves:
@@ -641,7 +636,6 @@ GligarEggMoves:
 
 SnubbullEggMoves:
 	db METRONOME
-	db FEINT_ATTACK
 	db REFLECT
 	db PRESENT
 	db CRUNCH
@@ -743,6 +737,7 @@ HoundourEggMoves:
 	db SPITE
 	db REVERSAL
 	db BEAT_UP
+	db SUCKER_PUNCH
 	db -1 ; end
 
 PhanpyEggMoves:

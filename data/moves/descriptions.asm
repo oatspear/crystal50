@@ -185,7 +185,7 @@ MoveDescriptions::
 	dw ProtectDescription
 	dw MachPunchDescription
 	dw ScaryFaceDescription
-	dw FeintAttackDescription
+	dw SuckerPunchDescription
 	dw SweetKissDescription
 	dw BellyDrumDescription
 	dw SludgeBombDescription
@@ -974,6 +974,10 @@ ProtectDescription:
 	db   "Foils attack that"
 	next "turn. It may fail.@"
 
+SuckerPunchDescription:
+	db   "Attacks first if"
+	next "the foe attacks.@"
+
 MachPunchDescription:
 	db   "A fast punch that"
 	next "lands first.@"
@@ -982,7 +986,6 @@ ScaryFaceDescription:
 	db   "Sharply reduces"
 	next "the foe's SPEED.@"
 
-FeintAttackDescription:
 DisarmingVoiceDescription:
 	db   "An attack that"
 	next "never misses.@"
