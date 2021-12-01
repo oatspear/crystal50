@@ -1569,6 +1569,9 @@ BattleCommand_CheckHit:
 	call .DreamEater
 	jp z, .Miss
 
+	call .ToxicPoisonTypes
+	ret z
+
 	call .Protect
 	jp nz, .Miss
 
@@ -1663,6 +1666,17 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVar
 	and SLP
+	ret
+
+.ToxicPoisonTypes
+; Return z if a Poison-type uses Toxic.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp TOXIC
+	ret nz
+
+	ld a, POISON
+	call CheckTypeAMatchesUser
 	ret
 
 .SuckerPunch:
@@ -6084,6 +6098,30 @@ BattleCommand_Paralyze:
 ; 	pop hl
 ; 	ret
 
+CheckTypeAMatchesUser:
+; Compare the type in a to the user's types.
+; Return z if any of the types match.
+
+	push hl
+	push af ; preserve the argument type
+
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wEnemyMonType1
+
+.ok
+	pop af ; get back the argument type
+	cp [hli]
+	jr z, .return
+
+	cp [hl]
+
+.return
+	pop hl
+	ret
+
 CheckTypeAMatchesTarget:
 ; Compare the type in a to the opponent's types.
 ; Return z if any of the types match.
@@ -6099,10 +6137,9 @@ CheckTypeAMatchesTarget:
 
 .ok
 	pop af ; get back the argument type
-	cp [hl]
+	cp [hli]
 	jr z, .return
 
-	inc hl
 	cp [hl]
 
 .return

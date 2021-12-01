@@ -39,6 +39,7 @@
 - Growth raises both Attack and Special Attack. Raises twice in sunlight.
 - Updated the learnsets of all Pokémon to resemble current generations.
 - Stomp and Body Slam deal double damage and bypass accuracy checks if the target used Minimize.
+- If Toxic is used by a Poison-type Pokémon, the move never misses.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -60,7 +61,6 @@
 - In wild Pokémon battles, Roar/Whirlwind should always fail if the user's level is less than the target's. In Trainer battles, Roar/Whirlwind should succeed if it hits, regardless of either Pokémon's level.
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
-- If Toxic is used by a Poison-type Pokémon, that move should never miss, even if the target is in the semi-invulnerable turn of a move such as Fly or Dig.
 
 
 ## v0.1 (Base)
