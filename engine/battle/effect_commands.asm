@@ -2204,6 +2204,7 @@ BattleCommand_ApplyDamage:
 .damage
 	push bc
 	call .update_damage_taken
+	call .update_turn_flags
 	ld c, FALSE
 	ldh a, [hBattleTurn]
 	and a
@@ -2262,6 +2263,23 @@ BattleCommand_ApplyDamage:
 	ld [de], a
 	inc de
 	ld [de], a
+	ret
+
+.update_turn_flags
+	ld a, [wCurDamage + 1]
+	or [wCurDamage]
+	ret z
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [wTurnBasedFlags]
+	jr nz, .player_turn_flags ; player damages enemy and vice-versa
+; .enemy_turn_flags
+	or THIS_TURN_ENEMY_TOOK_DIRECT_DAMAGE
+	ld [wTurnBasedFlags], a
+	ret
+.player_turn_flags
+	or THIS_TURN_PLAYER_TOOK_DIRECT_DAMAGE
+	ld [wTurnBasedFlags], a
 	ret
 
 GetFailureResultText:
