@@ -1593,25 +1593,22 @@ BattleCommand_CheckHit:
 	call .XAccuracy
 	ret nz
 
-	; Perfect-accuracy moves
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_ALWAYS_HIT
-	ret z
-	cp EFFECT_PAIN_SPLIT
-	ret z
-
 	call .StatModifiers
 
 	ld a, [wPlayerMoveStruct + MOVE_ACC]
 	ld b, a
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .BrightPowder
+	jr z, .perfect_accuracy_check
 	ld a, [wEnemyMoveStruct + MOVE_ACC]
 	ld b, a
 
-.BrightPowder:
+.perfect_accuracy_check
+	ld a, b
+	and a
+	ret z
+
+; .BrightPowder:
 	push bc
 	call GetOpponentItem
 	ld a, b

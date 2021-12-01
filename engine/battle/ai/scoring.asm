@@ -286,7 +286,7 @@ AI_Smart:
 	call IsInArray
 
 	inc hl
-	jr nc, .nextmove
+	jr nc, .generic
 
 	ld a, [hli]
 	ld e, a
@@ -295,13 +295,19 @@ AI_Smart:
 	pop hl
 	push hl
 
-	ld bc, .nextmove
+	ld bc, .generic
 	push bc
 
 	push de
 	ret
 
-.nextmove
+.generic
+	pop hl
+	push hl
+
+	call AI_Smart_AlwaysHit
+
+; .nextmove
 	pop hl
 	pop bc
 	pop de
@@ -315,7 +321,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_DREAM_EATER,      AI_Smart_DreamEater
 	dbw EFFECT_MIRROR_MOVE,      AI_Smart_MirrorMove
 	dbw EFFECT_EVASION_UP,       AI_Smart_EvasionUp
-	dbw EFFECT_ALWAYS_HIT,       AI_Smart_AlwaysHit
 	dbw EFFECT_ACCURACY_DOWN,    AI_Smart_AccuracyDown
 	dbw EFFECT_RESET_STATS,      AI_Smart_ResetStats
 	dbw EFFECT_BIDE,             AI_Smart_Bide
@@ -709,6 +714,11 @@ AI_Smart_EvasionUp:
 	ret
 
 AI_Smart_AlwaysHit:
+; Dismiss if not perfect accuracy.
+	ld a, [wEnemyMoveStruct + MOVE_ACC]
+	and a
+	ret z
+
 ; 80% chance to greatly encourage this move if either...
 
 ; ...enemy's accuracy level has been lowered three or more stages

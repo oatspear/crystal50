@@ -51,6 +51,17 @@
 - Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation. Use the code from Beat Up for inspiration.
 - Beat Up should use Attack of move user, including boosts, benefit from STAB and deal Dark-type damage. Its formula also changed.
 - Ghost-type Pokémon should be able to switch from binding moves.
+- Stomp/Body Slam should deal double damage and bypass accuracy checks if the target used Minimize.
+- Lock-On's effect should last until the end of the next turn rather than until the user makes its next move.
+- Lock-On should fail if the user is already taking aim at a Pokémon. It will not fail if the Pokémon it was taking aim at fainted or switched out.
+- If a Pokémon traps a target with Mean Look and then switches with Baton Pass the target should no longer be trapped.
+- Mimicked moves should have the max PP as opposed to 5.
+- Psych Up should copy the target's critical hit ratio. (e.g. If the target has the effect of Focus Energy, the user also gains that effect; if the user has the effect of Focus Energy but the target does not, the user loses that effect.)
+- Roar/Whirlwind should hit a target even if it has used Protect or Detect.
+- In wild Pokémon battles, Roar/Whirlwind should always fail if the user's level is less than the target's. In Trainer battles, Roar/Whirlwind should succeed if it hits, regardless of either Pokémon's level.
+- Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
+- A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
+- If Toxic is used by a Poison-type Pokémon, that move should never miss, even if the target is in the semi-invulnerable turn of a move such as Fly or Dig.
 
 
 ## v0.1 (Base)
