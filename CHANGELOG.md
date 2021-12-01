@@ -14,7 +14,7 @@
 - Halved required experience to level up.
 
 ### Updated
-- Selfdestruct and Explosion no longer halve Defense.
+- Self-destruct and Explosion no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
 - Updated trap duration to 4-5 turns.
@@ -38,6 +38,7 @@
 - Fire Spin is now able to defrost opponents.
 - Growth raises both Attack and Special Attack. Raises twice in sunlight.
 - Updated the learnsets of all Pokémon to resemble current generations.
+- Stomp and Body Slam deal double damage and bypass accuracy checks if the target used Minimize.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -51,12 +52,10 @@
 - Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation. Use the code from Beat Up for inspiration.
 - Beat Up should use Attack of move user, including boosts, benefit from STAB and deal Dark-type damage. Its formula also changed.
 - Ghost-type Pokémon should be able to switch from binding moves.
-- Stomp/Body Slam should deal double damage and bypass accuracy checks if the target used Minimize.
 - Lock-On's effect should last until the end of the next turn rather than until the user makes its next move.
 - Lock-On should fail if the user is already taking aim at a Pokémon. It will not fail if the Pokémon it was taking aim at fainted or switched out.
 - If a Pokémon traps a target with Mean Look and then switches with Baton Pass the target should no longer be trapped.
 - Mimicked moves should have the max PP as opposed to 5.
-- Psych Up should copy the target's critical hit ratio. (e.g. If the target has the effect of Focus Energy, the user also gains that effect; if the user has the effect of Focus Energy but the target does not, the user loses that effect.)
 - Roar/Whirlwind should hit a target even if it has used Protect or Detect.
 - In wild Pokémon battles, Roar/Whirlwind should always fail if the user's level is less than the target's. In Trainer battles, Roar/Whirlwind should succeed if it hits, regardless of either Pokémon's level.
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).

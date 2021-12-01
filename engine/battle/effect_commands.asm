@@ -1587,6 +1587,9 @@ BattleCommand_CheckHit:
 	call .BlizzardHail
 	ret z
 
+	call .MinimizeMoves
+	ret z
+
 	call .SuckerPunch
 	jp z, .Miss
 
@@ -1803,6 +1806,25 @@ BattleCommand_CheckHit:
 
 	ld a, [wBattleWeather]
 	cp WEATHER_HAIL
+	ret
+
+.MinimizeMoves:
+; Return z if using Stomp or Body Slam against a Minimized target.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp STOMP
+	ret nz
+	cp BODY_SLAM
+	ret nz
+
+	ld hl, wEnemyMinimized
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .minimize_ok
+	ld hl, wPlayerMinimized
+.minimize_ok
+	ld a, [hl]
+	or a
 	ret
 
 .XAccuracy:

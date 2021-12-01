@@ -78,7 +78,7 @@ MoveEffectsPointers:
 	dw SkyAttack
 	dw ConfuseHit
 	dw Revenge
-	dw NormalHit
+	dw BodySlam
 	dw Substitute
 	dw HyperBeam
 	dw Rage
