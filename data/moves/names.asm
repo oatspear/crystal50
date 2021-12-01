@@ -130,7 +130,7 @@ MoveNames::
 	li "CLAMP"
 	li "SWIFT"
 	li "SKULL BASH"
-	li "SPIKE CANNON"
+	li "AVALANCHE"
 	li "CONSTRICT"
 	li "AMNESIA"
 	li "KINESIS"

@@ -131,7 +131,7 @@ MoveDescriptions::
 	dw ClampDescription
 	dw SwiftDescription
 	dw SkullBashDescription
-	dw SpikeCannonDescription
+	dw AvalancheDescription
 	dw ConstrictDescription
 	dw AmnesiaDescription
 	dw KinesisDescription
@@ -268,6 +268,7 @@ PoundDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
+AvalancheDescription:
 RevengeDescription:
 	db   "Double power if"
 	next "hurt by the foe.@"
@@ -778,10 +779,6 @@ SwiftDescription:
 SkullBashDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
-
-SpikeCannonDescription:
-	db   "Fires spikes to"
-	next "hit 2-5 times.@"
 
 ConstrictDescription:
 	db   "An attack that may"

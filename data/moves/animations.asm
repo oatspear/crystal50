@@ -132,7 +132,7 @@ BattleAnimations::
 	dw BattleAnim_Clamp
 	dw BattleAnim_Swift
 	dw BattleAnim_SkullBash
-	dw BattleAnim_SpikeCannon
+	dw BattleAnim_Avalanche
 	dw BattleAnim_Constrict
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Kinesis
@@ -662,7 +662,7 @@ BattleAnim_Pound:
 
 BattleAnim_Revenge:
 	anim_if_param_equal TRUE, BattleAnim_Counter
-BattleAnim_KarateChop:
+; BattleAnim_KarateChop:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_KARATE_CHOP
 	anim_obj ANIM_OBJ_PALM, 136, 40, $0
@@ -2305,23 +2305,40 @@ BattleAnim_PinMissile:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_SpikeCannon:
-	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
+BattleAnim_Avalanche:
+	anim_1gfx ANIM_GFX_ROCKS
+	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+	anim_if_param_equal TRUE, .big_avalanche
+; .small_avalanche
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $1, $0
+	anim_call .avalanche_fall
+	anim_wait 96
+	anim_ret
+
+.big_avalanche
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $c0, $1, $0
 .loop
-	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $18
-	anim_wait 8
-	anim_obj ANIM_OBJ_NEEDLE, 56, 84, $18
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_NEEDLE, 52, 88, $18
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 128, 48, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 132, 52, $0
-	anim_loop 3, .loop
+	anim_call .avalanche_fall
 	anim_wait 16
+	anim_loop 4, .loop
+	anim_wait 96
+	anim_ret
+
+.avalanche_fall
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_SMALL_AVALANCHE, 128, 64, $40
+	anim_wait 2
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_BIG_AVALANCHE, 120, 68, $30
+	anim_wait 2
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_SMALL_AVALANCHE, 152, 68, $30
+	anim_wait 2
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_BIG_AVALANCHE, 144, 64, $40
+	anim_wait 2
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_SMALL_AVALANCHE, 136, 68, $30
 	anim_ret
 
 BattleAnim_Transform:

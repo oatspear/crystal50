@@ -1824,7 +1824,6 @@ CloysterEvosAttacks: ; based on gen 7
 	db 1, SUPERSONIC
 	db 1, PROTECT
 	db 1, AURORA_BEAM
-	db 13, SPIKE_CANNON
 	db 28, SPIKES
 	; db 50, ICICLE_CRASH
 	db 0 ; no more level-up moves
