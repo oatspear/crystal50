@@ -378,6 +378,7 @@ ScytherEggMoves:
 	db BATON_PASS
 	db REVERSAL
 	db LIGHT_SCREEN
+	db BUG_BUZZ
 	db -1 ; end
 
 PinsirEggMoves:
@@ -474,12 +475,12 @@ LedybaEggMoves:
 	db PSYBEAM
 	db BIDE
 	db LIGHT_SCREEN
+	db BUG_BUZZ
 	db -1 ; end
 
 SpinarakEggMoves:
 	db PSYBEAM
 	db DISABLE
-	db SONICBOOM
 	db BATON_PASS
 	db -1 ; end
 

@@ -54,7 +54,7 @@
 	const ROAR         ; 2e
 	const SING         ; 2f
 	const SUPERSONIC   ; 30
-	const SONICBOOM    ; 31
+	const BUG_BUZZ     ; 31
 	const DISABLE      ; 32
 	const ACID         ; 33
 	const EMBER        ; 34
@@ -137,7 +137,7 @@
 	const SWIFT        ; 81
 	const SKULL_BASH   ; 82
 	const AVALANCHE    ; 83
-	const CONSTRICT    ; 84
+	const FLASH_CANNON ; 84
 	const AMNESIA      ; 85
 	const KINESIS      ; 86
 	const SOFTBOILED   ; 87

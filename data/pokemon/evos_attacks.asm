@@ -181,7 +181,7 @@ BlastoiseEvosAttacks:
 	db 1, TAIL_WHIP
 	db 1, WATER_GUN
 	db 1, WITHDRAW
-	; db LEVEL_EVO, FLASH_CANNON
+	db LEVEL_EVO, FLASH_CANNON
 	db 9, RAPID_SPIN
 	db 12, BITE
 	; db 15, WATER_PULSE
@@ -225,7 +225,7 @@ ButterfreeEvosAttacks:
 	db 20, WHIRLWIND
 	db 24, AIR_SLASH
 	db 28, SAFEGUARD
-	; db 32, BUG_BUZZ
+	db 32, BUG_BUZZ
 	; db 36, TAILWIND
 	; db 40, RAGE_POWDER
 	; db 44, QUIVER_DANCE
@@ -984,7 +984,7 @@ VenomothEvosAttacks:
 	db 41, ZEN_HEADBUTT
 	; db 47, POISON_FANG
 	db 55, PSYCHIC_M
-	; db 59, BUG_BUZZ
+	db 59, BUG_BUZZ
 	; db 63, QUIVER_DANCE
 	db 0 ; no more level-up moves
 
@@ -1610,7 +1610,7 @@ MagnemiteEvosAttacks:
 	db 20, SPARK
 	db 24, SCREECH
 	; db 28, MAGNET_RISE
-	; db 32, FLASH_CANNON
+	db 32, FLASH_CANNON
 	db 36, THUNDERBOLT ; FIXME: DISCHARGE
 	; db 40, METAL_SOUND
 	db 44, LIGHT_SCREEN
@@ -1632,7 +1632,7 @@ MagnetonEvosAttacks:
 	db 20, SPARK
 	db 24, SCREECH
 	; db 28, MAGNET_RISE
-	; db 34, FLASH_CANNON
+	db 34, FLASH_CANNON
 	db 40, THUNDERBOLT ; FIXME: DISCHARGE
 	; db 46, METAL_SOUND
 	db 52, LIGHT_SCREEN
@@ -2005,7 +2005,7 @@ VoltorbEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CHARGE
 	db 1, TACKLE
-	db 4, SONICBOOM
+	db 4, THUNDERSHOCK
 	; db 6, EERIE_IMPULSE
 	db 9, SPARK
 	db 11, ROLLOUT
@@ -2027,9 +2027,9 @@ ElectrodeEvosAttacks:
 	; db 1, MAGNETIC_FLUX
 	; db 1, CHARGE
 	db 1, TACKLE
-	db 1, SONICBOOM
+	db 1, THUNDERSHOCK
 	; db 1, EERIE_IMPULSE
-	; db 4, SONICBOOM
+	; db 4, THUNDERSHOCK
 	; db 6, EERIE_IMPULSE
 	db 9, SPARK
 	db 11, ROLLOUT
@@ -3323,7 +3323,7 @@ LedybaEvosAttacks:
 	db 22, FURY_ATTACK ; FIXME: COMET_PUNCH
 	db 26, BATON_PASS
 	db 29, AGILITY
-	; db 33, BUG_BUZZ
+	db 33, BUG_BUZZ
 	db 36, AIR_SLASH
 	db 40, DOUBLE_EDGE
 	db 0 ; no more level-up moves
@@ -3343,7 +3343,7 @@ LedianEvosAttacks:
 	db 24, FURY_ATTACK ; FIXME: COMET_PUNCH
 	db 29, BATON_PASS
 	db 33, AGILITY
-	; db 38, BUG_BUZZ
+	db 38, BUG_BUZZ
 	db 42, AIR_SLASH
 	db 47, DOUBLE_EDGE
 	db 0 ; no more level-up moves
@@ -3868,7 +3868,7 @@ YanmaEvosAttacks:
 	db 46, SCREECH
 	; db 49, U_TURN
 	db 54, AIR_SLASH
-	; db 57, BUG_BUZZ
+	db 57, BUG_BUZZ
 	db 0 ; no more level-up moves
 
 WooperEvosAttacks:
@@ -4232,28 +4232,24 @@ ScizorEvosAttacks:
 	db 48, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
-ShuckleEvosAttacks: ; based on gen 7
+ShuckleEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, STICKY_WEB
 	db 1, WITHDRAW
-	db 1, CONSTRICT
-	db 1, BIDE
-	db 1, ROLLOUT
-	db 5, ENCORE
-	db 9, WRAP
-	; db 12, STRUGGLE_BUG
-	db 16, SAFEGUARD
-	db 20, REST
-	db 23, ROCK_THROW
-	; db 27, GASTRO_ACID
-	; db 31, POWER_TRICK
-	; db 34, SHELL_SMASH
-	db 38, ROCK_SLIDE
-	; db 42, BUG_BITE
-	; db 42, POWER_SPLIT
-	; db 42, GUARD_SPLIT
-	; db 49, STONE_EDGE
-	; db 53, STICKY_WEB
+	db 1, WRAP
+	db 5, ROLLOUT
+	db 10, INFESTATION ; FIXME: STRUGGLE_BUG
+	db 15, ROCK_THROW
+	db 20, SAFEGUARD
+	db 25, REST
+	; db 30, BUG_BITE
+	db 35, ENCORE ; FIXME: POWER_SPLIT
+	; db 35, GUARD_SPLIT
+	db 40, ROCK_SLIDE
+	; db 45, GASTRO_ACID
+	; db 50, STICKY_WEB
+	; db 55, POWER_TRICK
+	; db 60, STONE_EDGE
+	; db 65, SHELL_SMASH
 	db 0 ; no more level-up moves
 
 HeracrossEvosAttacks: ; based on gen 7

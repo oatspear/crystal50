@@ -49,7 +49,7 @@ MoveDescriptions::
 	dw RoarDescription
 	dw SingDescription
 	dw SupersonicDescription
-	dw SonicboomDescription
+	dw BugBuzzDescription
 	dw DisableDescription
 	dw AcidDescription
 	dw EmberDescription
@@ -132,7 +132,7 @@ MoveDescriptions::
 	dw SwiftDescription
 	dw SkullBashDescription
 	dw AvalancheDescription
-	dw ConstrictDescription
+	dw FlashCannonDescription
 	dw AmnesiaDescription
 	dw KinesisDescription
 	dw SoftboiledDescription
@@ -453,10 +453,6 @@ SupersonicDescription:
 	db   "Sound waves that"
 	next "cause confusion.@"
 
-SonicboomDescription:
-	db   "Always inflicts"
-	next "20HP damage.@"
-
 DisableDescription:
 	db   "Disables the foe's"
 	next "most recent move.@"
@@ -632,9 +628,11 @@ ConfusionDescription:
 	db   "An attack that may"
 	next "cause confusion.@"
 
+FlashCannonDescription:
+BugBuzzDescription:
 PsychicMDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP. DEF.@"
 
 HypnosisDescription:
 	db   "May put the foe to"
@@ -776,10 +774,6 @@ SwiftDescription:
 SkullBashDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
-
-ConstrictDescription:
-	db   "An attack that may"
-	next "lower SPEED.@"
 
 AmnesiaDescription:
 	db   "Sharply raises the"

@@ -14,12 +14,12 @@
 ; Double Slap
 ; Comet Punch
 ; Razor Wind    : Air Slash
-; Sonic Boom
+; Sonic Boom    : Bug Buzz
 ; Rage
 ; Bide
 ; Egg Bomb
 ; Spike Cannon  : Avalanche
-; Constrict
+; Constrict     : Flash Cannon
 ; Barrage
 ; Dizzy Punch
 ; Sharpen       : Nasty Plot
@@ -112,7 +112,7 @@ Moves:
 	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, 20,   0
 	move SING,         EFFECT_SLEEP,               0, NORMAL,        STATUS,    55,              15,   0
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        STATUS,    55,              20,   0
-	move SONICBOOM,    EFFECT_STATIC_DAMAGE,      20, NORMAL,        SPECIAL,   90,              20,   0
+	move BUG_BUZZ,     EFFECT_SP_DEF_DOWN_HIT,    90, BUG,           SPECIAL,  100,              10,  10
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        STATUS,    55,              20,   0
 	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,        SPECIAL,  100,              30,  10
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,          SPECIAL,  100,              25,  10
@@ -195,7 +195,7 @@ Moves:
 	move SWIFT,        EFFECT_NORMAL_HIT,         60, NORMAL,        SPECIAL,  PERFECT_ACCURACY, 20,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        100, NORMAL,        PHYSICAL, 100,              15,   0
 	move AVALANCHE,    EFFECT_REVENGE,            60, ICE,           PHYSICAL, 100,              10,   0
-	move CONSTRICT,    EFFECT_SPEED_DOWN_HIT,     10, NORMAL,        PHYSICAL, 100,              35,  10
+	move FLASH_CANNON, EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,         SPECIAL,  100,              10,  10
 	move AMNESIA,      EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE,  STATUS,   100,              20,   0
 	move KINESIS,      EFFECT_ACCURACY_DOWN,       0, PSYCHIC_TYPE,  STATUS,    80,              15,   0
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,        STATUS,   100,              10,   0

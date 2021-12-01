@@ -1,3 +1,9 @@
+; Notes:
+; anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, A, B, C
+;    A: seems to be the duration in frames
+;    B: seems to be the X offset to shake, in pixels
+;    C: seems to be some sort of frame skip or delay between shakes
+
 BattleAnimations::
 ; entries correspond to constants/move_constants.asm
 	table_width 2, BattleAnimations
@@ -50,7 +56,7 @@ BattleAnimations::
 	dw BattleAnim_Roar
 	dw BattleAnim_Sing
 	dw BattleAnim_Supersonic
-	dw BattleAnim_Sonicboom
+	dw BattleAnim_BugBuzz
 	dw BattleAnim_Disable
 	dw BattleAnim_Acid
 	dw BattleAnim_Ember
@@ -133,7 +139,7 @@ BattleAnimations::
 	dw BattleAnim_Swift
 	dw BattleAnim_SkullBash
 	dw BattleAnim_Avalanche
-	dw BattleAnim_Constrict
+	dw BattleAnim_FlashCannon
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Kinesis
 	dw BattleAnim_Softboiled
@@ -1304,32 +1310,31 @@ BattleAnim_AirSlash:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_Sonicboom_JP: ; unreferenced
-	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
-.loop
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
-	anim_wait 8
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
-	anim_wait 8
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
-	anim_wait 8
-	anim_loop 2, .loop
-	anim_wait 32
-	anim_incobj 1
-	anim_incobj 2
-	anim_incobj 3
-	anim_incobj 4
-	anim_incobj 5
-	anim_incobj 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_Sonicboom_JP: ; unreferenced
+; 	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
+; .loop
+; 	anim_sound 3, 0, SFX_RAZOR_WIND
+; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
+; 	anim_wait 8
+; 	anim_sound 3, 0, SFX_RAZOR_WIND
+; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
+; 	anim_wait 8
+; 	anim_sound 3, 0, SFX_RAZOR_WIND
+; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
+; 	anim_wait 8
+; 	anim_loop 2, .loop
+; 	anim_wait 32
+; 	anim_incobj 1
+; 	anim_incobj 2
+; 	anim_incobj 3
+; 	anim_incobj 4
+; 	anim_incobj 5
+; 	anim_incobj 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_Gust:
-BattleAnim_Sonicboom:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT
 .loop
 	anim_sound 0, 1, SFX_RAZOR_WIND
@@ -1476,6 +1481,7 @@ BattleAnim_HyperBeam:
 	anim_wait 48
 	anim_ret
 
+BattleAnim_FlashCannon:
 BattleAnim_AuroraBeam:
 	anim_1gfx ANIM_GFX_BEAM
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
@@ -1795,19 +1801,6 @@ BattleAnim_Confusion:
 	anim_call BattleAnim_ShowMon_1
 	anim_ret
 
-BattleAnim_Constrict:
-	anim_1gfx ANIM_GFX_ROPE
-	anim_sound 0, 1, SFX_BIND
-	anim_obj ANIM_OBJ_BIND2, 132, 64, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_BIND1, 132, 48, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_BIND2, 132, 40, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_BIND1, 132, 56, $0
-	anim_wait 64
-	anim_ret
-
 BattleAnim_Earthquake:
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $10
 .loop
@@ -1860,6 +1853,17 @@ BattleAnim_Roar:
 	anim_bgeffect ANIM_BG_REMOVE_MON, $0, BG_EFFECT_TARGET, $0
 	anim_wait 64
 .done
+	anim_ret
+
+BattleAnim_BugBuzz:
+	anim_1gfx ANIM_GFX_PSYCHIC
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
+.loop
+	anim_sound 6, 2, SFX_SUPERSONIC
+	anim_obj ANIM_OBJ_WAVE, 64, 88, $2
+	anim_wait 4
+	anim_loop 10, .loop
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Supersonic:
