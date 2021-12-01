@@ -1075,6 +1075,27 @@ SkyAttack:
 	kingsrock
 	endmove
 
+Revenge:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	revenge
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
 Substitute:
 	checkobedience
 	usedmovetext

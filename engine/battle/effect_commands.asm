@@ -2973,6 +2973,8 @@ EnemyAttackDamage:
 
 INCLUDE "engine/battle/move_effects/beat_up.asm"
 
+INCLUDE "engine/battle/move_effects/revenge.asm"
+
 BattleCommand_ClearMissDamage:
 ; clearmissdamage
 	ld a, [wAttackMissed]

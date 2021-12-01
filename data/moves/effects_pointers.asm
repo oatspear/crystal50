@@ -78,7 +78,7 @@ MoveEffectsPointers:
 	dw EvasionDownHit
 	dw SkyAttack
 	dw ConfuseHit
-	dw NormalHit
+	dw Revenge
 	dw NormalHit
 	dw Substitute
 	dw HyperBeam

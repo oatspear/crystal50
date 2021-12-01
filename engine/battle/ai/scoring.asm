@@ -390,6 +390,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_GROWTH,           AI_Smart_Growth
 	dbw EFFECT_CALM_MIND,        AI_Smart_CalmMind
 	dbw EFFECT_DRAGON_DANCE,     AI_Smart_DragonDance
+	dbw EFFECT_REVENGE,          AI_Smart_Revenge
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -2792,6 +2793,31 @@ AI_Smart_Thunder:
 	ret c
 
 	inc [hl]
+	ret
+
+AI_Smart_Revenge:
+; Dismiss this move if enemy's HP is below 25%.
+
+	call AICheckEnemyQuarterHP
+	ret c
+
+; 80% chance to discourage this move if the player's HP is below 25%
+;   and the enemy is faster.
+; Encourage this move if the enemy is slower than the player.
+
+	call AICompareSpeed
+	jr c, .encourage
+	call AICheckPlayerQuarterHP
+	ret nc
+
+	call AI_80_20
+	ret c
+
+	inc [hl]
+	ret
+
+.encourage
+	dec [hl]
 	ret
 
 AICompareSpeed:

@@ -3,7 +3,7 @@ BattleAnimations::
 	table_width 2, BattleAnimations
 	dw BattleAnim_0
 	dw BattleAnim_Pound
-	dw BattleAnim_KarateChop
+	dw BattleAnim_Revenge
 	dw BattleAnim_Doubleslap
 	dw BattleAnim_CometPunch
 	dw BattleAnim_MegaPunch
@@ -660,6 +660,8 @@ BattleAnim_Pound:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_Revenge:
+	anim_if_param_equal TRUE, BattleAnim_Counter
 BattleAnim_KarateChop:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_KARATE_CHOP

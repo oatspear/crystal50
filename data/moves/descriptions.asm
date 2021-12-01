@@ -2,7 +2,7 @@ MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	table_width 2, MoveDescriptions
 	dw PoundDescription
-	dw KarateChopDescription
+	dw RevengeDescription
 	dw DoubleslapDescription
 	dw CometPunchDescription
 	dw MegaPunchDescription
@@ -268,9 +268,9 @@ PoundDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
-KarateChopDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+RevengeDescription:
+	db   "Double power if"
+	next "hurt by the foe.@"
 
 DoubleslapDescription:
 	db   "Repeatedly slaps"

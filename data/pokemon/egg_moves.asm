@@ -51,6 +51,7 @@ RattataEggMoves:
 	db BITE
 	db COUNTER
 	db REVERSAL
+	db REVENGE
 	db -1 ; end
 
 SpearowEggMoves:
@@ -163,6 +164,7 @@ MankeyEggMoves:
 	db COUNTER
 	db REVERSAL
 	db BEAT_UP
+	db REVENGE
 	db -1 ; end
 
 GrowlitheEggMoves:
@@ -235,6 +237,7 @@ FarfetchDEggMoves:
 	db GUST
 	db QUICK_ATTACK
 	db FLAIL
+	db REVENGE
 	db -1 ; end
 
 DoduoEggMoves:
@@ -567,6 +570,7 @@ AipomEggMoves:
 	db SLAM
 	db DOUBLESLAP
 	db BEAT_UP
+	db REVENGE
 	db -1 ; end
 
 YanmaEggMoves:
@@ -609,6 +613,7 @@ PinecoEggMoves:
 	db PIN_MISSILE
 	db FLAIL
 	db SWIFT
+	db REVENGE
 	db -1 ; end
 
 DunsparceEggMoves:
@@ -648,8 +653,8 @@ ShuckleEggMoves:
 
 HeracrossEggMoves:
 	db HARDEN
-	db BIDE
 	db FLAIL
+	db REVENGE
 	db -1 ; end
 
 SneaselEggMoves:
@@ -756,13 +761,10 @@ SmoochumEggMoves:
 	db -1 ; end
 
 ElekidEggMoves:
-	db KARATE_CHOP
-	db ROLLING_KICK
 	db CROSS_CHOP
 	db -1 ; end
 
 MagbyEggMoves:
-	db KARATE_CHOP
 	db MEGA_PUNCH
 	db SCREECH
 	db CROSS_CHOP

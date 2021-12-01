@@ -1301,7 +1301,7 @@ MachopEvosAttacks:
 	db 1, LOW_KICK
 	db 1, LEER
 	db 4, FOCUS_ENERGY
-	; db 8, REVENGE
+	db 8, REVENGE
 	; db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
@@ -1321,7 +1321,7 @@ MachokeEvosAttacks:
 	db 1, LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
-	; db 1, REVENGE
+	db 1, REVENGE
 	; db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
@@ -1341,7 +1341,7 @@ MachampEvosAttacks:
 	db 1, LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
-	; db 1, REVENGE
+	db 1, REVENGE
 	; db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
@@ -2138,7 +2138,7 @@ HitmonleeEvosAttacks:
 	db 4, DOUBLE_KICK
 	db 8, LOW_KICK
 	db 12, ENDURE
-	; db 16, REVENGE
+	db 16, REVENGE
 	; db 21, WIDE_GUARD
 	; db 24, BLAZE_KICK
 	db 28, MIND_READER
@@ -2162,7 +2162,7 @@ HitmonchanEvosAttacks:
 	db 4, MACH_PUNCH
 	; db 8, POWER_UP_PUNCH
 	db 12, DETECT
-	; db 16, REVENGE
+	db 16, REVENGE
 	; db 21, QUICK_GUARD
 	db 24, THUNDERPUNCH
 	db 24, ICE_PUNCH
@@ -4197,7 +4197,7 @@ QwilfishEvosAttacks: ; based on gen 7
 	db 16, MINIMIZE
 	db 20, SPIKES
 	db 24, BUBBLEBEAM ; FIXME: BRINE
-	; db 28, REVENGE
+	db 28, REVENGE
 	db 32, PIN_MISSILE
 	db 36, TOXIC ; FIXME: TOXIC_SPIKES
 	db 40, POISON_JAB
@@ -4707,7 +4707,7 @@ HitmontopEvosAttacks:
 	db 4, QUICK_ATTACK
 	; db 8, GYRO_BALL
 	db 12, DETECT
-	db 16, ROCK_SMASH ; FIXME: REVENGE
+	db 16, REVENGE
 	; db 21, WIDE_GUARD
 	; db 21, QUICK_GUARD
 	db 24, SUCKER_PUNCH
