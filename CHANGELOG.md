@@ -40,6 +40,7 @@
 - Updated the learnsets of all Pokémon to resemble current generations.
 - Stomp and Body Slam deal double damage and bypass accuracy checks if the target used Minimize.
 - If Toxic is used by a Poison-type Pokémon, the move never misses.
+- Roar and Whirlwind hit targets even through Protect or Detect.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -57,7 +58,6 @@
 - Lock-On should fail if the user is already taking aim at a Pokémon. It will not fail if the Pokémon it was taking aim at fainted or switched out.
 - If a Pokémon traps a target with Mean Look and then switches with Baton Pass the target should no longer be trapped.
 - Mimicked moves should have the max PP as opposed to 5.
-- Roar/Whirlwind should hit a target even if it has used Protect or Detect.
 - In wild Pokémon battles, Roar/Whirlwind should always fail if the user's level is less than the target's. In Trainer battles, Roar/Whirlwind should succeed if it hits, regardless of either Pokémon's level.
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.

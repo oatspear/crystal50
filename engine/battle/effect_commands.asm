@@ -1701,6 +1701,13 @@ BattleCommand_CheckHit:
 
 .Protect:
 ; Return nz if the opponent is protected.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp ROAR
+	ret z
+	cp WHIRLWIND
+	ret z
+
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_PROTECT, a
