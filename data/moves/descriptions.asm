@@ -67,7 +67,7 @@ MoveDescriptions::
 	dw PeckDescription
 	dw DrillPeckDescription
 	dw SubmissionDescription
-	dw LowKickDescription
+	dw LowSweepDescription
 	dw CounterDescription
 	dw SeismicTossDescription
 	dw StrengthDescription
@@ -501,7 +501,6 @@ PsybeamDescription:
 	db   "An attack that may"
 	next "confuse the foe.@"
 
-BulldozeDescription:
 BubblebeamDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
@@ -526,10 +525,6 @@ DrillPeckDescription:
 SubmissionDescription:
 	db   "An attack that al-"
 	next "so hurts the user.@"
-
-LowKickDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
 
 CounterDescription:
 	db   "Returns a physical"
@@ -583,6 +578,8 @@ PetalDanceDescription:
 	db   "Works 2-3 turns"
 	next "and confuses user.@"
 
+LowSweepDescription:
+BulldozeDescription:
 StringShotDescription:
 	db   "A move that lowers"
 	next "the foe's SPEED.@"

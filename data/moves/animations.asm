@@ -68,7 +68,7 @@ BattleAnimations::
 	dw BattleAnim_Peck
 	dw BattleAnim_DrillPeck
 	dw BattleAnim_Submission
-	dw BattleAnim_LowKick
+	dw BattleAnim_LowSweep
 	dw BattleAnim_Counter
 	dw BattleAnim_SeismicToss
 	dw BattleAnim_Strength
@@ -2977,7 +2977,7 @@ BattleAnim_Counter:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_LowKick:
+BattleAnim_LowSweep:
 	anim_1gfx ANIM_GFX_HIT
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
 	anim_sound 0, 1, SFX_DOUBLE_KICK

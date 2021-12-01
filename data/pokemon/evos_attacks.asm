@@ -1110,7 +1110,7 @@ MankeyEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, COVET
 	db 1, SCRATCH
-	db 1, LOW_KICK
+	db 1, LOW_SWEEP ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	db 5, FURY_SWIPES
@@ -1134,7 +1134,7 @@ PrimeapeEvosAttacks:
 	; db 1, FINAL_GAMBIT
 	; db 1, FLING
 	; db 1, SCRATCH
-	db 1, LOW_KICK
+	db 1, LOW_SWEEP ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	; db 1, COVET
@@ -1298,11 +1298,11 @@ AlakazamEvosAttacks:
 MachopEvosAttacks:
 	db EVOLVE_LEVEL, 28, MACHOKE
 	db 0 ; no more evolutions
-	db 1, LOW_KICK
+	db 1, POUND ; FIXME: LOW_KICK
 	db 1, LEER
 	db 4, FOCUS_ENERGY
 	db 8, REVENGE
-	; db 12, LOW_SWEEP
+	db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
 	db 24, VITAL_THROW
@@ -1318,11 +1318,11 @@ MachopEvosAttacks:
 MachokeEvosAttacks:
 	db EVOLVE_TRADE, -1, MACHAMP
 	db 0 ; no more evolutions
-	db 1, LOW_KICK
+	db 1, POUND ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	db 1, REVENGE
-	; db 12, LOW_SWEEP
+	db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
 	db 24, VITAL_THROW
@@ -1338,11 +1338,11 @@ MachokeEvosAttacks:
 MachampEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, WIDE_GUARD
-	db 1, LOW_KICK
+	; db 1, LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	db 1, REVENGE
-	; db 12, LOW_SWEEP
+	db 12, LOW_SWEEP
 	; db 16, KNOCK_OFF
 	db 20, SCARY_FACE
 	db 24, VITAL_THROW
@@ -2128,14 +2128,14 @@ HitmonleeEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, BRICK_BREAK
 	; db 1, FEINT
-	; db 1, LOW_SWEEP
+	db 1, LOW_SWEEP
 	db 1, TACKLE
 	; db 1, HELPING_HAND
 	; db 1, FAKE_OUT
 	db 1, FOCUS_ENERGY
 	; db LEVEL_EVO, BRICK_BREAK
 	db 4, DOUBLE_KICK
-	db 8, LOW_KICK
+	; db 8, LOW_KICK
 	db 12, ENDURE
 	db 16, REVENGE
 	; db 21, WIDE_GUARD
@@ -2520,7 +2520,7 @@ ElectabuzzEvosAttacks:
 	db 24, SCREECH
 	db 28, THUNDERPUNCH
 	db 34, THUNDERBOLT ; FIXME: DISCHARGE
-	db 40, LOW_KICK
+	db 40, LOW_SWEEP ; FIXME: LOW_KICK
 	; db 46, THUNDERBOLT
 	db 52, LIGHT_SCREEN
 	db 58, THUNDER
@@ -2539,7 +2539,7 @@ MagmarEvosAttacks:
 	db 24, SCARY_FACE
 	db 28, FIRE_PUNCH
 	db 34, FLAMETHROWER ; FIXME: LAVA_PLUME
-	db 40, LOW_KICK
+	db 40, LOW_SWEEP ; FIXME: LOW_KICK
 	; db 46, FLAMETHROWER
 	db 52, SUNNY_DAY
 	db 58, FIRE_BLAST
@@ -3704,7 +3704,7 @@ SudowoodoEvosAttacks: ; based on gen 7
 	; db 24, TEARFUL_LOOK
 	db 28, SUCKER_PUNCH
 	db 32, ROCK_SLIDE
-	db 36, LOW_KICK
+	db 36, LOW_SWEEP ; FIXME: LOW_KICK
 	db 40, COUNTER
 	db 44, DOUBLE_EDGE
 	; db 48, HEAD_SMASH
@@ -4270,7 +4270,7 @@ HeracrossEvosAttacks: ; based on gen 7
 	db 16, HEADBUTT ; FIXME: CHIP_AWAY
 	db 19, COUNTER
 	db 25, FURY_ATTACK
-	db 28, LOW_KICK ; FIXME: BRICK_BREAK
+	db 28, REVERSAL ; FIXME: BRICK_BREAK
 	db 31, PIN_MISSILE
 	db 34, TAKE_DOWN
 	db 37, MEGAHORN
@@ -4748,7 +4748,7 @@ ElekidEvosAttacks:
 	db 20, THUNDER_WAVE
 	db 24, SCREECH
 	db 28, THUNDERPUNCH
-	db 36, LOW_KICK
+	db 36, LOW_SWEEP ; FIXME: LOW_KICK
 	db 40, THUNDERBOLT
 	db 44, LIGHT_SCREEN
 	db 48, THUNDER
@@ -4767,7 +4767,7 @@ MagbyEvosAttacks:
 	db 24, SCARY_FACE
 	db 28, FIRE_PUNCH
 	db 32, FLAMETHROWER ; FIXME: LAVA_PLUME
-	db 36, LOW_KICK
+	db 36, LOW_SWEEP ; FIXME: LOW_KICK
 	; db 40, FLAMETHROWER
 	db 44, SUNNY_DAY
 	db 48, FIRE_BLAST
