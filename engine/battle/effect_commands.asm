@@ -5172,18 +5172,6 @@ BattleCommand_ForceSwitch:
 	ld a, [wBattleMonLevel]
 	cp b
 	jr nc, .wild_force_flee
-	add b
-	ld c, a
-	inc c
-.random_loop_wild
-	call BattleRandom
-	cp c
-	jr nc, .random_loop_wild
-	srl b
-	srl b
-	cp b
-	jr nc, .wild_force_flee
-.missed
 	jp .fail
 
 .wild_force_flee
@@ -5199,9 +5187,6 @@ BattleCommand_ForceSwitch:
 .trainer
 	call FindAliveEnemyMons
 	jr c, .switch_fail
-	ld a, [wEnemyGoesFirst]
-	and a
-	jr z, .switch_fail
 	call UpdateEnemyMonInParty
 	ld a, $1
 	ld [wBattleAnimParam], a
@@ -5263,19 +5248,6 @@ BattleCommand_ForceSwitch:
 	cp b
 	jr nc, .wild_succeed_playeristarget
 
-	add b
-	ld c, a
-	inc c
-.wild_random_loop_playeristarget
-	call BattleRandom
-	cp c
-	jr nc, .wild_random_loop_playeristarget
-
-	srl b
-	srl b
-	cp b
-	jr nc, .wild_succeed_playeristarget
-
 .player_miss
 	jr .fail
 
@@ -5292,11 +5264,6 @@ BattleCommand_ForceSwitch:
 .vs_trainer
 	call CheckPlayerHasMonToSwitchTo
 	jr c, .fail
-
-	ld a, [wEnemyGoesFirst]
-	cp $1
-	jr z, .switch_fail
-
 	call UpdateBattleMonInParty
 	ld a, $1
 	ld [wBattleAnimParam], a
