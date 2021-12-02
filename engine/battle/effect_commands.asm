@@ -5847,6 +5847,24 @@ BattleCommand_Recoil:
 	rr c
 	srl b
 	rr c
+; Quick fix: high-power moves get 1/3 recoil damage.
+; We will simplify and just get 1/4 + 1/16, which is slightly less (0.3125).
+	ld a, BATTLE_VARS_MOVE_POWER
+	call GetBattleVar
+	cp 101
+	jr c, .got_quotient
+	push hl
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+	pop hl
+.got_quotient
 	ld a, b
 	or c
 	jr nz, .min_damage

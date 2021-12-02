@@ -1975,7 +1975,7 @@ GetThirdMaxHP:
 	call GetMaxHP
 	xor a
 	inc b
-	.loop
+.loop
 	dec b
 	inc a
 	dec bc

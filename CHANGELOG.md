@@ -43,6 +43,7 @@
 - Roar and Whirlwind hit targets even through Protect or Detect.
 - In wild Pokémon battles, Roar and Whirlwind always fail if the user's level is less than the target's.
 - In Trainer battles, Roar and Whirlwind succeed if they hit, regardless of either Pokémon's level.
+- Increased recoil damage of high-power moves such as Double-edge, from 1/4 to 3/16 (approximation to 1/3).
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
