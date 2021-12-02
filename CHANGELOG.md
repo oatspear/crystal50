@@ -62,6 +62,7 @@
 - Mimicked moves should have the max PP as opposed to 5.
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
+- Double-edge (and other recoil moves above 100 power) take 1/3 recoil, instead of 1/4.
 
 
 ## v0.1 (Base)
