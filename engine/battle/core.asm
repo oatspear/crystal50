@@ -1893,12 +1893,14 @@ SubtractHP:
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
-	ld a, THIS_TURN_PLAYER_TOOK_DAMAGE
-	jr z, .ok
+	ld a, [wTurnBasedFlags]
+	jr z, .player
 	ld hl, wEnemyMonHP
-	ld a, THIS_TURN_ENEMY_TOOK_DAMAGE
+	or THIS_TURN_ENEMY_TOOK_DAMAGE
+	jr .ok
+.player
+	or THIS_TURN_PLAYER_TOOK_DAMAGE
 .ok
-	or [wTurnBasedFlags]
 	ld [wTurnBasedFlags], a
 	inc hl
 	ld a, [hl]

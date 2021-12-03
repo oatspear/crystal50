@@ -2307,7 +2307,9 @@ BattleCommand_ApplyDamage:
 
 .update_turn_flags
 	ld a, [wCurDamage + 1]
-	or [wCurDamage]
+	ld c, a
+	ld a, [wCurDamage]
+	or c
 	ret z
 	ldh a, [hBattleTurn]
 	and a
@@ -6105,9 +6107,10 @@ CheckTypeAMatchesUser:
 
 .ok
 	pop af ; get back the argument type
-	cp [hli]
+	cp [hl]
 	jr z, .return
 
+	inc hl
 	cp [hl]
 
 .return
@@ -6129,9 +6132,10 @@ CheckTypeAMatchesTarget:
 
 .ok
 	pop af ; get back the argument type
-	cp [hli]
+	cp [hl]
 	jr z, .return
 
+	inc hl
 	cp [hl]
 
 .return
