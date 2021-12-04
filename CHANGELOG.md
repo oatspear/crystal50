@@ -10,6 +10,7 @@
 - Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind, Meditate, Sharpen, Barrier, Feint Attack, Pursuit, Karate Chop, Spike Cannon, Low Kick, Sonic Boom, Constrict, Return, Dragon Rage, Jump Kick, Rolling Kick.
 
 ### Changed
+- Replaced Bind with Wrap to free a move slot.
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.
 

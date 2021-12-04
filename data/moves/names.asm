@@ -19,7 +19,7 @@ MoveNames::
 	li "WING ATTACK"
 	li "WHIRLWIND"
 	li "FLY"
-	li "BIND"
+	li "UNUSED MOVE"
 	li "SLAM"
 	li "VINE WHIP"
 	li "STOMP"

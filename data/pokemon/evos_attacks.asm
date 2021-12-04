@@ -1894,7 +1894,7 @@ OnixEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
-	db 1, BIND
+	db 1, WRAP
 	db 1, ROCK_THROW
 	; db 4, SMACK_DOWN
 	db 8, AGILITY ; FIXME: ROCK_POLISH
@@ -2299,7 +2299,7 @@ ChanseyEvosAttacks:
 TangelaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
-	db 1, BIND
+	db 1, WRAP
 	db 4, STUN_SPORE
 	db 8, GROWTH
 	db 12, MEGA_DRAIN
@@ -2551,7 +2551,7 @@ PinsirEvosAttacks:
 	db 1, VICEGRIP
 	db 1, HARDEN
 	db 4, FOCUS_ENERGY
-	db 8, BIND
+	db 8, WRAP
 	db 12, SEISMIC_TOSS
 	db 16, FURY_CUTTER ; FIXME: BUG_BITE
 	; db 20, STORM_THROW
@@ -2772,7 +2772,7 @@ PorygonEvosAttacks: ; based on gen 7
 OmanyteEvosAttacks:
 	db EVOLVE_LEVEL, 40, OMASTAR
 	db 0 ; no more evolutions
-	db 1, BIND
+	db 1, WRAP
 	db 1, WITHDRAW
 	db 5, ROLLOUT
 	db 10, SAND_ATTACK
@@ -2791,7 +2791,7 @@ OmanyteEvosAttacks:
 OmastarEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CRUNCH
-	; db 1, BIND
+	; db 1, WRAP
 	db 1, WITHDRAW
 	db 1, ROLLOUT
 	db 1, SAND_ATTACK
@@ -4129,33 +4129,32 @@ GligarEvosAttacks:
 	db 55, GUILLOTINE
 	db 0 ; no more level-up moves
 
-SteelixEvosAttacks: ; based on gen 7
+SteelixEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, CRUNCH
 	; db 1, THUNDER_FANG
 	; db 1, ICE_FANG
 	; db 1, FIRE_FANG
-	; db 1, MUD_SPORT
+	; db 1, ROCK_POLISH
 	db 1, TACKLE
 	db 1, HARDEN
-	db 1, BIND
-	db 4, CURSE
-	db 7, ROCK_THROW
-	; db 10, ROCK_TOMB
-	db 13, RAGE
-	; db 16, STEALTH_ROCK
-	; db 19, AUTOTOMIZE
-	; db 20, GYRO_BALL
-	; db 22, SMACK_DOWN
-	db 25, DRAGONBREATH
-	db 28, SLAM
-	db 31, SCREECH
-	db 34, ROCK_SLIDE
-	db 37, CRUNCH
-	db 40, IRON_TAIL
-	db 43, DIG
-	; db 46, STONE_EDGE
-	db 49, DOUBLE_EDGE
-	db 52, SANDSTORM
+	db 1, WRAP
+	db 1, ROCK_THROW
+	; db 4, SMACK_DOWN
+	db 8, AGILITY ; FIXME: AUTOTOMIZE
+	db 12, DRAGONBREATH
+	db 16, CURSE
+	db 20, ROCK_SLIDE
+	db 24, SCREECH
+	; db 28, SAND_TOMB
+	; db 32, STEALTH_ROCK
+	db 36, SLAM
+	db 40, SANDSTORM
+	db 44, DIG
+	db 48, IRON_TAIL
+	; db 52, STONE_EDGE
+	db 56, DOUBLE_EDGE
+	; db 60, MAGNET_RISE
 	db 0 ; no more level-up moves
 
 SnubbullEvosAttacks:

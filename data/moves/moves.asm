@@ -34,9 +34,9 @@
 
 ; Move replacements by similarity:
 
-; Mean Look     : Block
-; Bind          : Wrap + ?
-; Spider Web    : Mean Look + Infestation
+; Mean Look     : Block (TODO)
+; Bind          : Wrap
+; Spider Web    : Mean Look
 ; Leer
 ; Tail Whip
 ; Tackle
@@ -46,6 +46,13 @@
 ; Move replacements by convenience:
 
 ; Low Kick      : Low Sweep
+
+; Moves added to empty slots:
+
+; Disarming Voice
+; Dazzling Gleam
+; Play Rough
+; Infestation
 
 ; Characteristics of each move.
 
@@ -83,7 +90,7 @@ Moves:
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, 100,              35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, 20,   0
 	move FLY,          EFFECT_FLY,                90, FLYING,        PHYSICAL,  95,              15,   0
-	move BIND,         EFFECT_TRAP_TARGET,        15, NORMAL,        PHYSICAL,  85,              20,   0
+	move UNUSED_M_14,  EFFECT_NORMAL_HIT,          1, NORMAL,        PHYSICAL, 100,              20,   0
 	move SLAM,         EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL,  75,              20,   0
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,         PHYSICAL, 100,              25,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              20,  30

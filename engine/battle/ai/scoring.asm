@@ -1011,7 +1011,7 @@ AI_Smart_Ohko:
 	ret
 
 AI_Smart_TrapTarget:
-; Bind, Wrap, Fire Spin, Clamp, Infestation
+; Wrap, Fire Spin, Clamp, Infestation
 
 ; 50% chance to discourage this move if the player is already trapped.
 	ld a, [wPlayerWrapCount]

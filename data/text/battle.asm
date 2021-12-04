@@ -456,12 +456,6 @@ BattleText_UserWasReleasedFromStringBuffer1:
 	text "!"
 	autodone
 
-UsedBindText:
-	text "<USER>"
-	line "used BIND on"
-	scroll "<TARGET>!"
-	autodone
-
 WhirlpoolTrapText:
 	text "<TARGET>"
 	line "was trapped in"

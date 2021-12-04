@@ -102,7 +102,7 @@ BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_EGG
 	const ANIM_OBJ_FOCUS
 	const ANIM_OBJ_BIND1
-	const ANIM_OBJ_BIND2
+	; const ANIM_OBJ_BIND2
 	const ANIM_OBJ_LEECH_SEED
 	const ANIM_OBJ_SOUND
 	const ANIM_OBJ_WAVE
