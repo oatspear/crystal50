@@ -2346,8 +2346,8 @@ HorseaEvosAttacks:
 	db 20, DRAGONBREATH
 	db 25, BUBBLEBEAM
 	db 30, AGILITY
-	db 35, LOCK_ON ; FIXME: LASER_FOCUS
-	; db 40, DRAGON_PULSE
+	; db 35, LASER_FOCUS
+	db 40, DRAGON_PULSE
 	db 45, HYDRO_PUMP
 	db 50, DRAGON_DANCE
 	db 55, RAIN_DANCE
@@ -2365,7 +2365,7 @@ SeadraEvosAttacks:
 	db 25, BUBBLEBEAM
 	db 30, AGILITY
 	; db 37, LASER_FOCUS
-	; db 44, DRAGON_PULSE
+	db 44, DRAGON_PULSE
 	db 51, HYDRO_PUMP
 	db 58, DRAGON_DANCE
 	db 65, RAIN_DANCE
@@ -2591,23 +2591,27 @@ MagikarpEvosAttacks:
 	db 25, FLAIL
 	db 0 ; no more level-up moves
 
-GyaradosEvosAttacks: ; based on gen 7
+GyaradosEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, BITE
-	db 1, THRASH
+	db 1, FLAIL
+	; db 1, TACKLE
+	db 1, LEER
+	db 1, TWISTER
 	db LEVEL_EVO, BITE
-	db 21, LEER
-	db 24, TWISTER
-	; db 27, ICE_FANG
-	db 30, WATERFALL ; FIXME: AQUA_TAIL
-	db 33, SCARY_FACE
-	db 36, DRAGON_RAGE
-	db 39, CRUNCH
-	db 42, HYDRO_PUMP
-	db 45, DRAGON_DANCE
-	; db 48, HURRICANE
-	db 51, RAIN_DANCE
-	db 54, HYPER_BEAM
+	db 4, WHIRLPOOL
+	; db 8, ICE_FANG
+	; db 12, BRINE
+	db 16, SCARY_FACE
+	db 21, WATERFALL
+	db 24, CRUNCH
+	db 28, RAIN_DANCE
+	; db 32, AQUA_TAIL
+	db 36, DRAGON_DANCE
+	db 40, HYDRO_PUMP
+	; db 44, HURRICANE
+	db 48, THRASH
+	db 52, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 LaprasEvosAttacks:
@@ -2961,7 +2965,7 @@ DratiniEvosAttacks:
 	db 1, LEER
 	db 5, TWISTER
 	db 10, THUNDER_WAVE
-	db 15, DRAGON_RAGE ; FIXME: DRAGON_TAIL
+	; db 15, DRAGON_TAIL
 	db 20, AGILITY
 	db 25, SLAM
 	db 31, WATERFALL ; FIXME: AQUA_TAIL
@@ -2980,7 +2984,7 @@ DragonairEvosAttacks:
 	db 1, LEER
 	db 1, TWISTER
 	db 1, THUNDER_WAVE
-	db 15, DRAGON_RAGE ; FIXME: DRAGON_TAIL
+	; db 15, DRAGON_TAIL
 	db 20, AGILITY
 	db 25, SLAM
 	db 33, WATERFALL ; FIXME: AQUA_TAIL
@@ -3005,7 +3009,7 @@ DragoniteEvosAttacks:
 	db 1, TWISTER
 	db 1, THUNDER_WAVE
 	db LEVEL_EVO, WING_ATTACK ; FIXME: HURRICANE
-	db 15, DRAGON_RAGE ; FIXME: DRAGON_TAIL
+	; db 15, DRAGON_TAIL
 	db 20, AGILITY
 	db 25, SLAM
 	db 33, WATERFALL ; FIXME: AQUA_TAIL
@@ -3638,7 +3642,7 @@ AmpharosEvosAttacks:
 	; db 51, SIGNAL_BEAM
 	db 57, LIGHT_SCREEN
 	db 62, THUNDER
-	; db 65, DRAGON_PULSE
+	db 65, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 BellossomEvosAttacks:
@@ -4578,7 +4582,7 @@ KingdraEvosAttacks:
 	db 25, BUBBLEBEAM
 	db 30, AGILITY
 	; db 37, LASER_FOCUS
-	; db 44, DRAGON_PULSE
+	db 44, DRAGON_PULSE
 	db 51, HYDRO_PUMP
 	db 58, DRAGON_DANCE
 	db 65, RAIN_DANCE

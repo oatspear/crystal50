@@ -89,7 +89,7 @@ BattleAnimations::
 	dw BattleAnim_SleepPowder
 	dw BattleAnim_PetalDance
 	dw BattleAnim_StringShot
-	dw BattleAnim_DragonRage
+	dw BattleAnim_DragonPulse
 	dw BattleAnim_FireSpin
 	dw BattleAnim_Thundershock
 	dw BattleAnim_Thunderbolt
@@ -914,16 +914,6 @@ BattleAnim_FireSpin:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_DragonRage:
-	anim_1gfx ANIM_GFX_FIRE
-.loop
-	anim_sound 6, 2, SFX_EMBER
-	anim_obj ANIM_OBJ_DRAGON_RAGE, 64, 92, $0
-	anim_wait 3
-	anim_loop 16, .loop
-	anim_wait 64
-	anim_ret
-
 BattleAnim_Flamethrower:
 	anim_1gfx ANIM_GFX_FIRE
 	anim_sound 6, 2, SFX_EMBER
@@ -1481,6 +1471,7 @@ BattleAnim_HyperBeam:
 	anim_wait 48
 	anim_ret
 
+BattleAnim_DragonPulse:
 BattleAnim_FlashCannon:
 BattleAnim_AuroraBeam:
 	anim_1gfx ANIM_GFX_BEAM

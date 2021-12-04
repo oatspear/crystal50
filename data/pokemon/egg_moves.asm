@@ -356,8 +356,6 @@ HorseaEggMoves:
 	db AURORA_BEAM
 	db OCTAZOOKA
 	db DISABLE
-	db SPLASH
-	db DRAGON_RAGE
 	db -1 ; end
 
 GoldeenEggMoves:

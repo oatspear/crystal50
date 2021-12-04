@@ -3,7 +3,7 @@
 ; Twineedle     : Poison Jab
 ; Feint Attack	: Sucker Punch
 ; Pursuit       : Dark Pulse
-; Dragon Rage
+; Dragon Rage   : Dragon Pulse
 ; Jump Kick
 ; Karate Chop   : Revenge
 ; Rolling Kick
@@ -145,7 +145,7 @@ Moves:
 	move SLEEP_POWDER, EFFECT_SLEEP,               0, GRASS,         STATUS,    75,              15,   0
 	move PETAL_DANCE,  EFFECT_RAMPAGE,           120, GRASS,         SPECIAL,  100,              10,   0
 	move STRING_SHOT,  EFFECT_SPEED_DOWN,          0, BUG,           STATUS,    95,              40,   0
-	move DRAGON_RAGE,  EFFECT_STATIC_DAMAGE,      40, DRAGON,        SPECIAL,  100,              10,   0
+	move DRAGON_PULSE, EFFECT_NORMAL_HIT,         85, DRAGON,        SPECIAL,  100,              10,   0
 	move FIRE_SPIN,    EFFECT_TRAP_TARGET,        35, FIRE,          SPECIAL,   85,              15,   0
 	move THUNDERSHOCK, EFFECT_PARALYZE_HIT,       40, ELECTRIC,      SPECIAL,  100,              30,  10
 	move THUNDERBOLT,  EFFECT_PARALYZE_HIT,       90, ELECTRIC,      SPECIAL,  100,              15,  10
