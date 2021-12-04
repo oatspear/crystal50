@@ -804,6 +804,33 @@ CloseCombat:
 	buildopponentrage
 	endmove
 
+Superpower:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	attackdown
+	statdownmessage
+	statdownfailtext
+	defensedown
+	statdownmessage
+	statdownfailtext
+	switchturn
+	checkfaint
+	buildopponentrage
+	endmove
+
 PayDay:
 	checkobedience
 	usedmovetext

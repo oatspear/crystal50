@@ -34,7 +34,7 @@ BattleAnimations::
 	dw BattleAnim_DoubleKick
 	dw BattleAnim_MegaKick
 	dw BattleAnim_CloseCombat
-	dw BattleAnim_RollingKick
+	dw BattleAnim_Superpower
 	dw BattleAnim_SandAttack
 	dw BattleAnim_Headbutt
 	dw BattleAnim_HornAttack
@@ -793,16 +793,6 @@ BattleAnim_HiJumpKick:
 	anim_wait 16
 	anim_sound 0, 0, SFX_DOUBLE_KICK
 	anim_obj ANIM_OBJ_HIT, 44, 88, $0
-	anim_wait 16
-	anim_ret
-
-BattleAnim_RollingKick:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_DOUBLE_KICK
-	anim_obj ANIM_OBJ_KICK, 112, 56, $0
-	anim_setobj $1, $3
-	anim_wait 12
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
 	anim_wait 16
 	anim_ret
 
@@ -2929,6 +2919,7 @@ BattleAnim_Metronome:
 	anim_wait 48
 	anim_ret
 
+BattleAnim_Superpower:
 BattleAnim_CloseCombat:
 BattleAnim_Counter:
 	anim_1gfx ANIM_GFX_HIT

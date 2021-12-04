@@ -190,7 +190,6 @@ AbraEggMoves:
 
 MachopEggMoves:
 	db LIGHT_SCREEN
-	db ROLLING_KICK
 	db ENCORE
 	db -1 ; end
 

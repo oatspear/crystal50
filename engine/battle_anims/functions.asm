@@ -1993,8 +1993,8 @@ BattleAnimFunction_Kick:
 	dw .zero
 	dw .one
 	dw .two   ; Jump Kick, Hi Jump Kick
-	dw .three ; Rolling Kick
-	dw .four  ; Rolling Kick (continued)
+;	dw .three ; Rolling Kick
+;	dw .four  ; Rolling Kick (continued)
 
 .zero
 	ret
@@ -2040,35 +2040,35 @@ BattleAnimFunction_Kick:
 	dec [hl]
 	ret
 
-.three
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld [hl], $2c
-	ld hl, BATTLEANIMSTRUCT_FRAME
-	add hl, bc
-	ld [hl], $0
-	ld hl, BATTLEANIMSTRUCT_DURATION
-	add hl, bc
-	ld [hl], $80
-.four
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $98
-	ret nc
-	inc [hl]
-	inc [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	ld d, $8
-	call BattleAnim_Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
+;.three
+;	call BattleAnim_IncAnonJumptableIndex
+;	ld hl, BATTLEANIMSTRUCT_VAR1
+;	add hl, bc
+;	ld [hl], $2c
+;	ld hl, BATTLEANIMSTRUCT_FRAME
+;	add hl, bc
+;	ld [hl], $0
+;	ld hl, BATTLEANIMSTRUCT_DURATION
+;	add hl, bc
+;	ld [hl], $80
+;.four
+;	ld hl, BATTLEANIMSTRUCT_XCOORD
+;	add hl, bc
+;	ld a, [hl]
+;	cp $98
+;	ret nc
+;	inc [hl]
+;	inc [hl]
+;	ld hl, BATTLEANIMSTRUCT_VAR1
+;	add hl, bc
+;	ld a, [hl]
+;	inc [hl]
+;	ld d, $8
+;	call BattleAnim_Sine
+;	ld hl, BATTLEANIMSTRUCT_YOFFSET
+;	add hl, bc
+;	ld [hl], a
+;	ret
 
 BattleAnimFunction_Egg:
 ; Used by Egg Bomb and Softboiled

@@ -27,7 +27,7 @@ MoveDescriptions::
 	dw DoubleKickDescription
 	dw MegaKickDescription
 	dw CloseCombatDescription
-	dw RollingKickDescription
+	dw SuperpowerDescription
 	dw SandAttackDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
@@ -367,9 +367,9 @@ CloseCombatDescription:
 	db   "Lowers the user's"
 	next "DEF. and SP. DEF.@"
 
-RollingKickDescription:
-	db   "A fast, spinning"
-	next "kick.@"
+SuperpowerDescription:
+	db   "Lowers the user's"
+	next "ATK. and DEF.@"
 
 SandAttackDescription:
 	db   "Reduces accuracy"

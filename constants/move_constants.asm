@@ -32,7 +32,7 @@
 	const DOUBLE_KICK  ; 18
 	const MEGA_KICK    ; 19
 	const CLOSE_COMBAT ; 1a
-	const ROLLING_KICK ; 1b
+	const SUPERPOWER   ; 1b
 	const SAND_ATTACK  ; 1c
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e

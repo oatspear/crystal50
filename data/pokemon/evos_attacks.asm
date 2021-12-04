@@ -605,7 +605,7 @@ NidoqueenEvosAttacks:
 	; db 1, POISON_STING
 	; db 1, SCRATCH
 	; db 1, TAIL_WHIP
-	; db LEVEL_EVO, SUPERPOWER
+	db LEVEL_EVO, SUPERPOWER
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
@@ -2562,7 +2562,7 @@ PinsirEvosAttacks:
 	db 40, SWORDS_DANCE
 	db 44, SUBMISSION
 	db 48, GUILLOTINE
-	; db 52, SUPERPOWER
+	db 52, SUPERPOWER
 	db 0 ; no more level-up moves
 
 TaurosEvosAttacks:
@@ -3175,17 +3175,18 @@ TotodileEvosAttacks:
 	db 1, SCRATCH
 	db 1, LEER
 	db 6, WATER_GUN
-	db 8, RAGE
+	db 8, MUD_SLAP
 	db 13, BITE
 	db 15, SCARY_FACE
 	db 20, ICE_PUNCH ; FIXME: ICE_FANG
 	db 22, FLAIL
 	db 27, CRUNCH
+	db 29, LOW_SWEEP ; FIXME: LOW_KICK
 	db 34, SLASH
 	db 36, SCREECH
 	db 41, THRASH
 	db 43, WATERFALL ; FIXME: AQUA_TAIL
-	; db 48, SUPERPOWER
+	db 48, SUPERPOWER
 	db 50, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -3195,39 +3196,42 @@ CroconawEvosAttacks:
 	db 1, SCRATCH
 	db 1, LEER
 	db 1, WATER_GUN
-	db 6, WATER_GUN
-	db 8, RAGE
+	; db 6, WATER_GUN
+	db 8, MUD_SLAP
 	db 13, BITE
 	db 15, SCARY_FACE
 	db 21, ICE_PUNCH ; FIXME: ICE_FANG
 	db 24, FLAIL
 	db 30, CRUNCH
+	db 33, LOW_SWEEP ; FIXME: LOW_KICK
 	db 39, SLASH
 	db 42, SCREECH
 	db 48, THRASH
 	db 51, WATERFALL ; FIXME: AQUA_TAIL
+	db 57, SUPERPOWER
 	db 60, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, AGILITY
 	db 1, SCRATCH
 	db 1, LEER
 	db 1, WATER_GUN
-	db 1, RAGE
-	db 6, WATER_GUN
-	db 8, RAGE
+	; db 1, MUD_SLAP
+	; db 6, WATER_GUN
+	db 8, MUD_SLAP
 	db 13, BITE
 	db 15, SCARY_FACE
 	db 21, ICE_PUNCH ; FIXME: ICE_FANG
 	db 24, FLAIL
 	db 32, CRUNCH
-	db 37, HEADBUTT ; FIXME: CHIP_AWAY
+	db 37, LOW_SWEEP ; FIXME: LOW_KICK
 	db 45, SLASH
 	db 50, SCREECH
 	db 58, THRASH
 	db 63, WATERFALL ; FIXME: AQUA_TAIL
-	; db 71, SUPERPOWER
+	db 71, SUPERPOWER
 	db 76, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -3657,38 +3661,43 @@ BellossomEvosAttacks:
 MarillEvosAttacks:
 	db EVOLVE_LEVEL, 18, AZUMARILL
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, ROLLOUT
 	db 1, DEFENSE_CURL
-	db 1, TAIL_WHIP
+	; db 1, TACKLE
 	db 1, WATER_GUN
+	db 1, TAIL_WHIP
 	db 6, BUBBLEBEAM
 	db 9, CHARM
 	db 12, SLAM
-	db 15, ROLLOUT ; FIXME: BOUNCE
+	; db 15, BOUNCE
 	db 19, WATERFALL ; FIXME: AQUA_TAIL
 	db 21, PLAY_ROUGH
 	; db 24, AQUA_RING
 	db 27, RAIN_DANCE
 	db 30, HYDRO_PUMP
 	db 33, DOUBLE_EDGE
-	; db 36, SUPERPOWER
+	db 36, SUPERPOWER
 	db 0 ; no more level-up moves
 
 AzumarillEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, ROLLOUT
 	db 1, DEFENSE_CURL
-	db 1, TAIL_WHIP
+	; db 1, TACKLE
 	db 1, WATER_GUN
+	db 1, TAIL_WHIP
+	; db 1, HELPING_HAND
 	db 6, BUBBLEBEAM
 	db 9, CHARM
 	db 12, SLAM
-	db 15, ROLLOUT ; FIXME: BOUNCE
-	db 20, WATERFALL ; FIXME: AQUA_TAIL
+	; db 15, BOUNCE
+	db 21, WATERFALL ; FIXME: AQUA_TAIL
 	db 25, PLAY_ROUGH
+	; db 30, AQUA_RING
 	db 35, RAIN_DANCE
 	db 40, HYDRO_PUMP
 	db 45, DOUBLE_EDGE
+	db 50, SUPERPOWER
 	db 0 ; no more level-up moves
 
 SudowoodoEvosAttacks: ; based on gen 7
