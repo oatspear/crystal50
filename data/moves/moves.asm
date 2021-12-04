@@ -4,7 +4,7 @@
 ; Feint Attack	: Sucker Punch
 ; Pursuit       : Dark Pulse
 ; Dragon Rage   : Dragon Pulse
-; Jump Kick
+; Jump Kick     : Close Combat
 ; Karate Chop   : Revenge
 ; Rolling Kick
 ; Mirror Move
@@ -89,7 +89,7 @@ Moves:
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              20,  30
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING,      PHYSICAL, 100,              30,   0
 	move MEGA_KICK,    EFFECT_NORMAL_HIT,        120, NORMAL,        PHYSICAL,  75,               5,   0
-	move JUMP_KICK,    EFFECT_JUMP_KICK,          70, FIGHTING,      PHYSICAL,  95,              25,   0
+	move CLOSE_COMBAT, EFFECT_CLOSE_COMBAT,      120, FIGHTING,      PHYSICAL, 100,               5,   0
 	move ROLLING_KICK, EFFECT_FLINCH_HIT,         60, FIGHTING,      PHYSICAL,  85,              15,  30
 	move SAND_ATTACK,  EFFECT_ACCURACY_DOWN,       0, GROUND,        STATUS,   100,              15,   0
 	move HEADBUTT,     EFFECT_FLINCH_HIT,         70, NORMAL,        PHYSICAL, 100,              15,  30

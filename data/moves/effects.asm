@@ -777,6 +777,33 @@ AllUpHit:
 	buildopponentrage
 	endmove
 
+CloseCombat:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	defensedown
+	statdownmessage
+	statdownfailtext
+	specialdefensedown
+	statdownmessage
+	statdownfailtext
+	switchturn
+	checkfaint
+	buildopponentrage
+	endmove
+
 PayDay:
 	checkobedience
 	usedmovetext

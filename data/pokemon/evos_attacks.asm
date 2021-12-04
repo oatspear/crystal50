@@ -1122,7 +1122,7 @@ MankeyEvosAttacks:
 	; db 26, ASSURANCE
 	db 29, SKULL_BASH
 	db 33, THRASH
-	; db 36, CLOSE_COMBAT
+	db 36, CLOSE_COMBAT
 	db 40, SCREECH
 	; db 43, STOMPING_TANTRUM
 	db 47, OUTRAGE
@@ -1147,7 +1147,7 @@ PrimeapeEvosAttacks:
 	; db 26, ASSURANCE
 	db 30, SKULL_BASH
 	db 35, THRASH
-	; db 39, CLOSE_COMBAT
+	db 39, CLOSE_COMBAT
 	db 44, SCREECH
 	; db 48, STOMPING_TANTRUM
 	db 53, OUTRAGE
@@ -2142,7 +2142,7 @@ HitmonleeEvosAttacks:
 	; db 24, BLAZE_KICK
 	db 28, MIND_READER
 	db 32, MEGA_KICK
-	; db 36, CLOSE_COMBAT
+	db 36, CLOSE_COMBAT
 	db 40, REVERSAL
 	db 44, HI_JUMP_KICK
 	db 0 ; no more level-up moves
@@ -2168,7 +2168,7 @@ HitmonchanEvosAttacks:
 	db 24, FIRE_PUNCH
 	db 28, AGILITY
 	db 32, MEGA_PUNCH
-	; db 36, CLOSE_COMBAT
+	db 36, CLOSE_COMBAT
 	db 40, COUNTER
 	; db 44, FOCUS_PUNCH
 	db 0 ; no more level-up moves
@@ -4274,7 +4274,7 @@ HeracrossEvosAttacks: ; based on gen 7
 	db 31, PIN_MISSILE
 	db 34, TAKE_DOWN
 	db 37, MEGAHORN
-	; db 43, CLOSE_COMBAT
+	db 43, CLOSE_COMBAT
 	db 46, REVERSAL
 	db 0 ; no more level-up moves
 
@@ -4712,7 +4712,7 @@ HitmontopEvosAttacks:
 	db 24, SUCKER_PUNCH
 	db 28, AGILITY
 	db 32, DIG
-	; db 36, CLOSE_COMBAT
+	db 36, CLOSE_COMBAT
 	db 40, COUNTER
 	; db 44, ENDEAVOR
 	db 0 ; no more level-up moves
