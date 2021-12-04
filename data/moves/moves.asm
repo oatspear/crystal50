@@ -53,6 +53,7 @@
 ; Dazzling Gleam
 ; Play Rough
 ; Infestation
+; Sand Tomb
 
 ; Characteristics of each move.
 
@@ -90,7 +91,7 @@ Moves:
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, 100,              35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, 20,   0
 	move FLY,          EFFECT_FLY,                90, FLYING,        PHYSICAL,  95,              15,   0
-	move UNUSED_M_14,  EFFECT_NORMAL_HIT,          1, NORMAL,        PHYSICAL, 100,              20,   0
+	move SAND_TOMB,    EFFECT_TRAP_TARGET,        35, GROUND,        PHYSICAL,  85,              15,   0
 	move SLAM,         EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL,  75,              20,   0
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,         PHYSICAL, 100,              25,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              20,  30

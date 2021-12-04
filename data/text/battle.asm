@@ -468,6 +468,12 @@ FireSpinTrapText:
 	scroll "a FIRE SPIN!"
 	autodone
 
+SandTombTrapText:
+	text "<TARGET>"
+	line "was trapped in"
+	scroll "a SAND TOMB!"
+	autodone
+
 WrappedByText:
 	text "<TARGET>"
 	line "was WRAPPED by"

@@ -3,7 +3,7 @@
 ## v0.2 (Set to Level 50)
 
 ### Added
-- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash, Calm Mind, Nasty Plot, Dragon Dance, Sucker Punch, Dark Pulse, Revenge, Avalanche, Low Sweep, Bug Buzz, Flash Cannon, Flare Blitz, Dragon Pulse, Close Combat, Superpower.
+- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash, Calm Mind, Nasty Plot, Dragon Dance, Sucker Punch, Dark Pulse, Revenge, Avalanche, Low Sweep, Bug Buzz, Flash Cannon, Flare Blitz, Dragon Pulse, Close Combat, Superpower, Sand Tomb.
 - Weather condition: Hail.
 
 ### Removed

@@ -20,7 +20,7 @@ MoveDescriptions::
 	dw WingAttackDescription
 	dw WhirlwindDescription
 	dw FlyDescription
-	dw Move00Description
+	dw SandTombDescription
 	dw SlamDescription
 	dw VineWhipDescription
 	dw StompDescription
@@ -576,6 +576,10 @@ BulldozeDescription:
 StringShotDescription:
 	db   "A move that lowers"
 	next "the foe's SPEED.@"
+
+SandTombDescription:
+	db   "Traps foe in sand"
+	next "for 4-5 turns.@"
 
 FireSpinDescription:
 	db   "Traps foe in fire"

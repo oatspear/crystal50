@@ -537,13 +537,14 @@ SandslashEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 1, POISON_STING
 	db 1, SAND_ATTACK
+	; db 1, AGILITY
 	db 9, ROLLOUT
 	db 12, FURY_CUTTER
 	db 15, RAPID_SPIN
 	db 18, BULLDOZE
 	db 21, SWIFT
 	db 26, FURY_SWIPES
-	; db 31, SAND_TOMB
+	db 31, SAND_TOMB
 	db 36, SLASH
 	db 41, DIG
 	; db 46, GYRO_BALL
@@ -1010,12 +1011,12 @@ DugtrioEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, SAND_TOMB
 	; db 1, NIGHT_SLASH
-	; db 1, TRI_ATTACK
+	db 1, TRI_ATTACK
 	db 1, SAND_ATTACK
-	db 1, SCRATCH
+	; db 1, SCRATCH
 	db 1, GROWL
 	; db 1, ASTONISH
-	db LEVEL_EVO, TRI_ATTACK ; FIXME: SAND_TOMB
+	db LEVEL_EVO, SAND_TOMB
 	db 12, MUD_SLAP
 	db 16, BULLDOZE
 	db 20, SUCKER_PUNCH
@@ -1902,7 +1903,7 @@ OnixEvosAttacks:
 	db 16, CURSE
 	db 20, ROCK_SLIDE
 	db 24, SCREECH
-	; db 28, SAND_TOMB
+	db 28, SAND_TOMB
 	; db 32, STEALTH_ROCK
 	db 36, SLAM
 	db 40, SANDSTORM
@@ -4146,7 +4147,7 @@ SteelixEvosAttacks:
 	db 16, CURSE
 	db 20, ROCK_SLIDE
 	db 24, SCREECH
-	; db 28, SAND_TOMB
+	db 28, SAND_TOMB
 	; db 32, STEALTH_ROCK
 	db 36, SLAM
 	db 40, SANDSTORM

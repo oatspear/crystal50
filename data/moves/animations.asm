@@ -27,7 +27,7 @@ BattleAnimations::
 	dw BattleAnim_WingAttack
 	dw BattleAnim_Whirlwind
 	dw BattleAnim_Fly
-	dw BattleAnim_0
+	dw BattleAnim_SandTomb
 	dw BattleAnim_Slam
 	dw BattleAnim_VineWhip
 	dw BattleAnim_Stomp
@@ -1563,6 +1563,16 @@ BattleAnim_Fly:
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
 	anim_call BattleAnimSub_WarpAway
 	anim_wait 64
+	anim_ret
+
+BattleAnim_SandTomb:
+	anim_1gfx ANIM_GFX_POWDER
+.loop
+	anim_sound 0, 1, SFX_MENU
+	anim_obj ANIM_OBJ_SAND_TOMB, 144, 64, $0
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_wait 96
 	anim_ret
 
 BattleAnim_DoubleTeam:
