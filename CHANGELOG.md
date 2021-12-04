@@ -3,11 +3,11 @@
 ## v0.2 (Set to Level 50)
 
 ### Added
-- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash, Calm Mind, Nasty Plot, Dragon Dance, Sucker Punch, Dark Pulse, Revenge, Avalanche, Low Sweep, Bug Buzz, Flash Cannon.
+- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash, Calm Mind, Nasty Plot, Dragon Dance, Sucker Punch, Dark Pulse, Revenge, Avalanche, Low Sweep, Bug Buzz, Flash Cannon, Flare Blitz.
 - Weather condition: Hail.
 
 ### Removed
-- Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind, Meditate, Sharpen, Barrier, Feint Attack, Pursuit, Karate Chop, Spike Cannon, Low Kick, Sonic Boom, Constrict.
+- Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind, Meditate, Sharpen, Barrier, Feint Attack, Pursuit, Karate Chop, Spike Cannon, Low Kick, Sonic Boom, Constrict, Return.
 
 ### Changed
 - Pokémon stats and damage calculation are now set to level 50.
@@ -63,7 +63,7 @@
 - Mimicked moves should have the max PP as opposed to 5.
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
-- Double-edge (and other recoil moves above 100 power) take 1/3 recoil, instead of 1/4.
+- Double-edge (and other recoil moves above 100 power) take 1/3 recoil.
 
 
 ## v0.1 (Base)

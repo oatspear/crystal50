@@ -1599,27 +1599,6 @@ Attract:
 	attract
 	endmove
 
-Return:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	happinesspower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Present:
 	checkobedience
 	usedmovetext

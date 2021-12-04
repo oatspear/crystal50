@@ -96,7 +96,7 @@ CharmanderEvosAttacks:
 	db 28, SCARY_FACE
 	db 32, FIRE_SPIN
 	; db 36, INFERNO
-	; db 40, FLARE_BLITZ
+	db 40, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 CharmeleonEvosAttacks:
@@ -113,7 +113,7 @@ CharmeleonEvosAttacks:
 	db 37, SCARY_FACE
 	db 42, FIRE_SPIN
 	; db 48, INFERNO
-	; db 54, FLARE_BLITZ
+	db 54, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 CharizardEvosAttacks:
@@ -133,7 +133,7 @@ CharizardEvosAttacks:
 	db 39, SCARY_FACE
 	db 46, FIRE_SPIN
 	; db 54, INFERNO
-	; db 62, FLARE_BLITZ
+	db 62, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 SquirtleEvosAttacks:
@@ -1172,29 +1172,29 @@ GrowlitheEvosAttacks:
 	db 44, ROAR
 	db 48, PLAY_ROUGH
 	db 52, REVERSAL
-	; db 56, FLARE_BLITZ
+	db 56, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
-ArcanineEvosAttacks: ; based on GROWLITHE +10
+ArcanineEvosAttacks:
 	db 0 ; no more evolutions
-	; lots of move tutor and move relearner moves
+	; db 1, EXTREMESPEED
 	; db 1, BURN_UP
-	db 1, EMBER
+	db 1, FLAME_WHEEL
+	; db 1, HELPING_HAND
+	; db 1, AGILITY
+	; db 1, FIRE_FANG
+	; db 1, RETALIATE
+	; db 1, CRUNCH
+	; db 1, TAKE_DOWN
+	; db 1, FLAMETHROWER
+	; db 1, ROAR
+	; db 1, PLAY_ROUGH
+	; db 1, REVERSAL
+	; db 1, FLARE_BLITZ
+	; db 1, EMBER
 	db 1, LEER
-	; db 14, HOWL
-	db 18, BITE
-	db 22, FLAME_WHEEL
-	; db 26, HELPING_HAND
-	db 30, AGILITY
-	; db 34, FIRE_FANG
-	; db 38, RETALIATE
-	db 42, CRUNCH
-	db 46, TAKE_DOWN
-	db 50, FLAMETHROWER
-	db 54, ROAR
-	db 58, PLAY_ROUGH
-	db 62, REVERSAL
-	; db 66, FLARE_BLITZ
+	; db 1, HOWL
+	db 1, BITE
 	db LEVEL_EVO, EXTREMESPEED
 	db 0 ; no more level-up moves
 
@@ -1528,7 +1528,7 @@ PonytaEvosAttacks:
 	db 41, TAKE_DOWN
 	db 45, FLAMETHROWER ; FIXME: INFERNO
 	db 50, FIRE_BLAST
-	db 55, DOUBLE_EDGE ; FIXME: FLARE_BLITZ
+	db 55, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
@@ -1550,7 +1550,7 @@ RapidashEvosAttacks:
 	db 43, TAKE_DOWN
 	db 49, FLAMETHROWER ; FIXME: INFERNO
 	db 56, FIRE_BLAST
-	db 63, DOUBLE_EDGE ; FIXME: FLARE_BLITZ
+	db 63, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
@@ -2741,7 +2741,7 @@ FlareonEvosAttacks:
 	db 35, FIRE_SPIN
 	db 40, FLAMETHROWER ; FIXME: LAVA_PLUME
 	db 45, SCARY_FACE
-	; db 50, FLARE_BLITZ
+	db 50, FLARE_BLITZ
 	db 55, DOUBLE_EDGE ; FIXME: LAST_RESORT
 	db 0 ; no more level-up moves
 

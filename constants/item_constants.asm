@@ -244,7 +244,7 @@ TM01 EQU const_value
 	add_tm DRAGONBREATH ; d7
 	add_tm THUNDER      ; d8
 	add_tm EARTHQUAKE   ; d9
-	add_tm RETURN       ; da
+	add_tm AVALANCHE    ; da
 	add_tm DIG          ; db
 	const ITEM_DC       ; dc
 	add_tm PSYCHIC_M    ; dd

@@ -100,7 +100,7 @@ BattleCommandPointers:
 	dw BattleCommand_Revenge
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
-	dw BattleCommand_HappinessPower
+	dw BattleCommand_Unused60
 	dw BattleCommand_Present
 	dw BattleCommand_DamageCalc
 	dw BattleCommand_StartHail

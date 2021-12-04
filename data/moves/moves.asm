@@ -24,7 +24,7 @@
 ; Dizzy Punch
 ; Sharpen       : Nasty Plot
 ; Foresight
-; Return
+; Return        : Flare Blitz
 ; Frustration   : Hail
 ; Meditate      : Calm Mind
 ; Barrier       : Dragon Dance
@@ -279,7 +279,7 @@ Moves:
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,        STATUS,   100,              15,   0
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,        STATUS,   100,              10,   0
 	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,        STATUS,   100,               5,   0
-	move RETURN,       EFFECT_RETURN,              1, NORMAL,        PHYSICAL, 100,              20,   0
+	move FLARE_BLITZ,  EFFECT_RECOIL_HIT,        120, FIRE,          PHYSICAL, 100,              15,   0
 	move PRESENT,      EFFECT_PRESENT,             1, NORMAL,        PHYSICAL,  90,              15,   0
 	move HAIL,         EFFECT_HAIL,                0, ICE,           STATUS,   100,              10,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,        STATUS,   100,              25,   0

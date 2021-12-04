@@ -223,7 +223,7 @@ BattleAnimations::
 	dw BattleAnim_Attract
 	dw BattleAnim_SleepTalk
 	dw BattleAnim_HealBell
-	dw BattleAnim_Return
+	dw BattleAnim_FlareBlitz
 	dw BattleAnim_Present
 	dw BattleAnim_Hail
 	dw BattleAnim_Safeguard
@@ -3866,20 +3866,36 @@ BattleAnim_HealBell:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Return:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
-	anim_sound 0, 0, SFX_RETURN
-	anim_wait 64
-	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
-	anim_wait 32
-	anim_bgeffect ANIM_BG_BODY_SLAM, $0, BG_EFFECT_USER, $0
-	anim_wait 4
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG, 136, 40, $0
+BattleAnim_FlareBlitz:
+	anim_2gfx ANIM_GFX_FIRE, ANIM_GFX_HIT
+; -- from FLAME_WHEEL --
+.loop
+	anim_sound 0, 0, SFX_EMBER
+	anim_obj ANIM_OBJ_FLAME_WHEEL, 48, 96, $0
+	anim_wait 6
+	anim_loop 8, .loop
+	anim_wait 96
+; -- from DOUBLE_EDGE --
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $10
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 3
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 128, 48, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 144, 48, $0
+	anim_wait 3
+; -- from FLAME_WHEEL --
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $1
+	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $4
+	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $5
 	anim_wait 8
-	anim_call BattleAnim_ShowMon_0
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_TARGET, $0
+	anim_wait 4
+	anim_incobj 9
+	anim_wait 8
 	anim_ret
 
 BattleAnim_Present:

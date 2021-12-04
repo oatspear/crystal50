@@ -221,7 +221,7 @@
 	const ATTRACT      ; d5
 	const SLEEP_TALK   ; d6
 	const HEAL_BELL    ; d7
-	const RETURN       ; d8
+	const FLARE_BLITZ  ; d8
 	const PRESENT      ; d9
 	const HAIL         ; da
 	const SAFEGUARD    ; db

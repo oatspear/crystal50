@@ -216,7 +216,7 @@ MoveDescriptions::
 	dw AttractDescription
 	dw SleepTalkDescription
 	dw HealBellDescription
-	dw ReturnDescription
+	dw FlareBlitzDescription
 	dw PresentDescription
 	dw HailDescription
 	dw SafeguardDescription
@@ -412,6 +412,7 @@ ThrashDescription:
 	db   "Works 2-3 turns"
 	next "and confuses user.@"
 
+FlareBlitzDescription:
 DoubleEdgeDescription:
 	db   "A tackle that also"
 	next "hurts the user.@"
@@ -1099,10 +1100,6 @@ SleepTalkDescription:
 HealBellDescription:
 	db   "Eliminates all"
 	next "status problems.@"
-
-ReturnDescription:
-	db   "An attack that is"
-	next "based on loyalty.@"
 
 PresentDescription:
 	db   "A bomb that may"

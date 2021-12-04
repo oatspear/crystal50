@@ -215,7 +215,7 @@ MoveNames::
 	li "ATTRACT"
 	li "SLEEP TALK"
 	li "HEAL BELL"
-	li "RETURN"
+	li "FLARE BLITZ"
 	li "PRESENT"
 	li "HAIL"
 	li "SAFEGUARD"
