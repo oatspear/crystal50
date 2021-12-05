@@ -651,7 +651,7 @@ ParsePlayerAction:
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jr z, .reset_series_counters
 	and a
 	jr nz, .reset_bide
 	ld a, [wPlayerSubStatus3]
@@ -686,22 +686,12 @@ ParsePlayerAction:
 	jr z, .continue_fury_cutter
 	xor a
 	ld [wPlayerFuryCutterCount], a
-
-.continue_fury_cutter
-	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
-	cp EFFECT_RAGE
-	jr z, .continue_rage
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
-	xor a
-	ld [wPlayerRageCounter], a
-
-.continue_rage
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
 	jr z, .continue_protect
+.continue_fury_cutter
 	xor a
 	ld [wPlayerProtectCount], a
 	jr .continue_protect
@@ -714,22 +704,16 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
 
 .continue_protect
 	call ParseEnemyAction
 	xor a
 	ret
 
-.reset_rage
+.reset_series_counters
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ret
 
@@ -3734,7 +3718,6 @@ endr
 	ld [wEnemyDisableCount], a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-	ld [wEnemyRageCounter], a
 	ld [wEnemyDisabledMove], a
 	ld [wEnemyMinimized], a
 	ld [wPlayerWrapCount], a
@@ -4218,7 +4201,6 @@ endr
 	ld [wPlayerDisableCount], a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
 	ld [wEnemyWrapCount], a
@@ -5291,9 +5273,6 @@ BattleMonEntrance:
 	ld c, 50
 	call DelayFrames
 
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
-
 	call SetEnemyTurn
 	call RecallPlayerMon
 
@@ -5835,7 +5814,7 @@ ParseEnemyAction:
 	cp BATTLEACTION_SKIPTURN
 	jp z, .skip_turn
 	cp BATTLEACTION_SWITCH1
-	jp nc, ResetVarsForSubstatusRage
+	jp nc, ResetVarsForSuccessiveCounters
 	ld [wCurEnemyMoveNum], a
 	ld c, a
 	ld a, [wEnemySubStatus1]
@@ -5864,7 +5843,7 @@ ParseEnemyAction:
 
 .skip_encore
 	call CheckEnemyLockedIn
-	jp nz, ResetVarsForSubstatusRage
+	jp nz, ResetVarsForSuccessiveCounters
 	jr .continue
 
 .skip_turn
@@ -5944,15 +5923,6 @@ ParseEnemyAction:
 
 .fury_cutter
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_RAGE
-	jr z, .no_rage
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
-	xor a
-	ld [wEnemyRageCounter], a
-
-.no_rage
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
@@ -5965,13 +5935,10 @@ ParseEnemyAction:
 	ld a, STRUGGLE
 	jr .finish
 
-ResetVarsForSubstatusRage:
+ResetVarsForSuccessiveCounters:
 	xor a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-	ld [wEnemyRageCounter], a
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
 	ret
 
 CheckEnemyLockedIn:

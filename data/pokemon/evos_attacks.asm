@@ -1466,7 +1466,7 @@ GeodudeEvosAttacks:
 	db 34, EARTHQUAKE
 	db 36, EXPLOSION
 	db 40, DOUBLE_EDGE
-	; db 42, STONE_EDGE
+	db 42, STONE_EDGE
 	db 0 ; no more level-up moves
 
 GravelerEvosAttacks:
@@ -1488,7 +1488,7 @@ GravelerEvosAttacks:
 	db 40, EARTHQUAKE
 	db 44, EXPLOSION
 	db 50, DOUBLE_EDGE
-	; db 54, STONE_EDGE
+	db 54, STONE_EDGE
 	db 0 ; no more level-up moves
 
 GolemEvosAttacks:
@@ -1510,7 +1510,7 @@ GolemEvosAttacks:
 	db 40, EARTHQUAKE
 	db 44, EXPLOSION
 	db 50, DOUBLE_EDGE
-	; db 54, STONE_EDGE
+	db 54, STONE_EDGE
 	; db 60, HEAVY_SLAM
 	db 0 ; no more level-up moves
 
@@ -1909,7 +1909,7 @@ OnixEvosAttacks:
 	db 40, SANDSTORM
 	db 44, DIG
 	db 48, IRON_TAIL
-	; db 52, STONE_EDGE
+	db 52, STONE_EDGE
 	db 56, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -2246,7 +2246,7 @@ RhyhornEvosAttacks:
 	; db 35, DRILL_RUN
 	db 40, TAKE_DOWN
 	db 45, EARTHQUAKE
-	db 50, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 50, STONE_EDGE
 	db 55, MEGAHORN
 	db 60, HORN_DRILL
 	db 0 ; no more level-up moves
@@ -2266,7 +2266,7 @@ RhydonEvosAttacks:
 	; db 35, DRILL_RUN
 	db 40, TAKE_DOWN
 	db 47, EARTHQUAKE
-	db 54, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 54, STONE_EDGE
 	db 61, MEGAHORN
 	db 68, HORN_DRILL
 	db 0 ; no more level-up moves
@@ -2825,7 +2825,7 @@ KabutoEvosAttacks:
 	db 45, LEECH_LIFE
 	db 50, WATERFALL ; FIXME: LIQUIDATION
 	; db 55, METAL_SOUND
-	db 60, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 60, STONE_EDGE
 	db 0 ; no more level-up moves
 
 KabutopsEvosAttacks:
@@ -2847,7 +2847,7 @@ KabutopsEvosAttacks:
 	db 49, LEECH_LIFE
 	db 56, WATERFALL ; FIXME: LIQUIDATION
 	; db 63, METAL_SOUND
-	db 70, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 70, STONE_EDGE
 	db 0 ; no more level-up moves
 
 AerodactylEvosAttacks:
@@ -2862,7 +2862,7 @@ AerodactylEvosAttacks:
 	db 30, CRUNCH
 	; db 35, IRON_HEAD
 	db 40, TAKE_DOWN
-	; db 45, STONE_EDGE
+	db 45, STONE_EDGE
 	db 50, AGILITY
 	db 55, HYPER_BEAM
 	; db 60, GIGA_IMPACT
@@ -3701,7 +3701,7 @@ AzumarillEvosAttacks:
 	db 50, SUPERPOWER
 	db 0 ; no more level-up moves
 
-SudowoodoEvosAttacks: ; based on gen 7
+SudowoodoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SLAM
 	; db 1, STONE_EDGE
@@ -4153,7 +4153,7 @@ SteelixEvosAttacks:
 	db 40, SANDSTORM
 	db 44, DIG
 	db 48, IRON_TAIL
-	; db 52, STONE_EDGE
+	db 52, STONE_EDGE
 	db 56, DOUBLE_EDGE
 	; db 60, MAGNET_RISE
 	db 0 ; no more level-up moves
@@ -4172,7 +4172,7 @@ SnubbullEvosAttacks:
 	db 13, LICK
 	db 19, HEADBUTT
 	db 25, ROAR
-	db 31, RAGE
+	; db 31, TAUNT
 	db 37, PLAY_ROUGH
 	; db 43, PAYBACK
 	db 49, CRUNCH
@@ -4192,7 +4192,7 @@ GranbullEvosAttacks:
 	db 13, LICK
 	db 19, HEADBUTT
 	db 27, ROAR
-	db 35, RAGE
+	; db 35, TAUNT
 	db 43, PLAY_ROUGH
 	; db 51, PAYBACK
 	db 59, CRUNCH
@@ -4261,30 +4261,25 @@ ShuckleEvosAttacks:
 	; db 45, GASTRO_ACID
 	; db 50, STICKY_WEB
 	; db 55, POWER_TRICK
-	; db 60, STONE_EDGE
+	db 60, STONE_EDGE
 	; db 65, SHELL_SMASH
 	db 0 ; no more level-up moves
 
-HeracrossEvosAttacks: ; based on gen 7
+HeracrossEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, ARM_THRUST
-	; db 1, NIGHT_SLASH
-	; db 1, BULLET_SEED
 	db 1, TACKLE
 	db 1, LEER
-	db 1, HORN_ATTACK
-	db 1, ENDURE
-	; db 7, FEINT
-	; db 10, AERIAL_ACE
-	db 16, HEADBUTT ; FIXME: CHIP_AWAY
-	db 19, COUNTER
-	db 25, FURY_ATTACK
-	db 28, REVERSAL ; FIXME: BRICK_BREAK
-	db 31, PIN_MISSILE
-	db 34, TAKE_DOWN
-	db 37, MEGAHORN
-	db 43, CLOSE_COMBAT
-	db 46, REVERSAL
+	db 5, FURY_ATTACK
+	db 10, ENDURE
+	; db 15, AERIAL_ACE
+	db 20, HORN_ATTACK
+	db 25, COUNTER
+	db 30, REVERSAL ; FIXME: BRICK_BREAK
+	db 35, PIN_MISSILE
+	db 40, TAKE_DOWN ; FIXME: THROAT_CHOP
+	db 45, THRASH
+	db 55, MEGAHORN
+	db 60, CLOSE_COMBAT
 	db 0 ; no more level-up moves
 
 SneaselEvosAttacks:
@@ -4870,7 +4865,7 @@ LarvitarEvosAttacks:
 	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 31, EARTHQUAKE
-	db 33, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 33, STONE_EDGE
 	db 36, THRASH
 	db 39, SANDSTORM
 	db 42, HYPER_BEAM
@@ -4893,7 +4888,7 @@ PupitarEvosAttacks:
 	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 33, EARTHQUAKE
-	db 37, ROCK_SLIDE ; FIXME: STONE_EDGE
+	db 37, STONE_EDGE
 	db 42, THRASH
 	db 47, SANDSTORM
 	db 52, HYPER_BEAM
@@ -4917,7 +4912,7 @@ TyranitarEvosAttacks:
 	db 24, DARK_PULSE
 	db 27, CRUNCH
 	db 33, EARTHQUAKE
-	; db 37, STONE_EDGE
+	db 37, STONE_EDGE
 	db 42, THRASH
 	db 47, SANDSTORM
 	db 52, HYPER_BEAM

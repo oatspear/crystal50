@@ -14,7 +14,6 @@ StallMoves:
 	db STRING_SHOT
 	db CALM_MIND
 	db AGILITY
-	db RAGE
 	db MIMIC
 	db SCREECH
 	db HARDEN
@@ -33,5 +32,4 @@ StallMoves:
 	db NASTY_PLOT
 	db CONVERSION
 	db SUBSTITUTE
-	db FLAME_WHEEL
 	db -1 ; end

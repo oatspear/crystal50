@@ -339,7 +339,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SPEED_DOWN_HIT,   AI_Smart_SpeedDownHit
 	dbw EFFECT_SUBSTITUTE,       AI_Smart_Substitute
 	dbw EFFECT_HYPER_BEAM,       AI_Smart_HyperBeam
-	dbw EFFECT_RAGE,             AI_Smart_Rage
 	dbw EFFECT_MIMIC,            AI_Smart_Mimic
 	dbw EFFECT_LEECH_SEED,       AI_Smart_LeechSeed
 	dbw EFFECT_DISABLE,          AI_Smart_Disable
@@ -1354,44 +1353,6 @@ AI_Smart_HyperBeam:
 	inc [hl]
 	call AI_50_50
 	ret c
-	inc [hl]
-	ret
-
-AI_Smart_Rage:
-	ld a, [wEnemySubStatus4]
-	bit SUBSTATUS_RAGE, a
-	jr z, .notbuilding
-
-; If enemy's Rage is building, 50% chance to encourage this move.
-	call AI_50_50
-	jr c, .skipencourage
-
-	dec [hl]
-
-; Encourage this move based on Rage's counter.
-.skipencourage
-	ld a, [wEnemyRageCounter]
-	cp 2
-	ret c
-	dec [hl]
-	ld a, [wEnemyRageCounter]
-	cp 3
-	ret c
-	dec [hl]
-	ret
-
-.notbuilding
-; If enemy's Rage is not building, discourage this move if enemy's HP is below 50%.
-	call AICheckEnemyHalfHP
-	jr nc, .discourage
-
-; 50% chance to encourage this move otherwise.
-	call AI_80_20
-	ret nc
-	dec [hl]
-	ret
-
-.discourage
 	inc [hl]
 	ret
 

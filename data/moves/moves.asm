@@ -15,7 +15,7 @@
 ; Comet Punch
 ; Razor Wind    : Air Slash
 ; Sonic Boom    : Bug Buzz
-; Rage
+; Rage          : Stone Edge
 ; Bide
 ; Egg Bomb
 ; Spike Cannon  : Avalanche
@@ -170,7 +170,7 @@ Moves:
 	move CALM_MIND,    EFFECT_CALM_MIND,           0, PSYCHIC_TYPE,  STATUS,   100,              20,   0
 	move AGILITY,      EFFECT_SPEED_UP_2,          0, PSYCHIC_TYPE,  STATUS,   100,              30,   0
 	move QUICK_ATTACK, EFFECT_PRIORITY_HIT,       40, NORMAL,        PHYSICAL, 100,              30,   0
-	move RAGE,         EFFECT_RAGE,               20, NORMAL,        PHYSICAL, 100,              20,   0
+	move STONE_EDGE,   EFFECT_NORMAL_HIT,        100, ROCK,          PHYSICAL,  80,               5,   0
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE,  STATUS,   100,              20,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,         SPECIAL,  100,              15,   0
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,        STATUS,   PERFECT_ACCURACY, 10,   0

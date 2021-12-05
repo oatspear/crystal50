@@ -106,7 +106,7 @@ BattleAnimations::
 	dw BattleAnim_CalmMind
 	dw BattleAnim_Agility
 	dw BattleAnim_QuickAttack
-	dw BattleAnim_Rage
+	dw BattleAnim_StoneEdge
 	dw BattleAnim_Teleport
 	dw BattleAnim_NightShade
 	dw BattleAnim_Mimic
@@ -2810,23 +2810,36 @@ BattleAnim_SeismicToss:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Rage:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
-	anim_sound 0, 0, SFX_RAGE
-	anim_wait 72
-	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
-	anim_call BattleAnim_ShowMon_0
-	anim_sound 0, 1, SFX_MOVE_PUZZLE_PIECE
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 120, 72, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 152, 40, $0
+BattleAnim_StoneEdge:
+; HEADBUTT
+	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
 	anim_wait 16
+; ROCK_SMASH + WATERFALL
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 56, $0
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $28
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $5c
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $10
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $e8
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $9c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $d0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 40, $0
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $1c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $50
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $dc
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $90
+	anim_wait 8
+	anim_sound 0, 1, SFX_SPARK
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 32, $0
+	anim_wait 24
 	anim_ret
 
 BattleAnim_Agility:

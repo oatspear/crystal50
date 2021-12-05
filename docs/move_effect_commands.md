@@ -54,7 +54,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$11`: `checkfaint`
 
 
-## `$12`: `buildopponentrage`
+## `$12`: `effect0x12`
 
 
 ## `$13`: `poisontarget`
@@ -453,7 +453,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$96`: `psychup`
 
 
-## `$97`: `rage`
+## `$97`: `effect0x97`
 
 
 ## `$98`: `doubleflyingdamage`
@@ -486,7 +486,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$A1`: `beatup`
 
 
-## `$A2`: `ragedamage`
+## `$A2`: `effect0xa2`
 
 
 ## `$A3`: `resettypematchup`

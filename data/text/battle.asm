@@ -649,11 +649,6 @@ TookDownWithItText:
 	scroll "<USER>!"
 	autodone
 
-RageBuildingText:
-	text "<USER>'s"
-	line "RAGE is building!"
-	autodone
-
 GotAnEncoreText:
 	text "<TARGET>"
 	line "got an ENCORE!"

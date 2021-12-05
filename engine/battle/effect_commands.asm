@@ -2556,65 +2556,6 @@ BattleCommand_CheckFaint:
 .finish
 	jp EndMoveEffect
 
-BattleCommand_BuildOpponentRage:
-; buildopponentrage
-
-	jp .start
-
-.start
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-
-	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
-	bit SUBSTATUS_RAGE, a
-	ret z
-
-	ld de, wEnemyRageCounter
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-	ld de, wPlayerRageCounter
-.player
-	ld a, [de]
-	inc a
-	ret z
-	ld [de], a
-
-	call BattleCommand_SwitchTurn
-	ld hl, RageBuildingText
-	call StdBattleTextbox
-	jp BattleCommand_SwitchTurn
-
-BattleCommand_RageDamage:
-; ragedamage
-
-	ld a, [wCurDamage]
-	ld h, a
-	ld b, a
-	ld a, [wCurDamage + 1]
-	ld l, a
-	ld c, a
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wPlayerRageCounter]
-	jr z, .rage_loop
-	ld a, [wEnemyRageCounter]
-.rage_loop
-	and a
-	jr z, .done
-	dec a
-	add hl, bc
-	jr nc, .rage_loop
-	ld hl, $ffff
-.done
-	ld a, h
-	ld [wCurDamage], a
-	ld a, l
-	ld [wCurDamage + 1], a
-	ret
-
 EndMoveEffect:
 	ld a, [wBattleScriptBufferAddress]
 	ld l, a
@@ -5764,6 +5705,10 @@ BattleCommand_Charge:
 	text_far _BattleDugText
 	text_end
 
+BattleCommand_Unused12:
+BattleCommand_Unused97:
+BattleCommand_UnusedA2:
+BattleCommand_Unused60:
 BattleCommand_Unused3C:
 ; effect0x3c
 	ret
@@ -6158,8 +6103,6 @@ EndRechargeOpp:
 	res SUBSTATUS_RECHARGE, [hl]
 	pop hl
 	ret
-
-INCLUDE "engine/battle/move_effects/rage.asm"
 
 BattleCommand_DoubleFlyingDamage:
 ; doubleflyingdamage

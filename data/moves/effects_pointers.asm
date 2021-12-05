@@ -81,7 +81,6 @@ MoveEffectsPointers:
 	dw BodySlam
 	dw Substitute
 	dw HyperBeam
-	dw Rage
 	dw Mimic
 	dw Metronome
 	dw LeechSeed

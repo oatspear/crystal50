@@ -98,7 +98,7 @@ MoveNames::
 	li "CALM MIND"
 	li "AGILITY"
 	li "QUICK ATTACK"
-	li "RAGE"
+	li "STONE EDGE"
 	li "TELEPORT"
 	li "NIGHT SHADE"
 	li "MIMIC"

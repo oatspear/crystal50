@@ -99,7 +99,7 @@ MoveDescriptions::
 	dw CalmMindDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
-	dw RageDescription
+	dw StoneEdgeDescription
 	dw TeleportDescription
 	dw NightShadeDescription
 	dw MimicDescription
@@ -648,10 +648,6 @@ QuickAttackDescription:
 	db   "Lets the user get"
 	next "in the first hit.@"
 
-RageDescription:
-	db   "Raises ATTACK if"
-	next "the user is hit.@"
-
 TeleportDescription:
 	db   "A move for fleeing"
 	next "from battle.@"
@@ -1169,6 +1165,7 @@ HiddenPowerDescription:
 	db   "The power varies"
 	next "with the #MON.@"
 
+StoneEdgeDescription:
 CrossChopDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
