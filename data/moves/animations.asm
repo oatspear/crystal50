@@ -147,7 +147,7 @@ BattleAnimations::
 	dw BattleAnim_Glare
 	dw BattleAnim_DreamEater
 	dw BattleAnim_PoisonGas
-	dw BattleAnim_Barrage
+	dw BattleAnim_BrickBreak
 	dw BattleAnim_LeechLife
 	dw BattleAnim_LovelyKiss
 	dw BattleAnim_SkyAttack
@@ -668,7 +668,10 @@ BattleAnim_Pound:
 
 BattleAnim_Revenge:
 	anim_if_param_equal TRUE, BattleAnim_Counter
+	; fallthrough
+
 ; BattleAnim_KarateChop:
+BattleAnim_BrickBreak:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_KARATE_CHOP
 	anim_obj ANIM_OBJ_PALM, 136, 40, $0
@@ -2323,16 +2326,6 @@ BattleAnim_PetalDance:
 	anim_wait 64
 	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
-
-BattleAnim_Barrage:
-	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_EXPLOSION
-	anim_sound 6, 2, SFX_THROW_BALL
-	anim_obj ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
-	anim_wait 36
-	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 136, 56, $0
 	anim_wait 16
 	anim_ret
 

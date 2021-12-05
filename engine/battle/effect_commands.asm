@@ -5705,14 +5705,6 @@ BattleCommand_Charge:
 	text_far _BattleDugText
 	text_end
 
-BattleCommand_Unused12:
-BattleCommand_Unused97:
-BattleCommand_UnusedA2:
-BattleCommand_Unused60:
-BattleCommand_Unused3C:
-; effect0x3c
-	ret
-
 BattleCommand_TrapTarget:
 ; traptarget
 
@@ -6340,6 +6332,39 @@ BattleCommand_Screen:
 	call AnimateFailedMove
 	jp PrintButItFailed
 
+BattleCommand_RemoveScreens:
+; removescreens
+
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+
+	ld hl, wEnemyScreens
+	ld bc, wEnemyLightScreenCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_screens_pointer
+	ld hl, wPlayerScreens
+	ld bc, wPlayerLightScreenCount
+
+.got_screens_pointer
+	xor a
+	set SCREENS_LIGHT_SCREEN, a
+	set SCREENS_REFLECT, a
+	and [hl]
+	push af
+	res SCREENS_LIGHT_SCREEN, [hl]
+	res SCREENS_REFLECT, [hl]
+	xor a
+	ld [bc], a
+	; LightScreenCount -> ReflectCount
+	inc bc
+	ld [bc], a
+	pop af
+	ret z ; no screens
+	ld hl, BreakScreenEffectText
+	jp StdBattleTextbox
+
 PrintDoesntAffect:
 ; 'it doesn't affect'
 	ld hl, DoesntAffectText
@@ -6524,11 +6549,17 @@ BattleCommand_Unused5D:
 ; effect0x5d
 BattleCommand_Unused66:
 ; effect0x66
+BattleCommand_Unused97:
+; effect0x97
+BattleCommand_UnusedA2:
+; effect0xa2
 	ret
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
+
+INCLUDE "engine/battle/move_effects/brick_break.asm"
 
 INCLUDE "engine/battle/move_effects/present.asm"
 

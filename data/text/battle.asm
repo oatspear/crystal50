@@ -895,6 +895,11 @@ ReflectEffectText:
 	line "DEFENSE rose!"
 	autodone
 
+BreakScreenEffectText:
+	text "The wall"
+	line "shattered!"
+	autodone
+
 NothingHappenedText:
 	text "But nothing"
 	line "happened."

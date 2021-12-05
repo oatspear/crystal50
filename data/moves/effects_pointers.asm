@@ -120,7 +120,7 @@ MoveEffectsPointers:
 	dw Swagger
 	dw FuryCutter
 	dw Attract
-	dw NormalHit
+	dw BrickBreak
 	dw Present
 	dw Hail
 	dw Safeguard

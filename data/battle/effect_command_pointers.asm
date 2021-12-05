@@ -22,7 +22,7 @@ BattleCommandPointers:
 	dw BattleCommand_CriticalText
 	dw BattleCommand_SuperEffectiveText
 	dw BattleCommand_CheckFaint
-	dw BattleCommand_Unused12
+	dw BattleCommand_RemoveScreens
 	dw BattleCommand_PoisonTarget
 	dw BattleCommand_SleepTarget
 	dw BattleCommand_DrainTarget

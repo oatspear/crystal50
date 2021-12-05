@@ -369,6 +369,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
 	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
+	dbw EFFECT_BRICK_BREAK,      AI_Smart_BrickBreak
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
 	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
@@ -2371,6 +2372,28 @@ AI_Smart_BatonPass:
 	pop hl
 	ret c
 	inc [hl]
+	ret
+
+AI_Smart_BrickBreak:
+; 80% chance to greatly encourage this move if the player is
+; behind screens (Reflect, Light Screen effect).
+
+	ld a, [wPlayerLightScreenCount]
+	and a
+	jr nz, .encourage
+
+	ld a, [wPlayerReflectCount]
+	and a
+	jr nz, .encourage
+
+	ret
+
+.encourage
+	call AI_80_20
+	ret c
+
+	dec [hl]
+	dec [hl]
 	ret
 
 AI_Smart_RapidSpin:

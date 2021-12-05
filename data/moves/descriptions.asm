@@ -140,7 +140,7 @@ MoveDescriptions::
 	dw GlareDescription
 	dw DreamEaterDescription
 	dw PoisonGasDescription
-	dw BarrageDescription
+	dw BrickBreakDescription
 	dw LeechLifeDescription
 	dw LovelyKissDescription
 	dw SkyAttackDescription
@@ -796,9 +796,9 @@ PoisonGasDescription:
 	db   "A move that may"
 	next "poison the foe.@"
 
-BarrageDescription:
-	db   "Throws orbs to hit"
-	next "2-5 times.@"
+BrickBreakDescription:
+	db   "Attacks and breaks"
+	next "enemy screens.@"
 
 LeechLifeDescription:
 	db   "Steals 1/2 of the"

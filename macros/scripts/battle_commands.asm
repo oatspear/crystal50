@@ -22,7 +22,7 @@ ENDM
 	command criticaltext            ; 0f
 	command supereffectivetext      ; 10
 	command checkfaint              ; 11
-	command effect0x12              ; 12
+	command removescreens           ; 12
 	command poisontarget            ; 13
 	command sleeptarget             ; 14
 	command draintarget             ; 15

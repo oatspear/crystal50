@@ -1034,6 +1034,26 @@ Reflect:
 	screen
 	endmove
 
+BrickBreak:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	moveanim
+	removescreens
+	failuretext
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	kingsrock
+	endmove
+
 TriAttack:
 	checkobedience
 	usedmovetext
