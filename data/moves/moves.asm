@@ -21,7 +21,7 @@
 ; Spike Cannon  : Avalanche
 ; Constrict     : Flash Cannon
 ; Barrage       : Brick Break
-; Dizzy Punch
+; Dizzy Punch   : Facade
 ; Sharpen       : Nasty Plot
 ; Foresight
 ; Return        : Flare Blitz
@@ -217,7 +217,7 @@ Moves:
 	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, FLYING,        PHYSICAL,  90,               5,  30
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, 10,   0
 	move AQUA_JET,     EFFECT_PRIORITY_HIT,       40, WATER,         PHYSICAL, 100,              20,   0
-	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,        PHYSICAL, 100,              10,  20
+	move FACADE,       EFFECT_FACADE,             70, NORMAL,        PHYSICAL, 100,              20,   0
 	move SPORE,        EFFECT_SLEEP,               0, GRASS,         STATUS,   100,              15,   0
 	move FLASH,        EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              20,   0
 	move ZEN_HEADBUTT, EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90,              15,  20

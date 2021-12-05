@@ -146,7 +146,7 @@ MoveDescriptions::
 	dw SkyAttackDescription
 	dw TransformDescription
 	dw AquaJetDescription
-	dw DizzyPunchDescription
+	dw FacadeDescription
 	dw SporeDescription
 	dw FlashDescription
 	dw ZenHeadbuttDescription
@@ -816,9 +816,9 @@ TransformDescription:
 	db   "The user assumes"
 	next "the foe's guise.@"
 
-DizzyPunchDescription:
-	db   "An attack that may"
-	next "cause confusion.@"
+FacadeDescription:
+	db   "Double power with"
+	next "PSN, BRN or PRZ.@"
 
 SporeDescription:
 	db   "A move that"

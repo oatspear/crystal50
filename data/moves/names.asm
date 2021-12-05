@@ -145,7 +145,7 @@ MoveNames::
 	li "SKY ATTACK"
 	li "TRANSFORM"
 	li "AQUA JET"
-	li "DIZZY PUNCH"
+	li "FACADE"
 	li "SPORE"
 	li "FLASH"
 	li "ZEN HEADBUTT"

@@ -2708,14 +2708,16 @@ PlayerAttackDamage:
 	ret
 
 TruncateHL_BC:
-.loop
 ; Truncate 16-bit values hl and bc to 8-bit values b and c respectively.
 ; b = hl, c = bc
 
 	ld a, h
 	or b
-	jr z, .finish
+	jr nz, .loop
+	ld b, l
+	ret
 
+.loop
 	srl b
 	rr c
 	srl b
@@ -2738,13 +2740,13 @@ TruncateHL_BC:
 	inc l
 
 .finish
-; If we go back to the loop point, it's the same as doing
-;   this exact same check twice.
 	ld a, h
 	or b
 	jr nz, .loop
 
 	ld b, l
+	ld hl, wTurnBasedFlags2
+	set BIT_DAMAGE_STATS_TRUNCATED, [hl]
 	ret
 
 CheckDamageStatsCritical:
@@ -6558,6 +6560,8 @@ BattleCommand_UnusedA2:
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
+
+INCLUDE "engine/battle/move_effects/facade.asm"
 
 INCLUDE "engine/battle/move_effects/brick_break.asm"
 

@@ -151,7 +151,7 @@
 	const SKY_ATTACK   ; 8f
 	const TRANSFORM    ; 90
 	const AQUA_JET     ; 91
-	const DIZZY_PUNCH  ; 92
+	const FACADE       ; 92
 	const SPORE        ; 93
 	const FLASH        ; 94
 	const ZEN_HEADBUTT ; 95

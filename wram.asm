@@ -486,7 +486,7 @@ wPlayerSubstituteHP:: db
 wEnemySubstituteHP::  db
 
 wTurnBasedFlags:: db
-	ds 1
+wTurnBasedFlags2:: db
 
 wCurPlayerMove:: db
 wCurEnemyMove::  db

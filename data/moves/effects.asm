@@ -1054,6 +1054,26 @@ BrickBreak:
 	kingsrock
 	endmove
 
+Facade:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	facade
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	kingsrock
+	endmove
+
 TriAttack:
 	checkobedience
 	usedmovetext

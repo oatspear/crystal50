@@ -396,6 +396,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_CALM_MIND,        AI_Smart_CalmMind
 	dbw EFFECT_DRAGON_DANCE,     AI_Smart_DragonDance
 	dbw EFFECT_REVENGE,          AI_Smart_Revenge
+	dbw EFFECT_FACADE,           AI_Smart_Facade
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -1897,6 +1898,24 @@ AI_Smart_FlameWheel:
 rept 5
 	dec [hl]
 endr
+	ret
+
+AI_Smart_Facade:
+; 80% chance to greatly encourage this move if the enemy is PSN, BRN or PRZ.
+
+	ld a, [wEnemyMonStatus]
+	bit PSN, a
+	jr nz, .encourage
+	bit PRZ, a
+	jr nz, .encourage
+	bit BRN, a
+	ret z
+
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
 	ret
 
 AI_Smart_Curse:
