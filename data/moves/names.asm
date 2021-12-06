@@ -116,7 +116,7 @@ MoveNames::
 	li "HAZE"
 	li "REFLECT"
 	li "FOCUS ENERGY"
-	li "BIDE"
+	li "ACROBATICS"
 	li "METRONOME"
 	li "AERIAL ACE"
 	li "SELFDESTRUCT"

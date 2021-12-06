@@ -838,17 +838,22 @@ ResetStats:
 	resetstats
 	endmove
 
-Bide:
-	storeenergy
+Acrobatics:
 	checkobedience
-	doturn
 	usedmovetext
-	unleashenergy
-	resettypematchup
+	doturn
+	critical
+	damagestats
+	acrobatics
+	damagecalc
+	stab
+	damagevariation
 	checkhit
 	moveanim
-	bidefailtext
+	failuretext
 	applydamage
+	criticaltext
+	supereffectivetext
 	checkfaint
 	kingsrock
 	endmove

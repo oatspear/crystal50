@@ -81,7 +81,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$1A`: `selfdestruct`
 
 
-## `$1B`: `effect0x1b`
+## `$1B`: `acrobatics`
 
 
 ## `$1C`: `statup`
@@ -99,10 +99,10 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$20`: `resetstats`
 
 
-## `$21`: `storeenergy`
+## `$21`: `effect0x21`
 
 
-## `$22`: `unleashenergy`
+## `$22`: `effect0x22`
 
 
 ## `$23`: `forceswitch`
@@ -495,7 +495,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$A4`: `allstatsup`
 
 
-## `$A5`: `bidefailtext`
+## `$A5`: `effect0xa5`
 
 
 ## `$A6`: `raisesubnoanim`

@@ -340,7 +340,7 @@ CantMove:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	ld a, [hl]
-	and $ff ^ (1 << SUBSTATUS_BIDE | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
+	and $ff ^ (1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
 	ld [hl], a
 
 	call ResetFuryCutterCount
@@ -985,7 +985,7 @@ BattleCommand_DoTurn:
 	ret z
 
 	ld a, [de]
-	and 1 << SUBSTATUS_IN_LOOP | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_IN_LOOP | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	call .consume_pp
@@ -1087,7 +1087,6 @@ BattleCommand_DoTurn:
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
-	db EFFECT_BIDE
 	db EFFECT_RAMPAGE
 	db -1
 
@@ -2392,16 +2391,6 @@ FailText_CheckOpponentProtect:
 .not_protected
 	jp StdBattleTextbox
 
-BattleCommand_BideFailText:
-	ld a, [wAttackMissed]
-	and a
-	ret z
-
-	ld a, [wTypeModifier]
-	and $7f
-	jp z, PrintDoesntAffect
-	jp PrintButItFailed
-
 BattleCommand_CriticalText:
 ; criticaltext
 ; Prints the message for critical hits or one-hit KOs.
@@ -2959,6 +2948,8 @@ EnemyAttackDamage:
 INCLUDE "engine/battle/move_effects/beat_up.asm"
 
 INCLUDE "engine/battle/move_effects/revenge.asm"
+
+INCLUDE "engine/battle/move_effects/acrobatics.asm"
 
 BattleCommand_ClearMissDamage:
 ; clearmissdamage
@@ -4994,8 +4985,6 @@ CalcBattleStats:
 
 	ret
 
-INCLUDE "engine/battle/move_effects/bide.asm"
-
 BattleCommand_CheckPowder:
 ; Checks if the move is powder/spore-based and
 ; if the opponent is Grass-type
@@ -6545,16 +6534,7 @@ INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
 INCLUDE "engine/battle/move_effects/rollout.asm"
 
-BattleCommand_Unused1B:
-; effect0x1b
-BattleCommand_Unused5D:
-; effect0x5d
-BattleCommand_Unused66:
-; effect0x66
-BattleCommand_Unused97:
-; effect0x97
-BattleCommand_UnusedA2:
-; effect0xa2
+BattleCommand_UnusedEffect:
 	ret
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"

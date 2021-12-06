@@ -653,9 +653,6 @@ ParsePlayerAction:
 	cp BATTLEPLAYERACTION_SWITCH
 	jr z, .reset_series_counters
 	and a
-	jr nz, .reset_bide
-	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_BIDE
 	jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
@@ -695,10 +692,6 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerProtectCount], a
 	jr .continue_protect
-
-.reset_bide
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_BIDE, [hl]
 
 .locked_in
 	xor a
@@ -5821,7 +5814,7 @@ ParseEnemyAction:
 	bit SUBSTATUS_ROLLOUT, a
 	jp nz, .skip_load
 	ld a, [wEnemySubStatus3]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
 
 	ld hl, wEnemySubStatus5
@@ -5948,7 +5941,7 @@ CheckEnemyLockedIn:
 
 	ld hl, wEnemySubStatus3
 	ld a, [hl]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	ld hl, wEnemySubStatus1

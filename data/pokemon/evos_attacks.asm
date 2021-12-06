@@ -3738,8 +3738,8 @@ PolitoedEvosAttacks:
 HoppipEvosAttacks:
 	db EVOLVE_LEVEL, 18, SKIPLOOM
 	db 0 ; no more evolutions
-	db 1, ABSORB
 	db 1, SPLASH
+	db 1, ABSORB
 	db 4, SYNTHESIS
 	db 6, TAIL_WHIP
 	db 8, TACKLE
@@ -3750,7 +3750,7 @@ HoppipEvosAttacks:
 	; db 19, BULLET_SEED
 	db 22, LEECH_SEED
 	db 25, MEGA_DRAIN
-	; db 28, ACROBATICS
+	db 28, ACROBATICS
 	; db 31, RAGE_POWDER
 	db 34, COTTON_SPORE
 	; db 37, U_TURN
@@ -3763,12 +3763,12 @@ HoppipEvosAttacks:
 SkiploomEvosAttacks:
 	db EVOLVE_LEVEL, 27, JUMPLUFF
 	db 0 ; no more evolutions
+	; db 1, SPLASH
 	db 1, ABSORB
-	db 1, SPLASH
 	db 1, SYNTHESIS
 	db 1, TAIL_WHIP
-	db 4, SYNTHESIS
-	db 6, TAIL_WHIP
+	; db 4, SYNTHESIS
+	; db 6, TAIL_WHIP
 	db 8, TACKLE
 	db 10, DISARMING_VOICE ; FIXME: FAIRY_WIND
 	db 12, POISONPOWDER
@@ -3777,7 +3777,32 @@ SkiploomEvosAttacks:
 	; db 20, BULLET_SEED
 	db 24, LEECH_SEED
 	db 29, MEGA_DRAIN
-	; db 34, ACROBATICS
+	db 32, ACROBATICS
+	; db 36, RAGE_POWDER
+	db 40, COTTON_SPORE
+	; db 44, U_TURN
+	; db 48, WORRY_SEED
+	db 52, GIGA_DRAIN
+	db 56, FLY ; FIXME: BOUNCE
+	; db 60, MEMENTO
+	db 0 ; no more level-up moves
+
+JumpluffEvosAttacks:
+	db 0 ; no more evolutions
+	; db 1, SPLASH
+	db 1, ABSORB
+	db 1, SYNTHESIS
+	db 1, TAIL_WHIP
+	; db 4, SYNTHESIS
+	; db 6, TAIL_WHIP
+	db 10, DISARMING_VOICE ; FIXME: FAIRY_WIND
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, SLEEP_POWDER
+	; db 20, BULLET_SEED
+	db 24, LEECH_SEED
+	db 29, MEGA_DRAIN
+	db 34, ACROBATICS
 	; db 39, RAGE_POWDER
 	db 44, COTTON_SPORE
 	; db 49, U_TURN
@@ -3785,23 +3810,6 @@ SkiploomEvosAttacks:
 	db 59, GIGA_DRAIN
 	db 64, FLY ; FIXME: BOUNCE
 	; db 69, MEMENTO
-	db 0 ; no more level-up moves
-
-JumpluffEvosAttacks:
-	db 0 ; no more evolutions
-	db 1, SPLASH
-	db 1, SYNTHESIS
-	db 1, TAIL_WHIP
-	db 1, TACKLE
-	db 5, SYNTHESIS
-	db 5, TAIL_WHIP
-	db 10, TACKLE
-	db 13, POISONPOWDER
-	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 22, LEECH_SEED
-	db 33, COTTON_SPORE
-	db 44, MEGA_DRAIN
 	db 0 ; no more level-up moves
 
 AipomEvosAttacks:
@@ -4057,8 +4065,8 @@ PinecoEvosAttacks:
 	; db 9, BUG_BITE
 	db 12, TAKE_DOWN
 	db 17, RAPID_SPIN
-	db 20, BIDE
-	; db 23, NATURAL_GIFT
+	; db 20, AUTOTOMIZE
+	db 23, ROLLOUT
 	db 28, SPIKES
 	; db 31, PAYBACK
 	db 34, EXPLOSION
@@ -4072,14 +4080,14 @@ ForretressEvosAttacks:
 	db 1, TACKLE
 	db 1, PROTECT
 	db 1, SELFDESTRUCT
-	; db EVO, MIRROR_SHOT
-	; db EVO, AUTOTOMIZE
+	; db LEVEL_EVO, MIRROR_SHOT
+	; db LEVEL_EVO, AUTOTOMIZE
 	db 6, SELFDESTRUCT
 	; db 9, BUG_BITE
 	db 12, TAKE_DOWN
 	db 17, RAPID_SPIN
-	db 20, BIDE
-	; db 23 NATURAL_GIFT
+	db 20, REFLECT
+	db 23, ROLLOUT
 	db 28, SPIKES
 	; db 32, PAYBACK
 	db 36, EXPLOSION
@@ -4120,7 +4128,7 @@ GligarEvosAttacks:
 	db 13, QUICK_ATTACK
 	db 16, FURY_CUTTER
 	db 19, MUD_SLAP
-	; db 22, ACROBATICS
+	db 22, ACROBATICS
 	db 27, SLASH
 	; db 30, U_TURN
 	db 35, SCREECH

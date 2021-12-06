@@ -31,14 +31,14 @@ ENDM
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
 	command selfdestruct            ; 1a
-	command effect0x1b              ; 1b
+	command acrobatics              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
 	command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
-	command storeenergy             ; 21
-	command unleashenergy           ; 22
+	command effect0x21              ; 21
+	command effect0x22              ; 22
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
@@ -169,7 +169,7 @@ ENDM
 	command effect0xa2              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command bidefailtext            ; a5
+	command effect0xa5              ; a5
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command beatupfailtext          ; a8

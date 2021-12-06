@@ -24,7 +24,6 @@ StallMoves:
 	db HAZE
 	db REFLECT
 	db FOCUS_ENERGY
-	db BIDE
 	db AMNESIA
 	db TRANSFORM
 	db SPLASH

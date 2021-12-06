@@ -110,6 +110,7 @@ ZubatEggMoves:
 	db QUICK_ATTACK
 	db GUST
 	db WHIRLWIND
+	db ACROBATICS
 	db -1 ; end
 
 OddishEggMoves:
@@ -468,7 +469,6 @@ HoothootEggMoves:
 
 LedybaEggMoves:
 	db PSYBEAM
-	db BIDE
 	db LIGHT_SCREEN
 	db BUG_BUZZ
 	db -1 ; end
@@ -487,7 +487,6 @@ ChinchouEggMoves:
 
 PichuEggMoves:
 	db REVERSAL
-	db BIDE
 	db PRESENT
 	db ENCORE
 	db DOUBLESLAP
@@ -611,7 +610,6 @@ PinecoEggMoves:
 	db -1 ; end
 
 DunsparceEggMoves:
-	db BIDE
 	db ANCIENTPOWER
 	db ROCK_SLIDE
 	db BITE

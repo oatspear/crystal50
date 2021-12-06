@@ -122,7 +122,7 @@
 	const HAZE         ; 72
 	const REFLECT      ; 73
 	const FOCUS_ENERGY ; 74
-	const BIDE         ; 75
+	const ACROBATICS   ; 75
 	const METRONOME    ; 76
 	const AERIAL_ACE   ; 77
 	const SELFDESTRUCT ; 78

@@ -31,14 +31,14 @@ BattleCommandPointers:
 	dw BattleCommand_FreezeTarget
 	dw BattleCommand_ParalyzeTarget
 	dw BattleCommand_Selfdestruct
-	dw BattleCommand_Unused1B
+	dw BattleCommand_Acrobatics
 	dw BattleCommand_StatUp
 	dw BattleCommand_StatDown
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
-	dw BattleCommand_StoreEnergy
-	dw BattleCommand_UnleashEnergy
+	dw BattleCommand_UnusedEffect
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
@@ -106,7 +106,7 @@ BattleCommandPointers:
 	dw BattleCommand_StartHail
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
-	dw BattleCommand_Unused66
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_BatonPass
 	dw BattleCommand_DarkPulse
 	dw BattleCommand_ClearHazards
@@ -155,7 +155,7 @@ BattleCommandPointers:
 	dw BattleCommand_FakeOut
 	dw BattleCommand_BellyDrum
 	dw BattleCommand_PsychUp
-	dw BattleCommand_Unused97
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_DoubleFlyingDamage
 	dw BattleCommand_DoubleUndergroundDamage
 	dw BattleCommand_MirrorCoat
@@ -166,10 +166,10 @@ BattleCommandPointers:
 	dw BattleCommand_ThunderAccuracy
 	dw BattleCommand_Teleport
 	dw BattleCommand_BeatUp
-	dw BattleCommand_UnusedA2
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ResetTypeMatchup
 	dw BattleCommand_AllStatsUp
-	dw BattleCommand_BideFailText
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_RaiseSubNoAnim
 	dw BattleCommand_LowerSubNoAnim
 	dw BattleCommand_BeatUpFailText

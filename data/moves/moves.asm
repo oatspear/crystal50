@@ -16,7 +16,7 @@
 ; Razor Wind    : Air Slash
 ; Sonic Boom    : Bug Buzz
 ; Rage          : Stone Edge
-; Bide
+; Bide          : Acrobatics
 ; Egg Bomb
 ; Spike Cannon  : Avalanche
 ; Constrict     : Flash Cannon
@@ -189,7 +189,7 @@ Moves:
 	move HAZE,         EFFECT_RESET_STATS,         0, ICE,           STATUS,   100,              30,   0
 	move REFLECT,      EFFECT_REFLECT,             0, PSYCHIC_TYPE,  STATUS,   100,              20,   0
 	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, NORMAL,        STATUS,   100,              30,   0
-	move BIDE,         EFFECT_BIDE,                0, NORMAL,        PHYSICAL, PERFECT_ACCURACY, 10,   0
+	move ACROBATICS,   EFFECT_ACROBATICS,         55, FLYING,        PHYSICAL, 100,              15,   0
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              10,   0
 	move AERIAL_ACE,   EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, PERFECT_ACCURACY, 20,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      200, NORMAL,        PHYSICAL, 100,               5,   0
