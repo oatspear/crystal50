@@ -46,6 +46,7 @@
 ; Move replacements by convenience:
 
 ; Low Kick      : Low Sweep
+; Wing Attack   : Air Cutter (TODO)
 
 ; Moves added to empty slots:
 
