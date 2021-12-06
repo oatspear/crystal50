@@ -118,7 +118,7 @@ MoveNames::
 	li "FOCUS ENERGY"
 	li "BIDE"
 	li "METRONOME"
-	li "MIRROR MOVE"
+	li "AERIAL ACE"
 	li "SELFDESTRUCT"
 	li "EGG BOMB"
 	li "LICK"

@@ -124,7 +124,7 @@
 	const FOCUS_ENERGY ; 74
 	const BIDE         ; 75
 	const METRONOME    ; 76
-	const MIRROR_MOVE  ; 77
+	const AERIAL_ACE   ; 77
 	const SELFDESTRUCT ; 78
 	const EGG_BOMB     ; 79
 	const LICK         ; 7a

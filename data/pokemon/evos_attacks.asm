@@ -282,7 +282,7 @@ PidgeyEvosAttacks:
 	db 33, WING_ATTACK
 	db 37, RECOVER ; FIXME: ROOST
 	; db 41, TAILWIND
-	db 45, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 45, AERIAL_ACE
 	db 49, AIR_SLASH
 	; db 53, HURRICANE
 	db 0 ; no more level-up moves
@@ -303,7 +303,7 @@ PidgeottoEvosAttacks:
 	db 37, WING_ATTACK
 	db 42, RECOVER ; FIXME: ROOST
 	; db 47, TAILWIND
-	db 52, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 52, AERIAL_ACE
 	db 57, AIR_SLASH
 	; db 62, HURRICANE
 	db 0 ; no more level-up moves
@@ -325,7 +325,7 @@ PidgeotEvosAttacks:
 	db 38, WING_ATTACK
 	db 44, RECOVER ; FIXME: ROOST
 	; db 50, TAILWIND
-	db 56, MIRROR_MOVE ; FIXME: AERIAL_ACE
+	db 56, AERIAL_ACE
 	db 62, AIR_SLASH
 	; db 68, HURRICANE
 	db 0 ; no more level-up moves
@@ -378,7 +378,7 @@ SpearowEvosAttacks:
 	db 4, LEER
 	; db 8, ASSURANCE
 	db 11, FURY_ATTACK
-	; db 15, AERIAL_ACE
+	db 15, AERIAL_ACE
 	db 18, WING_ATTACK
 	; db 22, TAKE_DOWN
 	db 25, AGILITY
@@ -397,7 +397,7 @@ FearowEvosAttacks:
 	; db 4, LEER
 	; db 8, ASSURANCE
 	db 11, FURY_ATTACK
-	; db 15, AERIAL_ACE
+	db 15, AERIAL_ACE
 	db 18, WING_ATTACK
 	; db 23, TAKE_DOWN
 	db 27, AGILITY
@@ -1648,7 +1648,7 @@ FarfetchDEvosAttacks:
 	db 5, LEER
 	db 10, FURY_CUTTER
 	db 15, CUT
-	; db 20, AERIAL_ACE
+	db 20, AERIAL_ACE
 	; db 25, AIR_CUTTER
 	; db 30, KNOCK_OFF
 	db 35, FALSE_SWIPE
@@ -3486,7 +3486,7 @@ CleffaEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CLEFAIRY
 	db 0 ; no more evolutions
 	db 1, POUND
-	db 1, MIRROR_MOVE ; FIXME: COPYCAT
+	db 1, MIMIC ; FIXME: COPYCAT
 	db 4, SING
 	db 8, SWEET_KISS
 	db 12, DISARMING_VOICE
@@ -3499,7 +3499,7 @@ IgglybuffEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SING
 	db 1, POUND
-	db 1, MIRROR_MOVE ; FIXME: COPYCAT
+	db 1, MIMIC ; FIXME: COPYCAT
 	db 4, DEFENSE_CURL
 	db 8, SWEET_KISS
 	db 12, DISARMING_VOICE
@@ -3871,14 +3871,14 @@ YanmaEvosAttacks:
 	db 1, GUST
 	db 6, QUICK_ATTACK
 	db 11, DOUBLE_TEAM
-	; db 14, AERIAL_ACE
+	db 14, AERIAL_ACE
 	db 17, DETECT
 	db 22, SUPERSONIC
 	; db 27, UPROAR
 	db 30, STRING_SHOT
 	db 33, ANCIENTPOWER
 	db 38, HYPNOSIS
-	db 43, WING_ATTACK
+	; db 43, WING_ATTACK
 	db 46, SCREECH
 	; db 49, U_TURN
 	db 54, AIR_SLASH
@@ -4271,7 +4271,7 @@ HeracrossEvosAttacks:
 	db 1, LEER
 	db 5, FURY_ATTACK
 	db 10, ENDURE
-	; db 15, AERIAL_ACE
+	db 15, AERIAL_ACE
 	db 20, HORN_ATTACK
 	db 25, COUNTER
 	db 30, BRICK_BREAK
@@ -4727,7 +4727,7 @@ SmoochumEvosAttacks:
 	db 1, POUND
 	db 1, LICK
 	db 4, POWDER_SNOW
-	db 8, MIRROR_MOVE ; FIXME: COPYCAT
+	db 8, MIMIC ; FIXME: COPYCAT
 	db 12, CONFUSION
 	; db 16, COVET
 	db 20, SING

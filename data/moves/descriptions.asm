@@ -119,7 +119,7 @@ MoveDescriptions::
 	dw FocusEnergyDescription
 	dw BideDescription
 	dw MetronomeDescription
-	dw MirrorMoveDescription
+	dw AerialAceDescription
 	dw SelfdestructDescription
 	dw EggBombDescription
 	dw LickDescription
@@ -724,10 +724,6 @@ MetronomeDescription:
 	db   "Randomly uses any"
 	next "#MON move.@"
 
-MirrorMoveDescription:
-	db   "Counters with the"
-	next "same move.@"
-
 SelfdestructDescription:
 	db   "Powerful but makes"
 	next "the user faint.@"
@@ -760,6 +756,7 @@ ClampDescription:
 	db   "Traps the foe for"
 	next "4-5 turns.@"
 
+AerialAceDescription:
 SwiftDescription:
 	db   "An attack that"
 	next "never misses.@"

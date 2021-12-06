@@ -7,7 +7,7 @@
 ; Jump Kick     : Close Combat
 ; Karate Chop   : Revenge
 ; Rolling Kick  : Superpower
-; Mirror Move
+; Mirror Move   : Aerial Ace
 ; Nightmare
 ; Bone Club     : Earth Power
 ; Magnitude     : Bulldoze
@@ -190,7 +190,7 @@ Moves:
 	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, NORMAL,        STATUS,   100,              30,   0
 	move BIDE,         EFFECT_BIDE,                0, NORMAL,        PHYSICAL, PERFECT_ACCURACY, 10,   0
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              10,   0
-	move MIRROR_MOVE,  EFFECT_MIRROR_MOVE,         0, FLYING,        STATUS,   100,              20,   0
+	move AERIAL_ACE,   EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, PERFECT_ACCURACY, 20,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      200, NORMAL,        PHYSICAL, 100,               5,   0
 	move EGG_BOMB,     EFFECT_NORMAL_HIT,        100, NORMAL,        PHYSICAL,  75,              10,   0
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100,              30,  30

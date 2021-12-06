@@ -957,11 +957,6 @@ ProtectedByText:
 	text "!"
 	autodone
 
-MirrorMoveFailedText:
-	text "The MIRROR MOVE"
-	next "failed!"
-	autodone
-
 StoleText:
 	text "<USER>"
 	line "stole @"

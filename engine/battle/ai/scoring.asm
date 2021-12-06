@@ -319,7 +319,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_LEECH_HIT,        AI_Smart_LeechHit
 	dbw EFFECT_SELFDESTRUCT,     AI_Smart_Selfdestruct
 	dbw EFFECT_DREAM_EATER,      AI_Smart_DreamEater
-	dbw EFFECT_MIRROR_MOVE,      AI_Smart_MirrorMove
 	dbw EFFECT_EVASION_UP,       AI_Smart_EvasionUp
 	dbw EFFECT_ACCURACY_DOWN,    AI_Smart_AccuracyDown
 	dbw EFFECT_RESET_STATS,      AI_Smart_ResetStats
@@ -737,47 +736,6 @@ AI_Smart_AlwaysHit:
 	ret c
 
 	dec [hl]
-	dec [hl]
-	ret
-
-AI_Smart_MirrorMove:
-; If the player did not use any move last turn...
-	ld a, [wLastPlayerCounterMove]
-	and a
-	jr nz, .usedmove
-
-; ...do nothing if enemy is slower than player
-	call AICompareSpeed
-	ret nc
-
-; ...or dismiss this move if enemy is faster than player.
-	jp AIDiscourageMove
-
-; If the player did use a move last turn...
-.usedmove
-	push hl
-	ld hl, UsefulMoves
-	ld de, 1
-	call IsInArray
-	pop hl
-
-; ...do nothing if he didn't use a useful move.
-	ret nc
-
-; If he did, 50% chance to encourage this move...
-	call AI_50_50
-	ret c
-
-	dec [hl]
-
-; ...and 90% chance to encourage this move again if the enemy is faster.
-	call AICompareSpeed
-	ret nc
-
-	call Random
-	cp 10 percent
-	ret c
-
 	dec [hl]
 	ret
 

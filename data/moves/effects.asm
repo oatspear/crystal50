@@ -170,13 +170,6 @@ DreamEater:
 	checkfaint
 	endmove
 
-MirrorMove:
-	checkobedience
-	usedmovetext
-	doturn
-	mirrormove
-	endmove
-
 AttackUp:
 	checkobedience
 	usedmovetext

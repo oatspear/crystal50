@@ -6422,8 +6422,6 @@ CheckSubstituteOpp:
 
 INCLUDE "engine/battle/move_effects/selfdestruct.asm"
 
-INCLUDE "engine/battle/move_effects/mirror_move.asm"
-
 INCLUDE "engine/battle/move_effects/metronome.asm"
 
 CheckUserMove:
@@ -6547,6 +6545,8 @@ INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
 INCLUDE "engine/battle/move_effects/rollout.asm"
 
+BattleCommand_Unused1B:
+; effect0x1b
 BattleCommand_Unused5D:
 ; effect0x5d
 BattleCommand_Unused66:

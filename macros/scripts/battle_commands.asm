@@ -31,7 +31,7 @@ ENDM
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
 	command selfdestruct            ; 1a
-	command mirrormove              ; 1b
+	command effect0x1b              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
 	command payday                  ; 1e

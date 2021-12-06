@@ -81,7 +81,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$1A`: `selfdestruct`
 
 
-## `$1B`: `mirrormove`
+## `$1B`: `effect0x1b`
 
 
 ## `$1C`: `statup`

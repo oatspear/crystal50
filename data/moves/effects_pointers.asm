@@ -10,7 +10,7 @@ MoveEffectsPointers:
 	dw ParalyzeHit
 	dw Selfdestruct
 	dw DreamEater
-	dw MirrorMove
+	dw NormalHit
 	dw AttackUp
 	dw DefenseUp
 	dw SpeedUp
