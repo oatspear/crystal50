@@ -112,7 +112,7 @@ MoveEffectsPointers:
 	dw Superpower
 	dw Protect
 	dw Spikes
-	dw Foresight
+	dw Payback
 	dw PerishSong
 	dw Sandstorm
 	dw Endure

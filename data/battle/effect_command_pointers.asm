@@ -91,7 +91,7 @@ BattleCommandPointers:
 	dw BattleCommand_Curse
 	dw BattleCommand_Protect
 	dw BattleCommand_Spikes
-	dw BattleCommand_Foresight
+	dw BattleCommand_Payback
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure

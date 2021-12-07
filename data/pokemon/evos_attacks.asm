@@ -259,7 +259,7 @@ BeedrillEvosAttacks:
 	db 17, POISON_STING
 	db 20, FOCUS_ENERGY
 	; db 23, VENOSHOCK
-	; db 26, ASSURANCE
+	db 26, PAYBACK ; FIXME: ASSURANCE
 	; db 29, TOXIC_SPIKES
 	db 32, PIN_MISSILE
 	db 35, POISON_JAB
@@ -340,7 +340,7 @@ RattataEvosAttacks:
 	db 10, BITE
 	; db 13, LASER_FOCUS
 	db 16, TAKE_DOWN
-	; db 19, ASSURANCE
+	db 19, PAYBACK ; FIXME: ASSURANCE
 	db 22, CRUNCH
 	db 25, SUCKER_PUNCH
 	db 28, SUPER_FANG
@@ -362,7 +362,7 @@ RaticateEvosAttacks:
 	db 10, BITE
 	; db 13, LASER_FOCUS
 	db 16, TAKE_DOWN
-	; db 19, ASSURANCE
+	db 19, PAYBACK ; FIXME: ASSURANCE
 	db 24, CRUNCH
 	db 29, SUCKER_PUNCH
 	db 34, SUPER_FANG
@@ -376,7 +376,7 @@ SpearowEvosAttacks:
 	db 1, PECK
 	db 1, GROWL
 	db 4, LEER
-	; db 8, ASSURANCE
+	db 8, PAYBACK ; FIXME: ASSURANCE
 	db 11, FURY_ATTACK
 	db 15, AERIAL_ACE
 	db 18, WING_ATTACK
@@ -395,7 +395,7 @@ FearowEvosAttacks:
 	db 1, GROWL
 	db 1, LEER
 	; db 4, LEER
-	; db 8, ASSURANCE
+	db 8, PAYBACK ; FIXME: ASSURANCE
 	db 11, FURY_ATTACK
 	db 15, AERIAL_ACE
 	db 18, WING_ATTACK
@@ -1038,7 +1038,7 @@ MeowthEvosAttacks:
 	db 12, PAY_DAY
 	db 16, BITE
 	; db 20, TAUNT
-	; db 24, ASSURANCE
+	db 24, PAYBACK ; FIXME: ASSURANCE
 	db 29, FURY_SWIPES
 	db 32, SCREECH
 	db 36, SLASH
@@ -1058,7 +1058,7 @@ PersianEvosAttacks:
 	db 12, PAY_DAY
 	db 16, BITE
 	; db 20, TAUNT
-	; db 24, ASSURANCE
+	db 24, PAYBACK ; FIXME: ASSURANCE
 	db 31, FURY_SWIPES
 	db 36, SCREECH
 	db 42, SLASH
@@ -1120,7 +1120,7 @@ MankeyEvosAttacks:
 	; db 15, RETALIATE
 	db 19, SWAGGER
 	db 22, CROSS_CHOP
-	; db 26, ASSURANCE
+	db 26, PAYBACK ; FIXME: ASSURANCE
 	db 29, SKULL_BASH
 	db 33, THRASH
 	db 36, CLOSE_COMBAT
@@ -1145,7 +1145,7 @@ PrimeapeEvosAttacks:
 	; db 15, RETALIATE
 	db 19, SWAGGER
 	db 22, CROSS_CHOP
-	; db 26, ASSURANCE
+	db 26, PAYBACK ; FIXME: ASSURANCE
 	db 30, SKULL_BASH
 	db 35, THRASH
 	db 39, CLOSE_COMBAT
@@ -1836,7 +1836,7 @@ GastlyEvosAttacks:
 	db 1, CONFUSE_RAY
 	db 4, HYPNOSIS
 	db 8, MEAN_LOOK
-	; db 12, PAYBACK
+	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
 	; db 24, HEX
@@ -1857,7 +1857,7 @@ HaunterEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, MEAN_LOOK
 	; db LEVEL_EVO, SHADOW_PUNCH
-	; db 12, PAYBACK
+	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
 	; db 24, HEX
@@ -1878,7 +1878,7 @@ GengarEvosAttacks:
 	db 1, CONFUSE_RAY
 	db 1, HYPNOSIS
 	db 1, MEAN_LOOK
-	; db 12, PAYBACK
+	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
 	; db 24, HEX
@@ -2198,7 +2198,7 @@ KoffingEvosAttacks:
 	db 4, SMOG
 	db 8, SMOKESCREEN
 	; db 12, CLEAR_SMOG
-	; db 16, ASSURANCE
+	db 16, PAYBACK ; FIXME: ASSURANCE
 	db 20, SLUDGE
 	db 24, HAZE
 	db 28, SELFDESTRUCT
@@ -2220,7 +2220,7 @@ WeezingEvosAttacks:
 	db 1, SMOKESCREEN
 	; db LEVEL_EVO, DOUBLE_HIT
 	; db 12, CLEAR_SMOG
-	; db 16, ASSURANCE
+	db 16, PAYBACK ; FIXME: ASSURANCE
 	db 20, SLUDGE
 	db 24, HAZE
 	db 28, SELFDESTRUCT
@@ -2571,7 +2571,7 @@ TaurosEvosAttacks:
 	db 1, TACKLE
 	db 1, TAIL_WHIP
 	; db 5, WORK_UP
-	; db 10, PAYBACK
+	db 10, PAYBACK
 	; db 15, ASSURANCE
 	db 20, HORN_ATTACK
 	db 25, SCARY_FACE
@@ -3240,7 +3240,7 @@ SentretEvosAttacks:
 	db EVOLVE_LEVEL, 15, FURRET
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 1, FORESIGHT
+	db 1, GROWL
 	db 4, DEFENSE_CURL
 	db 7, QUICK_ATTACK
 	db 13, FURY_SWIPES
@@ -3251,7 +3251,7 @@ SentretEvosAttacks:
 	db 31, SUCKER_PUNCH
 	db 36, AMNESIA
 	db 39, BATON_PASS
-	; db 42, ME_FIRST
+	db 42, REVERSAL
 	; db 47, HYPER_VOICE
 	db 0 ; no more level-up moves
 
@@ -3260,9 +3260,9 @@ FurretEvosAttacks:
 	; db 1, AGILITY
 	; db 1, COIL
 	; db 1, SCRATCH
-	db 1, FORESIGHT
 	db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
+	db 1, GROWL
 	db LEVEL_EVO, AGILITY
 	; db 4, DEFENSE_CURL
 	; db 7, QUICK_ATTACK
@@ -3274,7 +3274,7 @@ FurretEvosAttacks:
 	db 36, SUCKER_PUNCH
 	db 42, AMNESIA
 	db 46, BATON_PASS
-	; db 50, ME_FIRST
+	db 50, REVERSAL
 	; db 56, HYPER_VOICE
 	db 0 ; no more level-up moves
 
@@ -3957,7 +3957,7 @@ UmbreonEvosAttacks: ; based on gen 7
 	db 13, QUICK_ATTACK
 	db 17, CONFUSE_RAY
 	db 20, BITE
-	; db 25, ASSURANCE
+	db 25, PAYBACK ; FIXME: ASSURANCE
 	db 29, SCREECH
 	db 33, MOONLIGHT
 	db 37, MEAN_LOOK
@@ -3973,7 +3973,7 @@ MurkrowEvosAttacks:
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
-	; db 25, ASSURANCE
+	db 25, PAYBACK ; FIXME: ASSURANCE
 	; db 31, TAUNT
 	; db 35, AIR_CUTTER
 	db 41, MEAN_LOOK
@@ -4016,7 +4016,7 @@ MisdreavusEvosAttacks:
 	; db 23, HEX
 	db 28, PSYBEAM
 	db 32, PAIN_SPLIT
-	; db 37, PAYBACK
+	db 37, PAYBACK
 	db 41, SHADOW_BALL
 	db 46, PERISH_SONG
 	; db 50, GRUDGE
@@ -4044,7 +4044,7 @@ GirafarigEvosAttacks:
 	db 1, TACKLE
 	db 1, GROWL
 	db 5, CONFUSION
-	; db 10, ASSURANCE
+	db 10, PAYBACK ; FIXME: ASSURANCE
 	db 14, STOMP
 	db 19, PSYBEAM
 	db 23, AGILITY
@@ -4068,7 +4068,7 @@ PinecoEvosAttacks:
 	; db 20, AUTOTOMIZE
 	db 23, ROLLOUT
 	db 28, SPIKES
-	; db 31, PAYBACK
+	db 31, PAYBACK
 	db 34, EXPLOSION
 	; db 39, IRON_DEFENSE
 	; db 42, GYRO_BALL
@@ -4089,7 +4089,7 @@ ForretressEvosAttacks:
 	db 20, REFLECT
 	db 23, ROLLOUT
 	db 28, SPIKES
-	; db 32, PAYBACK
+	db 32, PAYBACK
 	db 36, EXPLOSION
 	; db 42, IRON_DEFENSE
 	; db 46, GYRO_BALL
@@ -4182,7 +4182,7 @@ SnubbullEvosAttacks:
 	db 25, ROAR
 	; db 31, TAUNT
 	db 37, PLAY_ROUGH
-	; db 43, PAYBACK
+	db 43, PAYBACK
 	db 49, CRUNCH
 	db 0 ; no more level-up moves
 
@@ -4202,7 +4202,7 @@ GranbullEvosAttacks:
 	db 27, ROAR
 	; db 35, TAUNT
 	db 43, PLAY_ROUGH
-	; db 51, PAYBACK
+	db 51, PAYBACK
 	db 59, CRUNCH
 	db 67, OUTRAGE
 	db 0 ; no more level-up moves
@@ -4316,7 +4316,7 @@ TeddiursaEvosAttacks:
 	db 1, LICK
 	; db 1, FAKE_TEARS
 	db 8, FURY_SWIPES
-	db 15, BITE ; FIXME: PAYBACK
+	db 15, PAYBACK
 	db 22, SWEET_SCENT
 	; db 25, PLAY_NICE
 	db 29, SLASH
@@ -4339,7 +4339,7 @@ UrsaringEvosAttacks:
 	db 1, LICK
 	; db 1, FAKE_TEARS
 	db 8, FURY_SWIPES
-	db 15, BITE ; FIXME: PAYBACK
+	db 15, PAYBACK
 	db 22, SWEET_SCENT
 	; db 25, PLAY_NICE
 	db 29, SLASH
@@ -4396,47 +4396,41 @@ MagcargoEvosAttacks:
 	db 58, EARTH_POWER
 	db 0 ; no more level-up moves
 
-SwinubEvosAttacks: ; based on gen 7
+SwinubEvosAttacks:
 	db EVOLVE_LEVEL, 33, PILOSWINE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, FORESIGHT ; FIXME: ODOR_SLEUTH (variation)
-	; db 5, MUD_SPORT
-	db 8, POWDER_SNOW
-	db 11, MUD_SLAP
-	db 14, ENDURE
-	; db 18, MUD_BOMB
-	db 21, ICY_WIND
-	; db 24, ICE_SHARD
-	db 28, TAKE_DOWN
-	db 35, MIST
-	db 37, EARTHQUAKE
-	db 40, FLAIL
-	db 44, BLIZZARD
-	db 48, AMNESIA
+	db 1, MUD_SLAP
+	db 5, POWDER_SNOW
+	db 10, FLAIL
+	; db 15, ICE_SHARD
+	db 20, MIST
+	db 25, ENDURE
+	db 30, ICY_WIND
+	db 35, AMNESIA
+	db 40, TAKE_DOWN
+	db 45, EARTHQUAKE
+	db 50, BLIZZARD
 	db 0 ; no more level-up moves
 
-PiloswineEvosAttacks: ; based on gen 7
+PiloswineEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, PECK
-	; db 1, MUD_SPORT
+	; db 1, ICE_FANG
 	db 1, ANCIENTPOWER
+	; db 1, TACKLE
+	db 1, MUD_SLAP
 	db 1, POWDER_SNOW
-	db 1, FORESIGHT ; FIXME: ODOR_SLEUTH
-	db LEVEL_EVO, FURY_ATTACK
-	; db 5, MUD_SPORT
-	; db 8, POWDER_SNOW
-	db 11, MUD_SLAP
-	db 14, ENDURE
-	; db 18, MUD_BOMB
-	db 21, ICY_WIND
-	; db 24, ICE_FANG
-	db 28, TAKE_DOWN
-	db 37, MIST
-	db 41, THRASH
-	db 46, EARTHQUAKE
-	db 52, BLIZZARD
-	db 58, AMNESIA
+	; db 1, FLAIL
+	db LEVEL_EVO, FURY_ATTACK ; FIXME: ICE_FANG
+	; db 15, ICE_SHARD
+	db 20, MIST
+	db 25, ENDURE
+	db 30, ICY_WIND
+	db 37, AMNESIA
+	db 44, TAKE_DOWN
+	db 51, EARTHQUAKE
+	db 58, BLIZZARD
+	db 65, THRASH
 	db 0 ; no more level-up moves
 
 CorsolaEvosAttacks:
@@ -4549,7 +4543,7 @@ HoundourEvosAttacks:
 	; db 20, TAUNT
 	db 25, BEAT_UP
 	db 28, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 32, THIEF ; FIXME: PAYBACK
+	db 32, PAYBACK
 	; db 37, FLAME_CHARGE
 	; db 40, FOUL_PLAY
 	db 44, FLAMETHROWER
@@ -4572,7 +4566,7 @@ HoundoomEvosAttacks:
 	; db 20, TAUNT
 	db 26, BEAT_UP
 	db 30, FLAME_WHEEL ; FIXME: FIRE_FANG
-	db 35, THIEF ; FIXME: PAYBACK
+	db 35, PAYBACK
 	; db 41, FLAME_CHARGE
 	; db 45, FOUL_PLAY
 	db 50, FLAMETHROWER
@@ -4603,13 +4597,12 @@ KingdraEvosAttacks:
 PhanpyEvosAttacks:
 	db EVOLVE_LEVEL, 25, DONPHAN
 	db 0 ; no more evolutions
-	db 1, FORESIGHT ; FIXME: ODOR_SLEUTH
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, DEFENSE_CURL
 	db 6, FLAIL
 	db 10, ROLLOUT
-	; db 15, NATURAL_GIFT
+	db 15, BULLDOZE
 	db 19, ENDURE
 	db 24, SLAM
 	db 28, TAKE_DOWN
@@ -4620,20 +4613,27 @@ PhanpyEvosAttacks:
 
 DonphanEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, FURY_ATTACK
 	; db 1, FIRE_FANG
 	; db 1, THUNDER_FANG
-	; db 1, FURY_ATTACK
-	; db 1, BULLDOZE
-	db 1, HORN_ATTACK
+	; db 1, TACKLE
+	; db 1, FLAIL
+	; db 1, ENDURE
+	; db 1, TAKE_DOWN
+	; db 1, CHARM
+	; db 1, LAST_RESORT
+	; db 1, DOUBLE_EDGE
+	; db 1, HORN_ATTACK
+	db 1, BULLDOZE
 	db 1, GROWL
 	db 1, DEFENSE_CURL
 	db LEVEL_EVO, FURY_ATTACK
 	db 6, RAPID_SPIN
 	db 10, ROLLOUT
-	; db 15, ASSURANCE
+	db 15, PAYBACK ; FIXME: ASSURANCE
 	; db 19, KNOCK_OFF
 	db 24, SLAM
-	db 30, BULLDOZE
+	db 30, ROCK_THROW ; FIXME: ROCK_TOMB
 	db 37, SCARY_FACE
 	db 43, EARTHQUAKE
 	db 50, RAPID_SPIN ; FIXME: GIGA_IMPACT
@@ -4865,7 +4865,7 @@ LarvitarEvosAttacks:
 	db 1, TACKLE
 	db 1, LEER
 	db 3, ROCK_THROW
-	; db 6, PAYBACK
+	db 6, PAYBACK
 	db 9, BITE
 	db 12, SCARY_FACE
 	db 18, BULLDOZE ; FIXME: STOMPING_TANTRUM
@@ -4886,7 +4886,7 @@ PupitarEvosAttacks:
 	db 1, TACKLE
 	db 1, LEER
 	db 1, ROCK_THROW
-	; db 1, PAYBACK
+	db 1, PAYBACK
 	; db EVO, IRON_DEFENSE
 	db 9, BITE
 	db 12, SCARY_FACE
@@ -4911,7 +4911,7 @@ TyranitarEvosAttacks:
 	db 1, TACKLE
 	db 1, LEER
 	db 1, ROCK_THROW
-	; db 1, PAYBACK
+	db 1, PAYBACK
 	db 9, BITE
 	db 12, SCARY_FACE
 	db 15, ROCK_SLIDE

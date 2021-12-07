@@ -360,7 +360,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_FLAME_WHEEL,      AI_Smart_FlameWheel
 	dbw EFFECT_CURSE,            AI_Smart_Curse
 	dbw EFFECT_PROTECT,          AI_Smart_Protect
-	dbw EFFECT_FORESIGHT,        AI_Smart_Foresight
+	dbw EFFECT_PAYBACK,          AI_Smart_Payback
 	dbw EFFECT_PERISH_SONG,      AI_Smart_PerishSong
 	dbw EFFECT_SANDSTORM,        AI_Smart_Sandstorm
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
@@ -2017,42 +2017,6 @@ AI_Smart_Protect:
 	inc [hl]
 	ret
 
-AI_Smart_Foresight:
-; 60% chance to encourage this move if the enemy's accuracy is sharply lowered.
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
-	jr c, .encourage
-
-; 60% chance to encourage this move if the player's evasion is sharply raised.
-	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr nc, .encourage
-
-; 60% chance to encourage this move if the player is a Ghost type.
-	ld a, [wBattleMonType1]
-	cp GHOST
-	jr z, .encourage
-	ld a, [wBattleMonType2]
-	cp GHOST
-	jr z, .encourage
-
-; 92% chance to discourage this move otherwise.
-	call Random
-	cp 8 percent
-	ret c
-
-	inc [hl]
-	ret
-
-.encourage
-	call Random
-	cp 39 percent + 1
-	ret c
-
-	dec [hl]
-	dec [hl]
-	ret
-
 AI_Smart_PerishSong:
 	push hl
 	callfar FindAliveEnemyMons
@@ -2766,6 +2730,18 @@ AI_Smart_Thunder:
 	ret c
 
 	inc [hl]
+	ret
+
+AI_Smart_Payback:
+; 80% chance to encourage this move if the enemy is slower than the player.
+
+	call AICompareSpeed
+	ret nc
+
+	call AI_80_20
+	ret c
+
+	dec [hl]
 	ret
 
 AI_Smart_Revenge:

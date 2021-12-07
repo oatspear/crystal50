@@ -23,7 +23,7 @@
 ; Barrage       : Brick Break
 ; Dizzy Punch   : Facade
 ; Sharpen       : Nasty Plot
-; Foresight
+; Foresight     : Payback
 ; Return        : Flare Blitz
 ; Frustration   : Hail
 ; Meditate      : Calm Mind
@@ -265,7 +265,7 @@ Moves:
 	move OCTAZOOKA,    EFFECT_ACCURACY_DOWN_HIT,  65, WATER,         SPECIAL,   85,              10,  50
 	move SPIKES,       EFFECT_SPIKES,              0, GROUND,        STATUS,   100,              20,   0
 	move ZAP_CANNON,   EFFECT_PARALYZE_HIT,      100, ELECTRIC,      SPECIAL,   50,               5, 100
-	move FORESIGHT,    EFFECT_FORESIGHT,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, 40,   0
+	move PAYBACK,      EFFECT_PAYBACK,            50, DARK,          PHYSICAL, 100,              10,   0
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,         STATUS,   100,               5,   0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,        STATUS,   100,               5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     55, ICE,           SPECIAL,   95,              15, 100

@@ -200,7 +200,7 @@ BattleAnimations::
 	dw BattleAnim_Octazooka
 	dw BattleAnim_Spikes
 	dw BattleAnim_ZapCannon
-	dw BattleAnim_Foresight
+	dw BattleAnim_Payback
 	dw BattleAnim_DestinyBond
 	dw BattleAnim_PerishSong
 	dw BattleAnim_IcyWind
@@ -3459,18 +3459,28 @@ BattleAnim_ZapCannon:
 	anim_wait 128
 	anim_ret
 
-BattleAnim_Foresight:
-	anim_1gfx ANIM_GFX_SHINE
-	anim_call BattleAnim_UserObj_1Row
-	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
-	anim_sound 0, 1, SFX_FORESIGHT
-	anim_obj ANIM_OBJ_FORESIGHT, 132, 40, $0
-	anim_wait 24
-	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, BG_EFFECT_TARGET, $40
-	anim_wait 64
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
-	anim_call BattleAnim_ShowMon_1
+BattleAnim_Payback:
+	anim_1gfx ANIM_GFX_MISC
+	anim_sound 0, 0, SFX_KINESIS_2
+	anim_obj ANIM_OBJ_ANGER, 72, 80, $0
+	anim_wait 40
+	anim_if_param_equal TRUE, BattleAnim_Counter
+	anim_1gfx ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 8
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 48, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj ANIM_OBJ_HIT_YFIX, 152, 48, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_wait 1
+	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_DestinyBond:

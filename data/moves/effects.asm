@@ -1157,6 +1157,26 @@ Revenge:
 	kingsrock
 	endmove
 
+Payback:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	payback
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	kingsrock
+	endmove
+
 Substitute:
 	checkobedience
 	usedmovetext
@@ -1527,14 +1547,6 @@ Spikes:
 	usedmovetext
 	doturn
 	spikes
-	endmove
-
-Foresight:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	foresight
 	endmove
 
 PerishSong:

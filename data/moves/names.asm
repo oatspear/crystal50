@@ -192,7 +192,7 @@ MoveNames::
 	li "OCTAZOOKA"
 	li "SPIKES"
 	li "ZAP CANNON"
-	li "FORESIGHT"
+	li "PAYBACK"
 	li "DESTINY BOND"
 	li "PERISH SONG"
 	li "ICY WIND"

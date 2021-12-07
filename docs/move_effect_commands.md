@@ -261,7 +261,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$56`: `spikes`
 
 
-## `$57`: `foresight`
+## `$57`: `payback`
 
 
 ## `$58`: `perishsong`

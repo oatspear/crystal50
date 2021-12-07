@@ -193,7 +193,7 @@ MoveDescriptions::
 	dw OctazookaDescription
 	dw SpikesDescription
 	dw ZapCannonDescription
-	dw ForesightDescription
+	dw PaybackDescription
 	dw DestinyBondDescription
 	dw PerishSongDescription
 	dw IcyWindDescription
@@ -997,9 +997,9 @@ ZapCannonDescription:
 	db   "An attack that"
 	next "always paralyzes.@"
 
-ForesightDescription:
-	db   "Negates accuracy"
-	next "reduction moves.@"
+PaybackDescription:
+	db   "Doubles power when"
+	next "moving second.@"
 
 DestinyBondDescription:
 	db   "The foe faints if"

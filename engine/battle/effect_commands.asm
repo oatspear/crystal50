@@ -1307,16 +1307,16 @@ BattleCommand_Stab:
 	jr z, .end
 
 	; foresight
-	cp -2
-	jr nz, .SkipForesightCheck
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
-	bit SUBSTATUS_IDENTIFIED, a
-	jr nz, .end
+	; cp -2
+	; jr nz, .SkipForesightCheck
+	; ld a, BATTLE_VARS_SUBSTATUS1_OPP
+	; call GetBattleVar
+	; bit SUBSTATUS_IDENTIFIED, a
+	; jr nz, .end
 
-	jr .TypesLoop
+	; jr .TypesLoop
 
-.SkipForesightCheck:
+; .SkipForesightCheck:
 	cp b
 	jr nz, .SkipType
 	ld a, [hl]
@@ -1873,17 +1873,17 @@ BattleCommand_CheckHit:
 	ld c, a
 
 .got_acc_eva
-	cp b
-	jr c, .skip_foresight_check
+	; cp b
+	; jr c, .skip_foresight_check
 
 	; if the target's evasion is greater than the user's accuracy,
 	; check the target's foresight status
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
-	bit SUBSTATUS_IDENTIFIED, a
-	ret nz
+	; ld a, BATTLE_VARS_SUBSTATUS1_OPP
+	; call GetBattleVar
+	; bit SUBSTATUS_IDENTIFIED, a
+	; ret nz
 
-.skip_foresight_check
+; .skip_foresight_check
 	; subtract evasion from 14
 	ld a, MAX_STAT_LEVEL + 1
 	sub c
@@ -2948,6 +2948,8 @@ EnemyAttackDamage:
 INCLUDE "engine/battle/move_effects/beat_up.asm"
 
 INCLUDE "engine/battle/move_effects/revenge.asm"
+
+INCLUDE "engine/battle/move_effects/payback.asm"
 
 INCLUDE "engine/battle/move_effects/acrobatics.asm"
 
@@ -6525,8 +6527,6 @@ INCLUDE "engine/battle/move_effects/protect.asm"
 INCLUDE "engine/battle/move_effects/endure.asm"
 
 INCLUDE "engine/battle/move_effects/spikes.asm"
-
-INCLUDE "engine/battle/move_effects/foresight.asm"
 
 INCLUDE "engine/battle/move_effects/perish_song.asm"
 
