@@ -994,12 +994,6 @@ SpikesText:
 	scroll "<TARGET>!"
 	autodone
 
-IdentifiedText:
-	text "<USER>"
-	line "identified"
-	scroll "<TARGET>!"
-	autodone
-
 StartPerishText:
 	text "Both #MON will"
 	line "faint in 3 turns!"

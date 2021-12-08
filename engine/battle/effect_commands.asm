@@ -1435,10 +1435,10 @@ CheckTypeMatchup:
 	jr z, .End
 	cp -2
 	jr nz, .Next
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
-	bit SUBSTATUS_IDENTIFIED, a
-	jr nz, .End
+	; ld a, BATTLE_VARS_SUBSTATUS1_OPP
+	; call GetBattleVar
+	; bit SUBSTATUS_IDENTIFIED, a
+	; jr nz, .End
 	jr .TypesLoop
 
 .Next:

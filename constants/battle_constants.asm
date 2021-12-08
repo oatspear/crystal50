@@ -186,7 +186,7 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const_skip
 	const SUBSTATUS_CURSE
 	const SUBSTATUS_PROTECT
-	const SUBSTATUS_IDENTIFIED
+	const_skip
 	const SUBSTATUS_PERISH
 	const SUBSTATUS_ENDURE
 	const SUBSTATUS_ROLLOUT
