@@ -176,7 +176,7 @@
 	const THIEF        ; a8
 	const INFESTATION  ; a9
 	const MIND_READER  ; aa
-	const NIGHTMARE    ; ab
+	const HEX          ; ab
 	const FLAME_WHEEL  ; ac
 	const SNORE        ; ad
 	const CURSE        ; ae

@@ -1422,7 +1422,7 @@ TentacoolEvosAttacks:
 	; db 16, WATER_PULSE
 	db 20, SCREECH
 	db 24, BUBBLEBEAM
-	; db 28, HEX
+	db 28, HEX
 	db 32, ACID_ARMOR
 	db 36, POISON_JAB
 	db 40, SURF
@@ -1441,7 +1441,7 @@ TentacruelEvosAttacks:
 	; db 16, WATER_PULSE
 	db 20, SCREECH
 	db 24, BUBBLEBEAM
-	; db 28, HEX
+	db 28, HEX
 	db 34, ACID_ARMOR
 	db 40, POISON_JAB
 	db 46, SURF
@@ -1839,7 +1839,7 @@ GastlyEvosAttacks:
 	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
-	; db 24, HEX
+	db 24, HEX
 	db 28, NIGHT_SHADE
 	db 32, SUCKER_PUNCH
 	db 36, DARK_PULSE
@@ -1860,7 +1860,7 @@ HaunterEvosAttacks:
 	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
-	; db 24, HEX
+	db 24, HEX
 	db 30, NIGHT_SHADE
 	db 36, SUCKER_PUNCH
 	db 42, DARK_PULSE
@@ -1881,7 +1881,7 @@ GengarEvosAttacks:
 	db 12, PAYBACK
 	db 16, SPITE
 	db 20, CURSE
-	; db 24, HEX
+	db 24, HEX
 	db 30, NIGHT_SHADE
 	db 36, SUCKER_PUNCH
 	db 42, DARK_PULSE
@@ -1939,7 +1939,6 @@ HypnoEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FUTURE_SIGHT
 	; db 1, NASTY_PLOT
-	db LEVEL_EVO, NIGHTMARE ; FIXME: Lv. 1
 	; db 1, SWITCHEROO
 	db 1, POUND
 	db 1, HYPNOSIS
@@ -1953,7 +1952,7 @@ HypnoEvosAttacks:
 	db 25, PSYBEAM
 	db 29, MIND_READER
 	db 33, PSYCH_UP
-	; db 37, SYNCHRONOISE
+	; db 37, HYPNOSIS
 	db 41, ZEN_HEADBUTT
 	db 45, SWAGGER
 	db 49, PSYCHIC_M
@@ -4013,7 +4012,7 @@ MisdreavusEvosAttacks:
 	db 10, LICK ; FIXME: ASTONISH
 	db 14, CONFUSE_RAY
 	db 19, MEAN_LOOK
-	; db 23, HEX
+	db 23, HEX
 	db 28, PSYBEAM
 	db 32, PAIN_SPLIT
 	db 37, PAYBACK

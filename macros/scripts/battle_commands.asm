@@ -86,7 +86,7 @@ ENDM
 	command kickcounter             ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
-	command nightmare               ; 52
+	command hex                     ; 52
 	command defrost                 ; 53
 	command curse                   ; 54
 	command protect                 ; 55

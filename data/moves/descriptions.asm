@@ -171,7 +171,7 @@ MoveDescriptions::
 	dw ThiefDescription
 	dw InfestationDescription
 	dw MindReaderDescription
-	dw NightmareDescription
+	dw HexDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
 	dw CurseDescription
@@ -905,9 +905,9 @@ MindReaderDescription:
 	db   "Ensures the next"
 	next "attack will hit.@"
 
-NightmareDescription:
-	db   "A sleeper loses"
-	next "1/4 HP every turn.@"
+HexDescription:
+	db   "Double power vs."
+	next "foes with status.@"
 
 FlameWheelDescription:
 	db   "An attack that may"

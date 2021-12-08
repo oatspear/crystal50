@@ -170,7 +170,7 @@ MoveNames::
 	li "THIEF"
 	li "INFESTATION"
 	li "MIND READER"
-	li "NIGHTMARE"
+	li "HEX"
 	li "FLAME WHEEL"
 	li "SNORE"
 	li "CURSE"

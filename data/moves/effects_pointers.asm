@@ -106,7 +106,7 @@ MoveEffectsPointers:
 	dw TripleKick
 	dw Thief
 	dw MeanLook
-	dw Nightmare
+	dw Hex
 	dw FlameWheel
 	dw Curse
 	dw Superpower

@@ -8,7 +8,7 @@
 ; Karate Chop   : Revenge
 ; Rolling Kick  : Superpower
 ; Mirror Move   : Aerial Ace
-; Nightmare
+; Nightmare     : Hex
 ; Bone Club     : Earth Power
 ; Magnitude     : Bulldoze
 ; Double Slap
@@ -243,7 +243,7 @@ Moves:
 	move THIEF,        EFFECT_THIEF,              60, DARK,          PHYSICAL, 100,              25, 100
 	move INFESTATION,  EFFECT_TRAP_TARGET,        20, BUG,           SPECIAL,  100,              20,   0
 	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,        STATUS,   PERFECT_ACCURACY,  5,   0
-	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,         STATUS,   100,              15,   0
+	move HEX,          EFFECT_HEX,                65, GHOST,         SPECIAL,  100,              10,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100,              25,  10
 	move SNORE,        EFFECT_SNORE,              50, NORMAL,        SPECIAL,  100,              15,  30
 	move CURSE,        EFFECT_CURSE,               0, GHOST,         STATUS,   100,              10,   0

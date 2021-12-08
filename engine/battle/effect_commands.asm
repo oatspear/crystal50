@@ -172,8 +172,6 @@ BattleCommand_CheckTurn:
 	call CallBattleCore
 	ld a, $1
 	ldh [hBGMapMode], a
-	ld hl, wPlayerSubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -403,8 +401,6 @@ CheckEnemyTurn:
 	call CallBattleCore
 	ld a, $1
 	ldh [hBGMapMode], a
-	ld hl, wEnemySubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -2950,6 +2946,8 @@ INCLUDE "engine/battle/move_effects/beat_up.asm"
 INCLUDE "engine/battle/move_effects/revenge.asm"
 
 INCLUDE "engine/battle/move_effects/payback.asm"
+
+INCLUDE "engine/battle/move_effects/hex.asm"
 
 INCLUDE "engine/battle/move_effects/acrobatics.asm"
 
@@ -6486,8 +6484,6 @@ BattleCommand_ArenaTrap:
 .failed
 	call AnimateFailedMove
 	jp PrintButItFailed
-
-INCLUDE "engine/battle/move_effects/nightmare.asm"
 
 BattleCommand_Defrost:
 ; defrost

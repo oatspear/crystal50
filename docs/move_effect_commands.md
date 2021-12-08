@@ -246,7 +246,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$51`: `arenatrap`
 
 
-## `$52`: `nightmare`
+## `$52`: `hex`
 
 
 ## `$53`: `defrost`

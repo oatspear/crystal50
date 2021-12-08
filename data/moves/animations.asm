@@ -178,7 +178,7 @@ BattleAnimations::
 	dw BattleAnim_Thief
 	dw BattleAnim_Infestation
 	dw BattleAnim_MindReader
-	dw BattleAnim_Nightmare
+	dw BattleAnim_Hex
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
 	dw BattleAnim_Curse
@@ -278,7 +278,7 @@ BattleAnimations::
 	dw BattleAnim_Par
 	dw BattleAnim_InLove
 	dw BattleAnim_InSandstorm
-	dw BattleAnim_InNightmare
+	dw BattleAnim_0
 	dw BattleAnim_InWhirlpool
 	dw BattleAnim_Miss
 	dw BattleAnim_EnemyDamage
@@ -585,13 +585,6 @@ BattleAnim_InSandstorm:
 	anim_wait 8
 	anim_loop 6, .loop
 	anim_wait 8
-	anim_ret
-
-BattleAnim_InNightmare:
-	anim_1gfx ANIM_GFX_ANGELS
-	anim_sound 0, 0, SFX_BUBBLEBEAM
-	anim_obj ANIM_OBJ_IN_NIGHTMARE, 68, 80, $0
-	anim_wait 40
 	anim_ret
 
 BattleAnim_InWhirlpool:
@@ -3107,14 +3100,25 @@ BattleAnim_MindReader:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Nightmare:
+BattleAnim_InNightmare:
+	anim_1gfx ANIM_GFX_ANGELS
+	anim_jump DoBattleAnim_InNightmare
+
+BattleAnim_Hex:
 	anim_1gfx ANIM_GFX_ANGELS
 	anim_bgp $1b
 	anim_obp0 $f
+	anim_if_param_equal TRUE, DoBattleAnim_InNightmare
 	anim_obj ANIM_OBJ_NIGHTMARE, 132, 40, $0
 	anim_obj ANIM_OBJ_NIGHTMARE, 132, 40, $a0
 	anim_sound 0, 1, SFX_NIGHTMARE
 	anim_wait 96
+	anim_ret
+
+DoBattleAnim_InNightmare:
+	anim_sound 0, 0, SFX_BUBBLEBEAM
+	anim_obj ANIM_OBJ_IN_NIGHTMARE, 68, 80, $0
+	anim_wait 40
 	anim_ret
 
 BattleAnim_FlameWheel:

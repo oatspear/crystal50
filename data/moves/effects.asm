@@ -1177,6 +1177,26 @@ Payback:
 	kingsrock
 	endmove
 
+Hex:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	hex
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	kingsrock
+	endmove
+
 Substitute:
 	checkobedience
 	usedmovetext
@@ -1498,13 +1518,6 @@ MeanLook:
 	usedmovetext
 	doturn
 	arenatrap
-	endmove
-
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
 	endmove
 
 FlameWheel:

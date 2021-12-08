@@ -69,11 +69,6 @@ LeechSeedSapsText:
 	line "<USER>!"
 	autodone
 
-HasANightmareText:
-	text "<USER>"
-	line "has a NIGHTMARE!"
-	autodone
-
 HurtByCurseText:
 	text "<USER>'s"
 	line "hurt by the CURSE!"
@@ -968,12 +963,6 @@ StoleText:
 CantEscapeNowText:
 	text "<TARGET>"
 	line "can't escape now!"
-	autodone
-
-StartedNightmareText:
-	text "<TARGET>"
-	line "started to have a"
-	scroll "NIGHTMARE!"
 	autodone
 
 WasDefrostedText:
