@@ -16,6 +16,7 @@ AI_Redundant:
 .Moves:
 	dbw EFFECT_DREAM_EATER,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
+	dbw EFFECT_ROOST,        .Roost
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
@@ -173,6 +174,7 @@ AI_Redundant:
 	jr .NotRedundant
 
 .Heal:
+.Roost:
 .MorningSun:
 .Synthesis:
 .Moonlight:

@@ -17,6 +17,7 @@ UsefulMoves:
 	db PSYCHIC_M
 	db HYPNOSIS
 	db RECOVER
+	db ROOST
 	db FIRE_BLAST
 	db SOFTBOILED
 	db SUPER_FANG
