@@ -12,7 +12,7 @@
 ; Bone Club     : Earth Power
 ; Magnitude     : Bulldoze
 ; Double Slap
-; Comet Punch
+; Comet Punch   : Roost
 ; Razor Wind    : Air Slash
 ; Sonic Boom    : Bug Buzz
 ; Rage          : Stone Edge
@@ -76,7 +76,7 @@ Moves:
 	move POUND,        EFFECT_NORMAL_HIT,         40, NORMAL,        PHYSICAL, 100,              35,   0
 	move REVENGE,      EFFECT_REVENGE,            60, FIGHTING,      PHYSICAL, 100,              10,   0
 	move DOUBLESLAP,   EFFECT_MULTI_HIT,          15, NORMAL,        PHYSICAL,  85,              10,   0
-	move COMET_PUNCH,  EFFECT_MULTI_HIT,          18, NORMAL,        PHYSICAL,  85,              15,   0
+	move ROOST,        EFFECT_ROOST,               0, FLYING,        STATUS,   PERFECT_ACCURACY, 10,   0
 	move MEGA_PUNCH,   EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL,  85,              20,   0
 	move PAY_DAY,      EFFECT_PAY_DAY,            40, NORMAL,        PHYSICAL, 100,              20,   0
 	move FIRE_PUNCH,   EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100,              15,  10

@@ -37,7 +37,7 @@ BattleCommandPointers:
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
-	dw BattleCommand_UnusedEffect
+	dw BattleCommand_Roost
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop

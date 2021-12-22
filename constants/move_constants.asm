@@ -9,7 +9,7 @@
 	const POUND        ; 01
 	const REVENGE      ; 02
 	const DOUBLESLAP   ; 03
-	const COMET_PUNCH  ; 04
+	const ROOST        ; 04
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07

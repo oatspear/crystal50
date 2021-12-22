@@ -4,7 +4,7 @@ MoveDescriptions::
 	dw PoundDescription
 	dw RevengeDescription
 	dw DoubleslapDescription
-	dw CometPunchDescription
+	dw RoostDescription
 	dw MegaPunchDescription
 	dw PayDayDescription
 	dw FirePunchDescription
@@ -277,9 +277,9 @@ DoubleslapDescription:
 	db   "Repeatedly slaps"
 	next "2-5 times.@"
 
-CometPunchDescription:
-	db   "Repeatedly punches"
-	next "2-5 times.@"
+RoostDescription:
+	db   "Lands and restores"
+	next "1/2 max HP.@"
 
 MegaPunchDescription:
 	db   "A powerful punch"

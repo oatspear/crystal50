@@ -2951,6 +2951,8 @@ INCLUDE "engine/battle/move_effects/hex.asm"
 
 INCLUDE "engine/battle/move_effects/acrobatics.asm"
 
+INCLUDE "engine/battle/move_effects/roost.asm"
+
 BattleCommand_ClearMissDamage:
 ; clearmissdamage
 	ld a, [wAttackMissed]

@@ -3,7 +3,7 @@ MoveNames::
 	li "POUND"
 	li "REVENGE"
 	li "DOUBLESLAP"
-	li "COMET PUNCH"
+	li "ROOST"
 	li "MEGA PUNCH"
 	li "PAY DAY"
 	li "FIRE PUNCH"

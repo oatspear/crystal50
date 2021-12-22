@@ -291,6 +291,7 @@ HandleBetweenTurnEffects:
 	ret c
 
 .NoMoreFaintingConditions:
+	call HandleTypeChangingEffects
 	call HandleLeftovers
 	call HandleMysteryberry
 	call HandleDefrost
@@ -1274,6 +1275,39 @@ SwitchTurnCore:
 	ldh a, [hBattleTurn]
 	xor 1
 	ldh [hBattleTurn], a
+	ret
+
+HandleTypeChangingEffects:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	ld de, wBattleMonType1
+	call .do_it
+	call SetEnemyTurn
+	ld de, wEnemyMonType1
+	jp .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	ld de, wEnemyMonType1
+	call .do_it
+	call SetPlayerTurn
+	ld de, wBattleMonType1
+
+.do_it
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	bit SUBSTATUS_ROOST_TYPE1, [hl]
+	jr z, .type_2
+	ld [de], FLYING
+	res SUBSTATUS_ROOST_TYPE1, [hl]
+.type_2
+	bit SUBSTATUS_ROOST_TYPE2, [hl]
+	ret z
+	inc de
+	ld [de], FLYING
+	res SUBSTATUS_ROOST_TYPE2, [hl]
 	ret
 
 HandleLeftovers:

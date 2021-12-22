@@ -37,7 +37,7 @@ ENDM
 	command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
-	command effect0x21              ; 21
+	command roost                   ; 21
 	command effect0x22              ; 22
 	command forceswitch             ; 23
 	command endloop                 ; 24

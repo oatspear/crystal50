@@ -1010,6 +1010,14 @@ ConfuseHit:
 	confusetarget
 	endmove
 
+Roost:
+	checkobedience
+	usedmovetext
+	doturn
+	roost
+	heal
+	endmove
+
 Heal:
 	checkobedience
 	usedmovetext
