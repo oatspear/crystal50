@@ -29,7 +29,7 @@
 ; Meditate      : Calm Mind
 ; Barrier       : Dragon Dance
 ; Psywave       : Zen Headbutt
-; Clamp
+; Clamp         : Will-o-wisp
 ; Bubble        : Aqua Jet
 
 ; Move replacements by similarity:
@@ -200,7 +200,7 @@ Moves:
 	move EARTH_POWER,  EFFECT_SP_DEF_DOWN_HIT,    90, GROUND,        SPECIAL,  100,              10,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          110, FIRE,          SPECIAL,   85,               5,  10
 	move WATERFALL,    EFFECT_FLINCH_HIT,         80, WATER,         PHYSICAL, 100,              15,  20
-	move CLAMP,        EFFECT_TRAP_TARGET,        35, WATER,         PHYSICAL,  85,              10,   0
+	move WILL_O_WISP,  EFFECT_BURN,                0, FIRE,          STATUS,    85,              15,   0
 	move SWIFT,        EFFECT_NORMAL_HIT,         60, NORMAL,        SPECIAL,  PERFECT_ACCURACY, 20,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        100, NORMAL,        PHYSICAL, 100,              15,   0
 	move AVALANCHE,    EFFECT_REVENGE,            60, ICE,           PHYSICAL, 100,              10,   0

@@ -135,7 +135,7 @@ BattleAnimations::
 	dw BattleAnim_EarthPower
 	dw BattleAnim_FireBlast
 	dw BattleAnim_Waterfall
-	dw BattleAnim_Clamp
+	dw BattleAnim_WillOWisp
 	dw BattleAnim_Swift
 	dw BattleAnim_SkullBash
 	dw BattleAnim_Avalanche
@@ -834,6 +834,12 @@ BattleAnim_Ember:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_WillOWisp:
+	anim_1gfx ANIM_GFX_FIRE
+	anim_call BattleAnimSub_Fire
+	anim_wait 16
+	anim_ret
+
 BattleAnim_FirePunch:
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_FIRE
 	anim_obj ANIM_OBJ_PUNCH_SHAKE, 136, 56, $43
@@ -1480,19 +1486,6 @@ BattleAnim_Slash:
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
 	anim_wait 32
-	anim_ret
-
-BattleAnim_Clamp:
-	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_HIT
-	anim_obj ANIM_OBJ_CLAMP, 136, 56, $a0
-	anim_obj ANIM_OBJ_CLAMP, 136, 56, $20
-	anim_wait 16
-	anim_sound 0, 1, SFX_BITE
-	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $18
-	anim_wait 32
-	anim_sound 0, 1, SFX_BITE
-	anim_obj ANIM_OBJ_HIT_YFIX, 128, 64, $18
-	anim_wait 16
 	anim_ret
 
 BattleAnim_Bite:

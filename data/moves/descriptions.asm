@@ -128,7 +128,7 @@ MoveDescriptions::
 	dw EarthPowerDescription
 	dw FireBlastDescription
 	dw WaterfallDescription
-	dw ClampDescription
+	dw WillOWispDescription
 	dw SwiftDescription
 	dw SkullBashDescription
 	dw AvalancheDescription
@@ -752,9 +752,9 @@ WaterfallDescription:
 	db   "An aquatic charge"
 	next "attack.@"
 
-ClampDescription:
-	db   "Traps the foe for"
-	next "4-5 turns.@"
+WillOWispDescription:
+	db   "An attack that"
+	next "burns the enemy.@"
 
 AerialAceDescription:
 SwiftDescription:

@@ -1122,6 +1122,16 @@ DoParalyze:
 	paralyze
 	endmove
 
+DoBurn:
+	checkobedience
+	usedmovetext
+	doturn
+	stab ; FIXME this might not be necessary, there are no types immune to Fire
+	checkhit
+	checksafeguard
+	burn
+	endmove
+
 SkyAttack:
 	checkcharge
 	checkobedience

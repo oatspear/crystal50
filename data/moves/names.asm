@@ -127,7 +127,7 @@ MoveNames::
 	li "EARTH POWER"
 	li "FIRE BLAST"
 	li "WATERFALL"
-	li "CLAMP"
+	li "WILL-O-WISP"
 	li "SWIFT"
 	li "SKULL BASH"
 	li "AVALANCHE"

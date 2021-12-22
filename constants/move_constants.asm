@@ -133,7 +133,7 @@
 	const EARTH_POWER  ; 7d
 	const FIRE_BLAST   ; 7e
 	const WATERFALL    ; 7f
-	const CLAMP        ; 80
+	const WILL_O_WISP  ; 80
 	const SWIFT        ; 81
 	const SKULL_BASH   ; 82
 	const AVALANCHE    ; 83

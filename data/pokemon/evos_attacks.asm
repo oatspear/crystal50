@@ -727,7 +727,7 @@ VulpixEvosAttacks:
 	db 12, SPITE
 	; db 16, INCINERATE
 	db 20, CONFUSE_RAY
-	; db 24, WILL_O-WISP
+	db 24, WILL_O_WISP
 	db 28, CONFUSION ; FIXME: EXTRASENSORY
 	db 32, FLAMETHROWER
 	; db 36, IMPRISON
@@ -744,7 +744,7 @@ NinetalesEvosAttacks:
 	; db 1, SPITE
 	; db 1, INCINERATE
 	db 1, CONFUSE_RAY
-	; db 1, WILL_O-WISP
+	; db 1, WILL_O_WISP
 	; db 1, EXTRASENSORY
 	; db 1, FLAMETHROWER
 	; db 1, IMPRISON

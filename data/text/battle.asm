@@ -475,12 +475,6 @@ WrappedByText:
 	scroll "<USER>!"
 	autodone
 
-ClampedByText:
-	text "<TARGET>"
-	line "was CLAMPED by"
-	scroll "<USER>!"
-	autodone
-
 InfestedText:
 	text "<TARGET>"
 	line "was INFESTED!"
@@ -721,6 +715,11 @@ SuckedHealthText:
 DreamEatenText:
 	text "<TARGET>'s"
 	line "dream was eaten!"
+	autodone
+
+AlreadyBurnedText:
+	text "<TARGET>'s"
+	line "already burned!"
 	autodone
 
 WasBurnedText:

@@ -7,7 +7,6 @@ RainDanceMoves:
 	db BUBBLEBEAM
 	db THUNDER
 	db WATERFALL
-	db CLAMP
 	db AQUA_JET
 	db CRABHAMMER
 	db OCTAZOOKA
