@@ -1675,10 +1675,15 @@ BattleCommand_CheckHit:
 	ret
 
 .SuckerPunch:
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp SUCKER_PUNCH
+	ret nz
 ; Return z if the opponent did not select a damaging move,
 ; or if we are not attacking first.
 	call CheckOpponentWentFirst
-	xor $1 ; basically flipping the z/nz flags, a=1 means opponent went first
+	; a=1 means opponent went first
+	dec a
 	ret z
 	ld hl, wCurEnemyMove
 	ldh a, [hBattleTurn]
