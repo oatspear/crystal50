@@ -120,7 +120,7 @@ MoveNames::
 	li "METRONOME"
 	li "AERIAL ACE"
 	li "SELFDESTRUCT"
-	li "EGG BOMB"
+	li "SEED BOMB"
 	li "LICK"
 	li "SMOG"
 	li "SLUDGE"

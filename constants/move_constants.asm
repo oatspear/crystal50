@@ -126,7 +126,7 @@
 	const METRONOME    ; 76
 	const AERIAL_ACE   ; 77
 	const SELFDESTRUCT ; 78
-	const EGG_BOMB     ; 79
+	const SEED_BOMB    ; 79
 	const LICK         ; 7a
 	const SMOG         ; 7b
 	const SLUDGE       ; 7c

@@ -128,7 +128,7 @@ BattleAnimations::
 	dw BattleAnim_Metronome
 	dw BattleAnim_AerialAce
 	dw BattleAnim_Selfdestruct
-	dw BattleAnim_EggBomb
+	dw BattleAnim_SeedBomb
 	dw BattleAnim_Lick
 	dw BattleAnim_Smog
 	dw BattleAnim_Sludge
@@ -1635,13 +1635,20 @@ BattleAnim_MegaDrain:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_EggBomb:
-	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_EXPLOSION
-	anim_sound 0, 0, SFX_SWITCH_POKEMON
-	anim_obj ANIM_OBJ_EGG, 44, 104, $1
-	anim_wait 128
+BattleAnim_SeedBomb:
+	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_EXPLOSION
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED, 48, 80, $20
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED, 48, 80, $30
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED, 48, 80, $28
+	anim_wait 32
+	anim_sound 0, 1, SFX_CHARGE
 	anim_wait 96
-	anim_incobj 1
+	; anim_incobj 1
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_obj ANIM_OBJ_EXPLOSION2, 128, 64, $0

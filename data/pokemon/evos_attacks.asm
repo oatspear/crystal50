@@ -31,7 +31,7 @@ BulbasaurEvosAttacks:
 	db 12, RAZOR_LEAF
 	db 15, POISONPOWDER
 	db 15, SLEEP_POWDER
-	; db 18, SEED_BOMB
+	db 18, SEED_BOMB
 	db 21, TAKE_DOWN
 	db 24, SWEET_SCENT
 	db 27, SYNTHESIS
@@ -51,7 +51,7 @@ IvysaurEvosAttacks:
 	db 12, RAZOR_LEAF
 	db 15, POISONPOWDER
 	db 15, SLEEP_POWDER
-	; db 20, SEED_BOMB
+	db 20, SEED_BOMB
 	db 25, TAKE_DOWN
 	db 30, SWEET_SCENT
 	db 35, SYNTHESIS
@@ -73,7 +73,7 @@ VenusaurEvosAttacks:
 	db 12, RAZOR_LEAF
 	db 15, POISONPOWDER
 	db 15, SLEEP_POWDER
-	; db 20, SEED_BOMB
+	db 20, SEED_BOMB
 	db 25, TAKE_DOWN
 	db 30, SWEET_SCENT
 	db 37, SYNTHESIS
@@ -2273,21 +2273,21 @@ RhydonEvosAttacks:
 ChanseyEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, BLISSEY
 	db 0 ; no more evolutions
-	; db 1, SWEET_KISS
 	; db 1, DISARMING_VOICE
+	db 1, POUND
+	db 1, SWEET_KISS
 	; db 1, COVET
 	db 1, CHARM
-	db 1, MINIMIZE
-	db 1, POUND
+	; db 1, MINIMIZE
 	; db 1, COPYCAT
 	db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
 	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
-	db 12, SWEET_KISS ; FIXME: LIFE_DEW
+	db 12, DOUBLESLAP ; FIXME: LIFE_DEW
 	db 16, SING
-	; db 20, FLING
+	db 20, MINIMIZE ; FIXME: FLING
 	db 24, TAKE_DOWN
-	; db 28, HEAL_PULSE
+	db 28, SAFEGUARD ; FIXME: HEAL_PULSE
 	; db 32, HELPING_HAND
 	db 36, LIGHT_SCREEN
 	db 40, DOUBLE_EDGE
@@ -3846,7 +3846,7 @@ SunkernEvosAttacks:
 	db 34, SOLARBEAM
 	db 37, DOUBLE_EDGE
 	db 40, SUNNY_DAY
-	; db 43, SEED_BOMB
+	db 43, SEED_BOMB
 	db 0 ; no more level-up moves
 
 SunfloraEvosAttacks:
@@ -3869,7 +3869,7 @@ SunfloraEvosAttacks:
 	db 37, DOUBLE_EDGE
 	db 40, SUNNY_DAY
 	; db 43, LEAF_STORM
-	; db 50, PETAL_BLIZZARD
+	db 50, SEED_BOMB ; FIXME: PETAL_BLIZZARD
 	db 0 ; no more level-up moves
 
 YanmaEvosAttacks:
@@ -4803,20 +4803,27 @@ MiltankEvosAttacks:
 
 BlisseyEvosAttacks:
 	db 0 ; no more evolutions
+	; db 1, DISARMING_VOICE
 	db 1, POUND
-	db 1, DISARMING_VOICE
 	db 1, SWEET_KISS
+	; db 1, COVET
 	db 1, CHARM
+	; db 1, MINIMIZE
+	; db 1, COPYCAT
+	db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
-	db 8, DEFENSE_CURL
-	db 12, DOUBLESLAP
+	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
+	db 12, DOUBLESLAP ; FIXME: LIFE_DEW
 	db 16, SING
-	db 20, DISARMING_VOICE
+	db 20, MINIMIZE ; FIXME: FLING
 	db 24, TAKE_DOWN
-	db 28, EGG_BOMB
+	db 28, SAFEGUARD ; FIXME: HEAL_PULSE
+	; db 32, HELPING_HAND
 	db 36, LIGHT_SCREEN
 	db 40, DOUBLE_EDGE
 	db 44, SOFTBOILED
+	; db 48, LAST_RESORT
+	; db 52, HEALING_WISH
 	db 0 ; no more level-up moves
 
 RaikouEvosAttacks:

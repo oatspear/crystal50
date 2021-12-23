@@ -17,7 +17,7 @@
 ; Sonic Boom    : Bug Buzz
 ; Rage          : Stone Edge
 ; Bide          : Acrobatics
-; Egg Bomb
+; Egg Bomb      : Seed Bomb
 ; Spike Cannon  : Avalanche
 ; Constrict     : Flash Cannon
 ; Barrage       : Brick Break
@@ -193,7 +193,7 @@ Moves:
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              10,   0
 	move AERIAL_ACE,   EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, PERFECT_ACCURACY, 20,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      200, NORMAL,        PHYSICAL, 100,               5,   0
-	move EGG_BOMB,     EFFECT_NORMAL_HIT,        100, NORMAL,        PHYSICAL,  75,              10,   0
+	move SEED_BOMB,    EFFECT_NORMAL_HIT,         80, GRASS,         PHYSICAL, 100,              15,   0
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100,              30,  30
 	move SMOG,         EFFECT_POISON_HIT,         30, POISON,        SPECIAL,   70,              20,  40
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100,              20,  30
