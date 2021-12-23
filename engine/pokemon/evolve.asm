@@ -501,6 +501,9 @@ FillMoves:
 	call OldFillMoves
 	ld a, [wSwitchLevel]   ; pop af
 	ld [wCurPartyLevel], a
+	; Reset wSwitchLevel, because it is also used for wSwappingMove in battle.
+	xor a
+	ld [wSwitchLevel], a
 	ret
 
 OldFillMoves:
