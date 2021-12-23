@@ -6603,8 +6603,6 @@ INCLUDE "engine/battle/move_effects/attract.asm"
 
 INCLUDE "engine/battle/move_effects/facade.asm"
 
-INCLUDE "engine/battle/move_effects/brick_break.asm"
-
 INCLUDE "engine/battle/move_effects/present.asm"
 
 INCLUDE "engine/battle/move_effects/safeguard.asm"
