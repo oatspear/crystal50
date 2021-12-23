@@ -489,13 +489,17 @@ FillMoves:
 ; FillMoves with evolution moves
 ; alternative code: use push/pop
 	ld a, [wCurPartyLevel]
-	; push af
-	ld [wSwitchLevel], a
+	ld [wSwitchLevel], a   ; push af
+	; We want to learn moves between (LEVEL_EVO - 1) and LEVEL_EVO.
+	; It is as if we were just leveling up.
 	ld a, LEVEL_EVO
 	ld [wCurPartyLevel], a
+	dec a
+	ld [wPrevPartyLevel], a
+	ld a, TRUE
+	ld [wSkipMovesBeforeLevelUp], a
 	call OldFillMoves
-	ld a, [wSwitchLevel]
-	; pop af
+	ld a, [wSwitchLevel]   ; pop af
 	ld [wCurPartyLevel], a
 	ret
 
