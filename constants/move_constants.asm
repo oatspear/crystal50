@@ -8,7 +8,7 @@
 	const NO_MOVE      ; 00
 	const POUND        ; 01
 	const REVENGE      ; 02
-	const DOUBLESLAP   ; 03
+	const DRAIN_PUNCH  ; 03
 	const ROOST        ; 04
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06

@@ -664,32 +664,31 @@ NidokingEvosAttacks:
 	db LEVEL_EVO, MEGAHORN
 	db 0 ; no more level-up moves
 
-ClefairyEvosAttacks: ; based on gen 7
+ClefairyEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, CLEFABLE
 	db 0 ; no more evolutions
-	; db 1, SPOTLIGHT
-	db 1, DISARMING_VOICE
+	; db 1, SWEET_KISS
+	; db 1, DISARMING_VOICE
+	; db 1, ENCORE
+	; db 1, CHARM
+	; db 1, SPLASH
+	; db 1, COPYCAT
+	db 1, SING
 	db 1, POUND
 	db 1, GROWL
-	db 1, ENCORE
-	db 7, SING
-	db 10, DOUBLESLAP
-	db 13, DEFENSE_CURL
-	; db 16, FOLLOW_ME
-	; db 19, BESTOW
-	; db 22, WAKE_UP_SLAP
-	db 25, MINIMIZE
-	; db 28, STORED_POWER
-	db 31, METRONOME
-	; db 34, COSMIC_POWER
-	; db 37, LUCKY_CHANT
-	db 40, BODY_SLAM
-	db 43, MOONLIGHT
-	db 46, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	; db 49, GRAVITY
-	; db 50, METEOR_MASH
-	; db 55, HEALING_WISH
-	; db 58, AFTER_YOU
+	db 1, DEFENSE_CURL
+	db 4, DISARMING_VOICE ; FIXME: STORED_POWER
+	db 8, MINIMIZE
+	db 12, SWEET_KISS ; FIXME: AFTER_YOU
+	db 16, ENCORE ; FIXME: LIFE_DEW
+	db 20, METRONOME
+	db 24, MOONLIGHT
+	db 28, CHARM ; FIXME: GRAVITY
+	db 32, BODY_SLAM ; FIXME: METEOR_MASH
+	; db 36, FOLLOW_ME
+	; db 40, COSMIC_POWER
+	db 44, DAZZLING_GLEAM ; FIXME: MOONBLAST
+	; db 48, HEALING_WISH
 	db 0 ; no more level-up moves
 
 ClefableEvosAttacks:
@@ -2157,7 +2156,7 @@ HitmonchanEvosAttacks:
 	; db 1, HELPING_HAND
 	; db 1, FAKE_OUT
 	db 1, FOCUS_ENERGY
-	; db LEVEL_EVO, DRAIN_PUNCH
+	db LEVEL_EVO, DRAIN_PUNCH
 	db 4, MACH_PUNCH
 	; db 8, POWER_UP_PUNCH
 	db 12, DETECT
@@ -2283,7 +2282,7 @@ ChanseyEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
 	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
-	db 12, DOUBLESLAP ; FIXME: LIFE_DEW
+	db 12, ROLLOUT ; FIXME: LIFE_DEW
 	db 16, SING
 	db 20, MINIMIZE ; FIXME: FLING
 	db 24, TAKE_DOWN
@@ -3725,13 +3724,22 @@ SudowoodoEvosAttacks:
 
 PolitoedEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BUBBLEBEAM
-	db 1, HYPNOSIS
-	db 1, DOUBLESLAP
+	; db 1, BOUNCE
+	; db 1, SWAGGER
+	; db 1, HYPER_VOICE
 	db 1, PERISH_SONG
-	db 27, SWAGGER
-	db 37, PERISH_SONG ; FIXME: BOUNCE
-	; db 48, HYPER_VOICE
+	db 1, BUBBLEBEAM
+	db 1, RAIN_DANCE
+	db 1, BODY_SLAM
+	; db 1, EARTH_POWER
+	; db 1, HYDRO_PUMP
+	; db 1, BELLY_DRUM
+	; db 1, DOUBLE_EDGE
+	; db 1, WATER_GUN
+	; db 1, HYPNOSIS
+	; db 1, POUND
+	; db 1, MUD_SHOT
+	; db LEVEL_EVO, BOUNCE
 	db 0 ; no more level-up moves
 
 HoppipEvosAttacks:
@@ -3816,16 +3824,17 @@ AipomEvosAttacks:
 	db 1, SCRATCH
 	db 1, TAIL_WHIP
 	db 4, SAND_ATTACK
-	db 8, DOUBLESLAP
+	db 8, THIEF ; FIXME: ASTONISH
 	db 11, BATON_PASS
+	db 15, SWAGGER ; FIXME: TICKLE
 	db 18, FURY_SWIPES
 	db 22, SWIFT
 	db 25, SCREECH
 	db 29, AGILITY
 	; db 32, DOUBLE_HIT
-	; db 36, FLING
+	db 36, FACADE ; FIXME: FLING
 	db 39, NASTY_PLOT
-	; db 43, LAST_RESORT
+	db 43, DOUBLE_EDGE ; FIXME: LAST_RESORT
 	db 0 ; no more level-up moves
 
 SunkernEvosAttacks:
@@ -4813,7 +4822,7 @@ BlisseyEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
 	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
-	db 12, DOUBLESLAP ; FIXME: LIFE_DEW
+	db 12, ROLLOUT ; FIXME: LIFE_DEW
 	db 16, SING
 	db 20, MINIMIZE ; FIXME: FLING
 	db 24, TAKE_DOWN

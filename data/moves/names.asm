@@ -2,7 +2,7 @@ MoveNames::
 	list_start MoveNames
 	li "POUND"
 	li "REVENGE"
-	li "DOUBLESLAP"
+	li "DRAIN PUNCH"
 	li "ROOST"
 	li "MEGA PUNCH"
 	li "PAY DAY"

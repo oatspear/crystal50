@@ -480,7 +480,6 @@ PichuEggMoves:
 	db REVERSAL
 	db PRESENT
 	db ENCORE
-	db DOUBLESLAP
 	db DISARMING_VOICE
 	db -1 ; end
 
@@ -551,7 +550,6 @@ AipomEggMoves:
 	db AGILITY
 	db SPITE
 	db SLAM
-	db DOUBLESLAP
 	db BEAT_UP
 	db REVENGE
 	db -1 ; end

@@ -3,7 +3,7 @@ MoveDescriptions::
 	table_width 2, MoveDescriptions
 	dw PoundDescription
 	dw RevengeDescription
-	dw DoubleslapDescription
+	dw DrainPunchDescription
 	dw RoostDescription
 	dw MegaPunchDescription
 	dw PayDayDescription
@@ -273,10 +273,6 @@ RevengeDescription:
 	db   "Double power if"
 	next "hurt by the foe.@"
 
-DoubleslapDescription:
-	db   "Repeatedly slaps"
-	next "2-5 times.@"
-
 RoostDescription:
 	db   "Lands and restores"
 	next "1/2 max HP.@"
@@ -532,10 +528,9 @@ StrengthDescription:
 	next "cal attack.@"
 
 AbsorbDescription:
-	db   "Steals 1/2 of the"
-	next "damage inflicted.@"
-
 MegaDrainDescription:
+GigaDrainDescription:
+DrainPunchDescription:
 	db   "Steals 1/2 of the"
 	next "damage inflicted.@"
 
@@ -1033,10 +1028,6 @@ HailDescription:
 SandstormDescription:
 	db   "Inflicts damage"
 	next "every turn.@"
-
-GigaDrainDescription:
-	db   "Steals 1/2 of the"
-	next "damage inflicted.@"
 
 EndureDescription:
 	db   "Always leaves at"
