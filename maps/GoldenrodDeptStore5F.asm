@@ -73,7 +73,7 @@ GoldenrodDeptStore5FReceptionistScript:
 .VeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
 	promptbutton
-	verbosegiveitem TM_RETURN
+	verbosegiveitem TM_DAZZLING_GLEAM
 	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext

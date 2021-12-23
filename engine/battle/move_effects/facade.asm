@@ -12,7 +12,7 @@ BattleCommand_Facade:
   jr nz, .double_power
 
 .check_prz
-  bit PRZ, a
+  bit PAR, a
   jr nz, .double_power
 
 .check_brn

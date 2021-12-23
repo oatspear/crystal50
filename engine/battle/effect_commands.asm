@@ -5099,7 +5099,7 @@ BattleCommand_ForceSwitch:
 	jp nz, .force_player_switch
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .missed
+	jp nz, .fail
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .trainer

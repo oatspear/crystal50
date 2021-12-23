@@ -1300,13 +1300,15 @@ HandleTypeChangingEffects:
 	call GetBattleVarAddr
 	bit SUBSTATUS_ROOST_TYPE1, [hl]
 	jr z, .type_2
-	ld [de], FLYING
+	ld a, FLYING
+	ld [de], a
 	res SUBSTATUS_ROOST_TYPE1, [hl]
 .type_2
 	bit SUBSTATUS_ROOST_TYPE2, [hl]
 	ret z
 	inc de
-	ld [de], FLYING
+	ld a, FLYING
+	ld [de], a
 	res SUBSTATUS_ROOST_TYPE2, [hl]
 	ret
 

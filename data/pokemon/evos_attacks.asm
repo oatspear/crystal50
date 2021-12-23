@@ -3022,26 +3022,34 @@ DragoniteEvosAttacks:
 
 MewtwoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONFUSION
-	db 1, DISABLE
-	db 22, SWIFT
-	db 33, PSYCH_UP
-	db 44, FUTURE_SIGHT
-	db 55, MIST
-	db 66, PSYCHIC_M
-	db 77, AMNESIA
-	db 88, RECOVER
-	db 99, SAFEGUARD
+	; db 1, CONFUSION
+	; db 1, DISABLE
+	; db 22, SWIFT
+	; db 33, PSYCH_UP
+	; db 44, FUTURE_SIGHT
+	; db 55, MIST
+	; db 66, PSYCHIC_M
+	; db 77, AMNESIA
+	; db 88, RECOVER
+	; db 99, SAFEGUARD
+	db 1, PSYCHIC_M
+	db 1, AMNESIA
+	db 1, RECOVER
+	db 1, SAFEGUARD
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, POUND
-	db 10, TRANSFORM
-	db 20, MEGA_PUNCH
-	db 30, METRONOME
-	db 40, PSYCHIC_M
-	db 50, ANCIENTPOWER
+	; db 1, POUND
+	; db 10, TRANSFORM
+	; db 20, MEGA_PUNCH
+	; db 30, METRONOME
+	; db 40, PSYCHIC_M
+	; db 50, ANCIENTPOWER
+	db 1, TRANSFORM
+	db 1, METRONOME
+	db 1, PSYCHIC_M
+	db 1, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:
@@ -3573,7 +3581,7 @@ XatuEvosAttacks:
 	db 1, LEER
 	; db 1, STORED_POWER
 	db 1, TELEPORT
-	db EVO, AIR_SLASH
+	db LEVEL_EVO, AIR_SLASH
 	db 15, CONFUSE_RAY
 	db 20, NIGHT_SHADE
 	; db 28, PSYCHO_SHIFT
@@ -4945,40 +4953,48 @@ TyranitarEvosAttacks:
 LugiaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, AEROBLAST
-	db 11, SAFEGUARD
-	db 22, GUST
-	db 33, RECOVER
-	db 44, HYDRO_PUMP
-	db 55, RAIN_DANCE
-	db 66, SWIFT
-	db 77, WHIRLWIND
-	db 88, ANCIENTPOWER
-	db 99, FUTURE_SIGHT
+	; db 11, SAFEGUARD
+	; db 22, GUST
+	; db 33, RECOVER
+	; db 44, HYDRO_PUMP
+	; db 55, RAIN_DANCE
+	; db 66, SWIFT
+	; db 77, WHIRLWIND
+	; db 88, ANCIENTPOWER
+	; db 99, FUTURE_SIGHT
+	db 1, RECOVER
+	db 1, RAIN_DANCE
+	db 1, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 HoOhEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SACRED_FIRE
-	db 11, SAFEGUARD
-	db 22, GUST
-	db 33, RECOVER
-	db 44, FIRE_BLAST
-	db 55, SUNNY_DAY
-	db 66, SWIFT
-	db 77, WHIRLWIND
-	db 88, ANCIENTPOWER
-	db 99, FUTURE_SIGHT
+	; db 11, SAFEGUARD
+	; db 22, GUST
+	; db 33, RECOVER
+	; db 44, FIRE_BLAST
+	; db 55, SUNNY_DAY
+	; db 66, SWIFT
+	; db 77, WHIRLWIND
+	; db 88, ANCIENTPOWER
+	; db 99, FUTURE_SIGHT
+	db 1, RECOVER
+	db 1, SUNNY_DAY
+	db 1, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 CelebiEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, LEECH_SEED
-	db 1, CONFUSION
+	; db 1, LEECH_SEED
+	; db 1, CONFUSION
 	db 1, RECOVER
 	db 1, HEAL_BELL
-	db 10, SAFEGUARD
-	db 20, ANCIENTPOWER
-	db 30, FUTURE_SIGHT
-	db 40, BATON_PASS
-	db 50, PERISH_SONG
+	; db 10, SAFEGUARD
+	; db 20, ANCIENTPOWER
+	; db 30, FUTURE_SIGHT
+	; db 40, BATON_PASS
+	; db 50, PERISH_SONG
+	db 1, ANCIENTPOWER
+	db 1, FUTURE_SIGHT
 	db 0 ; no more level-up moves

@@ -397,7 +397,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_REVENGE,          AI_Smart_Revenge
 	dbw EFFECT_FACADE,           AI_Smart_Facade
 	dbw EFFECT_BURN,             AI_Smart_Burn
-	dbw EFFECT_UNUSED_2B,        AI_Smart_Unused2B
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -1012,58 +1011,6 @@ AI_Smart_TrapTarget:
 	ret c
 	dec [hl]
 	dec [hl]
-	ret
-
-AI_Smart_Unused2B:
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_PERISH, a
-	jr z, .no_perish_count
-
-	ld a, [wEnemyPerishCount]
-	cp 3
-	jr c, .discourage
-
-.no_perish_count
-	push hl
-	ld hl, wPlayerUsedMoves
-	ld c, NUM_MOVES
-
-.checkmove
-	ld a, [hli]
-	and a
-	jr z, .movesdone
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_PROTECT
-	jr z, .dismiss
-	dec c
-	jr nz, .checkmove
-
-.movesdone
-	pop hl
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.maybe_discourage
-	call Random
-	cp 79 percent - 1
-	ret c
-
-.discourage
-	inc [hl]
-	ret
-
-.dismiss
-	pop hl
-	ld a, [hl]
-	add 6
-	ld [hl], a
 	ret
 
 AI_Smart_Confuse:
@@ -1868,12 +1815,12 @@ endr
 	ret
 
 AI_Smart_Facade:
-; 80% chance to greatly encourage this move if the enemy is PSN, BRN or PRZ.
+; 80% chance to greatly encourage this move if the enemy is PSN, BRN or PAR.
 
 	ld a, [wEnemyMonStatus]
 	bit PSN, a
 	jr nz, .encourage
-	bit PRZ, a
+	bit PAR, a
 	jr nz, .encourage
 	bit BRN, a
 	ret z
