@@ -1589,7 +1589,7 @@ BattleCommand_CheckHit:
 	ret z
 
 	call .SuckerPunch
-	jp z, .Miss
+	jr z, .Miss
 
 	call .XAccuracy
 	ret nz
@@ -1678,6 +1678,7 @@ BattleCommand_CheckHit:
 ; Return z if the opponent did not select a damaging move,
 ; or if we are not attacking first.
 	call CheckOpponentWentFirst
+	xor $1 ; basically flipping the z/nz flags, a=1 means opponent went first
 	ret z
 	ld hl, wCurEnemyMove
 	ldh a, [hBattleTurn]
