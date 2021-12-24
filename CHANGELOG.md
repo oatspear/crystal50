@@ -67,6 +67,9 @@
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
 - Double-edge (and other recoil moves above 100 power) take 1/3 recoil.
 - Update Substitute mechanics.
+- Pay Day now scatters coins equal to five times the user's level each time.
+- The player can now only pick up coins that were scattered by their Pokémon.
+- The opponent's substitute now prevents coins from being picked up, even if the substitute is broken.
 
 
 ## v0.1 (Base)
