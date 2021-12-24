@@ -1551,13 +1551,14 @@ BattleAnim_AerialAce:
 	anim_ret
 
 BattleAnim_SandTomb:
-	anim_1gfx ANIM_GFX_POWDER
+	anim_1gfx ANIM_GFX_HAZE
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $20, $1, $0
 .loop
 	anim_sound 0, 1, SFX_MENU
-	anim_obj ANIM_OBJ_SAND_TOMB, 144, 64, $0
+	anim_obj ANIM_OBJ_SMOKE, 132, 60, $20
 	anim_wait 8
-	anim_loop 8, .loop
-	anim_wait 96
+	anim_loop 5, .loop
+	anim_wait 128
 	anim_ret
 
 BattleAnim_DoubleTeam:
@@ -1653,13 +1654,13 @@ BattleAnim_SeedBomb:
 	; anim_incobj 1
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 128, 52, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 128, 40, $0
 	anim_wait 8
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 144, 56, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 144, 44, $0
 	anim_wait 8
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 136, 60, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 136, 48, $0
 	anim_wait 24
 	anim_ret
 
