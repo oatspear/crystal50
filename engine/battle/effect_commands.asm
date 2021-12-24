@@ -1594,20 +1594,18 @@ BattleCommand_CheckHit:
 	call .XAccuracy
 	ret nz
 
-	call .StatModifiers
-
-	ld a, [wPlayerMoveStruct + MOVE_ACC]
-	ld b, a
+	ld hl, wPlayerMoveStruct + MOVE_ACC
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .perfect_accuracy_check
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	ld b, a
+	ld hl, wEnemyMoveStruct + MOVE_ACC
 
 .perfect_accuracy_check
-	ld a, b
+	ld a, [hl]
 	and a
 	ret z
+
+	call .StatModifiers ; NOTE: can be optimized, hl stays the same as above
 
 ; .BrightPowder:
 	push bc
