@@ -1602,7 +1602,19 @@ BattleCommand_CheckHit:
 	and a
 	ret z
 
-	call .StatModifiers ; NOTE: can be optimized, hl stays the same as above
+	; NOTE: this function can be optimized, hl stays the same as above
+	call .StatModifiers
+
+	; NOTE: this block can be optimized, function returns with a == [hl]
+	; ld a, [wPlayerMoveStruct + MOVE_ACC]
+	; ld b, a
+	; ldh a, [hBattleTurn]
+	; and a
+	; jr z, .BrightPowder
+	; ld a, [wEnemyMoveStruct + MOVE_ACC]
+	; ld b, a
+
+	ld b, a
 
 ; .BrightPowder:
 	push bc
