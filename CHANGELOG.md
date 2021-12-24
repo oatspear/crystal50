@@ -46,6 +46,8 @@
 - In Trainer battles, Roar and Whirlwind succeed if they hit, regardless of either Pokémon's level.
 - Increased recoil damage of high-power moves such as Double-edge, from 1/4 to 3/16 (approximation to 1/3).
 - Draining moves are no longer guaranteed to miss against a target with a Substitute.
+- Disable always lasts four turns.
+- Minimize now boosts evasion by two stages.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -70,6 +72,18 @@
 - Pay Day now scatters coins equal to five times the user's level each time.
 - The player can now only pick up coins that were scattered by their Pokémon.
 - The opponent's substitute now prevents coins from being picked up, even if the substitute is broken.
+- Double Kick will now hit again if the first strike breaks a substitute.
+- (Multi Hit moves) If the user is holding a King's Rock or Razor Fang, each consecutive hit has an equal chance to cause the opponent to flinch.
+- Instead of doubling the Special Defense of affected Pokémon, Light Screen now technically halves the damage done to them by special moves; it still does not reduce damage done by moves that deal direct damage.
+- Conversion can now be used on Curse, which is now a Ghost-type move.
+- Curse can now hit through a substitute.
+- If a cursed Pokémon defeats its opponent, it now takes curse damage on that turn.
+- Conversion 2 will not change the user to any of its current types.
+- Conversion 2 is not affected by Substitute, Protect or Detect.
+- Reversal can now cause a critical hit, and its damage is now varied by a random factor during damage calculation.
+- Spikes can now be set up to three times, each increasing the damage done to the opponent upon switching in.
+- Destiny Bond will always fail if it was successfully executed on the previous turn.
+- A Pokémon defeated by this move will now faint after the Pokémon that used Destiny Bond, meaning that if Destiny Bond is used by the last Pokémon on a player's team, and the last Pokémon on the opposing team makes it faint, the opposing player will win.
 
 
 ## v0.1 (Base)
