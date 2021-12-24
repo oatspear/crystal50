@@ -1286,7 +1286,7 @@ HandleTypeChangingEffects:
 	call .do_it
 	call SetEnemyTurn
 	ld de, wEnemyMonType1
-	jp .do_it
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn

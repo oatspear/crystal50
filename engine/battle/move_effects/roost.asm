@@ -35,6 +35,7 @@ BattleCommand_Roost:
   dec hl
   ld a, [hl]
   ld [de], a
+  ret
 
 .replace_type1
 
@@ -44,3 +45,4 @@ BattleCommand_Roost:
   inc hl
   ld a, [hl]
   ld [de], a
+  ret
