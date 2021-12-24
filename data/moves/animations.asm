@@ -1653,13 +1653,13 @@ BattleAnim_SeedBomb:
 	; anim_incobj 1
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 128, 76, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 128, 52, $0
 	anim_wait 8
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 144, 80, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 144, 56, $0
 	anim_wait 8
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_EXPLOSION2, 136, 84, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 136, 60, $0
 	anim_wait 24
 	anim_ret
 
