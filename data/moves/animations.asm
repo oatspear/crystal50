@@ -684,8 +684,9 @@ BattleAnim_BrickBreak:
 
 BattleAnim_DrainPunch:
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CHARGE
+	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj ANIM_OBJ_PUNCH_SHAKE, 136, 56, $43
-	anim_wait 4
+	; anim_wait 16
 	anim_obj ANIM_OBJ_ABSORB_CENTER, 44, 88, $0
 .loop
 	anim_sound 6, 3, SFX_WATER_GUN
