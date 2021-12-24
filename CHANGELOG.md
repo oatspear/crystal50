@@ -45,6 +45,7 @@
 - In wild Pokémon battles, Roar and Whirlwind always fail if the user's level is less than the target's.
 - In Trainer battles, Roar and Whirlwind succeed if they hit, regardless of either Pokémon's level.
 - Increased recoil damage of high-power moves such as Double-edge, from 1/4 to 3/16 (approximation to 1/3).
+- Draining moves are no longer guaranteed to miss against a target with a Substitute.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -65,6 +66,7 @@
 - Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
 - A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
 - Double-edge (and other recoil moves above 100 power) take 1/3 recoil.
+- Update Substitute mechanics.
 
 
 ## v0.1 (Base)

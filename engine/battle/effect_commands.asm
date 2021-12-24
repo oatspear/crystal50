@@ -1570,9 +1570,6 @@ BattleCommand_CheckHit:
 	call .Protect
 	jp nz, .Miss
 
-	call .DrainSub
-	jp z, .Miss
-
 	call .LockOn
 	ret nz
 
@@ -1751,24 +1748,6 @@ BattleCommand_CheckHit:
 	ret z
 
 .LockedOn:
-	ld a, 1
-	and a
-	ret
-
-.DrainSub:
-; Return z if using an HP drain move on a substitute.
-	call CheckSubstituteOpp
-	jr z, .not_draining_sub
-
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-
-	cp EFFECT_LEECH_HIT
-	ret z
-	cp EFFECT_DREAM_EATER
-	ret z
-
-.not_draining_sub
 	ld a, 1
 	and a
 	ret
