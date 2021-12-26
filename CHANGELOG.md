@@ -48,6 +48,7 @@
 - Draining moves are no longer guaranteed to miss against a target with a Substitute.
 - Disable always lasts four turns.
 - Minimize now boosts evasion by two stages.
+- Updated Hidden Power to current mechanics.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
