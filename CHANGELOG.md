@@ -81,7 +81,6 @@
 - If a cursed Pokémon defeats its opponent, it now takes curse damage on that turn.
 - Conversion 2 will not change the user to any of its current types.
 - Conversion 2 is not affected by Substitute, Protect or Detect.
-- Reversal can now cause a critical hit, and its damage is now varied by a random factor during damage calculation.
 - Spikes can now be set up to three times, each increasing the damage done to the opponent upon switching in.
 - Destiny Bond will always fail if it was successfully executed on the previous turn.
 - A Pokémon defeated by this move will now faint after the Pokémon that used Destiny Bond, meaning that if Destiny Bond is used by the last Pokémon on a player's team, and the last Pokémon on the opposing team makes it faint, the opposing player will win.
