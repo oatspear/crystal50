@@ -49,6 +49,7 @@
 - Disable always lasts four turns.
 - Minimize now boosts evasion by two stages.
 - Updated Hidden Power to current mechanics.
+- Conversion can now be used on Curse, which is now a Ghost-type move.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -76,7 +77,6 @@
 - Double Kick will now hit again if the first strike breaks a substitute.
 - (Multi Hit moves) If the user is holding a King's Rock or Razor Fang, each consecutive hit has an equal chance to cause the opponent to flinch.
 - Instead of doubling the Special Defense of affected Pokémon, Light Screen now technically halves the damage done to them by special moves; it still does not reduce damage done by moves that deal direct damage.
-- Conversion can now be used on Curse, which is now a Ghost-type move.
 - Curse can now hit through a substitute.
 - If a cursed Pokémon defeats its opponent, it now takes curse damage on that turn.
 - Conversion 2 will not change the user to any of its current types.
