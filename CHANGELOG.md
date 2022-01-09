@@ -50,6 +50,7 @@
 - Minimize now boosts evasion by two stages.
 - Updated Hidden Power to current mechanics.
 - Conversion can now be used on Curse, which is now a Ghost-type move.
+- Spikes can now be set up to three times, each increasing the damage done to the opponent upon switching in.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -81,7 +82,6 @@
 - If a cursed Pokémon defeats its opponent, it now takes curse damage on that turn.
 - Conversion 2 will not change the user to any of its current types.
 - Conversion 2 is not affected by Substitute, Protect or Detect.
-- Spikes can now be set up to three times, each increasing the damage done to the opponent upon switching in.
 - Destiny Bond will always fail if it was successfully executed on the previous turn.
 - A Pokémon defeated by this move will now faint after the Pokémon that used Destiny Bond, meaning that if Destiny Bond is used by the last Pokémon on a player's team, and the last Pokémon on the opposing team makes it faint, the opposing player will win.
 

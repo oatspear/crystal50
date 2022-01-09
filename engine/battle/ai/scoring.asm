@@ -2306,7 +2306,7 @@ AI_Smart_RapidSpin:
 	jr nz, .encourage
 
 	ld a, [wEnemyScreens]
-	bit SCREENS_SPIKES, a
+	and SCREENS_SPIKES_MASK
 	ret z
 
 .encourage

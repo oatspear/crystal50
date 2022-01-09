@@ -18,9 +18,11 @@ BattleCommand_ClearHazards:
 	ld hl, wEnemyScreens
 	ld de, wEnemyWrapCount
 .got_screens_wrap
-	bit SCREENS_SPIKES, [hl]
+	ld a, [hl]
+	and SCREENS_SPIKES_MASK
 	jr z, .no_spikes
 	res SCREENS_SPIKES, [hl]
+	res SCREENS_SPIKES2, [hl]
 	ld hl, BlewSpikesText
 	push de
 	call StdBattleTextbox

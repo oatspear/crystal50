@@ -1949,6 +1949,20 @@ GetEighthMaxHP:
 .end
 	ret
 
+GetSixthMaxHP:
+; output: bc
+	call GetThirdMaxHP
+; assumes nothing can have 768 or more hp
+; halve result
+	srl c
+; at least 1
+	ld a, c
+	and a
+	jr nz, .end
+	inc c
+.end
+	ret
+
 GetQuarterMaxHP:
 ; output: bc
 	call GetMaxHP
@@ -4241,7 +4255,8 @@ SpikesDamage:
 	ld bc, UpdateEnemyHUD
 .ok
 
-	bit SCREENS_SPIKES, [hl]
+	ld a, [hl]
+	and SCREENS_SPIKES_MASK
 	ret z
 
 	; Flying-types aren't affected by Spikes.
@@ -4254,11 +4269,35 @@ SpikesDamage:
 	ret z
 
 	push bc
+	push hl
 
 	ld hl, BattleText_UserHurtBySpikes ; "hurt by SPIKES!"
 	call StdBattleTextbox
 
+; NOTE: assumes the bits of spikes are bits 0 and 1, to avoid a right shift.
+	pop hl
+	ld a, [hl]
+	and SCREENS_SPIKES_MASK
+	; assert a in [1, 2, 3]
+
+	dec a
+	jr z, .one_layer
+
+	dec a
+	jr z, .two_layers
+
+;.three_layers
+	call GetQuarterMaxHP
+	jr .got_damage
+
+.two_layers
+	call GetSixthMaxHP
+	jr .got_damage
+
+.one_layer
 	call GetEighthMaxHP
+
+.got_damage
 	call SubtractHPFromTarget
 
 	pop hl

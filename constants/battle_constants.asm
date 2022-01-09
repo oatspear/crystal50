@@ -230,12 +230,19 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const SUBSTATUS_CANT_RUN
 
 ; wPlayerScreens or wEnemyScreens bit flags
+; NOTE: SpikesDamage in "engine/battle/core.asm" assumes the bits of spikes
+;       are bits 0 and 1, to avoid a right shift.
 	const_def
 	const SCREENS_SPIKES
-	const_skip
+	const SCREENS_SPIKES2
 	const SCREENS_SAFEGUARD
 	const SCREENS_LIGHT_SCREEN
 	const SCREENS_REFLECT
+
+SCREENS_SPIKES_MASK EQU (1 << SCREENS_SPIKES) | (1 << SCREENS_SPIKES2)
+SPIKES_1_LAYER  EQU (1 << SCREENS_SPIKES)
+SPIKES_2_LAYERS EQU (1 << SCREENS_SPIKES2)
+SPIKES_3_LAYERS EQU SPIKES_1_LAYER | SPIKES_2_LAYERS
 
 ; values in wBattleWeather
 	const_def

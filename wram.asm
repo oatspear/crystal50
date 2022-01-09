@@ -526,7 +526,7 @@ wPlayerMinimized:: db
 wPlayerScreens::
 ; bit
 ; 0 spikes
-; 1
+; 1 spikes
 ; 2 safeguard
 ; 3 light screen
 ; 4 reflect

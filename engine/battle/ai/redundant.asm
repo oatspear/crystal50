@@ -113,8 +113,10 @@ AI_Redundant:
 
 .Spikes:
 	ld a, [wPlayerScreens]
-	bit SCREENS_SPIKES, a
-	ret
+	and SCREENS_SPIKES_MASK
+	cp SPIKES_3_LAYERS
+	jr z, .Redundant
+	jr .NotRedundant
 
 .PerishSong:
 	ld a, [wPlayerSubStatus1]
