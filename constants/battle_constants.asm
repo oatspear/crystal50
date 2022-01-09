@@ -2,6 +2,7 @@
 MAX_LEVEL EQU 100
 MIN_LEVEL EQU 2
 EGG_LEVEL EQU 5
+LEVEL_EVO EQU 101 ; EVOLVE_LEVEL might have worked, but just to separate things
 
 ; maximum moves known per mon
 NUM_MOVES EQU 4
@@ -195,10 +196,10 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 
 ; wPlayerSubStatus1 or wEnemySubStatus1 bit flags
 	const_def
-	const SUBSTATUS_NIGHTMARE
+	const_skip
 	const SUBSTATUS_CURSE
 	const SUBSTATUS_PROTECT
-	const SUBSTATUS_IDENTIFIED
+	const_skip
 	const SUBSTATUS_PERISH
 	const SUBSTATUS_ENDURE
 	const SUBSTATUS_ROLLOUT
@@ -210,7 +211,7 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 
 ; wPlayerSubStatus3 or wEnemySubStatus3 bit flags
 	const_def
-	const SUBSTATUS_BIDE
+	const_skip
 	const SUBSTATUS_RAMPAGE
 	const SUBSTATUS_IN_LOOP
 	const SUBSTATUS_FLINCHED
@@ -227,14 +228,14 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const_skip
 	const SUBSTATUS_SUBSTITUTE
 	const SUBSTATUS_RECHARGE
-	const SUBSTATUS_RAGE
+	const_skip
 	const SUBSTATUS_LEECH_SEED
 
 ; wPlayerSubStatus5 or wEnemySubStatus5 bit flags
 	const_def
 	const SUBSTATUS_TOXIC
-	const_skip
-	const_skip
+	const SUBSTATUS_ROOST_TYPE1
+	const SUBSTATUS_ROOST_TYPE2
 	const SUBSTATUS_TRANSFORMED
 	const SUBSTATUS_ENCORED
 	const SUBSTATUS_LOCK_ON
@@ -242,12 +243,19 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 	const SUBSTATUS_CANT_RUN
 
 ; wPlayerScreens or wEnemyScreens bit flags
+; NOTE: SpikesDamage in "engine/battle/core.asm" assumes the bits of spikes
+;       are bits 0 and 1, to avoid a right shift.
 	const_def
 	const SCREENS_SPIKES
-	const_skip
+	const SCREENS_SPIKES2
 	const SCREENS_SAFEGUARD
 	const SCREENS_LIGHT_SCREEN
 	const SCREENS_REFLECT
+
+SCREENS_SPIKES_MASK EQU (1 << SCREENS_SPIKES) | (1 << SCREENS_SPIKES2)
+SPIKES_1_LAYER  EQU (1 << SCREENS_SPIKES)
+SPIKES_2_LAYERS EQU (1 << SCREENS_SPIKES2)
+SPIKES_3_LAYERS EQU SPIKES_1_LAYER | SPIKES_2_LAYERS
 
 ; values in wBattleWeather
 	const_def
@@ -299,3 +307,13 @@ BATTLERESULT_BITMASK EQU (1 << BATTLERESULT_CAUGHT_CELEBI) | (1 << BATTLERESULT_
 ; link_battle_record struct
 LINK_BATTLE_RECORD_LENGTH EQU 2 + (NAME_LENGTH - 1) + 2 * 3
 NUM_LINK_BATTLE_RECORDS EQU 5
+
+; wTurnBasedFlags bit flags
+THIS_TURN_PLAYER_TOOK_DAMAGE           EQU %00000001
+THIS_TURN_PLAYER_TOOK_DIRECT_DAMAGE    EQU %00000010
+THIS_TURN_ENEMY_TOOK_DAMAGE            EQU %00010000
+THIS_TURN_ENEMY_TOOK_DIRECT_DAMAGE     EQU %00100000
+
+; wTurnBasedFlags2 bit flags
+	const_def
+	const BIT_DAMAGE_STATS_TRUNCATED

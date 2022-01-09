@@ -17,8 +17,6 @@ BattleCommand_Encore:
 	jp z, .failed
 	cp ENCORE
 	jp z, .failed
-	cp MIRROR_MOVE
-	jp z, .failed
 	ld b, a
 
 .got_move

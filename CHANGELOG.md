@@ -12,20 +12,22 @@
 ## v0.2 (Set to Level 50)
 
 ### Added
-- Move and weather condition: Hail.
-- Added Hail to the learn sets of compatible Pokémon.
+- Moves: Hail, Bulldoze, Poison Jab, Aqua Jet, Zen Headbutt, Earth Power, Infestation, Air Slash, Calm Mind, Nasty Plot, Dragon Dance, Sucker Punch, Dark Pulse, Revenge, Avalanche, Low Sweep, Bug Buzz, Flash Cannon, Flare Blitz, Dragon Pulse, Close Combat, Superpower, Sand Tomb, Stone Edge, Brick Break, Facade, Aerial Ace, Acrobatics, Payback, Hex, Roost, Will-O-Wisp, Seed Bomb, Drain Punch.
+- Weather condition: Hail.
 
 ### Removed
-- Move: Frustration.
+- Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind, Meditate, Sharpen, Barrier, Feint Attack, Pursuit, Karate Chop, Spike Cannon, Low Kick, Sonic Boom, Constrict, Return, Dragon Rage, Jump Kick, Rolling Kick, Rage, Barrage, Dizzy Punch, Mirror Move, Bide, Foresight, Nightmare, Comet Punch, Clamp, Egg Bomb, Double Slap.
 
 ### Changed
+- Replaced Bind with Wrap to free a move slot.
 - Pokémon stats and damage calculation are now set to level 50.
 - Halved required experience to level up.
 
 ### Updated
-- Selfdestruct and Explosion no longer halve Defense.
+- Self-destruct and Explosion no longer halve Defense.
 - Updated various moves to current power, PP and accuracy.
 - Updated trap damage to 1/8 HP.
+- Updated trap duration to 4-5 turns.
 - Glare can now hit Ghost-type Pokémon.
 - Sky Attack now has a 30% chance to flinch and increased critical-hit ratio.
 - Flail and Reversal can be critical hits and are affected by damage variation.
@@ -44,6 +46,20 @@
 - Electric-type Pokémon are immune to paralysis.
 - Ghost-type Pokémon are immune to arena trap effects.
 - Fire Spin is now able to defrost opponents.
+- Growth raises both Attack and Special Attack. Raises twice in sunlight.
+- Updated the learnsets of all Pokémon to resemble current generations.
+- Stomp and Body Slam deal double damage and bypass accuracy checks if the target used Minimize.
+- If Toxic is used by a Poison-type Pokémon, the move never misses.
+- Roar and Whirlwind hit targets even through Protect or Detect.
+- In wild Pokémon battles, Roar and Whirlwind always fail if the user's level is less than the target's.
+- In Trainer battles, Roar and Whirlwind succeed if they hit, regardless of either Pokémon's level.
+- Increased recoil damage of high-power moves such as Double-edge, from 1/4 to 3/16 (approximation to 1/3).
+- Draining moves are no longer guaranteed to miss against a target with a Substitute.
+- Disable always lasts four turns.
+- Minimize now boosts evasion by two stages.
+- Updated Hidden Power to current mechanics.
+- Conversion can now be used on Curse, which is now a Ghost-type move.
+- Spikes can now be set up to three times, each increasing the damage done to the opponent upon switching in.
 
 ### Fixed
 - Fire-type Pokémon are immune to burn.
@@ -57,6 +73,26 @@
 - Future Sight should use the Sp. Def. of the opponent it hits, not of the active opponent at the time of activation. Use the code from Beat Up for inspiration.
 - Beat Up should use Attack of move user, including boosts, benefit from STAB and deal Dark-type damage. Its formula also changed.
 - Ghost-type Pokémon should be able to switch from binding moves.
+- Lock-On's effect should last until the end of the next turn rather than until the user makes its next move.
+- Lock-On should fail if the user is already taking aim at a Pokémon. It will not fail if the Pokémon it was taking aim at fainted or switched out.
+- If a Pokémon traps a target with Mean Look and then switches with Baton Pass the target should no longer be trapped.
+- Mimicked moves should have the max PP as opposed to 5.
+- Toxic should be separate from other forms of recurrent damage (not building from them or affecting their strength).
+- A Pokémon that becomes badly poisoned with Toxic should not have its status changed to regular poison if it switches out or the battle ends.
+- Double-edge (and other recoil moves above 100 power) take 1/3 recoil.
+- Update Substitute mechanics.
+- Pay Day now scatters coins equal to five times the user's level each time.
+- The player can now only pick up coins that were scattered by their Pokémon.
+- The opponent's substitute now prevents coins from being picked up, even if the substitute is broken.
+- Double Kick will now hit again if the first strike breaks a substitute.
+- (Multi Hit moves) If the user is holding a King's Rock or Razor Fang, each consecutive hit has an equal chance to cause the opponent to flinch.
+- Instead of doubling the Special Defense of affected Pokémon, Light Screen now technically halves the damage done to them by special moves; it still does not reduce damage done by moves that deal direct damage.
+- Curse can now hit through a substitute.
+- If a cursed Pokémon defeats its opponent, it now takes curse damage on that turn.
+- Conversion 2 will not change the user to any of its current types.
+- Conversion 2 is not affected by Substitute, Protect or Detect.
+- Destiny Bond will always fail if it was successfully executed on the previous turn.
+- A Pokémon defeated by this move will now faint after the Pokémon that used Destiny Bond, meaning that if Destiny Bond is used by the last Pokémon on a player's team, and the last Pokémon on the opposing team makes it faint, the opposing player will win.
 
 
 ## v0.1 (Base)

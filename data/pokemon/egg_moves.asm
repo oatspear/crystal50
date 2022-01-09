@@ -17,7 +17,6 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
-	db RAZOR_WIND
 	db PETAL_DANCE
 	db -1 ; end
 
@@ -28,6 +27,7 @@ CharmanderEggMoves:
 	db BITE
 	db OUTRAGE
 	db BEAT_UP
+	db DRAGON_DANCE
 	db -1 ; end
 
 SquirtleEggMoves:
@@ -35,14 +35,11 @@ SquirtleEggMoves:
 	db HAZE
 	db MIST
 	db CONFUSION
-	db FORESIGHT
 	db FLAIL
 	db -1 ; end
 
 PidgeyEggMoves:
-	db PURSUIT
-	db FAINT_ATTACK
-	db FORESIGHT
+	db AIR_SLASH
 	db -1 ; end
 
 RattataEggMoves:
@@ -52,10 +49,10 @@ RattataEggMoves:
 	db BITE
 	db COUNTER
 	db REVERSAL
+	db REVENGE
 	db -1 ; end
 
 SpearowEggMoves:
-	db FAINT_ATTACK
 	db FALSE_SWIPE
 	db SCARY_FACE
 	db QUICK_ATTACK
@@ -63,11 +60,12 @@ SpearowEggMoves:
 	db -1 ; end
 
 EkansEggMoves:
-	db PURSUIT
+	db DARK_PULSE
 	db SLAM
 	db SPITE
 	db BEAT_UP
 	db CRUNCH
+	db SUCKER_PUNCH
 	db -1 ; end
 
 SandshrewEggMoves:
@@ -96,10 +94,10 @@ NidoranMEggMoves:
 	db AMNESIA
 	db COUNTER
 	db BEAT_UP
+	db SUCKER_PUNCH
 	db -1 ; end
 
 VulpixEggMoves:
-	db FAINT_ATTACK
 	db HYPNOSIS
 	db FLAIL
 	db SPITE
@@ -108,10 +106,9 @@ VulpixEggMoves:
 
 ZubatEggMoves:
 	db QUICK_ATTACK
-	db PURSUIT
-	db FAINT_ATTACK
 	db GUST
 	db WHIRLWIND
+	db ACROBATICS
 	db -1 ; end
 
 OddishEggMoves:
@@ -128,7 +125,6 @@ ParasEggMoves:
 	db PSYBEAM
 	db FLAIL
 	db LIGHT_SCREEN
-	db PURSUIT
 	db -1 ; end
 
 VenonatEggMoves:
@@ -138,10 +134,8 @@ VenonatEggMoves:
 	db -1 ; end
 
 DiglettEggMoves:
-	db FAINT_ATTACK
 	db SCREECH
 	db ANCIENTPOWER
-	db PURSUIT
 	db BEAT_UP
 	db -1 ; end
 
@@ -156,7 +150,6 @@ PsyduckEggMoves:
 	db ICE_BEAM
 	db HYPNOSIS
 	db PSYBEAM
-	db FORESIGHT
 	db LIGHT_SCREEN
 	db FUTURE_SIGHT
 	db PSYCHIC_M
@@ -165,11 +158,10 @@ PsyduckEggMoves:
 
 MankeyEggMoves:
 	db ROCK_SLIDE
-	db FORESIGHT
-	db MEDITATE
 	db COUNTER
 	db REVERSAL
 	db BEAT_UP
+	db REVENGE
 	db -1 ; end
 
 GrowlitheEggMoves:
@@ -191,13 +183,10 @@ PoliwagEggMoves:
 AbraEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
-	db BARRIER
 	db -1 ; end
 
 MachopEggMoves:
 	db LIGHT_SCREEN
-	db MEDITATE
-	db ROLLING_KICK
 	db ENCORE
 	db -1 ; end
 
@@ -239,18 +228,16 @@ SlowpokeEggMoves:
 	db -1 ; end
 
 FarfetchDEggMoves:
-	db FORESIGHT
-	db MIRROR_MOVE
 	db GUST
 	db QUICK_ATTACK
 	db FLAIL
+	db REVENGE
 	db -1 ; end
 
 DoduoEggMoves:
 	db QUICK_ATTACK
 	db SUPERSONIC
 	db HAZE
-	db FAINT_ATTACK
 	db FLAIL
 	db -1 ; end
 
@@ -272,13 +259,11 @@ GrimerEggMoves:
 ShellderEggMoves:
 	db BUBBLEBEAM
 	db TAKE_DOWN
-	db BARRIER
 	db RAPID_SPIN
 	db SCREECH
 	db -1 ; end
 
 GastlyEggMoves:
-	db PSYWAVE
 	db PERISH_SONG
 	db HAZE
 	db -1 ; end
@@ -290,7 +275,6 @@ OnixEggMoves:
 
 DrowzeeEggMoves:
 	db LIGHT_SCREEN
-	db BARRIER
 	db -1 ; end
 
 KrabbyEggMoves:
@@ -321,13 +305,11 @@ CuboneEggMoves:
 
 LickitungEggMoves:
 	db BELLY_DRUM
-	db MAGNITUDE
 	db BODY_SLAM
 	db -1 ; end
 
 KoffingEggMoves:
 	db SCREECH
-	db PSYWAVE
 	db PSYBEAM
 	db DESTINY_BOND
 	db PAIN_SPLIT
@@ -338,9 +320,7 @@ RhyhornEggMoves:
 	db REVERSAL
 	db ROCK_SLIDE
 	db THRASH
-	db PURSUIT
 	db COUNTER
-	db MAGNITUDE
 	db -1 ; end
 
 ChanseyEggMoves:
@@ -359,7 +339,6 @@ TangelaEggMoves:
 
 KangaskhanEggMoves:
 	db STOMP
-	db FORESIGHT
 	db FOCUS_ENERGY
 	db SAFEGUARD
 	db DISABLE
@@ -370,8 +349,6 @@ HorseaEggMoves:
 	db AURORA_BEAM
 	db OCTAZOOKA
 	db DISABLE
-	db SPLASH
-	db DRAGON_RAGE
 	db -1 ; end
 
 GoldeenEggMoves:
@@ -390,9 +367,9 @@ ScytherEggMoves:
 	db COUNTER
 	db SAFEGUARD
 	db BATON_PASS
-	db RAZOR_WIND
 	db REVERSAL
 	db LIGHT_SCREEN
+	db BUG_BUZZ
 	db -1 ; end
 
 PinsirEggMoves:
@@ -402,7 +379,7 @@ PinsirEggMoves:
 
 LaprasEggMoves:
 	db AURORA_BEAM
-	db FORESIGHT
+	db DRAGON_DANCE
 	db -1 ; end
 
 EeveeEggMoves:
@@ -428,8 +405,6 @@ KabutoEggMoves:
 
 AerodactylEggMoves:
 	db WHIRLWIND
-	db PURSUIT
-	db FORESIGHT
 	db -1 ; end
 
 SnorlaxEggMoves:
@@ -457,7 +432,6 @@ CyndaquilEggMoves:
 	db QUICK_ATTACK
 	db REVERSAL
 	db THRASH
-	db FORESIGHT
 	db SUBMISSION
 	db -1 ; end
 
@@ -466,22 +440,19 @@ TotodileEggMoves:
 	db THRASH
 	db HYDRO_PUMP
 	db ANCIENTPOWER
-	db RAZOR_WIND
 	db ROCK_SLIDE
+	db DRAGON_DANCE
 	db -1 ; end
 
 SentretEggMoves:
 	db DOUBLE_EDGE
-	db PURSUIT
 	db SLASH
 	db FOCUS_ENERGY
 	db REVERSAL
 	db -1 ; end
 
 HoothootEggMoves:
-	db MIRROR_MOVE
 	db SUPERSONIC
-	db FAINT_ATTACK
 	db WING_ATTACK
 	db WHIRLWIND
 	db SKY_ATTACK
@@ -489,16 +460,14 @@ HoothootEggMoves:
 
 LedybaEggMoves:
 	db PSYBEAM
-	db BIDE
 	db LIGHT_SCREEN
+	db BUG_BUZZ
 	db -1 ; end
 
 SpinarakEggMoves:
 	db PSYBEAM
 	db DISABLE
-	db SONICBOOM
 	db BATON_PASS
-	db PURSUIT
 	db -1 ; end
 
 ChinchouEggMoves:
@@ -509,11 +478,9 @@ ChinchouEggMoves:
 
 PichuEggMoves:
 	db REVERSAL
-	db BIDE
 	db PRESENT
 	db ENCORE
-	db DOUBLESLAP
-	db FAIRY_VOICE
+	db DISARMING_VOICE
 	db -1 ; end
 
 CleffaEggMoves:
@@ -528,14 +495,11 @@ CleffaEggMoves:
 IgglybuffEggMoves:
 	db PERISH_SONG
 	db PRESENT
-	db FAINT_ATTACK
 	db -1 ; end
 
 TogepiEggMoves:
 	db PRESENT
-	db MIRROR_MOVE
 	db PECK
-	db FORESIGHT
 	db FUTURE_SIGHT
 	db -1 ; end
 
@@ -543,7 +507,7 @@ NatuEggMoves:
 	db HAZE
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db FAINT_ATTACK
+	db SUCKER_PUNCH
 	db STEEL_WING
 	db -1 ; end
 
@@ -564,7 +528,6 @@ MarillEggMoves:
 	db BELLY_DRUM
 	db PERISH_SONG
 	db SUPERSONIC
-	db FORESIGHT
 	db -1 ; end
 
 SudowoodoEggMoves:
@@ -584,12 +547,11 @@ HoppipEggMoves:
 AipomEggMoves:
 	db COUNTER
 	db SCREECH
-	db PURSUIT
 	db AGILITY
 	db SPITE
 	db SLAM
-	db DOUBLESLAP
 	db BEAT_UP
+	db REVENGE
 	db -1 ; end
 
 YanmaEggMoves:
@@ -608,7 +570,6 @@ MurkrowEggMoves:
 	db WHIRLWIND
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db MIRROR_MOVE
 	db WING_ATTACK
 	db SKY_ATTACK
 	db -1 ; end
@@ -616,12 +577,12 @@ MurkrowEggMoves:
 MisdreavusEggMoves:
 	db SCREECH
 	db DESTINY_BOND
+	db SUCKER_PUNCH
 	db -1 ; end
 
 GirafarigEggMoves:
 	db TAKE_DOWN
 	db AMNESIA
-	db FORESIGHT
 	db FUTURE_SIGHT
 	db BEAT_UP
 	db -1 ; end
@@ -631,26 +592,23 @@ PinecoEggMoves:
 	db PIN_MISSILE
 	db FLAIL
 	db SWIFT
+	db REVENGE
 	db -1 ; end
 
 DunsparceEggMoves:
-	db BIDE
 	db ANCIENTPOWER
 	db ROCK_SLIDE
 	db BITE
-	db RAGE
 	db -1 ; end
 
 GligarEggMoves:
 	db METAL_CLAW
 	db WING_ATTACK
-	db RAZOR_WIND
 	db COUNTER
 	db -1 ; end
 
 SnubbullEggMoves:
 	db METRONOME
-	db FAINT_ATTACK
 	db REFLECT
 	db PRESENT
 	db CRUNCH
@@ -672,14 +630,13 @@ ShuckleEggMoves:
 
 HeracrossEggMoves:
 	db HARDEN
-	db BIDE
 	db FLAIL
+	db REVENGE
 	db -1 ; end
 
 SneaselEggMoves:
 	db COUNTER
 	db SPITE
-	db FORESIGHT
 	db REFLECT
 	db BITE
 	db -1 ; end
@@ -739,19 +696,17 @@ MantineEggMoves:
 
 SkarmoryEggMoves:
 	db DRILL_PECK
-	db PURSUIT
 	db WHIRLWIND
 	db SKY_ATTACK
 	db -1 ; end
 
 HoundourEggMoves:
 	db FIRE_SPIN
-	db RAGE
-	db PURSUIT
 	db COUNTER
 	db SPITE
 	db REVERSAL
 	db BEAT_UP
+	db SUCKER_PUNCH
 	db -1 ; end
 
 PhanpyEggMoves:
@@ -778,21 +733,14 @@ TyrogueEggMoves:
 	db -1 ; end
 
 SmoochumEggMoves:
-	db MEDITATE
 	db -1 ; end
 
 ElekidEggMoves:
-	db KARATE_CHOP
-	db BARRIER
-	db ROLLING_KICK
-	db MEDITATE
 	db CROSS_CHOP
 	db -1 ; end
 
 MagbyEggMoves:
-	db KARATE_CHOP
 	db MEGA_PUNCH
-	db BARRIER
 	db SCREECH
 	db CROSS_CHOP
 	db -1 ; end
@@ -804,11 +752,11 @@ MiltankEggMoves:
 	db -1 ; end
 
 LarvitarEggMoves:
-	db PURSUIT
 	db STOMP
 	db OUTRAGE
 	db FOCUS_ENERGY
 	db ANCIENTPOWER
+	db DRAGON_DANCE
 	db -1 ; end
 
 NoEggMoves:

@@ -69,11 +69,6 @@ LeechSeedSapsText:
 	line "<USER>!"
 	autodone
 
-HasANightmareText:
-	text "<USER>"
-	line "has a NIGHTMARE!"
-	autodone
-
 HurtByCurseText:
 	text "<USER>'s"
 	line "hurt by the CURSE!"
@@ -456,12 +451,6 @@ BattleText_UserWasReleasedFromStringBuffer1:
 	text "!"
 	autodone
 
-UsedBindText:
-	text "<USER>"
-	line "used BIND on"
-	scroll "<TARGET>!"
-	autodone
-
 WhirlpoolTrapText:
 	text "<TARGET>"
 	line "was trapped in"
@@ -474,16 +463,21 @@ FireSpinTrapText:
 	scroll "a FIRE SPIN!"
 	autodone
 
+SandTombTrapText:
+	text "<TARGET>"
+	line "was trapped in"
+	scroll "a SAND TOMB!"
+	autodone
+
 WrappedByText:
 	text "<TARGET>"
 	line "was WRAPPED by"
 	scroll "<USER>!"
 	autodone
 
-ClampedByText:
+InfestedText:
 	text "<TARGET>"
-	line "was CLAMPED by"
-	scroll "<USER>!"
+	line "was INFESTED!"
 	autodone
 
 StoringEnergyText:
@@ -644,11 +638,6 @@ TookDownWithItText:
 	scroll "<USER>!"
 	autodone
 
-RageBuildingText:
-	text "<USER>'s"
-	line "RAGE is building!"
-	autodone
-
 GotAnEncoreText:
 	text "<TARGET>"
 	line "got an ENCORE!"
@@ -726,6 +715,11 @@ SuckedHealthText:
 DreamEatenText:
 	text "<TARGET>'s"
 	line "dream was eaten!"
+	autodone
+
+AlreadyBurnedText:
+	text "<TARGET>'s"
+	line "already burned!"
 	autodone
 
 WasBurnedText:
@@ -895,6 +889,11 @@ ReflectEffectText:
 	line "DEFENSE rose!"
 	autodone
 
+BreakScreenEffectText:
+	text "The wall"
+	line "shattered!"
+	autodone
+
 NothingHappenedText:
 	text "But nothing"
 	line "happened."
@@ -952,11 +951,6 @@ ProtectedByText:
 	text "!"
 	autodone
 
-MirrorMoveFailedText:
-	text "The MIRROR MOVE"
-	next "failed!"
-	autodone
-
 StoleText:
 	text "<USER>"
 	line "stole @"
@@ -968,12 +962,6 @@ StoleText:
 CantEscapeNowText:
 	text "<TARGET>"
 	line "can't escape now!"
-	autodone
-
-StartedNightmareText:
-	text "<TARGET>"
-	line "started to have a"
-	scroll "NIGHTMARE!"
 	autodone
 
 WasDefrostedText:
@@ -1002,12 +990,6 @@ ProtectingItselfText:
 SpikesText:
 	text "SPIKES scattered"
 	line "all around"
-	scroll "<TARGET>!"
-	autodone
-
-IdentifiedText:
-	text "<USER>"
-	line "identified"
 	scroll "<TARGET>!"
 	autodone
 
@@ -1045,12 +1027,6 @@ SafeguardProtectText:
 	text "<TARGET>"
 	line "is protected by"
 	scroll "SAFEGUARD!"
-	autodone
-
-MagnitudeText:
-	text "Magnitude @"
-	text_decimal wTextDecimalByte, 1, 1
-	text "!"
 	autodone
 
 ReleasedByText:

@@ -54,7 +54,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$11`: `checkfaint`
 
 
-## `$12`: `buildopponentrage`
+## `$12`: `effect0x12`
 
 
 ## `$13`: `poisontarget`
@@ -81,7 +81,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$1A`: `selfdestruct`
 
 
-## `$1B`: `mirrormove`
+## `$1B`: `acrobatics`
 
 
 ## `$1C`: `statup`
@@ -99,10 +99,10 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$20`: `resetstats`
 
 
-## `$21`: `storeenergy`
+## `$21`: `effect0x21`
 
 
-## `$22`: `unleashenergy`
+## `$22`: `effect0x22`
 
 
 ## `$23`: `forceswitch`
@@ -246,7 +246,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$51`: `arenatrap`
 
 
-## `$52`: `nightmare`
+## `$52`: `hex`
 
 
 ## `$53`: `defrost`
@@ -261,7 +261,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$56`: `spikes`
 
 
-## `$57`: `foresight`
+## `$57`: `payback`
 
 
 ## `$58`: `perishsong`
@@ -306,7 +306,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$65`: `checksafeguard`
 
 
-## `$66`: `getmagnitude`
+## `$66`: `effect0x66`
 
 
 ## `$67`: `batonpass`
@@ -453,7 +453,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$96`: `psychup`
 
 
-## `$97`: `rage`
+## `$97`: `effect0x97`
 
 
 ## `$98`: `doubleflyingdamage`
@@ -486,7 +486,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$A1`: `beatup`
 
 
-## `$A2`: `ragedamage`
+## `$A2`: `effect0xa2`
 
 
 ## `$A3`: `resettypematchup`
@@ -495,7 +495,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$A4`: `allstatsup`
 
 
-## `$A5`: `bidefailtext`
+## `$A5`: `effect0xa5`
 
 
 ## `$A6`: `raisesubnoanim`

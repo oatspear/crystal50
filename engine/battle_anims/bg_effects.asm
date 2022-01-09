@@ -124,7 +124,6 @@ BattleBGEffects:
 	dw BattleBGEffect_BetaSendOutMon1
 	dw BattleBGEffect_BetaSendOutMon2
 	dw BattleBGEffect_Flail
-	dw BattleBGEffect_BetaPursuit
 	dw BattleBGEffect_Rollout
 	dw BattleBGEffect_VitalThrow
 	dw BattleBGEffect_StartWater
@@ -1573,18 +1572,6 @@ Rollout_FillLYOverridesBackup:
 	ld [hli], a
 	dec d
 	jr nz, .loop
-	ret
-
-BattleBGEffect_BetaPursuit: ; unused
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw VitalThrow_MoveBackwards
-	dw Tackle_MoveForward
-	dw Tackle_ReturnMove
-	dw .three
-
-.three
-	call BattleAnim_ResetLCDStatCustom
 	ret
 
 VitalThrow_MoveBackwards:

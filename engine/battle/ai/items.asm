@@ -221,16 +221,9 @@ AI_TryItem:
 	inc a
 	ld [wEnemyGoesFirst], a
 
-	ld hl, wEnemySubStatus3
-	res SUBSTATUS_BIDE, [hl]
-
 	xor a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-	ld [wEnemyRageCounter], a
-
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
 
 	xor a
 	ld [wLastEnemyCounterMove], a
@@ -676,13 +669,9 @@ AI_Switch:
 	ld a, $1
 	ld [wEnemyIsSwitching], a
 	ld [wEnemyGoesFirst], a
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ldh [hBattleTurn], a
-	callfar PursuitSwitch
 
-	push af
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Status
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -692,13 +681,10 @@ AI_Switch:
 	ld hl, wEnemyMonStatus
 	ld bc, MON_MAXHP - MON_STATUS
 	call CopyBytes
-	pop af
 
-	jr c, .skiptext
 	ld hl, EnemyWithdrewText
 	call PrintText
 
-.skiptext
 	ld a, 1
 	ld [wBattleHasJustStarted], a
 	callfar NewEnemyMonStatus
@@ -733,8 +719,6 @@ AI_HealStatus:
 	xor a
 	ld [hl], a
 	ld [wEnemyMonStatus], a
-	ld hl, wEnemySubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	ld hl, wEnemySubStatus3
 	res SUBSTATUS_CONFUSED, [hl]
 	ld hl, wEnemySubStatus5

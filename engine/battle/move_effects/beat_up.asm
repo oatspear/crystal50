@@ -33,7 +33,7 @@ BattleCommand_BeatUp:
 	call GetBeatupMonLocation
 	ld a, [hli]
 	or [hl]
-	jp z, .beatup_fail ; fainted
+	ret z ; fainted
 	ld a, [wCurBeatUpPartyMon]
 	ld c, a
 	ld a, [wCurBattleMon]
@@ -45,7 +45,7 @@ BattleCommand_BeatUp:
 .active_mon
 	ld a, [hl]
 	and a
-	jp nz, .beatup_fail
+	ret nz
 
 	ld a, $1
 	ld [wBeatUpHitAtLeastOnce], a
@@ -134,7 +134,7 @@ BattleCommand_BeatUp:
 	call GetBeatupMonLocation
 	ld a, [hli]
 	or [hl]
-	jp z, .beatup_fail
+	ret z
 
 	ld a, [wCurBeatUpPartyMon]
 	ld b, a
@@ -147,7 +147,7 @@ BattleCommand_BeatUp:
 .active_enemy
 	ld a, [hl]
 	and a
-	jr nz, .beatup_fail
+	ret nz
 
 	ld a, $1
 	ld [wBeatUpHitAtLeastOnce], a
@@ -191,10 +191,6 @@ BattleCommand_BeatUp:
 	ld a, [wEnemyMoveStructPower]
 	ld d, a
 	ret
-
-.beatup_fail
-	ld b, buildopponentrage_command
-	jp SkipToBattleCommand
 
 BattleCommand_BeatUpFailText:
 ; beatupfailtext

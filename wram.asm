@@ -485,8 +485,8 @@ wPlayerTurnsTaken:: db
 wPlayerSubstituteHP:: db
 wEnemySubstituteHP::  db
 
-wUnusedPlayerLockedMove:: db
-	ds 1
+wTurnBasedFlags:: db
+wTurnBasedFlags2:: db
 
 wCurPlayerMove:: db
 wCurEnemyMove::  db
@@ -526,7 +526,7 @@ wPlayerMinimized:: db
 wPlayerScreens::
 ; bit
 ; 0 spikes
-; 1
+; 1 spikes
 ; 2 safeguard
 ; 3 light screen
 ; 4 reflect
@@ -606,8 +606,8 @@ wBackupEnemyMonBaseExp:: db
 
 wPlayerFutureSightDamage:: dw
 wEnemyFutureSightDamage:: dw
-wPlayerRageCounter:: db
-wEnemyRageCounter:: db
+
+	ds 2
 
 wBeatUpHitAtLeastOnce:: db
 
@@ -2258,6 +2258,7 @@ wSwitchMon::
 wSwitchItem::
 wSwappingMove::
 wd0e3:: ; mobile
+wSwitchLevel::
 	db
 
 wMenuScrollPosition:: ds 4

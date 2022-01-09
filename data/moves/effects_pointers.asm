@@ -10,7 +10,7 @@ MoveEffectsPointers:
 	dw ParalyzeHit
 	dw Selfdestruct
 	dw DreamEater
-	dw MirrorMove
+	dw Roost
 	dw AttackUp
 	dw DefenseUp
 	dw SpeedUp
@@ -18,7 +18,6 @@ MoveEffectsPointers:
 	dw SpecialDefenseUp
 	dw AccuracyUp
 	dw EvasionUp
-	dw NormalHit
 	dw AttackDown
 	dw DefenseDown
 	dw SpeedDown
@@ -27,7 +26,7 @@ MoveEffectsPointers:
 	dw AccuracyDown
 	dw EvasionDown
 	dw ResetStats
-	dw Bide
+	dw Acrobatics
 	dw Rampage
 	dw ForceSwitch
 	dw MultiHit
@@ -38,13 +37,13 @@ MoveEffectsPointers:
 	dw PayDay
 	dw LightScreen
 	dw TriAttack
-	dw NormalHit
+	dw Growth
 	dw OHKOHit
-	dw RazorWind
+	dw CalmMind
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget
-	dw NormalHit
+	dw DragonDance
 	dw MultiHit
 	dw NormalHit
 	dw Mist
@@ -78,18 +77,17 @@ MoveEffectsPointers:
 	dw EvasionDownHit
 	dw SkyAttack
 	dw ConfuseHit
-	dw PoisonMultiHit
-	dw NormalHit
+	dw Revenge
+	dw BodySlam
 	dw Substitute
 	dw HyperBeam
-	dw Rage
 	dw Mimic
 	dw Metronome
 	dw LeechSeed
 	dw Splash
 	dw Disable
 	dw StaticDamage
-	dw Psywave
+	dw CloseCombat
 	dw Counter
 	dw Encore
 	dw PainSplit
@@ -108,13 +106,13 @@ MoveEffectsPointers:
 	dw TripleKick
 	dw Thief
 	dw MeanLook
-	dw Nightmare
+	dw Hex
 	dw FlameWheel
 	dw Curse
-	dw NormalHit
+	dw Superpower
 	dw Protect
 	dw Spikes
-	dw Foresight
+	dw Payback
 	dw PerishSong
 	dw Sandstorm
 	dw Endure
@@ -122,14 +120,14 @@ MoveEffectsPointers:
 	dw Swagger
 	dw FuryCutter
 	dw Attract
-	dw Return
+	dw BrickBreak
 	dw Present
 	dw Hail
 	dw Safeguard
 	dw SacredFire
-	dw Magnitude
+	dw Facade
 	dw BatonPass
-	dw Pursuit
+	dw DoBurn
 	dw RapidSpin
 	dw NormalHit
 	dw NormalHit

@@ -22,7 +22,7 @@ BattleCommandPointers:
 	dw BattleCommand_CriticalText
 	dw BattleCommand_SuperEffectiveText
 	dw BattleCommand_CheckFaint
-	dw BattleCommand_BuildOpponentRage
+	dw BattleCommand_RemoveScreens
 	dw BattleCommand_PoisonTarget
 	dw BattleCommand_SleepTarget
 	dw BattleCommand_DrainTarget
@@ -31,14 +31,14 @@ BattleCommandPointers:
 	dw BattleCommand_FreezeTarget
 	dw BattleCommand_ParalyzeTarget
 	dw BattleCommand_Selfdestruct
-	dw BattleCommand_MirrorMove
+	dw BattleCommand_Acrobatics
 	dw BattleCommand_StatUp
 	dw BattleCommand_StatDown
 	dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
-	dw BattleCommand_StoreEnergy
-	dw BattleCommand_UnleashEnergy
+	dw BattleCommand_Roost
+	dw BattleCommand_Burn
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
@@ -86,29 +86,29 @@ BattleCommandPointers:
 	dw BattleCommand_KickCounter
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
-	dw BattleCommand_Nightmare
+	dw BattleCommand_Hex
 	dw BattleCommand_Defrost
 	dw BattleCommand_Curse
 	dw BattleCommand_Protect
 	dw BattleCommand_Spikes
-	dw BattleCommand_Foresight
+	dw BattleCommand_Payback
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure
 	dw BattleCommand_CheckCurl
 	dw BattleCommand_RolloutPower
-	dw BattleCommand_Unused5D
+	dw BattleCommand_Revenge
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
-	dw BattleCommand_HappinessPower
+	dw BattleCommand_Facade
 	dw BattleCommand_Present
 	dw BattleCommand_DamageCalc
 	dw BattleCommand_StartHail
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
-	dw BattleCommand_GetMagnitude
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_BatonPass
-	dw BattleCommand_Pursuit
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ClearHazards
 	dw BattleCommand_HealMorn
 	dw BattleCommand_HealDay
@@ -155,7 +155,7 @@ BattleCommandPointers:
 	dw BattleCommand_FakeOut
 	dw BattleCommand_BellyDrum
 	dw BattleCommand_PsychUp
-	dw BattleCommand_Rage
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_DoubleFlyingDamage
 	dw BattleCommand_DoubleUndergroundDamage
 	dw BattleCommand_MirrorCoat
@@ -166,10 +166,10 @@ BattleCommandPointers:
 	dw BattleCommand_ThunderAccuracy
 	dw BattleCommand_Teleport
 	dw BattleCommand_BeatUp
-	dw BattleCommand_RageDamage
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ResetTypeMatchup
 	dw BattleCommand_AllStatsUp
-	dw BattleCommand_BideFailText
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_RaiseSubNoAnim
 	dw BattleCommand_LowerSubNoAnim
 	dw BattleCommand_BeatUpFailText
@@ -180,4 +180,7 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
+	dw BattleCommand_Growth
+	dw BattleCommand_CalmMind
+	dw BattleCommand_DragonDance
 	assert_table_length NUM_EFFECT_COMMANDS

@@ -16,6 +16,7 @@ AI_Redundant:
 .Moves:
 	dbw EFFECT_DREAM_EATER,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
+	dbw EFFECT_ROOST,        .Roost
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
@@ -29,9 +30,7 @@ AI_Redundant:
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
-	dbw EFFECT_NIGHTMARE,    .Nightmare
 	dbw EFFECT_SPIKES,       .Spikes
-	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
 	dbw EFFECT_SANDSTORM,    .Sandstorm
 	dbw EFFECT_ATTRACT,      .Attract
@@ -112,23 +111,12 @@ AI_Redundant:
 	bit SUBSTATUS_CANT_RUN, a
 	ret
 
-.Nightmare:
-	ld a, [wBattleMonStatus]
-	and a
-	jr z, .Redundant
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_NIGHTMARE, a
-	ret
-
 .Spikes:
 	ld a, [wPlayerScreens]
-	bit SCREENS_SPIKES, a
-	ret
-
-.Foresight:
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_IDENTIFIED, a
-	ret
+	and SCREENS_SPIKES_MASK
+	cp SPIKES_3_LAYERS
+	jr z, .Redundant
+	jr .NotRedundant
 
 .PerishSong:
 	ld a, [wPlayerSubStatus1]
@@ -188,6 +176,7 @@ AI_Redundant:
 	jr .NotRedundant
 
 .Heal:
+.Roost:
 .MorningSun:
 .Synthesis:
 .Moonlight:

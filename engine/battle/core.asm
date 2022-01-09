@@ -175,6 +175,7 @@ BattleTurn:
 	ld [wEnemyJustGotFrozen], a
 	ld [wCurDamage], a
 	ld [wCurDamage + 1], a
+	ld [wTurnBasedFlags], a
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
@@ -290,6 +291,7 @@ HandleBetweenTurnEffects:
 	ret c
 
 .NoMoreFaintingConditions:
+	call HandleTypeChangingEffects
 	call HandleLeftovers
 	call HandleLeppaBerry
 	call HandleDefrost
@@ -650,11 +652,8 @@ ParsePlayerAction:
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jr z, .reset_series_counters
 	and a
-	jr nz, .reset_bide
-	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_BIDE
 	jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
@@ -685,50 +684,30 @@ ParsePlayerAction:
 	jr z, .continue_fury_cutter
 	xor a
 	ld [wPlayerFuryCutterCount], a
-
-.continue_fury_cutter
-	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
-	cp EFFECT_RAGE
-	jr z, .continue_rage
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
-	xor a
-	ld [wPlayerRageCounter], a
-
-.continue_rage
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
 	jr z, .continue_protect
+.continue_fury_cutter
 	xor a
 	ld [wPlayerProtectCount], a
 	jr .continue_protect
-
-.reset_bide
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_BIDE, [hl]
 
 .locked_in
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
 
 .continue_protect
 	call ParseEnemyAction
 	xor a
 	ret
 
-.reset_rage
+.reset_series_counters
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ret
 
@@ -1129,23 +1108,6 @@ ResidualDamage:
 
 	ld a, BATTLE_VARS_SUBSTATUS1
 	call GetBattleVarAddr
-	bit SUBSTATUS_NIGHTMARE, [hl]
-	jr z, .not_nightmare
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_NIGHTMARE
-	call Call_PlayBattleAnim_OnlyIfVisible
-	call GetQuarterMaxHP
-	call SubtractHPFromUser
-	ld hl, HasANightmareText
-	call StdBattleTextbox
-.not_nightmare
-
-	call HasUserFainted
-	jr z, .fainted
-
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
 	bit SUBSTATUS_CURSE, [hl]
 	jr z, .not_cursed
 
@@ -1313,6 +1275,41 @@ SwitchTurnCore:
 	ldh a, [hBattleTurn]
 	xor 1
 	ldh [hBattleTurn], a
+	ret
+
+HandleTypeChangingEffects:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	ld de, wBattleMonType1
+	call .do_it
+	call SetEnemyTurn
+	ld de, wEnemyMonType1
+	jr .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	ld de, wEnemyMonType1
+	call .do_it
+	call SetPlayerTurn
+	ld de, wBattleMonType1
+
+.do_it
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	bit SUBSTATUS_ROOST_TYPE1, [hl]
+	jr z, .type_2
+	ld a, FLYING
+	ld [de], a
+	res SUBSTATUS_ROOST_TYPE1, [hl]
+.type_2
+	bit SUBSTATUS_ROOST_TYPE2, [hl]
+	ret z
+	inc de
+	ld a, FLYING
+	ld [de], a
+	res SUBSTATUS_ROOST_TYPE2, [hl]
 	ret
 
 HandleLeftovers:
@@ -1892,9 +1889,15 @@ SubtractHP:
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .ok
+	ld a, [wTurnBasedFlags]
+	jr z, .player
 	ld hl, wEnemyMonHP
+	or THIS_TURN_ENEMY_TOOK_DAMAGE
+	jr .ok
+.player
+	or THIS_TURN_PLAYER_TOOK_DAMAGE
 .ok
+	ld [wTurnBasedFlags], a
 	inc hl
 	ld a, [hl]
 	ld [wHPBuffer2], a
@@ -1984,7 +1987,7 @@ GetThirdMaxHP:
 	call GetMaxHP
 	xor a
 	inc b
-	.loop
+.loop
 	dec b
 	inc a
 	dec bc
@@ -3741,7 +3744,6 @@ endr
 	ld [wEnemyDisableCount], a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-	ld [wEnemyRageCounter], a
 	ld [wEnemyDisabledMove], a
 	ld [wEnemyMinimized], a
 	ld [wPlayerWrapCount], a
@@ -4225,7 +4227,6 @@ endr
 	ld [wPlayerDisableCount], a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
 	ld [wEnemyWrapCount], a
@@ -4254,7 +4255,8 @@ SpikesDamage:
 	ld bc, UpdateEnemyHUD
 .ok
 
-	bit SCREENS_SPIKES, [hl]
+	ld a, [hl]
+	and SCREENS_SPIKES_MASK
 	ret z
 
 	; Flying-types aren't affected by Spikes.
@@ -4267,11 +4269,35 @@ SpikesDamage:
 	ret z
 
 	push bc
+	push hl
 
 	ld hl, BattleText_UserHurtBySpikes ; "hurt by SPIKES!"
 	call StdBattleTextbox
 
+; NOTE: assumes the bits of spikes are bits 0 and 1, to avoid a right shift.
+	pop hl
+	ld a, [hl]
+	and SCREENS_SPIKES_MASK
+	; assert a in [1, 2, 3]
+
+	dec a
+	jr z, .one_layer
+
+	dec a
+	jr z, .two_layers
+
+;.three_layers
+	call GetQuarterMaxHP
+	jr .got_damage
+
+.two_layers
+	call GetSixthMaxHP
+	jr .got_damage
+
+.one_layer
 	call GetEighthMaxHP
+
+.got_damage
 	call SubtractHPFromTarget
 
 	pop hl
@@ -4281,87 +4307,6 @@ SpikesDamage:
 
 .hl
 	jp hl
-
-PursuitSwitch:
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
-	ld b, a
-	call GetMoveEffect
-	ld a, b
-	cp EFFECT_PURSUIT
-	jr nz, .done
-
-	ld a, [wCurBattleMon]
-	push af
-
-	ld hl, DoPlayerTurn
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .do_turn
-	ld hl, DoEnemyTurn
-	ld a, [wLastPlayerMon]
-	ld [wCurBattleMon], a
-.do_turn
-	ld a, BANK(DoPlayerTurn) ; aka BANK(DoEnemyTurn)
-	rst FarCall
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
-	ld a, $ff
-	ld [hl], a
-
-	pop af
-	ld [wCurBattleMon], a
-
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .check_enemy_fainted
-
-	ld a, [wLastPlayerMon]
-	call UpdateBattleMon
-	ld hl, wBattleMonHP
-	ld a, [hli]
-	or [hl]
-	jr nz, .done
-
-	ld a, $f0
-	ld [wCryTracks], a
-	ld a, [wBattleMonSpecies]
-	call PlayStereoCry
-	ld a, [wCurBattleMon]
-	push af
-	ld a, [wLastPlayerMon]
-	ld [wCurBattleMon], a
-	call UpdateFaintedPlayerMon
-	pop af
-	ld [wCurBattleMon], a
-	call PlayerMonFaintedAnimation
-	ld hl, BattleText_MonFainted
-	jr .done_fainted
-
-.check_enemy_fainted
-	ld hl, wEnemyMonHP
-	ld a, [hli]
-	or [hl]
-	jr nz, .done
-
-	ld de, SFX_KINESIS
-	call PlaySFX
-	call WaitSFX
-	ld de, SFX_FAINT
-	call PlaySFX
-	call WaitSFX
-	call EnemyMonFaintedAnimation
-	ld hl, BattleText_EnemyMonFainted
-
-.done_fainted
-	call StdBattleTextbox
-	scf
-	ret
-
-.done
-	and a
-	ret
 
 RecallPlayerMon:
 	ldh a, [hBattleTurn]
@@ -4545,10 +4490,6 @@ UseHeldStatusHealingItem:
 	call GetBattleVarAddr
 	and [hl]
 	res SUBSTATUS_TOXIC, [hl]
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
-	and [hl]
-	res SUBSTATUS_NIGHTMARE, [hl]
 	ld a, b
 	cp ALL_STATUS
 	jr nz, .skip_confuse
@@ -5390,14 +5331,8 @@ BattleMonEntrance:
 	ld c, 50
 	call DelayFrames
 
-	ld hl, wPlayerSubStatus4
-	res SUBSTATUS_RAGE, [hl]
-
 	call SetEnemyTurn
-	call PursuitSwitch
-	jr c, .ok
 	call RecallPlayerMon
-.ok
 
 	hlcoord 9, 7
 	lb bc, 5, 11
@@ -5643,17 +5578,12 @@ MoveSelectionScreen:
 	dec a
 	cp c
 	jr z, .move_disabled
-	ld a, [wUnusedPlayerLockedMove]
-	and a
-	jr nz, .skip2
 	ld a, [wMenuCursorY]
 	ld hl, wBattleMonMoves
 	ld c, a
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-
-.skip2
 	ld [wCurPlayerMove], a
 	xor a
 	ret
@@ -5942,14 +5872,14 @@ ParseEnemyAction:
 	cp BATTLEACTION_SKIPTURN
 	jp z, .skip_turn
 	cp BATTLEACTION_SWITCH1
-	jp nc, ResetVarsForSubstatusRage
+	jp nc, ResetVarsForSuccessiveCounters
 	ld [wCurEnemyMoveNum], a
 	ld c, a
 	ld a, [wEnemySubStatus1]
 	bit SUBSTATUS_ROLLOUT, a
 	jp nz, .skip_load
 	ld a, [wEnemySubStatus3]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
 
 	ld hl, wEnemySubStatus5
@@ -5971,7 +5901,7 @@ ParseEnemyAction:
 
 .skip_encore
 	call CheckEnemyLockedIn
-	jp nz, ResetVarsForSubstatusRage
+	jp nz, ResetVarsForSuccessiveCounters
 	jr .continue
 
 .skip_turn
@@ -6051,15 +5981,6 @@ ParseEnemyAction:
 
 .fury_cutter
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_RAGE
-	jr z, .no_rage
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
-	xor a
-	ld [wEnemyRageCounter], a
-
-.no_rage
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
@@ -6072,13 +5993,10 @@ ParseEnemyAction:
 	ld a, STRUGGLE
 	jr .finish
 
-ResetVarsForSubstatusRage:
+ResetVarsForSuccessiveCounters:
 	xor a
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-	ld [wEnemyRageCounter], a
-	ld hl, wEnemySubStatus4
-	res SUBSTATUS_RAGE, [hl]
 	ret
 
 CheckEnemyLockedIn:
@@ -6088,7 +6006,7 @@ CheckEnemyLockedIn:
 
 	ld hl, wEnemySubStatus3
 	ld a, [hl]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	ld hl, wEnemySubStatus1

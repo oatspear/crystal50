@@ -7,10 +7,10 @@ ResidualMoves:
 	db STUN_SPORE
 	db THUNDER_WAVE
 	db FOCUS_ENERGY
-	db BIDE
 	db POISON_GAS
 	db TRANSFORM
 	db CONVERSION
 	db SUBSTITUTE
 	db SPIKES
+	db WILL_O_WISP
 	db -1 ; end

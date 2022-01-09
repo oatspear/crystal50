@@ -86,7 +86,6 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_Curse
 	dw BattleAnimFunction_PerishSong
 	dw BattleAnimFunction_RapidSpin
-	dw BattleAnimFunction_BetaPursuit
 	dw BattleAnimFunction_RainSandstorm
 	dw BattleAnimFunction_AnimObjB0
 	dw BattleAnimFunction_PsychUp
@@ -1994,8 +1993,8 @@ BattleAnimFunction_Kick:
 	dw .zero
 	dw .one
 	dw .two   ; Jump Kick, Hi Jump Kick
-	dw .three ; Rolling Kick
-	dw .four  ; Rolling Kick (continued)
+;	dw .three ; Rolling Kick
+;	dw .four  ; Rolling Kick (continued)
 
 .zero
 	ret
@@ -2041,35 +2040,35 @@ BattleAnimFunction_Kick:
 	dec [hl]
 	ret
 
-.three
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld [hl], $2c
-	ld hl, BATTLEANIMSTRUCT_FRAME
-	add hl, bc
-	ld [hl], $0
-	ld hl, BATTLEANIMSTRUCT_DURATION
-	add hl, bc
-	ld [hl], $80
-.four
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $98
-	ret nc
-	inc [hl]
-	inc [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	ld d, $8
-	call BattleAnim_Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
+;.three
+;	call BattleAnim_IncAnonJumptableIndex
+;	ld hl, BATTLEANIMSTRUCT_VAR1
+;	add hl, bc
+;	ld [hl], $2c
+;	ld hl, BATTLEANIMSTRUCT_FRAME
+;	add hl, bc
+;	ld [hl], $0
+;	ld hl, BATTLEANIMSTRUCT_DURATION
+;	add hl, bc
+;	ld [hl], $80
+;.four
+;	ld hl, BATTLEANIMSTRUCT_XCOORD
+;	add hl, bc
+;	ld a, [hl]
+;	cp $98
+;	ret nc
+;	inc [hl]
+;	inc [hl]
+;	ld hl, BATTLEANIMSTRUCT_VAR1
+;	add hl, bc
+;	ld a, [hl]
+;	inc [hl]
+;	ld d, $8
+;	call BattleAnim_Sine
+;	ld hl, BATTLEANIMSTRUCT_YOFFSET
+;	add hl, bc
+;	ld [hl], a
+;	ret
 
 BattleAnimFunction_Egg:
 ; Used by Egg Bomb and Softboiled
@@ -4015,58 +4014,6 @@ BattleAnimFunction_RapidSpin:
 
 .done
 	call DeinitBattleAnimation
-	ret
-
-BattleAnimFunction_BetaPursuit:
-; Working but unused animation
-; Object moves either down or up 4 pixels per frame, depending on Obj Param. Object disappears after 23 frames when going down, or at y coord $d8 when going up
-; Obj Param: 0 moves downwards, 1 moves upwards
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-	dw .two
-	dw .three
-
-.zero
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	and a
-	jr nz, .move_up
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], $ec
-.one
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld a, [hl]
-	cp $4
-	jr z, .three
-	inc [hl]
-	inc [hl]
-	inc [hl]
-	inc [hl]
-	ret
-
-.three
-	call DeinitBattleAnimation
-	ret
-
-.move_up
-	call BattleAnim_IncAnonJumptableIndex
-	call BattleAnim_IncAnonJumptableIndex
-.two
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld a, [hl]
-	cp $d8
-	ret z
-	dec [hl]
-	dec [hl]
-	dec [hl]
-	dec [hl]
 	ret
 
 BattleAnimFunction_RainSandstorm:

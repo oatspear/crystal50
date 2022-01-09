@@ -22,7 +22,7 @@ ENDM
 	command criticaltext            ; 0f
 	command supereffectivetext      ; 10
 	command checkfaint              ; 11
-	command buildopponentrage       ; 12
+	command removescreens           ; 12
 	command poisontarget            ; 13
 	command sleeptarget             ; 14
 	command draintarget             ; 15
@@ -31,14 +31,14 @@ ENDM
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
 	command selfdestruct            ; 1a
-	command mirrormove              ; 1b
+	command acrobatics              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
 	command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
-	command storeenergy             ; 21
-	command unleashenergy           ; 22
+	command roost                   ; 21
+	command burn                    ; 22
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
@@ -86,29 +86,29 @@ ENDM
 	command kickcounter             ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
-	command nightmare               ; 52
+	command hex                     ; 52
 	command defrost                 ; 53
 	command curse                   ; 54
 	command protect                 ; 55
 	command spikes                  ; 56
-	command foresight               ; 57
+	command payback                 ; 57
 	command perishsong              ; 58
 	command startsandstorm          ; 59
 	command endure                  ; 5a
 	command checkcurl               ; 5b
 	command rolloutpower            ; 5c
-	command effect0x5d              ; 5d
+	command revenge                 ; 5d
 	command furycutter              ; 5e
 	command attract                 ; 5f
-	command happinesspower          ; 60
+	command facade                  ; 60
 	command present                 ; 61
 	command damagecalc              ; 62
 	command starthail               ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
-	command getmagnitude            ; 66
+	command effect0x66              ; 66
 	command batonpass               ; 67
-	command pursuit                 ; 68
+	command effect0x68              ; 68
 	command clearhazards            ; 69
 	command healmorn                ; 6a
 	command healday                 ; 6b
@@ -155,7 +155,7 @@ ENDM
 	command fakeout                 ; 94
 	command bellydrum               ; 95
 	command psychup                 ; 96
-	command rage                    ; 97
+	command effect0x97              ; 97
 	command doubleflyingdamage      ; 98
 	command doubleundergrounddamage ; 99
 	command mirrorcoat              ; 9a
@@ -166,10 +166,10 @@ ENDM
 	command thunderaccuracy         ; 9f
 	command teleport                ; a0
 	command beatup                  ; a1
-	command ragedamage              ; a2
+	command effect0xa2              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command bidefailtext            ; a5
+	command effect0xa5              ; a5
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command beatupfailtext          ; a8
@@ -180,6 +180,9 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command growth                  ; b0
+	command calmmind                ; b1
+	command dragondance             ; b2
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

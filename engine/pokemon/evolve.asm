@@ -296,6 +296,7 @@ EvolveAfterBattle_MasterLoop:
 	ld [wTempSpecies], a
 	xor a
 	ld [wMonType], a
+	call LearnEvolutionMoves
 	call LearnLevelMoves
 	ld a, [wTempSpecies]
 	dec a
@@ -410,6 +411,13 @@ EvolvingText:
 	text_far _EvolvingText
 	text_end
 
+LearnEvolutionMoves:
+	ld a, LEVEL_EVO
+	ld [wCurPartyLevel], a
+	call LearnLevelMoves
+	ld a, [wTempMonLevel]
+	ld [wCurPartyLevel], a
+
 LearnLevelMoves:
 	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
@@ -476,7 +484,29 @@ LearnLevelMoves:
 
 FillMoves:
 ; Fill in moves at de for wCurPartySpecies at wCurPartyLevel
+; EDIT: also learn evolution moves afterwards
+	call OldFillMoves
+; FillMoves with evolution moves
+; alternative code: use push/pop
+	ld a, [wCurPartyLevel]
+	ld [wSwitchLevel], a   ; push af
+	; We want to learn moves between (LEVEL_EVO - 1) and LEVEL_EVO.
+	; It is as if we were just leveling up.
+	ld a, LEVEL_EVO
+	ld [wCurPartyLevel], a
+	dec a
+	ld [wPrevPartyLevel], a
+	ld a, TRUE
+	ld [wSkipMovesBeforeLevelUp], a
+	call OldFillMoves
+	ld a, [wSwitchLevel]   ; pop af
+	ld [wCurPartyLevel], a
+	; Reset wSwitchLevel, because it is also used for wSwappingMove in battle.
+	xor a
+	ld [wSwitchLevel], a
+	ret
 
+OldFillMoves:
 	push hl
 	push de
 	push bc
