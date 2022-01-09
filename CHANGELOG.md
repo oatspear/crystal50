@@ -8,6 +8,7 @@
 - `RAGECANDYBAR` heals status conditions out of battle.
 - Updated prices for medicine items.
 - Drinks (`BERRY_JUICE`, `MOOMOO_MILK`, `FRESH_WATER`, `SODA_POP`, `LEMONADE`) are no longer usable in battle.
+- Updated Mart inventories.
 
 ## v0.2 (Set to Level 50)
 
