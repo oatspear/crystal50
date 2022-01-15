@@ -2,6 +2,9 @@
 
 ## v0.3 (Custom Changes)
 
+### Removed
+- Badge stat boosts.
+
 ### Changed
 - Renamed Berries to their modern counterparts.
 - Changed the amount of HP restored by most healing items.
