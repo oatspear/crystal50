@@ -12,7 +12,9 @@
 	db 35 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/aerodactyl/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_FLY, OVERWORLD_STRENGTH
+	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 

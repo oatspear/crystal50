@@ -12,7 +12,9 @@
 	db 10 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/jigglypuff/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_FLASH
+	db NO_OVERWORLD_MOVES
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 

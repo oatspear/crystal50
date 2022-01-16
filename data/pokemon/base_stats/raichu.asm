@@ -12,7 +12,9 @@
 	db 10 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/raichu/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_FLASH
+	owmoves OVERWORLD_HEADBUTT
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_FAIRY ; egg groups
 

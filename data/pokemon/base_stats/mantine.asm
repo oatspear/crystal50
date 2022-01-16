@@ -12,7 +12,9 @@
 	db 25 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/mantine/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL
+	owmoves OVERWORLD_HEADBUTT
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 

@@ -12,7 +12,9 @@
 	db 25 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/magby/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	db NO_OVERWORLD_MOVES
+	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

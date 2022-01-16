@@ -12,7 +12,9 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/quagsire/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_SURF, OVERWORLD_STRENGTH, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL
+	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_GROUND ; egg groups
 

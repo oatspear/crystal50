@@ -12,7 +12,9 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/wobbuffet/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	db NO_OVERWORLD_MOVES
+	db NO_OVERWORLD_MOVES
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 

@@ -12,7 +12,9 @@
 	db 80 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/raikou/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_CUT, OVERWORLD_STRENGTH, OVERWORLD_FLASH
+	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

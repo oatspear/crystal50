@@ -12,7 +12,9 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/cloyster/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL
+	db NO_OVERWORLD_MOVES
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 

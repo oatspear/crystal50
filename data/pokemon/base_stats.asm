@@ -21,6 +21,22 @@ for n, (NUM_TM_HM_TUTOR + 7) / 8
 endr
 ENDM
 
+owmoves: MACRO
+; initialize bytes to 0
+_owm = 0
+; set bits of bytes
+rept _NARG
+	if DEF(\1)
+_owm = _owm | (1 << \1)
+	else
+		fail "\1 is not an overworld move"
+	endc
+	shift
+endr
+; output bytes
+	db _owm
+ENDM
+
 BaseData::
 	table_width BASE_DATA_SIZE, BaseData
 INCLUDE "data/pokemon/base_stats/bulbasaur.asm"

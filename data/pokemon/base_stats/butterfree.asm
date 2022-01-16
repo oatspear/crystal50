@@ -12,7 +12,9 @@
 	db 15 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/butterfree/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	owmoves OVERWORLD_FLASH
+	owmoves OVERWORLD_SWEET_SCENT
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 

@@ -301,3 +301,24 @@ NUM_BATTLE_ANIMS EQU const_value - 1
 	const BATTLEANIM_WOBBLE
 	const BATTLEANIM_SHAKE
 	const BATTLEANIM_HIT_CONFUSION
+
+NO_OVERWORLD_MOVES EQU 0
+
+; bit flag constants for overworld moves 1
+	const_def
+	const OVERWORLD_CUT
+	const OVERWORLD_FLY
+	const OVERWORLD_SURF
+	const OVERWORLD_STRENGTH
+	const OVERWORLD_FLASH
+	const OVERWORLD_WHIRLPOOL
+	const OVERWORLD_WATERFALL
+
+; bit flag constants for overworld moves 2
+	const_def
+	const OVERWORLD_HEADBUTT
+	const OVERWORLD_ROCK_SMASH
+	const OVERWORLD_TELEPORT
+	const OVERWORLD_DIG
+	const OVERWORLD_HEAL
+	const OVERWORLD_SWEET_SCENT

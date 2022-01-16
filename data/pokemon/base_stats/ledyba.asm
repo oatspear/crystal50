@@ -12,7 +12,9 @@
 	db 15 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/ledyba/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	db NO_OVERWORLD_MOVES
+	owmoves OVERWORLD_HEADBUTT, OVERWORLD_DIG
+	dw NULL ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 
