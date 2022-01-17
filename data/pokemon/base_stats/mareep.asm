@@ -13,7 +13,7 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/mareep/front.dimensions"
 	owmoves OVERWORLD_FLASH
-	owmoves, OVERWORLD_HEADBUTT
+	owmoves OVERWORLD_HEADBUTT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_GROUND ; egg groups

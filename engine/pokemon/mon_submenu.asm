@@ -122,6 +122,17 @@ GetMonSubmenuItems:
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip_moves
+
+	; ld a, [wCurPartySpecies]
+	; ld [wCurSpecies], a
+	; call GetBaseData
+	; ld hl, wCurBaseData + BASE_OVERWORLD1
+	; ld a, [hli]
+	; bit OVERWORLD_FLY, a
+	; jr z, .skip_moves
+	; ld a, MONMENUITEM_FLY
+	; call AddMonMenuItem
+
 	ld a, MON_MOVES
 	call GetPartyParamLocation
 	ld d, h
