@@ -62,7 +62,8 @@ CheckBadge:
 	text_end
 
 CheckPartyMove:
-; Check if a monster in your party has move d.
+; Old: Check if a monster in your party has move d.
+; New: Check if a monster in your party is able to learn TM/HM move d.
 
 	ld e, 0
 	xor a
@@ -80,17 +81,25 @@ CheckPartyMove:
 	cp EGG
 	jr z, .next
 
-	ld bc, PARTYMON_STRUCT_LENGTH
-	ld hl, wPartyMon1Moves
-	ld a, e
-	call AddNTimes
-	ld b, NUM_MOVES
-.check
-	ld a, [hli]
-	cp d
-	jr z, .yes
-	dec b
-	jr nz, .check
+;	ld bc, PARTYMON_STRUCT_LENGTH
+;	ld hl, wPartyMon1Moves
+;	ld a, e
+;	call AddNTimes
+;	ld b, NUM_MOVES
+;.check
+;	ld a, [hli]
+;	cp d
+;	jr z, .yes
+;	dec b
+;	jr nz, .check
+
+	ld [wCurPartySpecies], a
+	ld a, d
+	ld [wPutativeTMHMMove], a
+	predef CanLearnTMHMMove
+	ld a, c
+	and a
+	jr nz, .yes
 
 .next
 	inc e

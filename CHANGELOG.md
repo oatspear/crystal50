@@ -12,6 +12,7 @@
 - Updated prices for medicine items.
 - Drinks (`BERRY_JUICE`, `MOOMOO_MILK`, `FRESH_WATER`, `SODA_POP`, `LEMONADE`) are no longer usable in battle.
 - Updated Mart inventories.
+- Field moves that interact with objects (e.g., Cut, Strength) only require that a party Pokémon is capable of learning the move, instead of requiring the Pokémon to actually know the move.
 
 ## v0.2 (Set to Level 50)
 
