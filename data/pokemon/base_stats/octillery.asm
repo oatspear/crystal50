@@ -13,7 +13,6 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/octillery/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL
-	db NO_OVERWORLD_MOVES
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_2 ; egg groups

@@ -12,8 +12,7 @@
 	db 15 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/sentret/front.dimensions"
-	owmoves OVERWORLD_CUT
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_DIG
+	owmoves OVERWORLD_CUT, OVERWORLD_HEADBUTT, OVERWORLD_DIG
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups

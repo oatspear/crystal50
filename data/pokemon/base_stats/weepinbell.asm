@@ -13,7 +13,6 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/weepinbell/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLASH
-	db NO_OVERWORLD_MOVES
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_PLANT, EGG_PLANT ; egg groups

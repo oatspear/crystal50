@@ -2661,7 +2661,10 @@ wBaseUnknown1:: db
 wBaseEggSteps:: db
 wBaseUnknown2:: db
 wBasePicSize:: db
-wBaseUnusedFrontpic:: dw
+wBaseUnusedFrontpic::
+wBaseOverworldMoves::
+wBaseOverworldMoves1:: db
+wBaseOverworldMoves2:: db
 wBaseUnusedBackpic:: dw
 wBaseGrowthRate:: db
 wBaseEggGroups:: db

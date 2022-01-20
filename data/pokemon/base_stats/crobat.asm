@@ -13,7 +13,6 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/crobat/front.dimensions"
 	owmoves OVERWORLD_FLY
-	db NO_OVERWORLD_MOVES
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups

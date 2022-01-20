@@ -12,8 +12,7 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/rapidash/front.dimensions"
-	owmoves OVERWORLD_STRENGTH, OVERWORLD_FLASH
-	owmoves OVERWORLD_HEADBUTT
+	owmoves OVERWORLD_STRENGTH, OVERWORLD_FLASH, OVERWORLD_HEADBUTT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups

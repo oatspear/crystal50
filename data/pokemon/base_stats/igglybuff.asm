@@ -12,8 +12,7 @@
 	db 10 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/igglybuff/front.dimensions"
-	owmoves OVERWORLD_FLASH
-	db NO_OVERWORLD_MOVES
+	owmoves OVERWORLD_FLASH, OVERWORLD_HEADBUTT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups

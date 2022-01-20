@@ -12,8 +12,7 @@
 	db 80 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/moltres/front.dimensions"
-	owmoves OVERWORLD_FLY, OVERWORLD_FLASH
-	owmoves OVERWORLD_HEADBUTT
+	owmoves OVERWORLD_FLY, OVERWORLD_FLASH, OVERWORLD_HEADBUTT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups

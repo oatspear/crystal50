@@ -242,6 +242,41 @@ Print8BitNumLeftAlign::
 ; 	ld a, [hl]
 ; 	ret
 
+
+
+KnowsFieldMove::
+	; assumes species in wCurSpecies to use with GetBaseData
+	; assumes overworld move in wPutativeTMHMMove
+	; returns z if not, nz if true
+	call GetBaseData
+	push hl
+	ld hl, wBaseOverworldMoves - 1
+	ld a, [wPutativeTMHMMove]
+	dec a ; zero-based
+.loop
+	inc hl
+	sub 8
+	jr nc, .loop
+	; a in [-8, -1]
+	add 9
+	; a in [1, 8]
+
+; Shift left until we can mask the bit
+	push bc
+	ld c, a
+	ld a, 1
+.shift
+	dec c
+	jr z, .shifted
+	add a
+	jr .shift
+
+.shifted
+	and [hl]
+	pop bc
+	pop hl
+	ret
+
 GetBaseData::
 	push bc
 	push de

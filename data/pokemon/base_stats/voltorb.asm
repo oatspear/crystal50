@@ -13,7 +13,6 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/voltorb/front.dimensions"
 	owmoves OVERWORLD_FLASH
-	db NO_OVERWORLD_MOVES
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_MINERAL, EGG_MINERAL ; egg groups

@@ -12,8 +12,7 @@
 	db 40 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/dragonair/front.dimensions"
-	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL
-	owmoves OVERWORLD_HEADBUTT
+	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL, OVERWORLD_HEADBUTT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_DRAGON ; egg groups

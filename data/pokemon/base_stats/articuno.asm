@@ -12,8 +12,7 @@
 	db 80 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/articuno/front.dimensions"
-	owmoves OVERWORLD_FLY
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
+	owmoves OVERWORLD_FLY, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups

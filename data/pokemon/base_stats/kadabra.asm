@@ -12,8 +12,7 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kadabra/front.dimensions"
-	owmoves OVERWORLD_FLASH
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_TELEPORT
+	owmoves OVERWORLD_FLASH, OVERWORLD_HEADBUTT, OVERWORLD_TELEPORT
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_HUMANSHAPE, EGG_HUMANSHAPE ; egg groups

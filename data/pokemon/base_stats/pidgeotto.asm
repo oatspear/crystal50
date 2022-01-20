@@ -12,8 +12,7 @@
 	db 15 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/pidgeotto/front.dimensions"
-	db NO_OVERWORLD_MOVES
-	db NO_OVERWORLD_MOVES
+	owmoves OVERWORLD_FLY
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups

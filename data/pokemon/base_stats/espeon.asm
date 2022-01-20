@@ -12,8 +12,7 @@
 	db 35 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/espeon/front.dimensions"
-	owmoves OVERWORLD_FLASH
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_DIG
+	owmoves OVERWORLD_FLASH, OVERWORLD_HEADBUTT, OVERWORLD_DIG
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups

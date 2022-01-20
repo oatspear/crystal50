@@ -12,8 +12,7 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/farfetch_d/front.dimensions"
-	owmoves OVERWORLD_CUT
-	db NO_OVERWORLD_MOVES
+	owmoves OVERWORLD_CUT, OVERWORLD_FLY
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_FLYING, EGG_GROUND ; egg groups

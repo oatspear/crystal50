@@ -12,8 +12,7 @@
 	db 25 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/steelix/front.dimensions"
-	owmoves OVERWORLD_STRENGTH
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
+	owmoves OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_MINERAL, EGG_MINERAL ; egg groups

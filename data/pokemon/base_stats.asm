@@ -23,18 +23,22 @@ ENDM
 
 owmoves: MACRO
 ; initialize bytes to 0
-_owm = 0
+_owm0 = 0
+_owm1 = 0
 ; set bits of bytes
 rept _NARG
 	if DEF(\1)
-_owm = _owm | (1 << \1)
+n = (\1 - 1) / 8
+i = (\1 - 1) % 8
+_owm{d:n} = _owm{d:n} | (1 << i)
 	else
 		fail "\1 is not an overworld move"
 	endc
 	shift
 endr
 ; output bytes
-	db _owm
+	db _owm0
+	db _owm1
 ENDM
 
 BaseData::

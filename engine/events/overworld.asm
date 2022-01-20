@@ -61,9 +61,11 @@ CheckBadge:
 	text_far _BadgeRequiredText
 	text_end
 
+
 CheckPartyMove:
 ; Old: Check if a monster in your party has move d.
-; New: Check if a monster in your party is able to learn TM/HM move d.
+; New: Check if a monster in your party is able to learn overworld move d.
+; Note: to be used with OVERWORLD_* constants, not regular move constants.
 
 	ld e, 0
 	xor a
@@ -93,12 +95,19 @@ CheckPartyMove:
 ;	dec b
 ;	jr nz, .check
 
-	ld [wCurPartySpecies], a
+; for normal move constants, learnable by TM/HM
+;	ld [wCurSpecies], a
+;	ld a, d
+;	ld [wPutativeTMHMMove], a
+;	predef CanLearnTMHMMove
+;	ld a, c
+;	and a
+;	jr nz, .yes
+
+	ld [wCurSpecies], a
 	ld a, d
 	ld [wPutativeTMHMMove], a
-	predef CanLearnTMHMMove
-	ld a, c
-	and a
+	call KnowsFieldMove
 	jr nz, .yes
 
 .next
@@ -513,7 +522,7 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld d, SURF
+	ld d, OVERWORLD_SURF
 	call CheckPartyMove
 	jr c, .quit
 
@@ -712,7 +721,7 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-	ld d, WATERFALL
+	ld d, OVERWORLD_WATERFALL
 	call CheckPartyMove
 	jr c, .failed
 	ld de, ENGINE_RISINGBADGE
@@ -1064,7 +1073,7 @@ BouldersMayMoveText:
 	text_end
 
 TryStrengthOW:
-	ld d, STRENGTH
+	ld d, OVERWORLD_STRENGTH
 	call CheckPartyMove
 	jr c, .nope
 
@@ -1198,7 +1207,7 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
+	ld d, OVERWORLD_WHIRLPOOL
 	call CheckPartyMove
 	jr c, .failed
 	ld de, ENGINE_GLACIERBADGE
@@ -1293,7 +1302,7 @@ HeadbuttScript:
 	end
 
 TryHeadbuttOW::
-	ld d, HEADBUTT
+	ld d, OVERWORLD_HEADBUTT
 	call CheckPartyMove
 	jr c, .no
 
@@ -1417,7 +1426,7 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
-	ld d, ROCK_SMASH
+	ld d, OVERWORLD_ROCK_SMASH
 	call CheckPartyMove
 	jr nc, .yes
 ; no
@@ -1768,7 +1777,7 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-	ld d, CUT
+	ld d, OVERWORLD_CUT
 	call CheckPartyMove
 	jr c, .cant_cut
 

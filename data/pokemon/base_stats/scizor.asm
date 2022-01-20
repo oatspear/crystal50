@@ -12,8 +12,7 @@
 	db 25 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/scizor/front.dimensions"
-	owmoves OVERWORLD_CUT, OVERWORLD_STRENGTH
-	owmoves OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
+	owmoves OVERWORLD_CUT, OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
 	dw NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
