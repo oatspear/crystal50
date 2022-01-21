@@ -245,10 +245,10 @@ Print8BitNumLeftAlign::
 
 
 KnowsFieldMove::
-	; assumes species in wCurSpecies to use with GetBaseData
+	; assumes prior call to GetBaseData
 	; assumes overworld move in wPutativeTMHMMove
 	; returns z if not, nz if true
-	call GetBaseData
+	; call GetBaseData
 	push hl
 	ld hl, wBaseOverworldMoves - 1
 	ld a, [wPutativeTMHMMove]

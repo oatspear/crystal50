@@ -105,6 +105,7 @@ CheckPartyMove:
 ;	jr nz, .yes
 
 	ld [wCurSpecies], a
+	call GetBaseData
 	ld a, d
 	ld [wPutativeTMHMMove], a
 	call KnowsFieldMove
