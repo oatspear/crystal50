@@ -123,39 +123,28 @@ GetMonSubmenuItems:
 	and a
 	jr nz, .skip_moves
 
-	; ld a, [wCurPartySpecies]
-	; ld [wCurSpecies], a
-	; call GetBaseData
-	; ld hl, wCurBaseData + BASE_OVERWORLD1
-	; ld a, [hli]
-	; bit OVERWORLD_FLY, a
-	; jr z, .skip_moves
-	; ld a, MONMENUITEM_FLY
-	; call AddMonMenuItem
+	ld a, [wCurPartySpecies]
+	ld [wCurSpecies], a
+	call GetBaseData
 
-	ld a, MON_MOVES
-	call GetPartyParamLocation
-	ld d, h
-	ld e, l
-	ld c, NUM_MOVES
+	ld hl, MonMenuOptions
+	ld de, MonMenuOptionsHelper
+
 .loop
-	push bc
-	push de
-	ld a, [de]
-	and a
-	jr z, .next
-	push hl
-	call IsFieldMove
-	pop hl
-	jr nc, .next
+	ld a, [hli]
+	cp MONMENU_MENUOPTION
+	jr z, .skip_moves
+	ld a, [de] ; OVERWORLD_* move
+	ld [wPutativeTMHMMove], a
+	call KnowsFieldMove
+	jr z, .unable
+	ld a, [hl] ; MONMENUITEM_*
 	call AddMonMenuItem
-
-.next
-	pop de
+.unable
+	inc hl
+	inc hl
 	inc de
-	pop bc
-	dec c
-	jr nz, .loop
+	jr .loop
 
 .skip_moves
 	ld a, MONMENUITEM_STATS
@@ -199,26 +188,6 @@ GetMonSubmenuItems:
 	ld a, MONMENUITEM_CANCEL
 	call AddMonMenuItem
 	call TerminateMonSubmenu
-	ret
-
-IsFieldMove:
-	ld b, a
-	ld hl, MonMenuOptions
-.next
-	ld a, [hli]
-	cp -1
-	jr z, .nope
-	cp MONMENU_MENUOPTION
-	jr z, .nope
-	ld d, [hl]
-	inc hl
-	ld a, [hli]
-	cp b
-	jr nz, .next
-	ld a, d
-	scf
-
-.nope
 	ret
 
 ResetMonSubmenu:
