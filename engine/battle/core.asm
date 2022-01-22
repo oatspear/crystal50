@@ -3754,7 +3754,7 @@ endr
 	ret
 
 ResetEnemyStatLevels:
-	ld a, BASE_STAT_LEVEL
+	ld a, (BASE_STAT_LEVEL << 4)
 	ld b, NUM_LEVEL_STATS
 	ld hl, wEnemyStatLevels
 .loop
@@ -4074,7 +4074,7 @@ GetEnemyMonDVs:
 	jp GetPartyLocation
 
 ResetPlayerStatLevels:
-	ld a, BASE_STAT_LEVEL
+	ld a, (BASE_STAT_LEVEL << 4) ; top nybble
 	ld b, NUM_LEVEL_STATS
 	ld hl, wPlayerStatLevels
 .loop
@@ -6744,7 +6744,7 @@ ApplyStatLevelMultiplier:
 	jr nc, .okay
 	inc b
 .okay
-	ld a, [bc]
+	lda_stat_level [bc]
 	pop bc
 	ld b, a
 	push bc

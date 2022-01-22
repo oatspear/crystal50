@@ -12,7 +12,7 @@ BattleCommand_Growth:
 ; If no stats can be increased, don't.
 
 ; Attack
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr c, .raise
 
@@ -20,7 +20,7 @@ BattleCommand_Growth:
 	inc bc ; defense
 	inc bc ; speed
 	inc bc ; special attack
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr nc, .cantraise
 

@@ -12,14 +12,14 @@ BattleCommand_DragonDance:
 ; If no stats can be increased, don't.
 
 ; Attack
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr c, .raise
 
 ; Speed
   inc bc ; defense
   inc bc ; speed
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr nc, .cantraise
 

@@ -14,8 +14,8 @@ BattleCommand_PsychUp:
 .pointers_correct
 	ld b, NUM_LEVEL_STATS
 .loop
-	ld a, [hli]
-	ld [de], a
+	lda_stat_level [hli]
+	apply_stat_level [de], STAT_LEVEL_DEFAULT_DURATION
 	inc de
 	dec b
 	jr nz, .loop

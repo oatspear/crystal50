@@ -468,14 +468,14 @@ AI_Smart_LockOn:
 	jr nc, .discourage
 
 .skip_speed_check
-	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr nc, .maybe_encourage
+	lda_stat_level [wPlayerEvaLevel]
 	cp BASE_STAT_LEVEL + 1
+	jr nc, .maybe_encourage
+	cp BASE_STAT_LEVEL
 	jr nc, .do_nothing
 
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
+	lda_stat_level [wEnemyAccLevel]
+	cp BASE_STAT_LEVEL - 1
 	jr c, .maybe_encourage
 	cp BASE_STAT_LEVEL
 	jr c, .do_nothing
@@ -606,7 +606,7 @@ AI_Smart_DreamEater:
 
 AI_Smart_EvasionUp:
 ; Dismiss this move if enemy's evasion can't raise anymore.
-	ld a, [wEnemyEvaLevel]
+	lda_stat_level [wEnemyEvaLevel]
 	cp MAX_STAT_LEVEL
 	jp nc, AIDiscourageMove
 
@@ -673,9 +673,9 @@ AI_Smart_EvasionUp:
 	jr nz, .maybe_encourage
 
 ; Discourage this move if enemy's evasion level is higher than player's accuracy level.
-	ld a, [wEnemyEvaLevel]
+	lda_stat_level [wEnemyEvaLevel]
 	ld b, a
-	ld a, [wPlayerAccLevel]
+	lda_stat_level [wPlayerAccLevel]
 	cp b
 	jr c, .discourage
 
@@ -722,14 +722,14 @@ AI_Smart_AlwaysHit:
 
 ; 80% chance to greatly encourage this move if either...
 
-; ...enemy's accuracy level has been lowered three or more stages
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
+; ...enemy's accuracy level has been sharply lowered...
+	lda_stat_level [wEnemyAccLevel]
+	cp BASE_STAT_LEVEL - 1
 	jr c, .encourage
 
-; ...or player's evasion level has been raised three or more stages.
-	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
+; ...or player's evasion level has been sharply raised.
+	lda_stat_level [wPlayerEvaLevel]
+	cp BASE_STAT_LEVEL + 1
 	ret c
 
 .encourage
@@ -804,9 +804,9 @@ AI_Smart_AccuracyDown:
 	jr nz, .encourage
 
 ; Discourage this move if enemy's evasion level is higher than player's accuracy level.
-	ld a, [wEnemyEvaLevel]
+	lda_stat_level [wEnemyEvaLevel]
 	ld b, a
-	ld a, [wPlayerAccLevel]
+	lda_stat_level [wPlayerAccLevel]
 	cp b
 	jr c, .discourage
 
@@ -846,27 +846,27 @@ AI_Smart_AccuracyDown:
 	ret
 
 AI_Smart_ResetStats:
-; 85% chance to encourage this move if any of enemy's stat levels is lower than -2.
+; 85% chance to encourage this move if any of enemy's stat levels is lowered.
 	push hl
 	ld hl, wEnemyAtkLevel
 	ld c, NUM_LEVEL_STATS
 .enemystatsloop
 	dec c
 	jr z, .enemystatsdone
-	ld a, [hli]
-	cp BASE_STAT_LEVEL - 2
+	lda_stat_level [hli]
+	cp BASE_STAT_LEVEL
 	jr c, .encourage
 	jr .enemystatsloop
 
-; 85% chance to encourage this move if any of player's stat levels is higher than +2.
+; 85% chance to encourage this move if any of player's stat levels is raised.
 .enemystatsdone
 	ld hl, wPlayerAtkLevel
 	ld c, NUM_LEVEL_STATS
 .playerstatsloop
 	dec c
 	jr z, .discourage
-	ld a, [hli]
-	cp BASE_STAT_LEVEL + 3
+	lda_stat_level [hli]
+	cp BASE_STAT_LEVEL + 1
 	jr c, .playerstatsloop
 
 .encourage
@@ -1034,12 +1034,12 @@ AI_Smart_Growth:
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's (special) attack level is higher than +3.
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 4
+; Discourage this move if enemy's (special) attack level is sharply raised.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
-	ld a, [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 4
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
 
 ; 80% chance to encourage this move when it's sunny.
@@ -1063,17 +1063,17 @@ AI_Smart_CalmMind:
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's special stats level is higher than +3.
-	ld a, [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 4
+; Discourage this move if enemy's special stats level is higher than +1.
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
-	ld a, [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 4
+	lda_stat_level [wEnemySDefLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Special stats level is lower than +2.
-	cp BASE_STAT_LEVEL + 2
+; enemy's Special stats level is lower than +1.
+	cp BASE_STAT_LEVEL + 1
 	ret nc
 
 .encourage
@@ -1092,17 +1092,17 @@ AI_Smart_DragonDance:
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's attack or speed level is higher than +3.
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 4
+; Discourage this move if enemy's attack or speed level is sharply raised.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
-	ld a, [wEnemySpdLevel]
-	cp BASE_STAT_LEVEL + 4
+	lda_stat_level [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Attack level is lower than +2.
-	cp BASE_STAT_LEVEL + 2
+; enemy's Attack level is lower than +1.
+	cp BASE_STAT_LEVEL + 1
 	ret nc
 
 .encourage
@@ -1121,15 +1121,15 @@ AI_Smart_SpDefenseUp2:
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's special defense level is higher than +3.
-	ld a, [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 4
+; Discourage this move if enemy's special defense level is higher than +1.
+	lda_stat_level [wEnemySDefLevel]
+	cp BASE_STAT_LEVEL + 2
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Special Defense level is lower than +2,
+; enemy's Special Defense level is lower than +1,
 ;   and the player's Pokémon is Special-oriented.
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	ret nc
 
 	push hl
@@ -1843,10 +1843,10 @@ AI_Smart_Curse:
 	call AICheckEnemyHalfHP
 	jr nc, .encourage
 
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 4
-	jr nc, .encourage
+	lda_stat_level [wEnemyAtkLevel]
 	cp BASE_STAT_LEVEL + 2
+	jr nc, .encourage
+	cp BASE_STAT_LEVEL + 1
 	ret nc
 
 	ld a, [wBattleMonType1]
@@ -2177,10 +2177,10 @@ AI_Smart_Rollout:
 	call AICheckEnemyQuarterHP
 	jr nc, .maybe_discourage
 
-	ld a, [wEnemyAccLevel]
+	lda_stat_level [wEnemyAccLevel]
 	cp BASE_STAT_LEVEL
 	jr c, .maybe_discourage
-	ld a, [wPlayerEvaLevel]
+	lda_stat_level [wPlayerEvaLevel]
 	cp BASE_STAT_LEVEL + 1
 	jr nc, .maybe_discourage
 
@@ -2448,11 +2448,11 @@ AIGoodWeatherType:
 INCLUDE "data/battle/ai/sunny_day_moves.asm"
 
 AI_Smart_BellyDrum:
-; Dismiss this move if enemy's attack is higher than +2 or if enemy's HP is below 50%.
+; Dismiss this move if enemy's attack is raised or if enemy's HP is below 50%.
 ; Else, discourage this move if enemy's HP is not full.
 
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 3
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 
 	call AICheckEnemyMaxHP
@@ -2478,7 +2478,7 @@ AI_Smart_PsychUp:
 ; Calculate the sum of all enemy's stat level modifiers. Add 100 first to prevent underflow.
 ; Put the result in c. c will range between 58 and 142.
 .enemy_loop
-	ld a, [hli]
+	lda_stat_level [hli]
 	sub BASE_STAT_LEVEL
 	add c
 	ld c, a
@@ -2492,7 +2492,7 @@ AI_Smart_PsychUp:
 	ld d, 100
 
 .player_loop
-	ld a, [hli]
+	lda_stat_level [hli]
 	sub BASE_STAT_LEVEL
 	add d
 	ld d, a
@@ -2505,13 +2505,13 @@ AI_Smart_PsychUp:
 	pop hl
 	jr nc, .discourage
 
-; Else, 80% chance to encourage this move unless player's accuracy level is lower than -1...
-	ld a, [wPlayerAccLevel]
-	cp BASE_STAT_LEVEL - 1
+; Else, 80% chance to encourage this move unless player's accuracy level is lowered...
+	lda_stat_level [wPlayerAccLevel]
+	cp BASE_STAT_LEVEL
 	ret c
 
-; ...or enemy's evasion level is higher than +0.
-	ld a, [wEnemyEvaLevel]
+; ...or enemy's evasion level is raised.
+	lda_stat_level [wEnemyEvaLevel]
 	cp BASE_STAT_LEVEL + 1
 	ret nc
 

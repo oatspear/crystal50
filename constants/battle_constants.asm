@@ -8,8 +8,13 @@ LEVEL_EVO EQU 101 ; EVOLVE_LEVEL might have worked, but just to separate things
 NUM_MOVES EQU 4
 
 ; significant stat values
-BASE_STAT_LEVEL EQU 7
-MAX_STAT_LEVEL EQU 13
+MIN_STAT_LEVEL  EQU 1  ; -2
+BASE_STAT_LEVEL EQU 3  ; +0
+MAX_STAT_LEVEL  EQU 5  ; +2
+
+; duration of stat level changes, in turns (including application turn)
+; e.g. 3 turns = 1 turn (stat boosting move) + 2 turns (to use the boost)
+STAT_LEVEL_DEFAULT_DURATION EQU 3
 
 ; turns that sleep lasts
 REST_SLEEP_TURNS EQU 2

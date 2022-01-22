@@ -17,3 +17,5 @@ INCLUDE "macros/scripts/battle_anims.asm"
 INCLUDE "macros/scripts/gfx_anims.asm"
 
 INCLUDE "macros/legacy.asm"
+
+INCLUDE "macros/battle.asm"

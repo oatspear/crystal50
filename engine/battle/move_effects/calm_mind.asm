@@ -15,13 +15,13 @@ BattleCommand_CalmMind:
   inc bc ; defense
   inc bc ; speed
   inc bc ; special attack
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr c, .raise
 
 ; Special Defense
   inc bc ; special defense
-	ld a, [bc]
+	lda_stat_level [bc]
 	cp MAX_STAT_LEVEL
 	jr nc, .cantraise
 

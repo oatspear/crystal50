@@ -458,6 +458,7 @@ wEnemySpAtk::   dw
 wEnemySpDef::   dw
 	ds 1
 
+; divided into high/low nybbles (see "macros/battle.asm")
 wPlayerStatLevels::
 wPlayerAtkLevel::  db
 wPlayerDefLevel::  db
@@ -468,6 +469,7 @@ wPlayerAccLevel::  db
 wPlayerEvaLevel::  db
 	ds 1
 
+; divided into high/low nybbles (see "macros/battle.asm")
 wEnemyStatLevels::
 wEnemyAtkLevel::  db
 wEnemyDefLevel::  db

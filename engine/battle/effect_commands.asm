@@ -1850,17 +1850,17 @@ BattleCommand_CheckHit:
 
 	; load the user's accuracy into b and the opponent's evasion into c.
 	ld hl, wPlayerMoveStruct + MOVE_ACC
-	ld a, [wPlayerAccLevel]
+	lda_stat_level [wPlayerAccLevel]
 	ld b, a
-	ld a, [wEnemyEvaLevel]
+	lda_stat_level [wEnemyEvaLevel]
 	ld c, a
 
 	jr z, .got_acc_eva
 
 	ld hl, wEnemyMoveStruct + MOVE_ACC
-	ld a, [wEnemyAccLevel]
+	lda_stat_level [wEnemyAccLevel]
 	ld b, a
-	ld a, [wPlayerEvaLevel]
+	lda_stat_level [wPlayerEvaLevel]
 	ld c, a
 
 .got_acc_eva
@@ -2747,28 +2747,28 @@ CheckDamageStatsCritical:
 	ld a, [wPlayerMoveStructType]
 	cp SPECIAL
 ; special
-	ld a, [wPlayerSAtkLevel]
+	lda_stat_level [wPlayerSAtkLevel]
 	ld b, a
-	ld a, [wEnemySDefLevel]
+	lda_stat_level [wEnemySDefLevel]
 	jr nc, .end
 ; physical
-	ld a, [wPlayerAtkLevel]
+	lda_stat_level [wPlayerAtkLevel]
 	ld b, a
-	ld a, [wEnemyDefLevel]
+	lda_stat_level [wEnemyDefLevel]
 	jr .end
 
 .enemy
 	ld a, [wEnemyMoveStructType]
 	cp SPECIAL
 ; special
-	ld a, [wEnemySAtkLevel]
+	lda_stat_level [wEnemySAtkLevel]
 	ld b, a
-	ld a, [wPlayerSDefLevel]
+	lda_stat_level [wPlayerSDefLevel]
 	jr nc, .end
 ; physical
-	ld a, [wEnemyAtkLevel]
+	lda_stat_level [wEnemyAtkLevel]
 	ld b, a
-	ld a, [wPlayerDefLevel]
+	lda_stat_level [wPlayerDefLevel]
 .end
 	cp b
 	pop bc
@@ -4163,72 +4163,72 @@ BattleCommand_ParalyzeTarget:
 
 BattleCommand_AttackUp:
 ; attackup
-	ld b, ATTACK
+	ld a, ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_DefenseUp:
 ; defenseup
-	ld b, DEFENSE
+	ld a, DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_SpeedUp:
 ; speedup
-	ld b, SPEED
+	ld a, SPEED
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialAttackUp:
 ; specialattackup
-	ld b, SP_ATTACK
+	ld a, SP_ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialDefenseUp:
 ; specialdefenseup
-	ld b, SP_DEFENSE
+	ld a, SP_DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_AccuracyUp:
 ; accuracyup
-	ld b, ACCURACY
+	ld a, ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp:
 ; evasionup
-	ld b, EVASION
+	ld a, EVASION
 	jr BattleCommand_StatUp
 
 BattleCommand_AttackUp2:
 ; attackup2
-	ld b, $10 | ATTACK
+	ld a, $10 | ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_DefenseUp2:
 ; defenseup2
-	ld b, $10 | DEFENSE
+	ld a, $10 | DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_SpeedUp2:
 ; speedup2
-	ld b, $10 | SPEED
+	ld a, $10 | SPEED
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialAttackUp2:
 ; specialattackup2
-	ld b, $10 | SP_ATTACK
+	ld a, $10 | SP_ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialDefenseUp2:
 ; specialdefenseup2
-	ld b, $10 | SP_DEFENSE
+	ld a, $10 | SP_DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_AccuracyUp2:
 ; accuracyup2
-	ld b, $10 | ACCURACY
+	ld a, $10 | ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp2:
 ; evasionup2
-	ld b, $10 | EVASION
+	ld a, $10 | EVASION
 	jr BattleCommand_StatUp
 
 BattleCommand_StatUp:
@@ -4240,7 +4240,6 @@ BattleCommand_StatUp:
 	jp MinimizeDropSub
 
 RaiseStat:
-	ld a, b
 	ld [wLoweredStat], a
 	ld hl, wPlayerStatLevels
 	ldh a, [hBattleTurn]
@@ -4254,26 +4253,31 @@ RaiseStat:
 	ld a, [wEffectFailed]
 	and a
 	jp nz, .stat_raise_failed
+
+; fetch the current stat level
 	ld a, [wLoweredStat]
 	and $f
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld b, [hl]
+	lda_stat_level [hl]
+	ld b, a
+
 	inc b
-	ld a, $d
+	ld a, MAX_STAT_LEVEL
 	cp b
-	jp c, .cant_raise_stat
+	jr c, .cant_raise_stat
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
 	inc b
-	ld a, $d
+	ld a, MAX_STAT_LEVEL
 	cp b
 	jr nc, .got_num_stages
 	ld b, a
+
 .got_num_stages
-	ld [hl], b
+	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
 	push hl
 	ld a, c
 	cp $5
@@ -4285,6 +4289,7 @@ RaiseStat:
 	jr z, .got_stats_pointer
 	ld hl, wEnemyMonStats + 1
 	ld de, wEnemyStats
+
 .got_stats_pointer
 	push bc
 	sla c
@@ -4452,7 +4457,8 @@ BattleCommand_StatDown:
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld b, [hl]
+	lda_stat_level [hl]
+	ld b, a
 	dec b
 	jp z, .CantLower
 
@@ -4480,7 +4486,7 @@ BattleCommand_StatDown:
 	jr nz, .Failed
 
 ; Accuracy/Evasion reduction don't involve stats.
-	ld [hl], b
+	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
 	ld a, c
 	cp ACCURACY
 	jr nc, .Hit
@@ -4617,18 +4623,12 @@ TryLowerStat:
 	sla c
 	ld b, 0
 	add hl, bc
-	; add de, c
-	ld a, c
-	add e
-	ld e, a
-	jr nc, .no_carry
-	inc d
-.no_carry
+	add de, bc
 	pop bc
 
 ; The lowest possible stat is 1.
 	ld a, [hld]
-	sub 1
+	dec a
 	jr nz, .not_min
 	ld a, [hl]
 	and a
@@ -4761,7 +4761,8 @@ LowerStat:
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld b, [hl]
+	lda_stat_level [hl]
+	ld b, a
 	dec b
 	jr z, .cant_lower_anymore
 
@@ -4773,7 +4774,7 @@ LowerStat:
 	inc b
 
 .got_num_stages
-	ld [hl], b
+	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
 	ld a, c
 	cp 5
 	jr nc, .accuracy_evasion
@@ -4916,7 +4917,7 @@ CalcEnemyStats:
 CalcBattleStats:
 .loop
 	push af
-	ld a, [hli]
+	lda_stat_level [hli]
 	push hl
 	push bc
 
@@ -6191,7 +6192,7 @@ INCLUDE "engine/battle/move_effects/conversion.asm"
 BattleCommand_ResetStats:
 ; resetstats
 
-	ld a, BASE_STAT_LEVEL
+	ld a, (BASE_STAT_LEVEL << 4) ; top nybble
 	ld hl, wPlayerStatLevels
 	call .Fill
 	ld hl, wEnemyStatLevels

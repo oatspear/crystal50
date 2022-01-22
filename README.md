@@ -13,7 +13,7 @@
 ### Levels
 
 - All Pokémon will play with lv. 50 stats
-- Pokémon levels will go from 1 to 15 (1 nibble).
+- Pokémon levels will go from 1 to 15 (1 nybble).
 
 ### Evolutions
 

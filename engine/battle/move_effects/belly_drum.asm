@@ -25,6 +25,16 @@ BattleCommand_BellyDrum:
 	dec a
 	jr nz, .max_attack_loop
 
+	ld hl, wPlayerAtkLevel
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .go
+	ld hl, wEnemyAtkLevel
+
+.go
+	lda_stat_level [hl]
+	apply_stat_level [hl], $8
+
 	ld hl, BellyDrumText
 	jp StdBattleTextbox
 
