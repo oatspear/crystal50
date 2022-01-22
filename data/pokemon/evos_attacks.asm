@@ -271,8 +271,7 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	; db 1, TACKLE
-	db 1, SPLASH
+	db 1, TACKLE
 	db 5, SAND_ATTACK
 	db 9, GUST
 	db 13, QUICK_ATTACK
@@ -3182,8 +3181,6 @@ TotodileEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, SWORDS_DANCE
-	db 1, CURSE
 	db 6, WATER_GUN
 	db 8, MUD_SLAP
 	db 13, BITE
