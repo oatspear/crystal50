@@ -15,6 +15,10 @@ lda_stat_turns: MACRO
   and $f ; get the bottom nybble
 ENDM
 
+dec_stat_turns: MACRO
+  dec \1
+ENDM
+
 ; \1: destination
 ; \2: source of stat level (optional, defaults to a)
 ; \3: number of turns
@@ -28,4 +32,8 @@ else
   or \2
 endc
   ld \1, a
+ENDM
+
+reset_stat_level: MACRO
+  ld \1, (BASE_STAT_LEVEL << 4)
 ENDM

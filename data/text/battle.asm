@@ -130,6 +130,14 @@ BattleText_MonsReflectFaded:
 	line "REFLECT faded!"
 	autodone
 
+BattleText_MonsStatLevelReset:
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	scroll "was reset."
+	autodone
+
 BattleText_RainContinuesToFall:
 	text "Rain continues to"
 	line "fall."

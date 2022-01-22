@@ -229,6 +229,8 @@ BattleTurn:
 	ld a, [wBattleEnded]
 	and a
 	jr nz, .quit
+
+	call HandleStatLevelTimers
 	jp .loop
 
 .quit
@@ -1717,6 +1719,57 @@ HandleScreens:
 	res SCREENS_REFLECT, [hl]
 	ld hl, BattleText_MonsReflectFaded
 	jp StdBattleTextbox
+
+HandleStatLevelTimers:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .Both
+	call .CheckPlayer
+	jr .CheckEnemy
+
+.Both:
+	call .CheckEnemy
+
+.CheckPlayer:
+	call SetPlayerTurn
+	ld hl, wPlayerStatLevels
+	jr .TickStatLevels
+
+.CheckEnemy:
+	call SetEnemyTurn
+	ld hl, wEnemyStatLevels
+
+.TickStatLevels:
+	ld b, NUM_LEVEL_STATS
+.next
+	lda_stat_level [hl]
+	cp BASE_STAT_LEVEL
+	jr z, .done_reset
+	lda_stat_turns [hl]
+	dec a
+	jr z, .reset
+	dec_stat_turns [hl]
+	jr .done_reset
+
+.reset
+; reset stat level if the timer reaches zero
+	reset_stat_level [hl]
+	push hl
+	push bc
+	ld a, NUM_LEVEL_STATS + 1
+	sub b
+	ld b, a
+	farcall GetStatName
+	ld hl, BattleText_MonsStatLevelReset
+	call StdBattleTextbox
+	pop bc
+	pop hl
+
+.done_reset
+	inc hl
+	dec b
+	jr nz, .next
+	ret
 
 HandleWeather:
 	ld a, [wBattleWeather]

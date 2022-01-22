@@ -1845,9 +1845,6 @@ BattleCommand_CheckHit:
 	ret
 
 .StatModifiers:
-	ldh a, [hBattleTurn]
-	and a
-
 	; load the user's accuracy into b and the opponent's evasion into c.
 	ld hl, wPlayerMoveStruct + MOVE_ACC
 	lda_stat_level [wPlayerAccLevel]
@@ -1855,6 +1852,8 @@ BattleCommand_CheckHit:
 	lda_stat_level [wEnemyEvaLevel]
 	ld c, a
 
+	ldh a, [hBattleTurn]
+	and a
 	jr z, .got_acc_eva
 
 	ld hl, wEnemyMoveStruct + MOVE_ACC
@@ -1875,7 +1874,7 @@ BattleCommand_CheckHit:
 	; ret nz
 
 ; .skip_foresight_check
-	; subtract evasion from 14
+	; subtract evasion from 6
 	ld a, MAX_STAT_LEVEL + 1
 	sub c
 	ld c, a
@@ -2744,12 +2743,12 @@ CheckDamageStatsCritical:
 	ldh a, [hBattleTurn]
 	and a
 	jr nz, .enemy
-	ld a, [wPlayerMoveStructType]
-	cp SPECIAL
 ; special
 	lda_stat_level [wPlayerSAtkLevel]
 	ld b, a
 	lda_stat_level [wEnemySDefLevel]
+	ld a, [wPlayerMoveStructType]
+	cp SPECIAL
 	jr nc, .end
 ; physical
 	lda_stat_level [wPlayerAtkLevel]
@@ -2758,17 +2757,18 @@ CheckDamageStatsCritical:
 	jr .end
 
 .enemy
-	ld a, [wEnemyMoveStructType]
-	cp SPECIAL
 ; special
 	lda_stat_level [wEnemySAtkLevel]
 	ld b, a
 	lda_stat_level [wPlayerSDefLevel]
+	ld a, [wEnemyMoveStructType]
+	cp SPECIAL
 	jr nc, .end
 ; physical
 	lda_stat_level [wEnemyAtkLevel]
 	ld b, a
 	lda_stat_level [wPlayerDefLevel]
+
 .end
 	cp b
 	pop bc
@@ -4623,7 +4623,13 @@ TryLowerStat:
 	sla c
 	ld b, 0
 	add hl, bc
-	add de, bc
+	; add de, c
+	ld a, c
+	add e
+	ld e, a
+	jr nc, .no_carry
+	inc d
+.no_carry
 	pop bc
 
 ; The lowest possible stat is 1.
