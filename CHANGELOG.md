@@ -12,7 +12,9 @@
 - Updated prices for medicine items.
 - Drinks (`BERRY_JUICE`, `MOOMOO_MILK`, `FRESH_WATER`, `SODA_POP`, `LEMONADE`) are no longer usable in battle.
 - Updated Mart inventories.
-- Field moves that interact with objects (e.g., Cut, Strength) only require that a party Pokémon is capable of learning the move, instead of requiring the Pokémon to actually know the move.
+- Field moves are available by species, regardless of the moves each individual Pokémon knows.
+- Field moves that interact with objects or the world (e.g., Cut, Surf, Strength) are removed from the party Pokémon menu.
+- The availability of field moves is not necessarily tied to the Pokémon being able to use the move in combat (e.g., Pidgey can use Fly as an attacking move, but is too small to carry a person for quick travel).
 
 ## v0.2 (Set to Level 50)
 
