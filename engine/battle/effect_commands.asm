@@ -4263,6 +4263,8 @@ RaiseStat:
 	lda_stat_level [hl]
 	ld b, a
 
+	ld e, STAT_LEVEL_DEFAULT_DURATION
+; raise once
 	inc b
 	ld a, MAX_STAT_LEVEL
 	cp b
@@ -4270,6 +4272,10 @@ RaiseStat:
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
+; raise sharply (adds a bonus to the timer)
+	swap a
+	add e
+	ld e, a
 	inc b
 	ld a, MAX_STAT_LEVEL
 	cp b
@@ -4277,7 +4283,7 @@ RaiseStat:
 	ld b, a
 
 .got_num_stages
-	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
+	apply_stat_level [hl], b, e
 	push hl
 	ld a, c
 	cp $5
@@ -4441,9 +4447,25 @@ BattleCommand_StatDown:
 
 	ld [wLoweredStat], a
 
+; Check preconditions.
 	call CheckMist
 	jp nz, .Mist
 
+	call CheckSubstituteOpp
+	jr nz, .Failed
+
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .Failed
+
+	ld a, [wEffectFailed]
+	and a
+	jr nz, .Failed
+
+	call CheckHiddenOpponent
+	jr nz, .Failed
+
+; Load stat levels.
 	ld hl, wEnemyStatLevels
 	ldh a, [hBattleTurn]
 	and a
@@ -4459,34 +4481,26 @@ BattleCommand_StatDown:
 	add hl, bc
 	lda_stat_level [hl]
 	ld b, a
+
+	ld e, STAT_LEVEL_DEFAULT_DURATION
+; Lower the stat once.
 	dec b
 	jp z, .CantLower
 
-; Sharply lower the stat if applicable.
+; Sharply lower the stat if applicable (and apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .GotAmountToLower
+	swap a
+	add STAT_LEVEL_DEFAULT_DURATION
+	ld e, a
 	dec b
 	jr nz, .GotAmountToLower
 	inc b
 
 .GotAmountToLower:
-	call CheckSubstituteOpp
-	jr nz, .Failed
-
-	ld a, [wAttackMissed]
-	and a
-	jr nz, .Failed
-
-	ld a, [wEffectFailed]
-	and a
-	jr nz, .Failed
-
-	call CheckHiddenOpponent
-	jr nz, .Failed
-
 ; Accuracy/Evasion reduction don't involve stats.
-	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
+	apply_stat_level [hl], b, e
 	ld a, c
 	cp ACCURACY
 	jr nc, .Hit
@@ -4769,20 +4783,27 @@ LowerStat:
 	add hl, bc
 	lda_stat_level [hl]
 	ld b, a
+
+	ld e, STAT_LEVEL_DEFAULT_DURATION
+; Lower the stat once.
 	dec b
 	jr z, .cant_lower_anymore
 
+; Sharply lower the stat if applicable (and apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
+	swap a
+	add STAT_LEVEL_DEFAULT_DURATION
+	ld e, a
 	dec b
 	jr nz, .got_num_stages
 	inc b
 
 .got_num_stages
-	apply_stat_level [hl], b, STAT_LEVEL_DEFAULT_DURATION
+	apply_stat_level [hl], b, e
 	ld a, c
-	cp 5
+	cp ACCURACY
 	jr nc, .accuracy_evasion
 
 	push hl
