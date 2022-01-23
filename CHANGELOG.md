@@ -16,8 +16,9 @@
 - Field moves that interact with objects or the world (e.g., Cut, Surf, Strength) are removed from the party Pokémon menu.
 - The availability of field moves is not necessarily tied to the Pokémon being able to use the move in combat (e.g., Pidgey can use Fly as an attacking move, but is too small to carry a person for quick travel).
 - Stat levels now have a duration, after which they expire. The duration defaults to 3 turns in most cases, including the turn of application. Moves that sharply change stats (e.g., Swords Dance), have an increased effect duration of 4 turns.
-- Stat levels now have a range of -2 to 2, but each stage is roughly equivalent to its double (-4, -2, 0, 2, 4) in the standard system.
+- Stat levels now have a range of -2 to 2. The effects are roughly equivalent to -3, -1, 0, +1 and +3 stages in the standard system.
 - Due to the changes to how stat levels work, Belly Drum now maximizes Attack for a duration of 8 turns.
+- Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
 
 ## v0.2 (Set to Level 50)
 
