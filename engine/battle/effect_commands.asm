@@ -1218,6 +1218,8 @@ BattleCommand_Stab:
 	call GetBattleVar
 	cp STRUGGLE
 	ret z
+	cp GLARE
+	ret z
 
 	ld hl, wBattleMonType1
 	ld a, [hli]
@@ -1323,10 +1325,6 @@ BattleCommand_Stab:
 	jr .SkipType
 
 .GotMatchup:
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-	cp GLARE
-	jr z, .NotImmune
 	push hl
 	push bc
 	inc hl
