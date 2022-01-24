@@ -1547,26 +1547,26 @@ JohtoGrassWildMons:
 	; morn
 	db 13, EKANS
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 16, MAREEP
+	db 16, FLAAFFY
+	db 16, FEAROW
 	db 15, ARBOK
-	db 16, FEAROW
-	db 16, FEAROW
+	db 15, RATTATA
 	; day
 	db 13, EKANS
+	db 16, MAREEP
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 16, FEAROW
+	db 16, FLAAFFY
 	db 15, ARBOK
-	db 16, FEAROW
-	db 16, FEAROW
+	db 15, ARBOK
 	; nite
 	db 13, RATTATA
-	db 14, ZUBAT
 	db 15, RATICATE
+	db 14, ZUBAT
+	db 16, GOLBAT
 	db 16, GOLBAT
 	db 15, MARILL
-	db 16, GOLBAT
 	db 16, GOLBAT
 	end_grass_wildmons
 
