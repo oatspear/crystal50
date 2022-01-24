@@ -8,6 +8,7 @@
 
 ### Removed
 - Moves: Frustration, Magnitude, Twineedle, Bubble, Psywave, Bone Club, Spider Web, Razor Wind, Meditate, Sharpen, Barrier, Feint Attack, Pursuit, Karate Chop, Spike Cannon, Low Kick, Sonic Boom, Constrict, Return, Dragon Rage, Jump Kick, Rolling Kick, Rage, Barrage, Dizzy Punch, Mirror Move, Bide, Foresight, Nightmare, Comet Punch, Clamp, Egg Bomb, Double Slap.
+- Badge boosts to damage-dealing moves of the same type as the badge.
 
 ### Changed
 - Replaced Bind with Wrap to free a move slot.
