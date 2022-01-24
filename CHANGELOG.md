@@ -2,6 +2,9 @@
 
 ## v0.3 (Custom Changes)
 
+### Added
+- Restored wild encounters: Mareep, Flaaffy, Girafarig.
+
 ### Removed
 - Badge stat boosts.
 
