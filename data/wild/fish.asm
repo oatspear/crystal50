@@ -71,18 +71,18 @@ FishGroups:
 
 .Pond_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, MAGIKARP,   15
 	db 100 percent,     POLIWAG,    10
 .Pond_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     POLIWAG,    20
-	db  90 percent + 1, POLIWAG,    20
+	db  90 percent + 1, POLIWAG,    25
 	db 100 percent,     time_group 6
 .Pond_Super:
 	db  40 percent,     POLIWAG,    40
-	db  70 percent,     time_group 7
+	db  70 percent,     REMORAID,   20
 	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     POLIWAG,    40
+	db 100 percent,     REMORAID,   30
 
 .Dratini_Old:
 	db  70 percent + 1, MAGIKARP,   10
