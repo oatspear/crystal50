@@ -10,7 +10,7 @@ RuinsOfAlphKabutoItemRoom_MapScripts:
 	def_callbacks
 
 RuinsOfAlphKabutoItemRoomOranBerry:
-	itemball ORAN_BERRY
+	itemball DOME_FOSSIL
 
 RuinsOfAlphKabutoItemRoomPechaBerry:
 	itemball PECHA_BERRY

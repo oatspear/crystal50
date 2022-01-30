@@ -16,7 +16,7 @@ RuinsOfAlphAerodactylItemRoomMoonStone:
 	itemball MOON_STONE
 
 RuinsOfAlphAerodactylItemRoomHealPowder:
-	itemball HEAL_POWDER
+	itemball OLD_AMBER
 
 RuinsOfAlphAerodactylItemRoomEnergyRoot:
 	itemball ENERGY_ROOT
