@@ -76,8 +76,6 @@ RuinsOfAlphResearchCenterScientist3Script:
 RuinsOfAlphResearchCenterScientist1Script:
 	faceplayer
 	opentext
-	readvar VAR_UNOWNCOUNT
-	ifequal NUM_UNOWN, .GotAllUnown
 	checkflag ENGINE_UNOWN_DEX
 	iftrue .GotUnownDex
 	checkevent EVENT_MADE_UNOWN_APPEAR_IN_RUINS
@@ -94,6 +92,14 @@ RuinsOfAlphResearchCenterScientist1Script:
 	end
 
 .GotUnownDex:
+	checkitem HELIX_FOSSIL
+	iftrue .BroughtFossil
+	checkitem DOME_FOSSIL
+	iftrue .BroughtFossil
+	checkitem OLD_AMBER
+	iftrue .BroughtFossil
+	readvar VAR_UNOWNCOUNT
+	ifequal NUM_UNOWN, .GotAllUnown
 	writetext RuinsOfAlphResearchCenterScientist1Text_GotUnownDex
 	waitbutton
 	closetext
@@ -105,6 +111,94 @@ RuinsOfAlphResearchCenterScientist1Script:
 	closetext
 	clearevent EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
 	end
+
+.BroughtFossil:
+	writetext RuinsOfAlphResearchCenterScientist1Text_BroughtFossil
+	yesorno
+	iffalse .Refused
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .NoRoom
+	scall .ExcitedToSee
+	special BillsGrandfather
+	iffalse .Refused
+	ifnotequal UNOWN, .WrongPokemon
+	scall .ReviveFossil
+	end
+
+.Refused:
+	writetext RuinsOfAlphResearchCenterScientist1Text_Refused
+	waitbutton
+	closetext
+	end
+
+.NoRoom:
+	writetext RuinsOfAlphResearchCenterScientist1Text_NoRoom
+	waitbutton
+	closetext
+	end
+
+.ExcitedToSee:
+	writetext RuinsOfAlphResearchCenterScientist1Text_ExcitedToSee
+	promptbutton
+	end
+
+.WrongPokemon:
+	writetext RuinsOfAlphResearchCenterScientist1Text_WrongPokemon
+	waitbutton
+	closetext
+	end
+
+.ReviveFossil:
+	closetext
+	special FadeOutMusic
+	pause 20
+	cry UNOWN
+	pause 10
+	showemote EMOTE_SHOCK, RUINSOFALPHRESEARCHCENTER_SCIENTIST1, 30
+	special FadeOutPalettes
+	pause 10
+	special FadeInPalettes
+	pause 10
+	special RestartMapMusic
+	opentext
+	writetext RuinsOfAlphResearchCenterScientist1Text_Revived
+	promptbutton
+	waitsfx
+	checkitem HELIX_FOSSIL
+	iftrue .GiveOmanyte
+	checkitem DOME_FOSSIL
+	iftrue .GiveKabuto
+	; checkitem OLD_AMBER
+	; iftrue .GiveAerodactyl
+; .GiveAerodactyl:
+	writetext ReceivedAerodactylText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke AERODACTYL, 10
+	takeitem OLD_AMBER
+	; fallthrough
+
+.GotFossilMon:
+	writetext RuinsOfAlphResearchCenterScientist1Text_GotFossilMon
+	waitbutton
+	closetext
+	end
+
+.GiveOmanyte:
+	writetext ReceivedOmanyteText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke OMANYTE, 10
+	takeitem HELIX_FOSSIL
+	sjump .GotFossilMon
+
+.GiveKabuto:
+	writetext ReceivedKabutoText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke KABUTO, 10
+	takeitem DOME_FOSSIL
+	sjump .GotFossilMon
 
 RuinsOfAlphResearchCenterScientist2Script:
 	faceplayer
@@ -166,9 +260,6 @@ RuinsOfAlphResearchCenterPrinter:
 	special UnownPrinter
 	closetext
 	end
-
-RuinsOfAlphResearchCenterPhoto: ; unreferenced
-	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText
 
 RuinsOfAlphResearchCenterBookshelf:
 	jumptext RuinsOfAlphResearchCenterAcademicBooksText
@@ -275,6 +366,67 @@ RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
 	line "#MON."
 	done
 
+RuinsOfAlphResearchCenterScientist1Text_BroughtFossil:
+	text "Wow! You found a"
+	line "fossil of a pre-"
+	cont "historic #MON?"
+
+	para "I think that I can"
+	line "revive it, but I"
+	cont "need UNOWN's"
+	cont "HIDDEN POWER to"
+	cont "power the device."
+
+	para "Do you want to"
+	line "give it a try?"
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_Refused:
+	text "I see. Let me know"
+	line "if you change your"
+	cont "mind, will you?"
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_NoRoom:
+	text "But your party is"
+	line "already full…"
+
+	para "Come back when you"
+	line "have a free slot."
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_ExcitedToSee:
+	text "I am so excited to"
+	line "see what happens!"
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_WrongPokemon:
+	text "Hm?"
+
+	para "That does not"
+	line "look like an"
+	cont "UNOWN…"
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_Revived:
+	text "Did you see that?"
+	line "Amazing!"
+
+	para "I have to write a"
+	line "report on this!"
+
+	para "Anyway, here is"
+	line "your new #MON."
+	cont "Take good care"
+	cont "of it!"
+	done
+
+RuinsOfAlphResearchCenterScientist1Text_GotFossilMon:
+	text "Our research made"
+	line "great progress"
+	cont "today! Thanks!"
+	done
+
 RuinsOfAlphResearchCenterScientist2Text:
 	text "There are odd pat-"
 	line "terns drawn on the"
@@ -289,9 +441,9 @@ RuinsOfAlphResearchCenterScientist2Text:
 	done
 
 RuinsOfAlphResearchCenterScientist2Text_UnownAppeared:
-	text "The strange #-"
-	line "MON you saw in the"
-	cont "RUINS?"
+	text "The strange"
+	line "#MON you saw"
+	cont "in the RUINS?"
 
 	para "They appear to be"
 	line "very much like the"
@@ -304,34 +456,6 @@ RuinsOfAlphResearchCenterScientist2Text_UnownAppeared:
 	para "That must mean"
 	line "there are many"
 	cont "kinds of them…"
-	done
-
-RuinsOfAlphResearchCenterUnusedText1: ; unreferenced
-	text "We think something"
-	line "caused the cryptic"
-
-	para "patterns to appear"
-	line "in the RUINS."
-
-	para "We've focused our"
-	line "studies on that."
-	done
-
-RuinsOfAlphResearchCenterUnusedText2: ; unreferenced
-	text "According to my"
-	line "research…"
-
-	para "Those mysterious"
-	line "patterns appeared"
-
-	para "when the #COM"
-	line "CENTER was built."
-
-	para "It must mean that"
-	line "radio waves have"
-
-	para "some sort of a"
-	line "link…"
 	done
 
 RuinsOfAlphResearchCenterScientist2Text_GotAllUnown:
@@ -370,14 +494,6 @@ RuinsOfAlphResearchCenterUnownPrinterText:
 	line "printed out."
 	done
 
-RuinsOfAlphResearchCenterProfSilktreePhotoText:
-	text "It's a photo of"
-	line "the RESEARCH"
-
-	para "CENTER'S founder,"
-	line "PROF.SILKTREE."
-	done
-
 RuinsOfAlphResearchCenterAcademicBooksText:
 	text "There are many"
 	line "academic books."
@@ -385,6 +501,21 @@ RuinsOfAlphResearchCenterAcademicBooksText:
 	para "Ancient Ruins…"
 	line "Mysteries of the"
 	cont "Ancients…"
+	done
+
+ReceivedOmanyteText:
+	text "<PLAYER> received"
+	line "OMANYTE!"
+	done
+
+ReceivedKabutoText:
+	text "<PLAYER> received"
+	line "KABUTO!"
+	done
+
+ReceivedAerodactylText:
+	text "<PLAYER> received"
+	line "AERODACTYL!"
 	done
 
 RuinsOfAlphResearchCenter_MapEvents:

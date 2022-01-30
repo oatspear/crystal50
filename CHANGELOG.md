@@ -5,6 +5,8 @@
 ### Added
 - Restored wild encounters: Mareep, Flaaffy, Girafarig, Remoraid, Mankey, Vulpix.
 - Added a chance to encounter Mankey on trees with Headbutt.
+- Items: Helix Fossil, Dome Fossil, Old Amber.
+- Added events at the Ruins of Alph Research Center to revive fossils.
 
 ### Removed
 - Badge stat boosts.
