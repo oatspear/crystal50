@@ -3,7 +3,7 @@
 ## v0.3 (Custom Changes)
 
 ### Added
-- Restored wild encounters: Mareep, Flaaffy, Girafarig, Remoraid, Mankey.
+- Restored wild encounters: Mareep, Flaaffy, Girafarig, Remoraid, Mankey, Vulpix.
 - Added a chance to encounter Mankey on trees with Headbutt.
 
 ### Removed

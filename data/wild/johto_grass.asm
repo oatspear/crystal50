@@ -1438,22 +1438,22 @@ JohtoGrassWildMons:
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
 	db 5, PIDGEY
-	db 6, PIDGEY
-	db 6, PIDGEY
+	db 6, VULPIX
+	db 6, VULPIX
 	; day
 	db 4, PIDGEY
 	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
 	db 5, PIDGEY
-	db 6, PIDGEY
-	db 6, PIDGEY
+	db 6, VULPIX
+	db 6, VULPIX
 	; nite
 	db 4, SPINARAK
 	db 4, HOOTHOOT
+	db 5, VULPIX
+	db 5, HOOTHOOT
 	db 5, BELLSPROUT
-	db 5, HOOTHOOT
-	db 5, HOOTHOOT
 	db 5, GASTLY
 	db 5, GASTLY
 	end_grass_wildmons
@@ -1464,23 +1464,23 @@ JohtoGrassWildMons:
 	db 13, LEDYBA
 	db 14, GROWLITHE
 	db 15, PIDGEY
-	db 16, GROWLITHE
 	db 15, PIDGEOTTO
+	db 16, VULPIX
 	db 15, LEDIAN
 	db 15, LEDIAN
 	; day
 	db 13, PIDGEY
 	db 14, GROWLITHE
-	db 15, PIDGEY
-	db 16, GROWLITHE
 	db 15, PIDGEOTTO
+	db 15, STANTLER
+	db 16, VULPIX
 	db 15, PIDGEY
-	db 15, PIDGEY
+	db 15, SPINARAK
 	; nite
 	db 13, SPINARAK
 	db 14, STANTLER
 	db 15, HOOTHOOT
-	db 16, STANTLER
+	db 16, VULPIX
 	db 15, NOCTOWL
 	db 15, ARIADOS
 	db 15, ARIADOS
