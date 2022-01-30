@@ -3,7 +3,8 @@
 ## v0.3 (Custom Changes)
 
 ### Added
-- Restored wild encounters: Mareep, Flaaffy, Girafarig.
+- Restored wild encounters: Mareep, Flaaffy, Girafarig, Remoraid, Mankey.
+- Added a chance to encounter Mankey on trees with Headbutt.
 
 ### Removed
 - Badge stat boosts.

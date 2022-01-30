@@ -42,7 +42,7 @@ TreeMonSet_Town:
 	db 15, SPEAROW,    10
 	db 10, AIPOM,      10
 	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db  5, MANKEY,     10
 	db -1
 ; rare
 	db 50, SPEAROW,    10
@@ -50,7 +50,7 @@ TreeMonSet_Town:
 	db 15, HERACROSS,  10
 	db 10, AIPOM,      10
 	db  5, AIPOM,      10
-	db  5, AIPOM,      10
+	db  5, MANKEY,     10
 	db -1
 
 TreeMonSet_Route:
@@ -104,25 +104,25 @@ TreeMonSet_Lake:
 	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db  5, HERACROSS,  20
 	db -1
 
 TreeMonSet_Forest:
 ; common
 	db 50, HOOTHOOT,   10
 	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, MANKEY,     10
 	db 10, NOCTOWL,    10
 	db  5, BUTTERFREE, 10
 	db  5, BEEDRILL,   10
 	db -1
 ; rare
-	db 50, HOOTHOOT,   10
-	db 15, CATERPIE,   10
-	db 15, WEEDLE,     10
-	db 10, HOOTHOOT,   10
-	db  5, METAPOD,    10
-	db  5, KAKUNA,     10
+	db 50, HOOTHOOT,   15
+	db 15, CATERPIE,    5
+	db 15, WEEDLE,      5
+	db 10, NOCTOWL,    25
+	db  5, METAPOD,     8
+	db  5, KAKUNA,      8
 	db -1
 
 TreeMonSet_Rock:
