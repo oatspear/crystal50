@@ -153,9 +153,9 @@ ItemDescriptions:
 	dw LeppaBerryDesc
 	dw DragonScaleDesc
 	dw BerserkGeneDesc
-	dw TeruSama18Desc
-	dw TeruSama19Desc
-	dw TeruSama20Desc
+	dw HelixFossilDesc
+	dw DomeFossilDesc
+	dw OldAmberDesc
 	dw SacredAshDesc
 	dw HeavyBallDesc
 	dw FlowerMailDesc
@@ -844,14 +844,11 @@ BerserkGeneDesc:
 	db   "Boosts ATTACK but"
 	next "causes confusion.@"
 
-TeruSama18Desc:
-	db   "?@"
-
-TeruSama19Desc:
-	db   "?@"
-
-TeruSama20Desc:
-	db   "?@"
+HelixFossilDesc:
+DomeFossilDesc:
+OldAmberDesc:
+	db   "The fossil of an"
+	next "ancient #MON.@"
 
 SacredAshDesc:
 	db   "Fully revives all"
