@@ -14,6 +14,7 @@
 ### Changed
 - Exchanged the locations of the Aerodactyl puzzle room and the Omanyte puzzle room in the Ruins of Alph.
 - The Omanyte puzzle item chamber in the Ruins of Alph opens also with Mystic Water.
+- Changed the reward items in the puzzle item chambers of the Ruins of Alph.
 - Renamed Berries to their modern counterparts.
 - Changed the amount of HP restored by most healing items.
 - `RAGECANDYBAR` heals status conditions out of battle.

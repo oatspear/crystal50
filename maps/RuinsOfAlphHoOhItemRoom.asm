@@ -10,13 +10,13 @@ RuinsOfAlphHoOhItemRoom_MapScripts:
 	def_callbacks
 
 RuinsOfAlphHoOhItemRoomSitrusBerry:
-	itemball SITRUS_BERRY
+	itemball SUN_STONE
 
 RuinsOfAlphHoOhItemRoomLeppaBerry:
-	itemball LEPPA_BERRY
+	itemball FIRE_STONE
 
 RuinsOfAlphHoOhItemRoomRevivalHerb:
-	itemball REVIVAL_HERB
+	itemball MOON_STONE
 
 RuinsOfAlphHoOhItemRoomCharcoal:
 	itemball CHARCOAL

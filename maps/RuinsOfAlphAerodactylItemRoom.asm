@@ -10,16 +10,16 @@ RuinsOfAlphAerodactylItemRoom_MapScripts:
 	def_callbacks
 
 RuinsOfAlphAerodactylItemRoomSitrusBerry:
-	itemball SITRUS_BERRY
-
-RuinsOfAlphAerodactylItemRoomMoonStone:
-	itemball MOON_STONE
-
-RuinsOfAlphAerodactylItemRoomHealPowder:
 	itemball OLD_AMBER
 
+RuinsOfAlphAerodactylItemRoomMoonStone:
+	itemball THUNDERSTONE
+
+RuinsOfAlphAerodactylItemRoomHealPowder:
+	itemball KINGS_ROCK
+
 RuinsOfAlphAerodactylItemRoomEnergyRoot:
-	itemball ENERGY_ROOT
+	itemball SHARP_BEAK
 
 RuinsOfAlphAerodactylItemRoomAncientReplica:
 	jumptext RuinsOfAlphAerodactylItemRoomAncientReplicaText

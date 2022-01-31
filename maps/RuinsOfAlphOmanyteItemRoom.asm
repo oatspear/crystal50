@@ -10,16 +10,16 @@ RuinsOfAlphOmanyteItemRoom_MapScripts:
 	def_callbacks
 
 RuinsOfAlphOmanyteItemRoomLeppaBerry:
-	itemball LEPPA_BERRY
-
-RuinsOfAlphOmanyteItemRoomMysticWater:
-	itemball MYSTIC_WATER
-
-RuinsOfAlphOmanyteItemRoomStardust:
 	itemball HELIX_FOSSIL
 
+RuinsOfAlphOmanyteItemRoomMysticWater:
+	itemball WATER_STONE
+
+RuinsOfAlphOmanyteItemRoomStardust:
+	itemball MYSTIC_WATER
+
 RuinsOfAlphOmanyteItemRoomStarPiece:
-	itemball STAR_PIECE
+	itemball SOFT_SAND
 
 RuinsOfAlphOmanyteItemRoomAncientReplica:
 	jumptext RuinsOfAlphOmanyteItemRoomAncientReplicaText

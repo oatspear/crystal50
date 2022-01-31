@@ -13,13 +13,13 @@ RuinsOfAlphKabutoItemRoomOranBerry:
 	itemball DOME_FOSSIL
 
 RuinsOfAlphKabutoItemRoomPechaBerry:
-	itemball PECHA_BERRY
+	itemball LEAF_STONE
 
 RuinsOfAlphKabutoItemRoomHealPowder:
-	itemball HEAL_POWDER
+	itemball HARD_STONE
 
 RuinsOfAlphKabutoItemRoomEnergypowder:
-	itemball ENERGYPOWDER
+	itemball QUICK_CLAW
 
 RuinsOfAlphKabutoItemRoomAncientReplica:
 	jumptext RuinsOfAlphKabutoItemRoomAncientReplicaText
