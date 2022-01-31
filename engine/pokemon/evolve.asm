@@ -87,6 +87,9 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
 
+	cp EVOLVE_HOLD
+	jp z, .hold
+
 ; EVOLVE_STAT
 	ld a, [wTempMonLevel]
 	cp [hl]
@@ -180,6 +183,23 @@ EvolveAfterBattle_MasterLoop:
 	and a
 	jp nz, .dont_evolve_3
 	jr .proceed
+
+.hold
+	; Get the current item
+	push hl
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ld b, a
+	pop hl
+
+	; Check the item
+	ld a, [hli]
+	cp b
+	jp nz, .dont_evolve_2
+	; fallthrough to check the required level
 
 .level
 	ld a, [hli]

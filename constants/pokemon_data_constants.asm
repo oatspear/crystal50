@@ -156,6 +156,10 @@ NUM_HOF_TEAMS EQU 30
 	const EVOLVE_TRADE
 	const EVOLVE_HAPPINESS
 	const EVOLVE_STAT
+	const EVOLVE_HOLD
+
+; EVOLVE_HOLD: Causes the 'mon to evolve when it is leveled up
+; while holding an item past a certain level.
 
 ; EVOLVE_HAPPINESS triggers
 	const_def 1
