@@ -12,6 +12,7 @@
 - Badge stat boosts.
 
 ### Changed
+- Exchanged the locations of the Aerodactyl puzzle room and the Omanyte puzzle room in the Ruins of Alph.
 - Renamed Berries to their modern counterparts.
 - Changed the amount of HP restored by most healing items.
 - `RAGECANDYBAR` heals status conditions out of battle.
