@@ -29,6 +29,7 @@
 - Stat levels now have a range of -2 to 2. The effects are roughly equivalent to -3, -1, 0, +1 and +3 stages in the standard system.
 - Due to the changes to how stat levels work, Belly Drum now maximizes Attack for a duration of 8 turns.
 - Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
+- Replaced trade evolution with evolution via level up while also holding specific items.
 
 ## v0.2 (Set to Level 50)
 
