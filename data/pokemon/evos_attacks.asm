@@ -1319,7 +1319,7 @@ MachopEvosAttacks:
 
 MachokeEvosAttacks:
 	; db EVOLVE_TRADE, -1, MACHAMP
-	db EVOLVE_HOLD, BLACK_BELT, 40, MACHAMP
+	db EVOLVE_HOLD, BLACKBELT_I, 40, MACHAMP
 	db 0 ; no more evolutions
 	db 1, POUND ; FIXME: LOW_KICK
 	db 1, LEER
