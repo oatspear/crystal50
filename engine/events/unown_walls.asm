@@ -25,6 +25,12 @@ OmanyteChamber:
 	call CheckItem
 	jr c, .open
 
+	ld a, MYSTIC_WATER
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .open
+
 	ld a, [wPartyCount]
 	ld b, a
 	inc b
@@ -40,6 +46,8 @@ OmanyteChamber:
 	pop bc
 	ld a, [hl]
 	cp WATER_STONE
+	jr z, .open
+	cp MYSTIC_WATER
 	jr nz, .loop
 
 .open
