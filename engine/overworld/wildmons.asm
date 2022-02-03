@@ -181,7 +181,7 @@ TryWildEncounter::
 	jr nz, .no_battle
 	call CheckRepelEffect
 	jr nc, .no_battle
-    farcall TryEvolveWildMon
+	farcall TryEvolveWildMon
 	xor a
 	ret
 
