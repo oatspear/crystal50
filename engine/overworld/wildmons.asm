@@ -181,6 +181,9 @@ TryWildEncounter::
 	jr nz, .no_battle
 	call CheckRepelEffect
 	jr nc, .no_battle
+	ld a, BANK("Evolutions and Attacks")
+	ld hl, TryEvolveWildMon
+	rst FarCall
 	xor a
 	ret
 
@@ -292,25 +295,47 @@ ChooseWildEncounter:
 	ld b, 0
 	pop hl
 	add hl, bc ; this selects our mon
+
+; Count badges to determine how much we can buff wild encounters.
+	; push hl
+	; ld hl, wJohtoBadges
+	; ld b, 2
+	; call CountSetBits
+	; pop hl
+	; ld a, [wNumSetBits]
+	; ld c, a
+
+; Get the minimum level of the wild Pokemon.
 	ld a, [hli]
 	ld b, a
-; If the Pokemon is encountered by surfing, we need to give the levels some variety.
-	call CheckOnWater
-	jr nz, .ok
+; If the Pokemon is encountered in a special way, skip randomizing level.
+	ld a, [wBattleType]
+	cp BATTLETYPE_SUICUNE
+	jr z, .ok
 ; Check if we buff the wild mon, and by how much.
 	call Random
+	ld c, a
 	cp 35 percent
 	jr c, .ok
 	inc b
+	inc b         ; +2
 	cp 65 percent
 	jr c, .ok
-	inc b
+	ld a, b
+	add 3         ; +5
+	ld b, a
+	ld a, c
 	cp 85 percent
 	jr c, .ok
-	inc b
+	ld a, b
+	add 7         ; +12
+	ld b, a
+	ld a, c
 	cp 95 percent
 	jr c, .ok
-	inc b
+	ld a, b
+	add 8         ; +20
+	ld b, a
 ; Store the level
 .ok
 	ld a, b
@@ -320,9 +345,8 @@ ChooseWildEncounter:
 	call ValidateTempWildMonSpecies
 	jr c, .nowildbattle
 
-	ld a, b ; This is in the wrong place.
 	cp UNOWN
-	jr nz, .done
+	jr nz, .loadwildmon
 
 	ld a, [wUnlockedUnowns]
 	and a
@@ -754,7 +778,6 @@ _BackUpMapIndices:
 INCLUDE "data/wild/roammon_maps.asm"
 
 ValidateTempWildMonSpecies:
-; Due to a development oversight, this function is called with the wild Pokemon's level, not its species, in a.
 	and a
 	jr z, .nowildmon ; = 0
 	cp NUM_POKEMON + 1 ; 252

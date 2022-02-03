@@ -178,6 +178,10 @@ INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
 INCLUDE "engine/battle/ai/move.asm"
 
+; NOTE: ensure that this is in the same bank as "Evolutions and Attacks"
+;   (see "layout.link")
+INCLUDE "engine/pokemon/wildmon_evolve.asm"
+
 
 SECTION "Crystal Features 1", ROMX
 
