@@ -181,9 +181,7 @@ TryWildEncounter::
 	jr nz, .no_battle
 	call CheckRepelEffect
 	jr nc, .no_battle
-	ld a, BANK("Evolutions and Attacks")
-	ld hl, TryEvolveWildMon
-	rst FarCall
+    farcall TryEvolveWildMon
 	xor a
 	ret
 
@@ -314,27 +312,35 @@ ChooseWildEncounter:
 	jr z, .ok
 ; Check if we buff the wild mon, and by how much.
 	call Random
-	ld c, a
-	cp 35 percent
-	jr c, .ok
-	inc b
-	inc b         ; +2
-	cp 65 percent
-	jr c, .ok
-	ld a, b
-	add 3         ; +5
+	cp 5 percent
+	jr c, .ok       ; nothing to do, use min. level
+	ld c, 0
+	cp 35 percent   ; +0-2
+	jr c, .buff
+	ld c, 2
+	cp 65 percent   ; +2-4
+	jr c, .buff
+	ld c, 4
+	cp 90 percent   ; +4-6
+	jr c, .buff
+	ld c, 6
+	cp 98 percent   ; +6-8
+	jr c, .buff
+; rare encounter: +8-12
+	ld c, 8
+	ld a, b             ; load min. level
+	add c               ; add min. offset
+	ld d, a
+	ldh a, [hRandomAdd]
+	call SimpleDivide   ; random (mod 8)
+	add d               ; add to level
 	ld b, a
-	ld a, c
-	cp 85 percent
-	jr c, .ok
-	ld a, b
-	add 7         ; +12
-	ld b, a
-	ld a, c
-	cp 95 percent
-	jr c, .ok
-	ld a, b
-	add 8         ; +20
+	jr .ok
+; Apply level buff
+.buff
+	and 1               ; parity bit
+	add c               ; add min. offset
+	add b               ; add to level
 	ld b, a
 ; Store the level
 .ok
