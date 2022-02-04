@@ -603,9 +603,12 @@ OldFillMoves:
 	ld h, d
 	ld l, e
 	call ShiftMoves
-	ld a, [wPPUpPPBuffer]
+	ld a, [wEvolutionOldSpecies]
 	and a
 	jr z, .ShiftedMove
+	ld a, [wMultiPurposeByte1]
+	and a
+	jr nz, .ShiftedMove
 	push de
 	ld bc, wPartyMon1PP - (wPartyMon1Moves + NUM_MOVES - 1)
 	add hl, bc
@@ -620,7 +623,7 @@ OldFillMoves:
 .LearnMove:
 	ld a, [hl]
 	ld [de], a
-	ld a, [wPPUpPPBuffer]
+	ld a, [wEvolutionOldSpecies]
 	and a
 	jr z, .NextMove
 	push hl
