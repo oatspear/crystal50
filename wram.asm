@@ -2362,7 +2362,7 @@ wCurPartyLevel:: db
 
 wScrollingMenuListSize:: db
 
-	ds 1
+wMultiPurposeByte1:: db
 
 ; used when following a map warp
 wNextWarp:: db
@@ -2676,7 +2676,7 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-	ds 2
+wMultiPurposeWord1: dw
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db
