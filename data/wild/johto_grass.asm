@@ -1299,7 +1299,7 @@ JohtoGrassWildMons:
 	db 5, PIDGEY
 	db 4, WEEDLE
 	db 5, HOPPIP
-	db 5, HOPPIP
+	db 18, VENOMOTH
 	; day
 	db 4, PIDGEY
 	db 4, CATERPIE
@@ -1307,7 +1307,7 @@ JohtoGrassWildMons:
 	db 5, PIDGEY
 	db 4, WEEDLE
 	db 5, HOPPIP
-	db 5, HOPPIP
+	db 18, VENOMOTH
 	; nite
 	db 4, SPINARAK
 	db 4, POLIWAG
