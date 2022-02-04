@@ -1315,7 +1315,7 @@ JohtoGrassWildMons:
 	db 5, HOOTHOOT
 	db 4, ZUBAT
 	db 5, GASTLY
-	db 5, GASTLY
+	db 18, VENOMOTH
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_32
