@@ -194,12 +194,13 @@ AdvanceClockToNextTimeOfDay:
 	call UpdateTime
 
 ; reset minutes and seconds
-	xor a
-	ldh [hSeconds], a
-	ldh [hMinutes], a
+	; xor a
+	; ldh [hSeconds], a
+	; ldh [hMinutes], a
 
 ; check the current hours
 	ldh a, [hHours]
+	ld c, a
 	cp MORN_HOUR ; 04:00
 	jr c, .past_midnight
 	cp DAY_HOUR  ; 10:00
@@ -209,39 +210,48 @@ AdvanceClockToNextTimeOfDay:
 
 ; time is between NITE_HOUR and 24:00
 ; we want to skip to the next morning, so the week day also changes
-	ld a, [wCurDay]
-	inc a
-	cp 7
-	jr c, .got_day
-	xor a
+;	ld a, [wCurDay]
+;	inc a
+;	cp 7
+;	jr c, .got_day
+;	xor a
+;.got_day
+;	ld [wCurDay], a
+	ld a, [wStartDay]
+	dec a
+	jr nc, .got_day
+	add 7
 .got_day
-	ld [wCurDay], a
+	ld [wStartDay], a
 	; fallthrough
 
 .past_midnight
 	ld a, MORN_HOUR
-	ldh [hHours], a
-	ld a, MORN_F
-	ld [wTimeOfDay], a
-	ret
+	jr .got_time
 
 .morning
 	ld a, DAY_HOUR
-	ldh [hHours], a
-	ld a, DAY_F
-	ld [wTimeOfDay], a
-	ret
+	jr .got_time
 
 .day
 	ld a, NITE_HOUR
-	ldh [hHours], a
-	ld a, NITE_F
-	ld [wTimeOfDay], a
+	; fallthrough
+
+.got_time
+	sub c   ; how many hours must we skip?
+	ld c, a ; store difference
+	ld a, [wStartHour]
+	sub c
+	jr nc, .hour_adjusted
+	add 24
+.hour_adjusted
+	ld [wStartHour], a
 	ret
 
 SaveTimeSkip:
+	farcall PauseGameLogic
 	call AdvanceClockToNextTimeOfDay
-	farcall Link_SaveGame
+	farcall Link_SaveGame ; this does the unpause
 	ld a, TRUE
 	jr nc, .return_result
 	xor a ; FALSE
