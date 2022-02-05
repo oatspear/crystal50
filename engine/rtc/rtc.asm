@@ -238,3 +238,15 @@ AdvanceClockToNextTimeOfDay:
 	ld a, NITE_F
 	ld [wTimeOfDay], a
 	ret
+
+SaveTimeSkip:
+	call AdvanceClockToNextTimeOfDay
+	farcall Link_SaveGame
+	ld a, TRUE
+	jr nc, .return_result
+	xor a ; FALSE
+.return_result
+	ld [wScriptVar], a
+	ld c, 30
+	call DelayFrames
+	ret
