@@ -54,12 +54,6 @@ TimesOfDay:
 	db MAX_HOUR,  NITE_F
 	db -1, MORN_F
 
-BetaTimesOfDay: ; unreferenced
-	db 20, NITE_F
-	db 40, MORN_F
-	db 60, DAY_F
-	db -1, MORN_F
-
 StageRTCTimeForSave:
 	call UpdateTime
 	ld hl, wRTC
@@ -194,4 +188,53 @@ _InitTime::
 
 .okay_days
 	ld [de], a
+	ret
+
+AdvanceClockToNextTimeOfDay:
+	call UpdateTime
+
+; reset minutes and seconds
+	xor a
+	ldh [hSeconds], a
+	ldh [hMinutes], a
+
+; check the current hours
+	ldh a, [hHours]
+	cp MORN_HOUR ; 04:00
+	jr c, .past_midnight
+	cp DAY_HOUR  ; 10:00
+	jr c, .morning
+	cp NITE_HOUR ; 18:00
+	jr c, .day
+
+; time is between NITE_HOUR and 24:00
+; we want to skip to the next morning, so the week day also changes
+	ld a, [wCurDay]
+	inc a
+	cp 7
+	jr c, .got_day
+	xor a
+.got_day
+	ld [wCurDay], a
+	; fallthrough
+
+.past_midnight
+	ld a, MORN_HOUR
+	ldh [hHours], a
+	ld a, MORN_F
+	ld [wTimeOfDay], a
+	ret
+
+.morning
+	ld a, DAY_HOUR
+	ldh [hHours], a
+	ld a, DAY_F
+	ld [wTimeOfDay], a
+	ret
+
+.day
+	ld a, NITE_HOUR
+	ldh [hHours], a
+	ld a, NITE_F
+	ld [wTimeOfDay], a
 	ret
