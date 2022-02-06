@@ -54,12 +54,6 @@ TimesOfDay:
 	db MAX_HOUR,  NITE_F
 	db -1, MORN_F
 
-BetaTimesOfDay: ; unreferenced
-	db 20, NITE_F
-	db 40, MORN_F
-	db 60, DAY_F
-	db -1, MORN_F
-
 StageRTCTimeForSave:
 	call UpdateTime
 	ld hl, wRTC
@@ -194,4 +188,67 @@ _InitTime::
 
 .okay_days
 	ld [de], a
+	ret
+
+AdvanceClockToNextTimeOfDay:
+	call UpdateTime
+
+; check the current hours
+	ldh a, [hHours]
+	ld c, a
+	cp MORN_HOUR ; 04:00
+	jr c, .past_midnight
+	cp DAY_HOUR  ; 10:00
+	jr c, .morning
+	cp NITE_HOUR ; 18:00
+	jr c, .day
+
+; time is between NITE_HOUR and 24:00
+; we want to skip to the next morning, so the week day also changes
+	ld a, [wStartDay]
+	inc a
+	cp 7
+	jr c, .got_day
+	xor a
+.got_day
+	ld [wStartDay], a
+	ld a, MORN_HOUR + 24
+	jr .got_time
+
+.past_midnight
+	ld a, MORN_HOUR
+	jr .got_time
+
+.morning
+	ld a, DAY_HOUR
+	jr .got_time
+
+.day
+	ld a, NITE_HOUR
+	; fallthrough
+
+.got_time
+	sub c   ; how many hours must we skip?
+	ld c, a ; store difference
+	ld a, [wStartHour]
+	add c
+	cp MAX_HOUR
+	jr c, .hour_adjusted
+	sub 24
+.hour_adjusted
+	ld [wStartHour], a
+	ret
+
+SaveTimeSkip:
+	farcall PauseGameLogic
+	call AdvanceClockToNextTimeOfDay
+	farcall ResumeGameLogic
+	farcall Link_SaveGame
+	ld a, TRUE
+	jr nc, .return_result
+	xor a ; FALSE
+.return_result
+	ld [wScriptVar], a
+	ld c, 30
+	call DelayFrames
 	ret

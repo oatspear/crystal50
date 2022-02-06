@@ -3,6 +3,7 @@
 	const POKECENTER2F_BATTLE_RECEPTIONIST
 	const POKECENTER2F_TIME_CAPSULE_RECEPTIONIST
 	const POKECENTER2F_OFFICER
+	const POKECENTER2F_TIME_SKIP_RECEPTIONIST
 
 Pokecenter2F_MapScripts:
 	def_scene_scripts
@@ -620,6 +621,32 @@ Pokecenter2FOfficerScript:
 	closetext
 	end
 
+TimeSkipReceptionistScript:
+	opentext
+	writetext Text_TimeSkipReceptionistIntro
+	yesorno
+	iffalse .Cancel
+	writetext Text_TimeSkipMustSaveGame
+	yesorno
+	iffalse .Cancel
+	special SaveTimeSkip
+	iffalse .Cancel
+	closetext
+	special FadeOutMusic
+	pause 10
+	special FadeOutPalettes
+	pause 20
+	special FadeInPalettes
+	pause 10
+	special RestartMapMusic
+	opentext
+	; fallthrough
+
+.Cancel:
+	writetext Text_PleaseComeAgain
+	closetext
+	end
+
 Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	slow_step UP
 	slow_step LEFT
@@ -1020,6 +1047,19 @@ Text_BrokeStadiumRules:
 	line "when you're ready."
 	done
 
+Text_TimeSkipReceptionistIntro:
+	text "Hello. You can"
+	line "spend some time"
+	cont "here, if you"
+	cont "wish."
+	done
+
+Text_TimeSkipMustSaveGame:
+	text "Advancing the"
+	line "clock requires"
+	cont "saving the game."
+	done
+
 Pokecenter2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -1041,3 +1081,4 @@ Pokecenter2F_MapEvents:
 	object_event  9,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
 	object_event 13,  3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1
 	object_event  1,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Pokecenter2FOfficerScript, EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	object_event  8,  5, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TimeSkipReceptionistScript, -1
