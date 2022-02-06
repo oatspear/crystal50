@@ -123,37 +123,38 @@ ENDM
 	map_const MOUNT_MORTAR_1F_INSIDE,                      20, 27 ; 58
 	map_const MOUNT_MORTAR_2F_INSIDE,                      20, 18 ; 59
 	map_const MOUNT_MORTAR_B1F,                            20, 18 ; 60
-	map_const ICE_PATH_1F,                                 20, 18 ; 61
-	map_const ICE_PATH_B1F,                                10, 18 ; 62
-	map_const ICE_PATH_B2F_MAHOGANY_SIDE,                  10,  9 ; 63
-	map_const ICE_PATH_B2F_BLACKTHORN_SIDE,                 5,  9 ; 64
-	map_const ICE_PATH_B3F,                                10,  9 ; 65
-	map_const WHIRL_ISLAND_NW,                              5,  9 ; 66
-	map_const WHIRL_ISLAND_NE,                             10,  9 ; 67
-	map_const WHIRL_ISLAND_SW,                             10,  9 ; 68
-	map_const WHIRL_ISLAND_CAVE,                            5,  9 ; 69
-	map_const WHIRL_ISLAND_SE,                              5,  9 ; 70
-	map_const WHIRL_ISLAND_B1F,                            20, 18 ; 71
-	map_const WHIRL_ISLAND_B2F,                            10, 18 ; 72
-	map_const WHIRL_ISLAND_LUGIA_CHAMBER,                  10,  9 ; 73
-	map_const SILVER_CAVE_ROOM_1,                          10, 18 ; 74
-	map_const SILVER_CAVE_ROOM_2,                          15, 18 ; 75
-	map_const SILVER_CAVE_ROOM_3,                          10, 18 ; 76
-	map_const SILVER_CAVE_ITEM_ROOMS,                      10,  9 ; 77
-	map_const DARK_CAVE_VIOLET_ENTRANCE,                   20, 18 ; 78
-	map_const DARK_CAVE_BLACKTHORN_ENTRANCE,               15, 18 ; 79
-	map_const DRAGONS_DEN_1F,                               5,  9 ; 80
-	map_const DRAGONS_DEN_B1F,                             20, 18 ; 81
-	map_const DRAGON_SHRINE,                                5,  5 ; 82
-	map_const TOHJO_FALLS,                                 15,  9 ; 83
-	map_const DIGLETTS_CAVE,                               10, 18 ; 84
-	map_const MOUNT_MOON,                                  15,  9 ; 85
-	map_const UNDERGROUND_PATH,                             3, 14 ; 86
-	map_const ROCK_TUNNEL_1F,                              15, 18 ; 87
-	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 88
-	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
-	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
-	map_const VICTORY_ROAD,                                10, 36 ; 91
+	map_const MOUNT_MORTAR_B2F,                            20,  9 ; 61
+	map_const ICE_PATH_1F,                                 20, 18 ; 62
+	map_const ICE_PATH_B1F,                                10, 18 ; 63
+	map_const ICE_PATH_B2F_MAHOGANY_SIDE,                  10,  9 ; 64
+	map_const ICE_PATH_B2F_BLACKTHORN_SIDE,                 5,  9 ; 65
+	map_const ICE_PATH_B3F,                                10,  9 ; 66
+	map_const WHIRL_ISLAND_NW,                              5,  9 ; 67
+	map_const WHIRL_ISLAND_NE,                             10,  9 ; 68
+	map_const WHIRL_ISLAND_SW,                             10,  9 ; 69
+	map_const WHIRL_ISLAND_CAVE,                            5,  9 ; 70
+	map_const WHIRL_ISLAND_SE,                              5,  9 ; 71
+	map_const WHIRL_ISLAND_B1F,                            20, 18 ; 72
+	map_const WHIRL_ISLAND_B2F,                            10, 18 ; 73
+	map_const WHIRL_ISLAND_LUGIA_CHAMBER,                  10,  9 ; 74
+	map_const SILVER_CAVE_ROOM_1,                          10, 18 ; 75
+	map_const SILVER_CAVE_ROOM_2,                          15, 18 ; 76
+	map_const SILVER_CAVE_ROOM_3,                          10, 18 ; 77
+	map_const SILVER_CAVE_ITEM_ROOMS,                      10,  9 ; 78
+	map_const DARK_CAVE_VIOLET_ENTRANCE,                   20, 18 ; 79
+	map_const DARK_CAVE_BLACKTHORN_ENTRANCE,               15, 18 ; 80
+	map_const DRAGONS_DEN_1F,                               5,  9 ; 81
+	map_const DRAGONS_DEN_B1F,                             20, 18 ; 82
+	map_const DRAGON_SHRINE,                                5,  5 ; 83
+	map_const TOHJO_FALLS,                                 15,  9 ; 84
+	map_const DIGLETTS_CAVE,                               10, 18 ; 85
+	map_const MOUNT_MOON,                                  15,  9 ; 86
+	map_const UNDERGROUND_PATH,                             3, 14 ; 87
+	map_const ROCK_TUNNEL_1F,                              15, 18 ; 88
+	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 89
+	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 90
+	map_const SAFARI_ZONE_BETA,                            10, 18 ; 91
+	map_const VICTORY_ROAD,                                10, 36 ; 92
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

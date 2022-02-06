@@ -622,8 +622,8 @@ BurnedTower1F_Blocks:
 BurnedTowerB1F_Blocks:
 	INCBIN "maps/BurnedTowerB1F.blk"
 
-BetaCaveTestMap_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaCaveTestMap.blk"
+; BetaCaveTestMap_Blocks: ; unreferenced
+; 	INCBIN "maps/unused/BetaCaveTestMap.blk"
 
 MountMortar1FOutside_Blocks:
 	INCBIN "maps/MountMortar1FOutside.blk"
@@ -636,6 +636,9 @@ MountMortar2FInside_Blocks:
 
 MountMortarB1F_Blocks:
 	INCBIN "maps/MountMortarB1F.blk"
+
+MountMortarB2F_Blocks:
+	INCBIN "maps/MountMortarB2F.blk"
 
 IcePath1F_Blocks:
 	INCBIN "maps/IcePath1F.blk"

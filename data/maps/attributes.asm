@@ -435,6 +435,7 @@ ENDM
 	map_attributes MountMortar1FInside, MOUNT_MORTAR_1F_INSIDE, $09, 0
 	map_attributes MountMortar2FInside, MOUNT_MORTAR_2F_INSIDE, $09, 0
 	map_attributes MountMortarB1F, MOUNT_MORTAR_B1F, $09, 0
+	map_attributes MountMortarB2F, MOUNT_MORTAR_B2F, $09, 0
 	map_attributes IcePath1F, ICE_PATH_1F, $09, 0
 	map_attributes IcePathB1F, ICE_PATH_B1F, $19, 0
 	map_attributes IcePathB2FMahoganySide, ICE_PATH_B2F_MAHOGANY_SIDE, $19, 0
