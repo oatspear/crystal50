@@ -7,6 +7,7 @@
 - Added a chance to encounter Mankey on trees with Headbutt.
 - Items: Helix Fossil, Dome Fossil, Old Amber.
 - Added events at the Ruins of Alph Research Center to revive fossils.
+- Added a time skip mechanism to skip from night to morning, morning to day and day to night.
 
 ### Removed
 - Badge stat boosts.
