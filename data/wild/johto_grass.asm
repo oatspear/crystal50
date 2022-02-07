@@ -702,6 +702,34 @@ JohtoGrassWildMons:
 	db 18, RATICATE
 	end_grass_wildmons
 
+	def_grass_wildmons MOUNT_MORTAR_B2F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, MAGBY
+	db 17, SLUGMA
+	db 17, KOFFING
+	db 16, GEODUDE
+	db 16, RHYHORN
+	db 18, ONIX
+	db 12, LARVITAR
+	; day
+	db 15, MAGBY
+	db 17, SLUGMA
+	db 17, KOFFING
+	db 16, GEODUDE
+	db 16, RHYHORN
+	db 18, ONIX
+	db 12, LARVITAR
+	; nite
+	db 15, MAGBY
+	db 17, SLUGMA
+	db 17, KOFFING
+	db 16, GEODUDE
+	db 16, RHYHORN
+	db 18, ONIX
+	db 12, LARVITAR
+	end_grass_wildmons
+
 	def_grass_wildmons ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
