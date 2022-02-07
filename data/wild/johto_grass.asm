@@ -593,113 +593,113 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14, RATTATA
+	db 14, WOOPER
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GOLBAT
+	db 13, TYROGUE
 	db 14, GEODUDE
-	db 16, RATICATE
-	db 16, RATICATE
+	db 16, SLOWPOKE
+	db 13, TEDDIURSA
 	; day
-	db 14, RATTATA
+	db 14, WOOPER
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GOLBAT
+	db 13, TYROGUE
 	db 14, GEODUDE
-	db 16, RATICATE
-	db 16, RATICATE
+	db 16, SLOWPOKE
+	db 13, TEDDIURSA
 	; nite
-	db 14, RATTATA
+	db 14, WOOPER
 	db 13, ZUBAT
-	db 14, MARILL
-	db 13, GOLBAT
+	db 16, PARAS
+	db 16, TEDDIURSA
 	db 14, GEODUDE
-	db 16, RATICATE
-	db 16, RATICATE
+	db 16, MISDREAVUS
+	db 13, CLEFAIRY
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_1F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 16, GEODUDE
+	db 17, ZUBAT
+	db 16, MACHOP
+	db 17, TYROGUE
+	db 19, ONIX
+	db 18, RHYHORN
+	db 17, DUNSPARCE
 	; day
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 16, GEODUDE
+	db 17, ZUBAT
+	db 16, MACHOP
+	db 18, RHYHORN
+	db 19, ONIX
+	db 17, CUBONE
+	db 17, DUNSPARCE
 	; nite
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, RATICATE
-	db 14, ZUBAT
-	db 15, MARILL
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 16, GEODUDE
+	db 17, ZUBAT
+	db 16, MISDREAVUS
+	db 17, PARAS
+	db 19, ONIX
+	db 18, CUBONE
+	db 17, WOBBUFFET
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_2F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 31, GRAVELER
-	db 32, MACHOKE
-	db 31, GEODUDE
-	db 30, RATICATE
-	db 28, MACHOP
 	db 30, GOLBAT
-	db 30, GOLBAT
+	db 28, QUAGSIRE
+	db 28, RHYHORN
+	db 30, MAROWAK
+	db 30, DUNSPARCE
+	db 32, PUPITAR
 	; day
 	db 31, GRAVELER
-	db 32, MACHOKE
-	db 31, GEODUDE
-	db 30, RATICATE
-	db 28, MACHOP
 	db 30, GOLBAT
-	db 30, GOLBAT
+	db 28, QUAGSIRE
+	db 28, RHYHORN
+	db 30, MAROWAK
+	db 30, DUNSPARCE
+	db 32, PUPITAR
 	; nite
 	db 31, GRAVELER
-	db 31, GEODUDE
-	db 30, RATICATE
 	db 30, GOLBAT
-	db 28, MARILL
-	db 32, GOLBAT
-	db 32, GOLBAT
+	db 31, QUAGSIRE
+	db 31, PARASECT
+	db 30, MAROWAK
+	db 22, CLEFAIRY
+	db 32, WOBBUFFET
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
+	db 17, WOOPER
 	db 16, MACHOP
 	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 17, RHYHORN
+	db 16, PARAS
+	db 18, DUNSPARCE
 	; day
-	db 15, ZUBAT
+	db 15, WOOPER
 	db 17, ZUBAT
-	db 17, GOLBAT
 	db 16, MACHOP
 	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 17, RHYHORN
+	db 16, PARAS
+	db 18, DUNSPARCE
 	; nite
 	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MARILL
+	db 17, WOOPER
+	db 16, PARAS
 	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 17, GOLBAT
+	db 18, MISDREAVUS
+	db 18, WOBBUFFET
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_B2F
@@ -709,25 +709,25 @@ JohtoGrassWildMons:
 	db 17, SLUGMA
 	db 17, KOFFING
 	db 16, GEODUDE
-	db 16, RHYHORN
-	db 18, ONIX
-	db 12, LARVITAR
+	db 17, RHYHORN
+	db 19, ONIX
+	db 14, LARVITAR
 	; day
 	db 15, MAGBY
 	db 17, SLUGMA
 	db 17, KOFFING
 	db 16, GEODUDE
-	db 16, RHYHORN
-	db 18, ONIX
-	db 12, LARVITAR
+	db 17, RHYHORN
+	db 19, ONIX
+	db 14, LARVITAR
 	; nite
 	db 15, MAGBY
 	db 17, SLUGMA
 	db 17, KOFFING
 	db 16, GEODUDE
-	db 16, RHYHORN
-	db 18, ONIX
-	db 12, LARVITAR
+	db 17, RHYHORN
+	db 19, ONIX
+	db 14, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_1F
