@@ -1209,28 +1209,28 @@ JohtoGrassWildMons:
 	def_grass_wildmons DARK_CAVE_VIOLET_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
+	db 3, ZUBAT
 	db 3, GEODUDE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 2, TYROGUE
 	db 4, GEODUDE
+	db 2, PARAS
 	db 2, TEDDIURSA
-	db 4, ZUBAT
 	db 4, DUNSPARCE
 	; day
+	db 3, ZUBAT
 	db 3, GEODUDE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 2, TYROGUE
 	db 4, GEODUDE
-	db 2, ZUBAT
-	db 4, ZUBAT
+	db 2, PARAS
+	db 3, CUBONE
 	db 4, DUNSPARCE
 	; nite
-	db 3, GEODUDE
-	db 2, ZUBAT
+	db 3, ZUBAT
 	db 2, GEODUDE
-	db 4, GEODUDE
-	db 2, ZUBAT
+	db 3, PARAS
 	db 4, ZUBAT
+	db 4, CUBONE
+	db 4, TEDDIURSA
 	db 4, DUNSPARCE
 	end_grass_wildmons
 
@@ -1713,29 +1713,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, TANGELA
-	db 42, PONYTA
-	db 42, ARBOK
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 41, MACHOKE
+	db 42, STANTLER
+	db 42, PRIMEAPE
+	db 44, GRAVELER
+	db 41, GLIGAR
+	db 43, DONPHAN
+	db 43, SNORLAX
 	; day
-	db 41, TANGELA
-	db 42, PONYTA
-	db 42, ARBOK
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 41, MACHOKE
+	db 42, PRIMEAPE
+	db 44, GRAVELER
+	db 42, URSARING
+	db 41, SKARMORY
+	db 43, DONPHAN
+	db 43, HITMONTOP
 	; nite
 	db 41, TANGELA
-	db 42, POLIWHIRL
-	db 42, GOLBAT
-	db 44, POLIWHIRL
-	db 40, GOLBAT
-	db 44, GOLBAT
-	db 44, GOLBAT
+	db 42, MAROWAK
+	db 42, GLIGAR
+	db 44, URSARING
+	db 42, SNEASEL
+	db 44, STANTLER
+	db 44, CLEFABLE
 	end_grass_wildmons
 
 	db -1 ; end
