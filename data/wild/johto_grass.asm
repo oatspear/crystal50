@@ -341,26 +341,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, JIGGLYPUFF
-	db 12, SENTRET
-	db 14, LEDYBA
 	db 13, PIDGEY
+	db 12, SENTRET
+	db 12, JIGGLYPUFF
+	db 14, LEDYBA
 	db 12, PIKACHU
 	db 13, MARILL
 	db 12, EEVEE
 	; day
-	db 12, NIDORAN_F
-	db 12, NIDORAN_M
-	db 14, SUNKERN
 	db 13, PIDGEY
 	db 12, SNUBBULL
+	db 12, JIGGLYPUFF
+	db 14, SUNKERN
+	db 12, MR__MIME
 	db 13, PSYDUCK
 	db 12, SMEARGLE
 	; nite
+	db 13, HOOTHOOT
 	db 13, MEOWTH
 	db 14, RATTATA
-	db 14, VENONAT
-	db 13, HOOTHOOT
+	db 14, DROWZEE
 	db 12, MURKROW
 	db 12, WOOPER
 	db 16, LEDIAN
@@ -1297,7 +1297,7 @@ JohtoGrassWildMons:
 	db 3, CATERPIE
 	db 3, WEEDLE
 	db 3, LEDYBA
-	db 4, PSYDUCK
+	db 4, MARILL
 	db 4, HOPPIP
 	db 2, CHIKORITA
 	; day
@@ -1325,7 +1325,7 @@ JohtoGrassWildMons:
 	db 6, BELLSPROUT
 	db 4, CATERPIE
 	db 4, WEEDLE
-	db 5, POLIWAG
+	db 5, WOOPER
 	db 6, LEDYBA
 	db 5, YANMA
 	; day
@@ -1334,7 +1334,7 @@ JohtoGrassWildMons:
 	db 4, CATERPIE
 	db 4, WEEDLE
 	db 5, POLIWAG
-	db 6, DROWZEE
+	db 6, EKANS
 	db 5, YANMA
 	; nite
 	db 7, HOOTHOOT
@@ -1349,113 +1349,113 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_32
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, EKANS
-	db 5, RATTATA
-	db 7, BELLSPROUT
-	db 6, HOPPIP
 	db 7, PIDGEY
-	db 7, HOPPIP
-	db 7, HOPPIP
+	db 6, HOPPIP
+	db 5, NIDORAN_F
+	db 5, NIDORAN_M
+	db 5, RATTATA
+	db 7, PHANPY
+	db 5, TOTODILE
 	; day
-	db 4, EKANS
-	db 5, RATTATA
-	db 7, BELLSPROUT
-	db 6, HOPPIP
 	db 7, PIDGEY
-	db 7, HOPPIP
-	db 7, HOPPIP
-	; nite
-	db 4, WOOPER
 	db 5, RATTATA
-	db 7, BELLSPROUT
-	db 6, ZUBAT
+	db 5, NIDORAN_F
+	db 5, NIDORAN_M
+	db 6, HOPPIP
+	db 7, PHANPY
+	db 5, TOTODILE
+	; nite
 	db 7, HOOTHOOT
-	db 7, GASTLY
-	db 7, GASTLY
+	db 5, RATTATA
+	db 4, WOOPER
+	db 7, DROWZEE
+	db 6, ODDISH
+	db 7, ZUBAT
+	db 7, MURKROW
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_33
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
+	db 7, PIDGEY
+	db 6, BELLSPROUT
 	db 6, RATTATA
-	db 6, SPEAROW
-	db 6, GEODUDE
-	db 6, HOPPIP
-	db 7, EKANS
-	db 7, HOPPIP
-	db 7, HOPPIP
+	db 6, LEDYBA
+	db 7, PARAS
+	db 6, YANMA
+	db 7, FARFETCH_D
 	; day
+	db 6, PIDGEY
+	db 6, BELLSPROUT
 	db 6, RATTATA
-	db 6, SPEAROW
-	db 6, GEODUDE
-	db 6, HOPPIP
-	db 7, EKANS
-	db 7, HOPPIP
-	db 7, HOPPIP
+	db 6, SNUBBULL
+	db 7, PARAS
+	db 7, YANMA
+	db 7, FARFETCH_D
 	; nite
+	db 7, HOOTHOOT
+	db 6, ODDISH
+	db 6, PARAS
+	db 6, DROWZEE
 	db 6, RATTATA
-	db 6, ZUBAT
-	db 6, GEODUDE
-	db 6, ZUBAT
-	db 7, RATTATA
-	db 7, RATTATA
-	db 7, RATTATA
+	db 7, SPINARAK
+	db 7, MURKROW
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_34
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 10, SNUBBULL
-	db 11, RATTATA
 	db 12, PIDGEY
-	db 10, ABRA
+	db 10, SNUBBULL
 	db 12, JIGGLYPUFF
-	db 10, DITTO
+	db 11, RATTATA
+	db 10, PIKACHU
+	db 10, ABRA
 	db 10, DITTO
 	; day
-	db 10, SNUBBULL
-	db 11, RATTATA
 	db 12, PIDGEY
-	db 10, ABRA
+	db 10, SNUBBULL
 	db 12, JIGGLYPUFF
-	db 10, DITTO
+	db 11, RATTATA
+	db 10, PIKACHU
+	db 10, ABRA
 	db 10, DITTO
 	; nite
+	db 12, HOOTHOOT
+	db 12, MEOWTH
 	db 12, DROWZEE
 	db 11, RATTATA
-	db 12, HOOTHOOT
+	db 12, MURKROW
 	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
 	db 10, DITTO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_35
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, SNUBBULL
 	db 14, PIDGEY
+	db 12, SNUBBULL
 	db 13, GROWLITHE
+	db 12, MARILL
+	db 12, ELEKID
 	db 10, ABRA
-	db 12, JIGGLYPUFF
 	db 10, DITTO
-	db 12, YANMA
 	; day
-	db 12, SNUBBULL
 	db 14, PIDGEY
+	db 12, SNUBBULL
 	db 13, GROWLITHE
+	db 12, MARILL
+	db 12, ELEKID
 	db 10, ABRA
-	db 12, JIGGLYPUFF
 	db 10, DITTO
-	db 12, YANMA
 	; nite
-	db 12, DROWZEE
 	db 14, HOOTHOOT
-	db 13, PSYDUCK
+	db 12, DROWZEE
+	db 13, MEOWTH
+	db 12, RATTATA
+	db 12, MURKROW
 	db 10, ABRA
-	db 12, JIGGLYPUFF
 	db 10, DITTO
-	db 12, YANMA
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_36
