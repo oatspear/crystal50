@@ -3484,6 +3484,16 @@ DoEnemyDamage:
 	ld a, [wTurnBasedFlags]
 	or THIS_TURN_ENEMY_TOOK_DAMAGE
 	ld [wTurnBasedFlags], a
+
+	ld a, [wEnemyMonStatus]
+	cp SLP_BIT ; skip if the turn counter is already at zero
+	jr z, .not_asleep
+	and SLP_BIT
+	jr z, .not_asleep
+	ld a, [wEnemyMonStatus]
+	dec a
+	ld [wEnemyMonStatus], a
+
 	; Subtract wCurDamage from wEnemyMonHP.
 	;  store original HP in little endian wHPBuffer2
 	ld a, [hld]
@@ -3564,6 +3574,17 @@ DoPlayerDamage:
 	ld a, [wTurnBasedFlags]
 	or THIS_TURN_PLAYER_TOOK_DAMAGE
 	ld [wTurnBasedFlags], a
+
+	ld a, [wBattleMonStatus]
+	cp SLP_BIT ; skip if the turn counter is already at zero
+	jr z, .not_asleep
+	and SLP_BIT
+	jr z, .not_asleep
+	ld a, [wBattleMonStatus]
+	dec a
+	ld [wBattleMonStatus], a
+
+.not_asleep
 	; Subtract wCurDamage from wBattleMonHP.
 	;  store original HP in little endian wHPBuffer2
 	;  store new HP in little endian wHPBuffer3
