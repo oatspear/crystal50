@@ -32,6 +32,7 @@
 - Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
 - Replaced trade evolution with evolution via level up while also holding specific items.
 - Freeze status grants the frozen Pokémon a boost to Defense and Sp. Defense similar to Reflect and Light Screen.
+- Sleep now lasts between 2 and 3 turns.
 
 ## v0.2 (Set to Level 50)
 

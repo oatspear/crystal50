@@ -149,13 +149,14 @@ BattleCommand_CheckTurn:
 
 	ld hl, wBattleMonStatus
 	ld a, [hl]
-	and SLP
+	and SLP_BIT
 	jr z, .not_asleep
 
+	ld a, [hl]
+	cp SLP_BIT ; exactly equal means a counter of zero turns, this saves a ld
+	jr z, .woke_up
 	dec a
 	ld [wBattleMonStatus], a
-	and SLP
-	jr z, .woke_up
 
 	xor a
 	ld [wNumHits], a
@@ -376,13 +377,14 @@ CheckEnemyTurn:
 
 	ld hl, wEnemyMonStatus
 	ld a, [hl]
-	and SLP
+	and SLP_BIT
 	jr z, .not_asleep
 
+	ld a, [hl]
+	cp SLP_BIT ; exactly equal means a counter of zero turns, this saves a ld
+	jr z, .woke_up
 	dec a
 	ld [wEnemyMonStatus], a
-	and a
-	jr z, .woke_up
 
 	ld hl, FastAsleepText
 	call StdBattleTextbox
@@ -769,12 +771,7 @@ BattleCommand_CheckObedience:
 	jp .EndDisobedience
 
 .Nap:
-	call BattleRandom
-	add a
-	swap a
-	and SLP
-	jr z, .Nap
-
+	ld a, SLP_BIT | 1 ; SLP for 2 turns (this and next)
 	ld [wBattleMonStatus], a
 
 	ld hl, BeganToNapText
@@ -925,7 +922,7 @@ IgnoreSleepOnly:
 .CheckSleep:
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
-	and SLP
+	and SLP_BIT
 	ret z
 
 ; 'ignored orders…sleeping!'
@@ -1659,7 +1656,7 @@ BattleCommand_CheckHit:
 
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVar
-	and SLP
+	and SLP_BIT
 	ret
 
 .ToxicPoisonTypes
@@ -3702,7 +3699,7 @@ BattleCommand_SleepTarget:
 	ld d, h
 	ld e, l
 	ld a, [de]
-	and SLP
+	and SLP_BIT
 	ld hl, AlreadyAsleepText
 	jr nz, .fail
 
@@ -3720,19 +3717,11 @@ BattleCommand_SleepTarget:
 	jr nz, .fail
 
 	call AnimateCurrentMove
-	ld b, SLP
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr z, .random_loop
-	ld b, %011
 
-.random_loop
-	call BattleRandom
-	and b
-	jr z, .random_loop
-	cp SLP
-	jr z, .random_loop
-	inc a
+	ldh a, [hRandomAdd]
+	and 1 ; use random parity bit to decide between 2 or 3 turns of sleep
+	or SLP_BIT | 2
+
 	ld [de], a
 	call UpdateOpponentInParty
 	call RefreshBattleHuds
@@ -5081,7 +5070,7 @@ BattleCommand_Rampage:
 ; No rampage during Sleep Talk.
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
-	and SLP
+	and SLP_BIT
 	ret nz
 
 	ld de, wPlayerRolloutCount
@@ -5602,7 +5591,7 @@ BattleCommand_Charge:
 	call BattleCommand_ClearText
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
-	and SLP
+	and SLP_BIT
 	jr z, .awake
 
 	call BattleCommand_MoveDelay
@@ -6293,7 +6282,7 @@ BattleCommand_Heal:
 	call GetBattleVarAddr
 	ld a, [hl]
 	and a
-	ld [hl], REST_SLEEP_TURNS + 1
+	ld [hl], SLP_BIT | REST_SLEEP_TURNS
 	ld hl, WentToSleepText
 	jr z, .no_status_to_heal
 	ld hl, RestedText
