@@ -3494,6 +3494,7 @@ DoEnemyDamage:
 	dec a
 	ld [wEnemyMonStatus], a
 
+.not_asleep
 	; Subtract wCurDamage from wEnemyMonHP.
 	;  store original HP in little endian wHPBuffer2
 	ld a, [hld]
