@@ -31,6 +31,7 @@
 - Due to the changes to how stat levels work, Belly Drum now maximizes Attack for a duration of 8 turns.
 - Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
 - Replaced trade evolution with evolution via level up while also holding specific items.
+- Freeze status grants the frozen Pokémon a boost to Defense similar to Reflect.
 
 ## v0.2 (Set to Level 50)
 

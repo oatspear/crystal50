@@ -2621,6 +2621,12 @@ PlayerAttackDamage:
 	sla c
 	rl b
 
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
+	jr z, .physicalcrit
+	sla c
+	rl b
+
 .physicalcrit
 	ld hl, wBattleMonAttack
 	call CheckDamageStatsCritical
@@ -2870,6 +2876,12 @@ EnemyAttackDamage:
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
+	jr z, .physicalcrit
+	sla c
+	rl b
+
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
 	jr z, .physicalcrit
 	sla c
 	rl b
