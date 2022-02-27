@@ -191,9 +191,11 @@ BattleCommand_CheckTurn:
 
 .not_asleep
 
-	ld hl, wBattleMonStatus
-	bit FRZ, [hl]
+	ld a, [wBattleMonStatus]
+	bit FRZ, a
 	jr z, .not_frozen
+	cp (1 << FRZ) ; turn counter reached zero?
+	jr z, .defrost
 
 	; Flame Wheel and Sacred Fire thaw the user.
 	ld a, [wCurPlayerMove]
@@ -220,6 +222,9 @@ BattleCommand_CheckTurn:
 
 	call CantMove
 	jp EndTurn
+
+.defrost
+	call BattleCommand_Defrost
 
 .not_flinched
 
@@ -417,9 +422,11 @@ CheckEnemyTurn:
 
 .not_asleep
 
-	ld hl, wEnemyMonStatus
-	bit FRZ, [hl]
+	ld a, [wEnemyMonStatus]
+	bit FRZ, a
 	jr z, .not_frozen
+	cp (1 << FRZ) ; turn counter reached zero?
+	jr z, .defrost
 
 	; Flame Wheel and Sacred Fire thaw the user.
 	ld a, [wCurEnemyMove]
@@ -445,6 +452,9 @@ CheckEnemyTurn:
 
 	call CantMove
 	jp EndTurn
+
+.defrost
+	call BattleCommand_Defrost
 
 .not_flinched
 
@@ -3486,6 +3496,15 @@ DoEnemyDamage:
 	ld [wTurnBasedFlags], a
 
 	ld a, [wEnemyMonStatus]
+	bit FRZ, a
+	jr z, .not_frozen
+	cp 1 << FRZ ; skip if the turn counter is already at zero
+	jr z, .not_asleep
+	dec a
+	ld [wEnemyMonStatus], a
+	jr .not_asleep
+
+.not_frozen
 	cp SLP_BIT ; skip if the turn counter is already at zero
 	jr z, .not_asleep
 	and SLP_BIT
@@ -3577,6 +3596,15 @@ DoPlayerDamage:
 	ld [wTurnBasedFlags], a
 
 	ld a, [wBattleMonStatus]
+	bit FRZ, a
+	jr z, .not_frozen
+	cp 1 << FRZ ; skip if the turn counter is already at zero
+	jr z, .not_asleep
+	dec a
+	ld [wBattleMonStatus], a
+	jr .not_asleep
+
+.not_frozen
 	cp SLP_BIT ; skip if the turn counter is already at zero
 	jr z, .not_asleep
 	and SLP_BIT
@@ -4116,7 +4144,11 @@ BattleCommand_FreezeTarget:
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
-	set FRZ, [hl]
+	; set FRZ, [hl]
+	ldh a, [hRandomAdd]
+	and 1 ; random parity bit
+	or (1 << FRZ) | 2 ; 2-3 layers of ice (depends on random bit)
+	ld [hl], a
 	call UpdateOpponentInParty
 	ld de, ANIM_FRZ
 	call PlayOpponentBattleAnim
@@ -6598,7 +6630,15 @@ BattleCommand_Defrost:
 	call GetBattleVarAddr
 	bit FRZ, [hl]
 	ret z
-	res FRZ, [hl]
+	; res FRZ, [hl]
+
+	; ld a, [hl]
+	; and ALL_STATUS ^ ((1 << FRZ) | STATUS_TURN_COUNTER) ; turn off FRZ and counter
+	; ld [hl], a
+
+	; assume only one status condition
+	xor a
+	ld [hl], a
 
 ; Don't update the enemy's party struct in a wild battle.
 
@@ -6613,7 +6653,10 @@ BattleCommand_Defrost:
 .party
 	ld a, MON_STATUS
 	call UserPartyAttr
-	res FRZ, [hl]
+
+	; assume only one status condition
+	xor a
+	ld [hl], a
 
 .done
 	call RefreshBattleHuds

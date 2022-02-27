@@ -200,6 +200,7 @@ SLP EQU %111 ; 0-7 turns
 	const PAR
 
 ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
+FRZ_TURNS_MASK EQU (1 << FRZ) | STATUS_TURN_COUNTER
 
 ; wPlayerSubStatus1 or wEnemySubStatus1 bit flags
 	const_def

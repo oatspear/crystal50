@@ -33,8 +33,10 @@
 - Replaced trade evolution with evolution via level up while also holding specific items.
 - Freeze status grants the frozen Pokémon a boost to Defense and Sp. Defense similar to Reflect and Light Screen.
 - Raised the chance to thaw from 10% to 20%, to be on par with current generations.
+- Harsh sunlight thaws Pokémon after the turn they get frozen.
 - Sleep now lasts between 2 and 3 turns. Disobedience naps and Rest always last 2 turns. Sleeping wild Pokémon sleep for 3 turns.
-- Taking damage makes sleeping Pokémon wake up sooner.
+- Taking damage makes sleeping Pokémon wake up sooner (decrements the sleep counter).
+- Taking damage breaks the ice around frozen Pokémon after 2 or 3 hits.
 
 ## v0.2 (Set to Level 50)
 
