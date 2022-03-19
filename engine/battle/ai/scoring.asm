@@ -1491,63 +1491,21 @@ AI_Smart_DefrostOpponent:
 	ret
 
 AI_Smart_Spite:
-	ld a, [wLastPlayerCounterMove]
-	and a
-	jr nz, .usedmove
-
-	call AICompareSpeed
-	jp c, AIDiscourageMove
-
-	call AI_50_50
-	ret c
-	inc [hl]
-	ret
-
-.usedmove
-	push hl
-	ld b, a
-	ld c, NUM_MOVES
-	ld hl, wBattleMonMoves
-	ld de, wBattleMonPP
-
-.moveloop
-	ld a, [hli]
-	cp b
-	jr z, .foundmove
-
-	inc de
-	dec c
-	jr nz, .moveloop
-
-	pop hl
-	ret
-
-.foundmove
-	pop hl
-	ld a, [de]
-	cp 6
-	jr c, .encourage
-	cp 15
-	jr nc, .discourage
-
-	call Random
-	cp 39 percent + 1
+	ld a, [wBattleMonEnergy]
+	; discourage if the energy is too low
+	cp ENERGY_10_MOVES
+	jr c, .discourage
+	; neutral if the energy is too high
+	cp MAX_ENERGY / 2
 	ret nc
+	; encourage otherwise
+	dec [hl]
+	dec [hl]
+	ret
 
 .discourage
 	inc [hl]
 	ret
-
-.encourage
-	call Random
-	cp 39 percent + 1
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-.dismiss ; unreferenced
-	jp AIDiscourageMove
 
 AI_Smart_DestinyBond:
 AI_Smart_Reversal:

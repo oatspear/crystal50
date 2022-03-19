@@ -315,7 +315,7 @@ endr
 	ld a, [hli]
 	ld [de], a
 	inc de
-	; Copy EnemyMonUnused
+	; Copy EnemyMonEnergy
 	ld a, [hli]
 	ld [de], a
 	inc de

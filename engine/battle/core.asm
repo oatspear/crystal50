@@ -737,7 +737,10 @@ HandleEncore:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	ret nz
+	ld c, a
+	ld a, [wBattleMonEnergy]
+	cp c
+	ret nc
 
 .end_player_encore
 	ld hl, wPlayerSubStatus5
@@ -761,7 +764,10 @@ HandleEncore:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	ret nz
+	ld c, a
+	ld a, [wEnemyMonEnergy]
+	cp c
+	ret nc
 
 .end_enemy_encore
 	ld hl, wEnemySubStatus5
@@ -1382,99 +1388,38 @@ HandleLeppaBerry:
 	ld a, b
 	cp HELD_RESTORE_PP
 	jr nz, .quit
-	ld hl, wPartyMon1PP
-	ld a, [wCurBattleMon]
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	ld hl, wPartyMon1Moves
+	ld hl, wPartyMon1Energy
 	ld a, [wCurBattleMon]
 	call GetPartyLocation
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .wild
-	ld de, wWildMonPP
-	ld hl, wWildMonMoves
+	ld hl, wWildMonEnergy
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild
-	ld hl, wOTPartyMon1PP
-	ld a, [wCurOTMon]
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	ld hl, wOTPartyMon1Moves
+	ld hl, wOTPartyMon1Energy
 	ld a, [wCurOTMon]
 	call GetPartyLocation
 
 .wild
-	ld c, $0
-.loop
 	ld a, [hl]
-	and a
-	jr z, .quit
-	ld a, [de]
-	and PP_MASK
-	jr z, .restore
-	inc hl
-	inc de
-	inc c
-	ld a, c
-	cp NUM_MOVES
-	jr nz, .loop
+	cp ENERGY_TRIGGER_LEPPA_BERRY
+	ret nc
 
-.quit
-	ret
-
-.restore
-	; lousy hack
-	ld a, [hl]
-	cp SKETCH
-	ld b, 1
-	jr z, .sketch
-	ld b, 5
-.sketch
-	ld a, [de]
-	add b
-	ld [de], a
-	push bc
-	push bc
-	ld a, [hl]
-	ld [wTempByteValue], a
-	ld de, wBattleMonMoves - 1
-	ld hl, wBattleMonPP
+	; a contains the current energy level
+	add ENERGY_RECOVERY_LEPPA_BERRY
+	ld [hl], a
+	ld c, a
+	ld hl, wBattleMonEnergy
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player_pp
-	ld de, wEnemyMonMoves - 1
-	ld hl, wEnemyMonPP
+	ld hl, wEnemyMonEnergy
 .player_pp
-	inc de
-	pop bc
-	ld b, 0
-	add hl, bc
-	push hl
-	ld h, d
-	ld l, e
-	add hl, bc
-	pop de
-	pop bc
+	ld a, c
+	ld [hl], a
 
-	ld a, [wTempByteValue]
-	cp [hl]
-	jr nz, .skip_checks
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wPlayerSubStatus5]
-	jr z, .check_transform
-	ld a, [wEnemySubStatus5]
-.check_transform
-	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .skip_checks
-	ld a, [de]
-	add b
-	ld [de], a
-.skip_checks
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
@@ -5841,23 +5786,24 @@ MoveInfoBox:
 
 .PrintPP:
 	hlcoord 5, 11
-	ld a, [wLinkMode] ; What's the point of this check?
-	cp LINK_MOBILE
-	jr c, .ok
-	hlcoord 5, 11
-.ok
 	push hl
+	ld a, [wStringBuffer1] ; how much Energy it costs
+	ld c, a
+	ld a, [wBattleMonEnergy] ; how much Energy we have
+	call SimpleDivide ; divide a by c, quotient in b
+	ld a, b
+	ld [wStringBuffer1], a
 	ld de, wStringBuffer1
 	lb bc, 1, 2
-	call PrintNum
-	pop hl
-	inc hl
-	inc hl
-	ld [hl], "/"
-	inc hl
-	ld de, wNamedObjectIndex
-	lb bc, 1, 2
-	call PrintNum
+	call PrintNum ; prints how many times we can use the move
+	; pop hl
+	; inc hl
+	; inc hl
+	; ld [hl], "/"
+	; inc hl
+	; ld de, wNamedObjectIndex
+	; lb bc, 1, 2
+	; call PrintNum
 	ret
 
 CheckPlayerHasUsableMoves:
@@ -6358,8 +6304,8 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStatus
 	ld [hli], a
 
-; Unused byte
-	xor a
+; Energy byte
+	ld a, MAX_ENERGY
 	ld [hli], a
 
 ; Full HP..

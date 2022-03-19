@@ -427,7 +427,8 @@ PokeBallEffect:
 	ld hl, wEnemyMonStatus
 	ld a, [hli]
 	push af
-	inc hl
+	ld a, [hli]
+	push af
 	ld a, [hli]
 	push af
 	ld a, [hl]
@@ -469,7 +470,8 @@ PokeBallEffect:
 	ld [hld], a
 	pop af
 	ld [hld], a
-	dec hl
+	pop af
+	ld [hld], a
 	pop af
 	ld [hl], a
 

@@ -31,6 +31,8 @@
 - Due to the changes to how stat levels work, Belly Drum now maximizes Attack for a duration of 8 turns.
 - Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
 - Replaced trade evolution with evolution via level up while also holding specific items.
+- [WIP] Replaced the PP system with a global Energy system (pool of 100 Energy for all moves).
+- Leppa Berry restores 20 Energy when the Energy level is less than one third.
 
 ## v0.2 (Set to Level 50)
 
