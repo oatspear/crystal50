@@ -34,6 +34,8 @@
 - [WIP] Replaced the PP system with a global Energy system (pool of 100 Energy for all moves).
 - Leppa Berry restores 20 Energy when the Energy level is less than one third.
 
+TODO: check if wWildMonEnergy is still necessary
+
 ## v0.2 (Set to Level 50)
 
 ### Added

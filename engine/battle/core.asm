@@ -5569,7 +5569,10 @@ MoveSelectionScreen:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	jr z, .no_pp_left
+	ld c, a
+	ld a, [wBattleMonEnergy]
+	cp c
+	jr c, .no_pp_left
 	ld a, [wPlayerDisableCount]
 	swap a
 	and $f
@@ -5748,7 +5751,7 @@ MoveInfoBox:
 	ld [wCurPartyMon], a
 	ld a, WILDMON
 	ld [wMonType], a
-	callfar GetMaxPPOfMove
+	; callfar GetMaxPPOfMove
 
 	ld hl, wMenuCursorY
 	ld c, [hl]
@@ -5787,61 +5790,60 @@ MoveInfoBox:
 .PrintPP:
 	hlcoord 5, 11
 	push hl
-	ld a, [wStringBuffer1] ; how much Energy it costs
-	ld c, a
-	ld a, [wBattleMonEnergy] ; how much Energy we have
-	call SimpleDivide ; divide a by c, quotient in b
-	ld a, b
+	ld de, wStringBuffer1
+	lb bc, 1, 2
+	call PrintNum
+	pop hl
+	inc hl
+	inc hl
+	ld [hl], "/"
+	inc hl
+
+	; ld de, wNamedObjectIndex
+	ld a, [wBattleMonEnergy]
+	cp MAX_ENERGY
+	jr c, .print_current_energy
+	ld [hl], "M"
+	inc hl
+	ld [hl], "P"
+	ret
+
+.print_current_energy
 	ld [wStringBuffer1], a
 	ld de, wStringBuffer1
 	lb bc, 1, 2
-	call PrintNum ; prints how many times we can use the move
-	; pop hl
-	; inc hl
-	; inc hl
-	; ld [hl], "/"
-	; inc hl
-	; ld de, wNamedObjectIndex
-	; lb bc, 1, 2
-	; call PrintNum
+	call PrintNum
 	ret
 
 CheckPlayerHasUsableMoves:
 	ld a, STRUGGLE
 	ld [wCurPlayerMove], a
+	ld a, [wBattleMonEnergy]
+	inc a
+	ld e, a
 	ld a, [wPlayerDisableCount]
 	and a
 	ld hl, wBattleMonPP
 	jr nz, .disabled
-
-	ld a, [hli]
-	or [hl]
-	inc hl
-	or [hl]
-	inc hl
-	or [hl]
-	and PP_MASK
-	ret nz
-	jr .force_struggle
+	ld a, $50 ; as if 5th was disabled, skips disabled jump
 
 .disabled
 	swap a
 	and $f
 	ld b, a
 	ld d, NUM_MOVES + 1
-	xor a
 .loop
 	dec d
-	jr z, .done
-	ld c, [hl]
-	inc hl
+	jr z, .force_struggle
+	ld a, [hli]
 	dec b
 	jr z, .loop
-	or c
-	jr .loop
-
-.done
 	and PP_MASK
+	jr z, .force_struggle ; zero PP means empty move slot
+	cp e ; has enough energy?
+	jr nc, .loop
+
+	and a ; just to ensure nz
 	ret nz
 
 .force_struggle
@@ -5920,7 +5922,10 @@ ParseEnemyAction:
 	jr z, .disabled
 	ld a, [de]
 	and PP_MASK
-	jr nz, .enough_pp
+	ld c, a
+	ld a, [wEnemyMonEnergy]
+	cp c
+	jr nc, .enough_pp
 
 .disabled
 	inc hl
@@ -5934,6 +5939,9 @@ ParseEnemyAction:
 	dec a
 	jr nz, .skip_load
 ; wild
+	ld a, [wEnemyMonEnergy]
+	inc a
+	ld e, a
 .loop2
 	ld hl, wEnemyMonMoves
 	call BattleRandom
@@ -5955,7 +5963,8 @@ ParseEnemyAction:
 	ld b, a
 	ld a, [hl]
 	and PP_MASK
-	jr z, .loop2
+	cp e
+	jr nc, .loop2
 	ld a, c
 	ld [wCurEnemyMoveNum], a
 	ld a, b
@@ -6351,8 +6360,11 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	ld [wCurOTMon], a
 
+; Get energy from the party struct
+	ld a, [hld] ; OTPartyMonEnergy
+	ld [wEnemyMonEnergy], a
+
 ; Get status from the party struct
-	dec hl
 	ld a, [hl] ; OTPartyMonStatus
 	ld [wEnemyMonStatus], a
 
@@ -8164,6 +8176,8 @@ InitEnemyWildmon:
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
 	farcall StubbedTrainerRankings_WildBattles
+	; ld a, MAX_ENERGY
+	; ld [wWildMonEnergy], a
 	call LoadEnemyMon
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
