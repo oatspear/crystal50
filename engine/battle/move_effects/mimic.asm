@@ -40,7 +40,6 @@ BattleCommand_Mimic:
 	ld [wNamedObjectIndex], a
 	ld bc, wBattleMonPP - wBattleMonMoves
 	add hl, bc
-	; ld [hl], 5
 	ld [hl], HIGHEST_MOVE_ENERGY
 	call GetMoveName
 	call AnimateCurrentMove

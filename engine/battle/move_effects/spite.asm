@@ -12,7 +12,7 @@ BattleCommand_Spite:
 	ld hl, wBattleMonEnergy
 
 .got_energy
-	ld b, ENERGY_5_MOVES
+	ld b, ENERGY_DRAIN_SPITE
 	ld a, [hl]
 	cp b
 	jr nc, .deplete_pp
@@ -20,26 +20,11 @@ BattleCommand_Spite:
 .deplete_pp
 	sub b
 	ld [hl], a
-	push af
-	ld a, MON_ENERGY
-	call OpponentPartyAttr
-	ld d, b
-	pop af
-	ld e, a
 
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .not_wildmon
-	ld a, [wBattleMode]
-	dec a
-	jr z, .depleted
-	; TODO check if wWildMonEnergy is needed
-	ld [hl], e
-.depleted
-	push de
+	push bc
 	call AnimateCurrentMove
-	pop de
-	ld a, d
+	pop bc
+	ld a, b
 	ld [wTextDecimalByte], a
 	ld hl, SpiteEffectText
 	jp StdBattleTextbox

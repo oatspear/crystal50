@@ -1388,36 +1388,20 @@ HandleLeppaBerry:
 	ld a, b
 	cp HELD_RESTORE_PP
 	jr nz, .quit
-	ld hl, wPartyMon1Energy
-	ld a, [wCurBattleMon]
-	call GetPartyLocation
+
+	ld hl, wBattleMonEnergy
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .wild
-	ld hl, wWildMonEnergy
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-	ld hl, wOTPartyMon1Energy
-	ld a, [wCurOTMon]
-	call GetPartyLocation
+	jr z, .player_pp
+	ld hl, wEnemyMonEnergy
 
-.wild
+.player_pp
 	ld a, [hl]
 	cp ENERGY_TRIGGER_LEPPA_BERRY
 	ret nc
 
 	; a contains the current energy level
 	add ENERGY_RECOVERY_LEPPA_BERRY
-	ld [hl], a
-	ld c, a
-	ld hl, wBattleMonEnergy
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player_pp
-	ld hl, wEnemyMonEnergy
-.player_pp
-	ld a, c
 	ld [hl], a
 
 	callfar GetUserItem
@@ -5562,29 +5546,31 @@ MoveSelectionScreen:
 	pop af
 	ret nz
 
-	ld hl, wBattleMonPP
 	ld a, [wMenuCursorY]
 	ld c, a
 	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	and PP_MASK
-	ld c, a
-	ld a, [wBattleMonEnergy]
-	cp c
-	jr c, .no_pp_left
+
 	ld a, [wPlayerDisableCount]
 	swap a
 	and $f
 	dec a
 	cp c
 	jr z, .move_disabled
-	ld a, [wMenuCursorY]
-	ld hl, wBattleMonMoves
-	ld c, a
-	ld b, 0
+
+	ld hl, wBattleMonPP
 	add hl, bc
 	ld a, [hl]
+	and PP_MASK
+	ld h, a
+	ld a, [wBattleMonEnergy]
+	cp h
+	jr c, .no_pp_left
+
+	ld hl, wBattleMonMoves
+	add hl, bc
+	ld a, [hl]
+
+.got_move
 	ld [wCurPlayerMove], a
 	xor a
 	ret
@@ -5594,7 +5580,11 @@ MoveSelectionScreen:
 	jr .place_textbox_start_over
 
 .no_pp_left
-	ld hl, BattleText_TheresNoPPLeftForThisMove
+	; ld hl, BattleText_TheresNoPPLeftForThisMove
+	; previously: fallthrough
+
+	ld a, STRUGGLE
+	jr .got_move
 
 .place_textbox_start_over
 	call StdBattleTextbox
@@ -5751,7 +5741,6 @@ MoveInfoBox:
 	ld [wCurPartyMon], a
 	ld a, WILDMON
 	ld [wMonType], a
-	; callfar GetMaxPPOfMove
 
 	ld hl, wMenuCursorY
 	ld c, [hl]
@@ -5787,7 +5776,16 @@ MoveInfoBox:
 .Disabled:
 	db "Disabled!@"
 
+.Struggle:
+	db "Struggle!@"
+
 .PrintPP:
+	ld a, [wStringBuffer1] ; energy cost
+	ld c, a
+	ld a, [wBattleMonEnergy]
+	cp c
+	jr c, .will_struggle
+
 	hlcoord 5, 11
 	push hl
 	ld de, wStringBuffer1
@@ -5801,18 +5799,16 @@ MoveInfoBox:
 
 	; ld de, wNamedObjectIndex
 	ld a, [wBattleMonEnergy]
-	cp MAX_ENERGY
-	jr c, .print_current_energy
-	ld [hl], "M"
-	inc hl
-	ld [hl], "P"
-	ret
-
-.print_current_energy
 	ld [wStringBuffer1], a
 	ld de, wStringBuffer1
 	lb bc, 1, 2
 	call PrintNum
+	ret
+
+.will_struggle
+	hlcoord 1, 11
+	ld de, .Struggle
+	call PlaceString
 	ret
 
 CheckPlayerHasUsableMoves:
@@ -6313,7 +6309,7 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStatus
 	ld [hli], a
 
-; Energy byte
+; Energy byte (wEnemyMonEnergy)
 	ld a, MAX_ENERGY
 	ld [hli], a
 
@@ -6360,9 +6356,8 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	ld [wCurOTMon], a
 
-; Get energy from the party struct
-	ld a, [hld] ; OTPartyMonEnergy
-	ld [wEnemyMonEnergy], a
+; Skip energy from the party struct
+	dec hl
 
 ; Get status from the party struct
 	ld a, [hl] ; OTPartyMonStatus

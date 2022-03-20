@@ -988,33 +988,6 @@ BattleCommand_DoTurn:
 	; all good, consume the energy and store the value
 	ld [hl], a
 	ld c, a
-
-	; replicate energy to party struct
-	ldh a, [hBattleTurn]
-	and a
-
-	ld hl, wPartyMon1Energy
-	ld a, [wCurBattleMon]
-	jr z, .player
-
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-
-	ld hl, wOTPartyMon1Energy
-	ld a, [wCurOTMon]
-
-.player
-	push bc
-	call GetPartyLocation
-	pop bc
-	ld a, c
-	ld [hl], a
-
-	ret
-
-.wild
-	; TODO: check if we need to update wWildMonEnergy
 	ret
 
 .out_of_pp
@@ -1035,7 +1008,6 @@ BattleCommand_DoTurn:
 	ld hl, NoPPLeftText
 .print
 	call StdBattleTextbox
-	ld b, 1
 	ret
 
 .continuousmoves
