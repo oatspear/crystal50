@@ -1,12 +1,12 @@
 BattleCommand_Encore:
 ; encore
 
-	ld hl, wEnemyMonMoves
+	; ld hl, wEnemyMonMoves
 	ld de, wEnemyEncoreCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld hl, wBattleMonMoves
+	; ld hl, wBattleMonMoves
 	ld de, wPlayerEncoreCount
 .ok
 	ld a, BATTLE_VARS_LAST_MOVE_OPP
@@ -19,16 +19,6 @@ BattleCommand_Encore:
 	jp z, .failed
 	ld b, a
 
-.got_move
-	ld a, [hli]
-	cp b
-	jr nz, .got_move
-
-	ld bc, wBattleMonPP - wBattleMonMoves - 1
-	add hl, bc
-	ld a, [hl]
-	and PP_MASK
-	jp z, .failed
 	ld a, [wAttackMissed]
 	and a
 	jp nz, .failed

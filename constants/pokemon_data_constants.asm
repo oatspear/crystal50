@@ -102,7 +102,7 @@ MON_CAUGHTLOCATION     rb
 MON_LEVEL              rb
 BOXMON_STRUCT_LENGTH EQU _RS
 MON_STATUS             rb
-                       rb_skip
+MON_ENERGY             rb
 MON_HP                 rw
 MON_MAXHP              rw
 MON_STATS              rw NUM_BATTLE_STATS
