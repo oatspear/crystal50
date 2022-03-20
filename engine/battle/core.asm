@@ -3997,6 +3997,8 @@ InitBattleMon:
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
+	ld a, MAX_ENERGY
+	ld [wBattleMonEnergy], a
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -5814,16 +5816,10 @@ MoveInfoBox:
 CheckPlayerHasUsableMoves:
 	ld a, STRUGGLE
 	ld [wCurPlayerMove], a
-	ld a, [wBattleMonEnergy]
-	inc a
-	ld e, a
 	ld a, [wPlayerDisableCount]
 	and a
-	ld hl, wBattleMonPP
-	jr nz, .disabled
-	ld a, $50 ; as if 5th was disabled, skips disabled jump
+	jr z, .okay
 
-.disabled
 	swap a
 	and $f
 	ld b, a
@@ -5834,13 +5830,11 @@ CheckPlayerHasUsableMoves:
 	ld a, [hli]
 	dec b
 	jr z, .loop
-	and PP_MASK
-	jr z, .force_struggle ; zero PP means empty move slot
-	cp e ; has enough energy?
-	jr nc, .loop
 
+.okay
+	ld a, TRUE
 	and a ; just to ensure nz
-	ret nz
+	ret
 
 .force_struggle
 	ld hl, BattleText_MonHasNoMovesLeft
