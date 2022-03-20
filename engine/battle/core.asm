@@ -1387,7 +1387,7 @@ HandleLeppaBerry:
 	callfar GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
-	jr nz, .quit
+	ret nz
 
 	ld hl, wBattleMonEnergy
 	ldh a, [hBattleTurn]

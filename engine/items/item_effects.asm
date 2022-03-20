@@ -2395,8 +2395,8 @@ RestorePPEffect:
 	cp MAX_ELIXER
 	jr z, BattleRestorePP
 
-	ld c, ENERGY_RECOVERY_ELIXIR
-	cp ELIXIR
+	ld c, ENERGY_RECOVERY_ELIXER
+	cp ELIXER
 	jr z, BattleRestorePP
 
 	ld c, ENERGY_RECOVERY_LEPPA_BERRY
