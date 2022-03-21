@@ -293,13 +293,13 @@ ListMovePP:
 	ld de, wStringBuffer1 + 4
 	lb bc, 1, 2
 	call PrintNum
-	ld a, "/"
-	ld [hli], a
-	ld a, MAX_ENERGY
-	ld [wTempPP], a
-	ld de, wTempPP
-	lb bc, 1, 2
-	call PrintNum
+	; ld a, "/"
+	; ld [hli], a
+	; ld a, MAX_ENERGY
+	; ld [wTempPP], a
+	; ld de, wTempPP
+	; lb bc, 1, 2
+	; call PrintNum
 	pop hl
 	ld a, [wListMovesLineSpacing]
 	ld e, a
