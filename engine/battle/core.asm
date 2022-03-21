@@ -5788,19 +5788,34 @@ MoveInfoBox:
 	cp c
 	jr c, .will_struggle
 
-	hlcoord 5, 11
+	; print how much energy the move costs
+	hlcoord 8, 11
+	ld de, wStringBuffer1
+	lb bc, 1, 2
+	call PrintNum
+	hlcoord 7, 11
+	ld a, [wStringBuffer1]
+	cp 10 ; less than two digits?
+	jr nc, .minus
+	hlcoord 8, 11
+.minus
+	ld [hl], "-"
+
+	; print how much energy we have left
+	ld a, [wBattleMonEnergy]
+	ld [wStringBuffer1], a
+	hlcoord 1, 11
 	push hl
 	ld de, wStringBuffer1
 	lb bc, 1, 2
 	call PrintNum
 	pop hl
+	; print the maximum amount of energy
 	inc hl
 	inc hl
 	ld [hl], "/"
 	inc hl
-
-	; ld de, wNamedObjectIndex
-	ld a, [wBattleMonEnergy]
+	ld a, MAX_ENERGY
 	ld [wStringBuffer1], a
 	ld de, wStringBuffer1
 	lb bc, 1, 2
