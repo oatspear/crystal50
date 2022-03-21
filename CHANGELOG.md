@@ -36,6 +36,8 @@
 - Moves learned with Mimic or Transform cost the highest Energy level for any move.
 - When selecting a move for which there is not enough energy, Struggle is used instead.
 - Spite drains 1/5 Energy, regardless of the moves the opponent uses.
+- Poison (status condition) drains 1 Energy per turn.
+- Sleep (status condition) restores 8 Energy per turn.
 
 ## v0.2 (Set to Level 50)
 

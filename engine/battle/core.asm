@@ -301,6 +301,7 @@ HandleBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleEnergyRecovery
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
 	jp HandleEncore
@@ -4540,6 +4541,67 @@ UseConfusionHealingItem:
 	xor a
 	ld [bc], a
 	ld [hl], a
+	ret
+
+HandleEnergyRecovery:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player_1
+	call .DoPlayer
+	jr .DoEnemy
+
+.player_1
+	call .DoEnemy
+	; fallthrough
+
+.DoPlayer:
+	ld a, [wBattleMonStatus]
+	and SLP
+	jr z, .player_not_asleep
+	ld a, [wBattleMonEnergy]
+	add HIGHEST_MOVE_ENERGY
+	cp MAX_ENERGY
+	jr c, .player_recover
+	ld a, MAX_ENERGY
+.player_recover
+	ld [wBattleMonEnergy], a
+	ret ; assume only one status condition
+
+.player_not_asleep
+	ld a, [wBattleMonStatus]
+	and 1 << PSN
+	jr z, .player_done
+	ld a, [wBattleMonEnergy]
+	dec a
+	jr c, .player_done
+	ld [wBattleMonEnergy], a
+
+.player_done
+	ret
+
+.DoEnemy:
+	ld a, [wEnemyMonStatus]
+	and SLP
+	jr z, .enemy_not_asleep
+	ld a, [wEnemyMonEnergy]
+	add HIGHEST_MOVE_ENERGY
+	cp MAX_ENERGY
+	jr c, .enemy_recover
+	ld a, MAX_ENERGY
+.enemy_recover
+	ld [wEnemyMonEnergy], a
+	ret ; assume only one status condition
+
+.enemy_not_asleep
+	ld a, [wEnemyMonStatus]
+	and 1 << PSN
+	jr z, .enemy_done
+	ld a, [wEnemyMonEnergy]
+	dec a
+	jr c, .enemy_done
+	ld [wEnemyMonEnergy], a
+
+.enemy_done
 	ret
 
 HandleStatBoostingHeldItems:
