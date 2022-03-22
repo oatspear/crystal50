@@ -6380,9 +6380,8 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStatus
 	ld [hli], a
 
-; Energy byte (wEnemyMonEnergy)
-	ld a, MAX_ENERGY
-	ld [hli], a
+; Energy byte (wEnemyMonEnergy) skipped here, initialized later
+	inc hl
 
 ; Full HP..
 	ld a, [wEnemyMonMaxHP]
@@ -6471,6 +6470,9 @@ LoadEnemyMon:
 	predef FillMoves
 
 .PP:
+	ld a, MAX_ENERGY
+	ld [wEnemyMonEnergy], a
+
 ; Trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
