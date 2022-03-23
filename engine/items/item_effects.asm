@@ -1215,7 +1215,7 @@ UpdateStatsAfterItem:
 	ld a, MON_STAT_EXP - 1
 	call GetPartyParamLocation
 	ld b, TRUE
-	predef_jump CalcMonStats
+	predef_jump CalcMonStats ; no energy update here
 
 RareCandy_StatBooster_ExitMenu:
 	xor a

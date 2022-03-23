@@ -14,7 +14,7 @@
 	INCBIN "gfx/pokemon/kingler/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_SURF, OVERWORLD_STRENGTH, OVERWORLD_WHIRLPOOL, \
 	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
-	dw NULL ; unused (beta front/back pics)
+	db MAX_ENERGY, 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 

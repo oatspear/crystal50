@@ -4089,6 +4089,11 @@ InitEnemyMon:
 	ld a, [wEnemyMonSpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1Energy
+	call GetPartyLocation
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ld hl, wOTPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call SkipNames
@@ -6352,7 +6357,7 @@ LoadEnemyMon:
 	ld de, wEnemyMonMaxHP
 	ld b, FALSE
 	ld hl, wEnemyMonDVs - (MON_DVS - MON_STAT_EXP + 1)
-	predef CalcMonStats
+	predef CalcMonStats ; energy below (battle only, party done elsewhere)
 
 ; If we're in a trainer battle,
 ; get the rest of the parameters from the party struct
@@ -6426,7 +6431,7 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	ld [wCurOTMon], a
 
-; Skip energy from the party struct
+; Skip energy from the party struct (done below with PP)
 	dec hl
 
 ; Get status from the party struct
@@ -6470,7 +6475,7 @@ LoadEnemyMon:
 	predef FillMoves
 
 .PP:
-	ld a, MAX_ENERGY
+	ld a, [wBaseEnergy]
 	ld [wEnemyMonEnergy], a
 
 ; Trainer battle?
@@ -7266,7 +7271,7 @@ GiveExperiencePoints:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; no energy update here
 	pop bc
 	pop de
 	ld hl, MON_MAXHP + 1

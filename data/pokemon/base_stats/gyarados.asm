@@ -14,7 +14,7 @@
 	INCBIN "gfx/pokemon/gyarados/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_STRENGTH, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL, \
 	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
-	dw NULL ; unused (beta front/back pics)
+	db MAX_ENERGY, 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_2, EGG_DRAGON ; egg groups
 

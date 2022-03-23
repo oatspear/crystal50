@@ -277,13 +277,15 @@ HatchEggs:
 	add hl, bc
 	xor a
 	ld [hli], a
+	; hl points to energy
+	ld a, [wBaseEnergy]
 	ld [hl], a
 	pop hl
 	push hl
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, FALSE
-	predef CalcMonStats
+	predef CalcMonStats ; energy above
 	pop bc
 	ld hl, MON_MAXHP
 	add hl, bc

@@ -251,7 +251,8 @@ endr
 	; Status
 	ld [de], a
 	inc de
-	; Unused
+	; Energy
+	ld a, [wBaseEnergy]
 	ld [de], a
 	inc de
 
@@ -317,6 +318,8 @@ endr
 	inc de
 	; Skip wEnemyMonEnergy
 	inc hl
+	ld a, [wBaseEnergy]
+	ld [de], a
 	inc de
 	; Copy wEnemyMonHP
 	ld a, [hli]
@@ -341,7 +344,7 @@ endr
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, FALSE
-	call CalcMonStats
+	call CalcMonStats ; energy above (2 places)
 
 .registerunowndex
 	ld a, [wMonType]
@@ -640,7 +643,7 @@ SendGetMonIntoFromBox:
 	add $2
 	ld [wMonType], a
 	predef CopyMonToTempMon
-	callfar CalcLevel
+	callfar CalcLevel ; populates wBaseData (call GetBaseData)
 	ld a, d
 	ld [wCurPartyLevel], a
 	pop hl
@@ -659,12 +662,19 @@ SendGetMonIntoFromBox:
 
 	push bc
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
 	pop bc
+	; bc points to wPartyMon1Species + [wPartyCount]
 
 	ld a, [wPokemonWithdrawDepositParameter]
 	and a
 	jr nz, .CloseSRAM_And_ClearCarryFlag
+
+	; we are adding to party at this point
+	ld hl, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ld hl, MON_STATUS
 	add hl, bc
 	xor a
@@ -806,7 +816,14 @@ RetrieveBreedmon:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
+	ld hl, wPartyMon1Energy
+	ld a, [wPartyCount]
+	dec a
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ld hl, wPartyMon1Moves
 	ld a, [wPartyCount]
 	dec a
@@ -1325,7 +1342,7 @@ ComputeNPCTrademonStats:
 	ld a, MON_STAT_EXP - 1
 	call GetPartyParamLocation
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
 	pop de
 	ld a, MON_HP
 	call GetPartyParamLocation
@@ -1333,6 +1350,10 @@ ComputeNPCTrademonStats:
 	inc de
 	ld [hli], a
 	ld a, [de]
+	ld [hl], a
+	ld a, MON_ENERGY
+	call GetPartyParamLocation
+	ld a, [wBaseEnergy]
 	ld [hl], a
 	ret
 

@@ -51,7 +51,7 @@ _TempMonStatsCalculation:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; no energy update here
 	pop bc
 	ld hl, MON_HP
 	add hl, bc

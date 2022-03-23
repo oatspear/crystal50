@@ -2667,7 +2667,8 @@ wBaseUnusedFrontpic::
 wBaseOverworldMoves::
 wBaseOverworldMoves1:: db
 wBaseOverworldMoves2:: db
-wBaseUnusedBackpic:: dw
+wBaseEnergy:: db
+wBaseUnusedBackpic:: db
 wBaseGrowthRate:: db
 wBaseEggGroups:: db
 wBaseTMHM:: flag_array NUM_TM_HM_TUTOR

@@ -14,7 +14,7 @@
 	INCBIN "gfx/pokemon/ivysaur/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_STRENGTH, OVERWORLD_FLASH, \
 	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
-	dw NULL ; unused (beta front/back pics)
+	db MAX_ENERGY, 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 

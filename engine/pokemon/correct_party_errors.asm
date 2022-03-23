@@ -83,6 +83,11 @@ CorrectPartyErrors: ; unreferenced
 .load_level
 	ld [wCurPartyLevel], a
 
+	ld hl, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+
 	ld hl, MON_MAXHP
 	add hl, bc
 	ld d, h
@@ -90,7 +95,7 @@ CorrectPartyErrors: ; unreferenced
 	ld hl, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; energy above
 	pop hl
 	ld bc, PARTYMON_STRUCT_LENGTH
 	add hl, bc
