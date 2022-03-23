@@ -89,7 +89,7 @@ BattleCommand_Transform:
 	inc de
 	and a
 	jr z, .done_move
-	ld a, HIGHEST_MOVE_ENERGY
+	ld a, TRANSFORMED_MOVE_ENERGY
 .done_move
 	ld [hli], a
 	dec b

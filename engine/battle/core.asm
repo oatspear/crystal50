@@ -1382,17 +1382,25 @@ HandleLeppaBerry:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .DoEnemyFirst
+
 	call SetPlayerTurn
+	call GetPlayerMaxEnergy
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	call GetOpponentMaxEnergy
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
+	call GetOpponentMaxEnergy
 	call .do_it
 	call SetPlayerTurn
+	call GetPlayerMaxEnergy
+	; fallthrough
 
 .do_it
+	; a should contain the maximum amount of energy
+	ld [wMultiPurposeByte1], a
 	callfar GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
@@ -1411,6 +1419,10 @@ HandleLeppaBerry:
 
 	; a contains the current energy level
 	add ENERGY_RECOVERY_LEPPA_BERRY
+	cp [wMultiPurposeByte1]
+	jr c, .recover
+	ld a, [wMultiPurposeByte1]
+.recover
 	ld [hl], a
 
 	callfar GetUserItem
@@ -4556,6 +4568,29 @@ UseConfusionHealingItem:
 	ld [hl], a
 	ret
 
+GetPlayerMaxEnergy:
+	; fetch maximum energy
+	; a contains the value, hl points to the location
+	ld a, [wCurBattleMon]
+	ld hl, wPartyMon1Energy
+	call GetPartyLocation
+	ld a, [hl]
+	ret
+
+GetOpponentMaxEnergy:
+	; fetch maximum energy
+	; a contains the value, hl points to the location
+	ld hl, wWildMonEnergy
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr nz, .okay
+	ld a, [wCurOTMon]
+	ld hl, wOTPartyMon1Energy
+	call GetPartyLocation
+.okay
+	ld a, [hl]
+	ret
+
 HandleEnergyRecovery:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -4568,11 +4603,7 @@ HandleEnergyRecovery:
 	; fallthrough
 
 .DoPlayer:
-	; fetch maximum energy
-	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Energy
-	call GetPartyLocation
-
+	call GetPlayerMaxEnergy
 	ld a, [wBattleMonStatus]
 	and SLP
 	jr z, .player_not_asleep
@@ -4598,16 +4629,7 @@ HandleEnergyRecovery:
 	ret
 
 .DoEnemy:
-	; fetch maximum energy
-	ld hl, wWildMonEnergy
-	ld a, [wBattleMode]
-	cp TRAINER_BATTLE
-	jr nz, .got_enemy_energy
-	ld a, [wCurOTMon]
-	ld hl, wOTPartyMon1Energy
-	call GetPartyLocation
-
-.got_enemy_energy
+	call GetOpponentMaxEnergy
 	ld a, [wEnemyMonStatus]
 	and SLP
 	jr z, .enemy_not_asleep

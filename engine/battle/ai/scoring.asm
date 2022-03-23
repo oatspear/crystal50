@@ -1502,7 +1502,7 @@ AI_Smart_Spite:
 	ld a, [wBattleMonEnergy]
 	ld c, a
 	; discourage if the energy is too low
-	cp ENERGY_10_MOVES
+	cp ENERGY_DRAIN_SPITE
 	jr c, .discourage
 	; neutral if the energy is too high
 	add a ; double current energy
