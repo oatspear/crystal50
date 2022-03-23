@@ -1406,6 +1406,8 @@ HandleLeppaBerry:
 	cp HELD_RESTORE_PP
 	ret nz
 
+	ld a, [wMultiPurposeByte1]
+	ld c, a
 	ld hl, wBattleMonEnergy
 	ldh a, [hBattleTurn]
 	and a
@@ -1419,9 +1421,9 @@ HandleLeppaBerry:
 
 	; a contains the current energy level
 	add ENERGY_RECOVERY_LEPPA_BERRY
-	cp [wMultiPurposeByte1]
+	cp c
 	jr c, .recover
-	ld a, [wMultiPurposeByte1]
+	ld a, c
 .recover
 	ld [hl], a
 
