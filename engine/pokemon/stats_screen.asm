@@ -730,7 +730,7 @@ LoadGreenPage:
 	ld de, .MaxPP
 	hlcoord 0, 13
 	call PlaceString
-	ld a, MAX_ENERGY
+	ld a, [wTempMonEnergy]
 	ld [wStringBuffer1], a
 	ld de, wStringBuffer1
 	hlcoord 2, 14

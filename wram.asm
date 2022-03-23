@@ -362,7 +362,7 @@ wBattleMon:: battle_struct wBattleMon
 	ds 2
 
 wWildMon:: db
-	ds 1
+wWildMonEnergy:: db
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db

@@ -1491,12 +1491,22 @@ AI_Smart_DefrostOpponent:
 	ret
 
 AI_Smart_Spite:
+	; discourage if the enemy's HP is below 25%
+	call AICheckEnemyQuarterHP
+	jr c, .discourage
+	ld a, [wCurBattleMon]
+	ld hl, wPartyMon1Energy
+	call GetPartyLocation
+	ld a, [hl] ; get the maximum energy for this mon
+	ld b, a
 	ld a, [wBattleMonEnergy]
+	ld c, a
 	; discourage if the energy is too low
 	cp ENERGY_10_MOVES
 	jr c, .discourage
 	; neutral if the energy is too high
-	cp MAX_ENERGY / 2
+	add a ; double current energy
+	cp b ; is the current value below half?
 	ret nc
 	; encourage otherwise
 	dec [hl]

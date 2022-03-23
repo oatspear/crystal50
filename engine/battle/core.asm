@@ -658,6 +658,14 @@ ParsePlayerAction:
 	jr z, .reset_series_counters
 	and a
 	jr nz, .locked_in
+
+	; optimization: store maximum energy to avoid fetching for every move
+	ld a, [wCurBattleMon]
+	ld hl, wPartyMon1Energy
+	call GetPartyLocation
+	ld a, [hl]
+	ld [wMultiPurposeByte1], a
+
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -3998,8 +4006,6 @@ InitBattleMon:
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
-	ld a, MAX_ENERGY
-	ld [wBattleMonEnergy], a
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -4009,6 +4015,8 @@ InitBattleMon:
 	ld [wBattleMonType1], a
 	ld a, [wBaseType2]
 	ld [wBattleMonType2], a
+	ld a, [wBaseEnergy]
+	ld [wBattleMonEnergy], a
 	ld hl, wPartyMonNicknames
 	ld a, [wCurBattleMon]
 	call SkipNames
@@ -4560,14 +4568,19 @@ HandleEnergyRecovery:
 	; fallthrough
 
 .DoPlayer:
+	; fetch maximum energy
+	ld a, [wCurBattleMon]
+	ld hl, wPartyMon1Energy
+	call GetPartyLocation
+
 	ld a, [wBattleMonStatus]
 	and SLP
 	jr z, .player_not_asleep
 	ld a, [wBattleMonEnergy]
-	add HIGHEST_MOVE_ENERGY
-	cp MAX_ENERGY
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
 	jr c, .player_recover
-	ld a, MAX_ENERGY
+	ld a, [hl]
 .player_recover
 	ld [wBattleMonEnergy], a
 	ret ; assume only one status condition
@@ -4585,14 +4598,24 @@ HandleEnergyRecovery:
 	ret
 
 .DoEnemy:
+	; fetch maximum energy
+	ld hl, wWildMonEnergy
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr nz, .got_enemy_energy
+	ld a, [wCurOTMon]
+	ld hl, wOTPartyMon1Energy
+	call GetPartyLocation
+
+.got_enemy_energy
 	ld a, [wEnemyMonStatus]
 	and SLP
 	jr z, .enemy_not_asleep
 	ld a, [wEnemyMonEnergy]
-	add HIGHEST_MOVE_ENERGY
-	cp MAX_ENERGY
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
 	jr c, .enemy_recover
-	ld a, MAX_ENERGY
+	ld a, [hl]
 .enemy_recover
 	ld [wEnemyMonEnergy], a
 	ret ; assume only one status condition
@@ -5882,9 +5905,16 @@ MoveInfoBox:
 	inc hl
 	ld [hl], "/"
 	inc hl
-	ld a, MAX_ENERGY
-	ld [wStringBuffer1], a
-	ld de, wStringBuffer1
+	; optimization: fetch from temporary storage
+	ld de, wMultiPurposeByte1
+	; push hl
+	; ld a, [wCurBattleMon]
+	; ld hl, wPartyMon1Energy
+	; call GetPartyLocation
+	; ld a, [hl]
+	; pop hl
+	; ld [wStringBuffer1], a
+	; ld de, wStringBuffer1
 	lb bc, 1, 2
 	call PrintNum
 	ret
@@ -8249,9 +8279,9 @@ InitEnemyWildmon:
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
 	farcall StubbedTrainerRankings_WildBattles
-	; ld a, MAX_ENERGY
-	; ld [wWildMonEnergy], a
 	call LoadEnemyMon
+	ld a, [wBaseEnergy]
+	ld [wWildMonEnergy], a
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
 	ld bc, NUM_MOVES
