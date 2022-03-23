@@ -1494,10 +1494,7 @@ AI_Smart_Spite:
 	; discourage if the enemy's HP is below 25%
 	call AICheckEnemyQuarterHP
 	jr c, .discourage
-	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Energy
-	call GetPartyLocation
-	ld a, [hl] ; get the maximum energy for this mon
+	ld a, [wPlayerMaxEnergy]
 	ld b, a
 	ld a, [wBattleMonEnergy]
 	ld c, a

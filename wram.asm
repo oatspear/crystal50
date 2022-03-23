@@ -359,10 +359,11 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
-	ds 2
+wPlayerMaxEnergy:: db
+wEnemyMaxEnergy:: db
 
 wWildMon:: db
-wWildMonEnergy:: db
+	ds 1
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db

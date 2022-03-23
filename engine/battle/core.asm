@@ -659,13 +659,6 @@ ParsePlayerAction:
 	and a
 	jr nz, .locked_in
 
-	; optimization: store maximum energy to avoid fetching for every move
-	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Energy
-	call GetPartyLocation
-	ld a, [hl]
-	ld [wMultiPurposeByte1], a
-
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -1384,22 +1377,23 @@ HandleLeppaBerry:
 	jr z, .DoEnemyFirst
 
 	call SetPlayerTurn
-	call GetPlayerMaxEnergy
+	ld hl, wPlayerMaxEnergy
 	call .do_it
 	call SetEnemyTurn
-	call GetOpponentMaxEnergy
+	ld hl, wEnemyMaxEnergy
 	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
-	call GetOpponentMaxEnergy
+	ld hl, wEnemyMaxEnergy
 	call .do_it
 	call SetPlayerTurn
-	call GetPlayerMaxEnergy
+	ld hl, wPlayerMaxEnergy
 	; fallthrough
 
 .do_it
-	; a should contain the maximum amount of energy
+	; hl should point to the maximum amount of energy
+	ld a, [hl]
 	ld [wMultiPurposeByte1], a
 	callfar GetUserItem
 	ld a, b
@@ -4020,6 +4014,7 @@ InitBattleMon:
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
+	; wBattleMonEnergy copied from party above
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -4030,7 +4025,7 @@ InitBattleMon:
 	ld a, [wBaseType2]
 	ld [wBattleMonType2], a
 	ld a, [wBaseEnergy]
-	ld [wBattleMonEnergy], a
+	ld [wPlayerMaxEnergy], a
 	ld hl, wPartyMonNicknames
 	ld a, [wCurBattleMon]
 	call SkipNames
@@ -4111,11 +4106,8 @@ InitEnemyMon:
 	ld a, [wEnemyMonSpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
-	ld a, [wCurPartyMon]
-	ld hl, wOTPartyMon1Energy
-	call GetPartyLocation
 	ld a, [wBaseEnergy]
-	ld [hl], a
+	ld [wEnemyMaxEnergy], a
 	ld hl, wOTPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call SkipNames
@@ -4570,29 +4562,6 @@ UseConfusionHealingItem:
 	ld [hl], a
 	ret
 
-GetPlayerMaxEnergy:
-	; fetch maximum energy
-	; a contains the value, hl points to the location
-	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Energy
-	call GetPartyLocation
-	ld a, [hl]
-	ret
-
-GetOpponentMaxEnergy:
-	; fetch maximum energy
-	; a contains the value, hl points to the location
-	ld hl, wWildMonEnergy
-	ld a, [wBattleMode]
-	cp TRAINER_BATTLE
-	jr nz, .okay
-	ld a, [wCurOTMon]
-	ld hl, wOTPartyMon1Energy
-	call GetPartyLocation
-.okay
-	ld a, [hl]
-	ret
-
 HandleEnergyRecovery:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -4605,7 +4574,7 @@ HandleEnergyRecovery:
 	; fallthrough
 
 .DoPlayer:
-	call GetPlayerMaxEnergy
+	ld hl, wPlayerMaxEnergy
 	ld a, [wBattleMonStatus]
 	and SLP
 	jr z, .player_not_asleep
@@ -4631,7 +4600,7 @@ HandleEnergyRecovery:
 	ret
 
 .DoEnemy:
-	call GetOpponentMaxEnergy
+	ld hl, wEnemyMaxEnergy
 	ld a, [wEnemyMonStatus]
 	and SLP
 	jr z, .enemy_not_asleep
@@ -5929,16 +5898,7 @@ MoveInfoBox:
 	inc hl
 	ld [hl], "/"
 	inc hl
-	; optimization: fetch from temporary storage
-	ld de, wMultiPurposeByte1
-	; push hl
-	; ld a, [wCurBattleMon]
-	; ld hl, wPartyMon1Energy
-	; call GetPartyLocation
-	; ld a, [hl]
-	; pop hl
-	; ld [wStringBuffer1], a
-	; ld de, wStringBuffer1
+	ld de, wPlayerMaxEnergy
 	lb bc, 1, 2
 	call PrintNum
 	ret
@@ -6439,8 +6399,9 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStatus
 	ld [hli], a
 
-; Energy byte (wEnemyMonEnergy) skipped here, initialized later
-	inc hl
+; Energy byte (wEnemyMonEnergy) for wild mons
+	ld a, [wBaseEnergy]
+	ld [hli], a
 
 ; Full HP..
 	ld a, [wEnemyMonMaxHP]
@@ -6485,8 +6446,9 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	ld [wCurOTMon], a
 
-; Skip energy from the party struct (done below with PP)
-	dec hl
+; Get energy from the party struct
+	ld a, [hld]
+	ld [wEnemyMonEnergy], a
 
 ; Get status from the party struct
 	ld a, [hl] ; OTPartyMonStatus
@@ -6529,9 +6491,6 @@ LoadEnemyMon:
 	predef FillMoves
 
 .PP:
-	ld a, [wBaseEnergy]
-	ld [wEnemyMonEnergy], a
-
 ; Trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
@@ -8304,8 +8263,6 @@ InitEnemyWildmon:
 	ld [wBattleMode], a
 	farcall StubbedTrainerRankings_WildBattles
 	call LoadEnemyMon
-	ld a, [wBaseEnergy]
-	ld [wWildMonEnergy], a
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
 	ld bc, NUM_MOVES
@@ -8410,6 +8367,7 @@ ExitBattle:
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
+	call ResetPartyEnergy
 	ret
 
 CleanUpBattleRAM:
@@ -8478,6 +8436,32 @@ CheckPayDay:
 	call ClearTilemap
 	call ClearBGPalettes
 	ret
+
+ResetPartyEnergy:
+	ld bc, MON_ENERGY
+	ld a, [wPartyCount]
+	ld d, a
+	ld e, 0
+.loop
+	dec d
+	ret c
+
+	ld a, e
+	ld hl, wPartyMon1Species
+	call GetPartyLocation
+	ld a, [hl]
+	cp EGG
+	jr z, .skip
+
+	ld [wCurPartySpecies], a
+	ld [wCurSpecies], a
+	call GetBaseData
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+.skip
+	inc e
+	jr .loop
 
 ShowLinkBattleParticipantsAfterEnd:
 	farcall StubbedTrainerRankings_LinkBattles

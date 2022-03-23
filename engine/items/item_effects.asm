@@ -2409,12 +2409,7 @@ BattleRestorePP:
 	ret z
 
 	; save maximum energy
-	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Energy
-	push bc
-	call GetPartyLocation
-	pop bc
-	ld a, [hl]
+	ld a, [wPlayerMaxEnergy]
 	ld b, a
 
 	ld a, [wBattleMonEnergy]
