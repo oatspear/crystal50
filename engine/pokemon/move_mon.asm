@@ -17,7 +17,6 @@ TryAddMonToParty:
 	ret nc
 	; Increase the party count
 	ld [de], a
-	ld a, [de] ; Why are we doing this?
 	ldh [hMoveMon], a ; HRAM backup
 	add e
 	ld e, a
@@ -255,10 +254,15 @@ endr
 	ld a, [wBaseEnergy]
 	ld [de], a
 	inc de
+
+	ld a, [wMonType]
+	and $f
+	jr nz, .skip_max_energy ; not PARTYMON
 	push hl
 	call StoreMaxEnergyLastPartyMon
 	pop hl
 
+.skip_max_energy
 	; Initialize HP.
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
@@ -447,6 +451,8 @@ AddTempmonToParty:
 	call SkipNames
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
+
+	call StoreMaxEnergyLastPartyMon
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -675,7 +681,8 @@ SendGetMonIntoFromBox:
 
 	; we are adding to party at this point
 	push bc
-	call StoreMaxEnergyLastPartyMon
+	ld a, [wCurPartyMon]
+	call StoreMaxEnergyNthMon
 	pop bc
 	ld hl, MON_ENERGY
 	add hl, bc
