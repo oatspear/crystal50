@@ -285,7 +285,7 @@ HatchEggs:
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, FALSE
-	predef CalcMonStats ; energy above
+	predef CalcMonStats ; energy above and below
 	pop bc
 	ld hl, MON_MAXHP
 	add hl, bc
@@ -303,6 +303,13 @@ HatchEggs:
 	ld a, [wPlayerID]
 	ld [hli], a
 	ld a, [wPlayerID + 1]
+	ld [hl], a
+	ld hl, wPartyMon1MaxEnergy
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wBaseEnergy]
 	ld [hl], a
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonOTs

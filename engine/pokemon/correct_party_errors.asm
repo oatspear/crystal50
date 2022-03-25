@@ -95,11 +95,23 @@ CorrectPartyErrors: ; unreferenced
 	ld hl, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, TRUE
-	predef CalcMonStats ; energy above
+	predef CalcMonStats ; energy above and below
 	pop hl
 	ld bc, PARTYMON_STRUCT_LENGTH
 	add hl, bc
 	pop de
+
+	push hl
+	push bc
+	ld c, e
+	ld b, 0
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	pop bc
+	pop hl
+
 	inc e
 	dec d
 	jr nz, .loop2

@@ -2348,12 +2348,11 @@ wItemQuantityChange:: db
 wItemQuantity:: db
 
 wTempMon:: party_struct wTempMon
+wTempMonMaxEnergy:: db
 
 wSpriteFlags:: db
 
 wHandlePlayerStep:: db
-
-	ds 1
 
 wPartyMenuActionText:: db
 
@@ -3305,7 +3304,13 @@ wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
 
-	ds 22
+	ds 16
+	; this was ds 22, but -6 were taken for max energy below
+
+; wPartyMon1MaxEnergy - wPartyMon6MaxEnergy
+for n, 1, PARTY_LENGTH + 1
+wPartyMon{d:n}MaxEnergy:: db
+endr
 
 wPokedexCaught:: flag_array NUM_POKEMON
 wEndPokedexCaught::

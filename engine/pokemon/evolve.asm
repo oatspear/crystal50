@@ -283,6 +283,14 @@ EvolveAfterBattle_MasterLoop:
 	predef CalcMonStats ; energy below
 
 	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1MaxEnergy
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+
+	ld a, [wCurPartyMon]
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes

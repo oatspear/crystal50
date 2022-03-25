@@ -4014,7 +4014,7 @@ InitBattleMon:
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
-	; wBattleMonEnergy copied from party above
+	; wBattleMonEnergy copied from party in CopyBytes above
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -6143,6 +6143,10 @@ LoadEnemyMon:
 ; Grab the BaseData for this species
 	call GetBaseData
 
+; Store maximum energy.
+	ld a, [wBaseEnergy]
+	ld [wEnemyMaxEnergy], a
+
 ; Let's get the item:
 
 ; Is the item predetermined?
@@ -8114,6 +8118,7 @@ StartBattle:
 	call BattleIntro
 	call DoBattle
 	call ExitBattle
+	call ResetPartyEnergy
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
@@ -8367,7 +8372,6 @@ ExitBattle:
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
-	call ResetPartyEnergy
 	ret
 
 CleanUpBattleRAM:
@@ -8438,30 +8442,26 @@ CheckPayDay:
 	ret
 
 ResetPartyEnergy:
-	ld bc, MON_ENERGY
 	ld a, [wPartyCount]
-	ld d, a
-	ld e, 0
+	and a
+	ret z
+
+	ld b, a
+	ld hl, wPartyMon1Energy
+	ld de, wPartyMon1MaxEnergy
 .loop
-	dec d
-	ret c
-
-	ld a, e
-	ld hl, wPartyMon1Species
-	call GetPartyLocation
-	ld a, [hl]
-	cp EGG
-	jr z, .skip
-
-	ld [wCurPartySpecies], a
-	ld [wCurSpecies], a
-	call GetBaseData
-	add hl, bc
-	ld a, [wBaseEnergy]
+	ld a, [de]
 	ld [hl], a
-.skip
-	inc e
-	jr .loop
+	inc de
+
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop bc
+
+	dec b
+	jr nz, .loop
+	ret
 
 ShowLinkBattleParticipantsAfterEnd:
 	farcall StubbedTrainerRankings_LinkBattles

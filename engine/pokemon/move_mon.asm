@@ -255,6 +255,9 @@ endr
 	ld a, [wBaseEnergy]
 	ld [de], a
 	inc de
+	push hl
+	call StoreMaxEnergyLastPartyMon
+	pop hl
 
 	; Initialize HP.
 	ld bc, MON_STAT_EXP - 1
@@ -671,6 +674,9 @@ SendGetMonIntoFromBox:
 	jr nz, .CloseSRAM_And_ClearCarryFlag
 
 	; we are adding to party at this point
+	push bc
+	call StoreMaxEnergyLastPartyMon
+	pop bc
 	ld hl, MON_ENERGY
 	add hl, bc
 	ld a, [wBaseEnergy]
@@ -824,6 +830,7 @@ RetrieveBreedmon:
 	call AddNTimes
 	ld a, [wBaseEnergy]
 	ld [hl], a
+	call StoreMaxEnergyLastPartyMon
 	ld hl, wPartyMon1Moves
 	ld a, [wPartyCount]
 	dec a
@@ -1328,7 +1335,7 @@ ComputeNPCTrademonStats:
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 	ld a, [hl]
-	ld [MON_LEVEL], a ; should be "ld [wCurPartyLevel], a"
+	ld [wCurPartyLevel], a
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
 	ld a, [hl]
@@ -1353,6 +1360,13 @@ ComputeNPCTrademonStats:
 	ld [hl], a
 	ld a, MON_ENERGY
 	call GetPartyParamLocation
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
 	ld a, [wBaseEnergy]
 	ld [hl], a
 	ret
@@ -1583,6 +1597,21 @@ CalcMonStatC:
 	pop bc
 	pop de
 	pop hl
+	ret
+
+StoreMaxEnergyLastPartyMon:
+	ld a, [wPartyCount]
+	dec a
+	; fallthrough
+
+StoreMaxEnergyNthMon:
+; a is 0-based index
+	ld hl, wPartyMon1MaxEnergy
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ret
 
 GivePoke::
