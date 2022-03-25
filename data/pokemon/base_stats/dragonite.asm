@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/dragonite/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLY, OVERWORLD_SURF, OVERWORLD_STRENGTH, \
 	OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 50 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_DRAGON ; egg groups
 

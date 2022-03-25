@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/jynx/front.dimensions"
 	owmoves OVERWORLD_HEADBUTT
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 37 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_HUMANSHAPE, EGG_HUMANSHAPE ; egg groups
 

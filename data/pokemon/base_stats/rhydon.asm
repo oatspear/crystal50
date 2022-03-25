@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/rhydon/front.dimensions"
 	owmoves OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 40 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_GROUND ; egg groups
 

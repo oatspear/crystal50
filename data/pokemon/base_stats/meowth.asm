@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/meowth/front.dimensions"
 	owmoves OVERWORLD_CUT
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 24 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

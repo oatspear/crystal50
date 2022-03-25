@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/skarmory/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLY, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 38 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 

@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/starmie/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_FLASH, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 43 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 

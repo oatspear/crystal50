@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/cyndaquil/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLASH, OVERWORLD_HEADBUTT, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 25 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/skiploom/front.dimensions"
 	owmoves OVERWORLD_FLASH, OVERWORLD_HEADBUTT
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 28 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_FAIRY, EGG_PLANT ; egg groups
 

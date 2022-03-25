@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/smeargle/front.dimensions"
 	db NO_OVERWORLD_MOVES
 	db NO_OVERWORLD_MOVES
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 20 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

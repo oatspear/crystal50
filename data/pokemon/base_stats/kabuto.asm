@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/kabuto/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL, \
 	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 29 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_WATER_1, EGG_WATER_3 ; egg groups
 

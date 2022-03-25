@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/vaporeon/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_STRENGTH, OVERWORLD_WHIRLPOOL, OVERWORLD_WATERFALL, \
 	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 43 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

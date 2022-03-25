@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/slowpoke/front.dimensions"
 	owmoves OVERWORLD_SURF, OVERWORLD_STRENGTH, OVERWORLD_WHIRLPOOL, \
 	OVERWORLD_HEADBUTT, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 26 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_MONSTER, EGG_WATER_1 ; egg groups
 

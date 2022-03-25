@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/unown_a/front.dimensions"
 	db NO_OVERWORLD_MOVES
 	db NO_OVERWORLD_MOVES
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 28 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

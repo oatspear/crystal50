@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/beedrill/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLASH, OVERWORLD_ROCK_SMASH
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 32 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 

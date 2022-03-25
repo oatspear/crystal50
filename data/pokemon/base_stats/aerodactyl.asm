@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/aerodactyl/front.dimensions"
 	owmoves OVERWORLD_FLY, OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 42 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 

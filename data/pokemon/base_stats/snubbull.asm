@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/snubbull/front.dimensions"
 	owmoves OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_DIG
-	db MAX_ENERGY, 0 ; unused (beta front/back pics)
+	db 25 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_GROUND, EGG_FAIRY ; egg groups
 
