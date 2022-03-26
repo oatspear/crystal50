@@ -355,3 +355,32 @@ GetNickname::
 	pop bc
 	pop hl
 	ret
+
+ResetPartyEnergy::
+	ld a, [wPartyCount]
+	and a
+	ret z
+
+	ld b, a
+	ld hl, wPartyMon1Species
+	ld de, wPartyMon1MaxEnergy
+.loop
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
+	ld a, [wBaseEnergy]
+	ld [de], a
+	inc de
+
+	push bc
+	ld bc, MON_ENERGY
+	add hl, bc
+	ld [hl], a
+	ld bc, PARTYMON_STRUCT_LENGTH - MON_ENERGY
+	add hl, bc
+	pop bc
+
+	dec b
+	jr nz, .loop
+	ret
