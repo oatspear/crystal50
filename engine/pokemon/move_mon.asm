@@ -1105,6 +1105,7 @@ GiveEgg::
 	push bc
 
 	call TryAddMonToParty
+	; call ResetPartyEnergy ; not needed
 
 ; If we haven't caught this Pokemon before receiving
 ; the Egg, reset the flag that was just set by
@@ -1628,6 +1629,7 @@ GivePoke::
 	ld [wMonType], a
 	call TryAddMonToParty
 	jr nc, .failed
+	; call ResetPartyEnergy
 	ld hl, wPartyMonNicknames
 	ld a, [wPartyCount]
 	dec a

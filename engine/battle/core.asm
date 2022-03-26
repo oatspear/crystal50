@@ -8115,6 +8115,7 @@ StartBattle:
 
 	ld a, [wTimeOfDayPal]
 	push af
+	call ResetPartyEnergy
 	call BattleIntro
 	call DoBattle
 	call ExitBattle
@@ -8122,10 +8123,6 @@ StartBattle:
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
-	ret
-
-CallDoBattle: ; unreferenced
-	call DoBattle
 	ret
 
 BattleIntro:
@@ -8439,28 +8436,6 @@ CheckPayDay:
 	ret z
 	call ClearTilemap
 	call ClearBGPalettes
-	ret
-
-ResetPartyEnergy:
-	ld a, [wPartyCount]
-	and a
-	ret z
-
-	ld b, a
-	ld hl, wPartyMon1Energy
-	ld de, wPartyMon1MaxEnergy
-.loop
-	ld a, [de]
-	ld [hl], a
-	inc de
-
-	push bc
-	ld bc, PARTYMON_STRUCT_LENGTH
-	add hl, bc
-	pop bc
-
-	dec b
-	jr nz, .loop
 	ret
 
 ShowLinkBattleParticipantsAfterEnd:
