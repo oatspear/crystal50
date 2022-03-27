@@ -1667,6 +1667,8 @@ HandleScreens:
 	jp StdBattleTextbox
 
 HandleStatLevelTimers:
+	xor a
+	ld [wMultiPurposeByte1], a
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .Both
@@ -1679,11 +1681,14 @@ HandleStatLevelTimers:
 .CheckPlayer:
 	call SetPlayerTurn
 	ld hl, wPlayerStatLevels
-	jr .TickStatLevels
+	call .TickStatLevels
+	jr .RecalcPlayerStats
 
 .CheckEnemy:
 	call SetEnemyTurn
 	ld hl, wEnemyStatLevels
+	call .TickStatLevels
+	jr .RecalcEnemyStats
 
 .TickStatLevels:
 	ld b, NUM_LEVEL_STATS
@@ -1702,6 +1707,8 @@ HandleStatLevelTimers:
 	reset_stat_level [hl]
 	push hl
 	push bc
+	ld a, TRUE
+	ld [wMultiPurposeByte1], a
 	ld a, NUM_LEVEL_STATS + 1
 	sub b
 	ld b, a
@@ -1715,6 +1722,20 @@ HandleStatLevelTimers:
 	inc hl
 	dec b
 	jr nz, .next
+	ret
+
+.RecalcEnemyStats
+	ld a, [wMultiPurposeByte1]
+	and a
+	ret z
+	farcall CalcEnemyStats
+	ret
+
+.RecalcPlayerStats
+	ld a, [wMultiPurposeByte1]
+	and a
+	ret z
+	farcall CalcPlayerStats
 	ret
 
 HandleWeather:
