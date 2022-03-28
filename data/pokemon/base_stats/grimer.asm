@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/grimer/front.dimensions"
 	owmoves OVERWORLD_STRENGTH
-	dw NULL ; unused (beta front/back pics)
+	db 27 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 

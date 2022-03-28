@@ -359,7 +359,8 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
-	ds 2
+wPlayerMaxEnergy:: db
+wEnemyMaxEnergy:: db
 
 wWildMon:: db
 	ds 1
@@ -2347,12 +2348,11 @@ wItemQuantityChange:: db
 wItemQuantity:: db
 
 wTempMon:: party_struct wTempMon
+wTempMonMaxEnergy:: db
 
 wSpriteFlags:: db
 
 wHandlePlayerStep:: db
-
-	ds 1
 
 wPartyMenuActionText:: db
 
@@ -2667,7 +2667,8 @@ wBaseUnusedFrontpic::
 wBaseOverworldMoves::
 wBaseOverworldMoves1:: db
 wBaseOverworldMoves2:: db
-wBaseUnusedBackpic:: dw
+wBaseEnergy:: db
+wBaseUnusedBackpic:: db
 wBaseGrowthRate:: db
 wBaseEggGroups:: db
 wBaseTMHM:: flag_array NUM_TM_HM_TUTOR
@@ -3303,7 +3304,13 @@ wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
 
-	ds 22
+	ds 16
+	; this was ds 22, but -6 were taken for max energy below
+
+; wPartyMon1MaxEnergy - wPartyMon6MaxEnergy
+for n, 1, PARTY_LENGTH + 1
+wPartyMon{d:n}MaxEnergy:: db
+endr
 
 wPokedexCaught:: flag_array NUM_POKEMON
 wEndPokedexCaught::

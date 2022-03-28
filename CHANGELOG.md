@@ -31,6 +31,16 @@
 - Due to the changes to how stat levels work, Belly Drum now maximizes Attack for a duration of 8 turns.
 - Psych Up copies the stat levels of the opponent but applies them with a fresh timer of 3 turns.
 - Replaced trade evolution with evolution via level up while also holding specific items.
+- Replaced the PP system with a global Energy system (a single pool of Energy for all moves).
+- Each Pokémon has a total amount of energy equal to its base stat total divided by 12.
+- Leppa Berry restores 12 Energy when the Energy level is 8 or less.
+- Elixer restores 24 Energy, and Max. Elixer restores Energy to full.
+- Moves learned with Mimic or Transform cost a set (and high) amount of Energy.
+- When selecting a move for which there is not enough energy, Struggle is used instead.
+- Spite drains 8 Energy, regardless of the moves the opponent uses.
+- Poison (status condition) drains 1 Energy per turn.
+- Sleep (status condition) restores 8 Energy per turn.
+- Energy is fully restored after battle.
 
 ## v0.2 (Set to Level 50)
 

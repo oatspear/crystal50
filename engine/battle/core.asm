@@ -301,6 +301,7 @@ HandleBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleEnergyRecovery
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
 	jp HandleEncore
@@ -657,6 +658,7 @@ ParsePlayerAction:
 	jr z, .reset_series_counters
 	and a
 	jr nz, .locked_in
+
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -737,7 +739,10 @@ HandleEncore:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	ret nz
+	ld c, a
+	ld a, [wBattleMonEnergy]
+	cp c
+	ret nc
 
 .end_player_encore
 	ld hl, wPlayerSubStatus5
@@ -761,7 +766,10 @@ HandleEncore:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	ret nz
+	ld c, a
+	ld a, [wEnemyMonEnergy]
+	cp c
+	ret nc
 
 .end_enemy_encore
 	ld hl, wEnemySubStatus5
@@ -1367,114 +1375,52 @@ HandleLeppaBerry:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .DoEnemyFirst
+
 	call SetPlayerTurn
+	ld hl, wPlayerMaxEnergy
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	ld hl, wEnemyMaxEnergy
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
+	ld hl, wEnemyMaxEnergy
 	call .do_it
 	call SetPlayerTurn
+	ld hl, wPlayerMaxEnergy
+	; fallthrough
 
 .do_it
+	; hl should point to the maximum amount of energy
+	ld a, [hl]
+	ld [wMultiPurposeByte1], a
 	callfar GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
-	jr nz, .quit
-	ld hl, wPartyMon1PP
-	ld a, [wCurBattleMon]
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	ld hl, wPartyMon1Moves
-	ld a, [wCurBattleMon]
-	call GetPartyLocation
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .wild
-	ld de, wWildMonPP
-	ld hl, wWildMonMoves
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-	ld hl, wOTPartyMon1PP
-	ld a, [wCurOTMon]
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	ld hl, wOTPartyMon1Moves
-	ld a, [wCurOTMon]
-	call GetPartyLocation
+	ret nz
 
-.wild
-	ld c, $0
-.loop
-	ld a, [hl]
-	and a
-	jr z, .quit
-	ld a, [de]
-	and PP_MASK
-	jr z, .restore
-	inc hl
-	inc de
-	inc c
-	ld a, c
-	cp NUM_MOVES
-	jr nz, .loop
-
-.quit
-	ret
-
-.restore
-	; lousy hack
-	ld a, [hl]
-	cp SKETCH
-	ld b, 1
-	jr z, .sketch
-	ld b, 5
-.sketch
-	ld a, [de]
-	add b
-	ld [de], a
-	push bc
-	push bc
-	ld a, [hl]
-	ld [wTempByteValue], a
-	ld de, wBattleMonMoves - 1
-	ld hl, wBattleMonPP
+	ld a, [wMultiPurposeByte1]
+	ld c, a
+	ld hl, wBattleMonEnergy
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player_pp
-	ld de, wEnemyMonMoves - 1
-	ld hl, wEnemyMonPP
-.player_pp
-	inc de
-	pop bc
-	ld b, 0
-	add hl, bc
-	push hl
-	ld h, d
-	ld l, e
-	add hl, bc
-	pop de
-	pop bc
+	ld hl, wEnemyMonEnergy
 
-	ld a, [wTempByteValue]
-	cp [hl]
-	jr nz, .skip_checks
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wPlayerSubStatus5]
-	jr z, .check_transform
-	ld a, [wEnemySubStatus5]
-.check_transform
-	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .skip_checks
-	ld a, [de]
-	add b
-	ld [de], a
-.skip_checks
+.player_pp
+	ld a, [hl]
+	cp ENERGY_TRIGGER_LEPPA_BERRY
+	ret nc
+
+	; a contains the current energy level
+	add ENERGY_RECOVERY_LEPPA_BERRY
+	cp c
+	jr c, .recover
+	ld a, c
+.recover
+	ld [hl], a
+
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
@@ -1721,6 +1667,8 @@ HandleScreens:
 	jp StdBattleTextbox
 
 HandleStatLevelTimers:
+	xor a
+	ld [wMultiPurposeByte1], a
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .Both
@@ -1733,11 +1681,14 @@ HandleStatLevelTimers:
 .CheckPlayer:
 	call SetPlayerTurn
 	ld hl, wPlayerStatLevels
-	jr .TickStatLevels
+	call .TickStatLevels
+	jr .RecalcPlayerStats
 
 .CheckEnemy:
 	call SetEnemyTurn
 	ld hl, wEnemyStatLevels
+	call .TickStatLevels
+	jr .RecalcEnemyStats
 
 .TickStatLevels:
 	ld b, NUM_LEVEL_STATS
@@ -1756,6 +1707,8 @@ HandleStatLevelTimers:
 	reset_stat_level [hl]
 	push hl
 	push bc
+	ld a, TRUE
+	ld [wMultiPurposeByte1], a
 	ld a, NUM_LEVEL_STATS + 1
 	sub b
 	ld b, a
@@ -1769,6 +1722,20 @@ HandleStatLevelTimers:
 	inc hl
 	dec b
 	jr nz, .next
+	ret
+
+.RecalcEnemyStats
+	ld a, [wMultiPurposeByte1]
+	and a
+	ret z
+	farcall CalcEnemyStats
+	ret
+
+.RecalcPlayerStats
+	ld a, [wMultiPurposeByte1]
+	and a
+	ret z
+	farcall CalcPlayerStats
 	ret
 
 HandleWeather:
@@ -4068,6 +4035,7 @@ InitBattleMon:
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
+	; wBattleMonEnergy copied from party in CopyBytes above
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -4077,6 +4045,8 @@ InitBattleMon:
 	ld [wBattleMonType1], a
 	ld a, [wBaseType2]
 	ld [wBattleMonType2], a
+	ld a, [wBaseEnergy]
+	ld [wPlayerMaxEnergy], a
 	ld hl, wPartyMonNicknames
 	ld a, [wCurBattleMon]
 	call SkipNames
@@ -4157,6 +4127,8 @@ InitEnemyMon:
 	ld a, [wEnemyMonSpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
+	ld a, [wBaseEnergy]
+	ld [wEnemyMaxEnergy], a
 	ld hl, wOTPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call SkipNames
@@ -4609,6 +4581,69 @@ UseConfusionHealingItem:
 	xor a
 	ld [bc], a
 	ld [hl], a
+	ret
+
+HandleEnergyRecovery:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player_1
+	call .DoPlayer
+	jr .DoEnemy
+
+.player_1
+	call .DoEnemy
+	; fallthrough
+
+.DoPlayer:
+	ld hl, wPlayerMaxEnergy
+	ld a, [wBattleMonStatus]
+	and SLP
+	jr z, .player_not_asleep
+	ld a, [wBattleMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .player_recover
+	ld a, [hl]
+.player_recover
+	ld [wBattleMonEnergy], a
+	ret ; assume only one status condition
+
+.player_not_asleep
+	ld a, [wBattleMonStatus]
+	and 1 << PSN
+	jr z, .player_done
+	ld a, [wBattleMonEnergy]
+	dec a
+	jr c, .player_done
+	ld [wBattleMonEnergy], a
+
+.player_done
+	ret
+
+.DoEnemy:
+	ld hl, wEnemyMaxEnergy
+	ld a, [wEnemyMonStatus]
+	and SLP
+	jr z, .enemy_not_asleep
+	ld a, [wEnemyMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .enemy_recover
+	ld a, [hl]
+.enemy_recover
+	ld [wEnemyMonEnergy], a
+	ret ; assume only one status condition
+
+.enemy_not_asleep
+	ld a, [wEnemyMonStatus]
+	and 1 << PSN
+	jr z, .enemy_done
+	ld a, [wEnemyMonEnergy]
+	dec a
+	jr c, .enemy_done
+	ld [wEnemyMonEnergy], a
+
+.enemy_done
 	ret
 
 HandleStatBoostingHeldItems:
@@ -5617,26 +5652,31 @@ MoveSelectionScreen:
 	pop af
 	ret nz
 
-	ld hl, wBattleMonPP
 	ld a, [wMenuCursorY]
 	ld c, a
 	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	and PP_MASK
-	jr z, .no_pp_left
+
 	ld a, [wPlayerDisableCount]
 	swap a
 	and $f
 	dec a
 	cp c
 	jr z, .move_disabled
-	ld a, [wMenuCursorY]
-	ld hl, wBattleMonMoves
-	ld c, a
-	ld b, 0
+
+	ld hl, wBattleMonPP
 	add hl, bc
 	ld a, [hl]
+	and PP_MASK
+	ld h, a
+	ld a, [wBattleMonEnergy]
+	cp h
+	jr c, .no_pp_left
+
+	ld hl, wBattleMonMoves
+	add hl, bc
+	ld a, [hl]
+
+.got_move
 	ld [wCurPlayerMove], a
 	xor a
 	ret
@@ -5646,7 +5686,11 @@ MoveSelectionScreen:
 	jr .place_textbox_start_over
 
 .no_pp_left
-	ld hl, BattleText_TheresNoPPLeftForThisMove
+	; ld hl, BattleText_TheresNoPPLeftForThisMove
+	; previously: fallthrough
+
+	ld a, STRUGGLE
+	jr .got_move
 
 .place_textbox_start_over
 	call StdBattleTextbox
@@ -5803,7 +5847,6 @@ MoveInfoBox:
 	ld [wCurPartyMon], a
 	ld a, WILDMON
 	ld [wMonType], a
-	callfar GetMaxPPOfMove
 
 	ld hl, wMenuCursorY
 	ld c, [hl]
@@ -5839,25 +5882,52 @@ MoveInfoBox:
 .Disabled:
 	db "Disabled!@"
 
+.Struggle:
+	db "Struggle!@"
+
 .PrintPP:
-	hlcoord 5, 11
-	ld a, [wLinkMode] ; What's the point of this check?
-	cp LINK_MOBILE
-	jr c, .ok
-	hlcoord 5, 11
-.ok
+	ld a, [wStringBuffer1] ; energy cost
+	ld c, a
+	ld a, [wBattleMonEnergy]
+	cp c
+	jr c, .will_struggle
+
+	; print how much energy the move costs
+	hlcoord 8, 11
+	ld de, wStringBuffer1
+	lb bc, 1, 2
+	call PrintNum
+	hlcoord 7, 11
+	ld a, [wStringBuffer1]
+	cp 10 ; less than two digits?
+	jr nc, .minus
+	hlcoord 8, 11
+.minus
+	ld [hl], "-"
+
+	; print how much energy we have left
+	ld a, [wBattleMonEnergy]
+	ld [wStringBuffer1], a
+	hlcoord 1, 11
 	push hl
 	ld de, wStringBuffer1
 	lb bc, 1, 2
 	call PrintNum
 	pop hl
+	; print the maximum amount of energy
 	inc hl
 	inc hl
 	ld [hl], "/"
 	inc hl
-	ld de, wNamedObjectIndex
+	ld de, wPlayerMaxEnergy
 	lb bc, 1, 2
 	call PrintNum
+	ret
+
+.will_struggle
+	hlcoord 1, 11
+	ld de, .Struggle
+	call PlaceString
 	ret
 
 CheckPlayerHasUsableMoves:
@@ -5865,38 +5935,23 @@ CheckPlayerHasUsableMoves:
 	ld [wCurPlayerMove], a
 	ld a, [wPlayerDisableCount]
 	and a
-	ld hl, wBattleMonPP
-	jr nz, .disabled
+	jr z, .okay
 
-	ld a, [hli]
-	or [hl]
-	inc hl
-	or [hl]
-	inc hl
-	or [hl]
-	and PP_MASK
-	ret nz
-	jr .force_struggle
-
-.disabled
 	swap a
 	and $f
 	ld b, a
 	ld d, NUM_MOVES + 1
-	xor a
 .loop
 	dec d
-	jr z, .done
-	ld c, [hl]
-	inc hl
+	jr z, .force_struggle
+	ld a, [hli]
 	dec b
 	jr z, .loop
-	or c
-	jr .loop
 
-.done
-	and PP_MASK
-	ret nz
+.okay
+	ld a, TRUE
+	and a ; just to ensure nz
+	ret
 
 .force_struggle
 	ld hl, BattleText_MonHasNoMovesLeft
@@ -5974,7 +6029,10 @@ ParseEnemyAction:
 	jr z, .disabled
 	ld a, [de]
 	and PP_MASK
-	jr nz, .enough_pp
+	ld c, a
+	ld a, [wEnemyMonEnergy]
+	cp c
+	jr nc, .enough_pp
 
 .disabled
 	inc hl
@@ -5988,6 +6046,9 @@ ParseEnemyAction:
 	dec a
 	jr nz, .skip_load
 ; wild
+	ld a, [wEnemyMonEnergy]
+	inc a
+	ld e, a
 .loop2
 	ld hl, wEnemyMonMoves
 	call BattleRandom
@@ -6009,7 +6070,8 @@ ParseEnemyAction:
 	ld b, a
 	ld a, [hl]
 	and PP_MASK
-	jr z, .loop2
+	cp e
+	jr nc, .loop2
 	ld a, c
 	ld [wCurEnemyMoveNum], a
 	ld a, b
@@ -6101,6 +6163,10 @@ LoadEnemyMon:
 
 ; Grab the BaseData for this species
 	call GetBaseData
+
+; Store maximum energy.
+	ld a, [wBaseEnergy]
+	ld [wEnemyMaxEnergy], a
 
 ; Let's get the item:
 
@@ -6330,7 +6396,7 @@ LoadEnemyMon:
 	ld de, wEnemyMonMaxHP
 	ld b, FALSE
 	ld hl, wEnemyMonDVs - (MON_DVS - MON_STAT_EXP + 1)
-	predef CalcMonStats
+	predef CalcMonStats ; energy below (battle only, party done elsewhere)
 
 ; If we're in a trainer battle,
 ; get the rest of the parameters from the party struct
@@ -6358,8 +6424,8 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStatus
 	ld [hli], a
 
-; Unused byte
-	xor a
+; Energy byte (wEnemyMonEnergy) for wild mons
+	ld a, [wBaseEnergy]
 	ld [hli], a
 
 ; Full HP..
@@ -6405,8 +6471,11 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	ld [wCurOTMon], a
 
+; Get energy from the party struct
+	ld a, [hld]
+	ld [wEnemyMonEnergy], a
+
 ; Get status from the party struct
-	dec hl
 	ld a, [hl] ; OTPartyMonStatus
 	ld [wEnemyMonStatus], a
 
@@ -7240,7 +7309,7 @@ GiveExperiencePoints:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; no energy update here
 	pop bc
 	pop de
 	ld hl, MON_MAXHP + 1
@@ -8067,16 +8136,14 @@ StartBattle:
 
 	ld a, [wTimeOfDayPal]
 	push af
+	call ResetPartyEnergy
 	call BattleIntro
 	call DoBattle
 	call ExitBattle
+	call ResetPartyEnergy
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
-	ret
-
-CallDoBattle: ; unreferenced
-	call DoBattle
 	ret
 
 BattleIntro:

@@ -814,39 +814,6 @@ BattleCommand_CheckObedience:
 	and a
 	jr nz, .DoNothing
 
-	ld hl, wBattleMonPP
-	ld de, wBattleMonMoves
-	ld b, 0
-	ld c, NUM_MOVES
-
-.GetTotalPP:
-	ld a, [hli]
-	and PP_MASK
-	add b
-	ld b, a
-
-	dec c
-	jr z, .CheckMovePP
-
-; Stop at undefined moves.
-	inc de
-	ld a, [de]
-	and a
-	jr nz, .GetTotalPP
-
-.CheckMovePP:
-	ld hl, wBattleMonPP
-	ld a, [wCurMoveNum]
-	ld e, a
-	ld d, 0
-	add hl, de
-
-; Can't use another move if only one move has PP.
-	ld a, [hl]
-	and PP_MASK
-	cp b
-	jr z, .DoNothing
-
 ; Make sure we can actually use the move once we get there.
 	ld a, 1
 	ld [wAlreadyDisobeyed], a
@@ -878,9 +845,15 @@ BattleCommand_CheckObedience:
 	add hl, de
 	ld a, [hl]
 	and PP_MASK
-	jr z, .RandomMove
+	ld e, a
+	ld a, [wBattleMonEnergy]
+	cp e
+	jr nc, .use_another_move
+	ld a, STRUGGLE
+	ld [wCurPlayerMove], a
+	jr .move_registered
 
-; Use it.
+.use_another_move
 	ld a, [wCurMoveNum]
 	ld c, a
 	ld b, 0
@@ -889,6 +862,7 @@ BattleCommand_CheckObedience:
 	ld a, [hl]
 	ld [wCurPlayerMove], a
 
+.move_registered
 	call SetPlayerTurn
 	call UpdateMoveData
 	call DoMove
@@ -984,42 +958,7 @@ BattleCommand_DoTurn:
 	and 1 << SUBSTATUS_IN_LOOP | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
-	call .consume_pp
-	ld a, b
-	and a
-	jp nz, EndMoveEffect
-
-	; SubStatus5
-	inc de
-	inc de
-
-	ld a, [de]
-	bit SUBSTATUS_TRANSFORMED, a
-	ret nz
-
-	ldh a, [hBattleTurn]
-	and a
-
-	ld hl, wPartyMon1PP
-	ld a, [wCurBattleMon]
-	jr z, .player
-
-; mimic this part entirely if wildbattle
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-
-	ld hl, wOTPartyMon1PP
-	ld a, [wCurOTMon]
-
-.player
-	call GetPartyLocation
-	push hl
-	call CheckMimicUsed
-	pop hl
-	ret c
-
-.consume_pp
+; consume PP
 	ldh a, [hBattleTurn]
 	and a
 	ld a, [wCurMoveNum]
@@ -1032,32 +971,27 @@ BattleCommand_DoTurn:
 	add hl, bc
 	ld a, [hl]
 	and PP_MASK
-	jr z, .out_of_pp
-	dec [hl]
-	ld b, 0
-	ret
+	ld c, a ; got energy cost
 
-.wild
-	ld hl, wEnemyMonMoves
-	ld a, [wCurEnemyMoveNum]
+	; consume from battlemon first and check for errors
+	ld hl, wBattleMonEnergy
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_energy_pointer
+	ld hl, wEnemyMonEnergy
+
+.got_energy_pointer
+	ld a, [hl]
+	sub c
+	jr c, .out_of_pp
+
+	; all good, consume the energy and store the value
+	ld [hl], a
 	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	cp MIMIC
-	jr z, .mimic
-	ld hl, wWildMonMoves
-	add hl, bc
-	ld a, [hl]
-	cp MIMIC
-	ret z
-
-.mimic
-	ld hl, wWildMonPP
-	call .consume_pp
 	ret
 
 .out_of_pp
+	xor a
 	call BattleCommand_MoveDelay
 ; get move effect
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -1074,7 +1008,6 @@ BattleCommand_DoTurn:
 	ld hl, NoPPLeftText
 .print
 	call StdBattleTextbox
-	ld b, 1
 	ret
 
 .continuousmoves
@@ -1085,36 +1018,6 @@ BattleCommand_DoTurn:
 	db EFFECT_ROLLOUT
 	db EFFECT_RAMPAGE
 	db -1
-
-CheckMimicUsed:
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wCurMoveNum]
-	jr z, .player
-	ld a, [wCurEnemyMoveNum]
-
-.player
-	ld c, a
-	ld a, MON_MOVES
-	call UserPartyAttr
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
-	cp MIMIC
-	jr z, .mimic
-
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	cp MIMIC
-	jr nz, .mimic
-
-	scf
-	ret
-
-.mimic
-	and a
-	ret
 
 BattleCommand_Critical:
 ; critical

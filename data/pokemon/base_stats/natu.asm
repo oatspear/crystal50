@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/natu/front.dimensions"
 	owmoves OVERWORLD_TELEPORT
-	dw NULL ; unused (beta front/back pics)
+	db 26 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 

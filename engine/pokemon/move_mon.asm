@@ -17,7 +17,6 @@ TryAddMonToParty:
 	ret nc
 	; Increase the party count
 	ld [de], a
-	ld a, [de] ; Why are we doing this?
 	ldh [hMoveMon], a ; HRAM backup
 	add e
 	ld e, a
@@ -251,10 +250,19 @@ endr
 	; Status
 	ld [de], a
 	inc de
-	; Unused
+	; Energy
+	ld a, [wBaseEnergy]
 	ld [de], a
 	inc de
 
+	ld a, [wMonType]
+	and $f
+	jr nz, .skip_max_energy ; not PARTYMON
+	push hl
+	call StoreMaxEnergyLastPartyMon
+	pop hl
+
+.skip_max_energy
 	; Initialize HP.
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
@@ -315,8 +323,9 @@ endr
 	ld a, [hli]
 	ld [de], a
 	inc de
-	; Copy EnemyMonUnused
-	ld a, [hli]
+	; Skip wEnemyMonEnergy
+	inc hl
+	ld a, [wBaseEnergy]
 	ld [de], a
 	inc de
 	; Copy wEnemyMonHP
@@ -342,7 +351,7 @@ endr
 	ld bc, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, FALSE
-	call CalcMonStats
+	call CalcMonStats ; energy above (2 places)
 
 .registerunowndex
 	ld a, [wMonType]
@@ -442,6 +451,8 @@ AddTempmonToParty:
 	call SkipNames
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
+
+	call StoreMaxEnergyLastPartyMon
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -641,7 +652,7 @@ SendGetMonIntoFromBox:
 	add $2
 	ld [wMonType], a
 	predef CopyMonToTempMon
-	callfar CalcLevel
+	callfar CalcLevel ; populates wBaseData (call GetBaseData)
 	ld a, d
 	ld [wCurPartyLevel], a
 	pop hl
@@ -660,12 +671,23 @@ SendGetMonIntoFromBox:
 
 	push bc
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
 	pop bc
+	; bc points to wPartyMon1Species + [wPartyCount]
 
 	ld a, [wPokemonWithdrawDepositParameter]
 	and a
 	jr nz, .CloseSRAM_And_ClearCarryFlag
+
+	; we are adding to party at this point
+	push bc
+	ld a, [wCurPartyMon]
+	call StoreMaxEnergyNthMon
+	pop bc
+	ld hl, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ld hl, MON_STATUS
 	add hl, bc
 	xor a
@@ -709,67 +731,6 @@ CloseSRAM_And_SetCarryFlag:
 	ret
 
 RestorePPOfDepositedPokemon:
-	ld a, b
-	ld hl, sBoxMons
-	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
-	ld b, h
-	ld c, l
-	ld hl, MON_PP
-	add hl, bc
-	push hl
-	push bc
-	ld de, wTempMonPP
-	ld bc, NUM_MOVES
-	call CopyBytes
-	pop bc
-	ld hl, MON_MOVES
-	add hl, bc
-	push hl
-	ld de, wTempMonMoves
-	ld bc, NUM_MOVES
-	call CopyBytes
-	pop hl
-	pop de
-
-	ld a, [wMenuCursorY]
-	push af
-	ld a, [wMonType]
-	push af
-	ld b, 0
-.loop
-	ld a, [hli]
-	and a
-	jr z, .done
-	ld [wTempMonMoves], a
-	ld a, BOXMON
-	ld [wMonType], a
-	ld a, b
-	ld [wMenuCursorY], a
-	push bc
-	push hl
-	push de
-	farcall GetMaxPPOfMove
-	pop de
-	pop hl
-	ld a, [wTempPP]
-	ld b, a
-	ld a, [de]
-	and %11000000
-	add b
-	ld [de], a
-	pop bc
-	inc de
-	inc b
-	ld a, b
-	cp NUM_MOVES
-	jr c, .loop
-
-.done
-	pop af
-	ld [wMonType], a
-	pop af
-	ld [wMenuCursorY], a
 	ret
 
 RetrieveMonFromDayCareMan:
@@ -868,7 +829,15 @@ RetrieveBreedmon:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
+	ld hl, wPartyMon1Energy
+	ld a, [wPartyCount]
+	dec a
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	call StoreMaxEnergyLastPartyMon
 	ld hl, wPartyMon1Moves
 	ld a, [wPartyCount]
 	dec a
@@ -1136,6 +1105,7 @@ GiveEgg::
 	push bc
 
 	call TryAddMonToParty
+	; call ResetPartyEnergy ; not needed
 
 ; If we haven't caught this Pokemon before receiving
 ; the Egg, reset the flag that was just set by
@@ -1326,6 +1296,9 @@ RemoveMonFromPartyOrBox:
 	ld bc, sBoxMonNicknamesEnd
 .party7
 	call CopyDataUntil
+	push de
+	call ResetPartyEnergy
+	pop de
 	; Mail time!
 .finish
 	ld a, [wPokemonWithdrawDepositParameter]
@@ -1373,7 +1346,7 @@ ComputeNPCTrademonStats:
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 	ld a, [hl]
-	ld [MON_LEVEL], a ; should be "ld [wCurPartyLevel], a"
+	ld [wCurPartyLevel], a
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
 	ld a, [hl]
@@ -1387,7 +1360,7 @@ ComputeNPCTrademonStats:
 	ld a, MON_STAT_EXP - 1
 	call GetPartyParamLocation
 	ld b, TRUE
-	call CalcMonStats
+	call CalcMonStats ; energy below
 	pop de
 	ld a, MON_HP
 	call GetPartyParamLocation
@@ -1395,6 +1368,17 @@ ComputeNPCTrademonStats:
 	inc de
 	ld [hli], a
 	ld a, [de]
+	ld [hl], a
+	ld a, MON_ENERGY
+	call GetPartyParamLocation
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, [wBaseEnergy]
 	ld [hl], a
 	ret
 
@@ -1626,6 +1610,21 @@ CalcMonStatC:
 	pop hl
 	ret
 
+StoreMaxEnergyLastPartyMon:
+	ld a, [wPartyCount]
+	dec a
+	; fallthrough
+
+StoreMaxEnergyNthMon:
+; a is 0-based index
+	ld hl, wPartyMon1MaxEnergy
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	ret
+
 GivePoke::
 	push de
 	push bc
@@ -1633,6 +1632,7 @@ GivePoke::
 	ld [wMonType], a
 	call TryAddMonToParty
 	jr nc, .failed
+	; call ResetPartyEnergy
 	ld hl, wPartyMonNicknames
 	ld a, [wPartyCount]
 	dec a

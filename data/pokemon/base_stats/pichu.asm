@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/pichu/front.dimensions"
 	owmoves OVERWORLD_FLASH
-	dw NULL ; unused (beta front/back pics)
+	db 17 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

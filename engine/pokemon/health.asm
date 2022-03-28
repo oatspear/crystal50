@@ -28,11 +28,26 @@ HealPartyMon:
 	ld d, h
 	ld e, l
 
+	; energy
+	; ld a, [wCurPartyMon] ; hack; this should be independent of wCurPartyMon
+	; ld c, a
+	; ld b, 0
+	; ld hl, wPartyMon1MaxEnergy
+	; add hl, bc
+	; ld a, [hl]
+	; ld c, a
+
 	ld hl, MON_STATUS
 	add hl, de
 	xor a
 	ld [hli], a
-	ld [hl], a
+
+	; energy
+	; ld a, c
+	; ld [hl], a
+
+	; do not do anything, just skip the byte
+	; ResetPartyEnergy called after battle handles this
 
 	ld hl, MON_MAXHP
 	add hl, de

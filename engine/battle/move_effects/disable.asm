@@ -33,17 +33,6 @@ BattleCommand_Disable:
 	cp b
 	jr nz, .loop
 
-	ldh a, [hBattleTurn]
-	and a
-	ld hl, wEnemyMonPP
-	jr z, .got_pp
-	ld hl, wBattleMonPP
-.got_pp
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	and a
-	jr z, .failed
 	ld a, 4
 	inc c
 	swap c

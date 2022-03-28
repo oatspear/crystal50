@@ -1491,63 +1491,28 @@ AI_Smart_DefrostOpponent:
 	ret
 
 AI_Smart_Spite:
-	ld a, [wLastPlayerCounterMove]
-	and a
-	jr nz, .usedmove
-
-	call AICompareSpeed
-	jp c, AIDiscourageMove
-
-	call AI_50_50
-	ret c
-	inc [hl]
-	ret
-
-.usedmove
-	push hl
+	; discourage if the enemy's HP is below 25%
+	call AICheckEnemyQuarterHP
+	jr c, .discourage
+	ld a, [wPlayerMaxEnergy]
 	ld b, a
-	ld c, NUM_MOVES
-	ld hl, wBattleMonMoves
-	ld de, wBattleMonPP
-
-.moveloop
-	ld a, [hli]
-	cp b
-	jr z, .foundmove
-
-	inc de
-	dec c
-	jr nz, .moveloop
-
-	pop hl
-	ret
-
-.foundmove
-	pop hl
-	ld a, [de]
-	cp 6
-	jr c, .encourage
-	cp 15
-	jr nc, .discourage
-
-	call Random
-	cp 39 percent + 1
+	ld a, [wBattleMonEnergy]
+	ld c, a
+	; discourage if the energy is too low
+	cp ENERGY_DRAIN_SPITE
+	jr c, .discourage
+	; neutral if the energy is too high
+	add a ; double current energy
+	cp b ; is the current value below half?
 	ret nc
+	; encourage otherwise
+	dec [hl]
+	dec [hl]
+	ret
 
 .discourage
 	inc [hl]
 	ret
-
-.encourage
-	call Random
-	cp 39 percent + 1
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-.dismiss ; unreferenced
-	jp AIDiscourageMove
 
 AI_Smart_DestinyBond:
 AI_Smart_Reversal:

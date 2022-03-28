@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/wigglytuff/front.dimensions"
 	owmoves OVERWORLD_STRENGTH, OVERWORLD_FLASH, OVERWORLD_HEADBUTT
-	dw NULL ; unused (beta front/back pics)
+	db 36 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 

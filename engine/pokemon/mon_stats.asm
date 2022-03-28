@@ -268,19 +268,19 @@ ListMovePP:
 	and a
 	jr z, .done
 	push bc
-	push hl
-	push de
-	ld hl, wMenuCursorY
-	ld a, [hl]
-	push af
-	ld [hl], b
-	push hl
-	callfar GetMaxPPOfMove
-	pop hl
-	pop af
-	ld [hl], a
-	pop de
-	pop hl
+	; push hl
+	; push de
+	; ld hl, wMenuCursorY
+	; ld a, [hl]
+	; push af
+	; ld [hl], b
+	; push hl
+	; callfar GetMaxPPOfMove
+	; pop hl
+	; pop af
+	; ld [hl], a
+	; pop de
+	; pop hl
 	push hl
 	ld bc, wTempMonPP - (wTempMonMoves + 1)
 	add hl, bc
@@ -291,11 +291,6 @@ ListMovePP:
 	ld l, e
 	push hl
 	ld de, wStringBuffer1 + 4
-	lb bc, 1, 2
-	call PrintNum
-	ld a, "/"
-	ld [hli], a
-	ld de, wTempPP
 	lb bc, 1, 2
 	call PrintNum
 	pop hl
@@ -321,21 +316,6 @@ ListMovePP:
 	add hl, de
 	dec c
 	jr nz, .load_loop
-	ret
-
-BrokenPlacePPUnits: ; unreferenced
-; Probably would have these parameters:
-; hl = starting coordinate
-; de = SCREEN_WIDTH or SCREEN_WIDTH * 2
-; c = the number of moves (1-4)
-.loop
-	ld [hl], $32 ; typo for P?
-	inc hl
-	ld [hl], $3e ; P
-	dec hl
-	add hl, de
-	dec c
-	jr nz, .loop
 	ret
 
 Unused_PlaceEnemyHPLevel:

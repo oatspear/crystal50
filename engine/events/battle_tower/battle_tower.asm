@@ -404,6 +404,12 @@ endr
 	ld a, [s5_b2fb] ; s5_b2fb ; max level?
 	call CloseSRAM
 	ld e, a
+
+	ld hl, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+
 	ld hl, MON_LEVEL
 	add hl, bc
 	ld a, [hl]
@@ -461,7 +467,7 @@ endr
 	ld hl, MON_STAT_EXP - 1
 	add hl, bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; energy above
 	pop de
 	pop hl
 	dec de

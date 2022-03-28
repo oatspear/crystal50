@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/golbat/front.dimensions"
 	db NO_OVERWORLD_MOVES
 	db NO_OVERWORLD_MOVES
-	dw NULL ; unused (beta front/back pics)
+	db 37 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 

@@ -6869,6 +6869,10 @@ Function11b483:
 	ld a, [de]
 	ld [wCurSpecies], a
 	call GetBaseData
+	ld hl, MON_ENERGY
+	add hl, de
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	ld hl, MON_LEVEL
 	add hl, de
 	ld a, [hl]
@@ -6881,7 +6885,7 @@ Function11b483:
 	pop de
 	push de
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; energy above
 	pop de
 	ld h, d
 	ld l, e

@@ -32,7 +32,7 @@ ENDM
 party_struct: MACRO
 	box_struct \1
 \1Status::         db
-\1Unused::         db
+\1Energy::         db
 \1HP::             dw
 \1MaxHP::          dw
 \1Stats:: ; big endian
@@ -84,7 +84,8 @@ battle_struct: MACRO
 \1PP::        ds NUM_MOVES
 \1Happiness:: db
 \1Level::     db
-\1Status::    ds 2
+\1Status::    db
+\1Energy::    db
 \1HP::        dw
 \1MaxHP::     dw
 \1Stats:: ; big endian

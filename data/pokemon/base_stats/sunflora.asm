@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/sunflora/front.dimensions"
 	owmoves OVERWORLD_CUT, OVERWORLD_FLASH, OVERWORLD_SWEET_SCENT
-	dw NULL ; unused (beta front/back pics)
+	db 35 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
