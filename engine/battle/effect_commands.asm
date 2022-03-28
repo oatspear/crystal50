@@ -153,6 +153,7 @@ BattleCommand_CheckTurn:
 	and SLP_BIT
 	jr z, .not_asleep
 
+	ld a, [wBattleMonStatus]
 	dec a
 	ld [wBattleMonStatus], a
 
@@ -163,6 +164,7 @@ BattleCommand_CheckTurn:
 	jr .fast_asleep
 
 .woke_up
+	xor a
 	ld [wBattleMonStatus], a
 	ld hl, WokeUpText
 	call StdBattleTextbox
@@ -379,14 +381,13 @@ CheckEnemyTurn:
 
 .no_recharge
 
-	ld hl, wEnemyMonStatus
-	ld a, [hl]
+	ld a, [wEnemyMonStatus]
+	cp SLP_BIT ; exactly equal means a counter of zero turns
+	jr z, .woke_up
 	and SLP_BIT
 	jr z, .not_asleep
 
-	ld a, [hl]
-	cp SLP_BIT ; exactly equal means a counter of zero turns, this saves a ld
-	jr z, .woke_up
+	ld a, [wEnemyMonStatus]
 	dec a
 	ld [wEnemyMonStatus], a
 
@@ -399,6 +400,8 @@ CheckEnemyTurn:
 	jr .fast_asleep
 
 .woke_up
+	xor a
+	ld [wEnemyMonStatus], a
 	ld hl, WokeUpText
 	call StdBattleTextbox
 	call CantMove
