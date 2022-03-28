@@ -9,6 +9,9 @@ CopyMonToTempMon:
 	ld [wCurSpecies], a
 	call GetBaseData
 
+	ld a, [wBaseEnergy]
+	ld [wTempMonMaxEnergy], a
+
 	ld a, [wMonType]
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -51,7 +54,7 @@ _TempMonStatsCalculation:
 	add hl, bc
 	push bc
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; no energy update here
 	pop bc
 	ld hl, MON_HP
 	add hl, bc

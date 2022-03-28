@@ -498,10 +498,14 @@ DayCare_GiveEgg:
 	add hl, bc
 	ld d, h
 	ld e, l
+	ld hl, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 	pop hl
 	push bc
 	ld b, FALSE
-	predef CalcMonStats
+	predef CalcMonStats ; energy above
 	pop bc
 	ld hl, MON_HP
 	add hl, bc

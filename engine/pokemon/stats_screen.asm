@@ -726,6 +726,21 @@ LoadGreenPage:
 	ld de, .Move
 	hlcoord 0, 10
 	call PlaceString
+
+	ld de, .MonPP
+	hlcoord 2, 13
+	call PlaceString
+	hlcoord 1, 14
+	lb bc, 1, 2
+	ld de, wTempMonEnergy
+	call PrintNum
+	hlcoord 3, 14
+	ld a, "/"
+	ld [hli], a
+	lb bc, 1, 2
+	ld de, wTempMonMaxEnergy
+	call PrintNum
+
 	ld hl, wTempMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
@@ -760,6 +775,9 @@ LoadGreenPage:
 
 .Move:
 	db "MOVE@"
+
+.MonPP:
+	db "PP:@"
 
 LoadBluePage:
 	call .PlaceOTInfo

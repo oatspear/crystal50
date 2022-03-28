@@ -75,9 +75,9 @@ ItemEffects:
 	dw GoodRodEffect       ; GOOD_ROD
 	dw NoEffect            ; SILVER_LEAF
 	dw SuperRodEffect      ; SUPER_ROD
-	dw RestorePPEffect     ; PP_UP
-	dw RestorePPEffect     ; ETHER
-	dw RestorePPEffect     ; MAX_ETHER
+	dw NoEffect            ; PP_UP
+	dw NoEffect            ; ETHER
+	dw NoEffect            ; MAX_ETHER
 	dw RestorePPEffect     ; ELIXER
 	dw NoEffect            ; RED_SCALE
 	dw NoEffect            ; SECRETPOTION
@@ -427,7 +427,8 @@ PokeBallEffect:
 	ld hl, wEnemyMonStatus
 	ld a, [hli]
 	push af
-	inc hl
+	ld a, [hli]
+	push af
 	ld a, [hli]
 	push af
 	ld a, [hl]
@@ -469,7 +470,8 @@ PokeBallEffect:
 	ld [hld], a
 	pop af
 	ld [hld], a
-	dec hl
+	pop af
+	ld [hld], a
 	pop af
 	ld [hl], a
 
@@ -1213,7 +1215,7 @@ UpdateStatsAfterItem:
 	ld a, MON_STAT_EXP - 1
 	call GetPartyParamLocation
 	ld b, TRUE
-	predef_jump CalcMonStats
+	predef_jump CalcMonStats ; no energy update here
 
 RareCandy_StatBooster_ExitMenu:
 	xor a
@@ -2389,248 +2391,41 @@ ItemfinderEffect:
 
 RestorePPEffect:
 	ld a, [wCurItem]
-	ld [wTempRestorePPItem], a
-
-.loop
-	; Party Screen opens to choose on which mon to use the Item
-	ld b, PARTYMENUACTION_HEALING_ITEM
-	call UseItem_SelectMon
-	jp c, PPRestoreItem_Cancel
-
-.loop2
-	ld a, [wTempRestorePPItem]
+	ld c, MAX_ENERGY
 	cp MAX_ELIXER
-	jp z, Elixer_RestorePPofAllMoves
+	jr z, BattleRestorePP
+
+	ld c, ENERGY_RECOVERY_ELIXER
 	cp ELIXER
-	jp z, Elixer_RestorePPofAllMoves
+	jr z, BattleRestorePP
 
-	ld hl, RaiseThePPOfWhichMoveText
-	ld a, [wTempRestorePPItem]
-	cp PP_UP
-	jr z, .ppup
-	ld hl, RestoreThePPOfWhichMoveText
-
-.ppup
-	call PrintText
-
-	ld a, [wCurMoveNum]
-	push af
-	xor a
-	ld [wCurMoveNum], a
-	ld a, $2
-	ld [wMoveSelectionMenuType], a
-	farcall MoveSelectionScreen
-	pop bc
-
-	ld a, b
-	ld [wCurMoveNum], a
-	jr nz, .loop
-	ld hl, wPartyMon1Moves
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call GetMthMoveOfNthPartymon
-
-	push hl
-	ld a, [hl]
-	ld [wNamedObjectIndex], a
-	call GetMoveName
-	call CopyName1
-	pop hl
-
-	ld a, [wTempRestorePPItem]
-	cp PP_UP
-	jp nz, Not_PP_Up
-
-	ld a, [hl]
-	cp SKETCH
-	jr z, .CantUsePPUpOnSketch
-
-	ld bc, MON_PP - MON_MOVES
-	add hl, bc
-	ld a, [hl]
-	cp PP_UP_MASK
-	jr c, .do_ppup
-
-.CantUsePPUpOnSketch:
-	ld hl, PPIsMaxedOutText
-	call PrintText
-	jr .loop2
-
-.do_ppup
-	ld a, [hl]
-	add PP_UP_ONE
-	ld [hl], a
-	ld a, TRUE
-	ld [wUsePPUp], a
-	call ApplyPPUp
-	call Play_SFX_FULL_HEAL
-
-	ld hl, PPsIncreasedText
-	call PrintText
-
-FinishPPRestore:
-	call ClearPalettes
-	jp UseDisposableItem
+	ld c, ENERGY_RECOVERY_LEPPA_BERRY
+	; fallthrough
 
 BattleRestorePP:
+	; expects amount of energy in c
 	ld a, [wBattleMode]
 	and a
-	jr z, .not_in_battle
-	ld a, [wCurPartyMon]
-	ld b, a
-	ld a, [wCurBattleMon]
-	cp b
-	jr nz, .not_in_battle
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .not_in_battle
-	call .UpdateBattleMonPP
+	ret z
 
-.not_in_battle
+	; save maximum energy
+	ld a, [wPlayerMaxEnergy]
+	ld b, a
+
+	ld a, [wBattleMonEnergy]
+	add c
+	cp b
+	jr c, .restore
+	ld a, b
+
+.restore
+	ld [wBattleMonEnergy], a
+
 	call Play_SFX_FULL_HEAL
 	ld hl, PPRestoredText
 	call PrintText
-	jr FinishPPRestore
-
-.UpdateBattleMonPP:
-	ld a, [wCurPartyMon]
-	ld hl, wPartyMon1Moves
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	ld de, wBattleMonMoves
-	ld b, NUM_MOVES
-.loop
-	ld a, [de]
-	and a
-	jr z, .done
-	cp [hl]
-	jr nz, .next
-	push hl
-	push de
-	push bc
-rept NUM_MOVES + 2 ; wBattleMonPP - wBattleMonMoves
-	inc de
-endr
-	ld bc, MON_PP - MON_MOVES
-	add hl, bc
-	ld a, [hl]
-	ld [de], a
-	pop bc
-	pop de
-	pop hl
-
-.next
-	inc hl
-	inc de
-	dec b
-	jr nz, .loop
-
-.done
-	ret
-
-Not_PP_Up:
-	call RestorePP
-	jr nz, BattleRestorePP
-	jp PPRestoreItem_NoEffect
-
-Elixer_RestorePPofAllMoves:
-	xor a
-	ld hl, wMenuCursorY
-	ld [hli], a
-	ld [hl], a
-	ld b, NUM_MOVES
-.moveLoop
-	push bc
-	ld hl, wPartyMon1Moves
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call GetMthMoveOfNthPartymon
-	ld a, [hl]
-	and a
-	jr z, .next
-
-	call RestorePP
-	jr z, .next
-	ld hl, wMenuCursorX
-	inc [hl]
-
-.next
-	ld hl, wMenuCursorY
-	inc [hl]
-	pop bc
-	dec b
-	jr nz, .moveLoop
-	ld a, [wMenuCursorX]
-	and a
-	jp nz, BattleRestorePP
-
-PPRestoreItem_NoEffect:
-	call WontHaveAnyEffectMessage
-
-PPRestoreItem_Cancel:
 	call ClearPalettes
-	xor a
-	ld [wItemEffectSucceeded], a
-	ret
-
-RestorePP:
-	xor a ; PARTYMON
-	ld [wMonType], a
-	call GetMaxPPOfMove
-	ld hl, wPartyMon1PP
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call GetMthMoveOfNthPartymon
-	ld a, [wTempPP]
-	ld b, a
-	ld a, [hl]
-	and PP_MASK
-	cp b
-	jr nc, .dont_restore
-
-	ld a, [wTempRestorePPItem]
-	cp MAX_ELIXER
-	jr z, .restore_all
-	cp MAX_ETHER
-	jr z, .restore_all
-
-	ld c, 5
-	cp LEPPA_BERRY
-	jr z, .restore_some
-
-	ld c, 10
-
-.restore_some
-	ld a, [hl]
-	and PP_MASK
-	add c
-	cp b
-	jr nc, .restore_all
-	ld b, a
-
-.restore_all
-	ld a, [hl]
-	and PP_UP_MASK
-	or b
-	ld [hl], a
-	ret
-
-.dont_restore
-	xor a
-	ret
-
-RaiseThePPOfWhichMoveText:
-	text_far _RaiseThePPOfWhichMoveText
-	text_end
-
-RestoreThePPOfWhichMoveText:
-	text_far _RestoreThePPOfWhichMoveText
-	text_end
-
-PPIsMaxedOutText:
-	text_far _PPIsMaxedOutText
-	text_end
-
-PPsIncreasedText:
-	text_far _PPsIncreasedText
-	text_end
+	jp UseDisposableItem
 
 PPRestoredText:
 	text_far _PPRestoredText

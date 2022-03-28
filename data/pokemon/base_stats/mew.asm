@@ -13,7 +13,8 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/mew/front.dimensions"
 	db $ff, $ff
-	dw NULL ; unused (beta front/back pics)
+	db 50 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

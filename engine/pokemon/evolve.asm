@@ -280,7 +280,15 @@ EvolveAfterBattle_MasterLoop:
 	ld hl, wTempMonExp + 2
 	ld de, wTempMonMaxHP
 	ld b, TRUE
-	predef CalcMonStats
+	predef CalcMonStats ; energy below
+
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1MaxEnergy
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMons
@@ -288,6 +296,13 @@ EvolveAfterBattle_MasterLoop:
 	call AddNTimes
 	ld e, l
 	ld d, h
+	; hl and de point to the start of the correct PartyMon
+	ld bc, MON_ENERGY
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	ld l, e
+	ld h, d
 	ld bc, MON_MAXHP
 	add hl, bc
 	ld a, [hli]

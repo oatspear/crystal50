@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/magikarp/front.dimensions"
 	db NO_OVERWORLD_MOVES
 	db NO_OVERWORLD_MOVES
-	dw NULL ; unused (beta front/back pics)
+	db 16 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_2, EGG_DRAGON ; egg groups
 

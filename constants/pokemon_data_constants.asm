@@ -27,7 +27,8 @@ BASE_PIC_SIZE    rb
 ; BASE_FRONTPIC    rw
 BASE_OVERWORLD1  rb
 BASE_OVERWORLD2  rb
-BASE_BACKPIC     rw
+BASE_ENERGY      rb
+BASE_BACKPIC     rb
 BASE_GROWTH_RATE rb
 BASE_EGG_GROUPS  rb
 BASE_TMHM        rb (NUM_TM_HM_TUTOR + 7) / 8
@@ -102,7 +103,7 @@ MON_CAUGHTLOCATION     rb
 MON_LEVEL              rb
 BOXMON_STRUCT_LENGTH EQU _RS
 MON_STATUS             rb
-                       rb_skip
+MON_ENERGY             rb
 MON_HP                 rw
 MON_MAXHP              rw
 MON_STATS              rw NUM_BATTLE_STATS

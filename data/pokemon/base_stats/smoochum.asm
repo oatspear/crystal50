@@ -14,7 +14,8 @@
 	INCBIN "gfx/pokemon/smoochum/front.dimensions"
 	db NO_OVERWORLD_MOVES
 	db NO_OVERWORLD_MOVES
-	dw NULL ; unused (beta front/back pics)
+	db 25 ; energy
+	db 0 ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 

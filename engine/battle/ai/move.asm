@@ -42,10 +42,13 @@ AIChooseMove:
 	add hl, bc
 	ld [hl], 80
 
-; Don't pick moves with 0 PP.
+; Don't pick moves that require more Energy than what is available.
 .CheckPP:
 	ld hl, wEnemyAIMoveScores - 1
 	ld de, wEnemyMonPP
+	ld a, [wEnemyMonEnergy]
+	inc a ; add 1 so that we can use cp with carry flag below
+	ld c, a
 	ld b, 0
 .CheckMovePP:
 	inc b
@@ -56,7 +59,9 @@ AIChooseMove:
 	ld a, [de]
 	inc de
 	and PP_MASK
-	jr nz, .CheckMovePP
+	jr z, .CheckMovePP
+	cp c
+	jr c, .CheckMovePP
 	ld [hl], 80
 	jr .CheckMovePP
 

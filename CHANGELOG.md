@@ -37,6 +37,16 @@
 - Sleep now lasts between 2 and 3 turns. Disobedience naps and Rest always last 2 turns. Sleeping wild Pokémon sleep for 3 turns.
 - Taking damage makes sleeping Pokémon wake up sooner (decrements the sleep counter).
 - Taking damage breaks the ice around frozen Pokémon after 2 or 3 hits.
+- Replaced the PP system with a global Energy system (a single pool of Energy for all moves).
+- Each Pokémon has a total amount of energy equal to its base stat total divided by 12.
+- Leppa Berry restores 12 Energy when the Energy level is 8 or less.
+- Elixer restores 24 Energy, and Max. Elixer restores Energy to full.
+- Moves learned with Mimic or Transform cost a set (and high) amount of Energy.
+- When selecting a move for which there is not enough energy, Struggle is used instead.
+- Spite drains 8 Energy, regardless of the moves the opponent uses.
+- Poison (status condition) drains 1 Energy per turn.
+- Sleep (status condition) restores 8 Energy per turn.
+- Energy is fully restored after battle.
 
 ## v0.2 (Set to Level 50)
 
