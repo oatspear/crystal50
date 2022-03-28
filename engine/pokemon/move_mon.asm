@@ -1296,6 +1296,9 @@ RemoveMonFromPartyOrBox:
 	ld bc, sBoxMonNicknamesEnd
 .party7
 	call CopyDataUntil
+	push de
+	call ResetPartyEnergy
+	pop de
 	; Mail time!
 .finish
 	ld a, [wPokemonWithdrawDepositParameter]
