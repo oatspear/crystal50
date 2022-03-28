@@ -4611,7 +4611,7 @@ HandleEnergyRecovery:
 .DoPlayer:
 	ld hl, wPlayerMaxEnergy
 	ld a, [wBattleMonStatus]
-	and SLP
+	and SLP_BIT
 	jr z, .player_not_asleep
 	ld a, [wBattleMonEnergy]
 	add ENERGY_RECOVERY_SLP
@@ -4637,7 +4637,7 @@ HandleEnergyRecovery:
 .DoEnemy:
 	ld hl, wEnemyMaxEnergy
 	ld a, [wEnemyMonStatus]
-	and SLP
+	and SLP_BIT
 	jr z, .enemy_not_asleep
 	ld a, [wEnemyMonEnergy]
 	add ENERGY_RECOVERY_SLP
