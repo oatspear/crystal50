@@ -1523,9 +1523,15 @@ HandleDefrost:
 	and a
 	ret nz
 
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr z, .defrost_player
+
 	call BattleRandom
-	cp 10 percent
+	cp 20 percent
 	ret nc
+
+.defrost_player
 	xor a
 	ld [wBattleMonStatus], a
 	ld a, [wCurBattleMon]
@@ -1541,12 +1547,20 @@ HandleDefrost:
 	ld a, [wEnemyMonStatus]
 	bit FRZ, a
 	ret z
+
 	ld a, [wEnemyJustGotFrozen]
 	and a
 	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr z, .defrost_enemy
+
 	call BattleRandom
-	cp 10 percent
+	cp 20 percent
 	ret nc
+
+.defrost_enemy
 	xor a
 	ld [wEnemyMonStatus], a
 
@@ -6415,7 +6429,7 @@ LoadEnemyMon:
 .TreeMon:
 ; If we're headbutting trees, some monsters enter battle asleep
 	call CheckSleepingTreeMon
-	ld a, TREEMON_SLEEP_TURNS
+	ld a, SLP_BIT | TREEMON_SLEEP_TURNS
 	jr c, .UpdateStatus
 ; Otherwise, no status
 	xor a

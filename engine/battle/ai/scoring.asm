@@ -1463,7 +1463,7 @@ AI_Smart_SleepTalk:
 ; Greatly discourage this move otherwise.
 
 	ld a, [wEnemyMonStatus]
-	and SLP
+	and SLP_BIT
 	cp 1
 	jr z, .discourage
 

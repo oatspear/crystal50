@@ -27,7 +27,7 @@ BattleCommand_RolloutPower:
 
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
-	and SLP
+	and SLP_BIT
 	ret nz
 
 	ld hl, wPlayerRolloutCount

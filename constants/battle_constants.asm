@@ -39,7 +39,7 @@ STAT_LEVEL_DEFAULT_DURATION EQU 3
 
 ; turns that sleep lasts
 REST_SLEEP_TURNS EQU 2
-TREEMON_SLEEP_TURNS EQU 7
+TREEMON_SLEEP_TURNS EQU 3
 
 ; Move priorities go from -7 to +5 in current generations.
 ; We will add 7 to the priorities, so we can keep them unsigned.
@@ -211,6 +211,8 @@ assert const_value % 2 == 0
 NUM_BATTLE_VAR_LOCATION_PAIRS EQU const_value / 2
 
 ; status condition bit flags
+STATUS_TURN_COUNTER EQU %11 ; 0-3 turns
+SLP_BIT EQU %100
 SLP EQU %111 ; 0-7 turns
 	const_def 3
 	const PSN
@@ -219,6 +221,7 @@ SLP EQU %111 ; 0-7 turns
 	const PAR
 
 ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
+FRZ_TURNS_MASK EQU (1 << FRZ) | STATUS_TURN_COUNTER
 
 ; wPlayerSubStatus1 or wEnemySubStatus1 bit flags
 	const_def

@@ -2315,7 +2315,7 @@ PokeFluteEffect:
 .loop
 	ld a, [hl]
 	push af
-	and SLP
+	and SLP_BIT
 	jr z, .not_asleep
 	ld a, TRUE
 	ld [wPokeFluteCuredSleep], a

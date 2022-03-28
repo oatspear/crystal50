@@ -396,7 +396,7 @@ PlaceNonFaintStatus:
 	bit PAR, a
 	jr nz, .place
 	ld de, SlpString
-	and SLP
+	and SLP_BIT
 	jr z, .no_status
 
 .place
