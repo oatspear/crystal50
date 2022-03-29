@@ -4627,8 +4627,9 @@ HandleEnergyRecovery:
 	and 1 << PSN
 	jr z, .player_done
 	ld a, [wBattleMonEnergy]
+	and a
+	jr z, .player_done
 	dec a
-	jr c, .player_done
 	ld [wBattleMonEnergy], a
 
 .player_done
@@ -4653,8 +4654,9 @@ HandleEnergyRecovery:
 	and 1 << PSN
 	jr z, .enemy_done
 	ld a, [wEnemyMonEnergy]
+	and a
+	jr z, .enemy_done
 	dec a
-	jr c, .enemy_done
 	ld [wEnemyMonEnergy], a
 
 .enemy_done
@@ -6061,6 +6063,8 @@ ParseEnemyAction:
 	jr nz, .skip_load
 ; wild
 	ld a, [wEnemyMonEnergy]
+	and a
+	jr z, .struggle
 	inc a
 	ld e, a
 .loop2
@@ -6084,8 +6088,15 @@ ParseEnemyAction:
 	ld b, a
 	ld a, [hl]
 	and PP_MASK
-	cp e
-	jr nc, .loop2
+	cp e ; this caused an infinite loop if e was zero ($ff overflow to 0)
+	jr c, .select
+	ld a, e
+	and a
+	jr nz, .loop2
+	; if we get here, there was energy overflow, try to remedy it
+	xor a
+	ld [wEnemyMonEnergy], a
+.select
 	ld a, c
 	ld [wCurEnemyMoveNum], a
 	ld a, b
