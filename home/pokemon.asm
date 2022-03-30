@@ -384,3 +384,25 @@ ResetPartyEnergy::
 	dec b
 	jr nz, .loop
 	ret
+
+RestorePartyEnergyToCurrentMax::
+	ld a, [wPartyCount]
+	and a
+	ret z
+
+	ld b, a
+	ld hl, wPartyMon1Energy
+	ld de, wPartyMon1MaxEnergy
+	.loop
+	ld a, [de]
+	ld [hl], a
+	inc de
+
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop bc
+
+	dec b
+	jr nz, .loop
+	ret
