@@ -1105,7 +1105,7 @@ GiveEgg::
 	push bc
 
 	call TryAddMonToParty
-	; call ResetPartyEnergy ; not needed
+	; call RestorePartyEnergyToMax ; not needed
 
 ; If we haven't caught this Pokemon before receiving
 ; the Egg, reset the flag that was just set by
@@ -1297,7 +1297,7 @@ RemoveMonFromPartyOrBox:
 .party7
 	call CopyDataUntil
 	push de
-	call ResetPartyEnergy
+	call ResetCurPartyMonEnergy
 	pop de
 	; Mail time!
 .finish
@@ -1632,7 +1632,7 @@ GivePoke::
 	ld [wMonType], a
 	call TryAddMonToParty
 	jr nc, .failed
-	; call ResetPartyEnergy
+	; call RestorePartyEnergyToMax
 	ld hl, wPartyMonNicknames
 	ld a, [wPartyCount]
 	dec a

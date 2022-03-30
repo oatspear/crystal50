@@ -61,7 +61,10 @@ InsertPokemonIntoParty:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld de, wBufferMon
 	call InsertDataIntoBoxOrParty
-	call ResetPartyEnergy
+	ld a, [wPartyCount]
+	dec a
+	ld [wCurPartyMon], a
+	call ResetCurPartyMonEnergy
 	ret
 
 InsertSpeciesIntoBoxOrParty:

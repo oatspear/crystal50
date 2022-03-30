@@ -28,14 +28,18 @@ HealPartyMon:
 	ld d, h
 	ld e, l
 
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
 	; energy
-	; ld a, [wCurPartyMon] ; hack; this should be independent of wCurPartyMon
-	; ld c, a
-	; ld b, 0
-	; ld hl, wPartyMon1MaxEnergy
-	; add hl, bc
-	; ld a, [hl]
-	; ld c, a
+	ld a, [wCurPartyMon] ; hack; this should be independent of wCurPartyMon
+	ld c, a
+	ld b, 0
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, [wBaseEnergy]
+	ld [hl], a
 
 	ld hl, MON_STATUS
 	add hl, de
@@ -43,11 +47,9 @@ HealPartyMon:
 	ld [hli], a
 
 	; energy
-	; ld a, c
-	; ld [hl], a
-
-	; do not do anything, just skip the byte
-	; ResetPartyEnergy called after battle handles this
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	; this is a single mon version of RestorePartyEnergyToMax
 
 	ld hl, MON_MAXHP
 	add hl, de

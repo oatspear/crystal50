@@ -4,6 +4,7 @@ DoBattle:
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
+	ld [wBattleParticipantsFatigued], a
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	inc a
@@ -8161,11 +8162,11 @@ StartBattle:
 
 	ld a, [wTimeOfDayPal]
 	push af
-	call ResetPartyEnergy
+	call RestorePartyEnergyToMax
 	call BattleIntro
 	call DoBattle
 	call ExitBattle
-	call ResetPartyEnergy
+	call RestorePartyEnergyToMax
 	pop af
 	ld [wTimeOfDayPal], a
 	scf

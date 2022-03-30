@@ -385,7 +385,34 @@ ResetPartyEnergy::
 	jr nz, .loop
 	ret
 
-RestorePartyEnergyToCurrentMax::
+ResetCurPartyMonEnergy::
+	ld a, [wCurPartyMon]
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld hl, wPartyMon1Species
+	ld de, wPartyMon1MaxEnergy
+
+	and a
+	jr z, .got_mon
+
+.loop
+	add hl, bc
+	inc de
+	dec a
+	jr nz, .loop
+
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
+	ld bc, MON_ENERGY
+	add hl, bc
+
+	ld a, [wBaseEnergy]
+	ld [hl], a
+	ld [de], a
+	ret
+
+RestorePartyEnergyToMax::
 	ld a, [wPartyCount]
 	and a
 	ret z
@@ -393,7 +420,7 @@ RestorePartyEnergyToCurrentMax::
 	ld b, a
 	ld hl, wPartyMon1Energy
 	ld de, wPartyMon1MaxEnergy
-	.loop
+.loop
 	ld a, [de]
 	ld [hl], a
 	inc de

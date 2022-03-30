@@ -13,7 +13,7 @@ _SwitchPartyMons:
 	call .ClearSprite
 	ld a, [wSwitchMonTo]
 	call .ClearSprite
-	call ResetPartyEnergy
+	call RestorePartyEnergyToMax
 .skip
 	ret
 
@@ -110,7 +110,7 @@ _SwitchPartyMons:
 	ld hl, wSwitchMonBuffer
 	call .CopyName
 	; energy
-	; handled with ResetPartyEnergy above
+	; handled with RestorePartyEnergyToMax above
 	; ld a, [wSwitchMonFrom]
 	; ld b, 0
 	; ld c, a
