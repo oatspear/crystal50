@@ -29,13 +29,14 @@ ENERGY_DRAIN_PSN            EQU 1
 ; assert ENERGY_TRIGGER_LEPPA_BERRY + ENERGY_RECOVERY_LEPPA_BERRY < MAX_ENERGY
 
 ; significant stat values
-MIN_STAT_LEVEL  EQU 1  ; -2
-BASE_STAT_LEVEL EQU 3  ; +0
-MAX_STAT_LEVEL  EQU 5  ; +2
+MIN_STAT_LEVEL  EQU 1  ; -1
+BASE_STAT_LEVEL EQU 2  ; +0
+MAX_STAT_LEVEL  EQU 3  ; +1
 
 ; duration of stat level changes, in turns (including application turn)
 ; e.g. 3 turns = 1 turn (stat boosting move) + 2 turns (to use the boost)
-STAT_LEVEL_DEFAULT_DURATION EQU 3
+STAT_LEVEL_DEFAULT_DURATION  EQU 4
+STAT_LEVEL_EXTENDED_DURATION EQU $10
 
 ; turns that sleep lasts
 REST_SLEEP_TURNS EQU 2

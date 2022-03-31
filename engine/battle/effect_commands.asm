@@ -4152,37 +4152,37 @@ BattleCommand_EvasionUp:
 
 BattleCommand_AttackUp2:
 ; attackup2
-	ld a, $10 | ATTACK
+	ld a, STAT_LEVEL_EXTENDED_DURATION | ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_DefenseUp2:
 ; defenseup2
-	ld a, $10 | DEFENSE
+	ld a, STAT_LEVEL_EXTENDED_DURATION | DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_SpeedUp2:
 ; speedup2
-	ld a, $10 | SPEED
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SPEED
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialAttackUp2:
 ; specialattackup2
-	ld a, $10 | SP_ATTACK
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialDefenseUp2:
 ; specialdefenseup2
-	ld a, $10 | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_AccuracyUp2:
 ; accuracyup2
-	ld a, $10 | ACCURACY
+	ld a, STAT_LEVEL_EXTENDED_DURATION | ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp2:
 ; evasionup2
-	ld a, $10 | EVASION
+	ld a, STAT_LEVEL_EXTENDED_DURATION | EVASION
 	jr BattleCommand_StatUp
 
 BattleCommand_StatUp:
@@ -4230,17 +4230,17 @@ RaiseStat:
 	swap a
 	add e
 	ld e, a
-	inc b
-	ld a, MAX_STAT_LEVEL
-	cp b
-	jr nc, .got_num_stages
-	ld b, a
+	; inc b
+	; ld a, MAX_STAT_LEVEL
+	; cp b
+	; jr nc, .got_num_stages
+	; ld b, a
 
 .got_num_stages
 	apply_stat_level [hl], b, e
 	push hl
 	ld a, c
-	cp $5
+	cp ACCURACY
 	jr nc, .done_calcing_stats
 	ld hl, wBattleMonStats + 1
 	ld de, wPlayerStats
@@ -4364,37 +4364,37 @@ BattleCommand_EvasionDown:
 
 BattleCommand_AttackDown2:
 ; attackdown2
-	ld a, $10 | ATTACK
+	ld a, STAT_LEVEL_EXTENDED_DURATION | ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_DefenseDown2:
 ; defensedown2
-	ld a, $10 | DEFENSE
+	ld a, STAT_LEVEL_EXTENDED_DURATION | DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_SpeedDown2:
 ; speeddown2
-	ld a, $10 | SPEED
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SPEED
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialAttackDown2:
 ; specialattackdown2
-	ld a, $10 | SP_ATTACK
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialDefenseDown2:
 ; specialdefensedown2
-	ld a, $10 | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_AccuracyDown2:
 ; accuracydown2
-	ld a, $10 | ACCURACY
+	ld a, STAT_LEVEL_EXTENDED_DURATION | ACCURACY
 	jr BattleCommand_StatDown
 
 BattleCommand_EvasionDown2:
 ; evasiondown2
-	ld a, $10 | EVASION
+	ld a, STAT_LEVEL_EXTENDED_DURATION | EVASION
 
 BattleCommand_StatDown:
 ; statdown
@@ -4441,16 +4441,16 @@ BattleCommand_StatDown:
 	dec b
 	jp z, .CantLower
 
-; Sharply lower the stat if applicable (and apply timer bonus).
+; Sharply lower the stat (apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .GotAmountToLower
 	swap a
-	add STAT_LEVEL_DEFAULT_DURATION
+	add e
 	ld e, a
-	dec b
-	jr nz, .GotAmountToLower
-	inc b
+	; dec b
+	; jr nz, .GotAmountToLower
+	; inc b
 
 .GotAmountToLower:
 ; Accuracy/Evasion reduction don't involve stats.
