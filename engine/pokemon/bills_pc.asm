@@ -1684,6 +1684,8 @@ StatsScreenDPad:
 	ld hl, wTempMonDVs
 	predef GetUnownLetter
 	call GetBaseData
+	ld a, [wBaseEnergy]
+	ld [wTempMonMaxEnergy], a
 	call BillsPC_CopyMon
 .pressed_a_b_right_left
 	ret
