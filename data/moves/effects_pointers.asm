@@ -11,18 +11,18 @@ MoveEffectsPointers:
 	dw Selfdestruct
 	dw DreamEater
 	dw Roost
-	dw AttackUp
-	dw DefenseUp
+	dw OffensesUp  ; AttackUp
+	dw DefensesUp  ; DefenseUp
 	dw SpeedUp
-	dw SpecialAttackUp
-	dw SpecialDefenseUp
+	dw NormalHit  ; SpecialAttackUp
+	dw NormalHit  ; SpecialDefenseUp
 	dw AccuracyUp
 	dw EvasionUp
-	dw AttackDown
-	dw DefenseDown
+	dw OffensesDown  ; AttackDown
+	dw DefensesDown  ; DefenseDown
 	dw SpeedDown
-	dw SpecialAttackDown
-	dw SpecialDefenseDown
+	dw NormalHit  ; SpecialAttackDown
+	dw NormalHit  ; SpecialDefenseDown
 	dw AccuracyDown
 	dw EvasionDown
 	dw ResetStats
@@ -50,29 +50,29 @@ MoveEffectsPointers:
 	dw FocusEnergy
 	dw RecoilHit
 	dw DoConfuse
-	dw AttackUp2
-	dw DefenseUp2
+	dw OffensesUp2  ; AttackUp2
+	dw DefensesUp2  ; DefenseUp2
 	dw SpeedUp2
-	dw SpecialAttackUp2
-	dw SpecialDefenseUp2
+	dw NormalHit  ; SpecialAttackUp2
+	dw NormalHit  ; SpecialDefenseUp2
 	dw AccuracyUp2
 	dw EvasionUp2
 	dw Transform
-	dw AttackDown2
-	dw DefenseDown2
+	dw OffensesDown2  ; AttackDown2
+	dw DefensesDown2  ; DefenseDown2
 	dw SpeedDown2
-	dw SpecialAttackDown2
-	dw SpecialDefenseDown2
+	dw NormalHit  ; SpecialAttackDown2
+	dw NormalHit  ; SpecialDefenseDown2
 	dw AccuracyDown2
 	dw EvasionDown2
 	dw Reflect
 	dw DoPoison
 	dw DoParalyze
-	dw AttackDownHit
-	dw DefenseDownHit
+	dw OffensesDownHit  ; AttackDownHit
+	dw DefensesDownHit  ; DefenseDownHit
 	dw SpeedDownHit
-	dw SpecialAttackDownHit
-	dw SpecialDefenseDownHit
+	dw NormalHit  ; SpecialAttackDownHit
+	dw NormalHit  ; SpecialDefenseDownHit
 	dw AccuracyDownHit
 	dw EvasionDownHit
 	dw SkyAttack
@@ -137,8 +137,8 @@ MoveEffectsPointers:
 	dw HiddenPower
 	dw RainDance
 	dw SunnyDay
-	dw DefenseUpHit
-	dw AttackUpHit
+	dw OffensesUpHit  ; AttackUpHit
+	dw DefensesUpHit  ; DefenseUpHit
 	dw AllUpHit
 	dw FakeOut
 	dw BellyDrum

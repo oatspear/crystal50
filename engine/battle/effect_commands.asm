@@ -4502,15 +4502,15 @@ BattleCommand_StatDown:
 CheckMist:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_ATTACK_DOWN
+	cp EFFECT_OFFENSES_DOWN
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN + 1
 	jr c, .check_mist
-	cp EFFECT_ATTACK_DOWN_2
+	cp EFFECT_OFFENSES_DOWN_2
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_2 + 1
 	jr c, .check_mist
-	cp EFFECT_ATTACK_DOWN_HIT
+	cp EFFECT_OFFENSES_DOWN_HIT
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_HIT + 1
 	jr c, .check_mist
@@ -4743,16 +4743,16 @@ LowerStat:
 	dec b
 	jr z, .cant_lower_anymore
 
-; Sharply lower the stat if applicable (and apply timer bonus).
+; Sharply lower the stat (apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
 	swap a
-	add STAT_LEVEL_DEFAULT_DURATION
+	add e
 	ld e, a
-	dec b
-	jr nz, .got_num_stages
-	inc b
+	; dec b
+	; jr nz, .got_num_stages
+	; inc b
 
 .got_num_stages
 	apply_stat_level [hl], b, e

@@ -170,11 +170,12 @@ DreamEater:
 	checkfaint
 	endmove
 
-AttackUp:
+OffensesUp:
 	checkobedience
 	usedmovetext
 	doturn
 	attackup
+	specialattackup
 	lowersub
 	statupanim
 	raisesub
@@ -182,11 +183,12 @@ AttackUp:
 	statupfailtext
 	endmove
 
-DefenseUp:
+DefensesUp:
 	checkobedience
 	usedmovetext
 	doturn
 	defenseup
+	specialdefenseup
 	lowersub
 	statupanim
 	raisesub
@@ -199,30 +201,6 @@ SpeedUp:
 	usedmovetext
 	doturn
 	speedup
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialAttackUp:
-	checkobedience
-	usedmovetext
-	doturn
-	specialattackup
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialDefenseUp:
-	checkobedience
-	usedmovetext
-	doturn
-	specialdefenseup
 	lowersub
 	statupanim
 	raisesub
@@ -255,11 +233,12 @@ EvasionUp:
 	statupfailtext
 	endmove
 
-AttackUp2:
+OffensesUp2:
 	checkobedience
 	usedmovetext
 	doturn
 	attackup2
+	specialattackup2
 	lowersub
 	statupanim
 	raisesub
@@ -267,11 +246,12 @@ AttackUp2:
 	statupfailtext
 	endmove
 
-DefenseUp2:
+DefensesUp2:
 	checkobedience
 	usedmovetext
 	doturn
 	defenseup2
+	specialdefenseup2
 	lowersub
 	statupanim
 	raisesub
@@ -284,30 +264,6 @@ SpeedUp2:
 	usedmovetext
 	doturn
 	speedup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialAttackUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	specialattackup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialDefenseUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	specialdefenseup2
 	lowersub
 	statupanim
 	raisesub
@@ -360,12 +316,13 @@ DragonDance:
 	dragondance
 	endmove
 
-AttackDown:
+OffensesDown:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	attackdown
+	specialattackdown
 	lowersub
 	statdownanim
 	raisesub
@@ -373,12 +330,13 @@ AttackDown:
 	statdownfailtext
 	endmove
 
-DefenseDown:
+DefensesDown:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	defensedown
+	specialdefensedown
 	lowersub
 	statdownanim
 	raisesub
@@ -392,32 +350,6 @@ SpeedDown:
 	doturn
 	checkhit
 	speeddown
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialAttackDown:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialattackdown
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialDefenseDown:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialdefensedown
 	lowersub
 	statdownanim
 	raisesub
@@ -451,12 +383,13 @@ EvasionDown:
 	statdownfailtext
 	endmove
 
-AttackDown2:
+OffensesDown2:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	attackdown2
+	specialattackdown2
 	lowersub
 	statdownanim
 	raisesub
@@ -464,12 +397,13 @@ AttackDown2:
 	statdownfailtext
 	endmove
 
-DefenseDown2:
+DefensesDown2:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	defensedown2
+	specialdefensedown2
 	lowersub
 	statdownanim
 	raisesub
@@ -484,32 +418,6 @@ SpeedDown2:
 	checkhit
 	checkpowder
 	speeddown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialAttackDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialattackdown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialDefenseDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialdefensedown2
 	lowersub
 	statdownanim
 	raisesub
@@ -543,7 +451,7 @@ EvasionDown2:
 	statdownfailtext
 	endmove
 
-AttackDownHit:
+OffensesDownHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -561,10 +469,11 @@ AttackDownHit:
 	supereffectivetext
 	checkfaint
 	attackdown
+	specialattackdown
 	statdownmessage
 	endmove
 
-DefenseDownHit:
+DefensesDownHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -582,6 +491,7 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	defensedown
+	specialdefensedown
 	statdownmessage
 	endmove
 
@@ -603,48 +513,6 @@ SpeedDownHit:
 	supereffectivetext
 	checkfaint
 	speeddown
-	statdownmessage
-	endmove
-
-SpecialAttackDownHit:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	specialattackdown
-	statdownmessage
-	endmove
-
-SpecialDefenseDownHit:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	specialdefensedown
 	statdownmessage
 	endmove
 
@@ -690,7 +558,7 @@ EvasionDownHit:
 	statdownmessage
 	endmove
 
-DefenseUpHit:
+DefensesUpHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -707,11 +575,12 @@ DefenseUpHit:
 	criticaltext
 	supereffectivetext
 	defenseup
+	specialdefenseup
 	statupmessage
 	checkfaint
 	endmove
 
-AttackUpHit:
+OffensesUpHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -728,6 +597,7 @@ AttackUpHit:
 	criticaltext
 	supereffectivetext
 	attackup
+	specialattackup
 	statupmessage
 	checkfaint
 	endmove
@@ -1629,6 +1499,7 @@ Swagger:
 	checkhit
 	switchturn
 	attackup2
+	specialattackup2
 	switchturn
 	lowersub
 	statupanim
@@ -1860,6 +1731,7 @@ SkullBash:
 	kingsrock
 	endturn
 	defenseup
+	specialdefenseup
 	statupmessage
 	endmove
 
@@ -2064,6 +1936,7 @@ DefenseCurl:
 	usedmovetext
 	doturn
 	defenseup
+	specialdefenseup
 	curl
 	lowersub
 	statupanim

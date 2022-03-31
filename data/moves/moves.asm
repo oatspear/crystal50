@@ -86,7 +86,7 @@ Moves:
 	move VICEGRIP,     EFFECT_NORMAL_HIT,         55, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_1,   0
 	move GUILLOTINE,   EFFECT_OHKO,                0, NORMAL,        PHYSICAL,  30,              ENERGY_LEVEL_4,   0
 	move AIR_SLASH,    EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95,              ENERGY_LEVEL_2,  30
-	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
+	move SWORDS_DANCE, EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move CUT,          EFFECT_NORMAL_HIT,         50, NORMAL,        PHYSICAL,  95,              ENERGY_LEVEL_1,   0
 	move GUST,         EFFECT_GUST,               40, FLYING,        SPECIAL,  100,              ENERGY_LEVEL_1,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, 100,              ENERGY_LEVEL_1,   0
@@ -111,19 +111,19 @@ Moves:
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,         90, NORMAL,        PHYSICAL,  85,              ENERGY_LEVEL_2,   0
 	move THRASH,       EFFECT_RAMPAGE,           120, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_3,   0
 	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        120, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_2,   0
-	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
+	move TAIL_WHIP,    EFFECT_DEFENSES_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
 	move POISON_STING, EFFECT_POISON_HIT,         15, POISON,        PHYSICAL, 100,              ENERGY_LEVEL_1,  30
 	move POISON_JAB,   EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100,              ENERGY_LEVEL_2,  30
 	move PIN_MISSILE,  EFFECT_MULTI_HIT,          25, BUG,           PHYSICAL,  95,              ENERGY_LEVEL_2,   0
-	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
+	move LEER,         EFFECT_DEFENSES_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,          PHYSICAL, 100,              ENERGY_LEVEL_1,  30
-	move GROWL,        EFFECT_ATTACK_DOWN,         0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
+	move GROWL,        EFFECT_OFFENSES_DOWN,         0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_1,   0
 	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move SING,         EFFECT_SLEEP,               0, NORMAL,        STATUS,    55,              ENERGY_LEVEL_2,   0
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        STATUS,    55,              ENERGY_LEVEL_2,   0
-	move BUG_BUZZ,     EFFECT_SP_DEF_DOWN_HIT,    90, BUG,           SPECIAL,  100,              ENERGY_LEVEL_3,  10
+	move BUG_BUZZ,     EFFECT_DEFENSES_DOWN_HIT,    90, BUG,           SPECIAL,  100,              ENERGY_LEVEL_3,  10
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
-	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,        SPECIAL,  100,              ENERGY_LEVEL_1,  10
+	move ACID,         EFFECT_DEFENSES_DOWN_HIT,   40, POISON,        SPECIAL,  100,              ENERGY_LEVEL_1,  10
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,          SPECIAL,  100,              ENERGY_LEVEL_1,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           90, FIRE,          SPECIAL,  100,              ENERGY_LEVEL_2,  10
 	move MIST,         EFFECT_MIST,                0, ICE,           STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
@@ -134,7 +134,7 @@ Moves:
 	move BLIZZARD,     EFFECT_BLIZZARD,          110, ICE,           SPECIAL,   70,              ENERGY_LEVEL_4,  10
 	move PSYBEAM,      EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_2,  10
 	move BUBBLEBEAM,   EFFECT_SPEED_DOWN_HIT,     65, WATER,         SPECIAL,  100,              ENERGY_LEVEL_2,  10
-	move AURORA_BEAM,  EFFECT_ATTACK_DOWN_HIT,    65, ICE,           SPECIAL,  100,              ENERGY_LEVEL_2,  10
+	move AURORA_BEAM,  EFFECT_OFFENSES_DOWN_HIT,    65, ICE,           SPECIAL,  100,              ENERGY_LEVEL_2,  10
 	move HYPER_BEAM,   EFFECT_HYPER_BEAM,        150, NORMAL,        SPECIAL,   90,              ENERGY_LEVEL_4,   0
 	move PECK,         EFFECT_NORMAL_HIT,         35, FLYING,        PHYSICAL, 100,              ENERGY_LEVEL_1,   0
 	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100,              ENERGY_LEVEL_2,   0
@@ -166,7 +166,7 @@ Moves:
 	move DIG,          EFFECT_FLY,                80, GROUND,        PHYSICAL, 100,              ENERGY_LEVEL_3,   0
 	move TOXIC,        EFFECT_TOXIC,               0, POISON,        STATUS,    90,              ENERGY_LEVEL_3,   0
 	move CONFUSION,    EFFECT_CONFUSE_HIT,        50, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_1,  10
-	move PSYCHIC_M,    EFFECT_SP_DEF_DOWN_HIT,    90, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_3,  10
+	move PSYCHIC_M,    EFFECT_DEFENSES_DOWN_HIT,    90, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_3,  10
 	move HYPNOSIS,     EFFECT_SLEEP,               0, PSYCHIC_TYPE,  STATUS,    60,              ENERGY_LEVEL_2,   0
 	move CALM_MIND,    EFFECT_CALM_MIND,           0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move AGILITY,      EFFECT_SPEED_UP_2,          0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
@@ -175,14 +175,14 @@ Moves:
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE,  STATUS,   100,              ENERGY_LEVEL_2,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,         SPECIAL,  100,              ENERGY_LEVEL_2,   0
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
-	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        STATUS,    85,              ENERGY_LEVEL_1,   0
+	move SCREECH,      EFFECT_DEFENSES_DOWN_2,      0, NORMAL,        STATUS,    85,              ENERGY_LEVEL_1,   0
 	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
-	move HARDEN,       EFFECT_DEFENSE_UP,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
+	move HARDEN,       EFFECT_DEFENSES_UP,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
 	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,         STATUS,   100,              ENERGY_LEVEL_3,   0
-	move WITHDRAW,     EFFECT_DEFENSE_UP,          0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
+	move WITHDRAW,     EFFECT_DEFENSES_UP,          0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
 	move DEFENSE_CURL, EFFECT_DEFENSE_CURL,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
 	move DRAGON_DANCE, EFFECT_DRAGON_DANCE,        0, DRAGON,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move LIGHT_SCREEN, EFFECT_LIGHT_SCREEN,        0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
@@ -197,15 +197,15 @@ Moves:
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100,              ENERGY_LEVEL_1,  30
 	move SMOG,         EFFECT_POISON_HIT,         30, POISON,        SPECIAL,   70,              ENERGY_LEVEL_2,  40
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100,              ENERGY_LEVEL_2,  30
-	move EARTH_POWER,  EFFECT_SP_DEF_DOWN_HIT,    90, GROUND,        SPECIAL,  100,              ENERGY_LEVEL_3,  10
+	move EARTH_POWER,  EFFECT_DEFENSES_DOWN_HIT,    90, GROUND,        SPECIAL,  100,              ENERGY_LEVEL_3,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          110, FIRE,          SPECIAL,   85,              ENERGY_LEVEL_4,  10
 	move WATERFALL,    EFFECT_FLINCH_HIT,         80, WATER,         PHYSICAL, 100,              ENERGY_LEVEL_2,  20
 	move WILL_O_WISP,  EFFECT_BURN,                0, FIRE,          STATUS,    85,              ENERGY_LEVEL_2,   0
 	move SWIFT,        EFFECT_NORMAL_HIT,         60, NORMAL,        SPECIAL,  PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        130, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_3,   0
 	move AVALANCHE,    EFFECT_REVENGE,            60, ICE,           PHYSICAL, 100,              ENERGY_LEVEL_3,   0
-	move FLASH_CANNON, EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,         SPECIAL,  100,              ENERGY_LEVEL_3,  10
-	move AMNESIA,      EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
+	move FLASH_CANNON, EFFECT_DEFENSES_DOWN_HIT,    80, STEEL,         SPECIAL,  100,              ENERGY_LEVEL_3,  10
+	move AMNESIA,      EFFECT_DEFENSES_UP_2,         0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move KINESIS,      EFFECT_ACCURACY_DOWN,       0, PSYCHIC_TYPE,  STATUS,    80,              ENERGY_LEVEL_2,   0
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         130, FIGHTING,      PHYSICAL,  85,              ENERGY_LEVEL_3,   0
@@ -223,7 +223,7 @@ Moves:
 	move FLASH,        EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
 	move ZEN_HEADBUTT, EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90,              ENERGY_LEVEL_2,  20
 	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
-	move ACID_ARMOR,   EFFECT_DEFENSE_UP_2,        0, POISON,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
+	move ACID_ARMOR,   EFFECT_DEFENSES_UP_2,        0, POISON,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move CRABHAMMER,   EFFECT_NORMAL_HIT,        100, WATER,         PHYSICAL,  90,              ENERGY_LEVEL_3,   0
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_4,   0
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,        PHYSICAL,  80,              ENERGY_LEVEL_2,   0
@@ -231,7 +231,7 @@ Moves:
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,          PHYSICAL,  90,              ENERGY_LEVEL_3,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,        PHYSICAL,  90,              ENERGY_LEVEL_2,  10
-	move NASTY_PLOT,   EFFECT_SP_ATK_UP_2,         0, DARK,          STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
+	move NASTY_PLOT,   EFFECT_OFFENSES_UP_2,         0, DARK,          STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, NORMAL,        SPECIAL,  100,              ENERGY_LEVEL_3,  20
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        PHYSICAL,  90,              ENERGY_LEVEL_3,   0
@@ -276,14 +276,14 @@ Moves:
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,          STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move GIGA_DRAIN,   EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100,              ENERGY_LEVEL_3,   0
 	move ENDURE,       EFFECT_ENDURE,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
-	move CHARM,        EFFECT_ATTACK_DOWN_2,       0, FAIRY,         STATUS,   100,              ENERGY_LEVEL_2,   0
+	move CHARM,        EFFECT_OFFENSES_DOWN_2,       0, FAIRY,         STATUS,   100,              ENERGY_LEVEL_2,   0
 	move ROLLOUT,      EFFECT_ROLLOUT,            30, ROCK,          PHYSICAL,  90,              ENERGY_LEVEL_2,   0
 	move FALSE_SWIPE,  EFFECT_FALSE_SWIPE,        40, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_1,   0
 	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,        STATUS,    85,              ENERGY_LEVEL_2, 100
 	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC,      PHYSICAL, 100,              ENERGY_LEVEL_2,  30
 	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        40, BUG,           PHYSICAL,  95,              ENERGY_LEVEL_2,   0
-	move STEEL_WING,   EFFECT_DEFENSE_UP_HIT,     70, STEEL,         PHYSICAL,  90,              ENERGY_LEVEL_2,  10
+	move STEEL_WING,   EFFECT_DEFENSES_UP_HIT,     70, STEEL,         PHYSICAL,  90,              ENERGY_LEVEL_2,  10
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_4,   0
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_3,   0
@@ -303,8 +303,8 @@ Moves:
 	move DARK_PULSE,   EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  100,              ENERGY_LEVEL_2,  20
 	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         50, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_1,   0
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN_2,      0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
-	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,         PHYSICAL,  75,              ENERGY_LEVEL_2,  30
-	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      50, STEEL,         PHYSICAL,  95,              ENERGY_LEVEL_1,  10
+	move IRON_TAIL,    EFFECT_DEFENSES_DOWN_HIT,  100, STEEL,         PHYSICAL,  75,              ENERGY_LEVEL_2,  30
+	move METAL_CLAW,   EFFECT_OFFENSES_UP_HIT,      50, STEEL,         PHYSICAL,  95,              ENERGY_LEVEL_1,  10
 	move VITAL_THROW,  EFFECT_NORMAL_HIT,         70, FIGHTING,      PHYSICAL, PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_4,   0
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,         STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_4,   0
@@ -314,17 +314,17 @@ Moves:
 	move TWISTER,      EFFECT_TWISTER,            40, DRAGON,        SPECIAL,  100,              ENERGY_LEVEL_2,  20
 	move RAIN_DANCE,   EFFECT_RAIN_DANCE,          0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_4,   0
 	move SUNNY_DAY,    EFFECT_SUNNY_DAY,           0, FIRE,          STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_4,   0
-	move CRUNCH,       EFFECT_DEFENSE_DOWN_HIT,   80, DARK,          PHYSICAL, 100,              ENERGY_LEVEL_2,  20
+	move CRUNCH,       EFFECT_DEFENSES_DOWN_HIT,   80, DARK,          PHYSICAL, 100,              ENERGY_LEVEL_2,  20
 	move MIRROR_COAT,  EFFECT_MIRROR_COAT,         1, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_2,   0
 	move PSYCH_UP,     EFFECT_PSYCH_UP,            0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_3,   0
 	move EXTREMESPEED, EFFECT_PRIORITY_HIT,       80, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_4,   0
 	move ANCIENTPOWER, EFFECT_ALL_UP_HIT,         60, ROCK,          SPECIAL,  100,              ENERGY_LEVEL_3,  10
-	move SHADOW_BALL,  EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,         SPECIAL,  100,              ENERGY_LEVEL_2,  20
+	move SHADOW_BALL,  EFFECT_DEFENSES_DOWN_HIT,    80, GHOST,         SPECIAL,  100,              ENERGY_LEVEL_2,  20
 	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,      120, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_LEVEL_3,   0
-	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   40, FIGHTING,      PHYSICAL, 100,              ENERGY_LEVEL_2,  50
+	move ROCK_SMASH,   EFFECT_DEFENSES_DOWN_HIT,   40, FIGHTING,      PHYSICAL, 100,              ENERGY_LEVEL_2,  50
 	move WHIRLPOOL,    EFFECT_TRAP_TARGET,        35, WATER,         SPECIAL,   85,              ENERGY_LEVEL_2,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,          PHYSICAL, 100,              ENERGY_LEVEL_3,   0
 	move DISARMING_VOICE, EFFECT_NORMAL_HIT,      40, FAIRY,         SPECIAL,  PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move DAZZLING_GLEAM, EFFECT_NORMAL_HIT,       80, FAIRY,         SPECIAL,  100,              ENERGY_LEVEL_3,   0
-	move PLAY_ROUGH,   EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90,              ENERGY_LEVEL_3,  10
+	move PLAY_ROUGH,   EFFECT_OFFENSES_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90,              ENERGY_LEVEL_3,  10
 	assert_table_length NUM_ATTACKS

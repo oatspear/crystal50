@@ -90,7 +90,7 @@ AI_Setup:
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 
-	cp EFFECT_ATTACK_UP
+	cp EFFECT_OFFENSES_UP
 	jr c, .checkmove
 	cp EFFECT_EVASION_UP + 1
 	jr c, .statup
@@ -100,7 +100,7 @@ AI_Setup:
 	cp EFFECT_EVASION_DOWN + 1
 	jr c, .statdown
 
-	cp EFFECT_ATTACK_UP_2
+	cp EFFECT_OFFENSES_UP_2
 	jr c, .checkmove
 	cp EFFECT_EVASION_UP_2 + 1
 	jr c, .statup
@@ -332,7 +332,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
-	dbw EFFECT_SP_DEF_UP_2,      AI_Smart_SpDefenseUp2
+	dbw EFFECT_DEFENSES_UP_2,    AI_Smart_DefensesUp2
 	dbw EFFECT_REFLECT,          AI_Smart_Reflect
 	dbw EFFECT_PARALYZE,         AI_Smart_Paralyze
 	dbw EFFECT_SPEED_DOWN_HIT,   AI_Smart_SpeedDownHit
@@ -1116,43 +1116,20 @@ AI_Smart_DragonDance:
 	inc [hl]
 	ret
 
-AI_Smart_SpDefenseUp2:
+AI_Smart_DefensesUp2:
 ; Discourage this move if enemy's HP is lower than 50%.
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's special defense level is higher than +1.
+; Discourage this move if enemy's defense level is raised.
 	lda_stat_level [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Special Defense level is lower than +1,
-;   and the player's Pokémon is Special-oriented.
-	cp BASE_STAT_LEVEL + 1
+; enemy's defense level is lower than base.
+	cp BASE_STAT_LEVEL
 	ret nc
-
-	push hl
-; Get the pointer for the player's Pokémon's base Attack
-	ld a, [wBattleMonSpecies]
-	ld hl, BaseData + BASE_ATK
-	ld bc, BASE_DATA_SIZE
-	call AddNTimes
-; Get the Pokémon's base Attack
-	ld a, BANK(BaseData)
-	call GetFarByte
-	ld d, a
-; Get the pointer for the player's Pokémon's base Special Attack
-	ld bc, BASE_SAT - BASE_ATK
-	add hl, bc
-; Get the Pokémon's base Special Attack
-	ld a, BANK(BaseData)
-	call GetFarByte
-	pop hl
-; If its base Attack is greater than its base Special Attack,
-; don't encourage this move.
-	cp d
-	ret c
 
 .encourage
 	call AI_80_20
