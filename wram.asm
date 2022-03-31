@@ -363,9 +363,7 @@ wPlayerMaxEnergy:: db
 wEnemyMaxEnergy:: db
 
 wWildMon:: db
-
-wBattleParticipantsFatigued:: db
-; Works like wBattleParticipantsNotFainted, but only clears after battle.
+	ds 1
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db

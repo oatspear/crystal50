@@ -4,7 +4,6 @@ DoBattle:
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
-	ld [wBattleParticipantsFatigued], a
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	inc a

@@ -356,7 +356,7 @@ GetNickname::
 	pop hl
 	ret
 
-ResetPartyEnergy::
+ResetPartyEnergy:: ; unreferenced
 	ld a, [wPartyCount]
 	and a
 	ret z
