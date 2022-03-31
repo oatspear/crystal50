@@ -13,7 +13,8 @@ _SwitchPartyMons:
 	call .ClearSprite
 	ld a, [wSwitchMonTo]
 	call .ClearSprite
-	call RestorePartyEnergyToMax
+	; call RestorePartyEnergyToMax
+	call ResetPartyEnergy
 .skip
 	ret
 
@@ -111,27 +112,28 @@ _SwitchPartyMons:
 	call .CopyName
 
 	; energy
-	ld a, [wSwitchMonFrom]
-	ld b, 0
-	ld c, a
-	ld hl, wPartyMon1MaxEnergy
-	add hl, bc
-	ld a, [hl]
-	ld e, a
-	ld a, [wSwitchMonTo]
-	ld c, a
-	ld hl, wPartyMon1MaxEnergy
-	add hl, bc
-	ld a, [hl]
-	ld d, a
-	ld a, e
-	ld [hl], a
-	ld a, [wSwitchMonFrom]
-	ld c, a
-	ld hl, wPartyMon1MaxEnergy
-	add hl, bc
-	ld a, d
-	ld [hl], a
+	; handled with ResetPartyEnergy
+	; ld a, [wSwitchMonFrom]
+	; ld b, 0
+	; ld c, a
+	; ld hl, wPartyMon1MaxEnergy
+	; add hl, bc
+	; ld a, [hl]
+	; ld e, a
+	; ld a, [wSwitchMonTo]
+	; ld c, a
+	; ld hl, wPartyMon1MaxEnergy
+	; add hl, bc
+	; ld a, [hl]
+	; ld d, a
+	; ld a, e
+	; ld [hl], a
+	; ld a, [wSwitchMonFrom]
+	; ld c, a
+	; ld hl, wPartyMon1MaxEnergy
+	; add hl, bc
+	; ld a, d
+	; ld [hl], a
 
 	ld hl, sPartyMail
 	ld a, [wSwitchMonTo]

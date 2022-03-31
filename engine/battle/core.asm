@@ -8161,11 +8161,13 @@ StartBattle:
 
 	ld a, [wTimeOfDayPal]
 	push af
-	call RestorePartyEnergyToMax
+	; call RestorePartyEnergyToMax
+	call ResetPartyEnergy
 	call BattleIntro
 	call DoBattle
 	call ExitBattle
-	call RestorePartyEnergyToMax
+	; call RestorePartyEnergyToMax
+	call ResetPartyEnergy
 	pop af
 	ld [wTimeOfDayPal], a
 	scf

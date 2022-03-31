@@ -1297,7 +1297,8 @@ RemoveMonFromPartyOrBox:
 .party7
 	call CopyDataUntil
 	push de
-	call ResetCurPartyMonEnergy
+	; call ResetCurPartyMonEnergy
+	call ResetPartyEnergy
 	pop de
 	; Mail time!
 .finish

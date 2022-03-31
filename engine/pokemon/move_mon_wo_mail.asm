@@ -62,7 +62,8 @@ InsertPokemonIntoParty:
 	ld de, wBufferMon
 	call InsertDataIntoBoxOrParty
 	; wCurPartyMon should be already set by caller
-	call ResetCurPartyMonEnergy
+	; call ResetCurPartyMonEnergy
+	call ResetPartyEnergy
 	ret
 
 InsertSpeciesIntoBoxOrParty:

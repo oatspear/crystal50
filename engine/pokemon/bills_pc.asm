@@ -318,6 +318,9 @@ _WithdrawPKMN:
 	ld [wBillsPC_NumMonsOnScreen], a
 	call BillsPC_RefreshTextboxes
 	call PCMonInfo
+	; hack to fill in energy for boxed mons.
+	ld a, [wTempMonMaxEnergy]
+	ld [wTempMonEnergy], a
 	ld a, $ff
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
@@ -1090,6 +1093,9 @@ PCMonInfo:
 	hlcoord 5, 12
 	ld [hl], a
 .skip_gender
+
+	ld a, [wBaseEnergy]
+	ld [wTempMonMaxEnergy], a
 
 	ld a, [wTempMonItem]
 	and a

@@ -49,7 +49,7 @@ HealPartyMon:
 	; energy
 	ld a, [wBaseEnergy]
 	ld [hl], a
-	; this is a single mon version of RestorePartyEnergyToMax
+	; this is a single mon version of ResetPartyEnergy
 
 	ld hl, MON_MAXHP
 	add hl, de

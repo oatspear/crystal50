@@ -356,7 +356,7 @@ GetNickname::
 	pop hl
 	ret
 
-ResetPartyEnergy:: ; unreferenced
+ResetPartyEnergy::
 	ld a, [wPartyCount]
 	and a
 	ret z
@@ -385,7 +385,7 @@ ResetPartyEnergy:: ; unreferenced
 	jr nz, .loop
 	ret
 
-ResetCurPartyMonEnergy::
+ResetCurPartyMonEnergy:: ; unreferenced
 	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Species
@@ -413,7 +413,7 @@ ResetCurPartyMonEnergy::
 	ld [de], a
 	ret
 
-RestorePartyEnergyToMax::
+RestorePartyEnergyToMax:: ; unreferenced
 	ld a, [wPartyCount]
 	and a
 	ret z
