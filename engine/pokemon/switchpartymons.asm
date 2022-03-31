@@ -109,29 +109,29 @@ _SwitchPartyMons:
 	pop de
 	ld hl, wSwitchMonBuffer
 	call .CopyName
+
 	; energy
-	; handled with RestorePartyEnergyToMax above
-	; ld a, [wSwitchMonFrom]
-	; ld b, 0
-	; ld c, a
-	; ld hl, wPartyMon1MaxEnergy
-	; add hl, bc
-	; ld a, [hl]
-	; ld e, a
-	; ld a, [wSwitchMonTo]
-	; ld c, a
-	; ld hl, wPartyMon1MaxEnergy
-	; add hl, bc
-	; ld a, [hl]
-	; ld d, a
-	; ld a, e
-	; ld [hl], a
-	; ld a, [wSwitchMonTo]
-	; ld c, a
-	; ld hl, wPartyMon1MaxEnergy
-	; add hl, bc
-	; ld a, d
-	; ld [hl], a
+	ld a, [wSwitchMonFrom]
+	ld b, 0
+	ld c, a
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, [hl]
+	ld e, a
+	ld a, [wSwitchMonTo]
+	ld c, a
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, [hl]
+	ld d, a
+	ld a, e
+	ld [hl], a
+	ld a, [wSwitchMonFrom]
+	ld c, a
+	ld hl, wPartyMon1MaxEnergy
+	add hl, bc
+	ld a, d
+	ld [hl], a
 
 	ld hl, sPartyMail
 	ld a, [wSwitchMonTo]

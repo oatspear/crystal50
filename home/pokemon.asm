@@ -400,6 +400,7 @@ ResetCurPartyMonEnergy::
 	dec a
 	jr nz, .loop
 
+.got_mon
 	ld a, [hl]
 	ld [wCurSpecies], a
 	call GetBaseData
