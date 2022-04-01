@@ -378,7 +378,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
-	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_SKULL_BASH,       AI_Smart_SkullBash
@@ -392,7 +391,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_HAIL,             AI_Smart_Hail
 	dbw EFFECT_GROWTH,           AI_Smart_Growth
-	dbw EFFECT_CALM_MIND,        AI_Smart_CalmMind
 	dbw EFFECT_DRAGON_DANCE,     AI_Smart_DragonDance
 	dbw EFFECT_REVENGE,          AI_Smart_Revenge
 	dbw EFFECT_FACADE,           AI_Smart_Facade
@@ -1048,35 +1046,6 @@ AI_Smart_Growth:
 	jr nz, .discourage
 
 ; .encourage
-	call AI_80_20
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-.discourage
-	inc [hl]
-	ret
-
-AI_Smart_CalmMind:
-; Discourage this move if enemy's HP is lower than 50%.
-	call AICheckEnemyHalfHP
-	jr nc, .discourage
-
-; Discourage this move if enemy's special stats level is higher than +1.
-	lda_stat_level [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 2
-	jr nc, .discourage
-	lda_stat_level [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 2
-	jr nc, .discourage
-
-; 80% chance to greatly encourage this move if
-; enemy's Special stats level is lower than +1.
-	cp BASE_STAT_LEVEL + 1
-	ret nc
-
-.encourage
 	call AI_80_20
 	ret c
 	dec [hl]
@@ -2388,28 +2357,6 @@ AIGoodWeatherType:
 	ret
 
 INCLUDE "data/battle/ai/sunny_day_moves.asm"
-
-AI_Smart_BellyDrum:
-; Dismiss this move if enemy's attack is raised or if enemy's HP is below 50%.
-; Else, discourage this move if enemy's HP is not full.
-
-	lda_stat_level [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .discourage
-
-	call AICheckEnemyMaxHP
-	ret c
-
-	inc [hl]
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.discourage
-	ld a, [hl]
-	add 5
-	ld [hl], a
-	ret
 
 AI_Smart_PsychUp:
 	push hl

@@ -14,8 +14,8 @@ MoveEffectsPointers:
 	dw OffensesUp  ; AttackUp
 	dw DefensesUp  ; DefenseUp
 	dw SpeedUp
-	dw NormalHit  ; SpecialAttackUp
-	dw NormalHit  ; SpecialDefenseUp
+	dw ProwessUp   ; SpecialAttackUp
+	dw NormalHit   ; SpecialDefenseUp
 	dw AccuracyUp
 	dw EvasionUp
 	dw OffensesDown  ; AttackDown
@@ -39,7 +39,7 @@ MoveEffectsPointers:
 	dw TriAttack
 	dw Growth
 	dw OHKOHit
-	dw CalmMind
+	dw NormalHit
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget
@@ -141,7 +141,7 @@ MoveEffectsPointers:
 	dw DefensesUpHit  ; DefenseUpHit
 	dw AllUpHit
 	dw FakeOut
-	dw BellyDrum
+	dw NormalHit
 	dw PsychUp
 	dw MirrorCoat
 	dw SkullBash

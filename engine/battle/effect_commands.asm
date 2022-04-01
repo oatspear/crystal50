@@ -4690,6 +4690,16 @@ INCLUDE "data/battle/stat_multipliers.asm"
 BattleCommand_AllStatsUp:
 ; allstatsup
 
+; Speed
+	call ResetMiss
+	call BattleCommand_SpeedUp
+	call BattleCommand_StatUpMessage
+
+	; fallthrough
+
+BattleCommand_ProwessUp:
+; prowessup
+
 ; Attack
 	call ResetMiss
 	call BattleCommand_AttackUp
@@ -4698,11 +4708,6 @@ BattleCommand_AllStatsUp:
 ; Defense
 	call ResetMiss
 	call BattleCommand_DefenseUp
-	call BattleCommand_StatUpMessage
-
-; Speed
-	call ResetMiss
-	call BattleCommand_SpeedUp
 	call BattleCommand_StatUpMessage
 
 ; Special Attack
@@ -4827,8 +4832,6 @@ BattleCommand_Curl:
 	ret
 
 INCLUDE "engine/battle/move_effects/growth.asm"
-
-INCLUDE "engine/battle/move_effects/calm_mind.asm"
 
 INCLUDE "engine/battle/move_effects/dragon_dance.asm"
 

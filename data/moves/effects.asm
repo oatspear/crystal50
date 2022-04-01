@@ -175,10 +175,12 @@ OffensesUp:
 	usedmovetext
 	doturn
 	attackup
-	specialattackup
 	lowersub
 	statupanim
 	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup
 	statupmessage
 	statupfailtext
 	endmove
@@ -188,10 +190,33 @@ DefensesUp:
 	usedmovetext
 	doturn
 	defenseup
-	specialdefenseup
 	lowersub
 	statupanim
 	raisesub
+	statupmessage
+	statupfailtext
+	specialdefenseup
+	statupmessage
+	statupfailtext
+	endmove
+
+ProwessUp:
+	checkobedience
+	usedmovetext
+	doturn
+	attackup
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	defenseup
+	statupmessage
+	statupfailtext
+	specialattackup
+	statupmessage
+	statupfailtext
+	specialdefenseup
 	statupmessage
 	statupfailtext
 	endmove
@@ -238,10 +263,12 @@ OffensesUp2:
 	usedmovetext
 	doturn
 	attackup2
-	specialattackup2
 	lowersub
 	statupanim
 	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup2
 	statupmessage
 	statupfailtext
 	endmove
@@ -251,10 +278,12 @@ DefensesUp2:
 	usedmovetext
 	doturn
 	defenseup2
-	specialdefenseup2
 	lowersub
 	statupanim
 	raisesub
+	statupmessage
+	statupfailtext
+	specialdefenseup2
 	statupmessage
 	statupfailtext
 	endmove
@@ -302,13 +331,6 @@ Growth:
 	growth
 	endmove
 
-CalmMind:
-	checkobedience
-	usedmovetext
-	doturn
-	calmmind
-	endmove
-
 DragonDance:
 	checkobedience
 	usedmovetext
@@ -322,10 +344,12 @@ OffensesDown:
 	doturn
 	checkhit
 	attackdown
-	specialattackdown
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialattackdown
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -336,10 +360,12 @@ DefensesDown:
 	doturn
 	checkhit
 	defensedown
-	specialdefensedown
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -389,10 +415,12 @@ OffensesDown2:
 	doturn
 	checkhit
 	attackdown2
-	specialattackdown2
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialattackdown2
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -403,10 +431,12 @@ DefensesDown2:
 	doturn
 	checkhit
 	defensedown2
-	specialdefensedown2
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown2
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -469,6 +499,7 @@ OffensesDownHit:
 	supereffectivetext
 	checkfaint
 	attackdown
+	statdownmessage
 	specialattackdown
 	statdownmessage
 	endmove
@@ -491,6 +522,7 @@ DefensesDownHit:
 	supereffectivetext
 	checkfaint
 	defensedown
+	statdownmessage
 	specialdefensedown
 	statdownmessage
 	endmove
@@ -575,6 +607,7 @@ DefensesUpHit:
 	criticaltext
 	supereffectivetext
 	defenseup
+	statupmessage
 	specialdefenseup
 	statupmessage
 	checkfaint
@@ -597,6 +630,7 @@ OffensesUpHit:
 	criticaltext
 	supereffectivetext
 	attackup
+	statupmessage
 	specialattackup
 	statupmessage
 	checkfaint
