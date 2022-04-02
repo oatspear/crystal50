@@ -37,7 +37,7 @@
 	const EFFECT_LIGHT_SCREEN
 	const EFFECT_TRI_ATTACK
 	const EFFECT_GROWTH
-	const EFFECT_OHKO
+	const_skip
 	const_skip
 	const EFFECT_SUPER_FANG
 	const EFFECT_STATIC_DAMAGE

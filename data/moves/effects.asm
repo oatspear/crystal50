@@ -837,20 +837,6 @@ FlinchHit:
 	flinchtarget
 	endmove
 
-OHKOHit:
-	checkobedience
-	usedmovetext
-	doturn
-	stab
-	ohko
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	endmove
-
 RecoilHit:
 	checkobedience
 	usedmovetext
