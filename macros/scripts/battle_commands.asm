@@ -183,6 +183,16 @@ ENDM
 	command growth                  ; b0
 	command prowessup               ; b1
 	command dragondance             ; b2
+	command attackup1               ; b3
+	command defenseup1              ; b4
+	command speedup1                ; b5
+	command specialattackup1        ; b6
+	command specialdefenseup1       ; b7
+	command attackdown1             ; b8
+	command defensedown1            ; b9
+	command speeddown1              ; ba
+	command specialattackdown1      ; bb
+	command specialdefensedown1     ; bc
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

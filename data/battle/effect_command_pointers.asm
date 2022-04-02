@@ -183,4 +183,14 @@ BattleCommandPointers:
 	dw BattleCommand_Growth
 	dw BattleCommand_ProwessUp
 	dw BattleCommand_DragonDance
+	dw BattleCommand_AttackUp1
+	dw BattleCommand_DefenseUp1
+	dw BattleCommand_SpeedUp1
+	dw BattleCommand_SpecialAttackUp1
+	dw BattleCommand_SpecialDefenseUp1
+	dw BattleCommand_AttackDown1
+	dw BattleCommand_DefenseDown1
+	dw BattleCommand_SpeedDown1
+	dw BattleCommand_SpecialAttackDown1
+	dw BattleCommand_SpecialDefenseDown1
 	assert_table_length NUM_EFFECT_COMMANDS

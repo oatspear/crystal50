@@ -4150,39 +4150,64 @@ BattleCommand_EvasionUp:
 	ld a, EVASION
 	jr BattleCommand_StatUp
 
+BattleCommand_AttackUp1:
+; attackup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | ATTACK
+	jr BattleCommand_StatUp
+
+BattleCommand_DefenseUp1:
+; defenseup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | DEFENSE
+	jr BattleCommand_StatUp
+
+BattleCommand_SpeedUp1:
+; speedup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SPEED
+	jr BattleCommand_StatUp
+
+BattleCommand_SpecialAttackUp1:
+; specialattackup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_ATTACK
+	jr BattleCommand_StatUp
+
+BattleCommand_SpecialDefenseUp1:
+; specialdefenseup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_DEFENSE
+	jr BattleCommand_StatUp
+
 BattleCommand_AttackUp2:
 ; attackup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_DefenseUp2:
 ; defenseup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_SpeedUp2:
 ; speedup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SPEED
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SPEED
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialAttackUp2:
 ; specialattackup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialDefenseUp2:
 ; specialdefenseup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_AccuracyUp2:
 ; accuracyup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | ACCURACY
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp2:
 ; evasionup2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | EVASION
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | EVASION
 	jr BattleCommand_StatUp
 
 BattleCommand_StatUp:
@@ -4362,39 +4387,64 @@ BattleCommand_EvasionDown:
 	ld a, EVASION
 	jr BattleCommand_StatDown
 
+BattleCommand_AttackDown1:
+; attackdown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | ATTACK
+	jr BattleCommand_StatDown
+
+BattleCommand_DefenseDown1:
+; defensedown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | DEFENSE
+	jr BattleCommand_StatDown
+
+BattleCommand_SpeedDown1:
+; speeddown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SPEED
+	jr BattleCommand_StatDown
+
+BattleCommand_SpecialAttackDown1:
+; specialattackdown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_ATTACK
+	jr BattleCommand_StatDown
+
+BattleCommand_SpecialDefenseDown1:
+; specialdefensedown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_DEFENSE
+	jr BattleCommand_StatDown
+
 BattleCommand_AttackDown2:
 ; attackdown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_DefenseDown2:
 ; defensedown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_SpeedDown2:
 ; speeddown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SPEED
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SPEED
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialAttackDown2:
 ; specialattackdown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialDefenseDown2:
 ; specialdefensedown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_AccuracyDown2:
 ; accuracydown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | ACCURACY
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ACCURACY
 	jr BattleCommand_StatDown
 
 BattleCommand_EvasionDown2:
 ; evasiondown2
-	ld a, STAT_LEVEL_EXTENDED_DURATION | EVASION
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | EVASION
 
 BattleCommand_StatDown:
 ; statdown

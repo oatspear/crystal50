@@ -35,8 +35,9 @@ MAX_STAT_LEVEL  EQU 3  ; +1
 
 ; duration of stat level changes, in turns (including application turn)
 ; e.g. 3 turns = 1 turn (stat boosting move) + 2 turns (to use the boost)
-STAT_LEVEL_DEFAULT_DURATION  EQU 4
-STAT_LEVEL_EXTENDED_DURATION EQU $10
+STAT_LEVEL_DEFAULT_DURATION EQU 3
+STAT_LEVEL_EXTEND_1_TURN    EQU $10
+STAT_LEVEL_EXTEND_2_TURNS   EQU $20
 
 ; turns that sleep lasts
 REST_SLEEP_TURNS EQU 2
