@@ -174,13 +174,13 @@ OffensesUp:
 	checkobedience
 	usedmovetext
 	doturn
-	attackup
+	attackup1
 	lowersub
 	statupanim
 	raisesub
 	statupmessage
 	statupfailtext
-	specialattackup
+	specialattackup1
 	statupmessage
 	statupfailtext
 	endmove
@@ -189,13 +189,13 @@ DefensesUp:
 	checkobedience
 	usedmovetext
 	doturn
-	defenseup
+	defenseup1
 	lowersub
 	statupanim
 	raisesub
 	statupmessage
 	statupfailtext
-	specialdefenseup
+	specialdefenseup1
 	statupmessage
 	statupfailtext
 	endmove
@@ -204,19 +204,19 @@ ProwessUp:
 	checkobedience
 	usedmovetext
 	doturn
-	attackup
+	attackup1
 	lowersub
 	statupanim
 	raisesub
 	statupmessage
 	statupfailtext
-	defenseup
+	defenseup1
 	statupmessage
 	statupfailtext
-	specialattackup
+	specialattackup1
 	statupmessage
 	statupfailtext
-	specialdefenseup
+	specialdefenseup1
 	statupmessage
 	statupfailtext
 	endmove
@@ -225,7 +225,7 @@ SpeedUp:
 	checkobedience
 	usedmovetext
 	doturn
-	speedup
+	speedup1
 	lowersub
 	statupanim
 	raisesub
@@ -328,14 +328,14 @@ Growth:
 	checkobedience
 	usedmovetext
 	doturn
-	growth
+	growth  ; FIXME
 	endmove
 
 DragonDance:
 	checkobedience
 	usedmovetext
 	doturn
-	dragondance
+	dragondance  ; FIXME
 	endmove
 
 OffensesDown:
@@ -343,13 +343,13 @@ OffensesDown:
 	usedmovetext
 	doturn
 	checkhit
-	attackdown
+	attackdown1
 	lowersub
 	statdownanim
 	raisesub
 	statdownmessage
 	statdownfailtext
-	specialattackdown
+	specialattackdown1
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -359,13 +359,13 @@ DefensesDown:
 	usedmovetext
 	doturn
 	checkhit
-	defensedown
+	defensedown1
 	lowersub
 	statdownanim
 	raisesub
 	statdownmessage
 	statdownfailtext
-	specialdefensedown
+	specialdefensedown1
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -375,7 +375,7 @@ SpeedDown:
 	usedmovetext
 	doturn
 	checkhit
-	speeddown
+	speeddown1
 	lowersub
 	statdownanim
 	raisesub
@@ -656,7 +656,7 @@ AllUpHit:
 	checkfaint
 	endmove
 
-CloseCombat:
+CloseCombat: ; FIXME
 	checkobedience
 	usedmovetext
 	doturn
