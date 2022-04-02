@@ -38,7 +38,7 @@ MoveEffectsPointers:
 	dw LightScreen
 	dw TriAttack
 	dw Growth
-	dw OHKOHit
+	dw NormalHit
 	dw NormalHit
 	dw SuperFang
 	dw StaticDamage

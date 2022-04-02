@@ -416,7 +416,7 @@ EkansEvosAttacks:
 	db 9, BITE
 	db 12, GLARE
 	db 17, SCREECH
-	db 20, ACID
+	db 20, ACID_SPRAY
 	; db 25, STOCKPILE
 	; db 25, SWALLOW
 	; db 25, SPIT_UP
@@ -443,7 +443,7 @@ ArbokEvosAttacks:
 	; db 9, BITE
 	db 12, GLARE
 	db 17, SCREECH
-	db 20, ACID
+	db 20, ACID_SPRAY
 	; db 27, STOCKPILE
 	; db 27, SPIT_UP
 	; db 27, SWALLOW
@@ -851,7 +851,7 @@ OddishEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
-	db 4, ACID
+	db 4, ACID_SPRAY
 	db 8, SWEET_SCENT
 	db 12, MEGA_DRAIN
 	db 14, POISONPOWDER
@@ -871,7 +871,7 @@ GloomEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
-	db 1, ACID
+	db 1, ACID_SPRAY
 	db 1, SWEET_SCENT
 	db 12, MEGA_DRAIN
 	db 14, POISONPOWDER
@@ -901,7 +901,7 @@ VileplumeEvosAttacks:
 	db 1, PETAL_DANCE
 	; db 1, ABSORB
 	; db 1, GROWTH
-	db 1, ACID
+	db 1, ACID_SPRAY
 	; db 1, SWEET_SCENT
 	; db LEVEL_EVO, PETAL_BLIZZARD
 	db 0 ; no more level-up moves
@@ -1367,7 +1367,7 @@ BellsproutEvosAttacks:
 	db 13, SLEEP_POWDER
 	db 15, POISONPOWDER
 	db 17, STUN_SPORE
-	db 23, ACID
+	db 23, ACID_SPRAY
 	; db 27, KNOCK_OFF
 	db 29, SWEET_SCENT
 	; db 35, GASTRO_ACID
@@ -1388,7 +1388,7 @@ WeepinbellEvosAttacks:
 	db 13, SLEEP_POWDER
 	db 15, POISONPOWDER
 	db 17, STUN_SPORE
-	db 24, ACID
+	db 24, ACID_SPRAY
 	; db 29, KNOCK_OFF
 	db 32, SWEET_SCENT
 	; db 39, GASTRO_ACID
@@ -1418,7 +1418,7 @@ TentacoolEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, WATER_GUN
-	db 4, ACID
+	db 4, ACID_SPRAY
 	db 8, WRAP
 	db 12, SUPERSONIC
 	; db 16, WATER_PULSE
@@ -1437,7 +1437,7 @@ TentacruelEvosAttacks:
 	; db 1, REFLECT_TYPE
 	db 1, POISON_STING
 	db 1, WATER_GUN
-	db 1, ACID
+	db 1, ACID_SPRAY
 	db 1, WRAP
 	db 12, SUPERSONIC
 	; db 16, WATER_PULSE
