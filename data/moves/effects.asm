@@ -1955,7 +1955,7 @@ DefenseCurl:
 	checkobedience
 	usedmovetext
 	doturn
-	defenseup
+	defenseup2
 	specialdefenseup
 	curl
 	lowersub
