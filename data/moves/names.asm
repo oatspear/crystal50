@@ -50,7 +50,7 @@ MoveNames::
 	li "SUPERSONIC"
 	li "BUG BUZZ"
 	li "DISABLE"
-	li "ACID"
+	li "ACID SPRAY"
 	li "EMBER"
 	li "FLAMETHROWER"
 	li "MIST"

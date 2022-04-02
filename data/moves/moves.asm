@@ -123,7 +123,7 @@ Moves:
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        STATUS,    55,              ENERGY_LEVEL_2,   0
 	move BUG_BUZZ,     EFFECT_DEFENSES_DOWN_HIT,    90, BUG,           SPECIAL,  100,              ENERGY_LEVEL_3,  10
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
-	move ACID,         EFFECT_DEFENSES_DOWN_HIT,   40, POISON,        SPECIAL,  100,              ENERGY_LEVEL_1,  10
+	move ACID_SPRAY,   EFFECT_DEFENSES_DOWN_HIT,  40, POISON,        SPECIAL,  100,              ENERGY_LEVEL_2,  50
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,          SPECIAL,  100,              ENERGY_LEVEL_1,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           90, FIRE,          SPECIAL,  100,              ENERGY_LEVEL_2,  10
 	move MIST,         EFFECT_MIST,                0, ICE,           STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
@@ -143,7 +143,7 @@ Moves:
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,      PHYSICAL, 100,              ENERGY_LEVEL_2,   0
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      PHYSICAL, 100,              ENERGY_LEVEL_2,   0
 	move STRENGTH,     EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_2,   0
-	move ABSORB,       EFFECT_LEECH_HIT,          20, GRASS,         SPECIAL,  100,              ENERGY_LEVEL_1,   0
+	move ABSORB,       EFFECT_LEECH_HIT,          30, GRASS,         SPECIAL,  100,              ENERGY_LEVEL_2,   0
 	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          40, GRASS,         SPECIAL,  100,              ENERGY_LEVEL_2,   0
 	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         STATUS,    90,              ENERGY_LEVEL_3,   0
 	move GROWTH,       EFFECT_GROWTH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
@@ -223,7 +223,7 @@ Moves:
 	move FLASH,        EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_LEVEL_2,   0
 	move ZEN_HEADBUTT, EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90,              ENERGY_LEVEL_2,  20
 	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_1,   0
-	move ACID_ARMOR,   EFFECT_DEFENSES_UP_2,        0, POISON,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
+	move ACID_ARMOR,   EFFECT_DEFENSES_UP_2,       0, POISON,        STATUS,   PERFECT_ACCURACY, ENERGY_LEVEL_2,   0
 	move CRABHAMMER,   EFFECT_NORMAL_HIT,        100, WATER,         PHYSICAL,  90,              ENERGY_LEVEL_3,   0
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,        PHYSICAL, 100,              ENERGY_LEVEL_4,   0
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,        PHYSICAL,  80,              ENERGY_LEVEL_2,   0
