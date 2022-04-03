@@ -5475,7 +5475,23 @@ BattleCommand_FakeOut:
 	ld [wAttackMissed], a
 	ret
 
+BattleCommand_Flinch10Percent:
+; flinch10percent
+
+	xor a
+	ld [wEffectFailed], a
+
+	call BattleRandom
+	cp 10 percent
+	jr c, BattleCommand_FlinchTarget
+
+	ld a, TRUE
+	ld [wEffectFailed], a
+	ret
+
 BattleCommand_FlinchTarget:
+; flinchtarget
+
 	call CheckSubstituteOpp
 	ret nz
 

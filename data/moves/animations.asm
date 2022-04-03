@@ -43,7 +43,7 @@ BattleAnimations::
 	dw BattleAnim_Tackle
 	dw BattleAnim_BodySlam
 	dw BattleAnim_Wrap
-	dw BattleAnim_TakeDown
+	dw BattleAnim_Extrasensory
 	dw BattleAnim_Thrash
 	dw BattleAnim_DoubleEdge
 	dw BattleAnim_TailWhip
@@ -1753,6 +1753,7 @@ BattleAnim_Wrap:
 	anim_wait 96
 	anim_ret
 
+BattleAnim_Extrasensory:
 BattleAnim_Confusion:
 	anim_1gfx ANIM_GFX_HIT
 	anim_call BattleAnim_UserObj_2Row
@@ -2055,21 +2056,21 @@ BattleAnim_BodySlam:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_TakeDown:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
-	anim_wait 3
-	anim_sound 0, 1, SFX_TACKLE
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
-	anim_obj ANIM_OBJ_HIT_YFIX, 128, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_TACKLE
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
-	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $0
-	anim_wait 3
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
+; BattleAnim_TakeDown: ; unrefenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_call BattleAnim_TargetObj_1Row
+; 	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
+; 	anim_wait 3
+; 	anim_sound 0, 1, SFX_TACKLE
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 128, 56, $0
+; 	anim_wait 6
+; 	anim_sound 0, 1, SFX_TACKLE
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $0
+; 	anim_wait 3
+; 	anim_call BattleAnim_ShowMon_0
+; 	anim_ret
 
 BattleAnim_DoubleEdge:
 	anim_1gfx ANIM_GFX_HIT

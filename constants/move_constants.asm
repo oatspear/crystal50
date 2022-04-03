@@ -41,7 +41,7 @@
 	const TACKLE       ; 21
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
-	const_skip    ; 24
+	const EXTRASENSORY ; 24
 	const_skip       ; 25
 	const DOUBLE_EDGE  ; 26
 	const_skip    ; 27

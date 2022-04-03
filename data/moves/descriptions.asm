@@ -36,7 +36,7 @@ MoveDescriptions::
 	dw TackleDescription
 	dw BodySlamDescription
 	dw WrapDescription
-	dw TakeDownDescription
+	dw ExtrasensoryDescription
 	dw ThrashDescription
 	dw DoubleEdgeDescription
 	dw TailWhipDescription
@@ -333,6 +333,11 @@ AstonishDescription:
 DarkPulseDescription:
 AirSlashDescription:
 StompDescription:
+RockSlideDescription:
+BiteDescription:
+ExtrasensoryDescription:
+ZenHeadbuttDescription:
+HeadbuttDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
 
@@ -340,34 +345,17 @@ DoubleKickDescription:
 	db   "A double kicking"
 	next "attack.@"
 
-MegaKickDescription:
-	db   "A powerful kicking"
-	next "attack.@"
-
 CloseCombatDescription:
 	db   "Lowers the user's"
-	next "DEF. and SP. DEF.@"
+	next "DEFENSES.@"
 
 SuperpowerDescription:
 	db   "Lowers the user's"
-	next "ATK. and SP. ATK.@"
+	next "OFFENSES.@"
 
 SandAttackDescription:
 	db   "Reduces accuracy"
 	next "by throwing sand.@"
-
-ZenHeadbuttDescription:
-HeadbuttDescription:
-	db   "An attack that may"
-	next "make foe flinch.@"
-
-HornAttackDescription:
-	db   "An attack using a"
-	next "horn to jab.@"
-
-HornDrillDescription:
-	db   "A one-hit KO,"
-	next "drill attack.@"
 
 TackleDescription:
 	db   "A full-body charge"
@@ -380,10 +368,6 @@ BodySlamDescription:
 WrapDescription:
 	db   "Squeezes the foe"
 	next "for 4-5 turns.@"
-
-TakeDownDescription:
-	db   "A tackle that also"
-	next "hurts the user.@"
 
 ThrashDescription:
 	db   "Works 2-3 turns"
@@ -410,10 +394,6 @@ PinMissileDescription:
 LeerDescription:
 	db   "Reduces the foe's"
 	next "DEFENSE.@"
-
-BiteDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
 
 GrowlDescription:
 	db   "Reduces the foe's"
@@ -844,14 +824,6 @@ BonemerangDescription:
 RestDescription:
 	db   "Sleep for 2 turns"
 	next "to fully recover.@"
-
-RockSlideDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
-
-HyperFangDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
 
 NastyPlotDescription:
 	db   "Sharply raises"
