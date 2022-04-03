@@ -6,49 +6,49 @@
 ; - BattleAnimations (see data/moves/animations.asm)
 	const_def
 	const NO_MOVE      ; 00
-	const POUND        ; 01
+	const_skip        ; 01
 	const REVENGE      ; 02
 	const DRAIN_PUNCH  ; 03
 	const ROOST        ; 04
-	const MEGA_PUNCH   ; 05
+	const_skip   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
 	const ICE_PUNCH    ; 08
 	const THUNDERPUNCH ; 09
-	const SCRATCH      ; 0a
-	const VICEGRIP     ; 0b
-	const GUILLOTINE   ; 0c
+	const_skip      ; 0a
+	const_skip     ; 0b
+	const_skip   ; 0c
 	const AIR_SLASH    ; 0d
 	const SWORDS_DANCE ; 0e
-	const CUT          ; 0f
+	const_skip          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
 	const WHIRLWIND    ; 12
 	const FLY          ; 13
 	const SAND_TOMB    ; 14
-	const SLAM         ; 15
+	const_skip         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
-	const MEGA_KICK    ; 19
+	const_skip    ; 19
 	const CLOSE_COMBAT ; 1a
 	const SUPERPOWER   ; 1b
 	const SAND_ATTACK  ; 1c
 	const HEADBUTT     ; 1d
-	const HORN_ATTACK  ; 1e
-	const FURY_ATTACK  ; 1f
-	const HORN_DRILL   ; 20
+	const_skip  ; 1e
+	const_skip  ; 1f
+	const_skip   ; 20
 	const TACKLE       ; 21
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
-	const TAKE_DOWN    ; 24
-	const THRASH       ; 25
+	const_skip    ; 24
+	const_skip       ; 25
 	const DOUBLE_EDGE  ; 26
-	const TAIL_WHIP    ; 27
+	const_skip    ; 27
 	const POISON_STING ; 28
 	const POISON_JAB   ; 29
 	const PIN_MISSILE  ; 2a
-	const LEER         ; 2b
+	const_skip         ; 2b
 	const BITE         ; 2c
 	const GROWL        ; 2d
 	const ROAR         ; 2e
@@ -62,22 +62,22 @@
 	const MIST         ; 36
 	const WATER_GUN    ; 37
 	const HYDRO_PUMP   ; 38
-	const SURF         ; 39
+	const_skip         ; 39
 	const ICE_BEAM     ; 3a
 	const BLIZZARD     ; 3b
-	const PSYBEAM      ; 3c
+	const_skip      ; 3c
 	const BUBBLEBEAM   ; 3d
 	const AURORA_BEAM  ; 3e
 	const HYPER_BEAM   ; 3f
-	const PECK         ; 40
-	const DRILL_PECK   ; 41
-	const SUBMISSION   ; 42
+	const_skip         ; 40
+	const_skip   ; 41
+	const_skip   ; 42
 	const LOW_SWEEP    ; 43
 	const COUNTER      ; 44
 	const SEISMIC_TOSS ; 45
-	const STRENGTH     ; 46
+	const_skip     ; 46
 	const ABSORB       ; 47
-	const MEGA_DRAIN   ; 48
+	const_skip   ; 48
 	const LEECH_SEED   ; 49
 	const GROWTH       ; 4a
 	const RAZOR_LEAF   ; 4b
@@ -95,7 +95,7 @@
 	const THUNDER      ; 57
 	const ROCK_THROW   ; 58
 	const EARTHQUAKE   ; 59
-	const FISSURE      ; 5a
+	const_skip      ; 5a
 	const DIG          ; 5b
 	const TOXIC        ; 5c
 	const CONFUSION    ; 5d
@@ -138,8 +138,8 @@
 	const SKULL_BASH   ; 82
 	const AVALANCHE    ; 83
 	const FLASH_CANNON ; 84
-	const AMNESIA      ; 85
-	const KINESIS      ; 86
+	const_skip      ; 85
+	const_skip      ; 86
 	const SOFTBOILED   ; 87
 	const HI_JUMP_KICK ; 88
 	const GLARE        ; 89
@@ -148,7 +148,7 @@
 	const BRICK_BREAK  ; 8c
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
-	const SKY_ATTACK   ; 8f
+	const_skip   ; 8f
 	const TRANSFORM    ; 90
 	const AQUA_JET     ; 91
 	const FACADE       ; 92
@@ -157,13 +157,13 @@
 	const ZEN_HEADBUTT ; 95
 	const SPLASH       ; 96
 	const ACID_ARMOR   ; 97
-	const CRABHAMMER   ; 98
-	const EXPLOSION    ; 99
-	const FURY_SWIPES  ; 9a
+	const_skip   ; 98
+	const_skip    ; 99
+	const_skip  ; 9a
 	const BONEMERANG   ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
-	const HYPER_FANG   ; 9e
+	const_skip   ; 9e
 	const NASTY_PLOT   ; 9f
 	const CONVERSION   ; a0
 	const TRI_ATTACK   ; a1
@@ -175,10 +175,10 @@
 	const TRIPLE_KICK  ; a7
 	const THIEF        ; a8
 	const INFESTATION  ; a9
-	const MIND_READER  ; aa
+	const_skip  ; aa
 	const HEX          ; ab
 	const FLAME_WHEEL  ; ac
-	const SNORE        ; ad
+	const_skip        ; ad
 	const CURSE        ; ae
 	const FLAIL        ; af
 	const CONVERSION2  ; b0
@@ -189,7 +189,7 @@
 	const POWDER_SNOW  ; b5
 	const PROTECT      ; b6
 	const MACH_PUNCH   ; b7
-	const SCARY_FACE   ; b8
+	const_skip   ; b8
 	const SUCKER_PUNCH ; b9
 	const SWEET_KISS   ; ba
 	const BELLY_DRUM   ; bb
@@ -197,14 +197,14 @@
 	const MUD_SLAP     ; bd
 	const OCTAZOOKA    ; be
 	const SPIKES       ; bf
-	const ZAP_CANNON   ; c0
+	const_skip   ; c0
 	const PAYBACK      ; c1
 	const DESTINY_BOND ; c2
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4
 	const DETECT       ; c5
 	const BONE_RUSH    ; c6
-	const LOCK_ON      ; c7
+	const_skip      ; c7
 	const OUTRAGE      ; c8
 	const SANDSTORM    ; c9
 	const GIGA_DRAIN   ; ca
@@ -228,10 +228,10 @@
 	const PAIN_SPLIT   ; dc
 	const SACRED_FIRE  ; dd
 	const BULLDOZE     ; de
-	const DYNAMICPUNCH ; df
+	const_skip ; df
 	const MEGAHORN     ; e0
 	const DRAGONBREATH ; e1
-	const BATON_PASS   ; e2
+	const_skip   ; e2
 	const ENCORE       ; e3
 	const DARK_PULSE   ; e4
 	const RAPID_SPIN   ; e5
