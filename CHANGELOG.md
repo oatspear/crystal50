@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.4 (PLA Systems)
+
+### Added
+- Moves: Acid Spray.
+
+### Removed
+- Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Drill Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Crabhammer, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass.
+
+### Changed
+- Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
+- Many moves received boosts to their effect chances.
+- Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
+
 ## v0.3 (Custom Changes)
 
 ### Added
