@@ -8,7 +8,7 @@ BattleAnimations::
 ; entries correspond to constants/move_constants.asm
 	table_width 2, BattleAnimations
 	dw BattleAnim_0
-	dw BattleAnim_Pound
+	dw BattleAnim_AirCutter
 	dw BattleAnim_Revenge
 	dw BattleAnim_DrainPunch
 	dw BattleAnim_Roost
@@ -649,14 +649,14 @@ BattleAnim_Shake:
 	anim_wait 40
 	anim_ret
 
-BattleAnim_Pound:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_Pound: ; unrefenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_sound 0, 1, SFX_POUND
+; 	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_Revenge:
 	anim_if_param_equal TRUE, BattleAnim_Counter
@@ -1254,29 +1254,30 @@ BattleAnim_AirSlash:
 	anim_wait 24
 	anim_ret
 
-; BattleAnim_Sonicboom_JP: ; unreferenced
-; 	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
-; .loop
-; 	anim_sound 3, 0, SFX_RAZOR_WIND
-; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
-; 	anim_wait 8
-; 	anim_sound 3, 0, SFX_RAZOR_WIND
-; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
-; 	anim_wait 8
-; 	anim_sound 3, 0, SFX_RAZOR_WIND
-; 	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
-; 	anim_wait 8
-; 	anim_loop 2, .loop
-; 	anim_wait 32
-; 	anim_incobj 1
-; 	anim_incobj 2
-; 	anim_incobj 3
-; 	anim_incobj 4
-; 	anim_incobj 5
-; 	anim_incobj 6
-; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-; 	anim_wait 16
-; 	anim_ret
+; BattleAnim_Sonicboom_JP:
+BattleAnim_AirCutter:
+	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
+.loop
+	anim_sound 3, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
+	anim_wait 8
+	anim_sound 3, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
+	anim_wait 8
+	anim_sound 3, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
+	anim_wait 8
+	anim_loop 2, .loop
+	anim_wait 32
+	anim_incobj 1
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_incobj 5
+	anim_incobj 6
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 16
+	anim_ret
 
 BattleAnim_Gust:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT

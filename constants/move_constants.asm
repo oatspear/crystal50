@@ -6,7 +6,7 @@
 ; - BattleAnimations (see data/moves/animations.asm)
 	const_def
 	const NO_MOVE      ; 00
-	const_skip        ; 01
+	const AIR_CUTTER   ; 01
 	const REVENGE      ; 02
 	const DRAIN_PUNCH  ; 03
 	const ROOST        ; 04

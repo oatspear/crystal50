@@ -1,7 +1,7 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	table_width 2, MoveDescriptions
-	dw PoundDescription
+	dw AirCutterDescription
 	dw RevengeDescription
 	dw DrainPunchDescription
 	dw RoostDescription
@@ -51,7 +51,7 @@ MoveDescriptions::
 	dw SupersonicDescription
 	dw BugBuzzDescription
 	dw DisableDescription
-	dw AcidDescription
+	dw AcidSprayDescription
 	dw EmberDescription
 	dw FlamethrowerDescription
 	dw MistDescription
@@ -264,10 +264,6 @@ MoveFFDescription:
 Move00Description:
 	db "?@"
 
-PoundDescription:
-	db   "Pounds with fore-"
-	next "legs or tail.@"
-
 AvalancheDescription:
 RevengeDescription:
 	db   "Double power if"
@@ -361,7 +357,7 @@ CloseCombatDescription:
 
 SuperpowerDescription:
 	db   "Lowers the user's"
-	next "ATK. and DEF.@"
+	next "ATK. and SP. ATK.@"
 
 SandAttackDescription:
 	db   "Reduces accuracy"
@@ -450,9 +446,9 @@ DisableDescription:
 	db   "Disables the foe's"
 	next "most recent move.@"
 
-AcidDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+AcidSprayDescription:
+	db   "May lower the"
+	next "foe's DEFENSES.@"
 
 EmberDescription:
 	db   "An attack that may"
@@ -542,9 +538,10 @@ GrowthDescription:
 	db   "Raises both ATK"
 	next "and SP. ATK.@"
 
+AirCutterDescription:
 RazorLeafDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+	db   "High critical"
+	next "hit ratio move.@"
 
 SolarbeamDescription:
 	db   "1st turn: Prepare"

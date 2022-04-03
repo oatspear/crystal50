@@ -656,7 +656,7 @@ AllUpHit:
 	checkfaint
 	endmove
 
-CloseCombat: ; FIXME
+CloseCombat:
 	checkobedience
 	usedmovetext
 	doturn
@@ -701,7 +701,7 @@ Superpower:
 	attackdown
 	statdownmessage
 	statdownfailtext
-	defensedown
+	specialattackdown
 	statdownmessage
 	statdownfailtext
 	switchturn

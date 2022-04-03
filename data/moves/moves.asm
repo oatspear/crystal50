@@ -73,7 +73,7 @@ ENDM
 Moves:
 ; entries correspond to constants/move_constants.asm
 	table_width MOVE_LENGTH, Moves
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move AIR_CUTTER,   EFFECT_NORMAL_HIT,         60, FLYING,        SPECIAL,   95,              ENERGY_15_PP,   0
 	move REVENGE,      EFFECT_REVENGE,            60, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move DRAIN_PUNCH,  EFFECT_LEECH_HIT,          75, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move ROOST,        EFFECT_ROOST,               0, FLYING,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0

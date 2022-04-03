@@ -3,7 +3,7 @@
 ## v0.4 (PLA Systems)
 
 ### Added
-- Moves: Acid Spray.
+- Moves: Acid Spray, Air Cutter.
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Drill Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Crabhammer, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass.

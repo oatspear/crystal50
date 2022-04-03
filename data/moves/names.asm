@@ -1,6 +1,6 @@
 MoveNames::
 	list_start MoveNames
-	li "POUND"
+	li "AIR CUTTER"
 	li "REVENGE"
 	li "DRAIN PUNCH"
 	li "ROOST"
