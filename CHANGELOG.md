@@ -10,7 +10,7 @@
 
 ### Changed
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
-- Many moves received boosts to their effect chances.
+- Many moves received boosts to their effect chances and accuracy.
 - Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
 
 ## v0.3 (Custom Changes)
