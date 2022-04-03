@@ -91,6 +91,28 @@ BurnHit:
 	burntarget
 	endmove
 
+BurnFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	burntarget
+	flinch10percent
+	kingsrock
+	endmove
+
 FreezeHit:
 	checkobedience
 	usedmovetext

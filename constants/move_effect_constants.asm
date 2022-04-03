@@ -40,7 +40,7 @@
 	const_skip
 	const_skip
 	const EFFECT_SUPER_FANG
-	const EFFECT_STATIC_DAMAGE
+	const EFFECT_BRN_FLINCH_HIT
 	const EFFECT_TRAP_TARGET
 	const EFFECT_DRAGON_DANCE
 	const EFFECT_DOUBLE_HIT

@@ -41,7 +41,7 @@ MoveEffectsPointers:
 	dw NormalHit
 	dw NormalHit
 	dw SuperFang
-	dw StaticDamage
+	dw BurnFlinchHit
 	dw TrapTarget
 	dw DragonDance
 	dw MultiHit
