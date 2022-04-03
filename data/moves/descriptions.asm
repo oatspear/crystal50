@@ -5,7 +5,7 @@ MoveDescriptions::
 	dw RevengeDescription
 	dw DrainPunchDescription
 	dw RoostDescription
-	dw MegaPunchDescription
+	dw AquaTailDescription
 	dw PayDayDescription
 	dw FirePunchDescription
 	dw IcePunchDescription
@@ -15,24 +15,24 @@ MoveDescriptions::
 	dw GuillotineDescription
 	dw AirSlashDescription
 	dw SwordsDanceDescription
-	dw CutDescription
+	dw AstonishDescription
 	dw GustDescription
 	dw WingAttackDescription
 	dw WhirlwindDescription
 	dw FlyDescription
 	dw SandTombDescription
-	dw SlamDescription
+	dw BulkUpDescription
 	dw VineWhipDescription
 	dw StompDescription
 	dw DoubleKickDescription
-	dw MegaKickDescription
+	dw ChargeBeamDescription
 	dw CloseCombatDescription
 	dw SuperpowerDescription
 	dw SandAttackDescription
 	dw HeadbuttDescription
-	dw HornAttackDescription
-	dw FuryAttackDescription
-	dw HornDrillDescription
+	dw CrossPoisonDescription
+	dw DrainKissDescription
+	dw EnergyBallDescription
 	dw TackleDescription
 	dw BodySlamDescription
 	dw WrapDescription
@@ -273,9 +273,9 @@ RoostDescription:
 	db   "Lands and restores"
 	next "1/2 max HP.@"
 
-MegaPunchDescription:
-	db   "A powerful punch"
-	next "thrown very hard.@"
+AquaTailDescription:
+	db   "A powerful tail"
+	next "swing attack.@"
 
 PayDayDescription:
 	db   "Throws coins. Gets"
@@ -305,14 +305,6 @@ GuillotineDescription:
 	db   "A one-hit KO,"
 	next "pincer attack.@"
 
-SwordsDanceDescription:
-	db   "A dance that in-"
-	next "creases ATTACK.@"
-
-CutDescription:
-	db   "Cuts using claws,"
-	next "scythes, etc.@"
-
 GustDescription:
 	db   "Whips up a strong"
 	next "gust of wind.@"
@@ -337,6 +329,7 @@ VineWhipDescription:
 	db   "Whips the foe with"
 	next "slender vines.@"
 
+AstonishDescription:
 DarkPulseDescription:
 AirSlashDescription:
 StompDescription:
@@ -371,10 +364,6 @@ HeadbuttDescription:
 HornAttackDescription:
 	db   "An attack using a"
 	next "horn to jab.@"
-
-FuryAttackDescription:
-	db   "Jabs the target"
-	next "2-5 times.@"
 
 HornDrillDescription:
 	db   "A one-hit KO,"
@@ -527,6 +516,7 @@ AbsorbDescription:
 MegaDrainDescription:
 GigaDrainDescription:
 DrainPunchDescription:
+DrainKissDescription:
 	db   "Steals 1/2 of the"
 	next "damage inflicted.@"
 
@@ -534,12 +524,18 @@ LeechSeedDescription:
 	db   "Steals HP from the"
 	next "foe on every turn.@"
 
+SwordsDanceDescription:
 GrowthDescription:
-	db   "Raises both ATK"
-	next "and SP. ATK.@"
+	db   "Raises the user's"
+	next "OFFENSES.@"
 
 AirCutterDescription:
 RazorLeafDescription:
+CrossPoisonDescription:
+StoneEdgeDescription:
+CrossChopDescription:
+SlashDescription:
+AeroblastDescription:
 	db   "High critical"
 	next "hit ratio move.@"
 
@@ -566,8 +562,8 @@ PetalDanceDescription:
 LowSweepDescription:
 BulldozeDescription:
 StringShotDescription:
-	db   "A move that lowers"
-	next "the foe's SPEED.@"
+	db   "An attack that"
+	next "lowers SPEED.@"
 
 SandTombDescription:
 	db   "Traps foe in sand"
@@ -578,9 +574,6 @@ FireSpinDescription:
 	next "for 4-5 turns.@"
 
 ThundershockDescription:
-	db   "An attack that may"
-	next "cause paralysis.@"
-
 ThunderboltDescription:
 	db   "An attack that may"
 	next "cause paralysis.@"
@@ -620,16 +613,23 @@ ConfusionDescription:
 FlashCannonDescription:
 BugBuzzDescription:
 PsychicMDescription:
+IronTailDescription:
+EarthPowerDescription:
+ShadowBallDescription:
+EnergyBallDescription:
+RockSmashDescription:
+CrunchDescription:
 	db   "An attack that may"
-	next "lower SP. DEF.@"
+	next "lower DEFENSES.@"
 
 HypnosisDescription:
 	db   "May put the foe to"
 	next "sleep.@"
 
+BulkUpDescription:
 CalmMindDescription:
-	db   "Raises SP. ATTACK"
-	next "and SP. DEFENSE.@"
+	db   "Raises all the"
+	next "user's stats.@"
 
 AgilityDescription:
 	db   "Sharply increases"
@@ -823,7 +823,7 @@ SplashDescription:
 
 AcidArmorDescription:
 	db   "Sharply raises the"
-	next "user's DEFENSE.@"
+	next "user's DEFENSES.@"
 
 CrabhammerDescription:
 	db   "Has a high criti-"
@@ -869,9 +869,6 @@ SuperFangDescription:
 	db   "Cuts the foe's HP"
 	next "by 1/2.@"
 
-SlashDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
 
 SubstituteDescription:
 	db   "Makes a decoy with"
@@ -920,10 +917,6 @@ FlailDescription:
 Conversion2Description:
 	db   "The user's type is"
 	next "made resistant.@"
-
-AeroblastDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
 
 CottonSporeDescription:
 	db   "Sharply reduces"
@@ -1122,13 +1115,10 @@ SweetScentDescription:
 	db   "Reduces the foe's"
 	next "evasiveness.@"
 
-IronTailDescription:
-	db   "An attack that may"
-	next "reduce DEFENSE.@"
-
+ChargeBeamDescription:
 MetalClawDescription:
 	db   "An attack that may"
-	next "up user's ATTACK.@"
+	next "up user's OFFENSE.@"
 
 VitalThrowDescription:
 	db   "A 2nd-strike move"
@@ -1150,11 +1140,6 @@ HiddenPowerDescription:
 	db   "The power varies"
 	next "with the #MON.@"
 
-StoneEdgeDescription:
-CrossChopDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
-
 TwisterDescription:
 	db   "Whips up a tornado"
 	next "to attack.@"
@@ -1170,10 +1155,6 @@ RainDanceDescription:
 SunnyDayDescription:
 	db   "Boosts fire-type"
 	next "moves for 5 turns.@"
-
-CrunchDescription:
-	db   "An attack that may"
-	next "lower SPCL.DEF.@"
 
 MirrorCoatDescription:
 	db   "Counters a SPCL."
@@ -1191,18 +1172,9 @@ AncientpowerDescription:
 	db   "An attack that may"
 	next "raise all stats.@"
 
-EarthPowerDescription:
-ShadowBallDescription:
-	db   "An attack that may"
-	next "lower SPCL.DEF.@"
-
 FutureSightDescription:
 	db   "An attack that"
 	next "hits on 3rd turn.@"
-
-RockSmashDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
 
 InfestationDescription:
 WhirlpoolDescription:

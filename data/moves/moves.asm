@@ -77,7 +77,7 @@ Moves:
 	move REVENGE,      EFFECT_REVENGE,            60, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move DRAIN_PUNCH,  EFFECT_LEECH_HIT,          75, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move ROOST,        EFFECT_ROOST,               0, FLYING,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move AQUA_TAIL,    EFFECT_NORMAL_HIT,         85, WATER,         PHYSICAL,  90,              ENERGY_15_PP,   0
 	move PAY_DAY,      EFFECT_PAY_DAY,            40, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,   0
 	move FIRE_PUNCH,   EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100,              ENERGY_10_PP,  30
 	move ICE_PUNCH,    EFFECT_FREEZE_HIT,         75, ICE,           PHYSICAL, 100,              ENERGY_10_PP,  30
@@ -87,24 +87,24 @@ Moves:
 	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move AIR_SLASH,    EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95,              ENERGY_10_PP,  30
 	move SWORDS_DANCE, EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move ASTONISH      EFFECT_FLINCH_HIT,         30, GHOST,         PHYSICAL, 100,              ENERGY_30_PP,  30
 	move GUST,         EFFECT_GUST,               40, FLYING,        SPECIAL,  100,              ENERGY_30_PP,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         40, FLYING,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move FLY,          EFFECT_FLY,                90, FLYING,        PHYSICAL,  95,              ENERGY_20_PP,   0
 	move SAND_TOMB,    EFFECT_TRAP_TARGET,        35, GROUND,        PHYSICAL,  85,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move BULK_UP,      EFFECT_PROWESS_UP,          0, FIGHTING,      STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,         PHYSICAL, 100,              ENERGY_30_PP,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,  30
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move CHARGE_BEAM,  EFFECT_OFFENSES_UP_HIT,    50, ELECTRIC,      SPECIAL,   90,              ENERGY_15_PP,  50
 	move CLOSE_COMBAT, EFFECT_CLOSE_COMBAT,      100, FIGHTING,      PHYSICAL, 100,              ENERGY_5_PP,    0 ; FIXME
 	move SUPERPOWER,   EFFECT_SUPERPOWER,        100, FIGHTING,      PHYSICAL, 100,              ENERGY_5_PP,    0 ; FIXME
 	move SAND_ATTACK,  EFFECT_ACCURACY_DOWN,       0, GROUND,        STATUS,   100,              ENERGY_20_PP,   0
 	move HEADBUTT,     EFFECT_FLINCH_HIT,         70, NORMAL,        PHYSICAL, 100,              ENERGY_15_PP,  30
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move CROSS_POISON, EFFECT_POISON_HIT,         70, POISON,        PHYSICAL, 100,              ENERGY_15_PP,  20
+	move DRAIN_KISS,   EFFECT_LEECH_HIT,          50, FAIRY,         SPECIAL,  100,              ENERGY_15_PP,   0
+	move ENERGY_BALL,  EFFECT_DEFENSES_DOWN_HIT,  80, GRASS,         SPECIAL,  100,              ENERGY_10_PP,  20
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move BODY_SLAM,    EFFECT_BODY_SLAM,          85, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        35, NORMAL,        PHYSICAL,  85,              ENERGY_20_PP,   0

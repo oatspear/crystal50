@@ -10,7 +10,7 @@
 	const REVENGE      ; 02
 	const DRAIN_PUNCH  ; 03
 	const ROOST        ; 04
-	const_skip   ; 05
+	const AQUA_TAIL    ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
 	const ICE_PUNCH    ; 08
@@ -20,24 +20,24 @@
 	const_skip   ; 0c
 	const AIR_SLASH    ; 0d
 	const SWORDS_DANCE ; 0e
-	const_skip          ; 0f
+	const ASTONISH     ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
 	const WHIRLWIND    ; 12
 	const FLY          ; 13
 	const SAND_TOMB    ; 14
-	const_skip         ; 15
+	const BULK_UP      ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
-	const_skip    ; 19
+	const CHARGE_BEAM  ; 19
 	const CLOSE_COMBAT ; 1a
 	const SUPERPOWER   ; 1b
 	const SAND_ATTACK  ; 1c
 	const HEADBUTT     ; 1d
-	const_skip  ; 1e
-	const_skip  ; 1f
-	const_skip   ; 20
+	const CROSS_POISON ; 1e
+	const DRAIN_KISS   ; 1f
+	const ENERGY_BALL  ; 20
 	const TACKLE       ; 21
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
