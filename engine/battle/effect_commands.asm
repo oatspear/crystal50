@@ -5828,7 +5828,7 @@ BattleCommand_Recoil:
 ; We will simplify and just get 1/4 + 1/16, which is slightly less (0.3125).
 	ld a, BATTLE_VARS_MOVE_POWER
 	call GetBattleVar
-	cp 101
+	cp 91
 	jr c, .got_quotient
 	push hl
 	ld h, b
