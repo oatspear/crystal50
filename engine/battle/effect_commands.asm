@@ -1706,8 +1706,11 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_THUNDER
+	jr z, .hits_in_rain
+	cp EFFECT_HURRICANE
 	ret nz
 
+.hits_in_rain
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
 	ret

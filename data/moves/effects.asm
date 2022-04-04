@@ -923,6 +923,28 @@ RecoilHit:
 	kingsrock
 	endmove
 
+BurnRecoilHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil
+	checkfaint
+	burntarget
+	kingsrock
+	endmove
+
 Mist:
 	checkobedience
 	usedmovetext
@@ -1982,6 +2004,27 @@ Thunder:
 	supereffectivetext
 	checkfaint
 	paralyzetarget
+	endmove
+
+Hurricane:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	thunderaccuracy
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	confusetarget
 	endmove
 
 Teleport:

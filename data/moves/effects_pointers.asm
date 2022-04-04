@@ -141,7 +141,7 @@ MoveEffectsPointers:
 	dw DefensesUpHit  ; DefenseUpHit
 	dw AllUpHit
 	dw FakeOut
-	dw NormalHit
+	dw BurnRecoilHit
 	dw PsychUp
 	dw MirrorCoat
 	dw SkullBash
@@ -157,4 +157,5 @@ MoveEffectsPointers:
 	dw Fly
 	dw DefenseCurl
 	dw FreezeHit ; for Blizzard, purposefully with different EFFECT_* constant
+	dw Hurricane
 	assert_table_length NUM_MOVE_EFECTS

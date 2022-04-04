@@ -74,10 +74,10 @@ Moves:
 ; entries correspond to constants/move_constants.asm
 	table_width MOVE_LENGTH, Moves
 	move AIR_CUTTER,   EFFECT_NORMAL_HIT,         60, FLYING,        SPECIAL,   95,              ENERGY_15_PP,   0
-	move REVENGE,      EFFECT_REVENGE,            60, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
+	move REVENGE,      EFFECT_REVENGE,            50, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move DRAIN_PUNCH,  EFFECT_LEECH_HIT,          75, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move ROOST,        EFFECT_ROOST,               0, FLYING,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move AQUA_TAIL,    EFFECT_NORMAL_HIT,         85, WATER,         PHYSICAL,  90,              ENERGY_15_PP,   0
+	move AQUA_TAIL,    EFFECT_NORMAL_HIT,         85, WATER,         PHYSICAL,  90,              ENERGY_10_PP,   0
 	move PAY_DAY,      EFFECT_PAY_DAY,            40, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,   0
 	move FIRE_PUNCH,   EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100,              ENERGY_10_PP,  30
 	move ICE_PUNCH,    EFFECT_FREEZE_HIT,         75, ICE,           PHYSICAL, 100,              ENERGY_10_PP,  30
@@ -109,13 +109,13 @@ Moves:
 	move BODY_SLAM,    EFFECT_BODY_SLAM,          85, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        35, NORMAL,        PHYSICAL,  85,              ENERGY_20_PP,   0
 	move EXTRASENSORY, EFFECT_FLINCH_HIT,         70, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_15_PP,  10
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move GIGA_IMPACT,  EFFECT_HYPER_BEAM,        120, NORMAL,        PHYSICAL,  90,              ENERGY_5_PP,    0
 	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        100, NORMAL,        PHYSICAL, 100,              ENERGY_5_PP,    0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move HURRICANE,    EFFECT_HURRICANE,         100, FLYING,        SPECIAL,   75,              ENERGY_5_PP,   30
 	move POISON_STING, EFFECT_POISON_HIT,         30, POISON,        PHYSICAL, 100,              ENERGY_20_PP,  50
 	move POISON_JAB,   EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100,              ENERGY_10_PP,  30
 	move PIN_MISSILE,  EFFECT_MULTI_HIT,          25, BUG,           PHYSICAL,  95,              ENERGY_20_PP,   0 ; FIXME
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,           PHYSICAL, 100,              ENERGY_20_PP,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,          PHYSICAL, 100,              ENERGY_20_PP,  30
 	move GROWL,        EFFECT_OFFENSES_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
@@ -132,19 +132,19 @@ Moves:
 	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         80, ICE,           SPECIAL,  100,              ENERGY_10_PP,  20
 	move BLIZZARD,     EFFECT_BLIZZARD,          100, ICE,           SPECIAL,   75,              ENERGY_5_PP,   30
-	move NO_MOVE,      EFFECT_CONFUSE_HIT,         0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move ICICLE_CRASH, EFFECT_FLINCH_HIT,         80, ICE,           PHYSICAL,  90,              ENERGY_10_PP,  30
 	move BUBBLEBEAM,   EFFECT_SPEED_DOWN_HIT,     65, WATER,         SPECIAL,  100,              ENERGY_20_PP,  30
 	move AURORA_BEAM,  EFFECT_OFFENSES_DOWN_HIT,  65, ICE,           SPECIAL,  100,              ENERGY_20_PP,  20
 	move HYPER_BEAM,   EFFECT_HYPER_BEAM,        120, NORMAL,        SPECIAL,   90,              ENERGY_5_PP,    0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move IRON_HEAD,    EFFECT_FLINCH_HIT,         80, STEEL,         PHYSICAL, 100,              ENERGY_10_PP,  30
+	move LEAF_STORM,   EFFECT_SUPERPOWER,        110, GRASS,         SPECIAL,   90,              ENERGY_5_PP,    0
+	move OVERHEAT,     EFFECT_SUPERPOWER,        110, FIRE,          SPECIAL,   90,              ENERGY_5_PP,    0
 	move LOW_SWEEP,    EFFECT_SPEED_DOWN_HIT,     65, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP, 100 ; FIXME
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move LIQUIDATION,  EFFECT_DEFENSES_DOWN_HIT,  80, WATER,         PHYSICAL, 100,              ENERGY_10_PP,  20
 	move ABSORB,       EFFECT_LEECH_HIT,          30, GRASS,         SPECIAL,  100,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        SPECIAL,  100,              ENERGY_20_PP,   0
+	move MAGICAL_LEAF, EFFECT_NORMAL_HIT,         60, GRASS,         SPECIAL,  PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         STATUS,    90,              ENERGY_15_PP,   0
 	move GROWTH,       EFFECT_GROWTH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move RAZOR_LEAF,   EFFECT_NORMAL_HIT,         55, GRASS,         PHYSICAL,  95,              ENERGY_20_PP,   0
@@ -161,8 +161,8 @@ Moves:
 	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,      STATUS,    90,              ENERGY_20_PP,   0
 	move THUNDER,      EFFECT_THUNDER,           100, ELECTRIC,      SPECIAL,   75,              ENERGY_5_PP,   30
 	move ROCK_THROW,   EFFECT_NORMAL_HIT,         50, ROCK,          PHYSICAL,  90,              ENERGY_30_PP,   0
-	move EARTHQUAKE,   EFFECT_EARTHQUAKE,        100, GROUND,        PHYSICAL, 100,              ENERGY_10_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move EARTHQUAKE,   EFFECT_EARTHQUAKE,         85, GROUND,        PHYSICAL,  95,              ENERGY_10_PP,   0
+	move MYSTIC_FIRE,  EFFECT_OFFENSES_DOWN_HIT,  70, FIRE,          SPECIAL,  100,              ENERGY_10_PP, 100
 	move DIG,          EFFECT_FLY,                80, GROUND,        PHYSICAL, 100,              ENERGY_10_PP,   0
 	move TOXIC,        EFFECT_TOXIC,               0, POISON,        STATUS,    90,              ENERGY_10_PP,   0
 	move CONFUSION,    EFFECT_CONFUSE_HIT,        50, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_20_PP,  20
@@ -178,7 +178,7 @@ Moves:
 	move SCREECH,      EFFECT_DEFENSES_DOWN_2,     0, NORMAL,        STATUS,    85,              ENERGY_20_PP,   0
 	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0 ; FIXME
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move HARDEN,       EFFECT_DEFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0 ; FIXME
+	move IRON_DEFENSE, EFFECT_DEFENSES_UP_2,       0, STEEL,         STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0 ; FIXME
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,         STATUS,   100,              ENERGY_10_PP,   0
@@ -203,10 +203,10 @@ Moves:
 	move WILL_O_WISP,  EFFECT_BURN,                0, FIRE,          STATUS,    85,              ENERGY_20_PP,   0
 	move SWIFT,        EFFECT_NORMAL_HIT,         60, NORMAL,        SPECIAL,  PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        100, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,   0
-	move AVALANCHE,    EFFECT_REVENGE,            60, ICE,           PHYSICAL, 100,              ENERGY_10_PP,   0
+	move AVALANCHE,    EFFECT_REVENGE,            50, ICE,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move FLASH_CANNON, EFFECT_DEFENSES_DOWN_HIT,  80, STEEL,         SPECIAL,  100,              ENERGY_10_PP,  20
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, PSYCHIC_TYPE,  STATUS,   100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, PSYCHIC_TYPE,  STATUS,   100,              ENERGY_30_PP,   0
+	move NIGHT_SLASH,  EFFECT_NORMAL_HIT,         70, DARK,          PHYSICAL, 100,              ENERGY_15_PP,   0
+	move OMINOUS_WIND, EFFECT_ALL_UP_HIT,         60, GHOST,         SPECIAL,  100,              ENERGY_15_PP,  20
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         130, FIGHTING,      PHYSICAL,  85,              ENERGY_10_PP,   0 ; FIXME
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
@@ -261,11 +261,11 @@ Moves:
 	move SWEET_KISS,   EFFECT_CONFUSE,             0, FAIRY,         STATUS,    75,              ENERGY_20_PP,   0
 	move BELLY_DRUM,   EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,        SPECIAL,  100,              ENERGY_10_PP,  30
-	move MUD_SLAP,     EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,        SPECIAL,  100,              ENERGY_20_PP, 100
+	move MUD_SLAP,     EFFECT_ACCURACY_DOWN_HIT,  30, GROUND,        SPECIAL,  100,              ENERGY_20_PP, 100
 	move OCTAZOOKA,    EFFECT_ACCURACY_DOWN_HIT,  65, WATER,         SPECIAL,   85,              ENERGY_15_PP, 100
 	move SPIKES,       EFFECT_SPIKES,              0, GROUND,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, ELECTRIC,      SPECIAL,  100,              ENERGY_30_PP,   0
-	move PAYBACK,      EFFECT_PAYBACK,            50, DARK,          PHYSICAL, 100,              ENERGY_10_PP,   0
+	move PAYBACK,      EFFECT_PAYBACK,            45, DARK,          PHYSICAL, 100,              ENERGY_10_PP,   0
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           SPECIAL,   95,              ENERGY_20_PP, 100
@@ -288,7 +288,7 @@ Moves:
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,        STATUS,   100,              ENERGY_10_PP,   0
 	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move FLARE_BLITZ,  EFFECT_RECOIL_HIT,        100, FIRE,          PHYSICAL, 100,              ENERGY_5_PP,    0 ; FIXME burn
+	move FLARE_BLITZ,  EFFECT_BRN_RECOIL_HIT,    100, FIRE,          PHYSICAL, 100,              ENERGY_5_PP,   20
 	move PRESENT,      EFFECT_PRESENT,             1, NORMAL,        PHYSICAL,  90,              ENERGY_20_PP,   0
 	move HAIL,         EFFECT_HAIL,                0, ICE,           STATUS,   100,              ENERGY_10_PP,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_30_PP,   0
@@ -309,7 +309,7 @@ Moves:
 	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0 ; FIXME
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0
 	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, FAIRY,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0 ; FIXME
-	move HIDDEN_POWER, EFFECT_HIDDEN_POWER,       50, NORMAL,        SPECIAL,  100,              ENERGY_15_PP,   0
+	move HIDDEN_POWER, EFFECT_HIDDEN_POWER,       50, NORMAL,        SPECIAL,  100,              ENERGY_15_PP,   0 ; FIXME
 	move CROSS_CHOP,   EFFECT_NORMAL_HIT,        100, FIGHTING,      PHYSICAL,  80,              ENERGY_5_PP,    0 ; FIXME
 	move TWISTER,      EFFECT_TWISTER,            40, DRAGON,        SPECIAL,  100,              ENERGY_20_PP,  20
 	move RAIN_DANCE,   EFFECT_RAIN_DANCE,          0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0

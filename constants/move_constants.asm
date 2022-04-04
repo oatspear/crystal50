@@ -42,13 +42,13 @@
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
 	const EXTRASENSORY ; 24
-	const_skip       ; 25
+	const GIGA_IMPACT  ; 25
 	const DOUBLE_EDGE  ; 26
-	const_skip    ; 27
+	const HURRICANE    ; 27
 	const POISON_STING ; 28
 	const POISON_JAB   ; 29
 	const PIN_MISSILE  ; 2a
-	const_skip         ; 2b
+	const ICE_SHARD    ; 2b
 	const BITE         ; 2c
 	const GROWL        ; 2d
 	const ROAR         ; 2e
@@ -65,19 +65,19 @@
 	const_skip         ; 39
 	const ICE_BEAM     ; 3a
 	const BLIZZARD     ; 3b
-	const_skip      ; 3c
+	const ICICLE_CRASH ; 3c
 	const BUBBLEBEAM   ; 3d
 	const AURORA_BEAM  ; 3e
 	const HYPER_BEAM   ; 3f
-	const_skip         ; 40
-	const_skip   ; 41
-	const_skip   ; 42
+	const IRON_HEAD    ; 40
+	const LEAF_STORM   ; 41
+	const OVERHEAT     ; 42
 	const LOW_SWEEP    ; 43
 	const COUNTER      ; 44
 	const SEISMIC_TOSS ; 45
-	const_skip     ; 46
+	const LIQUIDATION  ; 46
 	const ABSORB       ; 47
-	const_skip   ; 48
+	const MAGICAL_LEAF ; 48
 	const LEECH_SEED   ; 49
 	const GROWTH       ; 4a
 	const RAZOR_LEAF   ; 4b
@@ -95,7 +95,7 @@
 	const THUNDER      ; 57
 	const ROCK_THROW   ; 58
 	const EARTHQUAKE   ; 59
-	const_skip      ; 5a
+	const MYSTIC_FIRE  ; 5a
 	const DIG          ; 5b
 	const TOXIC        ; 5c
 	const CONFUSION    ; 5d
@@ -111,7 +111,7 @@
 	const SCREECH      ; 67
 	const DOUBLE_TEAM  ; 68
 	const RECOVER      ; 69
-	const HARDEN       ; 6a
+	const IRON_DEFENSE ; 6a
 	const MINIMIZE     ; 6b
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
@@ -138,8 +138,8 @@
 	const SKULL_BASH   ; 82
 	const AVALANCHE    ; 83
 	const FLASH_CANNON ; 84
-	const_skip      ; 85
-	const_skip      ; 86
+	const NIGHT_SLASH  ; 85
+	const OMINOUS_WIND ; 86
 	const SOFTBOILED   ; 87
 	const HI_JUMP_KICK ; 88
 	const GLARE        ; 89

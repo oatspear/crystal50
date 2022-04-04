@@ -6,4 +6,5 @@ CriticalHitMoves:
 	db CROSS_CHOP
 	db CROSS_POISON
 	db STONE_EDGE
+	db NIGHT_SLASH
 	db -1
