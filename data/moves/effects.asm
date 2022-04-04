@@ -133,6 +133,28 @@ FreezeHit:
 	freezetarget
 	endmove
 
+FreezeFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	freezetarget
+	flinch10percent
+	kingsrock
+	endmove
+
 ParalyzeHit:
 	checkobedience
 	usedmovetext
@@ -151,6 +173,28 @@ ParalyzeHit:
 	supereffectivetext
 	checkfaint
 	paralyzetarget
+	endmove
+
+ParalyzeFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	paralyzetarget
+	flinch10percent
+	kingsrock
 	endmove
 
 Selfdestruct:

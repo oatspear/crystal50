@@ -15,9 +15,9 @@
 	const FIRE_PUNCH   ; 07
 	const ICE_PUNCH    ; 08
 	const THUNDERPUNCH ; 09
-	const_skip      ; 0a
-	const_skip     ; 0b
-	const_skip   ; 0c
+	const FIRE_FANG    ; 0a
+	const ICE_FANG     ; 0b
+	const THUNDER_FANG ; 0c
 	const AIR_SLASH    ; 0d
 	const SWORDS_DANCE ; 0e
 	const ASTONISH     ; 0f

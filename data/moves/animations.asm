@@ -17,9 +17,9 @@ BattleAnimations::
 	dw BattleAnim_FirePunch
 	dw BattleAnim_IcePunch
 	dw BattleAnim_Thunderpunch
-	dw BattleAnim_Scratch
-	dw BattleAnim_Vicegrip
-	dw BattleAnim_Guillotine
+	dw BattleAnim_FireFang
+	dw BattleAnim_IceFang
+	dw BattleAnim_ThunderFang
 	dw BattleAnim_AirSlash
 	dw BattleAnim_SwordsDance
 	dw BattleAnim_Astonish
@@ -858,6 +858,20 @@ BattleAnim_FirePunch:
 	anim_wait 16
 	anim_ret
 
+BattleAnim_FireFang:
+	anim_3gfx ANIM_GFX_CUT, ANIM_GFX_HIT, ANIM_GFX_FIRE
+	anim_obj ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj ANIM_OBJ_BITE, 136, 56, $18
+	anim_call BattleAnimSub_Fire
+	anim_wait 8
+	;anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	; anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8
+	anim_ret
+
 BattleAnim_FireSpin:
 	anim_1gfx ANIM_GFX_FIRE
 .loop
@@ -942,6 +956,20 @@ BattleAnim_IcePunch:
 	anim_obj ANIM_OBJ_PUNCH_SHAKE, 136, 56, $43
 	anim_call BattleAnimSub_Ice
 	anim_wait 32
+	anim_ret
+
+BattleAnim_IceFang:
+	anim_3gfx ANIM_GFX_CUT, ANIM_GFX_HIT, ANIM_GFX_ICE
+	anim_obj ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj ANIM_OBJ_BITE, 136, 56, $18
+	anim_call BattleAnimSub_Ice
+	anim_wait 8
+	;anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	; anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8
 	anim_ret
 
 BattleAnim_IceBeam:
@@ -1190,6 +1218,23 @@ BattleAnim_Thunderpunch:
 	anim_sound 0, 1, SFX_THUNDER
 	anim_obj ANIM_OBJ_THUNDER3, 152, 68, $0
 	anim_wait 64
+	anim_ret
+
+BattleAnim_ThunderFang:
+	anim_3gfx ANIM_GFX_CUT, ANIM_GFX_HIT, ANIM_GFX_LIGHTNING
+	anim_obj ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj ANIM_OBJ_BITE, 136, 56, $18
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_THUNDER3, 152, 68, $0
+	anim_wait 8
+	;anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $18
+	anim_wait 16
+	; anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 64, $18
+	anim_wait 8
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Thundershock:
@@ -1463,22 +1508,22 @@ BattleAnim_ChargeBeam:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Vicegrip:
-	anim_1gfx ANIM_GFX_CUT
-	anim_sound 0, 1, SFX_VICEGRIP
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
-	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
-	anim_wait 32
-	anim_ret
+; BattleAnim_Vicegrip: ; unrefenced
+; 	anim_1gfx ANIM_GFX_CUT
+; 	anim_sound 0, 1, SFX_VICEGRIP
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
+; 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
+; 	anim_wait 32
+; 	anim_ret
 
-BattleAnim_Scratch:
-	anim_1gfx ANIM_GFX_CUT
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
-	anim_wait 32
-	anim_ret
+; BattleAnim_Scratch: ; unrefenced
+; 	anim_1gfx ANIM_GFX_CUT
+; 	anim_sound 0, 1, SFX_SCRATCH
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
+; 	anim_wait 32
+; 	anim_ret
 
 BattleAnim_FurySwipes:
 	anim_1gfx ANIM_GFX_CUT
@@ -2460,20 +2505,20 @@ BattleAnim_DrillPeck:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Guillotine:
-	anim_1gfx ANIM_GFX_CUT
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_sound 0, 1, SFX_VICEGRIP
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 156, 44, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 148, 36, $0
-	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 124, 76, $0
-	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
-	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 116, 68, $0
-	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
-	anim_wait 32
-	anim_ret
+; BattleAnim_Guillotine: ; unrefenced
+; 	anim_1gfx ANIM_GFX_CUT
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
+; 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+; 	anim_sound 0, 1, SFX_VICEGRIP
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 156, 44, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 152, 40, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 148, 36, $0
+; 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 124, 76, $0
+; 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
+; 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 116, 68, $0
+; 	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 72, $0
+; 	anim_wait 32
+; 	anim_ret
 
 BattleAnim_DazzlingGleam:
 BattleAnim_Flash:

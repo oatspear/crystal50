@@ -82,9 +82,9 @@ Moves:
 	move FIRE_PUNCH,   EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100,              ENERGY_10_PP,  30
 	move ICE_PUNCH,    EFFECT_FREEZE_HIT,         75, ICE,           PHYSICAL, 100,              ENERGY_10_PP,  30
 	move THUNDERPUNCH, EFFECT_PARALYZE_HIT,       75, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  30
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move FIRE_FANG,    EFFECT_BRN_FLINCH_HIT,     65, FIRE,          PHYSICAL,  95,              ENERGY_15_PP,  20
+	move ICE_FANG,     EFFECT_FRZ_FLINCH_HIT,     65, ICE,           PHYSICAL,  95,              ENERGY_15_PP,  20
+	move THUNDER_FANG, EFFECT_PRZ_FLINCH_HIT,     65, ELECTRIC,      PHYSICAL,  95,              ENERGY_15_PP,  20
 	move AIR_SLASH,    EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95,              ENERGY_10_PP,  30
 	move SWORDS_DANCE, EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move ASTONISH      EFFECT_FLINCH_HIT,         30, GHOST,         PHYSICAL, 100,              ENERGY_30_PP,  30

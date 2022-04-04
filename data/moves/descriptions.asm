@@ -10,9 +10,9 @@ MoveDescriptions::
 	dw FirePunchDescription
 	dw IcePunchDescription
 	dw ThunderpunchDescription
-	dw ScratchDescription
-	dw VicegripDescription
-	dw GuillotineDescription
+	dw FireFangDescription
+	dw IceFangDescription
+	dw ThunderFangDescription
 	dw AirSlashDescription
 	dw SwordsDanceDescription
 	dw AstonishDescription
@@ -293,17 +293,17 @@ ThunderpunchDescription:
 	db   "An electric punch."
 	next "It may paralyze.@"
 
-ScratchDescription:
-	db   "Scratches with"
-	next "sharp claws.@"
+FireFangDescription:
+	db   "May flinch the foe"
+	next "or cause a burn.@"
 
-VicegripDescription:
-	db   "Grips with power-"
-	next "ful pincers.@"
+IceFangDescription:
+	db   "May flinch the foe"
+	next "or cause freezing.@"
 
-GuillotineDescription:
-	db   "A one-hit KO,"
-	next "pincer attack.@"
+ThunderFangDescription:
+	db   "May flinch the foe"
+	next "or paralyze it.@"
 
 GustDescription:
 	db   "Whips up a strong"

@@ -38,8 +38,8 @@ MoveEffectsPointers:
 	dw LightScreen
 	dw TriAttack
 	dw Growth
-	dw NormalHit
-	dw NormalHit
+	dw FreezeFlinchHit
+	dw ParalyzeFlinchHit
 	dw SuperFang
 	dw BurnFlinchHit
 	dw TrapTarget
