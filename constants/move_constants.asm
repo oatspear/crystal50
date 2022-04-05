@@ -148,7 +148,7 @@
 	const BRICK_BREAK  ; 8c
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
-	const_skip   ; 8f
+	const POWER_GEM   ; 8f
 	const TRANSFORM    ; 90
 	const AQUA_JET     ; 91
 	const FACADE       ; 92
@@ -157,7 +157,7 @@
 	const ZEN_HEADBUTT ; 95
 	const SPLASH       ; 96
 	const ACID_ARMOR   ; 97
-	const_skip   ; 98
+	const PSYCHO_CUT   ; 98
 	const_skip    ; 99
 	const_skip  ; 9a
 	const BONEMERANG   ; 9b

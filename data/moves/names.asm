@@ -142,7 +142,7 @@ MoveNames::
 	li "BRICK BREAK"
 	li "LEECH LIFE"
 	li "LOVELY KISS"
-	li "SKY ATTACK"
+	li "POWER GEM"
 	li "TRANSFORM"
 	li "AQUA JET"
 	li "FACADE"

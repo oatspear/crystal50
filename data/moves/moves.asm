@@ -215,7 +215,7 @@ Moves:
 	move BRICK_BREAK,  EFFECT_BRICK_BREAK,        75, FIGHTING,      PHYSICAL, 100,              ENERGY_10_PP,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          75, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,        STATUS,    75,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, FLYING,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move POWER_GEM,    EFFECT_NORMAL_HIT,         80, ROCK,          SPECIAL,  100,              ENERGY_10_PP,   0
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move AQUA_JET,     EFFECT_PRIORITY_HIT,       40, WATER,         PHYSICAL, 100,              ENERGY_20_PP,   0
 	move FACADE,       EFFECT_FACADE,             60, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,   0

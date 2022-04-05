@@ -143,7 +143,7 @@ MoveDescriptions::
 	dw BrickBreakDescription
 	dw LeechLifeDescription
 	dw LovelyKissDescription
-	dw SkyAttackDescription
+	dw PowerGemDescription
 	dw TransformDescription
 	dw AquaJetDescription
 	dw FacadeDescription
@@ -739,10 +739,6 @@ LovelyKissDescription:
 	db   "May cause the foe"
 	next "to fall asleep.@"
 
-SkyAttackDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
-
 TransformDescription:
 	db   "The user assumes"
 	next "the foe's guise.@"
@@ -1120,3 +1116,7 @@ BeatUpDescription:
 DazzlingGleamDescription:
 	db   "Attacks with a"
 	next "powerful flash.@"
+
+PowerGemDescription:
+	db   "Attacks with a"
+	next "gem-like light.@"
