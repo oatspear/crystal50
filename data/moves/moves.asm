@@ -224,8 +224,8 @@ Moves:
 	move ZEN_HEADBUTT, EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90,              ENERGY_10_PP,  20
 	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_30_PP,   0
 	move ACID_ARMOR,   EFFECT_DEFENSES_UP_2,       0, POISON,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, WATER,         PHYSICAL, 100,              ENERGY_30_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move CRABHAMMER,   EFFECT_NORMAL_HIT,         80, WATER,         PHYSICAL,  90,              ENERGY_10_PP,   0
+	move PSYCHO_CUT,   EFFECT_NORMAL_HIT,         70, PSYCHIC_TYPE,  PHYSICAL, 100,              ENERGY_15_PP,   0
 	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,        PHYSICAL,  90,              ENERGY_10_PP,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0

@@ -153,7 +153,7 @@ MoveDescriptions::
 	dw SplashDescription
 	dw AcidArmorDescription
 	dw CrabhammerDescription
-	dw ExplosionDescription
+	dw PsychoCutDescription
 	dw FurySwipesDescription
 	dw BonemerangDescription
 	dw RestDescription
@@ -490,6 +490,8 @@ CrossChopDescription:
 SlashDescription:
 AeroblastDescription:
 NightSlashDescription:
+CrabhammerDescription:
+PsychoCutDescription:
 	db   "High critical"
 	next "hit ratio move.@"
 
@@ -763,14 +765,6 @@ AcidArmorDescription:
 IronDefenseDescription:
 	db   "Sharply raises the"
 	next "user's DEFENSES.@"
-
-CrabhammerDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
-
-ExplosionDescription:
-	db   "Very powerful but"
-	next "makes user faint.@"
 
 FurySwipesDescription:
 	db   "Quickly scratches"

@@ -157,8 +157,8 @@
 	const ZEN_HEADBUTT ; 95
 	const SPLASH       ; 96
 	const ACID_ARMOR   ; 97
-	const PSYCHO_CUT   ; 98
-	const_skip    ; 99
+	const CRABHAMMER   ; 98
+	const PSYCHO_CUT   ; 99
 	const_skip  ; 9a
 	const BONEMERANG   ; 9b
 	const REST         ; 9c

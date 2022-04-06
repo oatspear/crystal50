@@ -7,4 +7,6 @@ CriticalHitMoves:
 	db CROSS_POISON
 	db STONE_EDGE
 	db NIGHT_SLASH
+	db PSYCHO_CUT
+	db CRABHAMMER
 	db -1
