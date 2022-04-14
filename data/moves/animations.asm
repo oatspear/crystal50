@@ -177,7 +177,7 @@ BattleAnimations::
 	dw BattleAnim_TripleKick
 	dw BattleAnim_Thief
 	dw BattleAnim_Infestation
-	dw BattleAnim_MindReader
+	dw BattleAnim_Snarl
 	dw BattleAnim_Hex
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
@@ -2025,6 +2025,7 @@ BattleAnim_Supersonic:
 
 BattleAnim_DisarmingVoice:
 BattleAnim_Screech:
+BattleAnim_Snarl:
 	anim_1gfx ANIM_GFX_PSYCHIC
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $8, $1, $20
 	anim_sound 6, 2, SFX_SCREECH
@@ -3313,18 +3314,18 @@ BattleAnim_Infestation:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_MindReader:
-	anim_1gfx ANIM_GFX_MISC
-	anim_sound 0, 1, SFX_MIND_READER
-.loop
-	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $3
-	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $12
-	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $20
-	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $31
-	anim_wait 16
-	anim_loop 2, .loop
-	anim_wait 32
-	anim_ret
+; BattleAnim_MindReader: ; unrefenced
+; 	anim_1gfx ANIM_GFX_MISC
+; 	anim_sound 0, 1, SFX_MIND_READER
+; .loop
+; 	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $3
+; 	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $12
+; 	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $20
+; 	anim_obj ANIM_OBJ_MIND_READER, 132, 48, $31
+; 	anim_wait 16
+; 	anim_loop 2, .loop
+; 	anim_wait 32
+; 	anim_ret
 
 BattleAnim_InNightmare:
 	anim_1gfx ANIM_GFX_ANGELS

@@ -242,7 +242,7 @@ Moves:
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      PHYSICAL,  90,              ENERGY_20_PP,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,          PHYSICAL, 100,              ENERGY_10_PP, 100
 	move INFESTATION,  EFFECT_TRAP_TARGET,        20, BUG,           SPECIAL,  100,              ENERGY_20_PP,   0
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        STATUS,   100,              ENERGY_30_PP,   0
+	move SNARL,        EFFECT_OFFENSES_DOWN_HIT,  60, DARK,          SPECIAL,  100,              ENERGY_15_PP, 100
 	move HEX,          EFFECT_HEX,                65, GHOST,         SPECIAL,  100,              ENERGY_15_PP,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100,              ENERGY_20_PP,  30
 	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        SPECIAL,  100,              ENERGY_30_PP,   0

@@ -169,7 +169,7 @@ MoveNames::
 	li "TRIPLE KICK"
 	li "THIEF"
 	li "INFESTATION"
-	li "MIND READER"
+	li "SNARL"
 	li "HEX"
 	li "FLAME WHEEL"
 	li "SNORE"

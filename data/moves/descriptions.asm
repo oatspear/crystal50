@@ -170,7 +170,7 @@ MoveDescriptions::
 	dw TripleKickDescription
 	dw ThiefDescription
 	dw InfestationDescription
-	dw MindReaderDescription
+	dw SnarlDescription
 	dw HexDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
@@ -449,6 +449,7 @@ AuroraBeamDescription:
 	next "lower OFFENSES.@"
 
 MysticFireDescription:
+SnarlDescription:
 	db   "An attack that"
 	next "lowers OFFENSES.@"
 
@@ -807,10 +808,6 @@ TripleKickDescription:
 ThiefDescription:
 	db   "An attack that may"
 	next "steal a held item.@"
-
-MindReaderDescription:
-	db   "Ensures the next"
-	next "attack will hit.@"
 
 HexDescription:
 	db   "Double power vs."

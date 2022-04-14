@@ -175,7 +175,7 @@
 	const TRIPLE_KICK  ; a7
 	const THIEF        ; a8
 	const INFESTATION  ; a9
-	const_skip  ; aa
+	const SNARL        ; aa
 	const HEX          ; ab
 	const FLAME_WHEEL  ; ac
 	const_skip        ; ad
