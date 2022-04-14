@@ -178,7 +178,7 @@
 	const SNARL        ; aa
 	const HEX          ; ab
 	const FLAME_WHEEL  ; ac
-	const_skip        ; ad
+	const STRUGGLE_BUG ; ad
 	const CURSE        ; ae
 	const FLAIL        ; af
 	const CONVERSION2  ; b0

@@ -173,7 +173,7 @@ MoveDescriptions::
 	dw SnarlDescription
 	dw HexDescription
 	dw FlameWheelDescription
-	dw SnoreDescription
+	dw StruggleBugDescription
 	dw CurseDescription
 	dw FlailDescription
 	dw Conversion2Description
@@ -450,6 +450,7 @@ AuroraBeamDescription:
 
 MysticFireDescription:
 SnarlDescription:
+StruggleBugDescription:
 	db   "An attack that"
 	next "lowers OFFENSES.@"
 
@@ -816,10 +817,6 @@ HexDescription:
 FlameWheelDescription:
 	db   "An attack that may"
 	next "cause a burn.@"
-
-SnoreDescription:
-	db   "An attack useable"
-	next "only while asleep.@"
 
 CurseDescription:
 	db   "Works differently"

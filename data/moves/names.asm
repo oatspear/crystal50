@@ -172,7 +172,7 @@ MoveNames::
 	li "SNARL"
 	li "HEX"
 	li "FLAME WHEEL"
-	li "SNORE"
+	li "STRUGGLE BUG"
 	li "CURSE"
 	li "FLAIL"
 	li "CONVERSION2"

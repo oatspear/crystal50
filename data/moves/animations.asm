@@ -180,7 +180,7 @@ BattleAnimations::
 	dw BattleAnim_Snarl
 	dw BattleAnim_Hex
 	dw BattleAnim_FlameWheel
-	dw BattleAnim_Snore
+	dw BattleAnim_StruggleBug
 	dw BattleAnim_Curse
 	dw BattleAnim_Flail
 	dw BattleAnim_Conversion2
@@ -2025,7 +2025,6 @@ BattleAnim_Supersonic:
 
 BattleAnim_DisarmingVoice:
 BattleAnim_Screech:
-BattleAnim_Snarl:
 	anim_1gfx ANIM_GFX_PSYCHIC
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $8, $1, $20
 	anim_sound 6, 2, SFX_SCREECH
@@ -2139,6 +2138,22 @@ BattleAnim_Splash:
 	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
 	anim_wait 96
 	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+BattleAnim_StruggleBug:
+	anim_1gfx ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_VICEGRIP
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_wait 4
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_wait 8
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
@@ -3371,10 +3386,12 @@ BattleAnim_FlameWheel:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_Snore:
-	anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_NOISE
-	anim_obj ANIM_OBJ_ASLEEP, 64, 80, $0
-	anim_wait 32
+; BattleAnim_Snore:
+BattleAnim_Snarl:
+	; anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_NOISE
+	anim_1gfx ANIM_GFX_NOISE
+	; anim_obj ANIM_OBJ_ASLEEP, 64, 80, $0
+	; anim_wait 32
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
 	anim_sound 0, 0, SFX_SNORE
 .loop

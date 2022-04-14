@@ -245,7 +245,7 @@ Moves:
 	move SNARL,        EFFECT_OFFENSES_DOWN_HIT,  60, DARK,          SPECIAL,  100,              ENERGY_15_PP, 100
 	move HEX,          EFFECT_HEX,                65, GHOST,         SPECIAL,  100,              ENERGY_15_PP,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100,              ENERGY_20_PP,  30
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        SPECIAL,  100,              ENERGY_30_PP,   0
+	move STRUGGLE_BUG, EFFECT_OFFENSES_DOWN_HIT,  40, BUG,           SPECIAL,  100,              ENERGY_20_PP, 100
 	move CURSE,        EFFECT_CURSE,               0, GHOST,         STATUS,   100,              ENERGY_10_PP,   0
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,   0
 	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_30_PP,   0
