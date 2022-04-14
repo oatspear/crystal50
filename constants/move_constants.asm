@@ -163,7 +163,7 @@
 	const BONEMERANG   ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
-	const_skip   ; 9e
+	const SILVER_WIND  ; 9e
 	const NASTY_PLOT   ; 9f
 	const CONVERSION   ; a0
 	const TRI_ATTACK   ; a1

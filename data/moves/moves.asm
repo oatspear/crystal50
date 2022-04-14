@@ -230,7 +230,7 @@ Moves:
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,        PHYSICAL,  90,              ENERGY_10_PP,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,          PHYSICAL,  90,              ENERGY_10_PP,  30
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move SILVER_WIND,  EFFECT_ALL_UP_HIT,         60, BUG,           SPECIAL,  100,              ENERGY_15_PP,  20
 	move NASTY_PLOT,   EFFECT_OFFENSES_UP_2,       0, DARK,          STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_30_PP,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, NORMAL,        SPECIAL,  100,              ENERGY_10_PP,  30

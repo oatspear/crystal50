@@ -157,7 +157,7 @@ MoveNames::
 	li "BONEMERANG"
 	li "REST"
 	li "ROCK SLIDE"
-	li "HYPER FANG"
+	li "SILVER WIND"
 	li "NASTY PLOT"
 	li "CONVERSION"
 	li "TRI ATTACK"

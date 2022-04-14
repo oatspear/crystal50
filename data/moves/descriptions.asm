@@ -158,7 +158,7 @@ MoveDescriptions::
 	dw BonemerangDescription
 	dw RestDescription
 	dw RockSlideDescription
-	dw HyperFangDescription
+	dw SilverWindDescription
 	dw NastyPlotDescription
 	dw ConversionDescription
 	dw TriAttackDescription
@@ -1088,6 +1088,7 @@ ExtremespeedDescription:
 
 AncientpowerDescription:
 OminousWindDescription:
+SilverWindDescription:
 	db   "An attack that may"
 	next "raise all stats.@"
 

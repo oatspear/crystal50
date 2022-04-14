@@ -165,7 +165,7 @@ BattleAnimations::
 	dw BattleAnim_Bonemerang
 	dw BattleAnim_Rest
 	dw BattleAnim_RockSlide
-	dw BattleAnim_HyperFang
+	dw BattleAnim_SilverWind
 	dw BattleAnim_NastyPlot
 	dw BattleAnim_Conversion
 	dw BattleAnim_TriAttack
@@ -799,15 +799,15 @@ BattleAnim_MegaKick:
 	anim_loop 3, .loop
 	anim_ret
 
-BattleAnim_HyperFang:
-	anim_1gfx ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $20, $1, $0
-	anim_sound 0, 1, SFX_BITE
-	anim_obj ANIM_OBJ_FANG, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_HyperFang: ; unrefenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $20, $1, $0
+; 	anim_sound 0, 1, SFX_BITE
+; 	anim_obj ANIM_OBJ_FANG, 136, 56, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_SuperFang:
 	anim_1gfx ANIM_GFX_HIT
@@ -3774,6 +3774,7 @@ BattleAnim_PerishSong:
 	anim_wait 112
 	anim_ret
 
+BattleAnim_SilverWind:
 BattleAnim_IcyWind:
 	anim_1gfx ANIM_GFX_SPEED
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
