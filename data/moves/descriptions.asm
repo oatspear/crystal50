@@ -184,7 +184,7 @@ MoveDescriptions::
 	dw PowderSnowDescription
 	dw ProtectDescription
 	dw MachPunchDescription
-	dw ScaryFaceDescription
+	dw VenoshockDescription
 	dw SuckerPunchDescription
 	dw SweetKissDescription
 	dw BellyDrumDescription
@@ -811,6 +811,7 @@ ThiefDescription:
 	next "steal a held item.@"
 
 HexDescription:
+VenoshockDescription:
 	db   "Double power vs."
 	next "foes with status.@"
 
@@ -857,10 +858,6 @@ SuckerPunchDescription:
 MachPunchDescription:
 	db   "A fast punch that"
 	next "lands first.@"
-
-ScaryFaceDescription:
-	db   "Sharply reduces"
-	next "the foe's SPEED.@"
 
 DisarmingVoiceDescription:
 	db   "An attack that"

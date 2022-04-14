@@ -189,7 +189,7 @@
 	const POWDER_SNOW  ; b5
 	const PROTECT      ; b6
 	const MACH_PUNCH   ; b7
-	const_skip   ; b8
+	const VENOSHOCK    ; b8
 	const SUCKER_PUNCH ; b9
 	const SWEET_KISS   ; ba
 	const BELLY_DRUM   ; bb

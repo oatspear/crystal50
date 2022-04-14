@@ -183,7 +183,7 @@ MoveNames::
 	li "POWDER SNOW"
 	li "PROTECT"
 	li "MACH PUNCH"
-	li "SCARY FACE"
+	li "VENOSHOCK"
 	li "SUCKER PUNCH"
 	li "SWEET KISS"
 	li "BELLY DRUM"

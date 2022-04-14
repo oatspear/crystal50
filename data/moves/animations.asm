@@ -191,7 +191,7 @@ BattleAnimations::
 	dw BattleAnim_PowderSnow
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
-	dw BattleAnim_ScaryFace
+	dw BattleAnim_Venoshock
 	dw BattleAnim_SuckerPunch
 	dw BattleAnim_SweetKiss
 	dw BattleAnim_BellyDrum
@@ -3157,6 +3157,17 @@ BattleAnim_Toxic:
 	anim_wait 64
 	anim_ret
 
+BattleAnim_Venoshock:
+	anim_1gfx ANIM_GFX_POISON
+	anim_if_param_equal 0, .weaker
+	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
+	anim_call BattleAnimSub_Acid
+	anim_wait 32
+.weaker
+	anim_call BattleAnimSub_Sludge
+	anim_wait 64
+	anim_ret
+
 BattleAnim_Metronome:
 	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_SPEED
 	anim_sound 0, 0, SFX_METRONOME
@@ -3589,13 +3600,13 @@ BattleAnim_MachPunch:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_ScaryFace:
-	anim_1gfx ANIM_GFX_BEAM
-	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
-	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_call BattleAnimSub_EyeBeams
-	anim_wait 64
-	anim_ret
+; BattleAnim_ScaryFace: ; unrefenced
+; 	anim_1gfx ANIM_GFX_BEAM
+; 	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+; 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+; 	anim_call BattleAnimSub_EyeBeams
+; 	anim_wait 64
+; 	anim_ret
 
 BattleAnim_DrainKiss:
 BattleAnim_SweetKiss:
