@@ -154,7 +154,7 @@ MoveDescriptions::
 	dw AcidArmorDescription
 	dw CrabhammerDescription
 	dw PsychoCutDescription
-	dw FurySwipesDescription
+	dw ShadowClawDescription
 	dw BonemerangDescription
 	dw RestDescription
 	dw RockSlideDescription
@@ -492,6 +492,7 @@ AeroblastDescription:
 NightSlashDescription:
 CrabhammerDescription:
 PsychoCutDescription:
+ShadowClawDescription:
 	db   "High critical"
 	next "hit ratio move.@"
 
@@ -765,10 +766,6 @@ AcidArmorDescription:
 IronDefenseDescription:
 	db   "Sharply raises the"
 	next "user's DEFENSES.@"
-
-FurySwipesDescription:
-	db   "Quickly scratches"
-	next "2-5 times.@"
 
 BonemerangDescription:
 	db   "An attack that"

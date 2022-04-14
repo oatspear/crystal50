@@ -161,7 +161,7 @@ BattleAnimations::
 	dw BattleAnim_AcidArmor
 	dw BattleAnim_Crabhammer
 	dw BattleAnim_PsychoCut
-	dw BattleAnim_FurySwipes
+	dw BattleAnim_ShadowClaw
 	dw BattleAnim_Bonemerang
 	dw BattleAnim_Rest
 	dw BattleAnim_RockSlide
@@ -1630,25 +1630,25 @@ BattleAnim_ChargeBeam:
 ; 	anim_wait 32
 ; 	anim_ret
 
-BattleAnim_FurySwipes:
-	anim_1gfx ANIM_GFX_CUT
-	anim_if_param_equal $1, .alternate
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_wait 32
-	anim_ret
-
-.alternate:
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 120, 48, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 124, 44, $0
-	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 128, 40, $0
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_wait 32
-	anim_ret
+; BattleAnim_FurySwipes: ; unrefenced
+; 	anim_1gfx ANIM_GFX_CUT
+; 	anim_if_param_equal $1, .alternate
+; 	anim_sound 0, 1, SFX_SCRATCH
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
+; 	anim_sound 0, 1, SFX_SCRATCH
+; 	anim_wait 32
+; 	anim_ret
+;
+; .alternate:
+; 	anim_sound 0, 1, SFX_SCRATCH
+; 	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 120, 48, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 124, 44, $0
+; 	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 128, 40, $0
+; 	anim_sound 0, 1, SFX_SCRATCH
+; 	anim_wait 32
+; 	anim_ret
 
 ; BattleAnim_Cut:
 ; 	anim_1gfx ANIM_GFX_CUT
@@ -1687,6 +1687,7 @@ BattleAnim_Slash:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_ShadowClaw:
 BattleAnim_NightSlash:
 	anim_1gfx ANIM_GFX_CUT
 	anim_bgp $1b

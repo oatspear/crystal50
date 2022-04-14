@@ -153,7 +153,7 @@ MoveNames::
 	li "ACID ARMOR"
 	li "CRABHAMMER"
 	li "PSYCHO CUT"
-	li "FURY SWIPES"
+	li "SHADOW CLAW"
 	li "BONEMERANG"
 	li "REST"
 	li "ROCK SLIDE"

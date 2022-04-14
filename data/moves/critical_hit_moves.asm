@@ -9,4 +9,5 @@ CriticalHitMoves:
 	db NIGHT_SLASH
 	db PSYCHO_CUT
 	db CRABHAMMER
+	db SHADOW_CLAW
 	db -1

@@ -159,7 +159,7 @@
 	const ACID_ARMOR   ; 97
 	const CRABHAMMER   ; 98
 	const PSYCHO_CUT   ; 99
-	const_skip  ; 9a
+	const SHADOW_CLAW  ; 9a
 	const BONEMERANG   ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
