@@ -191,7 +191,7 @@ MoveNames::
 	li "MUD-SLAP"
 	li "OCTAZOOKA"
 	li "SPIKES"
-	li "ZAP CANNON"
+	li "WATER PULSE"
 	li "PAYBACK"
 	li "DESTINY BOND"
 	li "PERISH SONG"

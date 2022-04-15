@@ -192,7 +192,7 @@ MoveDescriptions::
 	dw MudSlapDescription
 	dw OctazookaDescription
 	dw SpikesDescription
-	dw ZapCannonDescription
+	dw WaterPulseDescription
 	dw PaybackDescription
 	dw DestinyBondDescription
 	dw PerishSongDescription
@@ -563,6 +563,7 @@ ToxicDescription:
 
 HurricaneDescription:
 ConfusionDescription:
+WaterPulseDescription:
 	db   "An attack that may"
 	next "cause confusion.@"
 
@@ -886,10 +887,6 @@ OctazookaDescription:
 SpikesDescription:
 	db   "Hurts foes when"
 	next "they switch out.@"
-
-ZapCannonDescription:
-	db   "An attack that"
-	next "always paralyzes.@"
 
 PaybackDescription:
 	db   "Doubles power when"

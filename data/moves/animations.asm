@@ -199,7 +199,7 @@ BattleAnimations::
 	dw BattleAnim_MudSlap
 	dw BattleAnim_Octazooka
 	dw BattleAnim_Spikes
-	dw BattleAnim_ZapCannon
+	dw BattleAnim_WaterPulse
 	dw BattleAnim_Payback
 	dw BattleAnim_DestinyBond
 	dw BattleAnim_PerishSong
@@ -1133,6 +1133,27 @@ BattleAnim_HydroPump:
 	anim_sound 0, 1, SFX_HYDRO_PUMP
 	anim_obj ANIM_OBJ_HYDRO_PUMP, 156, 72, $0
 	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_wait 32
+	anim_call BattleAnim_ShowMon_1
+	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_WaterPulse:
+	anim_bgeffect ANIM_BG_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_1gfx ANIM_GFX_WATER
+	anim_call BattleAnim_UserObj_2Row
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 124, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $30, $0, $0
+	anim_wait 8
+;	anim_sound 0, 1, SFX_HYDRO_PUMP
+;	anim_obj ANIM_OBJ_HYDRO_PUMP, 132, 72, $0
+;	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+;	anim_wait 8
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 140, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $8, $0, $0
 	anim_wait 32
 	anim_call BattleAnim_ShowMon_1
 	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0

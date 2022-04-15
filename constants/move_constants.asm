@@ -197,7 +197,7 @@
 	const MUD_SLAP     ; bd
 	const OCTAZOOKA    ; be
 	const SPIKES       ; bf
-	const_skip   ; c0
+	const WATER_PULSE  ; c0
 	const PAYBACK      ; c1
 	const DESTINY_BOND ; c2
 	const PERISH_SONG  ; c3

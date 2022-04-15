@@ -6,7 +6,7 @@
 - Add moves: Power Shift.
 
 ### Added
-- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock.
+- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse.
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Drill Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass.
