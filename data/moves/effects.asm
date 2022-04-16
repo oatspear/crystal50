@@ -1814,13 +1814,6 @@ FakeOut:
 	failuretext
 	endmove
 
-BellyDrum:
-	checkobedience
-	usedmovetext
-	doturn
-	bellydrum
-	endmove
-
 PsychUp:
 	checkobedience
 	usedmovetext
