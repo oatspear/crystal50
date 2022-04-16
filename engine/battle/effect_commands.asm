@@ -1483,9 +1483,6 @@ BattleCommand_CheckHit:
 	call .Protect
 	jp nz, .Miss
 
-	call .LockOn
-	ret nz
-
 	call .FlyDigMoves
 	jp nz, .Miss
 
@@ -1644,35 +1641,6 @@ BattleCommand_CheckHit:
 	ld c, 40
 	call DelayFrames
 
-	ld a, 1
-	and a
-	ret
-
-.LockOn:
-; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Bulldoze on a monster that is flying.
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
-	bit SUBSTATUS_LOCK_ON, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
-	ret z
-
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	bit SUBSTATUS_FLYING, a
-	jr z, .LockedOn
-
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-
-	cp EARTHQUAKE
-	ret z
-	cp FISSURE
-	ret z
-	cp BULLDOZE
-	ret z
-
-.LockedOn:
 	ld a, 1
 	and a
 	ret
