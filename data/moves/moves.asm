@@ -269,7 +269,7 @@ Moves:
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           SPECIAL,   95,              ENERGY_20_PP, 100
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, FIGHTING,      STATUS,   100,              ENERGY_30_PP,   0
+	move X_SCISSOR,    EFFECT_NORMAL_HIT,         80, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move BONE_RUSH,    EFFECT_MULTI_HIT,          25, GROUND,        PHYSICAL,  90,              ENERGY_20_PP,   0
 	move WILD_CHARGE,  EFFECT_PRZ_RECOIL_HIT,     85, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  20
 	move OUTRAGE,      EFFECT_RAMPAGE,           120, DRAGON,        PHYSICAL, 100,              ENERGY_10_PP,   0

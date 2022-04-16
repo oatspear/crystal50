@@ -204,7 +204,7 @@ BattleAnimations::
 	dw BattleAnim_DestinyBond
 	dw BattleAnim_PerishSong
 	dw BattleAnim_IcyWind
-	dw BattleAnim_Detect
+	dw BattleAnim_XScissor
 	dw BattleAnim_BoneRush
 	dw BattleAnim_WildCharge
 	dw BattleAnim_Outrage
@@ -3899,13 +3899,13 @@ BattleAnim_OminousWind:
 	anim_wait 1
 	anim_ret
 
-BattleAnim_Detect:
-	anim_1gfx ANIM_GFX_SHINE
-	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
-	anim_sound 0, 0, SFX_FORESIGHT
-	anim_obj ANIM_OBJ_FORESIGHT, 64, 88, $0
-	anim_wait 24
-	anim_ret
+; BattleAnim_Detect:
+; 	anim_1gfx ANIM_GFX_SHINE
+; 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+; 	anim_sound 0, 0, SFX_FORESIGHT
+; 	anim_obj ANIM_OBJ_FORESIGHT, 64, 88, $0
+; 	anim_wait 24
+; 	anim_ret
 
 BattleAnim_BoneRush:
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_MISC
@@ -4682,6 +4682,7 @@ BattleAnim_HiddenPower:
 	anim_ret
 
 BattleAnim_CrossChop:
+BattleAnim_XScissor:
 	anim_1gfx ANIM_GFX_CUT
 	anim_sound 0, 1, SFX_CUT
 	anim_obj ANIM_OBJ_CROSS_CHOP1, 152, 40, $0

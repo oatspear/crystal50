@@ -197,7 +197,7 @@ MoveDescriptions::
 	dw DestinyBondDescription
 	dw PerishSongDescription
 	dw IcyWindDescription
-	dw DetectDescription
+	dw XScissorDescription
 	dw BoneRushDescription
 	dw WildChargeDescription
 	dw OutrageDescription
@@ -496,6 +496,7 @@ NightSlashDescription:
 CrabhammerDescription:
 PsychoCutDescription:
 ShadowClawDescription:
+XScissorDescription:
 	db   "High critical"
 	next "hit ratio move.@"
 
@@ -904,10 +905,6 @@ PerishSongDescription:
 IcyWindDescription:
 	db   "An icy attack that"
 	next "lowers SPEED.@"
-
-DetectDescription:
-	db   "Evades attack that"
-	next "turn. It may fail.@"
 
 BoneRushDescription:
 	db   "An attack that"

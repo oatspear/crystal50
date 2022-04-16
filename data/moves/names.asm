@@ -196,7 +196,7 @@ MoveNames::
 	li "DESTINY BOND"
 	li "PERISH SONG"
 	li "ICY WIND"
-	li "DETECT"
+	li "X-SCISSOR"
 	li "BONE RUSH"
 	li "WILD CHARGE"
 	li "OUTRAGE"

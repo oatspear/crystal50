@@ -10,4 +10,5 @@ CriticalHitMoves:
 	db PSYCHO_CUT
 	db CRABHAMMER
 	db SHADOW_CLAW
+	db X_SCISSOR
 	db -1
