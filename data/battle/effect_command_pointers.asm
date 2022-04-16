@@ -73,7 +73,7 @@ BattleCommandPointers:
 	dw BattleCommand_PainSplit
 	dw BattleCommand_Snore
 	dw BattleCommand_Conversion2
-	dw BattleCommand_LockOn
+	dw BattleCommand_UnusedEffect ; LockOn
 	dw BattleCommand_Sketch
 	dw BattleCommand_DefrostOpponent
 	dw BattleCommand_SleepTalk

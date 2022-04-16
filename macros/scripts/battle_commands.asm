@@ -73,7 +73,7 @@ ENDM
 	command painsplit               ; 42
 	command snore                   ; 43
 	command conversion2             ; 44
-	command lockon                  ; 45
+	command effect0x45              ; 45
 	command sketch                  ; 46
 	command defrostopponent         ; 47
 	command sleeptalk               ; 48

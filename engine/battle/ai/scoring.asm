@@ -345,7 +345,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_PAIN_SPLIT,       AI_Smart_PainSplit
 	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
-	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
 	dbw EFFECT_DEFROST_OPPONENT, AI_Smart_DefrostOpponent
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
@@ -448,110 +447,6 @@ AI_Smart_LeechHit:
 
 	inc [hl]
 	ret
-
-AI_Smart_LockOn:
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .player_locked_on
-
-	push hl
-	call AICheckEnemyQuarterHP
-	jr nc, .discourage
-
-	call AICheckEnemyHalfHP
-	jr c, .skip_speed_check
-
-	call AICompareSpeed
-	jr nc, .discourage
-
-.skip_speed_check
-	lda_stat_level [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .maybe_encourage
-	cp BASE_STAT_LEVEL
-	jr nc, .do_nothing
-
-	lda_stat_level [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 1
-	jr c, .maybe_encourage
-	cp BASE_STAT_LEVEL
-	jr c, .do_nothing
-
-	ld hl, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-.checkmove
-	dec c
-	jr z, .discourage
-
-	ld a, [hli]
-	and a
-	jr z, .discourage
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove
-
-	ld a, 1
-	ldh [hBattleTurn], a
-
-	push hl
-	push bc
-	farcall BattleCheckTypeMatchup
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE
-	pop bc
-	pop hl
-	jr c, .checkmove
-
-.do_nothing
-	pop hl
-	ret
-
-.discourage
-	pop hl
-	inc [hl]
-	ret
-
-.maybe_encourage
-	pop hl
-	call AI_50_50
-	ret c
-
-	dec [hl]
-	dec [hl]
-	ret
-
-.player_locked_on
-	push hl
-	ld hl, wEnemyAIMoveScores - 1
-	ld de, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-
-.checkmove2
-	inc hl
-	dec c
-	jr z, .dismiss
-
-	ld a, [de]
-	and a
-	jr z, .dismiss
-
-	inc de
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove2
-
-	dec [hl]
-	dec [hl]
-	jr .checkmove2
-
-.dismiss
-	pop hl
-	jp AIDiscourageMove
 
 AI_Smart_Selfdestruct:
 ; Selfdestruct, Explosion
