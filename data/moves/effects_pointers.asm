@@ -93,7 +93,7 @@ MoveEffectsPointers:
 	dw PainSplit
 	dw Snore
 	dw Conversion2
-	dw LockOn
+	dw NormalHit ; unused LOCK_ON
 	dw Sketch
 	dw DefrostOpponent
 	dw SleepTalk

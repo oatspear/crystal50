@@ -1413,14 +1413,6 @@ Conversion2:
 	conversion2
 	endmove
 
-LockOn:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	lockon
-	endmove
-
 Sketch:
 	checkobedience
 	usedmovetext
