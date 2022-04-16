@@ -1037,8 +1037,8 @@ MoonlightDescription:
 	next "(varies by time).@"
 
 HiddenPowerDescription:
-	db   "The power varies"
-	next "with the #MON.@"
+	db   "Always super-"
+	next "effective damage.@"
 
 TwisterDescription:
 	db   "Whips up a tornado"

@@ -3,6 +3,7 @@ INCLUDE "data/moves/effects_pointers.asm"
 MoveEffects: ; used only for BANK(MoveEffects)
 
 NormalHit:
+HiddenPower:
 	checkobedience
 	usedmovetext
 	doturn
@@ -1769,25 +1770,6 @@ Moonlight:
 	usedmovetext
 	doturn
 	healnite
-	endmove
-
-HiddenPower:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	hiddenpower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
 	endmove
 
 RainDance:

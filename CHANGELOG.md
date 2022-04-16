@@ -16,6 +16,7 @@
 - Many moves received boosts to their effect chances and accuracy.
 - Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
 - Belly Drum changed to boost offensive stats without penalty.
+- Updated Hidden Power to use Legends: Arceus mechanics.
 
 ## v0.3 (Custom Changes)
 

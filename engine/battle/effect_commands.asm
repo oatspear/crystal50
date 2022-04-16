@@ -1307,6 +1307,15 @@ BattleCommand_Stab:
 	ret
 
 BattleCheckTypeMatchup:
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp HIDDEN_POWER
+	jr nz, .other_moves
+	ld a, SUPER_EFFECTIVE
+	ld [wTypeMatchup], a
+	ret
+
+.other_moves
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
@@ -6788,8 +6797,6 @@ BattleCommand_TimeBasedHealContinue:
 	dw GetQuarterMaxHP
 	dw GetHalfMaxHP
 	dw GetTwoThirdsMaxHP
-
-INCLUDE "engine/battle/move_effects/hidden_power.asm"
 
 INCLUDE "engine/battle/move_effects/rain_dance.asm"
 
