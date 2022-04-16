@@ -57,7 +57,7 @@ MoveDescriptions::
 	dw MistDescription
 	dw WaterGunDescription
 	dw HydroPumpDescription
-	dw SurfDescription
+	dw WoodHammerDescription
 	dw IceBeamDescription
 	dw BlizzardDescription
 	dw IcicleCrashDescription
@@ -199,7 +199,7 @@ MoveDescriptions::
 	dw IcyWindDescription
 	dw DetectDescription
 	dw BoneRushDescription
-	dw LockOnDescription
+	dw WildChargeDescription
 	dw OutrageDescription
 	dw SandstormDescription
 	dw GigaDrainDescription
@@ -370,12 +370,17 @@ WrapDescription:
 	next "for 4-5 turns.@"
 
 DoubleEdgeDescription:
+WoodHammerDescription:
 	db   "A tackle that also"
 	next "hurts the user.@"
 
 FlareBlitzDescription:
 	db   "Hurts the user."
 	next "May burn the foe.@"
+
+WildChargeDescription:
+	db   "Hurts the user."
+	next "May paralyze foes.@"
 
 PoisonJabDescription:
 PoisonStingDescription:
@@ -425,10 +430,6 @@ WaterGunDescription:
 
 HydroPumpDescription:
 	db   "A powerful water-"
-	next "type attack.@"
-
-SurfDescription:
-	db   "A strong water-"
 	next "type attack.@"
 
 IceBeamDescription:
@@ -911,10 +912,6 @@ DetectDescription:
 BoneRushDescription:
 	db   "An attack that"
 	next "hits 2-5 times.@"
-
-LockOnDescription:
-	db   "Ensures the next"
-	next "attack will hit.@"
 
 OutrageDescription:
 	db   "Works 2-3 turns"

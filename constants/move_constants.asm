@@ -62,7 +62,7 @@
 	const MIST         ; 36
 	const WATER_GUN    ; 37
 	const HYDRO_PUMP   ; 38
-	const_skip         ; 39
+	const WOOD_HAMMER  ; 39
 	const ICE_BEAM     ; 3a
 	const BLIZZARD     ; 3b
 	const ICICLE_CRASH ; 3c
@@ -148,7 +148,7 @@
 	const BRICK_BREAK  ; 8c
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
-	const POWER_GEM   ; 8f
+	const POWER_GEM    ; 8f
 	const TRANSFORM    ; 90
 	const AQUA_JET     ; 91
 	const FACADE       ; 92
