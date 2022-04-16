@@ -202,9 +202,9 @@
 	const DESTINY_BOND ; c2
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4
-	const DETECT       ; c5
+	const_skip       ; c5
 	const BONE_RUSH    ; c6
-	const_skip      ; c7
+	const WILD_CHARGE  ; c7
 	const OUTRAGE      ; c8
 	const SANDSTORM    ; c9
 	const GIGA_DRAIN   ; ca

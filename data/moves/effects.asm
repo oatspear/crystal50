@@ -945,6 +945,28 @@ BurnRecoilHit:
 	kingsrock
 	endmove
 
+ParalyzeRecoilHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil
+	checkfaint
+	paralyzetarget
+	kingsrock
+	endmove
+
 Mist:
 	checkobedience
 	usedmovetext
