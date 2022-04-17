@@ -1383,28 +1383,6 @@ PainSplit:
 	painsplit
 	endmove
 
-Snore:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	snore
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	flinchtarget
-	kingsrock
-	endmove
-
 Conversion2:
 	checkobedience
 	usedmovetext

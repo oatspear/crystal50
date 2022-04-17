@@ -71,7 +71,7 @@ ENDM
 	command counter                 ; 40
 	command encore                  ; 41
 	command painsplit               ; 42
-	command snore                   ; 43
+	command effect0x43              ; 43
 	command conversion2             ; 44
 	command effect0x45              ; 45
 	command sketch                  ; 46

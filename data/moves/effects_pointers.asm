@@ -91,7 +91,7 @@ MoveEffectsPointers:
 	dw Counter
 	dw Encore
 	dw PainSplit
-	dw Snore
+	dw NormalHit ; unused SNORE
 	dw Conversion2
 	dw NormalHit ; unused LOCK_ON
 	dw Sketch

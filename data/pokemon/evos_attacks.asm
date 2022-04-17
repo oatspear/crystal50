@@ -2894,7 +2894,7 @@ SnorlaxEvosAttacks:
 	db 12, HYPNOSIS ; FIXME: YAWN
 	db 16, BITE
 	db 20, REST
-	db 20, SNORE
+	; db 20, SNORE
 	db 20, SLEEP_TALK
 	db 24, CRUNCH
 	db 28, BODY_SLAM
@@ -4348,7 +4348,7 @@ TeddiursaEvosAttacks:
 	db 29, SLASH
 	db 36, CHARM
 	db 43, REST
-	db 43, SNORE
+	; db 43, SNORE
 	db 50, THRASH
 	; db 57, FLING
 	db 0 ; no more level-up moves
@@ -4371,7 +4371,7 @@ UrsaringEvosAttacks:
 	db 29, SLASH
 	db 38, SCARY_FACE
 	db 47, REST
-	db 49, SNORE
+	; db 49, SNORE
 	db 58, THRASH
 	; db 67, HAMMER_ARM
 	db 0 ; no more level-up moves

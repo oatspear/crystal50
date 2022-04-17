@@ -201,7 +201,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$42`: `painsplit`
 
 
-## `$43`: `snore`
+## `$43`: `effect0x43`
 
 
 ## `$44`: `conversion2`

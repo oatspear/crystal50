@@ -65,28 +65,28 @@ FarmerMScript_Milking:
 	closetext
 	end
 
-PokefanF_SnoreFarmer:
+PokefanF_PlayRoughFarmer:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
-	iftrue FarmerFScript_GotSnore
+	checkevent EVENT_GOT_TM13_PLAY_ROUGH_FROM_MOOMOO_FARM
+	iftrue FarmerFScript_GotPlayRough
 	checkevent EVENT_HEALED_MOOMOO
-	iftrue FarmerFScript_GiveSnore
+	iftrue FarmerFScript_GivePlayRough
 	writetext FarmerFText_InTrouble
 	waitbutton
 	closetext
 	end
 
-FarmerFScript_GiveSnore:
+FarmerFScript_GivePlayRough:
 	writetext FarmerFText_HealedMiltank
 	promptbutton
-	verbosegiveitem TM_SNORE
-	iffalse FarmerFScript_NoRoomForSnore
-	setevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
-FarmerFScript_GotSnore:
-	writetext FarmerFText_SnoreSpeech
+	verbosegiveitem TM_PLAY_ROUGH
+	iffalse FarmerFScript_NoRoomForPlayRough
+	setevent EVENT_GOT_TM13_PLAY_ROUGH_FROM_MOOMOO_FARM
+FarmerFScript_GotPlayRough:
+	writetext FarmerFText_PlayRoughSpeech
 	waitbutton
-FarmerFScript_NoRoomForSnore:
+FarmerFScript_NoRoomForPlayRough:
 	closetext
 	end
 
@@ -177,15 +177,12 @@ Text_ReceivedTM13: ; unreferenced
 	line "TM13."
 	done
 
-FarmerFText_SnoreSpeech:
+FarmerFText_PlayRoughSpeech:
 	text "That there's"
-	line "SNORE."
+	line "PLAY ROUGH."
 
-	para "It's a rare move"
-	line "that only works"
-
-	para "while the #MON"
-	line "is asleep."
+	para "It's how #MON"
+	line "play around here."
 
 	para "You best think how"
 	line "you ought to use"
@@ -207,4 +204,4 @@ Route39Farmhouse_MapEvents:
 
 	def_object_events
 	object_event  3,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokefanM_DairyFarmer, -1
-	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_SnoreFarmer, -1
+	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_PlayRoughFarmer, -1

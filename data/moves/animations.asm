@@ -3438,12 +3438,21 @@ BattleAnim_FlameWheel:
 	anim_wait 8
 	anim_ret
 
-; BattleAnim_Snore:
+; BattleAnim_Snore: ; unrefenced
+; 	anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_NOISE
+; 	anim_obj ANIM_OBJ_ASLEEP, 64, 80, $0
+; 	anim_wait 32
+; 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
+; 	anim_sound 0, 0, SFX_SNORE
+; .loop
+; 	anim_call BattleAnimSub_Sound
+; 	anim_wait 16
+; 	anim_loop 2, .loop
+; 	anim_wait 8
+; 	anim_ret
+
 BattleAnim_Snarl:
-	; anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_NOISE
 	anim_1gfx ANIM_GFX_NOISE
-	; anim_obj ANIM_OBJ_ASLEEP, 64, 80, $0
-	; anim_wait 32
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
 	anim_sound 0, 0, SFX_SNORE
 .loop

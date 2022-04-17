@@ -27,7 +27,6 @@ AI_Redundant:
 	dbw EFFECT_LEECH_SEED,   .LeechSeed
 	dbw EFFECT_DISABLE,      .Disable
 	dbw EFFECT_ENCORE,       .Encore
-	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
 	dbw EFFECT_SPIKES,       .Spikes
@@ -99,7 +98,6 @@ AI_Redundant:
 	bit SUBSTATUS_ENCORED, a
 	ret
 
-.Snore:
 .SleepTalk:
 	ld a, [wEnemyMonStatus]
 	and SLP_BIT

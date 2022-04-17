@@ -90,7 +90,7 @@
 	const EFFECT_COUNTER
 	const EFFECT_ENCORE
 	const EFFECT_PAIN_SPLIT
-	const EFFECT_SNORE
+	const_skip
 	const EFFECT_CONVERSION2
 	const_skip
 	const EFFECT_SKETCH
