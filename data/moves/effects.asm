@@ -208,12 +208,12 @@ Selfdestruct:
 	stab
 	damagevariation
 	checkhit
-	selfdestruct
-	moveanimnosub
+	moveanim
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
+	selfdestruct
 	checkfaint
 	kingsrock
 	endmove

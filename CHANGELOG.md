@@ -17,6 +17,7 @@
 - Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
 - Belly Drum changed to boost offensive stats without penalty.
 - Updated Hidden Power to use Legends: Arceus mechanics.
+- Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
 
 ## v0.3 (Custom Changes)
 
