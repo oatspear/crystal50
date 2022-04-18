@@ -2511,12 +2511,6 @@ PlayerAttackDamage:
 	ld d, a
 	ret z
 
-	ld a, [wEnemyMonStatus]
-	and 1 << FRZ
-	jr z, .physicalspecialcheck
-	sla c
-	rl b
-
 .physicalspecialcheck
 	ld a, [hl]
 	cp SPECIAL
@@ -2530,6 +2524,12 @@ PlayerAttackDamage:
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
+	jr z, .physicalcrit
+	sla c
+	rl b
+
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
 	jr z, .physicalcrit
 	sla c
 	rl b
@@ -2555,6 +2555,12 @@ PlayerAttackDamage:
 	call SandstormSpDefBoost
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
+	jr z, .specialcrit
+	sla c
+	rl b
+
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
 	jr z, .specialcrit
 	sla c
 	rl b
