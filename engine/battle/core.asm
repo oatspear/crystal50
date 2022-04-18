@@ -622,11 +622,6 @@ CheckPlayerLockedIn:
 	and 1 << SUBSTATUS_RECHARGE
 	jr nz, .quit
 
-	ld hl, wEnemySubStatus3
-	res SUBSTATUS_FLINCHED, [hl]
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_FLINCHED, [hl]
-
 	ld a, [hl]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .quit

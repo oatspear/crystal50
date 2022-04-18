@@ -18,6 +18,7 @@
 - Belly Drum changed to boost offensive stats without penalty.
 - Updated Hidden Power to use Legends: Arceus mechanics.
 - Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
+- Flinching substatus may carry over to the next turn; Pokémon moving last may flinch the opponent in the following turn.
 
 ## v0.3 (Custom Changes)
 
