@@ -19,6 +19,9 @@
 - Updated Hidden Power to use Legends: Arceus mechanics.
 - Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
 - Flinching substatus may carry over to the next turn; Pokémon moving last may flinch the opponent in the following turn.
+- Rampage no longer causes confusion at the end.
+- Rampage increases the move's power by 20 in subsequent turns, but enemy moves also get a 20 power bonus.
+- Rollout and Fury Cutter now use a rampage effect.
 
 ## v0.3 (Custom Changes)
 

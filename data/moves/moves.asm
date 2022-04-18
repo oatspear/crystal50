@@ -152,7 +152,7 @@ Moves:
 	move POISONPOWDER, EFFECT_POISON,              0, POISON,        STATUS,    80,              ENERGY_20_PP,   0
 	move STUN_SPORE,   EFFECT_PARALYZE,            0, GRASS,         STATUS,    80,              ENERGY_20_PP,   0
 	move SLEEP_POWDER, EFFECT_SLEEP,               0, GRASS,         STATUS,    80,              ENERGY_20_PP,   0
-	move PETAL_DANCE,  EFFECT_RAMPAGE,           100, GRASS,         SPECIAL,  100,              ENERGY_10_PP,   0 ; FIXME
+	move PETAL_DANCE,  EFFECT_RAMPAGE,            90, GRASS,         SPECIAL,   85,              ENERGY_10_PP,   0
 	move STRING_SHOT,  EFFECT_SPEED_DOWN,          0, BUG,           STATUS,   100,              ENERGY_30_PP,   0
 	move DRAGON_PULSE, EFFECT_NORMAL_HIT,         80, DRAGON,        SPECIAL,  PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move FIRE_SPIN,    EFFECT_TRAP_TARGET,        35, FIRE,          SPECIAL,   85,              ENERGY_20_PP,   0
@@ -272,17 +272,17 @@ Moves:
 	move X_SCISSOR,    EFFECT_NORMAL_HIT,         80, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move BONE_RUSH,    EFFECT_MULTI_HIT,          25, GROUND,        PHYSICAL,  90,              ENERGY_20_PP,   0
 	move WILD_CHARGE,  EFFECT_PRZ_RECOIL_HIT,     85, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  20
-	move OUTRAGE,      EFFECT_RAMPAGE,           120, DRAGON,        PHYSICAL, 100,              ENERGY_10_PP,   0
+	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,        PHYSICAL,  85,              ENERGY_10_PP,   0
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,          STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move GIGA_DRAIN,   EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100,              ENERGY_10_PP,   0
 	move ENDURE,       EFFECT_ENDURE,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move CHARM,        EFFECT_OFFENSES_DOWN_2,     0, FAIRY,         STATUS,   100,              ENERGY_20_PP,   0
-	move ROLLOUT,      EFFECT_ROLLOUT,            30, ROCK,          PHYSICAL,  90,              ENERGY_20_PP,   0 ; FIXME
+	move ROLLOUT,      EFFECT_RAMPAGE,            40, ROCK,          PHYSICAL,  90,              ENERGY_20_PP,   0
 	move FALSE_SWIPE,  EFFECT_FALSE_SWIPE,        40, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
 	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,        STATUS,    85,              ENERGY_20_PP, 100
 	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC,      PHYSICAL, 100,              ENERGY_20_PP,  30
-	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        40, BUG,           PHYSICAL,  95,              ENERGY_20_PP,   0 ; FIXME
+	move FURY_CUTTER,  EFFECT_RAMPAGE,            40, BUG,           PHYSICAL,  90,              ENERGY_20_PP,   0
 	move STEEL_WING,   EFFECT_DEFENSES_UP_HIT,    70, STEEL,         PHYSICAL,  90,              ENERGY_20_PP,  20
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0

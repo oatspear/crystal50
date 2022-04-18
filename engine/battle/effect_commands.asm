@@ -2511,6 +2511,32 @@ PlayerAttackDamage:
 	ld d, a
 	ret z
 
+	ld a, [wPlayerSubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, [wCurPlayerMove]
+	ld e, a
+	ld a, [wLastPlayerMove]
+	cp e
+	jr nz, .physicalspecialcheck
+
+; boost move power (fixated)
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	jr nc, .enemy_rampage
+	ld d, $ff
+	jr .physicalspecialcheck
+
+.enemy_rampage
+	ld d, a
+	ld a, [wEnemySubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	jr nc, .physicalspecialcheck
+	ld d, $ff
+
 .physicalspecialcheck
 	ld a, [hl]
 	cp SPECIAL
@@ -2778,6 +2804,32 @@ EnemyAttackDamage:
 	ld d, a
 	and a
 	ret z
+
+	ld a, [wEnemySubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, [wCurEnemyMove]
+	ld e, a
+	ld a, [wLastEnemyMove]
+	cp e
+	jr nz, .physicalspecialcheck
+
+; boost move power (fixated)
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	jr nc, .player_rampage
+	ld d, $ff
+	jr .physicalspecialcheck
+
+.player_rampage
+	ld d, a
+	ld a, [wPlayerSubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	jr nc, .physicalspecialcheck
+	ld d, $ff
 
 .physicalspecialcheck
 	ld a, [hl]
@@ -5071,13 +5123,13 @@ BattleCommand_CheckRampage:
 	jr nz, .continue_rampage
 
 	res SUBSTATUS_RAMPAGE, [hl]
-	set SUBSTATUS_CONFUSED, [hl]
-	call BattleRandom
-	and %00000001
-	inc a
-	inc a
-	inc de ; ConfuseCount
-	ld [de], a
+;	set SUBSTATUS_CONFUSED, [hl]
+;	call BattleRandom
+;	and %00000001
+;	inc a
+;	inc a
+;	inc de ; ConfuseCount
+;	ld [de], a
 .continue_rampage
 	ld b, rampage_command
 	jp SkipToBattleCommand
