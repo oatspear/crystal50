@@ -56,6 +56,10 @@ BattleCommand_Facade:
 
 .double_power
   ld a, d
-  add a
-  ld d, a
+  sla d
+  and %10000000
+  jr z, .no_overflow
+  ld d, $ff
+
+.no_overflow
   ret
