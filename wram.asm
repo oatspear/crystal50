@@ -391,7 +391,6 @@ wTypeModifier::
 wCriticalHit::
 ; 0 if not critical
 ; 1 for a critical hit
-; 2 for a OHKO
 	db
 
 wAttackMissed::
