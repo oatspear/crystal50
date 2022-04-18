@@ -2777,12 +2777,6 @@ EnemyAttackDamage:
 	and a
 	ret z
 
-	ld a, [wBattleMonStatus]
-	and 1 << FRZ
-	jr z, .physicalspecialcheck
-	sla c
-	rl b
-
 .physicalspecialcheck
 	ld a, [hl]
 	cp SPECIAL
@@ -2796,6 +2790,12 @@ EnemyAttackDamage:
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
+	jr z, .physicalcrit
+	sla c
+	rl b
+
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
 	jr z, .physicalcrit
 	sla c
 	rl b
@@ -2821,6 +2821,12 @@ EnemyAttackDamage:
 	call SandstormSpDefBoost
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a
+	jr z, .specialcrit
+	sla c
+	rl b
+
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
 	jr z, .specialcrit
 	sla c
 	rl b
