@@ -2528,6 +2528,7 @@ PlayerAttackDamage:
 	sla c
 	rl b
 
+	; FRZ improves defenses
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ
 	jr z, .physicalcrit
@@ -2559,6 +2560,7 @@ PlayerAttackDamage:
 	sla c
 	rl b
 
+	; FRZ improves defenses
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ
 	jr z, .specialcrit
@@ -2794,6 +2796,7 @@ EnemyAttackDamage:
 	sla c
 	rl b
 
+	; FRZ improves defenses
 	ld a, [wBattleMonStatus]
 	and 1 << FRZ
 	jr z, .physicalcrit
@@ -2825,6 +2828,7 @@ EnemyAttackDamage:
 	sla c
 	rl b
 
+	; FRZ improves defenses
 	ld a, [wBattleMonStatus]
 	and 1 << FRZ
 	jr z, .specialcrit
