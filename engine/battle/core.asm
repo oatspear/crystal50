@@ -620,7 +620,7 @@ CheckContestBattleOver:
 CheckPlayerLockedIn:
 	ld a, [wPlayerSubStatus4]
 	and 1 << SUBSTATUS_RECHARGE
-	jp nz, .quit
+	jr nz, .quit
 
 	ld hl, wEnemySubStatus3
 	res SUBSTATUS_FLINCHED, [hl]
@@ -4609,20 +4609,20 @@ HandleEnergyRecovery:
 	; fallthrough
 
 .DoPlayer:
-	ld hl, wPlayerMaxEnergy
-	ld a, [wBattleMonStatus]
-	and SLP_BIT
-	jr z, .player_not_asleep
-	ld a, [wBattleMonEnergy]
-	add ENERGY_RECOVERY_SLP
-	cp [hl]
-	jr c, .player_recover
-	ld a, [hl]
-.player_recover
-	ld [wBattleMonEnergy], a
-	ret ; assume only one status condition
-
-.player_not_asleep
+; 	ld hl, wPlayerMaxEnergy
+; 	ld a, [wBattleMonStatus]
+; 	and SLP_BIT
+; 	jr z, .player_not_asleep
+; 	ld a, [wBattleMonEnergy]
+; 	add ENERGY_RECOVERY_SLP
+; 	cp [hl]
+; 	jr c, .player_recover
+; 	ld a, [hl]
+; .player_recover
+; 	ld [wBattleMonEnergy], a
+; 	ret ; assume only one status condition
+;
+; .player_not_asleep
 	ld a, [wBattleMonStatus]
 	and 1 << PSN
 	jr z, .player_done
@@ -4636,20 +4636,20 @@ HandleEnergyRecovery:
 	ret
 
 .DoEnemy:
-	ld hl, wEnemyMaxEnergy
-	ld a, [wEnemyMonStatus]
-	and SLP_BIT
-	jr z, .enemy_not_asleep
-	ld a, [wEnemyMonEnergy]
-	add ENERGY_RECOVERY_SLP
-	cp [hl]
-	jr c, .enemy_recover
-	ld a, [hl]
-.enemy_recover
-	ld [wEnemyMonEnergy], a
-	ret ; assume only one status condition
-
-.enemy_not_asleep
+; 	ld hl, wEnemyMaxEnergy
+; 	ld a, [wEnemyMonStatus]
+; 	and SLP_BIT
+; 	jr z, .enemy_not_asleep
+; 	ld a, [wEnemyMonEnergy]
+; 	add ENERGY_RECOVERY_SLP
+; 	cp [hl]
+; 	jr c, .enemy_recover
+; 	ld a, [hl]
+; .enemy_recover
+; 	ld [wEnemyMonEnergy], a
+; 	ret ; assume only one status condition
+;
+; .enemy_not_asleep
 	ld a, [wEnemyMonStatus]
 	and 1 << PSN
 	jr z, .enemy_done

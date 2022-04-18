@@ -157,6 +157,16 @@ BattleCommand_CheckTurn:
 	dec a
 	ld [wBattleMonStatus], a
 
+	; recover energy while sleeping
+	ld hl, wPlayerMaxEnergy
+	ld a, [wBattleMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .recover_energy
+	ld a, [hl]
+.recover_energy
+	ld [wBattleMonEnergy], a
+
 	xor a
 	ld [wNumHits], a
 	ld de, ANIM_SLP
@@ -388,6 +398,16 @@ CheckEnemyTurn:
 	ld a, [wEnemyMonStatus]
 	dec a
 	ld [wEnemyMonStatus], a
+
+	; recover energy while asleep
+	ld hl, wEnemyMaxEnergy
+	ld a, [wEnemyMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .recover_energy
+	ld a, [hl]
+.recover_energy
+	ld [wEnemyMonEnergy], a
 
 	ld hl, FastAsleepText
 	call StdBattleTextbox
