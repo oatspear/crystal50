@@ -103,7 +103,7 @@ MoveEffectsPointers:
 	dw FalseSwipe
 	dw HealBell
 	dw NormalHit
-	dw TripleKick
+	dw NormalHit ; unused TRIPLE_KICK
 	dw Thief
 	dw MeanLook
 	dw Hex

@@ -234,7 +234,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$4D`: `kingsrock`
 
 
-## `$4E`: `triplekick`
+## `$4E`: `effect0x4e`
 
 
 ## `$4F`: `kickcounter`

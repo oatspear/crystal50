@@ -114,7 +114,7 @@ Moves:
 	move HURRICANE,    EFFECT_HURRICANE,         100, FLYING,        SPECIAL,   75,              ENERGY_5_PP,   30
 	move POISON_STING, EFFECT_POISON_HIT,         30, POISON,        PHYSICAL, 100,              ENERGY_20_PP,  50
 	move POISON_JAB,   EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100,              ENERGY_10_PP,  30
-	move PIN_MISSILE,  EFFECT_MULTI_HIT,          25, BUG,           PHYSICAL,  95,              ENERGY_20_PP,   0 ; FIXME
+	move PIN_MISSILE,  EFFECT_MULTI_HIT,          20, BUG,           PHYSICAL,  90,              ENERGY_20_PP,   0
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,           PHYSICAL, 100,              ENERGY_20_PP,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,          PHYSICAL, 100,              ENERGY_20_PP,  30
 	move GROWL,        EFFECT_OFFENSES_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
@@ -239,7 +239,7 @@ Moves:
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        PHYSICAL, 100,                         1,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
-	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      PHYSICAL,  90,              ENERGY_20_PP,   0
+	move TRIPLE_KICK,  EFFECT_MULTI_HIT,          20, FIGHTING,      PHYSICAL,  90,              ENERGY_20_PP,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,          PHYSICAL, 100,              ENERGY_10_PP, 100
 	move INFESTATION,  EFFECT_TRAP_TARGET,        20, BUG,           SPECIAL,  100,              ENERGY_20_PP,   0
 	move SNARL,        EFFECT_OFFENSES_DOWN_HIT,  60, DARK,          SPECIAL,  100,              ENERGY_15_PP, 100
@@ -270,7 +270,7 @@ Moves:
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           SPECIAL,   95,              ENERGY_20_PP, 100
 	move X_SCISSOR,    EFFECT_NORMAL_HIT,         80, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
-	move BONE_RUSH,    EFFECT_MULTI_HIT,          25, GROUND,        PHYSICAL,  90,              ENERGY_20_PP,   0
+	move BONE_RUSH,    EFFECT_MULTI_HIT,          20, GROUND,        PHYSICAL,  90,              ENERGY_20_PP,   0
 	move WILD_CHARGE,  EFFECT_PRZ_RECOIL_HIT,     85, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  20
 	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,        PHYSICAL,  85,              ENERGY_10_PP,   0
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,          STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0

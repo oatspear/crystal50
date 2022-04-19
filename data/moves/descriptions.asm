@@ -387,10 +387,6 @@ PoisonStingDescription:
 	db   "An attack that may"
 	next "poison the target.@"
 
-PinMissileDescription:
-	db   "Fires pins that"
-	next "strike 2-5 times.@"
-
 GrowlDescription:
 	db   "Reduces the foe's"
 	next "ATTACK.@"
@@ -797,9 +793,11 @@ SketchDescription:
 	db   "Copies the foe's"
 	next "move permanently.@"
 
+PinMissileDescription:
+BoneRushDescription:
 TripleKickDescription:
-	db   "Hits three times"
-	next "with rising power.@"
+	db   "Hits the foe"
+	next "three times.@"
 
 ThiefDescription:
 	db   "An attack that may"
@@ -897,10 +895,6 @@ PerishSongDescription:
 IcyWindDescription:
 	db   "An icy attack that"
 	next "lowers SPEED.@"
-
-BoneRushDescription:
-	db   "An attack that"
-	next "hits 2-5 times.@"
 
 OutrageDescription:
 PetalDanceDescription:

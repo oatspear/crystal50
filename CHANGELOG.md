@@ -22,6 +22,8 @@
 - Rampage no longer causes confusion at the end.
 - Rampage increases the move's power by 20 in subsequent turns, but enemy moves also get a 20 power bonus.
 - Rollout and Fury Cutter now use a rampage effect.
+- Multi-hit moves now always hit 3 times.
+- Triple Kick works as a normal multi-hit move.
 
 ## v0.3 (Custom Changes)
 
