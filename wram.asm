@@ -409,23 +409,23 @@ wEnemySubStatus3:: db
 wEnemySubStatus4:: db
 wEnemySubStatus5:: db
 
-wPlayerRolloutCount:: db
+wPlayerRampageCount:: db
 wPlayerConfuseCount:: db
 wPlayerToxicCount:: db
 wPlayerDisableCount:: db
 wPlayerEncoreCount:: db
 wPlayerPerishCount:: db
-wPlayerFuryCutterCount:: db
 wPlayerProtectCount:: db
+	ds 1
 
-wEnemyRolloutCount:: db
+wEnemyRampageCount:: db
 wEnemyConfuseCount:: db
 wEnemyToxicCount:: db
 wEnemyDisableCount:: db
 wEnemyEncoreCount:: db
 wEnemyPerishCount:: db
-wEnemyFuryCutterCount:: db
 wEnemyProtectCount:: db
+	ds 1
 
 wPlayerDamageTaken:: dw
 wEnemyDamageTaken::  dw

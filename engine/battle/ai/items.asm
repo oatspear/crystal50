@@ -222,10 +222,7 @@ AI_TryItem:
 	ld [wEnemyGoesFirst], a
 
 	xor a
-	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
-
-	xor a
 	ld [wLastEnemyCounterMove], a
 
 	scf

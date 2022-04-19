@@ -95,10 +95,10 @@ ENDM
 	command perishsong              ; 58
 	command startsandstorm          ; 59
 	command endure                  ; 5a
-	command checkcurl               ; 5b
-	command rolloutpower            ; 5c
+	command effect0x5b              ; 5b
+	command effect0x5c              ; 5c
 	command revenge                 ; 5d
-	command furycutter              ; 5e
+	command effect0x5e              ; 5e
 	command attract                 ; 5f
 	command facade                  ; 60
 	command present                 ; 61
@@ -179,7 +179,7 @@ ENDM
 	command tristatuschance         ; ac
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
-	command curl                    ; af
+	command effect0xaf              ; af
 	command growth                  ; b0
 	command prowessup               ; b1
 	command dragondance             ; b2

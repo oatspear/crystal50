@@ -29,7 +29,7 @@
 ```yaml
 Bug:
     - [ ] U-Turn (>10)
-    - [ ] X-Scissor (10)
+    - [+] X-Scissor (10)
     - [ ] Bug Bite (8)
     - [ ] Lunge (3)
     - [ ] Quiver Dance (3)
@@ -38,12 +38,12 @@ Bug:
     - [x] Spider Web
     - [x] Twineedle
 Dark:
-    - [ ] Night Slash (>10)
+    - [+] Night Slash (>10)
     - [ ] Knock Off (>10)
     - [ ] Foul Play (>10)
     - [ ] Fake Tears (8)
     - [ ] Memento (8)
-    - [ ] Snarl (4)
+    - [+] Snarl (4)
     - [+] Payback (>10)
     - [+] Sucker Punch (>10)
     - [+] Nasty Plot (>10)
@@ -60,9 +60,9 @@ Dragon:
     - [x] Dragon Rage
 Electric:
     - [ ] Shock Wave (>10)
-    - [ ] Charge Beam (>10)
-    - [ ] Wild Charge (>10)
-    - [ ] Thunder Fang (10)
+    - [+] Charge Beam (>10)
+    - [+] Wild Charge (>10)
+    - [+] Thunder Fang (10)
     - [ ] Electro Ball (8)
     - [ ] Volt Switch (5)
     - [ ] Charge (5)
@@ -84,10 +84,10 @@ Fight:
     - [x] Karate Chop
     - [x] Rolling Kick
 Fire:
-    - [ ] Fire Fang (>10)
-    - [ ] Overheat (>10)
+    - [+] Fire Fang (>10)
+    - [+] Overheat (>10)
     - [ ] Flame Charge (9)
-    - [ ] Mystical Fire (7)
+    - [+] Mystical Fire (7)
     - [ ] Inferno (6)
     - [ ] Lava Plume (4)
     - [ ] Incinerate (2/>10)
@@ -95,43 +95,43 @@ Fire:
     - [+] Will-o-wisp (>10)
     - [+] Flare Blitz (5)
 Flying:
-    - [ ] Hurricane (9)
+    - [+] Hurricane (9)
     - [ ] Pluck (7)
-    - [ ] Air Cutter (5+)
-    - [ ] Brave Bird (6)
+    - [+] Air Cutter (5+)
+    - [+] Brave Bird (6)
     - [ ] Defog (>10)
     - [+] Roost (>10)
     - [+] Acrobatics (>10)
     - [+] Aerial Ace (>10)
     - [x] Mirror Move
 Ghost:
-    - [ ] Astonish (9)
-    - [ ] Shadow Claw (>10)
+    - [+] Astonish (9)
+    - [+] Shadow Claw (>10)
     - [ ] Shadow Sneak (3)
     - [+] Hex (9)
     - [x] Nightmare
 Grass:
     - [ ] Bullet Seed (>10)
-    - [ ] Energy Ball (>10) (TM)
+    - [+] Energy Ball (>10) (TM)
     - [ ] Grass Knot (>10) (TM)
     - [ ] Aromatherapy
     - [ ] Ingrain (6)
-    - [ ] Leaf Storm (6)
-    - [ ] Magical Leaf (6)
+    - [+] Leaf Storm (6)
+    - [+] Magical Leaf (6)
     - [ ] Petal Blizzard (4)
     - [ ] Power Whip (4)
     - [+] Seed Bomb (10)
 Ground:
     - [ ] Drill Run (>10)
-    - [ ] Mud Shot (>10)
+    - [+] Mud Shot (>10)
     - [+] Sand Tomb (>10)
     - [+] Bulldoze
     - [+] Earth Power
     - [x] Bone Club
     - [x] Magnitude
 Ice:
-    - [ ] Ice Fang (9)
-    - [ ] Ice Shard (7)
+    - [+] Ice Fang (9)
+    - [+] Ice Shard (7)
     - [+] Avalanche (>10) (TM)
 Normal:
     - [ ] Hyper Voice (>10)
@@ -156,12 +156,12 @@ Normal:
     - [x] Return
     - [x] Frustration
 Poison:
-    - [ ] Venoshock (>10)
+    - [+] Venoshock (>10)
     - [ ] Toxic Spikes (9)
     - [ ] Venom Drench (8)
     - [ ] Gunk Shot (7)
-    - [ ] Acid Spray (6)
-    - [ ] Cross Poison (6)
+    - [+] Acid Spray (6)
+    - [+] Cross Poison (6)
     - [ ] Clear Smog (5)
     - [ ] Poison Fang (4)
     - [+] Poison Jab
@@ -176,10 +176,10 @@ Rock:
     - [ ] Stealth Rock
     - [ ] Rock Tomb (TM)
     - [ ] Rock Blast (>10) (TM)
-    - [ ] Power Gem (5)
+    - [+] Power Gem (5)
     - [+] Stone Edge (>10)
 Steel:
-    - [ ] Iron Head (>10)
+    - [+] Iron Head (>10)
     - [ ] Gyro Ball (>10)
     - [ ] Heavy Slam (7)
     - [ ] Bullet Punch (3)
@@ -187,11 +187,11 @@ Steel:
     - [+] Flash Cannon (7)
 Water:
     - [ ] Brine (>10)
-    - [ ] Liquidation (>10) (TM)
-    - [ ] Scald (>10) (TM)
+    - [+] Liquidation (>10) (TM)
+    - [+] Scald (>10) (TM)
     - [ ] Muddy Water (>10) (TM)
-    - [ ] Water Pulse (>10)
-    - [ ] Aqua Tail (10)
+    - [+] Water Pulse (>10)
+    - [+] Aqua Tail (10)
     - [ ] Aqua Ring (9)
     - [+] Aqua Jet
     - [x] Clamp

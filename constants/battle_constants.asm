@@ -235,12 +235,12 @@ FRZ_TURNS_MASK EQU (1 << FRZ) | STATUS_TURN_COUNTER
 	const_skip
 	const SUBSTATUS_PERISH
 	const SUBSTATUS_ENDURE
-	const SUBSTATUS_ROLLOUT
+	const_skip
 	const SUBSTATUS_IN_LOVE
 
 ; wPlayerSubStatus2 or wEnemySubStatus2 bit flags
 	const_def
-	const SUBSTATUS_CURLED
+	const_skip
 
 ; wPlayerSubStatus3 or wEnemySubStatus3 bit flags
 	const_def

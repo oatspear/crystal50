@@ -626,10 +626,6 @@ CheckPlayerLockedIn:
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .quit
 
-	ld hl, wPlayerSubStatus1
-	bit SUBSTATUS_ROLLOUT, [hl]
-	jp nz, .quit
-
 	and a
 	ret
 
@@ -679,23 +675,13 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerCharging], a
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .continue_fury_cutter
-	xor a
-	ld [wPlayerFuryCutterCount], a
-	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
 	jr z, .continue_protect
-.continue_fury_cutter
-	xor a
-	ld [wPlayerProtectCount], a
-	jr .continue_protect
 
 .locked_in
 	xor a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 
 .continue_protect
@@ -705,7 +691,6 @@ ParsePlayerAction:
 
 .reset_series_counters
 	xor a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	xor a
 	ret
@@ -3771,7 +3756,6 @@ rept 4
 endr
 	ld [hl], a
 	ld [wEnemyDisableCount], a
-	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
 	ld [wEnemyDisabledMove], a
 	ld [wEnemyMinimized], a
@@ -4259,7 +4243,6 @@ endr
 	ld [hli], a
 	ld [hl], a
 	ld [wPlayerDisableCount], a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
@@ -5994,9 +5977,6 @@ ParseEnemyAction:
 	jp nc, ResetVarsForSuccessiveCounters
 	ld [wCurEnemyMoveNum], a
 	ld c, a
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
-	jp nz, .skip_load
 	ld a, [wEnemySubStatus3]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
@@ -6109,13 +6089,6 @@ ParseEnemyAction:
 
 .raging
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .fury_cutter
-	xor a
-	ld [wEnemyFuryCutterCount], a
-
-.fury_cutter
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
@@ -6130,7 +6103,6 @@ ParseEnemyAction:
 
 ResetVarsForSuccessiveCounters:
 	xor a
-	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
 	ret
 
@@ -6142,10 +6114,6 @@ CheckEnemyLockedIn:
 	ld hl, wEnemySubStatus3
 	ld a, [hl]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
-	ret nz
-
-	ld hl, wEnemySubStatus1
-	bit SUBSTATUS_ROLLOUT, [hl]
 	ret
 
 LinkBattleSendReceiveAction:
@@ -8438,7 +8406,7 @@ CleanUpBattleRAM:
 	ld [wItemsPocketScrollPosition], a
 	ld [wBallsPocketScrollPosition], a
 	ld hl, wPlayerSubStatus1
-	ld b, wEnemyFuryCutterCount - wPlayerSubStatus1
+	ld b, wEnemyProtectCount - wPlayerSubStatus1
 .loop
 	ld [hli], a
 	dec b

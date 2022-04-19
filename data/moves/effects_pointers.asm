@@ -116,9 +116,9 @@ MoveEffectsPointers:
 	dw PerishSong
 	dw Sandstorm
 	dw Endure
-	dw Rollout
+	dw NormalHit ; unused ROLLOUT
 	dw Swagger
-	dw FuryCutter
+	dw NormalHit ; unused FuryCutter
 	dw Attract
 	dw BrickBreak
 	dw Present
@@ -155,7 +155,7 @@ MoveEffectsPointers:
 	dw Teleport
 	dw BeatUp
 	dw Fly
-	dw DefenseCurl
+	dw NormalHit ; DefenseCurl
 	dw FreezeHit ; for Blizzard, purposefully with different EFFECT_* constant
 	dw Hurricane
 	dw ParalyzeRecoilHit

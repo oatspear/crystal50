@@ -111,7 +111,7 @@ MoveDescriptions::
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
-	dw DefenseCurlDescription
+	dw Move00Description ; DefenseCurlDescription
 	dw DragonDanceDescription
 	dw LightScreenDescription
 	dw HazeDescription
@@ -516,10 +516,6 @@ SleepPowderDescription:
 	db   "May cause the foe"
 	next "to fall asleep.@"
 
-PetalDanceDescription:
-	db   "Works 2-3 turns"
-	next "and confuses user.@"
-
 LowSweepDescription:
 BulldozeDescription:
 StringShotDescription:
@@ -638,10 +634,6 @@ ConfuseRayDescription:
 	next "confusion.@"
 
 WithdrawDescription:
-	db   "Heightens the"
-	next "user's DEFENSE.@"
-
-DefenseCurlDescription:
 	db   "Heightens the"
 	next "user's DEFENSE.@"
 
@@ -911,8 +903,11 @@ BoneRushDescription:
 	next "hits 2-5 times.@"
 
 OutrageDescription:
-	db   "Works 2-3 turns"
-	next "and confuses user.@"
+PetalDanceDescription:
+RolloutDescription:
+FuryCutterDescription:
+	db   "Enters a rampage"
+	next "for 2-3 turns.@"
 
 HailDescription:
 SandstormDescription:
@@ -926,10 +921,6 @@ EndureDescription:
 CharmDescription:
 	db   "Sharply lowers the"
 	next "foe's ATTACK.@"
-
-RolloutDescription:
-	db   "Attacks 5 turns"
-	next "with rising power.@"
 
 FalseSwipeDescription:
 	db   "Leaves the foe"
@@ -946,10 +937,6 @@ MilkDrinkDescription:
 SparkDescription:
 	db   "An attack that may"
 	next "cause paralysis.@"
-
-FuryCutterDescription:
-	db   "Successive hits"
-	next "raise power.@"
 
 SteelWingDescription:
 	db   "Stiff wings strike"

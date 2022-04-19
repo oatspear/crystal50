@@ -95,10 +95,10 @@ BattleCommandPointers:
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure
-	dw BattleCommand_CheckCurl
-	dw BattleCommand_RolloutPower
+	dw BattleCommand_UnusedEffect ; CheckCurl
+	dw BattleCommand_UnusedEffect ; RolloutPower
 	dw BattleCommand_Revenge
-	dw BattleCommand_FuryCutter
+	dw BattleCommand_UnusedEffect ; FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_Facade
 	dw BattleCommand_Present
@@ -179,7 +179,7 @@ BattleCommandPointers:
 	dw BattleCommand_TriStatusChance
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
-	dw BattleCommand_Curl
+	dw BattleCommand_UnusedEffect ; Curl
 	dw BattleCommand_Growth
 	dw BattleCommand_ProwessUp
 	dw BattleCommand_DragonDance

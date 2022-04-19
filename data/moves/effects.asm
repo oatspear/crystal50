@@ -1572,27 +1572,6 @@ Endure:
 	endure
 	endmove
 
-Rollout:
-	checkcurl
-	checkobedience
-	doturn
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	checkhit
-	rolloutpower
-	damagevariation
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
-	endmove
-
 Swagger:
 	checkobedience
 	usedmovetext
@@ -1610,26 +1589,6 @@ Swagger:
 	switchturn
 	statupmessage
 	switchturn
-	endmove
-
-FuryCutter:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	checkhit
-	furycutter
-	damagevariation
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
 	endmove
 
 Attract:
@@ -2025,20 +1984,6 @@ BeatUp:
 	beatupfailtext
 	raisesub
 	kingsrock
-	endmove
-
-DefenseCurl:
-	checkobedience
-	usedmovetext
-	doturn
-	defenseup2
-	specialdefenseup
-	curl
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
 	endmove
 
 Hail:

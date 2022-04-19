@@ -18,7 +18,6 @@ StallMoves:
 	db SCREECH
 	db HARDEN
 	db WITHDRAW
-	db DEFENSE_CURL
 	db DRAGON_DANCE
 	db LIGHT_SCREEN
 	db HAZE

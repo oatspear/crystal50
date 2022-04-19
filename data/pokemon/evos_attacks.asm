@@ -512,7 +512,7 @@ SandshrewEvosAttacks:
 	db EVOLVE_LEVEL, 22, SANDSLASH
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 3, POISON_STING
 	db 6, SAND_ATTACK
 	db 9, ROLLOUT
@@ -534,7 +534,7 @@ SandslashEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CRUSH_CLAW
 	db 1, SCRATCH
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 1, POISON_STING
 	db 1, SAND_ATTACK
 	; db 1, AGILITY
@@ -676,7 +676,7 @@ ClefairyEvosAttacks:
 	db 1, SING
 	db 1, POUND
 	db 1, GROWL
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 4, DISARMING_VOICE ; FIXME: STORED_POWER
 	db 8, MINIMIZE
 	db 12, SWEET_KISS ; FIXME: AFTER_YOU
@@ -768,7 +768,7 @@ JigglypuffEvosAttacks:
 	db 1, SING
 	db 1, POUND
 	; db 1, COPYCAT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 4, DISARMING_VOICE ; FIXME: ECHOED_VOICE
 	db 8, SWEET_KISS ; FIXME: COVET
 	db 12, DISABLE ; FIXME: STOCKPILE
@@ -796,7 +796,7 @@ WigglytuffEvosAttacks:
 	; db 1, SWALLOW
 	; db 1, SPIT_UP
 	; db 1, ROUND
-	; db 1, REST
+	db 1, REST
 	db 1, BODY_SLAM
 	; db 1, MIMIC
 	; db 1, GYRO_BALL
@@ -806,7 +806,7 @@ WigglytuffEvosAttacks:
 	db 1, SING
 	; db 1, POUND
 	; db 1, COPYCAT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 0 ; no more level-up moves
 
 ZubatEvosAttacks:
@@ -1455,7 +1455,7 @@ GeodudeEvosAttacks:
 	db EVOLVE_LEVEL, 25, GRAVELER
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	; db 4, MUD_SPORT
 	; db 6, ROCK_POLISH
 	db 10, ROLLOUT
@@ -1476,7 +1476,7 @@ GravelerEvosAttacks:
 	db EVOLVE_HOLD, HARD_STONE, 40, GOLEM
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	; db 1, MUD_SPORT
 	; db 1, ROCK_POLISH
 	; db 4, MUD_SPORT
@@ -1498,7 +1498,7 @@ GolemEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, HEAVY_SLAM
 	db 1, TACKLE
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	; db 1, MUD_SPORT
 	; db 1, ROCK_POLISH
 	; db 4, MUD_SPORT
@@ -2182,7 +2182,7 @@ HitmonchanEvosAttacks:
 LickitungEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, LICK
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 6, ROLLOUT
 	db 12, SUPERSONIC
 	db 18, WRAP
@@ -2286,7 +2286,7 @@ ChanseyEvosAttacks:
 	db 1, CHARM
 	; db 1, MINIMIZE
 	; db 1, COPYCAT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
 	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
 	db 12, ROLLOUT ; FIXME: LIFE_DEW
@@ -2889,7 +2889,7 @@ SnorlaxEvosAttacks:
 	; db 1, LAST_RESORT
 	db 1, LICK
 	db 1, TACKLE
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 1, MEAN_LOOK ; FIXME: BLOCK
 	db 12, HYPNOSIS ; FIXME: YAWN
 	db 16, BITE
@@ -3132,7 +3132,7 @@ CyndaquilEvosAttacks:
 	db 10, EMBER
 	db 13, QUICK_ATTACK
 	db 19, FLAME_WHEEL
-	db 22, DEFENSE_CURL
+	; db 22, DEFENSE_CURL
 	db 31, SWIFT
 	db 40, FLAMETHROWER
 	db 49, ROLLOUT
@@ -3149,7 +3149,7 @@ QuilavaEvosAttacks:
 	db 10, EMBER
 	db 13, QUICK_ATTACK
 	db 20, FLAME_WHEEL
-	db 24, DEFENSE_CURL
+	; db 24, DEFENSE_CURL
 	db 31, SWIFT
 	; db 35, FLAME_CHARGE
 	db 42, FLAMETHROWER ; FIXME: LAVA_PLUME
@@ -3174,7 +3174,7 @@ TyphlosionEvosAttacks:
 	; db 10, EMBER
 	db 13, QUICK_ATTACK
 	db 20, FLAME_WHEEL
-	db 24, DEFENSE_CURL
+	; db 24, DEFENSE_CURL
 	db 31, SWIFT
 	; db 35, FLAME_CHARGE
 	db 43, FLAMETHROWER ; FIXME: LAVA_PLUME
@@ -3257,7 +3257,7 @@ SentretEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, GROWL
-	db 4, DEFENSE_CURL
+	; db 4, DEFENSE_CURL
 	db 7, QUICK_ATTACK
 	db 13, FURY_SWIPES
 	; db 16, HELPING_HAND
@@ -3276,7 +3276,7 @@ FurretEvosAttacks:
 	; db 1, AGILITY
 	; db 1, COIL
 	; db 1, SCRATCH
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
 	db 1, GROWL
 	; db 4, DEFENSE_CURL
@@ -3516,7 +3516,7 @@ IgglybuffEvosAttacks:
 	db 1, SING
 	db 1, POUND
 	db 1, MIMIC ; FIXME: COPYCAT
-	db 4, DEFENSE_CURL
+	; db 4, DEFENSE_CURL
 	db 8, SWEET_KISS
 	db 12, DISARMING_VOICE
 	db 16, DISABLE
@@ -3679,7 +3679,7 @@ MarillEvosAttacks:
 	db EVOLVE_LEVEL, 18, AZUMARILL
 	db 0 ; no more evolutions
 	db 1, ROLLOUT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	; db 1, TACKLE
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
@@ -3699,7 +3699,7 @@ MarillEvosAttacks:
 AzumarillEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ROLLOUT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	; db 1, TACKLE
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
@@ -4128,7 +4128,7 @@ ForretressEvosAttacks:
 DunsparceEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, FLAIL
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 4, MUD_SLAP
 	db 8, ROLLOUT
 	db 12, GLARE
@@ -4625,7 +4625,7 @@ PhanpyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 6, FLAIL
 	db 10, ROLLOUT
 	db 15, BULLDOZE
@@ -4652,7 +4652,7 @@ DonphanEvosAttacks:
 	; db 1, HORN_ATTACK
 	db 1, BULLDOZE
 	db 1, GROWL
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 6, RAPID_SPIN
 	db 10, ROLLOUT
 	db 15, PAYBACK ; FIXME: ASSURANCE
@@ -4671,7 +4671,7 @@ Porygon2EvosAttacks: ; based on gen 7
 	; db 1, MAGIC_COAT
 	db 1, TACKLE
 	db 1, CONVERSION
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 1, CONVERSION2
 	db 7, PSYBEAM
 	db 12, AGILITY
@@ -4816,7 +4816,7 @@ MiltankEvosAttacks:
 	db 1, TACKLE
 	db 1, GROWL
 	db 5, ROLLOUT
-	db 10, DEFENSE_CURL
+	; db 10, DEFENSE_CURL
 	db 15, STOMP
 	db 20, HEAL_BELL
 	db 25, HEADBUTT
@@ -4837,7 +4837,7 @@ BlisseyEvosAttacks:
 	db 1, CHARM
 	; db 1, MINIMIZE
 	; db 1, COPYCAT
-	db 1, DEFENSE_CURL
+	; db 1, DEFENSE_CURL
 	db 4, TAIL_WHIP
 	db 8, DISARMING_VOICE ; FIXME: ECHOED_VOICE
 	db 12, ROLLOUT ; FIXME: LIFE_DEW

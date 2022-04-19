@@ -346,17 +346,11 @@ BattleCommand_CheckTurn:
 	jp EndTurn
 
 CantMove:
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
-	res SUBSTATUS_ROLLOUT, [hl]
-
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	ld a, [hl]
 	and $ff ^ (1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
 	ld [hl], a
-
-	call ResetFuryCutterCount
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -1038,7 +1032,6 @@ BattleCommand_DoTurn:
 	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
-	db EFFECT_ROLLOUT
 	db EFFECT_RAMPAGE
 	db -1
 
@@ -1915,16 +1908,14 @@ BattleCommand_LowerSub:
 .Rampage:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_ROLLOUT
-	jr z, .rollout_rampage
 	cp EFFECT_RAMPAGE
-	jr z, .rollout_rampage
+	jr z, .is_rampage
 
 	ld a, 1
 	and a
 	ret
 
-.rollout_rampage
+.is_rampage
 	ld a, [wSomeoneIsRampaging]
 	and a
 	ld a, 0
@@ -1944,10 +1935,10 @@ BattleCommand_MoveAnimNoSub:
 
 	ldh a, [hBattleTurn]
 	and a
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ld a, BATTLEANIM_ENEMY_DAMAGE
 	jr z, .got_rollout_count
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 	ld a, BATTLEANIM_PLAYER_DAMAGE
 
 .got_rollout_count
@@ -2313,11 +2304,11 @@ BattleCommand_CriticalText:
 BattleCommand_StartLoop:
 ; startloop
 
-	ld hl, wPlayerRolloutCount
+	ld hl, wPlayerRampageCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld hl, wEnemyRolloutCount
+	ld hl, wEnemyRampageCount
 .ok
 	xor a
 	ld [hl], a
@@ -4932,13 +4923,6 @@ BattleCommand_TriStatusChance:
 	dw BattleCommand_FreezeTarget ; freeze
 	dw BattleCommand_BurnTarget ; burn
 
-BattleCommand_Curl:
-; curl
-	ld a, BATTLE_VARS_SUBSTATUS2
-	call GetBattleVarAddr
-	set SUBSTATUS_CURLED, [hl]
-	ret
-
 INCLUDE "engine/battle/move_effects/growth.asm"
 
 INCLUDE "engine/battle/move_effects/dragon_dance.asm"
@@ -5107,11 +5091,11 @@ BattleCommand_CheckPowder:
 BattleCommand_CheckRampage:
 ; checkrampage
 
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .player
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 .player
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
@@ -5143,11 +5127,11 @@ BattleCommand_Rampage:
 	and SLP_BIT
 	ret nz
 
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 .ok
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
@@ -5390,12 +5374,12 @@ BattleCommand_EndLoop:
 
 ; Loop back to 'critical'.
 
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ld bc, wPlayerDamageTaken
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .got_addrs
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 	ld bc, wEnemyDamageTaken
 .got_addrs
 
@@ -6657,12 +6641,8 @@ INCLUDE "engine/battle/move_effects/perish_song.asm"
 
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
-INCLUDE "engine/battle/move_effects/rollout.asm"
-
 BattleCommand_UnusedEffect:
 	ret
-
-INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
 

@@ -273,16 +273,16 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$5A`: `endure`
 
 
-## `$5B`: `checkcurl`
+## `$5B`: `effect0x5b`
 
 
-## `$5C`: `rolloutpower`
+## `$5C`: `effect0x5c`
 
 
 ## `$5D`: `effect0x5d`
 
 
-## `$5E`: `furycutter`
+## `$5E`: `effect0x5e`
 
 
 ## `$5F`: `attract`
@@ -525,7 +525,7 @@ Defined in [macros/scripts/battle_commands.asm](https://github.com/pret/pokecrys
 ## `$AE`: `startloop`
 
 
-## `$AF`: `curl`
+## `$AF`: `effect0xaf`
 
 
 ## `$FE`: `endturn`

@@ -361,9 +361,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_PERISH_SONG,      AI_Smart_PerishSong
 	dbw EFFECT_SANDSTORM,        AI_Smart_Sandstorm
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
-	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
-	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_BRICK_BREAK,      AI_Smart_BrickBreak
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
@@ -570,13 +568,9 @@ AI_Smart_EvasionUp:
 	cp b
 	jr c, .discourage
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [wPlayerFuryCutterCount]
-	and a
-	jr nz, .greatly_encourage
-
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
+; Greatly encourage this move if the player is in the middle of a rampage.
+	ld a, [wPlayerSubStatus3]
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .greatly_encourage
 
 .discourage
@@ -701,13 +695,9 @@ AI_Smart_AccuracyDown:
 	cp b
 	jr c, .discourage
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [wPlayerFuryCutterCount]
-	and a
-	jr nz, .greatly_encourage
-
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
+; Greatly encourage this move if the player is in the middle of a rampage.
+	ld a, [wPlayerSubStatus3]
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .greatly_encourage
 
 .discourage
@@ -860,13 +850,17 @@ AI_Smart_TrapTarget:
 	jr nz, .discourage
 
 ; 50% chance to greatly encourage this move if player is either
-; badly poisoned, in love, or stuck in Rollout.
+; badly poisoned, in love or paralyzed.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	jr nz, .encourage
 
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT
+	and 1 << SUBSTATUS_IN_LOVE
+	jr nz, .encourage
+
+	ld a, [wBattleMonStatus]
+	and 1 << PRZ
 	jr nz, .encourage
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
@@ -1529,9 +1523,13 @@ AI_Smart_MeanLook:
 	jr nz, .encourage
 
 ; 80% chance to greatly encourage this move if the player is either
-; in love, or stuck in Rollout.
+; in love or paralyzed.
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT
+	and 1 << SUBSTATUS_IN_LOVE
+	jr nz, .encourage
+
+	ld a, [wBattleMonStatus]
+	and 1 << PRZ
 	jr nz, .encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
@@ -1712,14 +1710,12 @@ AI_Smart_Protect:
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .discourage
 
-; Encourage this move if the player's Fury Cutter is boosted enough.
-	ld a, [wPlayerFuryCutterCount]
-	cp 3
-	jr nc, .encourage
-
-; Encourage this move if the player has charged a two-turn move.
+; Encourage this move if the player has charged a two-turn move
+; or is on a rampage.
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
+	jr nz, .encourage
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .encourage
 
 ; Encourage this move if the player is affected by Toxic, Leech Seed, or Curse.
@@ -1732,13 +1728,6 @@ AI_Smart_Protect:
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_CURSE, a
 	jr nz, .encourage
-
-; Discourage this move if the player's Rollout count is not boosted enough.
-	bit SUBSTATUS_ROLLOUT, a
-	jr z, .discourage
-	ld a, [wPlayerRolloutCount]
-	cp 3
-	jr c, .discourage
 
 ; 80% chance to encourage this move otherwise.
 .encourage
@@ -1921,69 +1910,6 @@ AI_Smart_Endure:
 .greatly_discourage
 	inc [hl]
 .discourage
-	inc [hl]
-	ret
-
-AI_Smart_FuryCutter:
-; Encourage this move based on Fury Cutter's count.
-
-	ld a, [wEnemyFuryCutterCount]
-	and a
-	jr z, AI_Smart_Rollout
-	dec [hl]
-
-	cp 2
-	jr c, AI_Smart_Rollout
-	dec [hl]
-	dec [hl]
-
-	cp 3
-	jr c, AI_Smart_Rollout
-	dec [hl]
-	dec [hl]
-	dec [hl]
-
-	; fallthrough
-
-AI_Smart_Rollout:
-; Rollout, Fury Cutter
-
-; 80% chance to discourage this move if the enemy is in love, confused, or paralyzed.
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_IN_LOVE, a
-	jr nz, .maybe_discourage
-
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	ld a, [wEnemyMonStatus]
-	bit PAR, a
-	jr nz, .maybe_discourage
-
-; 80% chance to discourage this move if the enemy's HP is below 25%,
-; or if accuracy or evasion modifiers favour the player.
-	call AICheckEnemyQuarterHP
-	jr nc, .maybe_discourage
-
-	lda_stat_level [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL
-	jr c, .maybe_discourage
-	lda_stat_level [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .maybe_discourage
-
-; 80% chance to greatly encourage this move otherwise.
-	call Random
-	cp 79 percent - 1
-	ret nc
-	dec [hl]
-	dec [hl]
-	ret
-
-.maybe_discourage
-	call AI_80_20
-	ret c
 	inc [hl]
 	ret
 

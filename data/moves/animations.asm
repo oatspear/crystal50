@@ -118,7 +118,7 @@ BattleAnimations::
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
-	dw BattleAnim_DefenseCurl
+	dw BattleAnim_0 ; DefenseCurl
 	dw BattleAnim_DragonDance
 	dw BattleAnim_LightScreen
 	dw BattleAnim_Haze
@@ -3066,18 +3066,18 @@ BattleAnim_CalmMind:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_DefenseCurl:
-	anim_1gfx ANIM_GFX_SHAPES
-	anim_obp0 $e4
-	anim_call BattleAnim_TargetObj_1Row
-	anim_sound 0, 0, SFX_SHARPEN
-	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_obj ANIM_OBJ_DEFENSE_CURL, 48, 88, $0
-	anim_wait 96
-	anim_incobj 2
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
+; BattleAnim_DefenseCurl: ; unrefenced
+; 	anim_1gfx ANIM_GFX_SHAPES
+; 	anim_obp0 $e4
+; 	anim_call BattleAnim_TargetObj_1Row
+; 	anim_sound 0, 0, SFX_SHARPEN
+; 	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
+; 	anim_obj ANIM_OBJ_DEFENSE_CURL, 48, 88, $0
+; 	anim_wait 96
+; 	anim_incobj 2
+; 	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
+; 	anim_call BattleAnim_ShowMon_0
+; 	anim_ret
 
 BattleAnim_SeismicToss:
 	anim_2gfx ANIM_GFX_GLOBE, ANIM_GFX_HIT
