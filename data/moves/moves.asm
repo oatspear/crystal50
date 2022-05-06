@@ -208,7 +208,7 @@ Moves:
 	move NIGHT_SLASH,  EFFECT_NORMAL_HIT,         70, DARK,          PHYSICAL, 100,              ENERGY_15_PP,   0
 	move OMINOUS_WIND, EFFECT_ALL_UP_HIT,         60, GHOST,         SPECIAL,  100,              ENERGY_15_PP,  20
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         130, FIGHTING,      PHYSICAL,  85,              ENERGY_10_PP,   0 ; FIXME
+	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         100, FIGHTING,      PHYSICAL,  85,              ENERGY_10_PP,   0
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       100, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_10_PP,   0
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,        STATUS,    90,              ENERGY_20_PP,   0
