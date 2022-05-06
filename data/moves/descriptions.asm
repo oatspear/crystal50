@@ -111,7 +111,7 @@ MoveDescriptions::
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
-	dw Move00Description ; DefenseCurlDescription
+	dw ScaldDescription
 	dw DragonDanceDescription
 	dw LightScreenDescription
 	dw HazeDescription
@@ -413,6 +413,7 @@ AcidSprayDescription:
 
 EmberDescription:
 FlamethrowerDescription:
+ScaldDescription:
 	db   "An attack that may"
 	next "inflict a burn.@"
 

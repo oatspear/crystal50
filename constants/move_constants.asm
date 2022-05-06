@@ -116,7 +116,7 @@
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
 	const WITHDRAW     ; 6e
-	const_skip ; 6f
+	const SCALD        ; 6f
 	const DRAGON_DANCE ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72

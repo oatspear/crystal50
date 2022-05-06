@@ -110,7 +110,7 @@ MoveNames::
 	li "SMOKESCREEN"
 	li "CONFUSE RAY"
 	li "WITHDRAW"
-	li "DEFENSE CURL"
+	li "SCALD"
 	li "DRAGON DANCE"
 	li "LIGHT SCREEN"
 	li "HAZE"

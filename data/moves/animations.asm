@@ -118,7 +118,7 @@ BattleAnimations::
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
-	dw BattleAnim_0 ; DefenseCurl
+	dw BattleAnim_Scald
 	dw BattleAnim_DragonDance
 	dw BattleAnim_LightScreen
 	dw BattleAnim_Haze
@@ -1155,6 +1155,25 @@ BattleAnim_WaterPulse:
 	anim_obj ANIM_OBJ_HYDRO_PUMP, 140, 72, $0
 	anim_bgeffect ANIM_BG_WATER, $8, $0, $0
 	anim_wait 32
+	anim_call BattleAnim_ShowMon_1
+	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_Scald:
+	anim_2gfx ANIM_GFX_WATER, ANIM_GFX_FIRE
+.loop
+	anim_sound 0, 0, SFX_EMBER
+	anim_obj ANIM_OBJ_FLAME_WHEEL, 48, 96, $0
+	anim_wait 6
+	anim_loop 8, .loop
+	anim_wait 96
+	anim_bgeffect ANIM_BG_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_call BattleAnim_UserObj_2Row
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 132, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_wait 40
 	anim_call BattleAnim_ShowMon_1
 	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
 	anim_wait 16
