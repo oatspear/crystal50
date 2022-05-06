@@ -196,7 +196,7 @@ Moves:
 	move SEED_BOMB,    EFFECT_NORMAL_HIT,         65, GRASS,         PHYSICAL, 100,              ENERGY_15_PP,   0
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100,              ENERGY_20_PP,  30 ; FIXME
 	move SMOG,         EFFECT_POISON_HIT,         30, POISON,        SPECIAL,  100,              ENERGY_20_PP,  50
-	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100,              ENERGY_20_PP,  30 ; FIXME
+	move SLUDGE,       EFFECT_POISON_HIT,         60, POISON,        SPECIAL,  100,              ENERGY_15_PP,  30
 	move EARTH_POWER,  EFFECT_DEFENSES_DOWN_HIT,  80, GROUND,        SPECIAL,  100,              ENERGY_10_PP,  20
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          100, FIRE,          SPECIAL,   85,              ENERGY_5_PP,   20
 	move WATERFALL,    EFFECT_FLINCH_HIT,         80, WATER,         PHYSICAL, 100,              ENERGY_20_PP,  20 ; FIXME
