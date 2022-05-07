@@ -95,7 +95,7 @@ Moves:
 	move SAND_TOMB,    EFFECT_TRAP_TARGET,        35, GROUND,        PHYSICAL,  85,              ENERGY_20_PP,   0
 	move BULK_UP,      EFFECT_PROWESS_UP,          0, FIGHTING,      STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,         PHYSICAL, 100,              ENERGY_30_PP,   0
-	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,  30
+	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,  30 ; FIXME
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
 	move CHARGE_BEAM,  EFFECT_OFFENSES_UP_HIT,    50, ELECTRIC,      SPECIAL,   90,              ENERGY_15_PP,  50
 	move CLOSE_COMBAT, EFFECT_CLOSE_COMBAT,      100, FIGHTING,      PHYSICAL, 100,              ENERGY_5_PP,    0
@@ -106,7 +106,7 @@ Moves:
 	move DRAIN_KISS,   EFFECT_LEECH_HIT,          50, FAIRY,         SPECIAL,  100,              ENERGY_15_PP,   0
 	move ENERGY_BALL,  EFFECT_DEFENSES_DOWN_HIT,  80, GRASS,         SPECIAL,  100,              ENERGY_10_PP,  20
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
-	move BODY_SLAM,    EFFECT_BODY_SLAM,          85, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,  30
+	move BODY_SLAM,    EFFECT_BODY_SLAM,          85, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,  30 ; FIXME
 	move WRAP,         EFFECT_TRAP_TARGET,        35, NORMAL,        PHYSICAL,  85,              ENERGY_20_PP,   0
 	move EXTRASENSORY, EFFECT_FLINCH_HIT,         70, PSYCHIC_TYPE,  SPECIAL,  100,              ENERGY_15_PP,  10
 	move GIGA_IMPACT,  EFFECT_HYPER_BEAM,        120, NORMAL,        PHYSICAL,  90,              ENERGY_5_PP,    0
@@ -176,7 +176,7 @@ Moves:
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,         SPECIAL,  100,              ENERGY_20_PP,   0
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move SCREECH,      EFFECT_DEFENSES_DOWN_2,     0, NORMAL,        STATUS,    85,              ENERGY_20_PP,   0
-	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0 ; FIXME
+	move DOUBLE_TEAM,  EFFECT_EVASION_UP_2,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move IRON_DEFENSE, EFFECT_DEFENSES_UP_2,       0, STEEL,         STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0 ; FIXME
