@@ -395,14 +395,34 @@ Growth:
 	checkobedience
 	usedmovetext
 	doturn
-	growth  ; FIXME
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	growth
 	endmove
 
 DragonDance:
 	checkobedience
 	usedmovetext
 	doturn
-	dragondance  ; FIXME
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	speedup1
+	statupmessage
+	statupfailtext
 	endmove
 
 OffensesDown:

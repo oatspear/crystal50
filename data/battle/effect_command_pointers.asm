@@ -182,7 +182,7 @@ BattleCommandPointers:
 	dw BattleCommand_UnusedEffect ; Curl
 	dw BattleCommand_Growth
 	dw BattleCommand_ProwessUp
-	dw BattleCommand_DragonDance
+	dw BattleCommand_UnusedEffect ; Dragon Dance
 	dw BattleCommand_AttackUp1
 	dw BattleCommand_DefenseUp1
 	dw BattleCommand_SpeedUp1

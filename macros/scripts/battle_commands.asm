@@ -182,7 +182,7 @@ ENDM
 	command effect0xaf              ; af
 	command growth                  ; b0
 	command prowessup               ; b1
-	command dragondance             ; b2
+	command effect0xb2              ; b2
 	command attackup1               ; b3
 	command defenseup1              ; b4
 	command speedup1                ; b5

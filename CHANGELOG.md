@@ -12,7 +12,7 @@
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
 - Many moves received boosts to their effect chances and accuracy.
 - Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
-- Belly Drum changed to boost offensive stats without penalty.
+- Belly Drum changed to boost offensive stats without penalty (same as Swords Dance).
 - Updated Hidden Power to use Legends: Arceus mechanics.
 - Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
 - Flinching substatus may carry over to the next turn; Pokémon moving last may flinch the opponent in the following turn.
@@ -21,6 +21,8 @@
 - Rollout and Fury Cutter now use a rampage effect.
 - Multi-hit moves now always hit 3 times.
 - Triple Kick works as a normal multi-hit move.
+- Dragon Dance boosts both attack stats and speed.
+- Growth boosts both attack stats; under harsh sunlight, it also boosts speed.
 
 ## v0.3 (Custom Changes)
 
