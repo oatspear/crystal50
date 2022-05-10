@@ -6653,7 +6653,7 @@ BattleCommand_CheckSafeguard:
 	call StdBattleTextbox
 	jp EndMoveEffect
 
-INCLUDE "engine/battle/move_effects/baton_pass.asm"
+INCLUDE "engine/battle/move_effects/u_turn.asm"
 
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 

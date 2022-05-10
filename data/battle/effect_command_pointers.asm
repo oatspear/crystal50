@@ -71,7 +71,7 @@ BattleCommandPointers:
 	dw BattleCommand_Counter
 	dw BattleCommand_Encore
 	dw BattleCommand_PainSplit
-	dw BattleCommand_UnusedEffect ; Snore
+	dw BattleCommand_UTurn
 	dw BattleCommand_Conversion2
 	dw BattleCommand_UnusedEffect ; LockOn
 	dw BattleCommand_Sketch

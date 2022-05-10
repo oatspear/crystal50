@@ -295,10 +295,10 @@ Moves:
 	move PAIN_SPLIT,   EFFECT_PAIN_SPLIT,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move SACRED_FIRE,  EFFECT_SACRED_FIRE,       100, FIRE,          PHYSICAL,  95,              ENERGY_5_PP,   50
 	move BULLDOZE,     EFFECT_SPEED_DOWN_HIT,     60, GROUND,        PHYSICAL, 100,              ENERGY_20_PP, 100
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, FIGHTING,      PHYSICAL, 100,              ENERGY_30_PP,   0
+	move U_TURN,       EFFECT_U_TURN,             60, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move MEGAHORN,     EFFECT_NORMAL_HIT,        100, BUG,           PHYSICAL,  85,              ENERGY_5_PP,    0
 	move DRAGONBREATH, EFFECT_PARALYZE_HIT,       60, DRAGON,        SPECIAL,  100,              ENERGY_20_PP,  30
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, NORMAL,        STATUS,   100,              ENERGY_30_PP,   0
+	move VOLT_SWITCH,  EFFECT_U_TURN,             60, ELECTRIC,      SPECIAL,  100,              ENERGY_10_PP,   0
 	move ENCORE,       EFFECT_ENCORE,              0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move DARK_PULSE,   EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  PERFECT_ACCURACY, ENERGY_10_PP,  20
 	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         50, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,   0

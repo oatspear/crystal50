@@ -5438,24 +5438,26 @@ BattleMonEntrance:
 	ret
 
 PassedBattleMonEntrance:
-	ld c, 50
+; altered
+; this version is for use with U-Turn rather than Baton Pass
+	ld c, 32
 	call DelayFrames
 
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
 
-	ld a, [wCurPartyMon]
-	ld [wCurBattleMon], a
-	call AddBattleParticipant
-	call InitBattleMon
-	xor a ; FALSE
-	ld [wApplyStatLevelMultipliersToEnemy], a
-	call ApplyStatLevelMultiplierOnAllStats
-	call SendOutPlayerMon
-	call EmptyBattleTextbox
-	call LoadTilemapToTempTilemap
-	call SetPlayerTurn
+	jp PlayerPartyMonEntrance
+
+PassedEnemyMonEntrance:
+	xor a
+	ld [wEnemySwitchMonIndex], a
+	call NewEnemyMonStatus
+	call ResetEnemyStatLevels
+	call BreakAttraction
+	call EnemySwitch_SetMode
+	call ResetBattleParticipants
+	call SetEnemyTurn
 	jp SpikesDamage
 
 BattleMenu_Run:

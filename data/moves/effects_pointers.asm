@@ -91,7 +91,7 @@ MoveEffectsPointers:
 	dw Counter
 	dw Encore
 	dw PainSplit
-	dw NormalHit ; unused SNORE
+	dw UTurn
 	dw Conversion2
 	dw NormalHit ; unused LOCK_ON
 	dw Sketch
@@ -126,7 +126,7 @@ MoveEffectsPointers:
 	dw Safeguard
 	dw SacredFire
 	dw Facade
-	dw BatonPass
+	dw NormalHit ; unused BatonPass
 	dw DoBurn
 	dw RapidSpin
 	dw NormalHit

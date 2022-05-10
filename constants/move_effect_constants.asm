@@ -90,7 +90,7 @@
 	const EFFECT_COUNTER
 	const EFFECT_ENCORE
 	const EFFECT_PAIN_SPLIT
-	const_skip
+	const EFFECT_U_TURN
 	const EFFECT_CONVERSION2
 	const_skip
 	const EFFECT_SKETCH
@@ -125,7 +125,7 @@
 	const EFFECT_SAFEGUARD
 	const EFFECT_SACRED_FIRE
 	const EFFECT_FACADE
-	const EFFECT_BATON_PASS
+	const_skip ; BATON_PASS
 	const EFFECT_BURN
 	const EFFECT_RAPID_SPIN
 	const EFFECT_UNUSED_82

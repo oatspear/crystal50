@@ -1640,11 +1640,24 @@ SacredFire:
 	burntarget
 	endmove
 
-BatonPass:
+UTurn:
 	checkobedience
 	usedmovetext
 	doturn
-	batonpass
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	uturn
+	checkfaint
+	kingsrock
 	endmove
 
 RapidSpin:
