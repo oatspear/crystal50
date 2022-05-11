@@ -71,7 +71,7 @@ BattleCommandPointers:
 	dw BattleCommand_Counter
 	dw BattleCommand_Encore
 	dw BattleCommand_PainSplit
-	dw BattleCommand_UnusedEffect ; Snore
+	dw BattleCommand_UTurn
 	dw BattleCommand_Conversion2
 	dw BattleCommand_UnusedEffect ; LockOn
 	dw BattleCommand_Sketch
@@ -182,7 +182,7 @@ BattleCommandPointers:
 	dw BattleCommand_UnusedEffect ; Curl
 	dw BattleCommand_Growth
 	dw BattleCommand_ProwessUp
-	dw BattleCommand_DragonDance
+	dw BattleCommand_UnusedEffect ; Dragon Dance
 	dw BattleCommand_AttackUp1
 	dw BattleCommand_DefenseUp1
 	dw BattleCommand_SpeedUp1

@@ -116,7 +116,7 @@
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
 	const WITHDRAW     ; 6e
-	const_skip ; 6f
+	const SCALD        ; 6f
 	const DRAGON_DANCE ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
@@ -228,10 +228,10 @@
 	const PAIN_SPLIT   ; dc
 	const SACRED_FIRE  ; dd
 	const BULLDOZE     ; de
-	const_skip ; df
+	const U_TURN       ; df
 	const MEGAHORN     ; e0
 	const DRAGONBREATH ; e1
-	const_skip   ; e2
+	const VOLT_SWITCH  ; e2
 	const ENCORE       ; e3
 	const DARK_PULSE   ; e4
 	const RAPID_SPIN   ; e5

@@ -111,7 +111,7 @@ MoveDescriptions::
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
-	dw Move00Description ; DefenseCurlDescription
+	dw ScaldDescription
 	dw DragonDanceDescription
 	dw LightScreenDescription
 	dw HazeDescription
@@ -223,10 +223,10 @@ MoveDescriptions::
 	dw PainSplitDescription
 	dw SacredFireDescription
 	dw BulldozeDescription
-	dw DynamicpunchDescription
+	dw UTurnDescription
 	dw MegahornDescription
 	dw DragonbreathDescription
-	dw BatonPassDescription
+	dw VoltSwitchDescription
 	dw EncoreDescription
 	dw DarkPulseDescription
 	dw RapidSpinDescription
@@ -413,6 +413,7 @@ AcidSprayDescription:
 
 EmberDescription:
 FlamethrowerDescription:
+ScaldDescription:
 	db   "An attack that may"
 	next "inflict a burn.@"
 
@@ -968,10 +969,6 @@ SacredFireDescription:
 	db   "An attack that may"
 	next "inflict a burn.@"
 
-DynamicpunchDescription:
-	db   "An attack that"
-	next "always confuses.@"
-
 MegahornDescription:
 	db   "A powerful charge"
 	next "attack.@"
@@ -980,9 +977,10 @@ DragonbreathDescription:
 	db   "A strong breath"
 	next "attack.@"
 
-BatonPassDescription:
+UTurnDescription:
+VoltSwitchDescription:
 	db   "Switches while"
-	next "keeping effects.@"
+	next "attacking.@"
 
 EncoreDescription:
 	db   "Makes the foe re-"

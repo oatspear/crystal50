@@ -118,7 +118,7 @@ BattleAnimations::
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
-	dw BattleAnim_0 ; DefenseCurl
+	dw BattleAnim_Scald
 	dw BattleAnim_DragonDance
 	dw BattleAnim_LightScreen
 	dw BattleAnim_Haze
@@ -230,10 +230,10 @@ BattleAnimations::
 	dw BattleAnim_PainSplit
 	dw BattleAnim_SacredFire
 	dw BattleAnim_Bulldoze
-	dw BattleAnim_Dynamicpunch
+	dw BattleAnim_UTurn
 	dw BattleAnim_Megahorn
 	dw BattleAnim_Dragonbreath
-	dw BattleAnim_BatonPass
+	dw BattleAnim_VoltSwitch
 	dw BattleAnim_Encore
 	dw BattleAnim_DarkPulse
 	dw BattleAnim_RapidSpin
@@ -1155,6 +1155,25 @@ BattleAnim_WaterPulse:
 	anim_obj ANIM_OBJ_HYDRO_PUMP, 140, 72, $0
 	anim_bgeffect ANIM_BG_WATER, $8, $0, $0
 	anim_wait 32
+	anim_call BattleAnim_ShowMon_1
+	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_Scald:
+	anim_2gfx ANIM_GFX_WATER, ANIM_GFX_FIRE
+.loop
+	anim_sound 0, 0, SFX_EMBER
+	anim_obj ANIM_OBJ_FLAME_WHEEL, 48, 96, $0
+	anim_wait 6
+	anim_loop 8, .loop
+	anim_wait 96
+	anim_bgeffect ANIM_BG_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_call BattleAnim_UserObj_2Row
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 132, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_wait 40
 	anim_call BattleAnim_ShowMon_1
 	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
 	anim_wait 16
@@ -3038,6 +3057,7 @@ BattleAnim_Acrobatics:
 
 BattleAnim_AquaJet:
 BattleAnim_QuickAttack:
+BattleAnim_UTurn:
 	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_MENU
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
@@ -4129,6 +4149,7 @@ BattleAnim_MilkDrink:
 	anim_ret
 
 BattleAnim_Spark:
+BattleAnim_VoltSwitch:
 	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_EXPLOSION
 	anim_sound 0, 0, SFX_ZAP_CANNON
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $3
@@ -4430,15 +4451,15 @@ BattleAnim_Bulldoze:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_Dynamicpunch:
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_EXPLOSION
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_PUNCH_SHAKE, 136, 56, $43
-	anim_wait 16
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $12
-	anim_call BattleAnimSub_Explosion2
-	anim_wait 16
-	anim_ret
+; BattleAnim_Dynamicpunch: ; unrefenced
+; 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_EXPLOSION
+; 	anim_sound 0, 1, SFX_COMET_PUNCH
+; 	anim_obj ANIM_OBJ_PUNCH_SHAKE, 136, 56, $43
+; 	anim_wait 16
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $12
+; 	anim_call BattleAnimSub_Explosion2
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_Megahorn:
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
@@ -4462,13 +4483,13 @@ BattleAnim_Dragonbreath:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_BatonPass:
-	anim_1gfx ANIM_GFX_MISC
-	anim_obj ANIM_OBJ_BATON_PASS, 44, 104, $20
-	anim_sound 0, 0, SFX_BATON_PASS
-	anim_call BattleAnimSub_Return
-	anim_wait 64
-	anim_ret
+; BattleAnim_BatonPass: ; unrefenced
+; 	anim_1gfx ANIM_GFX_MISC
+; 	anim_obj ANIM_OBJ_BATON_PASS, 44, 104, $20
+; 	anim_sound 0, 0, SFX_BATON_PASS
+; 	anim_call BattleAnimSub_Return
+; 	anim_wait 64
+; 	anim_ret
 
 BattleAnim_Encore:
 	anim_1gfx ANIM_GFX_OBJECTS

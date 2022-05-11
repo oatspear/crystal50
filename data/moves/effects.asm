@@ -395,14 +395,34 @@ Growth:
 	checkobedience
 	usedmovetext
 	doturn
-	growth  ; FIXME
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	growth
 	endmove
 
 DragonDance:
 	checkobedience
 	usedmovetext
 	doturn
-	dragondance  ; FIXME
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	speedup1
+	statupmessage
+	statupfailtext
 	endmove
 
 OffensesDown:
@@ -1620,11 +1640,24 @@ SacredFire:
 	burntarget
 	endmove
 
-BatonPass:
+UTurn:
 	checkobedience
 	usedmovetext
 	doturn
-	batonpass
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	uturn
+	checkfaint
+	kingsrock
 	endmove
 
 RapidSpin:

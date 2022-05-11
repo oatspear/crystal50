@@ -71,7 +71,7 @@ ENDM
 	command counter                 ; 40
 	command encore                  ; 41
 	command painsplit               ; 42
-	command effect0x43              ; 43
+	command uturn                   ; 43
 	command conversion2             ; 44
 	command effect0x45              ; 45
 	command sketch                  ; 46
@@ -107,7 +107,7 @@ ENDM
 	command safeguard               ; 64
 	command checksafeguard          ; 65
 	command effect0x66              ; 66
-	command batonpass               ; 67
+	command effect0x67              ; 67
 	command effect0x68              ; 68
 	command clearhazards            ; 69
 	command healmorn                ; 6a
@@ -182,7 +182,7 @@ ENDM
 	command effect0xaf              ; af
 	command growth                  ; b0
 	command prowessup               ; b1
-	command dragondance             ; b2
+	command effect0xb2              ; b2
 	command attackup1               ; b3
 	command defenseup1              ; b4
 	command speedup1                ; b5

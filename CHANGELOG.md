@@ -2,11 +2,8 @@
 
 ## v0.4 (PLA Systems)
 
-### To Do
-- Add moves: Power Shift.
-
 ### Added
-- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor.
+- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor, Scald, U-Turn, Volt Switch.
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Drill Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw.
@@ -15,7 +12,7 @@
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
 - Many moves received boosts to their effect chances and accuracy.
 - Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
-- Belly Drum changed to boost offensive stats without penalty.
+- Belly Drum changed to boost offensive stats without penalty (same as Swords Dance).
 - Updated Hidden Power to use Legends: Arceus mechanics.
 - Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
 - Flinching substatus may carry over to the next turn; Pokémon moving last may flinch the opponent in the following turn.
@@ -24,6 +21,8 @@
 - Rollout and Fury Cutter now use a rampage effect.
 - Multi-hit moves now always hit 3 times.
 - Triple Kick works as a normal multi-hit move.
+- Dragon Dance boosts both attack stats and speed.
+- Growth boosts both attack stats; under harsh sunlight, it also boosts speed.
 
 ## v0.3 (Custom Changes)
 
