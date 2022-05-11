@@ -73,7 +73,7 @@ ENDM
 	command painsplit               ; 42
 	command uturn                   ; 43
 	command conversion2             ; 44
-	command effect0x45              ; 45
+	command pluck                   ; 45
 	command sketch                  ; 46
 	command defrostopponent         ; 47
 	command sleeptalk               ; 48

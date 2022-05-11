@@ -6655,6 +6655,8 @@ BattleCommand_CheckSafeguard:
 
 INCLUDE "engine/battle/move_effects/u_turn.asm"
 
+INCLUDE "engine/battle/move_effects/pluck.asm"
+
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
 BattleCommand_HealMorn:

@@ -1495,6 +1495,27 @@ Thief:
 	kingsrock
 	endmove
 
+Pluck:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	pluck
+	checkfaint
+	kingsrock
+	endmove
+
 MeanLook:
 	checkobedience
 	usedmovetext

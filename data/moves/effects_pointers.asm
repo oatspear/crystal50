@@ -126,7 +126,7 @@ MoveEffectsPointers:
 	dw Safeguard
 	dw SacredFire
 	dw Facade
-	dw NormalHit ; unused BatonPass
+	dw Pluck
 	dw DoBurn
 	dw RapidSpin
 	dw NormalHit
