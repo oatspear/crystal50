@@ -16,7 +16,7 @@ BattleCommand_Pluck:
 
 	ld [wNamedObjectIndex], a
 	ld d, a
-	call ItemIsEdible
+	call ItemIsEdible ; item index is in b
 	ret nc
 
 	ld a, [wEffectFailed]
@@ -36,6 +36,14 @@ BattleCommand_Pluck:
 	xor a
 	ld [hl], a
 	ld [de], a
+
+	ld hl, PluckBerryEffects
+	ld a, b
+	ld b, 0
+	ld c, a
+	add hl, bc
+	add hl, bc ; 2 bytes
+	jp hl
 
   ; FIXME from this point onward
 	call .playeritem
@@ -123,3 +131,45 @@ EdibleItems:
 	db PERSIM_BERRY
   db RAWST_BERRY
 	db -1
+
+PluckBerryEffects:
+	dw PluckOranBerry
+	dw PluckSitrusBerry
+	dw PluckLumBerry
+	dw PluckLeppaBerry
+	dw PluckPechaBerry
+	dw PluckCheriBerry
+	dw PluckChestoBerry
+	dw PluckAspearBerry
+	dw PluckPersimBerry
+	dw PluckRawstBerry
+
+PluckOranBerry:
+	ret
+
+PluckSitrusBerry:
+	ret
+
+PluckLumBerry:
+	ret
+
+PluckLeppaBerry:
+	ret
+
+PluckPechaBerry:
+	ret
+
+PluckCheriBerry:
+	ret
+
+PluckChestoBerry:
+	ret
+
+PluckAspearBerry:
+	ret
+
+PluckPersimBerry:
+	ret
+
+PluckRawstBerry:
+	ret
