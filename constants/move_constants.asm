@@ -28,7 +28,7 @@
 	const SAND_TOMB    ; 14
 	const BULK_UP      ; 15
 	const VINE_WHIP    ; 16
-	const STOMP        ; 17
+	const BUG_BITE     ; 17
 	const DOUBLE_KICK  ; 18
 	const CHARGE_BEAM  ; 19
 	const CLOSE_COMBAT ; 1a

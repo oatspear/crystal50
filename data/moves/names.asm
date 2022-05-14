@@ -22,7 +22,7 @@ MoveNames::
 	li "SAND TOMB"
 	li "BULK UP"
 	li "VINE WHIP"
-	li "STOMP"
+	li "BUG BITE"
 	li "DOUBLE KICK"
 	li "CHARGE BEAM"
 	li "CLOSE COMBAT"

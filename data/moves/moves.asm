@@ -94,7 +94,7 @@ Moves:
 	move SAND_TOMB,    EFFECT_TRAP_TARGET,        35, GROUND,        PHYSICAL,  85,              ENERGY_20_PP,   0
 	move BULK_UP,      EFFECT_PROWESS_UP,          0, FIGHTING,      STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,         PHYSICAL, 100,              ENERGY_30_PP,   0
-	move STOMP,        EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100,              ENERGY_20_PP,  30 ; FIXME
+	move BUG_BITE,     EFFECT_PLUCK,              40, BUG,           PHYSICAL, 100,              ENERGY_20_PP,   0
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
 	move CHARGE_BEAM,  EFFECT_OFFENSES_UP_HIT,    50, ELECTRIC,      SPECIAL,   90,              ENERGY_15_PP,  50
 	move CLOSE_COMBAT, EFFECT_CLOSE_COMBAT,      100, FIGHTING,      PHYSICAL, 100,              ENERGY_5_PP,    0

@@ -23,7 +23,7 @@ MoveDescriptions::
 	dw SandTombDescription
 	dw BulkUpDescription
 	dw VineWhipDescription
-	dw StompDescription
+	dw BugBiteDescription
 	dw DoubleKickDescription
 	dw ChargeBeamDescription
 	dw CloseCombatDescription
@@ -328,7 +328,6 @@ VineWhipDescription:
 AstonishDescription:
 DarkPulseDescription:
 AirSlashDescription:
-StompDescription:
 RockSlideDescription:
 BiteDescription:
 ExtrasensoryDescription:
@@ -804,6 +803,7 @@ ThiefDescription:
 	db   "An attack that may"
 	next "steal a held item.@"
 
+BugBiteDescription:
 PluckDescription:
 	db   "Attacks and eats"
 	next "the foe's berry.@"

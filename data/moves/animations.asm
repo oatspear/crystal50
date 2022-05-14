@@ -30,7 +30,7 @@ BattleAnimations::
 	dw BattleAnim_SandTomb
 	dw BattleAnim_BulkUp
 	dw BattleAnim_VineWhip
-	dw BattleAnim_Stomp
+	dw BattleAnim_BugBite
 	dw BattleAnim_DoubleKick
 	dw BattleAnim_ChargeBeam
 	dw BattleAnim_CloseCombat
@@ -726,24 +726,24 @@ BattleAnim_MegaPunch:
 	anim_loop 3, .loop
 	anim_ret
 
-BattleAnim_Stomp:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_STOMP
-	anim_obj ANIM_OBJ_KICK, 136, 40, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_STOMP
-	anim_obj ANIM_OBJ_KICK, 136, 44, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 44, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_STOMP
-	anim_obj ANIM_OBJ_KICK, 136, 48, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_Stomp: ; unrefenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_sound 0, 1, SFX_STOMP
+; 	anim_obj ANIM_OBJ_KICK, 136, 40, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
+; 	anim_wait 6
+; 	anim_sound 0, 1, SFX_STOMP
+; 	anim_obj ANIM_OBJ_KICK, 136, 44, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 44, $0
+; 	anim_wait 6
+; 	anim_sound 0, 1, SFX_STOMP
+; 	anim_obj ANIM_OBJ_KICK, 136, 48, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_DoubleKick:
 	anim_1gfx ANIM_GFX_HIT
@@ -2714,6 +2714,7 @@ BattleAnim_SkullBash:
 
 ; BattleAnim_Peck: ; unrefenced
 BattleAnim_Pluck:
+BattleAnim_BugBite:
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_PECK
 	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 128, 48, $0
