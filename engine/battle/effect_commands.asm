@@ -1712,8 +1712,8 @@ BattleCommand_CheckHit:
 ; Return z if using Stomp or Body Slam against a Minimized target.
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	cp STOMP
-	ret nz
+	; cp STOMP
+	; ret nz
 	cp BODY_SLAM
 	ret nz
 

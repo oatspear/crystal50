@@ -149,7 +149,7 @@ MoveEffectsPointers:
 	dw Earthquake
 	dw FutureSight
 	dw Gust
-	dw Stomp
+	dw NormalHit ; Stomp
 	dw Solarbeam
 	dw Thunder
 	dw Teleport

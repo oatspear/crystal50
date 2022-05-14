@@ -1874,27 +1874,6 @@ Gust:
 	checkfaint
 	endmove
 
-Stomp:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	doubleminimizedamage
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	flinchtarget
-	endmove
-
 BodySlam:
 	checkobedience
 	usedmovetext
