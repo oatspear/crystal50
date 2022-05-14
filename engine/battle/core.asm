@@ -4494,12 +4494,27 @@ UseHeldStatusHealingItem:
 	jr nz, .loop
 	dec hl
 	ld b, [hl]
+	call HealEnemyMonStatus
+	ret c ; return if there is nothing to heal
+	call ItemRecoveryAnim
+	call UseOpponentItem
+	ld a, $1
+	and a
+	ret
+
+HealEnemyMonStatus:
+; requires status to heal in b (e.g., `1 << PSN` or `ALL_STATUS`)
+; return carry if exited early
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and b
-	ret z
+	jr nz, .heal_status
+	scf
+	ret ; return early, no status intersection
+
+.heal_status
 	xor a
-	ld [hl], a
+	ld [hl], a ; reset status (heal)
 	push bc
 	call UpdateOpponentInParty
 	pop bc
@@ -4526,10 +4541,6 @@ UseHeldStatusHealingItem:
 	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
 	rst FarCall
 	call SwitchTurnCore
-	call ItemRecoveryAnim
-	call UseOpponentItem
-	ld a, $1
-	and a
 	ret
 
 INCLUDE "data/battle/held_heal_status.asm"

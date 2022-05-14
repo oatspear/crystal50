@@ -41,8 +41,8 @@ BattleCommand_Pluck:
 	ld a, b
 	ld b, 0
 	ld c, a
+	sla c ; 2 bytes
 	add hl, bc
-	add hl, bc ; 2 bytes
 	jp hl
 
   ; FIXME from this point onward
@@ -123,53 +123,130 @@ EdibleItems:
   db ORAN_BERRY
   db SITRUS_BERRY
   db LUM_BERRY
-  db LEPPA_BERRY
 	db PECHA_BERRY
 	db CHERI_BERRY
   db CHESTO_BERRY
 	db ASPEAR_BERRY
-	db PERSIM_BERRY
   db RAWST_BERRY
+	db PERSIM_BERRY
+	db LEPPA_BERRY
 	db -1
 
 PluckBerryEffects:
 	dw PluckOranBerry
 	dw PluckSitrusBerry
 	dw PluckLumBerry
-	dw PluckLeppaBerry
 	dw PluckPechaBerry
 	dw PluckCheriBerry
 	dw PluckChestoBerry
 	dw PluckAspearBerry
-	dw PluckPersimBerry
 	dw PluckRawstBerry
+	dw PluckPersimBerry
+	dw PluckLeppaBerry
 
 PluckOranBerry:
-	ret
+; EIGHTH_MAX_HP
+	ld hl, GetEighthMaxHP
+	call CallBattleCore
+	; amount in bc
+	jr PluckRecoverHp
 
 PluckSitrusBerry:
-	ret
+; QUARTER_MAX_HP
+	ld hl, GetQuarterMaxHP
+	call CallBattleCore
+	; amount in bc
+	; fallthrough
+
+PluckRecoverHp:
+	ld de, wBattleMonHP
+	ld hl, wBattleMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld de, wEnemyMonHP
+	ld hl, wEnemyMonMaxHP
+
+.got_hp
+	push hl
+	push de
+	push bc
+	ld c, 2
+	call CompareBytes
+	pop bc
+	pop de
+	pop hl
+	jp z, .hp_full
+
+	; the following routines work on the opposing mon
+	; switch from user's turn to opponent
+	call BattleCommand_SwitchTurn
+	ld hl, ItemRecoveryAnim
+	call CallBattleCore
+	ld hl, RestoreHP
+	call CallBattleCore
+	; get back to user's turn
+	call BattleCommand_SwitchTurn
+	call UpdateUserInParty
+	call RefreshBattleHuds
+
+	; get name of item in wNamedObjectIndex
+	call GetItemName
+	ld hl, RecoveredUsingText
+	jp StdBattleTextbox
+
+.hp_full
+	ld hl, HPIsFullText
+	jp StdBattleTextbox
 
 PluckLumBerry:
-	ret
-
-PluckLeppaBerry:
-	ret
+	ld b, ALL_STATUS
+	jr PluckHealStatus
 
 PluckPechaBerry:
-	ret
+	ld b, 1 << PSN
+	jr PluckHealStatus
 
 PluckCheriBerry:
-	ret
+	ld b, 1 << PAR
+	jr PluckHealStatus
 
 PluckChestoBerry:
-	ret
+	ld b, SLP
+	jr PluckHealStatus
 
 PluckAspearBerry:
-	ret
-
-PluckPersimBerry:
-	ret
+	ld b, 1 << FRZ
+	jr PluckHealStatus
 
 PluckRawstBerry:
-	ret
+	ld b, 1 << BRN
+	; fallthrough
+
+PluckHealStatus:
+	; status to heal already in b
+	; switch from user's turn to opponent
+	call BattleCommand_SwitchTurn
+	ld hl, HealEnemyMonStatus
+	call CallBattleCore
+	; not sure if flags are preserved here
+	ret c ; return if there is nothing to heal
+	ld hl, ItemRecoveryAnim
+	call CallBattleCore
+	; get back to user's turn
+	call BattleCommand_SwitchTurn
+	call RefreshBattleHuds
+	; get name of item in wNamedObjectIndex
+	call GetItemName
+	ld hl, RecoveredUsingText
+	jp StdBattleTextbox
+
+PluckPersimBerry:
+	; TODO see core/UseConfusionHealingItem
+	ld b, ALL_STATUS
+	jr PluckHealStatus
+
+PluckLeppaBerry:
+	; TODO recover energy
+	ld b, ALL_STATUS
+	jr PluckHealStatus
