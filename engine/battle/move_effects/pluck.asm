@@ -1,6 +1,10 @@
 BattleCommand_Pluck:
 ; pluck
 
+	ld a, [wEffectFailed]
+	and a
+	ret nz
+
 	ldh a, [hBattleTurn]
 	and a
 	jr nz, .enemy
@@ -19,10 +23,6 @@ BattleCommand_Pluck:
 	call ItemIsEdible ; item index is in b
 	ret nc
 
-	ld a, [wEffectFailed]
-	and a
-	ret nz
-
 	ld a, [wLinkMode]
 	and a
 	jr z, .stealenemyitem
@@ -36,30 +36,9 @@ BattleCommand_Pluck:
 	xor a
 	ld [hl], a
 	ld [de], a
-
-	ld hl, PluckBerryEffects
-	ld a, b
-	ld b, 0
-	ld c, a
-	sla c ; 2 bytes
-	add hl, bc
-	jp hl
-
-  ; FIXME from this point onward
-	call .playeritem
-	ld a, [wNamedObjectIndex]
-	ld [hl], a
-	ld [de], a
-	jr .stole
+	jr .steal_berry
 
 .enemy
-
-; The enemy can't already have an item.
-
-	call .enemyitem
-	ld a, [hl]
-	and a
-	ret nz
 
 ; The player must have an item to steal.
 
@@ -68,16 +47,12 @@ BattleCommand_Pluck:
 	and a
 	ret z
 
-; Can't steal mail!
+; Can only steal berries.
 
 	ld [wNamedObjectIndex], a
 	ld d, a
-	farcall ItemIsMail
-	ret c
-
-	ld a, [wEffectFailed]
-	and a
-	ret nz
+	call ItemIsEdible ; item index is in b
+	ret nc
 
 ; If the enemy steals your item,
 ; it's gone for good if you don't get it back.
@@ -86,16 +61,19 @@ BattleCommand_Pluck:
 	xor a
 	ld [hl], a
 	ld [de], a
+	; fallthrough
 
-	call .enemyitem
-	ld a, [wNamedObjectIndex]
-	ld [hl], a
-	ld [de], a
-
-.stole
-	call GetItemName
+.steal_berry
 	ld hl, StoleText
-	jp StdBattleTextbox
+	call StdBattleTextbox
+
+	ld hl, PluckBerryEffects
+	ld a, b
+	ld b, 0
+	ld c, a
+	sla c ; 2 bytes
+	add hl, bc
+	jp hl
 
 .playeritem
 	ld a, 1
@@ -242,11 +220,44 @@ PluckHealStatus:
 	jp StdBattleTextbox
 
 PluckPersimBerry:
-	; TODO see core/UseConfusionHealingItem
-	ld b, ALL_STATUS
-	jr PluckHealStatus
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVarAddr
+	bit SUBSTATUS_CONFUSED, a
+	ret z
+
+	res SUBSTATUS_CONFUSED, [hl]
+	; get name of item in wNamedObjectIndex
+	call GetItemName
+	ld hl, ItemRecoveryAnim
+	call CallBattleCore
+	ld hl, BattleText_ItemHealedConfusion
+	jp StdBattleTextbox
 
 PluckLeppaBerry:
-	; TODO recover energy
-	ld b, ALL_STATUS
-	jr PluckHealStatus
+	ld hl, wPlayerMaxEnergy
+	ld de, wBattleMonEnergy
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .go
+	ld hl, wEnemyMaxEnergy
+	ld de, wEnemyMonEnergy
+
+.go
+	ld a, [hl]
+	ld c, a
+
+	add ENERGY_RECOVERY_LEPPA_BERRY
+	cp c
+	jr c, .recover
+	ld a, c
+
+.recover
+	ld [de], a
+	; get name of item in wNamedObjectIndex
+	call GetItemName
+	call BattleCommand_SwitchTurn
+	ld hl, ItemRecoveryAnim
+	call CallBattleCore
+	call BattleCommand_SwitchTurn
+	ld hl, BattleText_UserRecoveredPPUsing
+	jp StdBattleTextbox
