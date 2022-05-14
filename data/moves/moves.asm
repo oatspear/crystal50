@@ -46,7 +46,6 @@
 ; Move replacements by convenience:
 
 ; Low Kick      : Low Sweep
-; Wing Attack   : Air Cutter (TODO)
 
 ; Moves added to empty slots:
 
@@ -305,7 +304,7 @@ Moves:
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN_2,      0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move IRON_TAIL,    EFFECT_DEFENSES_DOWN_HIT, 100, STEEL,         PHYSICAL,  75,              ENERGY_5_PP,   20
 	move METAL_CLAW,   EFFECT_OFFENSES_UP_HIT,    50, STEEL,         PHYSICAL,  95,              ENERGY_20_PP,  20
-	move NO_MOVE,      EFFECT_NORMAL_HIT,          0, FIGHTING,      PHYSICAL, 100,              ENERGY_15_PP,   0
+	move PLUCK,        EFFECT_PLUCK,              40, FLYING,        PHYSICAL, 100,              ENERGY_20_PP,   0
 	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0 ; FIXME
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0
 	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, FAIRY,         STATUS,   PERFECT_ACCURACY, ENERGY_5_PP,    0 ; FIXME

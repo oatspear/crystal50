@@ -238,7 +238,7 @@
 	const SWEET_SCENT  ; e6
 	const IRON_TAIL    ; e7
 	const METAL_CLAW   ; e8
-	const VITAL_THROW  ; e9
+	const PLUCK        ; e9
 	const MORNING_SUN  ; ea
 	const SYNTHESIS    ; eb
 	const MOONLIGHT    ; ec

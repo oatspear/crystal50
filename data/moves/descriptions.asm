@@ -233,7 +233,7 @@ MoveDescriptions::
 	dw SweetScentDescription
 	dw IronTailDescription
 	dw MetalClawDescription
-	dw VitalThrowDescription
+	dw PluckDescription
 	dw MorningSunDescription
 	dw SynthesisDescription
 	dw MoonlightDescription
@@ -804,6 +804,10 @@ ThiefDescription:
 	db   "An attack that may"
 	next "steal a held item.@"
 
+PluckDescription:
+	db   "Attacks and eats"
+	next "the foe's berry.@"
+
 HexDescription:
 VenoshockDescription:
 	db   "Double power vs."
@@ -998,10 +1002,6 @@ ChargeBeamDescription:
 MetalClawDescription:
 	db   "An attack that may"
 	next "up user's OFFENSE.@"
-
-VitalThrowDescription:
-	db   "A 2nd-strike move"
-	next "that never misses.@"
 
 MorningSunDescription:
 	db   "Restores HP"
