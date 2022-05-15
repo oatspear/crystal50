@@ -23,6 +23,8 @@
 - Triple Kick works as a normal multi-hit move.
 - Dragon Dance boosts both attack stats and speed.
 - Growth boosts both attack stats; under harsh sunlight, it also boosts speed.
+- DVs no longer affect stat calculation.
+- Every 4 levels a +1 bonus to all stats is granted.
 
 ## v0.3 (Custom Changes)
 
