@@ -86,7 +86,7 @@ VenusaurEvosAttacks:
 CharmanderEvosAttacks:
 	db EVOLVE_LEVEL, 16, CHARMELEON
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, GROWL
 	db 4, EMBER
 	db 8, SMOKESCREEN
@@ -103,7 +103,7 @@ CharmanderEvosAttacks:
 CharmeleonEvosAttacks:
 	db EVOLVE_LEVEL, 36, CHARIZARD
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
@@ -122,7 +122,7 @@ CharizardEvosAttacks:
 	; db 1, AIR_SLASH
 	; db 1, DRAGON_CLAW
 	; db 1, HEAT_WAVE
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
@@ -511,7 +511,7 @@ RaichuEvosAttacks:
 SandshrewEvosAttacks:
 	db EVOLVE_LEVEL, 22, SANDSLASH
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	; db 1, DEFENSE_CURL
 	db 3, POISON_STING
 	db 6, SAND_ATTACK
@@ -533,7 +533,7 @@ SandshrewEvosAttacks:
 SandslashEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CRUSH_CLAW
-	db 1, SCRATCH
+	db 1, TACKLE
 	; db 1, DEFENSE_CURL
 	db 1, POISON_STING
 	db 1, SAND_ATTACK
@@ -558,7 +558,7 @@ NidoranFEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, POISON_STING
-	db 5, SCRATCH
+	db 5, TACKLE
 	db 10, TAIL_WHIP
 	db 15, FURY_SWIPES
 	; db 20, TOXIC_SPIKES
@@ -576,7 +576,7 @@ NidorinaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, POISON_STING
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 15, FURY_SWIPES
 	; db 22, TOXIC_SPIKES
@@ -604,7 +604,7 @@ NidoqueenEvosAttacks:
 	db 1, EARTH_POWER
 	; db 1, GROWL
 	; db 1, POISON_STING
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	; db 1, TAIL_WHIP
 	db LEVEL_EVO, SUPERPOWER
 	db 0 ; no more level-up moves
@@ -674,7 +674,7 @@ ClefairyEvosAttacks:
 	; db 1, SPLASH
 	; db 1, COPYCAT
 	db 1, SING
-	db 1, POUND
+	db 1, TACKLE
 	db 1, GROWL
 	; db 1, DEFENSE_CURL
 	db 4, DISARMING_VOICE ; FIXME: STORED_POWER
@@ -710,7 +710,7 @@ ClefableEvosAttacks:
 	; db 1, COSMIC_POWER
 	db 1, DAZZLING_GLEAM ; FIXME: MOONBLAST
 	; db 1, HEALING_WISH
-	; db 1, POUND
+	; db 1, TACKLE
 	; db 1, COPYCAT
 	; db 1, GROWL
 	; db 1, DEFENSE_CURL
@@ -766,7 +766,7 @@ JigglypuffEvosAttacks:
 	; db 1, DISABLE
 	db 1, CHARM
 	db 1, SING
-	db 1, POUND
+	db 1, TACKLE
 	; db 1, COPYCAT
 	; db 1, DEFENSE_CURL
 	db 4, DISARMING_VOICE ; FIXME: ECHOED_VOICE
@@ -804,7 +804,7 @@ WigglytuffEvosAttacks:
 	; db 1, HYPER_VOICE
 	; db 1, DOUBLE_EDGE
 	db 1, SING
-	; db 1, POUND
+	; db 1, TACKLE
 	; db 1, COPYCAT
 	; db 1, DEFENSE_CURL
 	db 0 ; no more level-up moves
@@ -909,7 +909,7 @@ VileplumeEvosAttacks:
 ParasEvosAttacks:
 	db EVOLVE_LEVEL, 24, PARASECT
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 6, STUN_SPORE
 	db 6, POISONPOWDER
 	db 11, ABSORB
@@ -926,7 +926,7 @@ ParasEvosAttacks:
 ParasectEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CROSS_POISON
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, STUN_SPORE
 	db 1, POISONPOWDER
 	db 1, ABSORB
@@ -992,7 +992,7 @@ DiglettEvosAttacks:
 	db EVOLVE_LEVEL, 26, DUGTRIO
 	db 0 ; no more evolutions
 	db 1, SAND_ATTACK
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 4, GROWL
 	; db 8, ASTONISH
 	db 12, MUD_SLAP
@@ -1012,7 +1012,7 @@ DugtrioEvosAttacks:
 	; db 1, NIGHT_SLASH
 	db 1, TRI_ATTACK
 	db 1, SAND_ATTACK
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	db 1, GROWL
 	; db 1, ASTONISH
 	db 12, MUD_SLAP
@@ -1030,10 +1030,10 @@ DugtrioEvosAttacks:
 MeowthEvosAttacks:
 	db EVOLVE_LEVEL, 28, PERSIAN
 	db 0 ; no more evolutions
-	db 1, SCRATCH ; FIXME: FAKE_OUT
+	db 1, TACKLE ; FIXME: FAKE_OUT
 	db 1, GROWL
 	; db 4, FEINT
-	; db 8, SCRATCH
+	; db 8, TACKLE
 	db 12, PAY_DAY
 	db 16, BITE
 	; db 20, TAUNT
@@ -1052,7 +1052,7 @@ PersianEvosAttacks:
 	; db 1, FAKE_OUT
 	db 1, GROWL
 	; db 1, FEINT
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 12, PAY_DAY
 	db 16, BITE
 	; db 20, TAUNT
@@ -1068,7 +1068,7 @@ PersianEvosAttacks:
 PsyduckEvosAttacks:
 	db EVOLVE_LEVEL, 33, GOLDUCK
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 3, WATER_GUN
 	db 6, CONFUSION
@@ -1088,7 +1088,7 @@ PsyduckEvosAttacks:
 GolduckEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, AQUA_JET
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 1, WATER_GUN
 	db 1, CONFUSION
@@ -1109,7 +1109,7 @@ MankeyEvosAttacks:
 	db EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0 ; no more evolutions
 	; db 1, COVET
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LOW_SWEEP ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
@@ -1133,7 +1133,7 @@ PrimeapeEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FINAL_GAMBIT
 	; db 1, FLING
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	db 1, LOW_SWEEP ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
@@ -1203,7 +1203,7 @@ PoliwagEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, HYPNOSIS
-	db 6, POUND
+	db 6, TACKLE
 	db 12, MUD_SLAP ; FIXME: MUD_SHOT
 	db 18, BUBBLEBEAM
 	db 24, RAIN_DANCE
@@ -1221,7 +1221,7 @@ PoliwhirlEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, HYPNOSIS
-	db 6, POUND
+	db 6, TACKLE
 	db 12, MUD_SLAP ; FIXME: MUD_SHOT
 	db 18, BUBBLEBEAM
 	db 24, RAIN_DANCE
@@ -1247,7 +1247,7 @@ PoliwrathEvosAttacks:
 	; db 1, DOUBLE_EDGE
 	; db 1, WATER_GUN
 	; db 1, HYPNOSIS
-	; db 1, POUND
+	; db 1, TACKLE
 	; db 1, MUD_SHOT
 	db LEVEL_EVO, SUBMISSION
 	db 0 ; no more level-up moves
@@ -1300,7 +1300,7 @@ AlakazamEvosAttacks:
 MachopEvosAttacks:
 	db EVOLVE_LEVEL, 28, MACHOKE
 	db 0 ; no more evolutions
-	db 1, POUND ; FIXME: LOW_KICK
+	db 1, TACKLE ; FIXME: LOW_KICK
 	db 1, LEER
 	db 4, FOCUS_ENERGY
 	db 8, REVENGE
@@ -1321,7 +1321,7 @@ MachokeEvosAttacks:
 	; db EVOLVE_TRADE, -1, MACHAMP
 	db EVOLVE_HOLD, BLACKBELT_I, 40, MACHAMP
 	db 0 ; no more evolutions
-	db 1, POUND ; FIXME: LOW_KICK
+	db 1, TACKLE ; FIXME: LOW_KICK
 	db 1, LEER
 	db 1, FOCUS_ENERGY
 	db 1, REVENGE
@@ -1759,7 +1759,7 @@ DewgongEvosAttacks:
 GrimerEvosAttacks:
 	db EVOLVE_LEVEL, 38, MUK
 	db 0 ; no more evolutions
-	db 1, POUND
+	db 1, TACKLE
 	db 1, POISON_GAS
 	db 4, HARDEN
 	db 7, MUD_SLAP
@@ -1780,7 +1780,7 @@ GrimerEvosAttacks:
 MukEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, VENOM_DRENCH
-	db 1, POUND
+	db 1, TACKLE
 	db 1, POISON_GAS
 	db 1, HARDEN
 	db 1, MUD_SLAP
@@ -1922,7 +1922,7 @@ OnixEvosAttacks:
 DrowzeeEvosAttacks:
 	db EVOLVE_LEVEL, 26, HYPNO
 	db 0 ; no more evolutions
-	db 1, POUND
+	db 1, TACKLE
 	db 1, HYPNOSIS
 	db 5, DISABLE
 	db 9, CONFUSION
@@ -1946,7 +1946,7 @@ HypnoEvosAttacks:
 	; db 1, FUTURE_SIGHT
 	; db 1, NASTY_PLOT
 	; db 1, SWITCHEROO
-	db 1, POUND
+	db 1, TACKLE
 	db 1, HYPNOSIS
 	db 1, DISABLE
 	db 1, CONFUSION
@@ -2280,7 +2280,7 @@ ChanseyEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, BLISSEY
 	db 0 ; no more evolutions
 	; db 1, DISARMING_VOICE
-	db 1, POUND
+	db 1, TACKLE
 	db 1, SWEET_KISS
 	; db 1, COVET
 	db 1, CHARM
@@ -2324,7 +2324,7 @@ TangelaEvosAttacks:
 
 KangaskhanEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, POUND
+	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 4, GROWL
 	; db 8, FAKE_OUT
@@ -2458,7 +2458,7 @@ MrMimeEvosAttacks:
 	; db 1, WIDE_GUARD
 	; db 1, POWER_SWAP
 	; db 1, GUARD_SWAP
-	db 1, POUND
+	db 1, TACKLE
 	; db 1, COPYCAT
 	db 1, BATON_PASS
 	db 1, ENCORE
@@ -2501,7 +2501,7 @@ JynxEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SWEET_KISS
 	db 1, LICK
-	db 1, POUND
+	db 1, TACKLE
 	db 1, POWDER_SNOW
 	; db 1, COPYCAT
 	db 12, CONFUSION
@@ -2822,7 +2822,7 @@ KabutoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, HARDEN
-	db 5, SCRATCH
+	db 5, TACKLE
 	db 10, SAND_ATTACK
 	db 15, AQUA_JET
 	db 20, LEER
@@ -2843,7 +2843,7 @@ KabutopsEvosAttacks:
 	; db 1, FEINT
 	db 1, ABSORB
 	db 1, HARDEN
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	db 1, SAND_ATTACK
 	db 15, AQUA_JET
 	db 20, LEER
@@ -3050,7 +3050,7 @@ MewtwoEvosAttacks:
 
 MewEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, POUND
+	; db 1, TACKLE
 	; db 10, TRANSFORM
 	; db 20, MEGA_PUNCH
 	; db 30, METRONOME
@@ -3189,7 +3189,7 @@ TyphlosionEvosAttacks:
 TotodileEvosAttacks:
 	db EVOLVE_LEVEL, 18, CROCONAW
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LEER
 	db 6, WATER_GUN
 	db 8, MUD_SLAP
@@ -3210,7 +3210,7 @@ TotodileEvosAttacks:
 CroconawEvosAttacks:
 	db EVOLVE_LEVEL, 30, FERALIGATR
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LEER
 	db 1, WATER_GUN
 	; db 6, WATER_GUN
@@ -3232,7 +3232,7 @@ CroconawEvosAttacks:
 FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, AGILITY
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LEER
 	db 1, WATER_GUN
 	; db 1, MUD_SLAP
@@ -3255,7 +3255,7 @@ FeraligatrEvosAttacks:
 SentretEvosAttacks:
 	db EVOLVE_LEVEL, 15, FURRET
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, GROWL
 	; db 4, DEFENSE_CURL
 	db 7, QUICK_ATTACK
@@ -3275,7 +3275,7 @@ FurretEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, AGILITY
 	; db 1, COIL
-	; db 1, SCRATCH
+	; db 1, TACKLE
 	; db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
 	db 1, GROWL
@@ -3501,7 +3501,7 @@ PichuEvosAttacks:
 CleffaEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CLEFAIRY
 	db 0 ; no more evolutions
-	db 1, POUND
+	db 1, TACKLE
 	db 1, MIMIC ; FIXME: COPYCAT
 	db 4, SING
 	db 8, SWEET_KISS
@@ -3514,7 +3514,7 @@ IgglybuffEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, JIGGLYPUFF
 	db 0 ; no more evolutions
 	db 1, SING
-	db 1, POUND
+	db 1, TACKLE
 	db 1, MIMIC ; FIXME: COPYCAT
 	; db 4, DEFENSE_CURL
 	db 8, SWEET_KISS
@@ -3755,7 +3755,7 @@ PolitoedEvosAttacks:
 	; db 1, DOUBLE_EDGE
 	; db 1, WATER_GUN
 	; db 1, HYPNOSIS
-	; db 1, POUND
+	; db 1, TACKLE
 	; db 1, MUD_SHOT
 	; db LEVEL_EVO, BOUNCE
 	db 0 ; no more level-up moves
@@ -3839,7 +3839,7 @@ JumpluffEvosAttacks:
 
 AipomEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 4, SAND_ATTACK
 	db 8, THIEF ; FIXME: ASTONISH
@@ -3880,7 +3880,7 @@ SunfloraEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FLOWER_SHIELD
 	db 1, ABSORB
-	db 1, POUND
+	db 1, TACKLE
 	db 1, GROWTH
 	; db 4, INGRAIN
 	db 7, SLEEP_POWDER ; FIXME: GRASS_WHISTLE
@@ -4318,7 +4318,7 @@ HeracrossEvosAttacks:
 
 SneaselEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LEER
 	; db 6, TAUNT
 	db 12, QUICK_ATTACK
@@ -4337,7 +4337,7 @@ TeddiursaEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, FLING
 	; db 1, COVET
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, GROWL ; FIXME: BABY_DOLL_EYES
 	db 1, LICK
 	; db 1, FAKE_TEARS
@@ -4360,7 +4360,7 @@ UrsaringEvosAttacks:
 	db 1, GROWL ; FIXME: BABY_DOLL_EYES
 	; db 1, CHARM
 	; db 1, COVET
-	db 1, SCRATCH
+	db 1, TACKLE
 	db 1, LEER
 	db 1, LICK
 	; db 1, FAKE_TEARS
@@ -4758,7 +4758,7 @@ HitmontopEvosAttacks:
 SmoochumEvosAttacks:
 	db EVOLVE_LEVEL, 30, JYNX
 	db 0 ; no more evolutions
-	db 1, POUND
+	db 1, TACKLE
 	db 1, LICK
 	db 4, POWDER_SNOW
 	db 8, MIMIC ; FIXME: COPYCAT
@@ -4831,7 +4831,7 @@ MiltankEvosAttacks:
 BlisseyEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, DISARMING_VOICE
-	db 1, POUND
+	db 1, TACKLE
 	db 1, SWEET_KISS
 	; db 1, COVET
 	db 1, CHARM
