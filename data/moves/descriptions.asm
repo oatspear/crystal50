@@ -17,7 +17,7 @@ MoveDescriptions::
 	dw SwordsDanceDescription
 	dw AstonishDescription
 	dw GustDescription
-	dw WingAttackDescription
+	dw DrillPeckDescription
 	dw WhirlwindDescription
 	dw FlyDescription
 	dw SandTombDescription
@@ -308,10 +308,6 @@ ThunderFangDescription:
 GustDescription:
 	db   "Whips up a strong"
 	next "gust of wind.@"
-
-WingAttackDescription:
-	db   "Strikes the target"
-	next "with wings.@"
 
 WhirlwindDescription:
 	db   "Blows away the foe"
@@ -1073,3 +1069,7 @@ DazzlingGleamDescription:
 PowerGemDescription:
 	db   "Attacks with a"
 	next "gem-like light.@"
+
+DrillPeckDescription:
+	db   "A strong, spin-"
+	next "ning peck attack.@"

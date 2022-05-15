@@ -24,7 +24,7 @@ BattleAnimations::
 	dw BattleAnim_SwordsDance
 	dw BattleAnim_Astonish
 	dw BattleAnim_Gust
-	dw BattleAnim_WingAttack
+	dw BattleAnim_DrillPeck
 	dw BattleAnim_Whirlwind
 	dw BattleAnim_Fly
 	dw BattleAnim_SandTomb
@@ -2724,24 +2724,24 @@ BattleAnim_BugBite:
 	anim_wait 16
 	anim_ret
 
-; BattleAnim_DrillPeck: ; unrefenced
-; 	anim_1gfx ANIM_GFX_HIT
-; .loop
-; 	anim_sound 0, 1, SFX_PECK
-; 	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 56, $0
-; 	anim_wait 4
-; 	anim_sound 0, 1, SFX_PECK
-; 	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 48, $0
-; 	anim_wait 4
-; 	anim_sound 0, 1, SFX_PECK
-; 	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 56, $0
-; 	anim_wait 4
-; 	anim_sound 0, 1, SFX_PECK
-; 	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 64, $0
-; 	anim_wait 4
-; 	anim_loop 5, .loop
-; 	anim_wait 16
-; 	anim_ret
+BattleAnim_DrillPeck:
+	anim_1gfx ANIM_GFX_HIT
+.loop
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 64, $0
+	anim_wait 4
+	anim_loop 5, .loop
+	anim_wait 16
+	anim_ret
 
 ; BattleAnim_Guillotine: ; unrefenced
 ; 	anim_1gfx ANIM_GFX_CUT
@@ -3285,21 +3285,21 @@ BattleAnim_LowSweep:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_WingAttack:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj ANIM_OBJ_HIT_YFIX, 148, 56, $0
-	anim_obj ANIM_OBJ_HIT_YFIX, 116, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj ANIM_OBJ_HIT_YFIX, 144, 56, $0
-	anim_obj ANIM_OBJ_HIT_YFIX, 120, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj ANIM_OBJ_HIT_YFIX, 140, 56, $0
-	anim_obj ANIM_OBJ_HIT_YFIX, 124, 56, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_WingAttack: ; unrefenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_sound 0, 1, SFX_WING_ATTACK
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 148, 56, $0
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 116, 56, $0
+; 	anim_wait 6
+; 	anim_sound 0, 1, SFX_WING_ATTACK
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 144, 56, $0
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 120, 56, $0
+; 	anim_wait 6
+; 	anim_sound 0, 1, SFX_WING_ATTACK
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 140, 56, $0
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 124, 56, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_Slam:
 	anim_1gfx ANIM_GFX_HIT

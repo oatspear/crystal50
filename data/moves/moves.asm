@@ -88,7 +88,7 @@ Moves:
 	move SWORDS_DANCE, EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move ASTONISH      EFFECT_FLINCH_HIT,         30, GHOST,         PHYSICAL, 100,              ENERGY_30_PP,  30
 	move GUST,         EFFECT_GUST,               40, FLYING,        SPECIAL,  100,              ENERGY_30_PP,   0
-	move WING_ATTACK,  EFFECT_NORMAL_HIT,         40, FLYING,        PHYSICAL, 100,              ENERGY_30_PP,   0
+	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100,              ENERGY_10_PP,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move FLY,          EFFECT_FLY,                90, FLYING,        PHYSICAL,  95,              ENERGY_20_PP,   0
 	move SAND_TOMB,    EFFECT_TRAP_TARGET,        35, GROUND,        PHYSICAL,  85,              ENERGY_20_PP,   0

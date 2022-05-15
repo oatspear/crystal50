@@ -16,7 +16,7 @@ MoveNames::
 	li "SWORDS DANCE"
 	li "ASTONISH"
 	li "GUST"
-	li "WING ATTACK"
+	li "DRILL PECK"
 	li "WHIRLWIND"
 	li "FLY"
 	li "SAND TOMB"
