@@ -239,7 +239,7 @@ Moves:
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        PHYSICAL, 100,                         1,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move TRIPLE_KICK,  EFFECT_MULTI_HIT,          20, FIGHTING,      PHYSICAL,  90,              ENERGY_20_PP,   0
-	move THIEF,        EFFECT_THIEF,              60, DARK,          PHYSICAL, 100,              ENERGY_10_PP, 100
+	move THIEF,        EFFECT_THIEF,              40, DARK,          PHYSICAL, 100,              ENERGY_15_PP, 100
 	move INFESTATION,  EFFECT_TRAP_TARGET,        20, BUG,           SPECIAL,  100,              ENERGY_20_PP,   0
 	move SNARL,        EFFECT_OFFENSES_DOWN_HIT,  60, DARK,          SPECIAL,  100,              ENERGY_15_PP, 100
 	move HEX,          EFFECT_HEX,                65, GHOST,         SPECIAL,  100,              ENERGY_15_PP,   0
