@@ -201,6 +201,7 @@ CaterpieEvosAttacks:
 	db 1, TACKLE
 	db 1, STRING_SHOT
 	db 5, BUG_BITE
+	db 5, STRUGGLE_BUG
 	db 0 ; no more level-up moves
 
 MetapodEvosAttacks:
@@ -214,16 +215,17 @@ ButterfreeEvosAttacks:
 	db 1, TACKLE
 	db 1, STRING_SHOT
 	db 1, BUG_BITE
-	db 4, SUPERSONIC
+	db 1, STRUGGLE_BUG
 	db 12, CONFUSION
-	db 16, POISONPOWDER
-	db 16, STUN_SPORE
-	db 16, SLEEP_POWDER
-	db 20, SILVER_WIND
-	db 24, WHIRLWIND
-	db 28, SAFEGUARD
-	db 32, AIR_SLASH
-	db 36, BUG_BUZZ
+	db 16, SUPERSONIC
+	db 20, POISONPOWDER
+	db 20, STUN_SPORE
+	db 20, SLEEP_POWDER
+	db 24, SILVER_WIND
+	db 28, WHIRLWIND
+	db 32, SAFEGUARD
+	db 36, AIR_SLASH
+	db 40, BUG_BUZZ
 	; db 40, GIGA_DRAIN
 	db LEVEL_EVO, GUST
 	db 0 ; no more level-up moves
@@ -234,6 +236,7 @@ WeedleEvosAttacks:
 	db 1, POISON_STING
 	db 1, STRING_SHOT
 	db 5, BUG_BITE
+	db 5, STRUGGLE_BUG
 	db 0 ; no more level-up moves
 
 KakunaEvosAttacks:
@@ -247,6 +250,7 @@ BeedrillEvosAttacks:
 	db 1, POISON_STING
 	db 1, STRING_SHOT
 	db 1, BUG_BITE
+	db 1, STRUGGLE_BUG
 	db 12, FURY_CUTTER
 	db 16, FOCUS_ENERGY
 	db 20, SWORDS_DANCE
@@ -263,16 +267,15 @@ PidgeyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 5, SAND_ATTACK
-	db 9, GUST
-	db 13, QUICK_ATTACK
-	db 17, WING_ATTACK
-	db 21, TWISTER
-	db 25, WHIRLWIND
-	db 29, AGILITY
-	db 37, ROOST
-	db 45, AERIAL_ACE
-	db 49, AIR_SLASH
-	db 53, HURRICANE
+	db 8, GUST
+	db 12, QUICK_ATTACK
+	db 16, AERIAL_ACE
+	db 20, TWISTER
+	db 24, WHIRLWIND
+	db 28, AGILITY
+	db 32, ROOST
+	db 36, AIR_SLASH
+	db 40, HURRICANE
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -281,16 +284,14 @@ PidgeottoEvosAttacks:
 	db 1, TACKLE
 	db 1, SAND_ATTACK
 	db 1, GUST
-	db 13, QUICK_ATTACK
-	db 17, WING_ATTACK
-	db 22, TWISTER
-	db 27, WHIRLWIND
-	db 32, AGILITY
-	db 37, WING_ATTACK
-	db 42, ROOST
-	db 52, AERIAL_ACE
-	db 57, AIR_SLASH
-	db 62, HURRICANE
+	db 12, QUICK_ATTACK
+	db 16, AERIAL_ACE
+	db 23, TWISTER
+	db 28, WHIRLWIND
+	db 33, AGILITY
+	db 38, ROOST
+	db 43, AIR_SLASH
+	db 48, HURRICANE
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -299,15 +300,13 @@ PidgeotEvosAttacks:
 	db 1, SAND_ATTACK
 	db 1, GUST
 	db 1, QUICK_ATTACK
-	db 17, WING_ATTACK
-	db 22, TWISTER
-	db 27, WHIRLWIND
-	db 32, AGILITY
-	db 38, WING_ATTACK
-	db 44, ROOST
-	db 56, AERIAL_ACE
-	db 62, AIR_SLASH
-	db 68, HURRICANE
+	db 16, AERIAL_ACE
+	db 23, TWISTER
+	db 28, WHIRLWIND
+	db 33, AGILITY
+	db 40, ROOST
+	db 46, AIR_SLASH
+	db 52, HURRICANE
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
@@ -315,16 +314,16 @@ RattataEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 4, QUICK_ATTACK
-	db 7, FOCUS_ENERGY
-	db 10, BITE
-	db 13, NASTY_PLOT
-	db 16, HEADBUTT
-	db 19, PAYBACK
-	db 22, CRUNCH
-	db 25, SUCKER_PUNCH
-	db 28, SUPER_FANG
-	db 31, DOUBLE_EDGE
+	db 5, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
+	db 12, BITE
+	db 16, NASTY_PLOT
+	db 20, HEADBUTT
+	db 24, PAYBACK
+	db 28, CRUNCH
+	db 32, SUCKER_PUNCH
+	db 36, SUPER_FANG
+	db 40, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 RaticateEvosAttacks:
@@ -332,45 +331,46 @@ RaticateEvosAttacks:
 	db 1, GROWL
 	db 1, QUICK_ATTACK
 	db 1, FOCUS_ENERGY
-	db 10, BITE
-	db 13, NASTY_PLOT
-	db 16, HEADBUTT
-	db 19, PAYBACK
-	db 24, CRUNCH
-	db 29, SUCKER_PUNCH
-	db 34, SUPER_FANG
-	db 39, DOUBLE_EDGE
+	db 12, BITE
+	db 16, NASTY_PLOT
+	db 20, HEADBUTT
+	db 25, PAYBACK
+	db 30, CRUNCH
+	db 35, SUCKER_PUNCH
+	db 40, SUPER_FANG
+	db 45, DOUBLE_EDGE
 	; db LEVEL_EVO, HEADBUTT
 	db 0 ; no more level-up moves
 
 SpearowEvosAttacks:
 	db EVOLVE_LEVEL, 20, FEAROW
 	db 0 ; no more evolutions
-	db 1, WING_ATTACK
+	db 1, PLUCK
 	db 1, GROWL
-	db 8, PLUCK
-	db 11, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
+	db 12, QUICK_ATTACK
 	db 15, AERIAL_ACE
 	db 18, PAYBACK
 	db 22, NASTY_PLOT
-	db 25, AGILITY
-	db 29, FOCUS_ENERGY
+	db 25, AIR_CUTTER
+	db 29, AGILITY
 	db 32, ROOST
-	db 36, DRILL_PECK
+	db 38, DRILL_PECK
 	db 0 ; no more level-up moves
 
 FearowEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PLUCK
 	db 1, GROWL
-	db 11, QUICK_ATTACK
+	db 8, FOCUS_ENERGY
+	db 12, QUICK_ATTACK
 	db 15, AERIAL_ACE
 	db 18, PAYBACK
-	db 23, NASTY_PLOT
-	db 27, AGILITY
-	db 32, FOCUS_ENERGY
-	db 36, ROOST
-	db 41, DRILL_PECK
+	db 25, NASTY_PLOT
+	db 30, AIR_CUTTER
+	db 35, AGILITY
+	db 40, ROOST
+	db 45, DRILL_PECK
 	; db 45, DRILL_RUN
 	db 0 ; no more level-up moves
 
