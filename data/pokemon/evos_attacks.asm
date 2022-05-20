@@ -378,22 +378,16 @@ EkansEvosAttacks:
 	db EVOLVE_LEVEL, 22, ARBOK
 	db 0 ; no more evolutions
 	db 1, WRAP
-	db 1, LEER
 	db 4, POISON_STING
 	db 9, BITE
 	db 12, GLARE
-	db 17, SCREECH
+	db 17, NASTY_PLOT
 	db 20, ACID_SPRAY
-	; db 25, STOCKPILE
-	; db 25, SWALLOW
-	; db 25, SPIT_UP
-	; db 28, ACID_SPRAY
-	; db 33, MUD_BOMB
-	; db 36, GASTRO_ACID
-	; db 38, BELCH
-	db 41, HAZE
-	; db 44, COIL
-	db 49, SLUDGE_BOMB ; FIXME: GUNK_SHOT
+	db 25, SCREECH
+	db 28, MEAN_LOOK
+	db 33, HAZE
+	db 36, TOXIC
+	db 40, POISON_JAB
 	db 0 ; no more level-up moves
 
 ArbokEvosAttacks:
@@ -402,25 +396,18 @@ ArbokEvosAttacks:
 	; db 1, THUNDER_FANG
 	; db 1, ICE_FANG
 	; db 1, FIRE_FANG
-	; db 1, BITE
 	db 1, WRAP
 	db 1, LEER
-	db 1, POISON_STING
-	; db 4, POISON_STING
-	; db 9, BITE
+	db 4, POISON_STING
+	db 9, BITE
 	db 12, GLARE
-	db 17, SCREECH
+	db 17, NASTY_PLOT
 	db 20, ACID_SPRAY
-	; db 27, STOCKPILE
-	; db 27, SPIT_UP
-	; db 27, SWALLOW
-	; db 32, ACID_SPRAY
-	; db 39, MUD_BOMB
-	; db 44, GASTRO_ACID
-	; db 48, BELCH
-	db 51, HAZE
-	; db 56, COIL
-	db 63, SLUDGE_BOMB ; FIXME: GUNK_SHOT
+	db 27, SCREECH
+	db 32, MEAN_LOOK
+	db 39, HAZE
+	db 44, TOXIC
+	db 48, POISON_JAB
 	db LEVEL_EVO, CRUNCH
 	db 0 ; no more level-up moves
 
@@ -431,10 +418,8 @@ PikachuEvosAttacks:
 	; db 1, SWEET_KISS
 	; db 1, NUZZLE
 	; db 1, NASTY_PLOT
-	; db 1, CHARM
 	db 1, THUNDERSHOCK
-	db 1, TAIL_WHIP
-	db 1, GROWL
+	db 1, CHARM
 	db 1, QUICK_ATTACK
 	db 4, THUNDER_WAVE
 	db 8, DOUBLE_TEAM
