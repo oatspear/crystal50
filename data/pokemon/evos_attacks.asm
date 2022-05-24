@@ -586,28 +586,19 @@ NidokingEvosAttacks:
 ClefairyEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, CLEFABLE
 	db 0 ; no more evolutions
-	; db 1, SWEET_KISS
-	; db 1, DISARMING_VOICE
-	; db 1, ENCORE
-	; db 1, CHARM
-	; db 1, SPLASH
-	; db 1, COPYCAT
-	db 1, SING
 	db 1, TACKLE
-	db 1, GROWL
-	; db 1, DEFENSE_CURL
-	db 4, DISARMING_VOICE ; FIXME: STORED_POWER
-	db 8, MINIMIZE
-	db 12, SWEET_KISS ; FIXME: AFTER_YOU
-	db 16, ENCORE ; FIXME: LIFE_DEW
-	db 20, METRONOME
-	db 24, MOONLIGHT
-	db 28, CHARM ; FIXME: GRAVITY
-	db 32, BODY_SLAM ; FIXME: METEOR_MASH
-	; db 36, FOLLOW_ME
-	; db 40, COSMIC_POWER
-	db 44, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	; db 48, HEALING_WISH
+	db 1, CHARM
+	db 4, SING
+	db 8, DISARMING_VOICE
+	db 12, SWEET_KISS
+	db 16, DRAIN_KISS
+	db 20, ENCORE
+	db 24, METRONOME
+	db 28, MOONLIGHT
+	db 32, PSYCHIC_M
+	db 36, BODY_SLAM
+	db 40, CALM_MIND
+	db 44, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
 ClefableEvosAttacks:
@@ -615,24 +606,14 @@ ClefableEvosAttacks:
 	; db 1, SING
 	; db 1, SWEET_KISS
 	; db 1, DISARMING_VOICE
-	db 1, ENCORE
 	; db 1, CHARM
-	; db 1, STORED_POWER
 	; db 1, MINIMIZE
-	; db 1, AFTER_YOU
-	; db 1, LIFE_DEW
+	; db 1, CALM_MIND
+	; db 1, TACKLE
+	db 1, ENCORE
 	db 1, METRONOME
 	db 1, MOONLIGHT
-	; db 1, GRAVITY
-	; db 1, METEOR_MASH
-	; db 1, FOLLOW_ME
-	; db 1, COSMIC_POWER
-	db 1, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	; db 1, HEALING_WISH
-	; db 1, TACKLE
-	; db 1, COPYCAT
-	; db 1, GROWL
-	; db 1, DEFENSE_CURL
+	db 1, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
