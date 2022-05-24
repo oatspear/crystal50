@@ -915,121 +915,90 @@ PsyduckEvosAttacks:
 	db EVOLVE_LEVEL, 33, GOLDUCK
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, TAIL_WHIP
-	db 3, WATER_GUN
-	db 6, CONFUSION
-	db 9, FURY_SWIPES
-	; db 12, WATER_PULSE
-	db 15, DISABLE
-	db 18, ZEN_HEADBUTT
-	db 21, SCREECH
-	db 24, WATERFALL ; FIXME: AQUA_TAIL
-	; db 27, SOAK
-	db 30, PSYCH_UP
-	db 34, AMNESIA
-	db 36, HYDRO_PUMP
-	; db 39, WONDER_ROOM
+	db 4, WATER_GUN
+	db 8, CONFUSION
+	db 12, WATER_PULSE
+	db 16, DISABLE
+	db 20, BUBBLEBEAM
+	db 24, HYPNOSIS
+	db 28, ZEN_HEADBUTT
+	db 32, AQUA_TAIL
+	db 36, SCREECH
+	db 40, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GolduckEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, AQUA_JET
 	db 1, TACKLE
-	db 1, TAIL_WHIP
-	db 1, WATER_GUN
-	db 1, CONFUSION
-	db 9, FURY_SWIPES
-	; db 12, WATER_PULSE
-	db 15, DISABLE
-	db 18, ZEN_HEADBUTT
-	db 21, SCREECH
-	db 24, WATERFALL ; FIXME: AQUA_TAIL
-	; db 27, SOAK
-	db 30, PSYCH_UP
-	db 36, AMNESIA
-	db 40, HYDRO_PUMP
-	; db 45, WONDER_ROOM
+	db 4, WATER_GUN
+	db 8, CONFUSION
+	db 12, WATER_PULSE
+	db 16, DISABLE
+	db 20, BUBBLEBEAM
+	db 24, HYPNOSIS
+	db 28, ZEN_HEADBUTT
+	db 32, AQUA_TAIL
+	db 40, SCREECH
+	db 45, HYDRO_PUMP
+	db LEVEL_EVO, AQUA_JET
 	db 0 ; no more level-up moves
 
 MankeyEvosAttacks:
 	db EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0 ; no more evolutions
-	; db 1, COVET
 	db 1, TACKLE
-	db 1, LOW_SWEEP ; FIXME: LOW_KICK
-	db 1, LEER
-	db 1, FOCUS_ENERGY
-	db 5, FURY_SWIPES
-	db 8, MUD_SLAP
-	db 12, SEISMIC_TOSS
-	; db 15, RETALIATE
-	db 19, SWAGGER
-	db 22, CROSS_CHOP
-	db 26, PAYBACK ; FIXME: ASSURANCE
-	db 29, SKULL_BASH
-	db 33, THRASH
-	db 36, CLOSE_COMBAT
-	db 40, SCREECH
-	; db 43, STOMPING_TANTRUM
-	db 47, OUTRAGE
-	; db 50, FINAL_GAMBIT
+	db 4, FOCUS_ENERGY
+	db 8, ROCK_SMASH
+	db 12, MUD_SLAP
+	db 16, LOW_SWEEP
+	db 20, BULK_UP
+	db 24, SWAGGER
+	db 28, PAYBACK
+	db 32, SCREECH
+	db 36, CROSS_CHOP
+	db 40, CLOSE_COMBAT
+	db 44, OUTRAGE
 	db 0 ; no more level-up moves
 
 PrimeapeEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, FINAL_GAMBIT
-	; db 1, FLING
-	; db 1, TACKLE
-	db 1, LOW_SWEEP ; FIXME: LOW_KICK
-	db 1, LEER
-	db 1, FOCUS_ENERGY
-	; db 1, COVET
-	db 5, FURY_SWIPES
-	db 8, MUD_SLAP
-	db 12, SEISMIC_TOSS
-	; db 15, RETALIATE
-	db 19, SWAGGER
-	db 22, CROSS_CHOP
-	db 26, PAYBACK ; FIXME: ASSURANCE
-	db 30, SKULL_BASH
-	db 35, THRASH
-	db 39, CLOSE_COMBAT
-	db 44, SCREECH
-	; db 48, STOMPING_TANTRUM
-	db 53, OUTRAGE
-	; db 57, FINAL_GAMBIT
+	db 1, TACKLE
+	db 4, FOCUS_ENERGY
+	db 8, ROCK_SMASH
+	db 12, MUD_SLAP
+	db 16, LOW_SWEEP
+	db 20, BULK_UP
+	db 24, SWAGGER
+	db 28, PAYBACK
+	db 35, SCREECH
+	db 40, CROSS_CHOP
+	db 45, CLOSE_COMBAT
+	db 50, OUTRAGE
 	db 0 ; no more level-up moves
 
 GrowlitheEvosAttacks:
 	db EVOLVE_ITEM, FIRE_STONE, ARCANINE
 	db 0 ; no more evolutions
-	db 1, EMBER
-	db 1, LEER
-	; db 4, HOWL
+	db 1, TACKLE
+	db 1, GROWL
+	db 4, EMBER
 	db 8, BITE
-	db 12, FLAME_WHEEL
-	; db 16, HELPING_HAND
-	db 20, AGILITY
-	; db 24, FIRE_FANG
-	; db 28, RETALIATE
+	db 12, AGILITY
+	db 16, FLAME_WHEEL
+	db 20, FIRE_FANG
+	db 24, ROAR
+	db 28, REVERSAL
 	db 32, CRUNCH
-	db 36, TAKE_DOWN
-	db 40, FLAMETHROWER
-	db 44, ROAR
-	db 48, PLAY_ROUGH
-	db 52, REVERSAL
-	db 56, FLARE_BLITZ
+	db 36, FLAMETHROWER
+	db 40, PLAY_ROUGH
+	db 44, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 ArcanineEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, EXTREMESPEED
-	; db 1, BURN_UP
-	db 1, FLAME_WHEEL
-	; db 1, HELPING_HAND
 	; db 1, AGILITY
 	; db 1, FIRE_FANG
-	; db 1, RETALIATE
 	; db 1, CRUNCH
 	; db 1, TAKE_DOWN
 	; db 1, FLAMETHROWER
@@ -1038,8 +1007,8 @@ ArcanineEvosAttacks:
 	; db 1, REVERSAL
 	; db 1, FLARE_BLITZ
 	; db 1, EMBER
-	db 1, LEER
-	; db 1, HOWL
+	db 1, FLAME_WHEEL
+	db 1, GROWL
 	db 1, BITE
 	db LEVEL_EVO, EXTREMESPEED
 	db 0 ; no more level-up moves
