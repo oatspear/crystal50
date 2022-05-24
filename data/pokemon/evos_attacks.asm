@@ -620,68 +620,52 @@ VulpixEvosAttacks:
 	db EVOLVE_ITEM, FIRE_STONE, NINETALES
 	db 0 ; no more evolutions
 	db 1, EMBER
-	db 1, TAIL_WHIP
+	db 1, GROWL
 	db 4, DISABLE
 	db 8, QUICK_ATTACK
 	db 12, SPITE
-	; db 16, INCINERATE
+	db 16, NASTY_PLOT
 	db 20, CONFUSE_RAY
 	db 24, WILL_O_WISP
-	db 28, CONFUSION ; FIXME: EXTRASENSORY
-	db 32, FLAMETHROWER
-	; db 36, IMPRISON
-	db 40, FIRE_SPIN
-	db 44, SAFEGUARD
-	; db 48, INFERNO
-	; db 52, GRUDGE
-	db 56, FIRE_BLAST
+	db 28, EXTRASENSORY
+	db 32, FIRE_SPIN
+	db 36, SAFEGUARD
+	db 40, FLAMETHROWER
+	db 44, HEX
+	db 48, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, NASTY_PLOT
 	; db 1, SPITE
-	; db 1, INCINERATE
-	db 1, CONFUSE_RAY
-	; db 1, WILL_O_WISP
+	; db 1, CONFUSE_RAY
 	; db 1, EXTRASENSORY
 	; db 1, FLAMETHROWER
-	; db 1, IMPRISON
-	db 1, FIRE_SPIN
 	; db 1, SAFEGUARD
-	; db 1, INFERNO
-	; db 1, GRUDGE
-	db 1, FIRE_BLAST
 	; db 1, EMBER
-	; db 1, TAIL_WHIP
 	; db 1, DISABLE
+	db 1, WILL_O_WISP
+	db 1, FIRE_SPIN
 	db 1, QUICK_ATTACK
+	db 1, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 JigglypuffEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, WIGGLYTUFF
 	db 0 ; no more evolutions
-	; db 1, SWEET_KISS
-	; db 1, DISARMING_VOICE
-	; db 1, DISABLE
-	db 1, CHARM
-	db 1, SING
 	db 1, TACKLE
-	; db 1, COPYCAT
-	; db 1, DEFENSE_CURL
-	db 4, DISARMING_VOICE ; FIXME: ECHOED_VOICE
-	db 8, SWEET_KISS ; FIXME: COVET
-	db 12, DISABLE ; FIXME: STOCKPILE
-	; db 12, SWALLOW
-	; db 12, SPIT_UP
-	; db 16, ROUND
+	db 1, CHARM
+	db 4, SING
+	db 8, DISARMING_VOICE
+	db 12, SWEET_KISS
+	db 16, DISABLE
 	db 20, REST
 	db 24, BODY_SLAM
 	db 28, MIMIC
-	; db 32, GYRO_BALL
-	; db 36, HYPER_VOICE
-	db 40, PLAY_ROUGH
-	db 44, DOUBLE_EDGE
+	db 32, NASTY_PLOT
+	db 36, PLAY_ROUGH
+	db 40, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 WigglytuffEvosAttacks:
@@ -690,23 +674,13 @@ WigglytuffEvosAttacks:
 	; db 1, DISARMING_VOICE
 	; db 1, DISABLE
 	; db 1, CHARM
-	; db 1, ECHOED_VOICE
-	; db 1, COVET
-	; db 1, STOCKPILE
-	; db 1, SWALLOW
-	; db 1, SPIT_UP
-	; db 1, ROUND
-	db 1, REST
-	db 1, BODY_SLAM
 	; db 1, MIMIC
-	; db 1, GYRO_BALL
-	db 1, PLAY_ROUGH
-	; db 1, HYPER_VOICE
 	; db 1, DOUBLE_EDGE
-	db 1, SING
 	; db 1, TACKLE
-	; db 1, COPYCAT
-	; db 1, DEFENSE_CURL
+	db 1, SING
+	db 1, BODY_SLAM
+	db 1, REST
+	db 1, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 ZubatEvosAttacks:
