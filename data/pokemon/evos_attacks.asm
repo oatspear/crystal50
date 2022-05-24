@@ -808,53 +808,45 @@ VenonatEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, DISABLE
-	; db 1, STRUGGLE_BUG
+	db 1, STRUGGLE_BUG
 	db 5, SUPERSONIC
-	db 11, CONFUSION
-	db 13, POISONPOWDER
-	db 17, PSYBEAM
-	db 23, STUN_SPORE
-	db 25, MEGA_DRAIN
-	db 29, SLEEP_POWDER
-	db 35, LEECH_LIFE
-	db 37, ZEN_HEADBUTT
-	; db 41, POISON_FANG
-	db 47, PSYCHIC_M
+	db 10, CONFUSION
+	db 15, POISONPOWDER
+	db 20, BUG_BITE
+	db 25, STUN_SPORE
+	db 25, SLEEP_POWDER
+	db 30, LEECH_LIFE
+	db 35, ZEN_HEADBUTT
+	db 40, POISON_JAB
+	db 45, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 VenomothEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, GUST
-	; db 1, QUIVER_DANCE
-	; db 1, BUG_BUZZ
-	; db 1, WHIRLWIND
 	db 1, TACKLE
 	db 1, DISABLE
-	; db 1, STRUGGLE_BUG
-	db 1, SUPERSONIC
-	; db 5, SUPERSONIC
-	db 11, CONFUSION
-	db 13, POISONPOWDER
-	db 17, PSYBEAM
-	db 23, STUN_SPORE
-	db 25, MEGA_DRAIN
-	db 29, SLEEP_POWDER
-	db 37, LEECH_LIFE
-	db 41, ZEN_HEADBUTT
-	; db 47, POISON_FANG
-	db 55, PSYCHIC_M
-	db 59, BUG_BUZZ
-	; db 63, QUIVER_DANCE
+	db 1, STRUGGLE_BUG
+	db 5, SUPERSONIC
+	db 10, CONFUSION
+	db 15, POISONPOWDER
+	db 20, BUG_BITE
+	db 25, STUN_SPORE
+	db 25, SLEEP_POWDER
+	db 30, LEECH_LIFE
+	db 40, ZEN_HEADBUTT
+	db 45, POISON_JAB
+	db 50, PSYCHIC_M
+	db 55, BUG_BUZZ
 	db LEVEL_EVO, GUST
 	db 0 ; no more level-up moves
 
 DiglettEvosAttacks:
 	db EVOLVE_LEVEL, 26, DUGTRIO
 	db 0 ; no more evolutions
-	db 1, SAND_ATTACK
 	db 1, TACKLE
+	db 1, SAND_ATTACK
 	db 4, GROWL
-	; db 8, ASTONISH
+	db 8, ASTONISH
 	db 12, MUD_SLAP
 	db 16, BULLDOZE
 	db 20, SUCKER_PUNCH
@@ -863,18 +855,14 @@ DiglettEvosAttacks:
 	db 32, DIG
 	db 36, EARTH_POWER
 	db 40, EARTHQUAKE
-	db 44, FISSURE
 	db 0 ; no more level-up moves
 
 DugtrioEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, SAND_TOMB
-	; db 1, NIGHT_SLASH
-	db 1, TRI_ATTACK
+	db 1, TACKLE
 	db 1, SAND_ATTACK
-	; db 1, TACKLE
-	db 1, GROWL
-	; db 1, ASTONISH
+	db 4, GROWL
+	db 8, ASTONISH
 	db 12, MUD_SLAP
 	db 16, BULLDOZE
 	db 20, SUCKER_PUNCH
@@ -883,46 +871,44 @@ DugtrioEvosAttacks:
 	db 36, DIG
 	db 42, EARTH_POWER
 	db 48, EARTHQUAKE
-	db 54, FISSURE
+	db 54, TRI_ATTACK
 	db LEVEL_EVO, SAND_TOMB
 	db 0 ; no more level-up moves
 
 MeowthEvosAttacks:
 	db EVOLVE_LEVEL, 28, PERSIAN
 	db 0 ; no more evolutions
-	db 1, TACKLE ; FIXME: FAKE_OUT
+	db 1, TACKLE
 	db 1, GROWL
-	; db 4, FEINT
-	; db 8, TACKLE
+	db 4, FOCUS_ENERGY
+	db 8, QUICK_ATTACK
 	db 12, PAY_DAY
 	db 16, BITE
-	; db 20, TAUNT
-	db 24, PAYBACK ; FIXME: ASSURANCE
-	db 29, FURY_SWIPES
-	db 32, SCREECH
-	db 36, SLASH
-	db 40, NASTY_PLOT
+	db 20, SCREECH
+	db 24, PAYBACK
+	db 28, SLASH
+	db 32, NASTY_PLOT
+	db 36, FACADE
+	db 40, NIGHT_SLASH
 	db 44, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 PersianEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, POWER_GEM
-	; db 1, SWITCHEROO
-	; db 1, FAKE_OUT
-	db 1, GROWL
-	; db 1, FEINT
 	db 1, TACKLE
+	db 1, GROWL
+	db 4, FOCUS_ENERGY
+	db 8, QUICK_ATTACK
 	db 12, PAY_DAY
 	db 16, BITE
-	; db 20, TAUNT
-	db 24, PAYBACK ; FIXME: ASSURANCE
-	db 31, FURY_SWIPES
-	db 36, SCREECH
-	db 42, SLASH
-	db 48, NASTY_PLOT
-	db 54, PLAY_ROUGH
-	; db LEVEL_EVO, POWER_GEM
+	db 20, SCREECH
+	db 24, PAYBACK
+	db 28, SLASH
+	db 35, NASTY_PLOT
+	db 40, FACADE
+	db 45, NIGHT_SLASH
+	db 50, PLAY_ROUGH
+	db LEVEL_EVO, POWER_GEM
 	db 0 ; no more level-up moves
 
 PsyduckEvosAttacks:
