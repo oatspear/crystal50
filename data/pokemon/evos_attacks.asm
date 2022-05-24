@@ -688,36 +688,37 @@ ZubatEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, SUPERSONIC
-	; db 5, ASTONISH
-	db 10, MEAN_LOOK
-	db 15, POISON_STING ; FIXME: POISON_FANG
-	; db 20, QUICK_GUARD
-	db 25, WING_ATTACK ; FIXME: AIR_CUTTER
-	db 30, BITE
-	db 35, HAZE
-	; db 40, VENOSHOCK
-	db 45, CONFUSE_RAY
-	db 50, AIR_SLASH
-	db 55, LEECH_LIFE
+	db 4, ASTONISH
+	db 8, MEAN_LOOK
+	db 12, POISON_STING
+	db 16, BITE
+	db 20, AIR_CUTTER
+	db 24, SCREECH
+	db 24, HAZE
+	db 28, VENOSHOCK
+	db 32, AERIAL_ACE
+	db 36, LEECH_LIFE
+	db 40, AIR_SLASH
+	db 44, SUPER_FANG
 	db 0 ; no more level-up moves
 
 GolbatEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
 	db 0 ; no more evolutions
-	db 1, SCREECH
 	db 1, ABSORB
 	db 1, SUPERSONIC
-	; db 1, ASTONISH
-	db 1, MEAN_LOOK
-	db 15, POISON_STING ; FIXME: POISON_FANG
-	; db 20, QUICK_GUARD
-	db 27, WING_ATTACK ; FIXME: AIR_CUTTER
-	db 34, BITE
-	db 41, HAZE
-	; db 48, VENOSHOCK
-	db 55, CONFUSE_RAY
-	db 62, AIR_SLASH
-	db 69, LEECH_LIFE
+	db 4, ASTONISH
+	db 8, MEAN_LOOK
+	db 12, POISON_STING
+	db 16, BITE
+	db 20, AIR_CUTTER
+	db 25, SCREECH
+	db 25, HAZE
+	db 30, VENOSHOCK
+	db 35, AERIAL_ACE
+	db 40, LEECH_LIFE
+	db 45, AIR_SLASH
+	db 50, SUPER_FANG
 	db 0 ; no more level-up moves
 
 OddishEvosAttacks:
@@ -727,16 +728,14 @@ OddishEvosAttacks:
 	db 1, GROWTH
 	db 4, ACID_SPRAY
 	db 8, SWEET_SCENT
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 12, POISONPOWDER
 	db 16, STUN_SPORE
-	db 18, SLEEP_POWDER
-	db 20, GIGA_DRAIN
+	db 20, SLEEP_POWDER
 	db 24, TOXIC
-	db 28, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	; db 32, GRASSY_TERRAIN
-	db 36, MOONLIGHT
-	db 40, PETAL_DANCE
+	db 28, DAZZLING_GLEAM
+	db 32, MOONLIGHT
+	db 36, PETAL_DANCE
+	db 40, ENERGY_BALL
 	db 0 ; no more level-up moves
 
 GloomEvosAttacks:
@@ -745,76 +744,63 @@ GloomEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
-	db 1, ACID_SPRAY
-	db 1, SWEET_SCENT
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 4, ACID_SPRAY
+	db 8, SWEET_SCENT
+	db 12, POISONPOWDER
 	db 16, STUN_SPORE
-	db 18, SLEEP_POWDER
-	db 20, GIGA_DRAIN
-	db 26, TOXIC
-	db 32, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	; db 38, GRASSY_TERRAIN
-	db 44, MOONLIGHT
-	db 50, PETAL_DANCE
+	db 20, SLEEP_POWDER
+	db 25, TOXIC
+	db 30, DAZZLING_GLEAM
+	db 35, MOONLIGHT
+	db 40, PETAL_DANCE
+	db 45, ENERGY_BALL
 	db 0 ; no more level-up moves
 
 VileplumeEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, PETAL_BLIZZARD
-	; db 1, AROMATHERAPY
-	; db 1, MEGA_DRAIN
-	db 1, POISONPOWDER
 	; db 1, STUN_SPORE
 	; db 1, SLEEP_POWDER
-	; db 1, GIGA_DRAIN
 	; db 1, TOXIC
-	; db 1, MOONBLAST
-	; db 1, GRASSY_TERRAIN
-	db 1, MOONLIGHT
-	db 1, PETAL_DANCE
 	; db 1, ABSORB
 	; db 1, GROWTH
-	db 1, ACID_SPRAY
 	; db 1, SWEET_SCENT
+	db 1, POISONPOWDER
+	db 1, MOONLIGHT
+	db 1, PETAL_DANCE
+	db 1, ACID_SPRAY
 	; db LEVEL_EVO, PETAL_BLIZZARD
 	db 0 ; no more level-up moves
 
 ParasEvosAttacks:
 	db EVOLVE_LEVEL, 24, PARASECT
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 6, STUN_SPORE
-	db 6, POISONPOWDER
-	db 11, ABSORB
-	db 17, FURY_CUTTER
-	db 22, SPORE
-	db 27, SLASH
-	db 33, GROWTH
-	db 38, GIGA_DRAIN
-	db 43, HEAL_BELL ; FIXME: AROMATHERAPY
-	; db 49, RAGE_POWDER
-	; db 54, X_SCISSOR
+	db 1, ABSORB
+	db 4, STUN_SPORE
+	db 8, POISONPOWDER
+	db 12, FURY_CUTTER
+	db 16, GROWTH
+	db 20, VENOSHOCK
+	db 24, SLASH
+	db 28, SPORE
+	db 32, LEECH_LIFE
+	db 36, ENERGY_BALL
+	db 40, X_SCISSOR
 	db 0 ; no more level-up moves
 
 ParasectEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, CROSS_POISON
-	db 1, TACKLE
-	db 1, STUN_SPORE
-	db 1, POISONPOWDER
 	db 1, ABSORB
-	; db 6, STUN_SPORE
-	; db 6, POISONPOWDER
-	; db 11, ABSORB
-	db 17, FURY_CUTTER
-	db 22, SPORE
-	db 29, SLASH
-	db 37, GROWTH
-	db 44, GIGA_DRAIN
-	db 51, HEAL_BELL ; FIXME: AROMATHERAPY
-	; db 59, RAGE_POWDER
-	; db 66, X_SCISSOR
+	db 4, STUN_SPORE
+	db 8, POISONPOWDER
+	db 12, FURY_CUTTER
+	db 16, GROWTH
+	db 20, VENOSHOCK
+	db 25, SLASH
+	db 30, SPORE
+	db 35, LEECH_LIFE
+	db 40, ENERGY_BALL
+	db 45, X_SCISSOR
 	db 0 ; no more level-up moves
 
 VenonatEvosAttacks:
