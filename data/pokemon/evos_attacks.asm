@@ -414,48 +414,33 @@ ArbokEvosAttacks:
 PikachuEvosAttacks:
 	db EVOLVE_ITEM, THUNDERSTONE, RAICHU
 	db 0 ; no more evolutions
-	; db 1, PLAY_NICE
-	; db 1, SWEET_KISS
-	; db 1, NUZZLE
-	; db 1, NASTY_PLOT
 	db 1, THUNDERSHOCK
 	db 1, CHARM
-	db 1, QUICK_ATTACK
-	db 4, THUNDER_WAVE
-	db 8, DOUBLE_TEAM
-	; db 12, ELECTRO_BALL
-	; db 16, FEINT
+	db 4, QUICK_ATTACK
+	db 8, THUNDER_WAVE
+	db 12, NASTY_PLOT
+	db 16, DOUBLE_TEAM
 	db 20, SPARK
 	db 24, AGILITY
-	db 28, SLAM
-	; db 32, DISCHARGE
-	db 36, THUNDERBOLT
-	db 40, LIGHT_SCREEN
+	db 28, SWIFT
+	db 32, THUNDERBOLT
+	db 36, LIGHT_SCREEN
 	db 44, THUNDER
 	db 0 ; no more level-up moves
 
 RaichuEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, THUNDERPUNCH
-	; db 1, PLAY_NICE
-	; db 1, SWEET_KISS
-	; db 1, NUZZLE
 	; db 1, NASTY_PLOT
 	; db 1, CHARM
 	; db 1, THUNDER_WAVE
 	; db 1, DOUBLE_TEAM
-	; db 1, ELECTRO_BALL
-	; db 1, FEINT
 	; db 1, SPARK
-	db 1, AGILITY
-	; db 1, SLAM
-	; db 1, DISCHARGE
-	db 1, THUNDERBOLT
 	; db 1, LIGHT_SCREEN
 	; db 1, THUNDER
 	; db 1, THUNDERSHOCK
-	; db 1, TAIL_WHIP
 	; db 1, GROWL
+	db 1, AGILITY
+	db 1, THUNDERBOLT
 	db 1, QUICK_ATTACK
 	db LEVEL_EVO, THUNDERPUNCH
 	db 0 ; no more level-up moves
@@ -464,29 +449,25 @@ SandshrewEvosAttacks:
 	db EVOLVE_LEVEL, 22, SANDSLASH
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	; db 1, DEFENSE_CURL
 	db 3, POISON_STING
 	db 6, SAND_ATTACK
 	db 9, ROLLOUT
 	db 12, FURY_CUTTER
 	db 15, RAPID_SPIN
 	db 18, BULLDOZE
-	db 21, SWIFT
-	db 24, FURY_SWIPES
+	db 21, SPIKES
+	db 24, IRON_DEFENSE
 	db 27, AGILITY
 	db 30, SLASH
 	db 33, DIG
-	; db 36, GYRO_BALL
-	db 39, SWORDS_DANCE
-	db 42, SANDSTORM
-	db 45, EARTHQUAKE
+	db 36, SWORDS_DANCE
+	db 39, SANDSTORM
+	db 42, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 SandslashEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, CRUSH_CLAW
 	db 1, TACKLE
-	; db 1, DEFENSE_CURL
 	db 1, POISON_STING
 	db 1, SAND_ATTACK
 	; db 1, AGILITY
@@ -494,125 +475,111 @@ SandslashEvosAttacks:
 	db 12, FURY_CUTTER
 	db 15, RAPID_SPIN
 	db 18, BULLDOZE
-	db 21, SWIFT
-	db 26, FURY_SWIPES
+	db 21, SPIKES
+	db 26, IRON_DEFENSE
 	db 31, SAND_TOMB
 	db 36, SLASH
 	db 41, DIG
-	; db 46, GYRO_BALL
-	db 51, SWORDS_DANCE
-	db 56, SANDSTORM
-	db 61, EARTHQUAKE
+	db 46, SWORDS_DANCE
+	db 51, SANDSTORM
+	db 56, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 NidoranFEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINA
 	db 0 ; no more evolutions
-	db 1, GROWL
-	db 1, POISON_STING
-	db 5, TACKLE
-	db 10, TAIL_WHIP
-	db 15, FURY_SWIPES
-	; db 20, TOXIC_SPIKES
-	db 25, DOUBLE_KICK
-	db 30, BITE
-	; db 35, HELPING_HAND
-	db 40, TOXIC
-	; db 45, FLATTER
-	db 50, CRUNCH
-	db 55, EARTH_POWER
+	db 1, TACKLE
+	db 1, CHARM
+	db 4, POISON_STING
+	db 8, ENDURE
+	db 12, HEADBUTT
+	db 16, BITE
+	db 20, DOUBLE_KICK
+	db 24, COUNTER
+	db 28, BODY_SLAM
+	db 32, TOXIC
+	db 36, CRUNCH
+	db 40, SLUDGE_BOMB
+	db 44, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidorinaEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
 	db 0 ; no more evolutions
-	db 1, GROWL
-	db 1, POISON_STING
 	db 1, TACKLE
-	db 1, TAIL_WHIP
-	db 15, FURY_SWIPES
-	; db 22, TOXIC_SPIKES
-	db 29, DOUBLE_KICK
-	db 36, BITE
-	; db 43, HELPING_HAND
-	db 50, TOXIC
-	; db 57, FLATTER
-	db 64, CRUNCH
-	db 71, EARTH_POWER
+	db 1, CHARM
+	db 4, POISON_STING
+	db 8, ENDURE
+	db 12, HEADBUTT
+	db 16, BITE
+	db 21, DOUBLE_KICK
+	db 25, COUNTER
+	db 30, BODY_SLAM
+	db 35, TOXIC
+	db 40, CRUNCH
+	db 45, SLUDGE_BOMB
+	db 50, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidoqueenEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, SLUDGE_WAVE
 	; db 1, SUPERPOWER
-	; db 1, FURY_SWIPES
-	; db 1, TOXIC_SPIKES
-	db 1, DOUBLE_KICK
 	; db 1, BITE
-	; db 1, HELPING_HAND
-	db 1, TOXIC
-	; db 1, FLATTER
-	db 1, CRUNCH
-	db 1, EARTH_POWER
 	; db 1, GROWL
 	; db 1, POISON_STING
 	; db 1, TACKLE
-	; db 1, TAIL_WHIP
+	; db 1, DOUBLE_KICK
+	db 1, TOXIC
+	db 1, CRUNCH
+	db 1, EARTH_POWER
 	db LEVEL_EVO, SUPERPOWER
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINO
 	db 0 ; no more evolutions
-	db 1, LEER
-	db 1, POISON_STING
-	db 5, PECK
-	db 10, FOCUS_ENERGY
-	db 15, FURY_ATTACK
-	; db 20, TOXIC_SPIKES
-	db 25, DOUBLE_KICK
-	db 30, HORN_ATTACK
-	; db 35, HELPING_HAND
-	db 40, TOXIC
-	; db 45, FLATTER
-	db 50, POISON_JAB
-	db 55, EARTH_POWER
+	db 1, TACKLE
+	db 1, GROWL
+	db 4, POISON_STING
+	db 8, FOCUS_ENERGY
+	db 12, HEADBUTT
+	db 16, DOUBLE_KICK
+	db 20, SWORDS_DANCE
+	db 24, REVERSAL
+	db 28, BODY_SLAM
+	db 32, TOXIC
+	db 36, SUCKER_PUNCH
+	db 40, POISON_JAB
+	db 44, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidorinoEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOKING
 	db 0 ; no more evolutions
-	db 1, LEER
-	db 1, POISON_STING
-	db 1, PECK
-	db 1, FOCUS_ENERGY
-	db 15, FURY_ATTACK
-	; db 22, TOXIC_SPIKES
-	db 29, DOUBLE_KICK
-	db 36, HORN_ATTACK
-	; db 43, HELPING_HAND
-	db 50, TOXIC
-	; db 57, FLATTER
-	db 64, POISON_JAB
-	db 71, EARTH_POWER
+	db 1, TACKLE
+	db 1, GROWL
+	db 4, POISON_STING
+	db 8, FOCUS_ENERGY
+	db 12, HEADBUTT
+	db 16, DOUBLE_KICK
+	db 21, SWORDS_DANCE
+	db 25, REVERSAL
+	db 30, BODY_SLAM
+	db 35, TOXIC
+	db 40, SUCKER_PUNCH
+	db 45, POISON_JAB
+	db 50, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidokingEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, MEGAHORN
-	; db 1, FURY_ATTACK
-	; db 1, TOXIC_SPIKES
-	db 1, DOUBLE_KICK
-	; db 1, HORN_ATTACK
-	; db 1, HELPING_HAND
 	; db 1, TOXIC
-	; db 1, FLATTER
+	; db 1, POISON_STING
+	; db 1, FOCUS_ENERGY
+	db 1, DOUBLE_KICK
 	db 1, POISON_JAB
 	db 1, EARTH_POWER
-	; db 1, LEER
-	; db 1, POISON_STING
-	; db 1, PECK
-	; db 1, FOCUS_ENERGY
 	db LEVEL_EVO, MEGAHORN
 	db 0 ; no more level-up moves
 
