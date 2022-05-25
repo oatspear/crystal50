@@ -1391,46 +1391,34 @@ FarfetchDEvosAttacks:
 	db 0 ; no more level-up moves
 
 DoduoEvosAttacks:
-	db EVOLVE_LEVEL, 31, DODRIO
+	db EVOLVE_LEVEL, 32, DODRIO
 	db 0 ; no more evolutions
-	db 1, PECK
+	db 1, PLUCK
 	db 1, GROWL
-	db 5, QUICK_ATTACK
-	db 8, LEER
-	db 12, FURY_ATTACK
-	db 15, WING_ATTACK
-	; db 19, PLUCK
-	; db 22, DOUBLE_HIT
-	db 26, AGILITY
-	; db 29, UPROAR
-	; db 33, ACUPRESSURE
-	db 36, SWORDS_DANCE
-	; db 40, LUNGE
-	db 43, DRILL_PECK
-	; db 47, ENDEAVOR
-	db 50, THRASH
+	db 5, SAND_ATTACK
+	db 8, QUICK_ATTACK
+	db 12, AERIAL_ACE
+	db 16, FOCUS_ENERGY
+	db 20, AGILITY
+	db 25, FLAIL
+	db 30, ROOST
+	db 35, SWORDS_DANCE
+	db 40, DRILL_PECK
 	db 0 ; no more level-up moves
 
 DodrioEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, TRI_ATTACK
-	db 1, PECK
+	db 1, PLUCK
 	db 1, GROWL
-	db 1, QUICK_ATTACK
-	; db 5, QUICK_ATTACK
-	db 8, LEER
-	db 12, FURY_ATTACK
-	db 15, WING_ATTACK
-	; db 19, PLUCK
-	; db 22, DOUBLE_HIT
-	db 26, AGILITY
-	; db 29, UPROAR
-	; db 34, ACUPRESSURE
-	db 38, SWORDS_DANCE
-	; db 43, LUNGE
-	db 47, DRILL_PECK
-	; db 52, ENDEAVOR
-	db 56, THRASH
+	db 5, SAND_ATTACK
+	db 8, QUICK_ATTACK
+	db 12, AERIAL_ACE
+	db 16, FOCUS_ENERGY
+	db 20, AGILITY
+	db 25, FLAIL
+	db 30, ROOST
+	db 40, SWORDS_DANCE
+	db 45, DRILL_PECK
 	db LEVEL_EVO, TRI_ATTACK
 	db 0 ; no more level-up moves
 
