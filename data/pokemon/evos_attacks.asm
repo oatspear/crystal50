@@ -1572,197 +1572,141 @@ OnixEvosAttacks:
 	db EVOLVE_HOLD, METAL_COAT, 36, STEELIX
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, HARDEN
 	db 1, WRAP
-	db 1, ROCK_THROW
-	; db 4, SMACK_DOWN
-	db 8, AGILITY ; FIXME: ROCK_POLISH
-	db 12, DRAGONBREATH
-	db 16, CURSE
+	db 4, ROCK_THROW
+	db 8, IRON_DEFENSE
+	db 12, BULLDOZE
+	db 16, SAND_TOMB
 	db 20, ROCK_SLIDE
-	db 24, SCREECH
-	db 28, SAND_TOMB
-	; db 32, STEALTH_ROCK
-	db 36, SLAM
-	db 40, SANDSTORM
-	db 44, DIG
-	db 48, IRON_TAIL
-	db 52, STONE_EDGE
-	db 56, DOUBLE_EDGE
+	db 24, SANDSTORM
+	db 28, DIG
+	db 32, IRON_TAIL
+	db 36, DOUBLE_EDGE
+	db 40, STONE_EDGE
+	db 44, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 DrowzeeEvosAttacks:
 	db EVOLVE_LEVEL, 26, HYPNO
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, HYPNOSIS
-	db 5, DISABLE
-	db 9, CONFUSION
-	db 13, HEADBUTT
-	db 17, POISON_GAS
-	db 21, CALM_MIND
-	db 25, PSYBEAM
-	db 29, MIND_READER
-	db 33, PSYCH_UP
-	; db 37, SYNCHRONOISE
-	db 41, ZEN_HEADBUTT
-	db 45, SWAGGER
-	db 49, PSYCHIC_M
-	db 53, NASTY_PLOT
-	; db 57, PSYSHOCK
-	db 61, FUTURE_SIGHT
+	db 4, DISABLE
+	db 8, CONFUSION
+	db 12, HEADBUTT
+	db 16, POISON_GAS
+	db 20, HYPNOSIS
+	db 24, CALM_MIND
+	db 28, DREAM_EATER
+	db 32, ZEN_HEADBUTT
+	db 36, NASTY_PLOT
+	db 40, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 HypnoEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, FUTURE_SIGHT
-	; db 1, NASTY_PLOT
-	; db 1, SWITCHEROO
 	db 1, TACKLE
-	db 1, HYPNOSIS
-	db 1, DISABLE
-	db 1, CONFUSION
-	; db 5, DISABLE
-	; db 9, CONFUSION
-	db 13, HEADBUTT
-	db 17, POISON_GAS
-	db 21, CALM_MIND
-	db 25, PSYBEAM
-	db 29, MIND_READER
-	db 33, PSYCH_UP
-	; db 37, HYPNOSIS
-	db 41, ZEN_HEADBUTT
-	db 45, SWAGGER
-	db 49, PSYCHIC_M
-	db 53, NASTY_PLOT
-	; db 57, PSYSHOCK
-	db 61, FUTURE_SIGHT
+	db 4, DISABLE
+	db 8, CONFUSION
+	db 12, HEADBUTT
+	db 16, POISON_GAS
+	db 20, HYPNOSIS
+	db 24, CALM_MIND
+	db 30, DREAM_EATER
+	db 36, ZEN_HEADBUTT
+	db 42, NASTY_PLOT
+	db 48, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 KrabbyEvosAttacks:
 	db EVOLVE_LEVEL, 28, KINGLER
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 1, LEER
-	db 4, HARDEN
+	db 4, FALSE_SWIPE
 	db 8, METAL_CLAW
-	db 12, MUD_SLAP ; FIXME: MUD_SHOT
-	db 16, PROTECT
-	db 20, BUBBLEBEAM
-	db 24, STOMP
-	db 29, FLAIL
-	; db 32, RAZOR_SHELL
-	db 36, SLAM
-	db 40, SWORDS_DANCE
-	db 44, CRABHAMMER
-	db 48, GUILLOTINE
+	db 12, MUD_SLAP
+	db 16, BUBBLEBEAM
+	db 20, IRON_DEFENSE
+	db 24, ENDURE
+	db 28, FLAIL
+	db 34, SWORDS_DANCE
+	db 38, CRABHAMMER
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, WIDE_GUARD
-	; db 1, HAMMER_ARM
 	db 1, WATER_GUN
-	db 1, LEER
-	db 1, HARDEN
-	db 1, METAL_CLAW
-	db 12, MUD_SLAP ; FIXME: MUD_SHOT
-	db 16, PROTECT
-	db 20, BUBBLEBEAM
-	db 24, STOMP
-	db 31, FLAIL
-	; db 36, RAZOR_SHELL
-	db 42, SLAM
-	db 48, SWORDS_DANCE
-	db 54, CRABHAMMER
-	db 60, GUILLOTINE
+	db 4, FALSE_SWIPE
+	db 8, METAL_CLAW
+	db 12, MUD_SLAP
+	db 16, BUBBLEBEAM
+	db 20, IRON_DEFENSE
+	db 24, ENDURE
+	db 30, FLAIL
+	db 38, SWORDS_DANCE
+	db 44, CRABHAMMER
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks:
 	db EVOLVE_LEVEL, 30, ELECTRODE
 	db 0 ; no more evolutions
-	; db 1, CHARGE
 	db 1, TACKLE
 	db 4, THUNDERSHOCK
-	; db 6, EERIE_IMPULSE
-	db 9, SPARK
-	db 11, ROLLOUT
-	db 13, SCREECH
-	; db 16, CHARGE_BEAM
-	db 20, SWIFT
-	; db 22, ELECTRO_BALL
-	db 26, SELFDESTRUCT
-	db 29, LIGHT_SCREEN
-	; db 34, MAGNET_RISE
-	db 37, THUNDERBOLT ; FIXME: DISCHARGE
-	db 41, EXPLOSION
-	; db 46, GYRO_BALL
-	db 48, MIRROR_COAT
+	db 8, ROLLOUT
+	db 12, SWIFT
+	db 16, SPARK
+	db 20, CHARGE_BEAM
+	db 24, SCREECH
+	db 28, LIGHT_SCREEN
+	db 32, MIRROR_COAT
+	db 36, SELFDESTRUCT
+	db 40, THUNDERBOLT
 	db 0 ; no more level-up moves
 
 ElectrodeEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, MAGNETIC_FLUX
-	; db 1, CHARGE
 	db 1, TACKLE
-	db 1, THUNDERSHOCK
-	; db 1, EERIE_IMPULSE
-	; db 4, THUNDERSHOCK
-	; db 6, EERIE_IMPULSE
-	db 9, SPARK
-	db 11, ROLLOUT
-	db 13, SCREECH
-	; db 16, CHARGE_BEAM
-	db 20, SWIFT
-	; db 22, ELECTRO_BALL
-	db 26, SELFDESTRUCT
-	db 29, LIGHT_SCREEN
-	; db 36, MAGNET_RISE
-	db 41, THUNDERBOLT; FIXME: DISCHARGE
-	db 47, EXPLOSION
-	; db 54, GYRO_BALL
-	db 58, MIRROR_COAT
+	db 4, THUNDERSHOCK
+	db 8, ROLLOUT
+	db 12, SWIFT
+	db 16, SPARK
+	db 20, CHARGE_BEAM
+	db 24, SCREECH
+	db 28, LIGHT_SCREEN
+	db 35, MIRROR_COAT
+	db 40, SELFDESTRUCT
+	db 45, THUNDERBOLT
 	db 0 ; no more level-up moves
 
 ExeggcuteEvosAttacks:
 	db EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR
 	db 0 ; no more evolutions
+	db 1, TACKLE
 	db 1, ABSORB
-	db 1, HYPNOSIS
-	db 5, REFLECT
-	db 10, LEECH_SEED
-	db 15, MEGA_DRAIN
-	db 20, CONFUSION
-	db 25, SYNTHESIS
-	; db 30, BULLET_SEED
-	db 35, GIGA_DRAIN
-	db 40, PSYCHIC_M ; FIXME: EXTRASENSORY
-	; db 45, UPROAR
-	; db 50, WORRY_SEED
-	db 55, SOLARBEAM
+	db 8, LEECH_SEED
+	db 12, CONFUSION
+	db 16, HYPNOSIS
+	db 20, SEED_BOMB
+	db 24, REFLECT
+	db 28, SYNTHESIS
+	db 32, GIGA_DRAIN
+	db 36, EXTRASENSORY
+	db 40, SOLARBEAM
 	db 0 ; no more level-up moves
 
-ExeggutorEvosAttacks: ; based on EXEGGCUTE +10
+ExeggutorEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, STOMP
-	; db 1, SEED_BOMB
-	; db 1, PSYSHOCK
-	; db 1, WOOD_HAMMER
-	; db 1, LEAF_STORM
-	db 1, ABSORB
-	db 1, HYPNOSIS
-	db 15, REFLECT
-	db 20, LEECH_SEED
-	db 25, MEGA_DRAIN
-	db 30, CONFUSION
-	db 35, SYNTHESIS
-	; db 40, BULLET_SEED
-	db 45, GIGA_DRAIN
-	db 50, PSYCHIC_M ; FIXME: EXTRASENSORY
-	; db 55, UPROAR
-	; db 60, WORRY_SEED
-	db 65, SOLARBEAM
-	db LEVEL_EVO, STOMP
+	; db 1, ABSORB
+	; db 1, HYPNOSIS
+	; db 1, GIGA_DRAIN
+	; db 1, SOLARBEAM
+	; db 1, REFLECT
+	; db 1, LEECH_SEED
+	; db 1, CONFUSION
+	db 1, SEED_BOMB
+	db 1, SYNTHESIS
+	db 1, EXTRASENSORY
+	db 50, LEAF_STORM
+	db LEVEL_EVO, WOOD_HAMMER
 	db 0 ; no more level-up moves
 
 CuboneEvosAttacks:
