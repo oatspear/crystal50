@@ -1106,62 +1106,46 @@ AlakazamEvosAttacks:
 MachopEvosAttacks:
 	db EVOLVE_LEVEL, 28, MACHOKE
 	db 0 ; no more evolutions
-	db 1, TACKLE ; FIXME: LOW_KICK
-	db 1, LEER
-	db 4, FOCUS_ENERGY
-	db 8, REVENGE
-	db 12, LOW_SWEEP
-	; db 16, KNOCK_OFF
-	db 20, SCARY_FACE
-	db 24, VITAL_THROW
-	db 29, STRENGTH
-	; db 32, DUAL_CHOP
-	; db 36, BULK_UP
-	db 40, SEISMIC_TOSS
-	db 44, DYNAMICPUNCH
-	db 48, CROSS_CHOP
-	db 52, DOUBLE_EDGE
+	db 1, TACKLE
+	db 5, FOCUS_ENERGY
+	db 8, ROCK_SMASH
+	db 13, LOW_SWEEP
+	db 18, REVENGE
+	db 22, BULK_UP
+	db 26, SEISMIC_TOSS
+	db 32, CROSS_CHOP
+	db 38, DOUBLE_EDGE
+	db 44, CLOSE_COMBAT
 	db 0 ; no more level-up moves
 
 MachokeEvosAttacks:
 	; db EVOLVE_TRADE, -1, MACHAMP
 	db EVOLVE_HOLD, BLACKBELT_I, 40, MACHAMP
 	db 0 ; no more evolutions
-	db 1, TACKLE ; FIXME: LOW_KICK
-	db 1, LEER
-	db 1, FOCUS_ENERGY
-	db 1, REVENGE
-	db 12, LOW_SWEEP
-	; db 16, KNOCK_OFF
-	db 20, SCARY_FACE
-	db 24, VITAL_THROW
-	db 31, STRENGTH
-	; db 36, DUAL_CHOP
-	; db 42, BULK_UP
-	db 48, SEISMIC_TOSS
-	db 54, DYNAMICPUNCH
-	db 60, CROSS_CHOP
-	db 66, DOUBLE_EDGE
+	db 1, TACKLE
+	db 5, FOCUS_ENERGY
+	db 8, ROCK_SMASH
+	db 13, LOW_SWEEP
+	db 18, REVENGE
+	db 22, BULK_UP
+	db 26, SEISMIC_TOSS
+	db 35, CROSS_CHOP
+	db 42, DOUBLE_EDGE
+	db 48, CLOSE_COMBAT
 	db 0 ; no more level-up moves
 
 MachampEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, WIDE_GUARD
-	; db 1, LOW_KICK
-	db 1, LEER
-	db 1, FOCUS_ENERGY
-	db 1, REVENGE
-	db 12, LOW_SWEEP
-	; db 16, KNOCK_OFF
-	db 20, SCARY_FACE
-	db 24, VITAL_THROW
-	db 31, STRENGTH
-	; db 36, DUAL_CHOP
-	; db 42, BULK_UP
-	db 48, SEISMIC_TOSS
-	db 54, DYNAMICPUNCH
-	db 60, CROSS_CHOP
-	db 66, DOUBLE_EDGE
+	db 1, TACKLE
+	db 5, FOCUS_ENERGY
+	db 8, ROCK_SMASH
+	db 13, LOW_SWEEP
+	db 18, REVENGE
+	db 22, BULK_UP
+	db 26, SEISMIC_TOSS
+	db 35, CROSS_CHOP
+	db 44, DOUBLE_EDGE
+	db 50, CLOSE_COMBAT
 	db 0 ; no more level-up moves
 
 BellsproutEvosAttacks:
