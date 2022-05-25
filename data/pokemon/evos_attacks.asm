@@ -735,7 +735,7 @@ OddishEvosAttacks:
 	db 28, DAZZLING_GLEAM
 	db 32, MOONLIGHT
 	db 36, PETAL_DANCE
-	db 40, ENERGY_BALL
+	db 40, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
 GloomEvosAttacks:
@@ -753,7 +753,7 @@ GloomEvosAttacks:
 	db 30, DAZZLING_GLEAM
 	db 35, MOONLIGHT
 	db 40, PETAL_DANCE
-	db 45, ENERGY_BALL
+	db 45, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
 VileplumeEvosAttacks:
@@ -1152,55 +1152,46 @@ BellsproutEvosAttacks:
 	db EVOLVE_LEVEL, 21, WEEPINBELL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
-	db 7, GROWTH
-	db 11, WRAP
-	db 13, SLEEP_POWDER
+	db 4, WRAP
+	db 8, GROWTH
+	db 12, ACID_SPRAY
 	db 15, POISONPOWDER
-	db 17, STUN_SPORE
-	db 23, ACID_SPRAY
-	; db 27, KNOCK_OFF
-	db 29, SWEET_SCENT
-	; db 35, GASTRO_ACID
-	db 39, RAZOR_LEAF
-	db 41, POISON_JAB
-	db 47, SLAM
-	; db 50, WRING_OUT
+	db 15, STUN_SPORE
+	db 20, SLEEP_POWDER
+	db 24, RAZOR_LEAF
+	db 28, SWEET_SCENT
+	db 32, SYNTHESIS
+	db 36, SUNNY_DAY
+	db 40, ENERGY_BALL
+	db 44, POISON_JAB
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
 	db EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
-	db 1, GROWTH
-	db 1, WRAP
-	; db 7, GROWTH
-	; db 11, WRAP
-	db 13, SLEEP_POWDER
+	db 4, WRAP
+	db 8, GROWTH
+	db 12, ACID_SPRAY
 	db 15, POISONPOWDER
-	db 17, STUN_SPORE
-	db 24, ACID_SPRAY
-	; db 29, KNOCK_OFF
-	db 32, SWEET_SCENT
-	; db 39, GASTRO_ACID
-	db 44, RAZOR_LEAF
-	db 47, POISON_JAB
-	db 54, SLAM
-	; db 58, WRING_OUT
+	db 15, STUN_SPORE
+	db 20, SLEEP_POWDER
+	db 25, RAZOR_LEAF
+	db 30, SWEET_SCENT
+	db 35, SYNTHESIS
+	db 40, SUNNY_DAY
+	db 45, ENERGY_BALL
+	db 50, POISON_JAB
 	db 0 ; no more level-up moves
 
 VictreebelEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, LEAF_TORNADO
-	; db 1, STOCKPILE
-	; db 1, SWALLOW
-	; db 1, SPIT_UP
-	db 1, VINE_WHIP
-	db 1, SLEEP_POWDER
+	; db 1, VINE_WHIP
+	; db 1, SLEEP_POWDER
 	db 1, SWEET_SCENT
 	db 1, RAZOR_LEAF
-	; db 32, LEAF_STORM
-	; db 44, LEAF_BLADE
-	; db LEVEL_EVO, LEAF_TORNADO
+	db 1, ACID_SPRAY
+	db LEVEL_EVO, LEAF_STORM
 	db 0 ; no more level-up moves
 
 TentacoolEvosAttacks:
