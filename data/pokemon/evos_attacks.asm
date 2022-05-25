@@ -1198,58 +1198,50 @@ TentacoolEvosAttacks:
 	db EVOLVE_LEVEL, 30, TENTACRUEL
 	db 0 ; no more evolutions
 	db 1, POISON_STING
-	db 1, WATER_GUN
-	db 4, ACID_SPRAY
-	db 8, WRAP
-	db 12, SUPERSONIC
-	; db 16, WATER_PULSE
-	db 20, SCREECH
-	db 24, BUBBLEBEAM
-	db 28, HEX
-	db 32, ACID_ARMOR
+	db 1, WRAP
+	db 4, WATER_GUN
+	db 8, SUPERSONIC
+	db 12, ACID_SPRAY
+	db 16, WATER_PULSE
+	db 20, ACID_ARMOR
+	db 24, HEX
+	db 28, SAFEGUARD
+	db 32, SCREECH
 	db 36, POISON_JAB
-	db 40, SURF
-	db 44, SLUDGE_BOMB ; FIXME: SLUDGE_WAVE
-	db 48, HYDRO_PUMP
+	db 40, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 TentacruelEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, REFLECT_TYPE
 	db 1, POISON_STING
-	db 1, WATER_GUN
-	db 1, ACID_SPRAY
 	db 1, WRAP
-	db 12, SUPERSONIC
-	; db 16, WATER_PULSE
-	db 20, SCREECH
-	db 24, BUBBLEBEAM
-	db 28, HEX
-	db 34, ACID_ARMOR
+	db 4, WATER_GUN
+	db 8, SUPERSONIC
+	db 12, ACID_SPRAY
+	db 16, WATER_PULSE
+	db 20, ACID_ARMOR
+	db 24, HEX
+	db 28, SAFEGUARD
+	db 35, SCREECH
 	db 40, POISON_JAB
-	db 46, SURF
-	db 52, SLUDGE_BOMB ; FIXME: SLUDGE_WAVE
-	db 58, HYDRO_PUMP
+	db 45, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GeodudeEvosAttacks:
 	db EVOLVE_LEVEL, 25, GRAVELER
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	; db 1, DEFENSE_CURL
-	; db 4, MUD_SPORT
-	; db 6, ROCK_POLISH
-	db 10, ROLLOUT
-	db 16, ROCK_THROW
-	; db 18, SMACK_DOWN
-	db 22, BULLDOZE
+	db 4, ROLLOUT
+	db 8, ROCK_THROW
+	db 12, MUD_SLAP
+	db 16, IRON_DEFENSE
+	db 20, BULLDOZE
 	db 24, SELFDESTRUCT
-	; db 28, STEALTH_ROCK
-	; db 30, ROCK_BLAST
-	db 34, EARTHQUAKE
-	db 36, EXPLOSION
-	db 40, DOUBLE_EDGE
-	db 42, STONE_EDGE
+	db 28, ROCK_SLIDE
+	db 32, DOUBLE_EDGE
+	db 36, EARTHQUAKE
+	db 40, STONE_EDGE
 	db 0 ; no more level-up moves
 
 GravelerEvosAttacks:
@@ -1257,85 +1249,61 @@ GravelerEvosAttacks:
 	db EVOLVE_HOLD, HARD_STONE, 40, GOLEM
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	; db 1, DEFENSE_CURL
-	; db 1, MUD_SPORT
-	; db 1, ROCK_POLISH
-	; db 4, MUD_SPORT
-	; db 6, ROCK_POLISH
-	db 10, ROLLOUT
-	db 16, ROCK_THROW
-	; db 18, SMACK_DOWN
-	db 22, BULLDOZE
+	db 4, ROLLOUT
+	db 8, ROCK_THROW
+	db 12, MUD_SLAP
+	db 16, IRON_DEFENSE
+	db 20, BULLDOZE
 	db 24, SELFDESTRUCT
-	; db 30, STEALTH_ROCK
-	; db 34, ROCK_BLAST
+	db 30, ROCK_SLIDE
+	db 35, DOUBLE_EDGE
 	db 40, EARTHQUAKE
-	db 44, EXPLOSION
-	db 50, DOUBLE_EDGE
-	db 54, STONE_EDGE
+	db 45, STONE_EDGE
 	db 0 ; no more level-up moves
 
 GolemEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, HEAVY_SLAM
 	db 1, TACKLE
-	; db 1, DEFENSE_CURL
-	; db 1, MUD_SPORT
-	; db 1, ROCK_POLISH
-	; db 4, MUD_SPORT
-	; db 6, ROCK_POLISH
-	; db 10, STEAMROLLER
-	db 16, ROCK_THROW
-	; db 18, SMACK_DOWN
-	db 22, BULLDOZE
+	db 4, ROLLOUT
+	db 8, ROCK_THROW
+	db 12, MUD_SLAP
+	db 16, IRON_DEFENSE
+	db 20, BULLDOZE
 	db 24, SELFDESTRUCT
-	; db 30, STEALTH_ROCK
-	; db 34, ROCK_BLAST
-	db 40, EARTHQUAKE
-	db 44, EXPLOSION
-	db 50, DOUBLE_EDGE
-	db 54, STONE_EDGE
-	; db 60, HEAVY_SLAM
+	db 30, ROCK_SLIDE
+	db 35, DOUBLE_EDGE
+	db 42, EARTHQUAKE
+	db 50, STONE_EDGE
 	db 0 ; no more level-up moves
 
 PonytaEvosAttacks:
 	db EVOLVE_LEVEL, 40, RAPIDASH
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, GROWL
-	db 5, TAIL_WHIP
-	db 10, EMBER
-	; db 15, FLAME_CHARGE
-	db 20, AGILITY
-	db 25, FLAME_WHEEL
-	db 30, STOMP
-	db 35, FIRE_SPIN
-	db 41, TAKE_DOWN
-	db 45, FLAMETHROWER ; FIXME: INFERNO
-	db 50, FIRE_BLAST
-	db 55, FLARE_BLITZ
+	db 5, EMBER
+	db 10, HEADBUTT
+	db 14, FLAME_WHEEL
+	db 18, AGILITY
+	db 24, FIRE_SPIN
+	db 30, DOUBLE_KICK
+	db 36, FIRE_BLAST
+	db 42, DOUBLE_EDGE
+	db 48, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, SMART_STRIKE
-	; db 1, MEGAHORN
-	; db 1, POISON_JAB
-	; db 1, TACKLE
-	; db 1, QUICK_ATTACK
-	db 1, GROWL
-	db 1, TAIL_WHIP
-	db 1, EMBER
-	; db 15, FLAME_CHARGE
-	db 20, AGILITY
-	db 25, FLAME_WHEEL
-	db 30, STOMP
-	db 35, FIRE_SPIN
-	db 43, TAKE_DOWN
-	db 49, FLAMETHROWER ; FIXME: INFERNO
-	db 56, FIRE_BLAST
-	db 63, FLARE_BLITZ
-	db LEVEL_EVO, MEGAHORN ; FIXME: SMART_STRIKE
+	db 1, TACKLE
+	db 5, EMBER
+	db 10, HEADBUTT
+	db 14, FLAME_WHEEL
+	db 18, AGILITY
+	db 24, FIRE_SPIN
+	db 30, DOUBLE_KICK
+	db 36, FIRE_BLAST
+	db 45, DOUBLE_EDGE
+	db 50, FLARE_BLITZ
+	db LEVEL_EVO, MEGAHORN
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
