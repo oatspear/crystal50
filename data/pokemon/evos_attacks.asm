@@ -1307,49 +1307,41 @@ RapidashEvosAttacks:
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
-	db EVOLVE_LEVEL, 37, SLOWBRO
+	db EVOLVE_LEVEL, 36, SLOWBRO
 	; db EVOLVE_TRADE, KINGS_ROCK, SLOWKING
-	db EVOLVE_HOLD, KINGS_ROCK, 37, SLOWKING
+	db EVOLVE_HOLD, KINGS_ROCK, 36, SLOWKING
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CURSE
-	db 3, GROWL
-	db 6, WATER_GUN
-	db 9, HYPNOSIS ; FIXME: YAWN
+	db 4, WATER_GUN
+	db 8, HYPNOSIS
 	db 12, CONFUSION
-	db 15, DISABLE
-	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
-	db 21, HEADBUTT
-	db 24, ZEN_HEADBUTT
-	db 27, AMNESIA
-	db 30, SURF
-	db 33, RECOVER ; FIXME: SLACK_OFF
-	db 36, PSYCHIC_M
-	db 39, PSYCH_UP
-	db 42, RAIN_DANCE
-	; db 45, HEAL_PULSE
+	db 16, DISABLE
+	db 20, WATER_PULSE
+	db 24, HEADBUTT
+	db 28, ZEN_HEADBUTT
+	db 33, CALM_MIND
+	db 38, RECOVER
+	db 42, PSYCHIC_M
+	db 46, RAIN_DANCE
 	db 0 ; no more level-up moves
 
 SlowbroEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, WITHDRAW
 	db 1, TACKLE
 	db 1, CURSE
-	db 1, GROWL
-	db 1, WATER_GUN
-	db 9, HYPNOSIS ; FIXME: YAWN
+	db 4, WATER_GUN
+	db 8, HYPNOSIS
 	db 12, CONFUSION
-	db 15, DISABLE
-	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
-	db 21, HEADBUTT
-	db 24, ZEN_HEADBUTT
-	db 27, AMNESIA
-	db 30, SURF
-	db 33, RECOVER ; FIXME: SLACK_OFF
-	db 36, PSYCHIC_M
-	db 41, PSYCH_UP
-	db 46, RAIN_DANCE
-	; db 51, HEAL_PULSE
+	db 16, DISABLE
+	db 20, WATER_PULSE
+	db 24, HEADBUTT
+	db 28, ZEN_HEADBUTT
+	db 33, CALM_MIND
+	db 40, RECOVER
+	db 45, PSYCHIC_M
+	db 50, RAIN_DANCE
+	db LEVEL_EVO, WITHDRAW
 	db 0 ; no more level-up moves
 
 MagnemiteEvosAttacks:
@@ -1357,59 +1349,44 @@ MagnemiteEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, THUNDERSHOCK
 	db 1, TACKLE
-	db 4, SUPERSONIC
-	db 8, THUNDER_WAVE
-	; db 12, ELECTRO_BALL
-	; db 16, GYRO_BALL
-	db 20, SPARK
-	db 24, SCREECH
-	; db 28, MAGNET_RISE
-	db 32, FLASH_CANNON
-	db 36, THUNDERBOLT ; FIXME: DISCHARGE
-	; db 40, METAL_SOUND
-	db 44, LIGHT_SCREEN
-	db 48, LOCK_ON
-	db 52, ZAP_CANNON
+	db 6, SUPERSONIC
+	db 10, THUNDER_WAVE
+	db 16, SPARK
+	db 22, SCREECH
+	db 28, LIGHT_SCREEN
+	db 34, THUNDERBOLT
+	db 40, FLASH_CANNON
+	db 44, THUNDER
 	db 0 ; no more level-up moves
 
 MagnetonEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, TRI_ATTACK
-	; db 1, ELECTRIC_TERRAIN
 	db 1, THUNDERSHOCK
-	; db 1, TACKLE
-	db 1, SUPERSONIC
-	db 1, THUNDER_WAVE
-	; db 12, ELECTRO_BALL
-	; db 16, GYRO_BALL
-	db 20, SPARK
-	db 24, SCREECH
-	; db 28, MAGNET_RISE
-	db 34, FLASH_CANNON
-	db 40, THUNDERBOLT ; FIXME: DISCHARGE
-	; db 46, METAL_SOUND
-	db 52, LIGHT_SCREEN
-	db 58, LOCK_ON
-	db 64, ZAP_CANNON
+	db 1, TACKLE
+	db 6, SUPERSONIC
+	db 10, THUNDER_WAVE
+	db 16, SPARK
+	db 22, SCREECH
+	db 28, LIGHT_SCREEN
+	db 40, THUNDERBOLT
+	db 45, FLASH_CANNON
+	db 50, THUNDER
 	db LEVEL_EVO, TRI_ATTACK
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, PECK
+	db 1, PLUCK
 	db 1, SAND_ATTACK
-	db 5, LEER
-	db 10, FURY_CUTTER
-	db 15, CUT
-	db 20, AERIAL_ACE
-	; db 25, AIR_CUTTER
-	; db 30, KNOCK_OFF
-	db 35, FALSE_SWIPE
-	db 40, SLASH
-	db 45, SWORDS_DANCE
-	db 50, AIR_SLASH
-	; db 55, LEAF_BLADE
-	db 60, AGILITY
+	db 8, FURY_CUTTER
+	db 12, FALSE_SWIPE
+	db 16, AERIAL_ACE
+	db 20, RAZOR_LEAF
+	db 24, AGILITY
+	db 28, AIR_CUTTER
+	db 32, SLASH
+	db 38, SWORDS_DANCE
+	db 44, AIR_SLASH
 	; db 65, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
