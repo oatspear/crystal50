@@ -1426,48 +1426,33 @@ SeelEvosAttacks:
 	db EVOLVE_LEVEL, 34, DEWGONG
 	db 0 ; no more evolutions
 	db 1, HEADBUTT
-	db 3, GROWL
-	; db 7, WATER_SPORT
-	db 11, ICY_WIND
-	db 13, ENCORE
-	; db 17, ICE_SHARD
-	db 21, REST
-	; db 23, AQUA_RING
-	db 27, AURORA_BEAM
-	; db 31, AQUA_JET
-	db 33, SURF ; FIXME: BRINE
-	db 37, TAKE_DOWN
-	; db 41, DIVE
-	db 43, WATERFALL ; FIXME: AQUA_TAIL
-	db 47, ICE_BEAM
-	db 51, SAFEGUARD
-	db 53, HAIL
+	db 1, GROWL
+	db 8, ENCORE
+	db 12, ICY_WIND
+	db 16, ICE_SHARD
+	db 20, AQUA_JET
+	db 24, REST
+	db 28, AURORA_BEAM
+	db 32, SAFEGUARD
+	db 36, AQUA_TAIL
+	db 40, ICE_BEAM
 	db 0 ; no more level-up moves
 
 DewgongEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, SHEER_COLD
 	db 1, HEADBUTT
 	db 1, GROWL
-	; db 1, SIGNAL_BEAM
-	db 1, ICY_WIND
-	; db 3, GROWL
-	; db 7, SIGNAL_BEAM
-	; db 11, ICY_WIND
-	db 13, ENCORE
-	; db 17, ICE_SHARD
-	db 21, REST
-	; db 23, AQUA_RING
-	db 27, AURORA_BEAM
-	; db 31, AQUA_JET
-	db 33, SURF ; FIXME: BRINE
-	db 39, TAKE_DOWN
-	; db 45, DIVE
-	db 49, WATERFALL ; FIXME: AQUA_TAIL
-	db 55, ICE_BEAM
-	db 61, SAFEGUARD
-	db 65, HAIL
-	; db LEVEL_EVO, SHEER_COLD
+	db 8, ENCORE
+	db 12, ICY_WIND
+	db 16, ICE_SHARD
+	db 20, AQUA_JET
+	db 24, REST
+	db 28, AURORA_BEAM
+	db 32, SAFEGUARD
+	db 40, AQUA_TAIL
+	db 45, ICE_BEAM
+	db 50, BLIZZARD
+	db LEVEL_EVO, HAIL
 	db 0 ; no more level-up moves
 
 GrimerEvosAttacks:
@@ -1475,44 +1460,31 @@ GrimerEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, POISON_GAS
-	db 4, HARDEN
-	db 7, MUD_SLAP
+	db 8, MUD_SLAP
 	db 12, DISABLE
-	db 15, SLUDGE
-	; db 18, MUD_BOMB
-	db 21, MINIMIZE
-	; db 26, FLING
-	db 29, SLUDGE_BOMB
-	; db 32, SLUDGE_WAVE
-	db 37, SCREECH
-	; db 40, GUNK_SHOT
-	db 43, ACID_ARMOR
-	; db 46, BELCH
-	; db 48, MEMENTO
+	db 16, SLUDGE
+	db 20, MINIMIZE
+	db 24, ACID_ARMOR
+	db 28, SCREECH
+	db 32, ENDURE
+	db 36, SLUDGE_BOMB
+	db 40, POISON_JAB
 	db 0 ; no more level-up moves
 
 MukEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, VENOM_DRENCH
 	db 1, TACKLE
 	db 1, POISON_GAS
-	db 1, HARDEN
-	db 1, MUD_SLAP
-	; db 4, HARDEN
-	; db 7, MUD_SLAP
+	db 8, MUD_SLAP
 	db 12, DISABLE
-	db 15, SLUDGE
-	; db 18, MUD_BOMB
-	db 21, MINIMIZE
-	; db 26, FLING
-	db 29, SLUDGE_BOMB
-	; db 32, SLUDGE_WAVE
-	db 37, SCREECH
-	; db 40, GUNK_SHOT
-	db 46, ACID_ARMOR
-	; db 52, BELCH
-	; db 57, MEMENTO
-	db LEVEL_EVO, TOXIC ; FIXME: VENOM_DRENCH
+	db 16, SLUDGE
+	db 20, MINIMIZE
+	db 24, ACID_ARMOR
+	db 28, SCREECH
+	db 32, ENDURE
+	db 36, SLUDGE_BOMB
+	db 40, POISON_JAB
+	db LEVEL_EVO, TOXIC
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:
@@ -1521,30 +1493,25 @@ ShellderEvosAttacks:
 	db 1, TACKLE
 	db 1, WATER_GUN
 	db 4, WITHDRAW
-	db 8, POWDER_SNOW ; FIXME: ICE_SHARD
-	db 12, LEER
+	db 8, ICE_SHARD
+	db 12, SUPERSONIC
 	db 16, WHIRLPOOL
-	db 20, SUPERSONIC
+	db 20, PROTECT
 	db 24, AURORA_BEAM
-	db 28, PROTECT
-	; db 32, RAZOR_SHELL
-	; db 36, IRON_DEFENSE
-	db 40, ICE_BEAM
-	; db 44, SHELL_SMASH
-	db 48, HYDRO_PUMP
+	db 28, BUBBLEBEAM
+	db 32, ICE_BEAM
+	db 36, HYDRO_PUMP
+	db 40, LIQUIDATION
 	db 0 ; no more level-up moves
 
-CloysterEvosAttacks: ; based on gen 7
+CloysterEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, HYDRO_PUMP
-	; db 1, SHELL_SMASH
-	; db 1, TOXIC_SPIKES
 	db 1, WITHDRAW
-	db 1, SUPERSONIC
 	db 1, PROTECT
 	db 1, AURORA_BEAM
-	db 28, SPIKES
-	; db 50, ICICLE_CRASH
+	db 50, ICICLE_CRASH
+	db LEVEL_EVO, SPIKES
 	db 0 ; no more level-up moves
 
 GastlyEvosAttacks:
