@@ -1016,17 +1016,19 @@ ArcanineEvosAttacks:
 PoliwagEvosAttacks:
 	db EVOLVE_LEVEL, 25, POLIWHIRL
 	db 0 ; no more evolutions
-	db 1, WATER_GUN
+	db 1, TACKLE
 	db 1, HYPNOSIS
-	db 6, TACKLE
-	db 12, MUD_SLAP ; FIXME: MUD_SHOT
-	db 18, BUBBLEBEAM
-	db 24, RAIN_DANCE
-	db 30, BODY_SLAM
+	db 4, WATER_GUN
+	db 8, MUD_SLAP
+	db 12, BUBBLEBEAM
+	db 16, HEADBUTT
+	db 20, BELLY_DRUM
+	db 24, WHIRLPOOL
+	db 28, RAIN_DANCE
+	db 32, BODY_SLAM
 	db 36, EARTH_POWER
-	db 42, HYDRO_PUMP
-	db 48, BELLY_DRUM
-	db 54, DOUBLE_EDGE
+	db 40, HYDRO_PUMP
+	db 44, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwhirlEvosAttacks:
@@ -1034,37 +1036,36 @@ PoliwhirlEvosAttacks:
 	; db EVOLVE_TRADE, KINGS_ROCK, POLITOED
 	db EVOLVE_HOLD, KINGS_ROCK, 40, POLITOED
 	db 0 ; no more evolutions
-	db 1, WATER_GUN
+	db 1, TACKLE
 	db 1, HYPNOSIS
-	db 6, TACKLE
-	db 12, MUD_SLAP ; FIXME: MUD_SHOT
-	db 18, BUBBLEBEAM
-	db 24, RAIN_DANCE
-	db 32, BODY_SLAM
+	db 4, WATER_GUN
+	db 8, MUD_SLAP
+	db 12, BUBBLEBEAM
+	db 16, HEADBUTT
+	db 20, BELLY_DRUM
+	db 24, WHIRLPOOL
+	db 30, RAIN_DANCE
+	db 35, BODY_SLAM
 	db 40, EARTH_POWER
-	db 48, HYDRO_PUMP
-	db 56, BELLY_DRUM
-	db 66, DOUBLE_EDGE
+	db 45, HYDRO_PUMP
+	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwrathEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, SUBMISSION
-	; db 1, CIRCLE_THROW
-	; db 1, MIND_READER
-	; db 1, DYNAMICPUNCH
-	db 1, BUBBLEBEAM
 	; db 1, RAIN_DANCE
-	db 1, BODY_SLAM
 	; db 1, EARTH_POWER
 	; db 1, HYDRO_PUMP
-	db 1, BELLY_DRUM
 	; db 1, DOUBLE_EDGE
 	; db 1, WATER_GUN
 	; db 1, HYPNOSIS
 	; db 1, TACKLE
-	; db 1, MUD_SHOT
-	db LEVEL_EVO, SUBMISSION
+	; db 1, MUD_SLAP
+	db 1, BUBBLEBEAM
+	db 1, BODY_SLAM
+	db 1, BELLY_DRUM
+	db 60, LIQUIDATION
+	db LEVEL_EVO, BRICK_BREAK
 	db 0 ; no more level-up moves
 
 AbraEvosAttacks:
@@ -1077,39 +1078,29 @@ KadabraEvosAttacks:
 	; db EVOLVE_TRADE, -1, ALAKAZAM
 	db EVOLVE_HOLD, TWISTEDSPOON, 40, ALAKAZAM
 	db 0 ; no more evolutions
-	; db 1, CONFUSION
-	db 1, KINESIS
-	db 1, DISABLE
 	db 1, TELEPORT
-	db 5, PSYBEAM
-	db 10, REFLECT
-	; db 15, ALLY_SWITCH
-	; db 20, PSYCHO_CUT
-	db 25, RECOVER
-	; db 30, PSYSHOCK
-	db 35, PSYCHIC_M
-	; db 40, ROLE_PLAY
-	db 45, FUTURE_SIGHT
-	db 50, CALM_MIND
+	db 18, DISABLE
+	db 18, REFLECT
+	db 24, CALM_MIND
+	db 28, PSYCHO_CUT
+	db 32, RECOVER
+	db 36, ZEN_HEADBUTT
+	db 40, FUTURE_SIGHT
+	db 44, PSYCHIC_M
 	db LEVEL_EVO, CONFUSION
 	db 0 ; no more level-up moves
 
 AlakazamEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONFUSION
-	db 1, KINESIS
-	db 1, DISABLE
 	db 1, TELEPORT
-	db 5, PSYBEAM
-	db 10, REFLECT
-	; db 15, ALLY_SWITCH
-	; db 20, PSYCHO_CUT
-	db 25, RECOVER
-	; db 30, PSYSHOCK
-	db 35, PSYCHIC_M
-	; db 40, ROLE_PLAY
-	db 45, FUTURE_SIGHT
-	db 50, CALM_MIND
+	db 18, DISABLE
+	db 18, REFLECT
+	db 24, CALM_MIND
+	db 28, PSYCHO_CUT
+	db 32, RECOVER
+	db 36, ZEN_HEADBUTT
+	db 40, FUTURE_SIGHT
+	db 44, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 MachopEvosAttacks:
