@@ -2332,125 +2332,106 @@ SnorlaxEvosAttacks:
 
 ArticunoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, GUST
-	db 1, MIST
-	db 5, POWDER_SNOW
-	db 10, REFLECT
+	; db 1, GUST
+	; db 1, MIST
+	; db 5, POWDER_SNOW
+	; db 10, REFLECT
 	; db 15, ICE_SHARD
-	db 20, AGILITY
-	db 25, ANCIENTPOWER
-	; db 30, TAILWIND
-	db 35, ICY_WIND ; FIXME: FREEZE_DRY
-	db 40, ROOST
-	db 45, ICE_BEAM
-	db 50, HAIL
-	; db 55, HURRICANE
-	db 60, MIND_READER
-	db 65, BLIZZARD
-	; db 70, SHEER_COLD
+	; db 20, AGILITY
+	; db 25, ANCIENTPOWER
+	; db 30, ICY_WIND
+	db 35, ROOST
+	; db 40, ICE_BEAM
+	db 45, HAIL
+	db 50, HURRICANE
+	db 55, BLIZZARD
 	db 0 ; no more level-up moves
 
 ZapdosEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, PECK
-	db 1, THUNDER_WAVE
-	db 5, THUNDERSHOCK
-	db 10, LIGHT_SCREEN
-	db 15, WING_ATTACK ; FIXME: PLUCK
-	db 20, AGILITY
-	db 25, ANCIENTPOWER
-	; db 30, CHARGE
-	db 35, DRILL_PECK
-	db 40, ROOST
-	db 45, THUNDERBOLT ; FIXME: DISCHARGE
+	; db 1, PLUCK
+	; db 1, THUNDER_WAVE
+	; db 5, THUNDERSHOCK
+	; db 10, LIGHT_SCREEN
+	; db 15, AERIAL_ACE
+	; db 20, AGILITY
+	; db 25, ANCIENTPOWER
+	; db 30, AIR_CUTTER
+	db 35, ROOST
+	db 40, DRILL_PECK
+	; db 45, THUNDERBOLT
 	db 50, RAIN_DANCE
 	db 55, THUNDER
-	db 60, DETECT
-	; db 65, MAGNETIC_FLUX
-	db 70, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 MoltresEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, GUST
-	db 1, LEER
-	db 5, EMBER
-	db 10, SAFEGUARD
-	db 15, WING_ATTACK
-	db 20, AGILITY
-	db 25, ANCIENTPOWER
-	; db 30, INCINERATE
-	db 35, AIR_SLASH
-	db 40, ROOST
-	db 45, FLAMETHROWER ; FIXME: HEAT_WAVE
+	; db 1, GUST
+	; db 1, ENDURE
+	; db 5, EMBER
+	; db 10, SAFEGUARD
+	; db 15, AERIAL_ACE
+	; db 20, AGILITY
+	; db 25, ANCIENTPOWER
+	; db 30, FIRE_SPIN
+	db 35, ROOST
+	db 40, AIR_SLASH
+	; db 45, FLAMETHROWER
 	db 50, SUNNY_DAY
-	; db 55, HURRICANE
-	db 60, ENDURE
-	; db 65, BURN_UP
-	db 70, SKY_ATTACK
+	db 55, OVERHEAT
 	db 0 ; no more level-up moves
 
 DratiniEvosAttacks:
 	db EVOLVE_LEVEL, 30, DRAGONAIR
 	db 0 ; no more evolutions
 	db 1, WRAP
-	db 1, LEER
-	db 5, TWISTER
-	db 10, THUNDER_WAVE
-	; db 15, DRAGON_TAIL
-	db 20, AGILITY
-	db 25, SLAM
-	db 31, WATERFALL ; FIXME: AQUA_TAIL
-	; db 35, DRAGON_RUSH
-	db 40, SAFEGUARD
-	db 45, RAIN_DANCE
-	db 50, DRAGON_DANCE
-	db 55, OUTRAGE
-	db 60, HYPER_BEAM
+	db 4, THUNDER_WAVE
+	db 8, TWISTER
+	db 12, AGILITY
+	db 16, HEADBUTT
+	db 20, DRAGONBREATH
+	db 24, SAFEGUARD
+	db 28, AQUA_TAIL
+	db 32, RAIN_DANCE
+	db 36, DRAGON_DANCE
+	db 40, OUTRAGE
+	db 44, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 DragonairEvosAttacks:
 	db EVOLVE_LEVEL, 55, DRAGONITE
 	db 0 ; no more evolutions
 	db 1, WRAP
-	db 1, LEER
-	db 1, TWISTER
-	db 1, THUNDER_WAVE
-	; db 15, DRAGON_TAIL
-	db 20, AGILITY
-	db 25, SLAM
-	db 33, WATERFALL ; FIXME: AQUA_TAIL
-	; db 39, DRAGON_RUSH
-	db 46, SAFEGUARD
-	db 53, RAIN_DANCE
-	db 60, DRAGON_DANCE
-	db 67, OUTRAGE
-	db 74, HYPER_BEAM
+	db 4, THUNDER_WAVE
+	db 8, TWISTER
+	db 12, AGILITY
+	db 16, HEADBUTT
+	db 20, DRAGONBREATH
+	db 24, SAFEGUARD
+	db 28, AQUA_TAIL
+	db 35, RAIN_DANCE
+	db 40, DRAGON_DANCE
+	db 45, OUTRAGE
+	db 50, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 DragoniteEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, HURRICANE
-	; db 1, WING_ATTACK
-	; db 1, ROOST
-	; db 1, EXTREMESPEED
-	; db 1, FIRE_PUNCH
-	; db 1, THUNDERPUNCH
 	; db 1, WRAP
-	db 1, LEER
-	db 1, TWISTER
-	db 1, THUNDER_WAVE
-	; db 15, DRAGON_TAIL
-	db 20, AGILITY
-	db 25, SLAM
-	db 33, WATERFALL ; FIXME: AQUA_TAIL
-	; db 39, DRAGON_RUSH
-	db 46, SAFEGUARD
-	db 53, RAIN_DANCE
-	db 62, DRAGON_DANCE
-	db 71, OUTRAGE
-	db 80, HYPER_BEAM
-	db LEVEL_EVO, WING_ATTACK ; FIXME: HURRICANE
+	; db 4, THUNDER_WAVE
+	; db 8, TWISTER
+	; db 12, AGILITY
+	; db 16, HEADBUTT
+	; db 20, DRAGONBREATH
+	; db 24, SAFEGUARD
+	; db 28, AQUA_TAIL
+	; db 35, RAIN_DANCE
+	; db 40, DRAGON_DANCE
+	db 45, OUTRAGE
+	db 50, HYPER_BEAM
+	db 60, ROOST
+	db 65, EXTREMESPEED
+	db LEVEL_EVO, HURRICANE
 	db 0 ; no more level-up moves
 
 MewtwoEvosAttacks:
@@ -2458,15 +2439,15 @@ MewtwoEvosAttacks:
 	; db 1, CONFUSION
 	; db 1, DISABLE
 	; db 22, SWIFT
-	; db 33, PSYCH_UP
+	; db 33, ZEN_HEADBUTT
 	; db 44, FUTURE_SIGHT
 	; db 55, MIST
 	; db 66, PSYCHIC_M
-	; db 77, AMNESIA
+	; db 77, CALM_MIND
 	; db 88, RECOVER
 	; db 99, SAFEGUARD
 	db 1, PSYCHIC_M
-	db 1, AMNESIA
+	db 1, CALM_MIND
 	db 1, RECOVER
 	db 1, SAFEGUARD
 	db 0 ; no more level-up moves
@@ -2475,7 +2456,7 @@ MewEvosAttacks:
 	db 0 ; no more evolutions
 	; db 1, TACKLE
 	; db 10, TRANSFORM
-	; db 20, MEGA_PUNCH
+	; db 20, CONFUSION
 	; db 30, METRONOME
 	; db 40, PSYCHIC_M
 	; db 50, ANCIENTPOWER
