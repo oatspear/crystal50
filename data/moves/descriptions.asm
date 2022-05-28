@@ -244,7 +244,7 @@ MoveDescriptions::
 	dw SunnyDayDescription
 	dw CrunchDescription
 	dw MirrorCoatDescription
-	dw PsychUpDescription
+	dw AromatherapyDescription
 	dw ExtremespeedDescription
 	dw AncientpowerDescription
 	dw ShadowBallDescription
@@ -950,6 +950,7 @@ SleepTalkDescription:
 	next "while asleep.@"
 
 HealBellDescription:
+AromatherapyDescription:
 	db   "Eliminates all"
 	next "status problems.@"
 
@@ -1034,10 +1035,6 @@ SunnyDayDescription:
 MirrorCoatDescription:
 	db   "Counters a SPCL."
 	next "ATK move double.@"
-
-PsychUpDescription:
-	db   "Copies the foe's"
-	next "stat changes.@"
 
 ExtremespeedDescription:
 	db   "A powerful first-"

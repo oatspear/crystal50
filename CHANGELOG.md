@@ -3,10 +3,10 @@
 ## v0.4 (PLA Systems)
 
 ### Added
-- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor, Scald, U-Turn, Volt Switch, Pluck, Bug Bite.
+- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor, Scald, U-Turn, Volt Switch, Pluck, Bug Bite, Aromatherapy.
 
 ### Removed
-- Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack.
+- Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
 
 ### Changed
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
