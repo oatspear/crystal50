@@ -2568,6 +2568,7 @@ TyphlosionEvosAttacks:
 	db 40, FLAMETHROWER
 	db 45, DOUBLE_EDGE
 	db 50, OVERHEAT
+	db LEVEL_EVO, REVERSAL
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
