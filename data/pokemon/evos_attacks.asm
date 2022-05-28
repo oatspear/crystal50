@@ -2475,13 +2475,13 @@ ChikoritaEvosAttacks:
 	db 8, POISONPOWDER
 	db 12, SYNTHESIS
 	db 16, REFLECT
+	db 16, LIGHT_SCREEN
 	db 20, SWEET_SCENT
-	db 24, LIGHT_SCREEN
-	db 28, BODY_SLAM
-	db 32, SAFEGUARD
-	db 36, ENERGY_BALL
-	db 40, AROMATHERAPY
-	db 44, SOLARBEAM
+	db 24, BODY_SLAM
+	db 28, SAFEGUARD
+	db 32, ENERGY_BALL
+	db 36, AROMATHERAPY
+	db 40, SOLARBEAM
 	db 0 ; no more level-up moves
 
 BayleefEvosAttacks:
@@ -2493,13 +2493,13 @@ BayleefEvosAttacks:
 	db 8, POISONPOWDER
 	db 12, SYNTHESIS
 	db 18, REFLECT
+	db 18, LIGHT_SCREEN
 	db 23, SWEET_SCENT
-	db 28, LIGHT_SCREEN
-	db 33, BODY_SLAM
-	db 38, SAFEGUARD
-	db 43, ENERGY_BALL
-	db 48, AROMATHERAPY
-	db 53, SOLARBEAM
+	db 28, BODY_SLAM
+	db 33, SAFEGUARD
+	db 38, ENERGY_BALL
+	db 43, AROMATHERAPY
+	db 48, SOLARBEAM
 	db 0 ; no more level-up moves
 
 MeganiumEvosAttacks:
@@ -2510,13 +2510,13 @@ MeganiumEvosAttacks:
 	db 8, POISONPOWDER
 	db 12, SYNTHESIS
 	db 18, REFLECT
+	db 18, LIGHT_SCREEN
 	db 23, SWEET_SCENT
-	db 28, LIGHT_SCREEN
-	db 35, BODY_SLAM
-	db 40, SAFEGUARD
-	db 45, ENERGY_BALL
-	db 50, AROMATHERAPY
-	db 55, SOLARBEAM
+	db 28, BODY_SLAM
+	db 35, SAFEGUARD
+	db 40, ENERGY_BALL
+	db 45, AROMATHERAPY
+	db 50, SOLARBEAM
 	db LEVEL_EVO, PETAL_DANCE
 	db 0 ; no more level-up moves
 
@@ -2524,129 +2524,101 @@ CyndaquilEvosAttacks:
 	db EVOLVE_LEVEL, 14, QUILAVA
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, LEER
-	db 6, SMOKESCREEN
-	db 10, EMBER
-	db 13, QUICK_ATTACK
-	db 19, FLAME_WHEEL
-	; db 22, DEFENSE_CURL
-	db 31, SWIFT
-	db 40, FLAMETHROWER
-	db 49, ROLLOUT
-	db 55, DOUBLE_EDGE
+	db 1, SMOKESCREEN
+	db 5, EMBER
+	db 8, ROLLOUT
+	db 12, QUICK_ATTACK
+	db 16, FLAME_WHEEL
+	db 20, SWIFT
+	db 24, ENDURE
+	db 28, SUNNY_DAY
+	db 32, FLAMETHROWER
+	db 36, DOUBLE_EDGE
+	db 40, OVERHEAT
 	db 0 ; no more level-up moves
 
 QuilavaEvosAttacks:
 	db EVOLVE_LEVEL, 36, TYPHLOSION
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, LEER
 	db 1, SMOKESCREEN
-	; db 6, SMOKESCREEN
-	db 10, EMBER
-	db 13, QUICK_ATTACK
-	db 20, FLAME_WHEEL
-	; db 24, DEFENSE_CURL
-	db 31, SWIFT
-	; db 35, FLAME_CHARGE
-	db 42, FLAMETHROWER ; FIXME: LAVA_PLUME
-	; db 46, FLAMETHROWER
-	; db 53, INFERNO
-	db 57, ROLLOUT
-	db 64, DOUBLE_EDGE
-	; db 68, BURN_UP
-	; db 75, ERUPTION
+	db 5, EMBER
+	db 8, ROLLOUT
+	db 12, QUICK_ATTACK
+	db 18, FLAME_WHEEL
+	db 23, SWIFT
+	db 28, ENDURE
+	db 33, SUNNY_DAY
+	db 38, FLAMETHROWER
+	db 43, DOUBLE_EDGE
+	db 48, OVERHEAT
 	db 0 ; no more level-up moves
 
 TyphlosionEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, ERUPTION
-	; db 1, DOUBLE_EDGE
-	; db 1, GYRO_BALL
 	db 1, TACKLE
-	db 1, LEER
 	db 1, SMOKESCREEN
-	db 1, EMBER
-	; db 6, SMOKESCREEN
-	; db 10, EMBER
-	db 13, QUICK_ATTACK
-	db 20, FLAME_WHEEL
-	; db 24, DEFENSE_CURL
-	db 31, SWIFT
-	; db 35, FLAME_CHARGE
-	db 43, FLAMETHROWER ; FIXME: LAVA_PLUME
-	; db 48, FLAMETHROWER
-	; db 56, INFERNO
-	db 61, ROLLOUT
-	db 69, DOUBLE_EDGE
-	; db 74, BURN_UP
-	; db 82, ERUPTION
+	db 5, EMBER
+	db 8, ROLLOUT
+	db 12, QUICK_ATTACK
+	db 18, FLAME_WHEEL
+	db 23, SWIFT
+	db 28, ENDURE
+	db 33, SUNNY_DAY
+	db 40, FLAMETHROWER
+	db 45, DOUBLE_EDGE
+	db 50, OVERHEAT
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
 	db EVOLVE_LEVEL, 18, CROCONAW
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, LEER
-	db 6, WATER_GUN
+	db 1, GROWL
+	db 5, WATER_GUN
 	db 8, MUD_SLAP
-	db 13, BITE
-	db 15, SCARY_FACE
-	db 20, ICE_PUNCH ; FIXME: ICE_FANG
-	db 22, FLAIL
-	db 27, CRUNCH
-	db 29, LOW_SWEEP ; FIXME: LOW_KICK
-	db 34, SLASH
-	db 36, SCREECH
-	db 41, THRASH
-	db 43, WATERFALL ; FIXME: AQUA_TAIL
-	db 48, SUPERPOWER
-	db 50, HYDRO_PUMP
+	db 12, BITE
+	db 16, LOW_SWEEP
+	db 20, ICE_FANG
+	db 24, SLASH
+	db 28, SCREECH
+	db 32, AQUA_TAIL
+	db 36, CRUNCH
+	db 40, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 CroconawEvosAttacks:
 	db EVOLVE_LEVEL, 30, FERALIGATR
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, LEER
-	db 1, WATER_GUN
-	; db 6, WATER_GUN
+	db 1, GROWL
+	db 5, WATER_GUN
 	db 8, MUD_SLAP
-	db 13, BITE
-	db 15, SCARY_FACE
-	db 21, ICE_PUNCH ; FIXME: ICE_FANG
-	db 24, FLAIL
-	db 30, CRUNCH
-	db 33, LOW_SWEEP ; FIXME: LOW_KICK
-	db 39, SLASH
-	db 42, SCREECH
-	db 48, THRASH
-	db 51, WATERFALL ; FIXME: AQUA_TAIL
-	db 57, SUPERPOWER
-	db 60, HYDRO_PUMP
+	db 12, BITE
+	db 16, LOW_SWEEP
+	db 23, ICE_FANG
+	db 28, SLASH
+	db 33, SCREECH
+	db 38, AQUA_TAIL
+	db 43, CRUNCH
+	db 48, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, AGILITY
 	db 1, TACKLE
-	db 1, LEER
-	db 1, WATER_GUN
-	; db 1, MUD_SLAP
-	; db 6, WATER_GUN
+	db 1, GROWL
+	db 5, WATER_GUN
 	db 8, MUD_SLAP
-	db 13, BITE
-	db 15, SCARY_FACE
-	db 21, ICE_PUNCH ; FIXME: ICE_FANG
-	db 24, FLAIL
-	db 32, CRUNCH
-	db 37, LOW_SWEEP ; FIXME: LOW_KICK
-	db 45, SLASH
-	db 50, SCREECH
-	db 58, THRASH
-	db 63, WATERFALL ; FIXME: AQUA_TAIL
-	db 71, SUPERPOWER
-	db 76, HYDRO_PUMP
+	db 12, BITE
+	db 16, LOW_SWEEP
+	db 23, ICE_FANG
+	db 28, SLASH
+	db 35, SCREECH
+	db 40, AQUA_TAIL
+	db 45, CRUNCH
+	db 50, HYDRO_PUMP
+	db LEVEL_EVO, SUPERPOWER
 	db 0 ; no more level-up moves
 
 SentretEvosAttacks:
