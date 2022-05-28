@@ -2471,16 +2471,17 @@ ChikoritaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 6, RAZOR_LEAF
-	db 9, POISONPOWDER
+	db 5, RAZOR_LEAF
+	db 8, POISONPOWDER
 	db 12, SYNTHESIS
-	db 17, REFLECT
-	db 28, SWEET_SCENT
-	db 31, LIGHT_SCREEN
-	db 34, BODY_SLAM
-	db 39, SAFEGUARD
-	db 42, HEAL_BELL ; FIXME: AROMATHERAPY
-	db 45, SOLARBEAM
+	db 16, REFLECT
+	db 20, SWEET_SCENT
+	db 24, LIGHT_SCREEN
+	db 28, BODY_SLAM
+	db 32, SAFEGUARD
+	db 36, ENERGY_BALL
+	db 40, AROMATHERAPY
+	db 44, SOLARBEAM
 	db 0 ; no more level-up moves
 
 BayleefEvosAttacks:
@@ -2488,42 +2489,34 @@ BayleefEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, RAZOR_LEAF
-	db 1, POISONPOWDER
-	db 6, RAZOR_LEAF
-	db 9, POISONPOWDER
+	db 5, RAZOR_LEAF
+	db 8, POISONPOWDER
 	db 12, SYNTHESIS
 	db 18, REFLECT
-	db 26, GIGA_DRAIN
-	db 32, SWEET_SCENT
-	db 36, LIGHT_SCREEN
-	db 40, BODY_SLAM
-	db 46, SAFEGUARD
-	db 50, HEAL_BELL ; FIXME: AROMATHERAPY
-	db 54, SOLARBEAM
+	db 23, SWEET_SCENT
+	db 28, LIGHT_SCREEN
+	db 33, BODY_SLAM
+	db 38, SAFEGUARD
+	db 43, ENERGY_BALL
+	db 48, AROMATHERAPY
+	db 53, SOLARBEAM
 	db 0 ; no more level-up moves
 
 MeganiumEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, PETAL_DANCE
-	; db 1, PETAL_BLIZZARD
-	; db 1, TACKLE
+	db 1, TACKLE
 	db 1, GROWL
-	db 1, RAZOR_LEAF
-	db 1, POISONPOWDER
-	; db 6, RAZOR_LEAF
-	; db 9, POISONPOWDER
+	db 5, RAZOR_LEAF
+	db 8, POISONPOWDER
 	db 12, SYNTHESIS
 	db 18, REFLECT
-	; db 22, MAGICAL_LEAF
-	; db 26, NATURAL_GIFT
-	db 34, SWEET_SCENT
-	db 40, LIGHT_SCREEN
-	db 46, BODY_SLAM
-	db 54, SAFEGUARD
-	db 60, HEAL_BELL ; FIXME: AROMATHERAPY (variation)
-	db 66, SOLARBEAM
-	; db 70, PETAL_BLIZZARD
+	db 23, SWEET_SCENT
+	db 28, LIGHT_SCREEN
+	db 35, BODY_SLAM
+	db 40, SAFEGUARD
+	db 45, ENERGY_BALL
+	db 50, AROMATHERAPY
+	db 55, SOLARBEAM
 	db LEVEL_EVO, PETAL_DANCE
 	db 0 ; no more level-up moves
 
