@@ -3200,99 +3200,94 @@ QuagsireEvosAttacks:
 	db 45, EARTHQUAKE
 	db 0 ; no more level-up moves
 
-EspeonEvosAttacks: ; based on gen 7
+EspeonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, TAIL_WHIP
+	db 1, CHARM
 	db 5, SAND_ATTACK
-	; db 9, BABY_DOLL_EYES
-	db 13, QUICK_ATTACK
-	db 17, SWIFT
-	db 20, PSYBEAM
-	db 25, FUTURE_SIGHT
-	db 29, PSYCH_UP
-	db 33, MORNING_SUN
-	db 37, PSYCHIC_M
-	; db 41, LAST_RESORT
-	; db 45, POWER_SWAP
+	db 10, QUICK_ATTACK
+	db 15, SWIFT
+	db 20, BITE
+	db 25, ZEN_HEADBUTT
+	db 30, FUTURE_SIGHT
+	db 35, CALM_MIND
+	db 40, MORNING_SUN
+	db 45, DOUBLE_EDGE
+	db 50, PSYCHIC_M
 	db LEVEL_EVO, CONFUSION
 	db 0 ; no more level-up moves
 
-UmbreonEvosAttacks: ; based on gen 7
+UmbreonEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, HELPING_HAND
 	db 1, TACKLE
-	db 1, TAIL_WHIP
+	db 1, CHARM
 	db 5, SAND_ATTACK
-	db 9, GROWL ; FIXME: BABY_DOLL_EYES
-	db 13, QUICK_ATTACK
-	db 17, CONFUSE_RAY
+	db 10, QUICK_ATTACK
+	db 15, SWIFT
 	db 20, BITE
-	db 25, PAYBACK ; FIXME: ASSURANCE
-	db 29, SCREECH
-	db 33, MOONLIGHT
-	db 37, MEAN_LOOK
-	; db 41, LAST_RESORT
-	; db 45, GUARD_SWAP
-	db LEVEL_EVO, BITE
+	db 25, NIGHT_SHADE
+	db 30, PAYBACK
+	db 35, CALM_MIND
+	db 40, MOONLIGHT
+	db 45, DOUBLE_EDGE
+	db 50, DARK_PULSE
+	db LEVEL_EVO, SNARL
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, PECK
-	; db 1, ASTONISH
-	db 5, GUST
-	db 11, HAZE
-	db 15, WING_ATTACK
-	db 21, NIGHT_SHADE
-	db 25, PAYBACK ; FIXME: ASSURANCE
-	; db 31, TAUNT
-	; db 35, AIR_CUTTER
-	db 41, MEAN_LOOK
-	; db 45, FOUL_PLAY
-	; db 50, TAILWIND
-	db 55, SUCKER_PUNCH
-	; db 61, TORMENT
-	; db 65, QUASH
+	db 1, PLUCK
+	db 1, HAZE
+	db 4, ASTONISH
+	db 8, GUST
+	db 12, ROOST
+	db 16, AERIAL_ACE
+	db 20, NIGHT_SHADE
+	db 24, PAYBACK
+	db 28, NIGHT_SLASH
+	db 32, AIR_CUTTER
+	db 36, MEAN_LOOK
+	db 36, NASTY_PLOT
+	db 40, SUCKER_PUNCH
+	db 44, AIR_SLASH
+	db 48, DARK_PULSE
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CURSE
 	db 1, TACKLE
-	db 1, GROWL
-	db 1, WATER_GUN
-	; db 9, YAWN
+	db 1, CURSE
+	db 4, WATER_GUN
+	db 8, HYPNOSIS
 	db 12, CONFUSION
-	db 15, DISABLE
-	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
-	db 21, HEADBUTT
-	db 24, ZEN_HEADBUTT
-	db 27, AMNESIA
-	db 30, SURF
-	db 33, RECOVER ; FIXME: SLACK_OFF (variation)
-	db 36, PSYCHIC_M
-	db 39, PSYCH_UP
-	db 42, RAIN_DANCE
-	db 45, SWAGGER ; FIXME: HEAL_PULSE
+	db 16, DISABLE
+	db 20, WATER_PULSE
+	db 24, HEADBUTT
+	db 28, ZEN_HEADBUTT
+	db 33, CALM_MIND
+	db 40, RECOVER
+	db 45, PSYCHIC_M
+	db 50, RAIN_DANCE
+	db LEVEL_EVO, POWER_GEM
 	db 0 ; no more level-up moves
 
 MisdreavusEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, ASTONISH
 	db 1, GROWL
-	db 1, CONFUSION
-	db 5, SPITE
-	db 10, LICK ; FIXME: ASTONISH
-	db 14, CONFUSE_RAY
-	db 19, MEAN_LOOK
-	db 23, HEX
-	db 28, PSYBEAM
+	db 4, CONFUSE_RAY
+	db 8, CONFUSION
+	db 12, SPITE
+	db 16, MEAN_LOOK
+	db 20, HEX
+	db 24, HYPNOSIS
+	db 28, SCREECH
 	db 32, PAIN_SPLIT
-	db 37, PAYBACK
-	db 41, SHADOW_BALL
-	db 46, PERISH_SONG
-	; db 50, GRUDGE
-	; db 55, POWER_GEM
+	db 36, PAYBACK
+	db 40, PERISH_SONG
+	db 44, EXTRASENSORY
+	db 48, POWER_GEM
+	db 52, SHADOW_BALL
 	db 0 ; no more level-up moves
 
 UnownEvosAttacks:
@@ -3302,30 +3297,28 @@ UnownEvosAttacks:
 
 WobbuffetEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, CHARM
+	db 1, ENCORE
 	db 1, COUNTER
 	db 1, MIRROR_COAT
-	db 1, SAFEGUARD
-	db 1, DESTINY_BOND
+	db 10, SAFEGUARD
+	db 10, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 GirafarigEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, POWER_SWAP
-	; db 1, GAURD_SWAP
-	; db 1, ASTONISH
 	db 1, TACKLE
 	db 1, GROWL
-	db 5, CONFUSION
-	db 10, PAYBACK ; FIXME: ASSURANCE
-	db 14, STOMP
-	db 19, PSYBEAM
-	db 23, AGILITY
-	; db 28, DOUBLE_HIT
-	db 32, ZEN_HEADBUTT
-	db 37, CRUNCH
-	db 41, BATON_PASS
-	db 46, NASTY_PLOT
-	db 50, PSYCHIC_M
+	db 5, ASTONISH
+	db 10, CONFUSION
+	db 15, HEADBUTT
+	db 20, BITE
+	db 25, AGILITY
+	db 30, PAYBACK
+	db 35, ZEN_HEADBUTT
+	db 40, NASTY_PLOT
+	db 45, PSYCHIC_M
+	db 50, CRUNCH
 	db 0 ; no more level-up moves
 
 PinecoEvosAttacks:
@@ -3333,62 +3326,49 @@ PinecoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
-	db 6, SELFDESTRUCT
-	; db 9, BUG_BITE
-	db 12, TAKE_DOWN
-	db 17, RAPID_SPIN
-	; db 20, AUTOTOMIZE
-	db 23, ROLLOUT
-	db 28, SPIKES
-	db 31, PAYBACK
-	db 34, EXPLOSION
-	; db 39, IRON_DEFENSE
-	; db 42, GYRO_BALL
-	db 45, DOUBLE_EDGE
+	db 4, BUG_BITE
+	db 8, RAPID_SPIN
+	db 12, ROLLOUT
+	db 16, HEADBUTT
+	db 20, SELFDESTRUCT
+	db 24, SPIKES
+	db 28, PAYBACK
+	db 32, IRON_DEFENSE
+	db 36, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 ForretressEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
-	db 1, SELFDESTRUCT
-	db 6, SELFDESTRUCT
-	; db 9, BUG_BITE
-	db 12, TAKE_DOWN
-	db 17, RAPID_SPIN
-	db 20, REFLECT
-	db 23, ROLLOUT
-	db 28, SPIKES
-	db 32, PAYBACK
-	db 36, EXPLOSION
-	; db 42, IRON_DEFENSE
-	; db 46, GYRO_BALL
-	db 50, DOUBLE_EDGE
-	; db 56, MAGNET_RISE
-	db 60, ZAP_CANNON
-	; db 64, HEAVY_SLAM
-	; db LEVEL_EVO, AUTOTOMIZE
-	; db LEVEL_EVO, MIRROR_SHOT
+	db 4, BUG_BITE
+	db 8, RAPID_SPIN
+	db 12, ROLLOUT
+	db 16, HEADBUTT
+	db 20, SELFDESTRUCT
+	db 24, SPIKES
+	db 28, PAYBACK
+	db 40, IRON_DEFENSE
+	db 45, DOUBLE_EDGE
+	db LEVEL_EVO, REFLECT
 	db 0 ; no more level-up moves
 
 DunsparceEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, FLAIL
-	; db 1, DEFENSE_CURL
-	db 4, MUD_SLAP
-	db 8, ROLLOUT
-	db 12, GLARE
-	db 16, SCREECH
-	db 20, ANCIENTPOWER
-	db 24, BULLDOZE ; FIXME: DRILL_RUN
-	; db 28, YAWN
-	db 32, BODY_SLAM
-	db 36, TAKE_DOWN
+	db 1, TACKLE
+	db 1, SAND_ATTACK
+	db 4, ROLLOUT
+	db 8, MUD_SLAP
+	db 12, HEADBUTT
+	db 16, GLARE
+	db 20, FLAIL
+	db 20, ENDURE
+	db 24, BULLDOZE
+	db 28, SCREECH
+	db 32, ANCIENTPOWER
+	db 36, BODY_SLAM
 	db 40, ROOST
-	; db 44, DRAGON_RUSH
-	; db 48, COIL
-	db 52, DOUBLE_EDGE
-	; db 56, ENDEAVOR
+	db 44, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 GligarEvosAttacks:
