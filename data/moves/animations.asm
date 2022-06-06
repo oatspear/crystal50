@@ -711,20 +711,20 @@ BattleAnim_DrainPunch:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_MegaPunch:
-	anim_1gfx ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_wait 48
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
-.loop
-	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_PUNCH, 136, 56, $0
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_PUNCH, 136, 56, $0
-	anim_wait 6
-	anim_loop 3, .loop
-	anim_ret
+; BattleAnim_MegaPunch: ; unreferenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+; 	anim_wait 48
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
+; .loop
+; 	anim_sound 0, 1, SFX_MEGA_PUNCH
+; 	anim_obj ANIM_OBJ_PUNCH, 136, 56, $0
+; 	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_PUNCH, 136, 56, $0
+; 	anim_wait 6
+; 	anim_loop 3, .loop
+; 	anim_ret
 
 ; BattleAnim_Stomp: ; unreferenced
 ; 	anim_1gfx ANIM_GFX_HIT
@@ -784,20 +784,20 @@ BattleAnim_HiJumpKick:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_MegaKick:
-	anim_1gfx ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_wait 67
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
-.loop
-	anim_sound 0, 1, SFX_MEGA_KICK
-	anim_obj ANIM_OBJ_KICK, 136, 56, $0
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_KICK, 136, 56, $0
-	anim_wait 6
-	anim_loop 3, .loop
-	anim_ret
+; BattleAnim_MegaKick: ; unreferenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+; 	anim_wait 67
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
+; .loop
+; 	anim_sound 0, 1, SFX_MEGA_KICK
+; 	anim_obj ANIM_OBJ_KICK, 136, 56, $0
+; 	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+; 	anim_wait 6
+; 	anim_obj ANIM_OBJ_KICK, 136, 56, $0
+; 	anim_wait 6
+; 	anim_loop 3, .loop
+; 	anim_ret
 
 ; BattleAnim_HyperFang: ; unreferenced
 ; 	anim_1gfx ANIM_GFX_HIT
@@ -3301,13 +3301,13 @@ BattleAnim_LowSweep:
 ; 	anim_wait 16
 ; 	anim_ret
 
-BattleAnim_Slam:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
-	anim_obj ANIM_OBJ_HIT_YFIX, 124, 40, $0
-	anim_wait 16
-	anim_ret
+; BattleAnim_Slam: ; unreferenced
+; 	anim_1gfx ANIM_GFX_HIT
+; 	anim_sound 0, 1, SFX_WING_ATTACK
+; 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+; 	anim_obj ANIM_OBJ_HIT_YFIX, 124, 40, $0
+; 	anim_wait 16
+; 	anim_ret
 
 BattleAnim_Disable:
 	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_STATUS

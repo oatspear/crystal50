@@ -652,7 +652,7 @@ ParsePlayerAction:
 
 	xor a
 	ld [wMoveSelectionMenuType], a
-	inc a ; POUND
+	inc a ; AIR_CUTTER
 	ld [wFXAnimID], a
 	call MoveSelectionScreen
 	push af
