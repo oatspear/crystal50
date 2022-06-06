@@ -7,6 +7,7 @@
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
+- Temporarily removed egg moves.
 
 ### Changed
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
@@ -25,6 +26,7 @@
 - Growth boosts both attack stats; under harsh sunlight, it also boosts speed.
 - DVs no longer affect stat calculation.
 - Every 4 levels a +1 bonus to all stats is granted.
+- Updated learnsets of all Pokémon to take the new moves into account and to make it more in line with recent games.
 
 ## v0.3 (Custom Changes)
 
