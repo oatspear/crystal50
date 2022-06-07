@@ -58,7 +58,7 @@ BattleAnimations::
 	dw BattleAnim_Supersonic
 	dw BattleAnim_BugBuzz
 	dw BattleAnim_Disable
-	dw BattleAnim_Acid
+	dw BattleAnim_AcidSpray
 	dw BattleAnim_Ember
 	dw BattleAnim_Flamethrower
 	dw BattleAnim_Mist
@@ -1523,7 +1523,8 @@ BattleAnim_Explosion:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Acid:
+; BattleAnim_Acid:
+BattleAnim_AcidSpray:
 	anim_1gfx ANIM_GFX_POISON
 	anim_call BattleAnimSub_Acid
 	anim_wait 64

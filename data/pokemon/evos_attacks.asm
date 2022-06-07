@@ -93,11 +93,10 @@ CharmanderEvosAttacks:
 	db 12, DRAGONBREATH
 	db 17, FIRE_FANG
 	db 20, BITE
-	db 24, FLAMETHROWER
+	db 24, FIRE_SPIN
 	db 28, SLASH
-	db 32, FIRE_SPIN
-	; db 36, INFERNO
-	db 40, FLARE_BLITZ
+	db 32, FLAMETHROWER
+	db 36, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 CharmeleonEvosAttacks:
@@ -113,16 +112,12 @@ CharmeleonEvosAttacks:
 	db 30, FLAMETHROWER
 	db 37, SLASH
 	db 42, FIRE_SPIN
-	; db 48, INFERNO
-	db 54, FLARE_BLITZ
+	db 48, FLARE_BLITZ
 	db 0 ; no more level-up moves
 
 CharizardEvosAttacks:
 	db 0 ; no more evolutions
-	; db 1, AIR_SLASH
-	; db 1, DRAGON_CLAW
-	; db 1, HEAT_WAVE
-	; db 1, TACKLE
+	db 1, TACKLE
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
@@ -132,8 +127,7 @@ CharizardEvosAttacks:
 	db 30, FLAMETHROWER
 	db 39, SLASH
 	db 46, FIRE_SPIN
-	; db 54, INFERNO
-	db 62, FLARE_BLITZ
+	db 54, FLARE_BLITZ
 	db LEVEL_EVO, AIR_SLASH
 	db 0 ; no more level-up moves
 
