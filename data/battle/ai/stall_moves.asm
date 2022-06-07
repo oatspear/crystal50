@@ -3,8 +3,6 @@
 
 StallMoves:
 	db SWORDS_DANCE
-	db TAIL_WHIP
-	db LEER
 	db GROWL
 	db DISABLE
 	db MIST

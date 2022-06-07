@@ -298,7 +298,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
 	dw 03072 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -324,7 +324,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp

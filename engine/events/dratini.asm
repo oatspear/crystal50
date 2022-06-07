@@ -79,7 +79,7 @@ GiveDratini:
 .Moveset1:
 ; This is the normal moveset of a level 15 Dratini
 	db WRAP
-	db LEER
+	db TWISTER
 	db THUNDER_WAVE
 	db TWISTER
 	db 0

@@ -397,7 +397,6 @@ ArbokEvosAttacks:
 	; db 1, ICE_FANG
 	; db 1, FIRE_FANG
 	db 1, WRAP
-	db 1, LEER
 	db 4, POISON_STING
 	db 9, BITE
 	db 12, GLARE
@@ -1000,7 +999,6 @@ ArcanineEvosAttacks:
 	; db 1, AGILITY
 	; db 1, FIRE_FANG
 	; db 1, CRUNCH
-	; db 1, TAKE_DOWN
 	; db 1, FLAMETHROWER
 	; db 1, ROAR
 	; db 1, PLAY_ROUGH
