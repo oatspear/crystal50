@@ -4063,7 +4063,7 @@ HoOhEvosAttacks:
 	; db 99, FUTURE_SIGHT
 	db 1, RECOVER
 	db 1, SUNNY_DAY
-	db 1, SKY_ATTACK
+	db 1, AIR_SLASH
 	db 0 ; no more level-up moves
 
 CelebiEvosAttacks:

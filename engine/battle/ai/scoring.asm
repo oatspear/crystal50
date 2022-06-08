@@ -445,7 +445,7 @@ AI_Smart_LeechHit:
 	ret
 
 AI_Smart_Selfdestruct:
-; Selfdestruct, Explosion
+; Selfdestruct
 
 ; Unless this is the enemy's last Pokemon...
 	push hl

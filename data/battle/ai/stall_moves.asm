@@ -21,7 +21,6 @@ StallMoves:
 	db HAZE
 	db REFLECT
 	db FOCUS_ENERGY
-	db AMNESIA
 	db TRANSFORM
 	db SPLASH
 	db ACID_ARMOR

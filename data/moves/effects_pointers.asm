@@ -75,7 +75,7 @@ MoveEffectsPointers:
 	dw NormalHit  ; SpecialDefenseDownHit
 	dw AccuracyDownHit
 	dw EvasionDownHit
-	dw SkyAttack
+	dw NormalHit
 	dw ConfuseHit
 	dw Revenge
 	dw BodySlam
