@@ -835,10 +835,6 @@ GetMovePriority:
 ; Exceptions to the priority by effect table.
 ; For now there are only two. If more are added later on, uncomment the
 ; INCLUDE "data/moves/priorities.asm" below and repeat this loop.
-	cp VITAL_THROW
-	ld a, PRIORITY_M1
-	ret z
-	ld a, b
 	cp EXTREMESPEED
 	ld a, PRIORITY_P2
 	ret z
