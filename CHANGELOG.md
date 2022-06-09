@@ -27,6 +27,10 @@
 - DVs no longer affect stat calculation.
 - Every 4 levels a +1 bonus to all stats is granted.
 - Updated learnsets of all Pokémon to take the new moves into account and to make it more in line with recent games.
+- Machop transfered via Time Capsule now hold Blackbelt.
+- Dragonair and Dragonite transfered via Time Capsule now hold Dragon Fang.
+- Pokémon that previously held TMs when transfered via Time Capsule now hold Oran Berry.
+- Type-boosting items boost moves for 20% damage rather than 10%.
 
 ## v0.3 (Custom Changes)
 
