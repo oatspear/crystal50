@@ -180,7 +180,7 @@ ItemDescriptions:
 	dw ParkBallDesc
 	dw RainbowWingDesc
 	dw TeruSama24Desc
-	dw BrickPieceDesc
+	dw TeruSama24Desc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
 	dw PortraitMailDesc
@@ -191,9 +191,9 @@ ItemDescriptions:
 	dw MusicMailDesc
 	dw MirageMailDesc
 	dw TeruSama25Desc
+	dw TeruSama26Desc
+	dw TeruSama26Desc
 	assert_table_length NUM_ITEMS
-	dw TeruSama26Desc
-	dw TeruSama26Desc
 	dw TeruSama26Desc
 	dw TeruSama26Desc
 	dw TeruSama26Desc
@@ -941,10 +941,6 @@ RainbowWingDesc:
 
 TeruSama24Desc:
 	db   "?@"
-
-BrickPieceDesc:
-	db   "A rare chunk of"
-	next "tile.@"
 
 SurfMailDesc:
 	db   "LAPRAS-print MAIL."
