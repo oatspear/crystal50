@@ -267,7 +267,7 @@ TM01 EQU const_value
 	add_tm THIEF        ; ee
 	add_tm STEEL_WING   ; ef
 	add_tm FIRE_PUNCH   ; f0
-	add_tm FURY_CUTTER  ; f1
+	add_tm FALSE_SWIPE  ; f1
 	add_tm HEX          ; f2
 	add_tm DAZZLING_GLEAM ; f3
 	add_tm PLAY_ROUGH   ; f4

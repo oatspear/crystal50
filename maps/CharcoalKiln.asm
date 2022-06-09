@@ -11,8 +11,8 @@ CharcoalKiln_MapScripts:
 CharcoalKilnBoss:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
-	iftrue .GotCut
+	checkevent EVENT_GOT_TM49_FALSE_SWIPE
+	iftrue .GotFalseSwipe
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
 	writetext CharcoalKilnBossText1
@@ -26,7 +26,7 @@ CharcoalKilnBoss:
 	closetext
 	end
 
-.GotCut:
+.GotFalseSwipe:
 	writetext CharcoalKilnBossText3
 	waitbutton
 	closetext
@@ -37,7 +37,7 @@ CharcoalKilnApprentice:
 	opentext
 	checkevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
 	iftrue .YoureTheCoolest
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_TM49_FALSE_SWIPE
 	iftrue .Thanks
 	writetext CharcoalKilnApprenticeText1
 	waitbutton
