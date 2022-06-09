@@ -217,17 +217,17 @@ ENDM
 
 ; see data/moves/tmhm_moves.asm for moves
 TM01 EQU const_value
-	add_tm DYNAMICPUNCH ; bf
+	add_tm AERIAL_ACE   ; bf
 	add_tm HEADBUTT     ; c0
 	add_tm CURSE        ; c1
 	add_tm ROLLOUT      ; c2
 	const ITEM_C3       ; c3
 	add_tm ROAR         ; c4
 	add_tm TOXIC        ; c5
-	add_tm ZAP_CANNON   ; c6
+	add_tm WILD_CHARGE  ; c6
 	add_tm ROCK_SMASH   ; c7
-	add_tm PSYCH_UP     ; c8
-	add_tm HIDDEN_POWER ; c9
+	add_tm NASTY_PLOT   ; c8
+	add_tm CALM_MIND    ; c9
 	add_tm SUNNY_DAY    ; ca
 	add_tm SWEET_SCENT  ; cb
 	add_tm PLAY_ROUGH   ; cc
@@ -250,18 +250,18 @@ TM01 EQU const_value
 	add_tm PSYCHIC_M    ; dd
 	add_tm SHADOW_BALL  ; de
 	add_tm MUD_SLAP     ; df
-	add_tm DOUBLE_TEAM  ; e0
+	add_tm BULLDOZE     ; e0
 	add_tm ICE_PUNCH    ; e1
-	add_tm SWAGGER      ; e2
-	add_tm SLEEP_TALK   ; e3
+	add_tm PLUCK        ; e2
+	add_tm AROMATHERAPY ; e3
 	add_tm SLUDGE_BOMB  ; e4
 	add_tm SANDSTORM    ; e5
 	add_tm FIRE_BLAST   ; e6
-	add_tm SWIFT        ; e7
+	add_tm PAYBACK      ; e7
 	add_tm IRON_DEFENSE ; e8
 	add_tm THUNDERPUNCH ; e9
 	add_tm DREAM_EATER  ; ea
-	add_tm DETECT       ; eb
+	add_tm DRAIN_PUNCH  ; eb
 	add_tm REST         ; ec
 	add_tm ATTRACT      ; ed
 	add_tm THIEF        ; ee
@@ -285,18 +285,19 @@ HM{02d:HM_VALUE}_MOVE = \1
 ENDM
 
 HM01 EQU const_value
-	add_hm CUT          ; f5
-	add_hm FLY          ; f6
-	add_hm SURF         ; f7
-	add_hm STRENGTH     ; f8
-	add_hm FLASH        ; f9
-	add_hm WHIRLPOOL    ; fa
-	add_hm WATERFALL    ; fb
+	add_hm ROOST        ; f5
+	add_hm FURY_CUTTER  ; f6
+	add_hm FACADE       ; f7
+	add_hm SHADOW_BALL  ; f8
+	add_hm BULK_UP      ; f9
+	add_hm IRON_TAIL    ; fa
+	add_hm AVALANCHE    ; fb
+	add_hm DRAGONBREATH ; fc
 NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
 ; Defines two constants:
-; - \1_TMNUM: the learnable TM/HM flag, starting at 58
+; - \1_TMNUM: the learnable TM/HM flag, starting at 59
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
 MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
 MT{02d:MT_VALUE}_MOVE = \1
