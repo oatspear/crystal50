@@ -83,8 +83,8 @@ CianwoodCitySuicuneAndEusine:
 CianwoodCityChucksWife:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM02_FLY
-	iftrue .GotFly
+	checkevent EVENT_GOT_TM44_REST
+	iftrue .GotRest
 	writetext ChucksWifeEasierToFlyText
 	promptbutton
 	checkevent EVENT_BEAT_CHUCK
@@ -95,14 +95,14 @@ CianwoodCityChucksWife:
 	end
 
 .BeatChuck:
-	writetext ChucksWifeGiveHMText
+	writetext ChucksWifeGiveTMText
 	promptbutton
-	verbosegiveitem HM_FLY
+	verbosegiveitem TM_REST
 	iffalse .Done
-	setevent EVENT_GOT_HM02_FLY
-	writetext ChucksWifeFlySpeechText
+	setevent EVENT_GOT_TM44_REST
+	writetext ChucksWifeRestSpeechText
 	promptbutton
-.GotFly:
+.GotRest:
 	writetext ChucksWifeChubbyText
 	waitbutton
 .Done:
@@ -206,23 +206,22 @@ ChucksWifeBeatChuckText:
 	line "gift for you."
 	done
 
-ChucksWifeGiveHMText:
+ChucksWifeGiveTMText:
 	text "That's CIANWOOD's"
 	line "GYM BADGE!"
 
 	para "Then you should"
-	line "take this HM."
+	line "take this TM."
 	done
 
-ChucksWifeFlySpeechText:
-	text "Teach FLY to your"
-	line "#MON."
+ChucksWifeRestSpeechText:
+	text "Teach REST to"
+	line "your #MON."
 
-	para "You will be able"
-	line "to FLY instantly"
-
-	para "to anywhere you "
-	line "have visited."
+	para "Resting is an"
+	line "important part"
+	cont "of a good"
+	cont "training routine."
 	done
 
 ChucksWifeChubbyText:
