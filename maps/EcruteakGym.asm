@@ -45,7 +45,7 @@ EcruteakGymMortyScript:
 	setevent EVENT_RANG_CLEAR_BELL_1
 	setevent EVENT_RANG_CLEAR_BELL_2
 .FightDone:
-	checkevent EVENT_GOT_TM30_SHADOW_BALL
+	checkevent EVENT_GOT_HM04_SHADOW_BALL
 	iftrue .GotShadowBall
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
@@ -53,9 +53,9 @@ EcruteakGymMortyScript:
 	setevent EVENT_BEAT_MEDIUM_GRACE
 	writetext MortyText_FogBadgeSpeech
 	promptbutton
-	verbosegiveitem TM_SHADOW_BALL
+	verbosegiveitem HM_SHADOW_BALL
 	iffalse .NoRoomForShadowBall
-	setevent EVENT_GOT_TM30_SHADOW_BALL
+	setevent EVENT_GOT_HM04_SHADOW_BALL
 	writetext MortyText_ShadowBallSpeech
 	waitbutton
 	closetext
@@ -253,7 +253,8 @@ MortyText_ShadowBallSpeech:
 	line "It causes damage"
 
 	para "and may reduce"
-	line "SPCL.DEF."
+	line "the enemy's"
+	cont "defenses."
 
 	para "Use it if it"
 	line "appeals to you."
