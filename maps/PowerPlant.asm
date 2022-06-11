@@ -167,20 +167,20 @@ PowerPlantManager:
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	clearevent EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN
 .ReturnedMachinePart:
-	checkevent EVENT_GOT_TM07_ZAP_CANNON
-	iftrue .GotZapCannon
+	checkevent EVENT_GOT_TM07_WILD_CHARGE
+	iftrue .GotWildCharge
 	writetext PowerPlantManagerTakeThisTMText
 	promptbutton
-	verbosegiveitem TM_ZAP_CANNON
+	verbosegiveitem TM_WILD_CHARGE
 	iffalse .NoRoom
-	setevent EVENT_GOT_TM07_ZAP_CANNON
-	writetext PowerPlantManagerTM07IsZapCannonText
+	setevent EVENT_GOT_TM07_WILD_CHARGE
+	writetext PowerPlantManagerTM07IsWildChargeText
 	waitbutton
 .NoRoom:
 	closetext
 	end
 
-.GotZapCannon:
+.GotWildCharge:
 	writetext PowerPlantManagerMyBelovedGeneratorText
 	waitbutton
 	closetext
@@ -364,9 +364,9 @@ PowerPlantManagerTakeThisTMText:
 	line "as a reward!"
 	done
 
-PowerPlantManagerTM07IsZapCannonText:
+PowerPlantManagerTM07IsWildChargeText:
 	text "MANAGER: TM07 is"
-	line "my ZAP CANNON."
+	line "my WILD CHARGE."
 
 	para "It's a powerful"
 	line "technique!"
@@ -374,7 +374,7 @@ PowerPlantManagerTM07IsZapCannonText:
 	para "It's not what any-"
 	line "one would consider"
 
-	para "accurate, but it"
+	para "safe, but it"
 	line "packs a wallop!"
 	done
 

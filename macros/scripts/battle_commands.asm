@@ -113,7 +113,7 @@ ENDM
 	command healmorn                ; 6a
 	command healday                 ; 6b
 	command healnite                ; 6c
-	command hiddenpower             ; 6d
+	command effect0x6d              ; 6d
 	command startrain               ; 6e
 	command startsun                ; 6f
 	command attackup                ; 70

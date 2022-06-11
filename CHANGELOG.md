@@ -8,6 +8,7 @@
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, Kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
 - Temporarily removed egg moves.
+- Temporarily removed the effects of PP up and Vitamins.
 
 ### Changed
 - Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
@@ -31,6 +32,8 @@
 - Dragonair and Dragonite transfered via Time Capsule now hold Dragon Fang.
 - Pokémon that previously held TMs when transfered via Time Capsule now hold Oran Berry.
 - Type-boosting items boost moves for 20% damage rather than 10%.
+- Gym leaders reward the player with HMs, rather than TMs.
+- Locations where HMs were previously obtainable now have different items.
 
 ## v0.3 (Custom Changes)
 
