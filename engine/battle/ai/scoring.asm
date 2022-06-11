@@ -365,7 +365,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_BRICK_BREAK,      AI_Smart_BrickBreak
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
-	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_MORNING_SUN,      AI_Smart_MorningSun
 	dbw EFFECT_SYNTHESIS,        AI_Smart_Synthesis
@@ -379,7 +378,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	dbw EFFECT_GUST,             AI_Smart_Gust
-	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
@@ -859,7 +857,7 @@ AI_Smart_TrapTarget:
 	jr nz, .encourage
 
 	ld a, [wBattleMonStatus]
-	and 1 << PRZ
+	and 1 << PAR
 	jr nz, .encourage
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
@@ -1528,7 +1526,7 @@ AI_Smart_MeanLook:
 	jr nz, .encourage
 
 	ld a, [wBattleMonStatus]
-	and 1 << PRZ
+	and 1 << PAR
 	jr nz, .encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
@@ -1972,19 +1970,6 @@ AI_Smart_Earthquake:
 	dec [hl]
 	ret
 
-AI_Smart_BatonPass:
-; Discourage this move if the player hasn't shown super-effective moves against the enemy.
-; Consider player's type(s) if its moves are unknown.
-
-	push hl
-	callfar CheckPlayerMoveTypeMatchups
-	ld a, [wEnemyAISwitchScore]
-	cp BASE_AI_SWITCH_SCORE
-	pop hl
-	ret c
-	inc [hl]
-	ret
-
 AI_Smart_BrickBreak:
 ; 80% chance to greatly encourage this move if the player is
 ; behind screens (Reflect, Light Screen effect).
@@ -2289,19 +2274,6 @@ AI_Smart_FutureSight:
 	ret z
 
 	dec [hl]
-	dec [hl]
-	ret
-
-AI_Smart_Stomp:
-; 80% chance to encourage this move if the player has used Minimize.
-
-	ld a, [wPlayerMinimized]
-	and a
-	ret z
-
-	call AI_80_20
-	ret c
-
 	dec [hl]
 	ret
 

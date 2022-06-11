@@ -8,6 +8,7 @@ BattleCommand_Selfdestruct:
 .got_hp
 ; Hack: this should have been 80% Max. HP recoil damage.
 ; We will simplify and just get 13/16, which is slightly more (0.8125).
+	push hl
 	ld a, [hli]
 	ld b, a
 	ld a, [hld]
@@ -16,26 +17,29 @@ BattleCommand_Selfdestruct:
 	srl b
 	rr c
 ; got 8/16
-	ld e, c
-	ld d, b
+	ld l, c
+	ld h, b
 ; divide by 4
 	srl b
 	rr c
 ; got 12/16
-	add de, bc
+	add hl, bc
 ; divide by 16
 	srl b
 	rr c
 	srl b
 	rr c
 ; got 13/16
-	add bc, de
+	add hl, bc
+	ld c, l
+	ld b, h
 .got_quotient
 	ld a, b
 	or c
 	jr nz, .min_damage
 	inc c
 .min_damage
+	pop hl
 	ld a, [hli]
 	ld [wHPBuffer1 + 1], a
 	ld a, [hl]

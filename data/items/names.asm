@@ -258,6 +258,5 @@ ItemNames::
 	li "TERU-SAMA"
 	li "TERU-SAMA"
 	li "TERU-SAMA"
-	li "TERU-SAMA"
 	li "?"
 	assert_list_length $100

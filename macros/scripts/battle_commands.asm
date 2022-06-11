@@ -83,7 +83,7 @@ ENDM
 	command healbell                ; 4c
 	command kingsrock               ; 4d
 	command effect0x4e              ; 4e
-	command kickcounter             ; 4f
+	command effect0x4f              ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
 	command hex                     ; 52
@@ -153,7 +153,7 @@ ENDM
 	command statupanim              ; 92
 	command switchturn              ; 93
 	command fakeout                 ; 94
-	command bellydrum               ; 95
+	command effect0x95              ; 95
 	command psychup                 ; 96
 	command effect0x97              ; 97
 	command doubleflyingdamage      ; 98

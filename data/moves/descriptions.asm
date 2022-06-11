@@ -737,7 +737,7 @@ TransformDescription:
 
 FacadeDescription:
 	db   "Double power with"
-	next "PSN, BRN or PRZ.@"
+	next "PSN, BRN or PAR.@"
 
 SporeDescription:
 	db   "A move that"

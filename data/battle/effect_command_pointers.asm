@@ -83,7 +83,7 @@ BattleCommandPointers:
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
 	dw BattleCommand_UnusedEffect ; TripleKick
-	dw BattleCommand_KickCounter
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
 	dw BattleCommand_Hex
@@ -107,7 +107,7 @@ BattleCommandPointers:
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
 	dw BattleCommand_UnusedEffect
-	dw BattleCommand_BatonPass
+	dw BattleCommand_UnusedEffect ; Baton Pass
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ClearHazards
 	dw BattleCommand_HealMorn
@@ -153,7 +153,7 @@ BattleCommandPointers:
 	dw BattleCommand_StatUpAnim
 	dw BattleCommand_SwitchTurn
 	dw BattleCommand_FakeOut
-	dw BattleCommand_BellyDrum
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_PsychUp
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_DoubleFlyingDamage

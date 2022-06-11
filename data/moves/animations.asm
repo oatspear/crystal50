@@ -12,7 +12,7 @@ BattleAnimations::
 	dw BattleAnim_Revenge
 	dw BattleAnim_DrainPunch
 	dw BattleAnim_Roost
-	dw BattleAnim_Waterfall
+	dw BattleAnim_AquaTail
 	dw BattleAnim_PayDay
 	dw BattleAnim_FirePunch
 	dw BattleAnim_IcePunch
@@ -134,7 +134,7 @@ BattleAnimations::
 	dw BattleAnim_Sludge
 	dw BattleAnim_EarthPower
 	dw BattleAnim_FireBlast
-	dw BattleAnim_Waterfall
+	dw BattleAnim_0
 	dw BattleAnim_WillOWisp
 	dw BattleAnim_Swift
 	dw BattleAnim_SkullBash
@@ -3170,6 +3170,7 @@ BattleAnim_Agility:
 	anim_ret
 
 ; BattleAnim_Waterfall: ; unreferenced
+BattleAnim_AquaTail:
 BattleAnim_Liquidation:
 	anim_1gfx ANIM_GFX_HIT
 	anim_call BattleAnim_TargetObj_2Row

@@ -83,10 +83,10 @@ Moves:
 	move THUNDERPUNCH, EFFECT_PARALYZE_HIT,       75, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  30
 	move FIRE_FANG,    EFFECT_BRN_FLINCH_HIT,     65, FIRE,          PHYSICAL,  95,              ENERGY_15_PP,  20
 	move ICE_FANG,     EFFECT_FRZ_FLINCH_HIT,     65, ICE,           PHYSICAL,  95,              ENERGY_15_PP,  20
-	move THUNDER_FANG, EFFECT_PRZ_FLINCH_HIT,     65, ELECTRIC,      PHYSICAL,  95,              ENERGY_15_PP,  20
+	move THUNDER_FANG, EFFECT_PAR_FLINCH_HIT,     65, ELECTRIC,      PHYSICAL,  95,              ENERGY_15_PP,  20
 	move AIR_SLASH,    EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95,              ENERGY_10_PP,  30
 	move SWORDS_DANCE, EFFECT_OFFENSES_UP_2,       0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
-	move ASTONISH      EFFECT_FLINCH_HIT,         30, GHOST,         PHYSICAL, 100,              ENERGY_30_PP,  30
+	move ASTONISH,     EFFECT_FLINCH_HIT,         30, GHOST,         PHYSICAL, 100,              ENERGY_30_PP,  30
 	move GUST,         EFFECT_GUST,               40, FLYING,        SPECIAL,  100,              ENERGY_30_PP,   0
 	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100,              ENERGY_10_PP,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
@@ -128,7 +128,7 @@ Moves:
 	move MIST,         EFFECT_MIST,                0, ICE,           STATUS,   PERFECT_ACCURACY, ENERGY_30_PP,   0
 	move WATER_GUN,    EFFECT_NORMAL_HIT,         40, WATER,         SPECIAL,  100,              ENERGY_30_PP,   0
 	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        100, WATER,         SPECIAL,   85,              ENERGY_5_PP,    0
-	move WOOD_HAMMER   EFFECT_RECOIL_HIT,        100, GRASS,         PHYSICAL, 100,              ENERGY_5_PP,    0
+	move WOOD_HAMMER,  EFFECT_RECOIL_HIT,        100, GRASS,         PHYSICAL, 100,              ENERGY_5_PP,    0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         80, ICE,           SPECIAL,  100,              ENERGY_10_PP,  20
 	move BLIZZARD,     EFFECT_BLIZZARD,          100, ICE,           SPECIAL,   75,              ENERGY_5_PP,   30
 	move ICICLE_CRASH, EFFECT_FLINCH_HIT,         80, ICE,           PHYSICAL,  90,              ENERGY_10_PP,  30
@@ -236,7 +236,7 @@ Moves:
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        PHYSICAL,  90,              ENERGY_10_PP,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,        PHYSICAL, 100,              ENERGY_15_PP,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
-	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        PHYSICAL, 100,                         1,   0
+	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        PHYSICAL, 100,              ENERGY_10_PP,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move TRIPLE_KICK,  EFFECT_MULTI_HIT,          20, FIGHTING,      PHYSICAL,  90,              ENERGY_20_PP,   0
 	move THIEF,        EFFECT_THIEF,              40, DARK,          PHYSICAL, 100,              ENERGY_15_PP, 100
@@ -270,7 +270,7 @@ Moves:
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     60, ICE,           SPECIAL,   95,              ENERGY_20_PP, 100
 	move X_SCISSOR,    EFFECT_NORMAL_HIT,         80, BUG,           PHYSICAL, 100,              ENERGY_10_PP,   0
 	move BONE_RUSH,    EFFECT_MULTI_HIT,          20, GROUND,        PHYSICAL,  90,              ENERGY_20_PP,   0
-	move WILD_CHARGE,  EFFECT_PRZ_RECOIL_HIT,     85, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  20
+	move WILD_CHARGE,  EFFECT_PAR_RECOIL_HIT,     85, ELECTRIC,      PHYSICAL, 100,              ENERGY_10_PP,  20
 	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,        PHYSICAL,  85,              ENERGY_10_PP,   0
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,          STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move GIGA_DRAIN,   EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100,              ENERGY_10_PP,   0
