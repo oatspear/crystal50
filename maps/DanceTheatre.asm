@@ -69,7 +69,7 @@ TrainerKimonoGirlMiki:
 	closetext
 	end
 
-DanceTheaterMoonGuy
+DanceTheaterMoonGuy:
 	faceplayer
 	opentext
 	writetext MoonGuyNeverLeftAScratchText
