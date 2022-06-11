@@ -241,14 +241,14 @@ TM01 EQU const_value
 	add_tm ENDURE       ; d4
 	add_tm HAIL         ; d5
 	add_tm SOLARBEAM    ; d6
-	add_tm IRON_TAIL    ; d7
-	add_tm DRAGONBREATH ; d8
+	add_tm WATER_PULSE  ; d7
+	add_tm ENERGY_BALL  ; d8
 	add_tm THUNDER      ; d9
 	add_tm EARTHQUAKE   ; da
 	add_tm BRICK_BREAK  ; db
 	add_tm DIG          ; dc
 	add_tm PSYCHIC_M    ; dd
-	add_tm SHADOW_BALL  ; de
+	add_tm SCALD        ; de
 	add_tm MUD_SLAP     ; df
 	add_tm BULLDOZE     ; e0
 	add_tm ICE_PUNCH    ; e1
@@ -270,7 +270,7 @@ TM01 EQU const_value
 	add_tm FALSE_SWIPE  ; f1
 	add_tm HEX          ; f2
 	add_tm DAZZLING_GLEAM ; f3
-	add_tm PLAY_ROUGH   ; f4
+	add_tm X_SCISSOR    ; f4
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
