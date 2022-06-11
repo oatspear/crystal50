@@ -39,12 +39,17 @@ ItemEffects:
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
 	dw NoEffect            ; ITEM_19
-	dw VitaminEffect       ; HP_UP
-	dw VitaminEffect       ; PROTEIN
-	dw VitaminEffect       ; IRON
-	dw VitaminEffect       ; CARBOS
+	dw NoEffect            ; HP_UP
+	dw NoEffect            ; PROTEIN
+	dw NoEffect            ; IRON
+	dw NoEffect            ; CARBOS
+	; dw VitaminEffect       ; HP_UP
+	; dw VitaminEffect       ; PROTEIN
+	; dw VitaminEffect       ; IRON
+	; dw VitaminEffect       ; CARBOS
 	dw NoEffect            ; LUCKY_PUNCH
-	dw VitaminEffect       ; CALCIUM
+	dw NoEffect            ; CALCIUM
+	; dw VitaminEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
 	dw XAccuracyEffect     ; X_ACCURACY
 	dw EvoStoneEffect      ; LEAF_STONE
