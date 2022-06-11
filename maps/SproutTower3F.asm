@@ -64,8 +64,8 @@ SproutTower3FRivalScene:
 SageLiScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM05_FLASH
-	iftrue .GotFlash
+	checkevent EVENT_GOT_MIRACLE_SEED_IN_SPROUT_TOWER
+	iftrue .GotMiracleSeed
 	writetext SageLiSeenText
 	waitbutton
 	closetext
@@ -74,17 +74,17 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
-	writetext SageLiTakeThisFlashText
+	writetext SageLiTakeThisMiracleSeedText
 	promptbutton
-	verbosegiveitem HM_FLASH
-	setevent EVENT_GOT_HM05_FLASH
+	verbosegiveitem MIRACLE_SEED
+	setevent EVENT_GOT_MIRACLE_SEED_IN_SPROUT_TOWER
 	setevent EVENT_BEAT_SAGE_LI
-	writetext SageLiFlashExplanationText
+	writetext SageLiMiracleSeedExplanationText
 	waitbutton
 	closetext
 	end
 
-.GotFlash:
+.GotMiracleSeed:
 	writetext SageLiAfterBattleText
 	waitbutton
 	closetext
@@ -157,7 +157,7 @@ SproutTowerElderLecturesRivalText:
 	cont "trainer."
 
 	para "As promised, here"
-	line "is your HM."
+	line "is your reward."
 
 	para "But let me say"
 	line "this: You should"
@@ -230,27 +230,26 @@ SageLiBeatenText:
 	text "Ah, excellent!"
 	done
 
-SageLiTakeThisFlashText:
+SageLiTakeThisMiracleSeedText:
 	text "You and your #-"
 	line "MON should have"
 
 	para "no problem using"
-	line "this move."
+	line "this item."
 
-	para "Take this FLASH"
-	line "HM."
+	para "Take this, a"
+	line "MIRACLE SEED."
 	done
 
-SageLiFlashExplanationText:
-	text "FLASH illuminates"
-	line "even the darkest"
-	cont "of all places."
+SageLiMiracleSeedExplanationText:
+	text "A MIRACLE SEED"
+	line "increases the"
+	cont "power of grass-"
+	cont "type moves."
 
-	para "But to use it out"
-	line "of battle, you"
-
-	para "need the BADGE"
-	line "from VIOLET's GYM."
+	para "Our BELLSPROUT"
+	line "help us cultivate"
+	cont "these seeds."
 	done
 
 SageLiAfterBattleText:
@@ -299,9 +298,10 @@ SageTroyAfterBattleText:
 	done
 
 SageNealSeenText:
-	text "The ELDER's HM"
-	line "lights even pitch-"
-	cont "black darkness."
+	text "The ELDER's item"
+	line "helps our #MON"
+	cont "reach their true"
+	cont "potential."
 	done
 
 SageNealBeatenText:
