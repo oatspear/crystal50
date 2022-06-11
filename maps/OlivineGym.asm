@@ -28,13 +28,13 @@ OlivineGymJasmineScript:
 	readvar VAR_BADGES
 	scall OlivineGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_TM23_IRON_TAIL
+	checkevent EVENT_GOT_HM06_IRON_TAIL
 	iftrue .GotIronTail
 	writetext Jasmine_BadgeSpeech
 	promptbutton
-	verbosegiveitem TM_IRON_TAIL
+	verbosegiveitem HM_IRON_TAIL
 	iffalse .NoRoomForIronTail
-	setevent EVENT_GOT_TM23_IRON_TAIL
+	setevent EVENT_GOT_HM06_IRON_TAIL
 	writetext Jasmine_IronTailSpeech
 	waitbutton
 	closetext
@@ -142,14 +142,9 @@ Jasmine_BadgeSpeech:
 	cont "this too…"
 	done
 
-; Text_ReceivedTM09: ; unreferenced
-; 	text "<PLAYER> received"
-; 	line "TM09."
-; 	done
-
 Jasmine_IronTailSpeech:
 	text "…You could use"
-	line "that TM to teach"
+	line "that HM to teach"
 	cont "IRON TAIL."
 	done
 

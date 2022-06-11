@@ -285,9 +285,9 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
 	promptbutton
-	verbosegiveitem HM_WHIRLPOOL
-	setevent EVENT_GOT_HM06_WHIRLPOOL
-	writetext RocketBaseLanceWhirlpoolText
+	verbosegiveitem TM_HYPER_BEAM
+	setevent EVENT_GOT_TM15_HYPER_BEAM
+	writetext RocketBaseLanceHyperBeamText
 	waitbutton
 	closetext
 	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
@@ -725,32 +725,25 @@ RocketBaseLanceElectrodeDoneText:
 
 	para "Oh, yes. You"
 	line "should take this."
-
-	para "I found it here,"
-	line "but I don't have"
-	cont "any need for it."
 	done
 
-RocketBaseReceivedHM06Text: ; unreferenced
-	text "<PLAYER> received"
-	line "HM06."
-	done
-
-RocketBaseLanceWhirlpoolText:
-	text "That's WHIRLPOOL."
+RocketBaseLanceHyperBeamText:
+	text "That's HYPER BEAM."
 	line "Teach it to a"
 
-	para "#MON to get"
-	line "across wild water."
+	para "#MON to get a"
+	line "sudden burst of"
+	line "power."
 
 	para "But keep this in"
 	line "mind."
 
-	para "You can use that"
-	line "out of battle only"
+	para "Your #MON will"
+	line "expend a lot"
+	cont "of their energy."
 
-	para "with the BADGE"
-	line "from MAHOGANY GYM."
+	para "They will need to"
+	line "recharge."
 	done
 
 RocketBaseLanceMonMasterText:
