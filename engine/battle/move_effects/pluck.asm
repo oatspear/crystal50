@@ -1,9 +1,10 @@
 BattleCommand_Pluck:
 ; pluck
 
-	ld a, [wEffectFailed]
-	and a
-	ret nz
+	; uncomment if we want effect based on chance
+	; ld a, [wEffectFailed]
+	; and a
+	; ret nz
 
 	ldh a, [hBattleTurn]
 	and a
@@ -64,6 +65,7 @@ BattleCommand_Pluck:
 	; fallthrough
 
 .steal_berry
+	call GetItemName
 	ld hl, StoleText
 	call StdBattleTextbox
 
@@ -169,8 +171,8 @@ PluckRecoverHp:
 	call RefreshBattleHuds
 
 	; get name of item in wNamedObjectIndex
-	call GetItemName
-	ld hl, RecoveredUsingText
+	; call GetItemName
+	ld hl, RecoveredSomeHPText
 	jp StdBattleTextbox
 
 .hp_full
@@ -215,8 +217,8 @@ PluckHealStatus:
 	call BattleCommand_SwitchTurn
 	call RefreshBattleHuds
 	; get name of item in wNamedObjectIndex
-	call GetItemName
-	ld hl, RecoveredUsingText
+	; call GetItemName
+	ld hl, BecameHealthyText
 	jp StdBattleTextbox
 
 PluckPersimBerry:
@@ -227,10 +229,10 @@ PluckPersimBerry:
 
 	res SUBSTATUS_CONFUSED, [hl]
 	; get name of item in wNamedObjectIndex
-	call GetItemName
+	; call GetItemName
 	ld hl, ItemRecoveryAnim
 	call CallBattleCore
-	ld hl, BattleText_ItemHealedConfusion
+	ld hl, TargetConfusedNoMoreText
 	jp StdBattleTextbox
 
 PluckLeppaBerry:
@@ -254,10 +256,10 @@ PluckLeppaBerry:
 .recover
 	ld [de], a
 	; get name of item in wNamedObjectIndex
-	call GetItemName
+	; call GetItemName
 	call BattleCommand_SwitchTurn
 	ld hl, ItemRecoveryAnim
 	call CallBattleCore
 	call BattleCommand_SwitchTurn
-	ld hl, BattleText_UserRecoveredPPUsing
+	ld hl, RecoveredSomePPText
 	jp StdBattleTextbox

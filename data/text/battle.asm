@@ -321,6 +321,23 @@ RecoveredUsingText:
 	text "!"
 	autodone
 
+RecoveredSomeHPText:
+	text "<USER>"
+	line "recovered some of"
+	scroll "its health."
+	autodone
+
+BecameHealthyText:
+	text "<USER>"
+	line "became healthy."
+	autodone
+
+RecoveredSomePPText:
+	text "<USER>"
+	line "recovered some of"
+	scroll "its PP."
+	autodone
+
 BattleText_UsersStringBuffer1Activated:
 	text "<USER>'s"
 	line "@"
@@ -432,6 +449,11 @@ HurtItselfText:
 
 ConfusedNoMoreText:
 	text "<USER>'s"
+	line "confused no more!"
+	autodone
+
+TargetConfusedNoMoreText:
+	text "<TARGET>'s"
 	line "confused no more!"
 	autodone
 
