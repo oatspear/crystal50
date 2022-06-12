@@ -138,6 +138,16 @@ BattleText_MonsStatLevelReset:
 	scroll "was reset."
 	autodone
 
+BattleText_MonsRampageStarted:
+	text "<USER>"
+	line "is on a rampage!"
+	autodone
+
+BattleText_MonsRampageSubsided:
+	text "<USER>'s"
+	line "rampage subsided."
+	autodone
+
 BattleText_RainContinuesToFall:
 	text "Rain continues to"
 	line "fall."

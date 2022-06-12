@@ -301,6 +301,7 @@ HandleBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleRampage
 	call HandleEnergyRecovery
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
@@ -1655,6 +1656,52 @@ HandleScreens:
 	ret nz
 	res SCREENS_REFLECT, [hl]
 	ld hl, BattleText_MonsReflectFaded
+	jp StdBattleTextbox
+
+HandleRampage:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .Both
+	call .CheckPlayer
+	jr .CheckEnemy
+
+.Both:
+	call .CheckEnemy
+	; fallthrough
+
+.CheckPlayer:
+	ld hl, wPlayerSubStatus3
+	bit SUBSTATUS_RAMPAGE, [hl]
+	ret z
+
+	call SetPlayerTurn
+	ld a, [wPlayerRampageCount]
+	and RAMPAGE_COUNTER_MASK
+	dec a
+	ld [wPlayerRampageCount], a
+	jr nz, .rampage_continues
+	jr .rampage_ended
+
+.CheckEnemy:
+	ld hl, wEnemySubStatus3
+	bit SUBSTATUS_RAMPAGE, [hl]
+	ret z
+
+	call SetEnemyTurn
+	ld a, [wEnemyRampageCount]
+	and RAMPAGE_COUNTER_MASK
+	dec a
+	ld [wEnemyRampageCount], a
+	jr z, .rampage_ended
+	; fallthrough
+
+.rampage_continues
+	ld hl, BattleText_MonsRampageStarted
+	jp StdBattleTextbox
+
+.rampage_ended
+	res SUBSTATUS_RAMPAGE, [hl]
+	ld hl, BattleText_MonsRampageSubsided
 	jp StdBattleTextbox
 
 HandleStatLevelTimers:

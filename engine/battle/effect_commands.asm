@@ -2495,26 +2495,26 @@ PlayerAttackDamage:
 	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
-	ld a, [wCurPlayerMove]
-	ld e, a
-	ld a, [wLastPlayerMove]
-	cp e
+
+	ld a, [wPlayerRampageCount]
+	and RAMPAGE_FIRST_TURN
 	jr nz, .physicalspecialcheck
 
 ; boost move power (fixated)
 	ld a, d
 	add RAMPAGE_POWER_BOOST
+	ld d, a
 	jr nc, .enemy_rampage
 	ld d, $ff
 	jr .physicalspecialcheck
 
 .enemy_rampage
-	ld d, a
 	ld a, [wEnemySubStatus3]
 	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
 	ld a, d
 	add RAMPAGE_POWER_BOOST
+	ld d, a
 	jr nc, .physicalspecialcheck
 	ld d, $ff
 
@@ -2789,26 +2789,26 @@ EnemyAttackDamage:
 	ld a, [wEnemySubStatus3]
 	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
-	ld a, [wCurEnemyMove]
-	ld e, a
-	ld a, [wLastEnemyMove]
-	cp e
+
+	ld a, [wEnemyRampageCount]
+	and RAMPAGE_FIRST_TURN
 	jr nz, .physicalspecialcheck
 
 ; boost move power (fixated)
 	ld a, d
 	add RAMPAGE_POWER_BOOST
+	ld d, a
 	jr nc, .player_rampage
 	ld d, $ff
 	jr .physicalspecialcheck
 
 .player_rampage
-	ld d, a
 	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
 	ld a, d
 	add RAMPAGE_POWER_BOOST
+	ld d, a
 	jr nc, .physicalspecialcheck
 	ld d, $ff
 
@@ -5077,22 +5077,25 @@ BattleCommand_CheckPowder:
 BattleCommand_CheckRampage:
 ; checkrampage
 
-	ld de, wPlayerRampageCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-	ld de, wEnemyRampageCount
-.player
+; 	ld de, wPlayerRampageCount
+; 	ldh a, [hBattleTurn]
+; 	and a
+; 	jr z, .player
+; 	ld de, wEnemyRampageCount
+; .player
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	bit SUBSTATUS_RAMPAGE, [hl]
 	ret z
-	ld a, [de]
-	dec a
-	ld [de], a
-	jr nz, .continue_rampage
 
-	res SUBSTATUS_RAMPAGE, [hl]
+	; decrementing is done in between turns now
+	; ld a, [de]
+	; dec a
+	; ld [de], a
+	; jr nz, .continue_rampage
+
+	; res SUBSTATUS_RAMPAGE, [hl]
+
 ;	set SUBSTATUS_CONFUSED, [hl]
 ;	call BattleRandom
 ;	and %00000001
@@ -5100,7 +5103,8 @@ BattleCommand_CheckRampage:
 ;	inc a
 ;	inc de ; ConfuseCount
 ;	ld [de], a
-.continue_rampage
+
+; .continue_rampage
 	ld b, rampage_command
 	jp SkipToBattleCommand
 
@@ -5126,6 +5130,8 @@ BattleCommand_Rampage:
 	call BattleRandom
 	and %00000001
 	inc a
+; First turn gets a marker flag
+	or RAMPAGE_FIRST_TURN
 	ld [de], a
 	ld a, 1
 	ld [wSomeoneIsRampaging], a
