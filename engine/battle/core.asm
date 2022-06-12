@@ -1497,17 +1497,23 @@ HandleDefrost:
 	bit FRZ, a
 	ret z
 
-	ld a, [wPlayerJustGotFrozen]
-	and a
-	ret nz
-
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .defrost_player
 
-	call BattleRandom
-	cp 20 percent
-	ret nc
+	ld a, [wPlayerJustGotFrozen]
+	and a
+	ret nz
+
+	ld a, [wBattleMonStatus]
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_player
+	dec a
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_player
+
+	ld [wBattleMonStatus], a
+	ret
 
 .defrost_player
 	xor a
@@ -1526,17 +1532,23 @@ HandleDefrost:
 	bit FRZ, a
 	ret z
 
-	ld a, [wEnemyJustGotFrozen]
-	and a
-	ret nz
-
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .defrost_enemy
 
-	call BattleRandom
-	cp 20 percent
-	ret nc
+	ld a, [wEnemyJustGotFrozen]
+	and a
+	ret nz
+
+	ld a, [wEnemyMonStatus]
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_enemy
+	dec a
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_enemy
+
+	ld [wEnemyMonStatus], a
+	ret
 
 .defrost_enemy
 	xor a

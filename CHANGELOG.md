@@ -34,6 +34,7 @@
 - Type-boosting items boost moves for 20% damage rather than 10%.
 - Gym leaders reward the player with HMs, rather than TMs.
 - Locations where HMs were previously obtainable now have different items.
+- Freeze now lasts between 2 and 3 turns. Taking damage makes frozen Pokémon thaw sooner (decrements the freeze counter).
 
 ## v0.3 (Custom Changes)
 
