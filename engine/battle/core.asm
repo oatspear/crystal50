@@ -1688,7 +1688,12 @@ HandleRampage:
 
 	call SetPlayerTurn
 	ld a, [wPlayerRampageCount]
-	and RAMPAGE_COUNTER_MASK
+	ld b, a
+	and RAMPAGE_FIRST_TURN
+	ret nz
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
+	ld a, b
+	; and RAMPAGE_COUNTER_MASK
 	dec a
 	ld [wPlayerRampageCount], a
 	jr nz, .rampage_continues
@@ -1701,7 +1706,12 @@ HandleRampage:
 
 	call SetEnemyTurn
 	ld a, [wEnemyRampageCount]
-	and RAMPAGE_COUNTER_MASK
+	ld b, a
+	and RAMPAGE_FIRST_TURN
+	ret nz
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
+	ld a, b
+	; and RAMPAGE_COUNTER_MASK
 	dec a
 	ld [wEnemyRampageCount], a
 	jr z, .rampage_ended
