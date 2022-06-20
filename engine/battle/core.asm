@@ -1690,10 +1690,14 @@ HandleRampage:
 	ld a, [wPlayerRampageCount]
 	ld b, a
 	and RAMPAGE_FIRST_TURN
-	ret nz
-	; from this point onward, RAMPAGE_FIRST_TURN is 0
 	ld a, b
-	; and RAMPAGE_COUNTER_MASK
+	jr z, .player_rampage
+	and RAMPAGE_COUNTER_MASK
+	ld [wPlayerRampageCount], a
+	jr .rampage_continues
+
+.player_rampage
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
 	dec a
 	ld [wPlayerRampageCount], a
 	jr nz, .rampage_continues
@@ -1708,10 +1712,14 @@ HandleRampage:
 	ld a, [wEnemyRampageCount]
 	ld b, a
 	and RAMPAGE_FIRST_TURN
-	ret nz
-	; from this point onward, RAMPAGE_FIRST_TURN is 0
 	ld a, b
-	; and RAMPAGE_COUNTER_MASK
+	jr z, .enemy_rampage
+	and RAMPAGE_COUNTER_MASK
+	ld [wEnemyRampageCount], a
+	jr .rampage_continues
+
+.enemy_rampage
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
 	dec a
 	ld [wEnemyRampageCount], a
 	jr z, .rampage_ended
