@@ -392,7 +392,6 @@ MartCeladon4F:
 
 MartCeladon5F1:
 	db 7 ; # items
-	; db HP_UP
 	db PROTEIN
 	db IRON
 	db CARBOS
