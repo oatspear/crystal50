@@ -63,7 +63,7 @@ VermilionSnorlax:
 VermilionGymBadgeGuy:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HP_UP_FROM_VERMILION_GUY
+	checkevent EVENT_GOT_NUGGET_FROM_VERMILION_GUY
 	iftrue .AlreadyGotItem
 	readvar VAR_BADGES
 	ifequal NUM_BADGES, .AllBadges
@@ -89,9 +89,9 @@ VermilionGymBadgeGuy:
 .AllBadges:
 	writetext VermilionCityBadgeGuyAllBadgesText
 	promptbutton
-	verbosegiveitem HP_UP
+	verbosegiveitem NUGGET
 	iffalse .Done
-	setevent EVENT_GOT_HP_UP_FROM_VERMILION_GUY
+	setevent EVENT_GOT_NUGGET_FROM_VERMILION_GUY
 .AlreadyGotItem:
 	writetext VermilionCityBadgeGuyBattleEdgeText
 	waitbutton
