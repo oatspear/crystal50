@@ -1035,9 +1035,9 @@
 	const EVENT_BEAT_SAGE_GAKU
 	const EVENT_BEAT_SAGE_MASA
 	const EVENT_BEAT_SAGE_KOJI
-; Unused: next 116 events
+; Unused: next 114 events
 
-	const_next 1600
+	const_next 1598
 ; Sprite visibility flags
 ; When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -1116,6 +1116,8 @@
 	const EVENT_MOUNT_MORTAR_B1F_HYPER_POTION
 	const EVENT_MOUNT_MORTAR_B1F_CARBOS
 	const EVENT_MOUNT_MORTAR_B2F_FIRE_STONE
+	const EVENT_MOUNT_MORTAR_B2F_TM_SCALD
+	const EVENT_MOUNT_MORTAR_B2F_REVIVE
 	const EVENT_ICE_PATH_1F_MAGNESIUM
 	const EVENT_ICE_PATH_1F_TM16_ICY_WIND
 	const EVENT_ICE_PATH_B1F_IRON
