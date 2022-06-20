@@ -539,7 +539,7 @@ Route45_MapEvents:
 
 	def_bg_events
 	bg_event 10,  4, BGEVENT_READ, Route45Sign
-	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenPpUp
+	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenHeavyBall
 
 	def_object_events
 	object_event 10, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerErik, -1
