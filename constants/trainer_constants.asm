@@ -515,6 +515,7 @@ KRIS EQU __trainer_class__
 	const WALT
 	const RAY
 	const LYLE
+	const KAI
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -534,6 +535,7 @@ KRIS EQU __trainer_class__
 	const LUNG
 	const KENJI3
 	const WAI
+	const DAISUKE
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1

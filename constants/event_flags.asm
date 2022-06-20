@@ -1035,7 +1035,9 @@
 	const EVENT_BEAT_SAGE_GAKU
 	const EVENT_BEAT_SAGE_MASA
 	const EVENT_BEAT_SAGE_KOJI
-; Unused: next 114 events
+	const EVENT_BEAT_FIREBREATHER_KAI
+	const EVENT_BEAT_BLACKBELT_DAISUKE
+; Unused: next 112 events
 
 	const_next 1598
 ; Sprite visibility flags
