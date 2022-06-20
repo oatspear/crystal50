@@ -1,5 +1,6 @@
 	object_const_def
 	const GOLDENRODDEPTSTORE3F_CLERK
+	const GOLDENRODDEPTSTORE3F_CLERK2
 	const GOLDENRODDEPTSTORE3F_SUPER_NERD
 	const GOLDENRODDEPTSTORE3F_ROCKER
 
@@ -11,7 +12,14 @@ GoldenrodDeptStore3F_MapScripts:
 GoldenrodDeptStore3FClerkScript:
 	faceplayer
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_3F
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_3F_1
+	closetext
+	end
+
+GoldenrodDeptStore3FClerk2Script:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_3F_2
 	closetext
 	end
 
@@ -70,5 +78,6 @@ GoldenrodDeptStore3F_MapEvents:
 
 	def_object_events
 	object_event  6,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FClerkScript, -1
+	object_event  7,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FClerk2Script, -1
 	object_event 12,  5, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FSuperNerdScript, -1
 	object_event  2,  5, SPRITE_ROCKER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FRockerScript, -1

@@ -5,11 +5,13 @@
 ### Added
 - Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor, Scald, U-Turn, Volt Switch, Pluck, Bug Bite, Aromatherapy.
 - TMs to replace removed moves.
+- Evolution stones to Goldenrod and Celadon department stores.
+- Consumable held vitamins: Zinc (Special Defense), Magnesium (Accuracy), Potassium (Evasion).
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, Kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
 - Temporarily removed egg moves.
-- Temporarily removed the effects of PP up and Vitamins.
+- Temporarily removed the effects of PP Up and traditional Vitamins (HP Up, Protein, Iron, Carbos, Calcium).
 - TMs for moves that were removed.
 
 ### Changed
@@ -37,6 +39,8 @@
 - Gym leaders reward the player with HMs, rather than TMs.
 - Locations where HMs were previously obtainable now have different items.
 - Freeze now lasts between 2 and 3 turns. Taking damage makes frozen Pokémon thaw sooner (decrements the freeze counter).
+- Changed prices of various items.
+- Protein, Iron, Carbos and Calcium are now consumable held items that boost their respective stat in battle.
 
 ## v0.3 (Custom Changes)
 

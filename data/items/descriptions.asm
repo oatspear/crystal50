@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw TeruSama2Desc
+	dw ZincDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -45,12 +45,12 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw TeruSama3Desc
+	dw MagnesiumDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw TeruSama4Desc
+	dw PotassiumDesc
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -354,32 +354,33 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-TeruSama2Desc:
-	db   "?@"
+ZincDesc:
+	db   "Ups SP. DEFENSE in"
+	next "battle. (HOLD)@"
 
 HPUpDesc:
 	db   "Raises the HP of"
 	next "one #MON.@"
 
 ProteinDesc:
-	db   "Raises ATTACK of"
-	next "one #MON.@"
+	db   "Raises ATTACK in"
+	next "battle. (HOLD)@"
 
 IronDesc:
-	db   "Raises DEFENSE of"
-	next "one #MON.@"
+	db   "Raises DEFENSE in"
+	next "battle. (HOLD)@"
 
 CarbosDesc:
-	db   "Raises SPEED of"
-	next "one #MON.@"
+	db   "Raises SPEED in"
+	next "battle. (HOLD)@"
 
 LuckyPunchDesc:
 	db   "Ups critical hit"
 	next "ratio of CHANSEY.@"
 
 CalciumDesc:
-	db   "Ups SPECIAL stats"
-	next "of one #MON.@"
+	db   "Ups SP. ATTACK in"
+	next "battle. (HOLD)@"
 
 RareCandyDesc:
 	db   "Raises level of a"
@@ -433,8 +434,9 @@ DireHitDesc:
 	db   "Ups critical hit"
 	next "ratio. (1 BTL)@"
 
-TeruSama3Desc:
-	db   "?@"
+MagnesiumDesc:
+	db   "Ups ACCURACY in"
+	next "battle. (HOLD)@"
 
 FreshWaterDesc:
 	db   "Restores 50 HP."
@@ -452,8 +454,9 @@ XAttackDesc:
 	db   "Raises ATTACK."
 	next "(1 BTL)@"
 
-TeruSama4Desc:
-	db   "?@"
+PotassiumDesc:
+	db   "Raises EVASION in"
+	next "battle. (HOLD)@"
 
 XDefendDesc:
 	db   "Raises DEFENSE."

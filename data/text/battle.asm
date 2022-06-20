@@ -346,6 +346,14 @@ BattleText_UsersStringBuffer1Activated:
 	scroll "activated!"
 	autodone
 
+BattleText_UserConsumedStringBuffer1:
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer1
+	text_start
+	scroll "was consumed!"
+	autodone
+
 BattleText_ItemsCantBeUsedHere:
 	text "Items can't be"
 	line "used here."
