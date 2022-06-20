@@ -11,8 +11,8 @@ TinTower4F_MapScripts:
 TinTower4FUltraBall:
 	itemball ULTRA_BALL
 
-TinTower4FPPUp:
-	itemball PP_UP
+TinTower4FFastBall:
+	itemball FAST_BALL
 
 TinTower4FEscapeRope:
 	itemball ESCAPE_ROPE
@@ -36,5 +36,5 @@ TinTower4F_MapEvents:
 
 	def_object_events
 	object_event 14, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower4FUltraBall, EVENT_TIN_TOWER_4F_ULTRA_BALL
-	object_event 17, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower4FPPUp, EVENT_TIN_TOWER_4F_PP_UP
+	object_event 17, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower4FFastBall, EVENT_TIN_TOWER_4F_FAST_BALL
 	object_event  2, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower4FEscapeRope, EVENT_TIN_TOWER_4F_ESCAPE_ROPE

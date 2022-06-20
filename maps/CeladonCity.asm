@@ -72,8 +72,8 @@ CeladonCityTrainerTips:
 CeladonCityPokecenterSign:
 	jumpstd PokecenterSignScript
 
-CeladonCityHiddenPpUp:
-	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
+CeladonCityHiddenRareCandy:
+	hiddenitem RARE_CANDY, EVENT_CELADON_CITY_HIDDEN_RARE_CANDY
 
 CeladonCityFisherText:
 	text "This POLIWRATH is"
