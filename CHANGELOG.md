@@ -7,6 +7,7 @@
 - TMs to replace removed moves.
 - Evolution stones to Goldenrod and Celadon department stores.
 - Consumable held vitamins: Zinc (Special Defense), Magnesium (Accuracy), Potassium (Evasion).
+- New volcanic map: Mount Mortar B2F.
 
 ### Removed
 - Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, Kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
