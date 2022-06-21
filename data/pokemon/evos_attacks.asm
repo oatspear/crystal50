@@ -697,6 +697,7 @@ ZubatEvosAttacks:
 
 GolbatEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
+	db EVOLVE_HOLD, MOON_STONE, 40, CROBAT
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, SUPERSONIC
@@ -1852,6 +1853,7 @@ RhydonEvosAttacks:
 
 ChanseyEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, BLISSEY
+	db EVOLVE_HOLD, LUCKY_PUNCH, 40, BLISSEY
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CHARM
@@ -2811,6 +2813,8 @@ LanturnEvosAttacks:
 
 PichuEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, PIKACHU
+	db EVOLVE_HOLD, ORAN_BERRY, 10, PIKACHU
+	db EVOLVE_HOLD, SITRUS_BERRY, 10, PIKACHU
 	db 0 ; no more evolutions
 	db 1, THUNDERSHOCK
 	db 1, CHARM
@@ -2823,6 +2827,8 @@ PichuEvosAttacks:
 
 CleffaEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CLEFAIRY
+	db EVOLVE_HOLD, ORAN_BERRY, 10, CLEFAIRY
+	db EVOLVE_HOLD, SITRUS_BERRY, 10, CLEFAIRY
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CHARM
@@ -2835,6 +2841,8 @@ CleffaEvosAttacks:
 
 IgglybuffEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, JIGGLYPUFF
+	db EVOLVE_HOLD, ORAN_BERRY, 10, JIGGLYPUFF
+	db EVOLVE_HOLD, SITRUS_BERRY, 10, JIGGLYPUFF
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CHARM
@@ -2847,6 +2855,7 @@ IgglybuffEvosAttacks:
 
 TogepiEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, TOGETIC
+	db EVOLVE_HOLD, SUN_STONE, 25, TOGETIC
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, CHARM

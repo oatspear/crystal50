@@ -43,6 +43,7 @@
 - Changed prices of various items.
 - Protein, Iron, Carbos and Calcium are now consumable held items that boost their respective stat in battle.
 - Improved party rosters for some significant trainers.
+- Pokémon that evolve via happiness now have alternative evolution methods (complementary, not replacing happiness).
 
 ## v0.3 (Custom Changes)
 
