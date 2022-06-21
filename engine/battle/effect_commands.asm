@@ -5488,8 +5488,9 @@ BattleCommand_FakeOut:
 	and 1 << FRZ | SLP
 	jr nz, .fail
 
-	call CheckOpponentWentFirst
-	jr z, FlinchTarget
+	; call CheckOpponentWentFirst
+	; jr z, FlinchTarget
+	jr FlinchTarget
 
 .fail
 	ld a, 1
@@ -5521,8 +5522,9 @@ BattleCommand_FlinchTarget:
 	and 1 << FRZ | SLP
 	ret nz
 
-	call CheckOpponentWentFirst
-	ret nz
+	; must comment out to allow flinch going second
+	; call CheckOpponentWentFirst
+	; ret nz
 
 	ld a, [wEffectFailed]
 	and a
