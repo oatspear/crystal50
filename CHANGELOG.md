@@ -92,6 +92,8 @@
 - Poison (status condition) drains 1 Energy per turn.
 - Sleep (status condition) restores 8 Energy per turn.
 - Energy is fully restored after battle.
+- Wild Pokémon encounters now have wider level ranges, and may include evolved forms.
+- Updated the wild encounter tables for all Johto areas.
 
 ## v0.2 (Set to Level 50)
 
