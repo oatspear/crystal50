@@ -1,14 +1,15 @@
 ; AI_SMART knows these moves are usable all-around.
 
 UsefulMoves:
+	db BODY_SLAM
 	db DOUBLE_EDGE
 	db SING
 	db FLAMETHROWER
 	db HYDRO_PUMP
-	db SURF
 	db ICE_BEAM
 	db BLIZZARD
 	db HYPER_BEAM
+	db GIGA_IMPACT
 	db SLEEP_POWDER
 	db THUNDERBOLT
 	db THUNDER

@@ -123,27 +123,27 @@ TrainerYoungsterJoey:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_JOEY_READY_FOR_REMATCH
-	checkevent EVENT_JOEY_HP_UP
-	iftrue .GiveHPUp
-	checkevent EVENT_GOT_HP_UP_FROM_JOEY
+	checkevent EVENT_JOEY_TM_HYPER_BEAM
+	iftrue .GiveTM
+	checkevent EVENT_GOT_TM_HYPER_BEAM_FROM_JOEY
 	iftrue .done
 	scall .RematchGift
-	verbosegiveitem HP_UP
+	verbosegiveitem TM_HYPER_BEAM
 	iffalse .PackFull
-	setevent EVENT_GOT_HP_UP_FROM_JOEY
+	setevent EVENT_GOT_TM_HYPER_BEAM_FROM_JOEY
 	sjump .NumberAccepted
 
 .done
 	end
 
-.GiveHPUp:
+.GiveTM:
 	opentext
-	writetext YoungsterJoeyText_GiveHPUpAfterBattle
+	writetext YoungsterJoeyText_GiveTMAfterBattle
 	waitbutton
-	verbosegiveitem HP_UP
+	verbosegiveitem TM_HYPER_BEAM
 	iffalse .PackFull
-	clearevent EVENT_JOEY_HP_UP
-	setevent EVENT_GOT_HP_UP_FROM_JOEY
+	clearevent EVENT_JOEY_TM_HYPER_BEAM
+	setevent EVENT_GOT_TM_HYPER_BEAM_FROM_JOEY
 	sjump .NumberAccepted
 
 .AskNumber1:
@@ -175,7 +175,7 @@ TrainerYoungsterJoey:
 	end
 
 .PackFull:
-	setevent EVENT_JOEY_HP_UP
+	setevent EVENT_JOEY_TM_HYPER_BEAM
 	jumpstd PackFullMScript
 	end
 
@@ -389,7 +389,7 @@ Route30TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-YoungsterJoeyText_GiveHPUpAfterBattle:
+YoungsterJoeyText_GiveTMAfterBattle:
 	text "I lost again…"
 	line "Gee, you're tough!"
 

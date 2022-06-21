@@ -3,8 +3,6 @@
 
 StallMoves:
 	db SWORDS_DANCE
-	db TAIL_WHIP
-	db LEER
 	db GROWL
 	db DISABLE
 	db MIST
@@ -16,15 +14,13 @@ StallMoves:
 	db AGILITY
 	db MIMIC
 	db SCREECH
-	db HARDEN
+	db IRON_DEFENSE
 	db WITHDRAW
-	db DEFENSE_CURL
 	db DRAGON_DANCE
 	db LIGHT_SCREEN
 	db HAZE
 	db REFLECT
 	db FOCUS_ENERGY
-	db AMNESIA
 	db TRANSFORM
 	db SPLASH
 	db ACID_ARMOR

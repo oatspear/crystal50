@@ -12,7 +12,7 @@
 DragonsDenB1F_MapScripts:
 	def_scene_scripts
 	scene_script .DummyScene0 ; SCENE_DRAGONSDENB1F_NOTHING
-	scene_script .DummyScene1 ; SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
+	scene_script .DummyScene1 ; SCENE_DRAGONSDENB1F_CLAIR_GIVES_HM
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .CheckSilver
@@ -53,14 +53,14 @@ DragonsDenB1F_ClairScene:
 	opentext
 	writetext ClairText_GiveDragonbreathDragonDen
 	promptbutton
-	giveitem TM_DRAGONBREATH
+	giveitem HM_DRAGONBREATH
 	iffalse .BagFull
-	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
-	writetext Text_ReceivedTM24
+	getitemname STRING_BUFFER_3, HM_DRAGONBREATH
+	writetext Text_ReceivedHM08
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify
-	setevent EVENT_GOT_TM24_DRAGONBREATH
+	setevent EVENT_GOT_HM08_DRAGONBREATH
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
 	writetext ClairText_WhatsTheMatterDragonDen
@@ -214,9 +214,9 @@ ClairText_GiveDragonbreathDragonDen:
 	line "my apology."
 	done
 
-Text_ReceivedTM24:
+Text_ReceivedHM08:
 	text "<PLAYER> received"
-	line "TM24."
+	line "HM08."
 	done
 
 ClairText_DescribeDragonbreathDragonDen:
@@ -411,7 +411,7 @@ DragonsDenB1F_MapEvents:
 	warp_event 19, 29, DRAGON_SHRINE, 1
 
 	def_coord_events
-	coord_event 19, 30, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM, DragonsDenB1F_ClairScene
+	coord_event 19, 30, SCENE_DRAGONSDENB1F_CLAIR_GIVES_HM, DragonsDenB1F_ClairScene
 
 	def_bg_events
 	bg_event 18, 24, BGEVENT_READ, DragonShrineSignpost

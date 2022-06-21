@@ -33,7 +33,7 @@ AzaleaGymBugsyScript:
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_TM49_FURY_CUTTER
+	checkevent EVENT_GOT_HM02_FURY_CUTTER
 	iftrue .GotFuryCutter
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
@@ -41,9 +41,9 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
-	verbosegiveitem TM_FURY_CUTTER
+	verbosegiveitem HM_FURY_CUTTER
 	iffalse .NoRoomForFuryCutter
-	setevent EVENT_GOT_TM49_FURY_CUTTER
+	setevent EVENT_GOT_HM02_FURY_CUTTER
 	writetext BugsyText_FuryCutterSpeech
 	waitbutton
 	closetext
@@ -204,16 +204,16 @@ BugsyText_HiveBadgeSpeech:
 	done
 
 BugsyText_FuryCutterSpeech:
-	text "TM49 contains"
+	text "HM02 contains"
 	line "FURY CUTTER."
 
-	para "If you don't miss,"
-	line "it gets stronger"
-	cont "every turn."
+	para "If you use it"
+	line "repeatedly, it"
+	cont "gets stronger."
 
-	para "The longer your"
-	line "battle goes, the"
-	cont "better it gets."
+	para "Your enemies will"
+	line "also do more"
+	cont "damage, though."
 
 	para "Isn't that great?"
 	line "I discovered it!"

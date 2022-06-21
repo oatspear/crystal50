@@ -1454,77 +1454,90 @@ CalcMonStatC:
 .no_stat_exp
 	srl c
 	pop hl
-	push bc
-	ld bc, MON_DVS - MON_HP_EXP + 1
-	add hl, bc
-	pop bc
-	ld a, c
-	cp STAT_ATK
-	jr z, .Attack
-	cp STAT_DEF
-	jr z, .Defense
-	cp STAT_SPD
-	jr z, .Speed
-	cp STAT_SATK
-	jr z, .Special
-	cp STAT_SDEF
-	jr z, .Special
-; DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2 | (DV_SPD & 1) << 1 | (DV_SPC & 1)
-	push bc
-	ld a, [hl]
-	swap a
-	and 1
-	add a
-	add a
-	add a
-	ld b, a
-	ld a, [hli]
-	and 1
-	add a
-	add a
-	add b
-	ld b, a
-	ld a, [hl]
-	swap a
-	and 1
-	add a
-	add b
-	ld b, a
-	ld a, [hl]
-	and 1
-	add b
-	pop bc
-	jr .GotDV
+; begin remove DVs from stat calculation
+; 	push bc
+; 	ld bc, MON_DVS - MON_HP_EXP + 1
+; 	add hl, bc
+; 	pop bc
+; 	ld a, c
+; 	cp STAT_ATK
+; 	jr z, .Attack
+; 	cp STAT_DEF
+; 	jr z, .Defense
+; 	cp STAT_SPD
+; 	jr z, .Speed
+; 	cp STAT_SATK
+; 	jr z, .Special
+; 	cp STAT_SDEF
+; 	jr z, .Special
+; ; DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2 | (DV_SPD & 1) << 1 | (DV_SPC & 1)
+; 	push bc
+; 	ld a, [hl]
+; 	swap a
+; 	and 1
+; 	add a
+; 	add a
+; 	add a
+; 	ld b, a
+; 	ld a, [hli]
+; 	and 1
+; 	add a
+; 	add a
+; 	add b
+; 	ld b, a
+; 	ld a, [hl]
+; 	swap a
+; 	and 1
+; 	add a
+; 	add b
+; 	ld b, a
+; 	ld a, [hl]
+; 	and 1
+; 	add b
+; 	pop bc
+; 	jr .GotDV
 
-.Attack:
-	ld a, [hl]
-	swap a
-	and $f
-	jr .GotDV
+; .Attack:
+; 	ld a, [hl]
+; 	swap a
+; 	and $f
+; 	jr .GotDV
 
-.Defense:
-	ld a, [hl]
-	and $f
-	jr .GotDV
+; .Defense:
+; 	ld a, [hl]
+; 	and $f
+; 	jr .GotDV
 
-.Speed:
-	inc hl
-	ld a, [hl]
-	swap a
-	and $f
-	jr .GotDV
+; .Speed:
+; 	inc hl
+; 	ld a, [hl]
+; 	swap a
+; 	and $f
+; 	jr .GotDV
 
-.Special:
-	inc hl
-	ld a, [hl]
-	and $f
+; .Special:
+; 	inc hl
+; 	ld a, [hl]
+; 	and $f
 
-.GotDV:
+; .GotDV:
+; 	ld d, 0
+; 	add e
+; 	ld e, a
+; 	jr nc, .no_overflow_1
+; 	inc d
+; end remove DVs from stat calculation
+
+; begin use level/4 for stat bonus
 	ld d, 0
+	ld a, [wCurPartyLevel]
+	srl a
+	srl a
 	add e
 	ld e, a
 	jr nc, .no_overflow_1
 	inc d
+; end use level/4 for stat bonus
 
 .no_overflow_1
 	sla e

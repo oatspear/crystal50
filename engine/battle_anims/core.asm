@@ -250,20 +250,18 @@ InitBattleAnimBuffer:
 	ld d, a
 	ld a, [wBattleAnimTempFixY]
 	cp $ff
-	jr nz, .check_kinesis_softboiled_milkdrink
+	jr nz, .check_softboiled_milkdrink
 	ld a, 5 * 8
 	add d
 	jr .done
 
-.check_kinesis_softboiled_milkdrink
+.check_softboiled_milkdrink
 	sub d
 	push af
 	ld a, [wFXAnimID + 1]
 	or a
 	jr nz, .no_sub
 	ld a, [wFXAnimID]
-	cp KINESIS
-	jr z, .do_sub
 	cp SOFTBOILED
 	jr z, .do_sub
 	cp MILK_DRINK

@@ -18,7 +18,7 @@ IlexForest_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .FarfetchdCallback
 
 .FarfetchdCallback:
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_TM49_FALSE_SWIPE
 	iftrue .Static
 	readmem wFarfetchdPosition
 	ifequal  1, .PositionOne
@@ -345,12 +345,12 @@ IlexForestFarfetchdScript:
 IlexForestCharcoalMasterScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
-	iftrue .AlreadyGotCut
+	checkevent EVENT_GOT_TM49_FALSE_SWIPE
+	iftrue .AlreadyGotFalseSwipe
 	writetext Text_CharcoalMasterIntro
 	promptbutton
-	verbosegiveitem HM_CUT
-	setevent EVENT_GOT_HM01_CUT
+	verbosegiveitem TM_FALSE_SWIPE
+	setevent EVENT_GOT_TM49_FALSE_SWIPE
 	writetext Text_CharcoalMasterOutro
 	waitbutton
 	closetext
@@ -362,7 +362,7 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_BOSS
 	end
 
-.AlreadyGotCut:
+.AlreadyGotFalseSwipe:
 	writetext Text_CharcoalMasterTalkAfter
 	waitbutton
 	closetext
@@ -741,7 +741,7 @@ IlexForestApprenticeIntroText:
 	cont "steaming…"
 
 	para "The FARFETCH'D"
-	line "that CUTS trees"
+	line "that cuts trees"
 
 	para "for charcoal took"
 	line "off on me."
@@ -782,7 +782,7 @@ Text_CharcoalMasterIntro:
 	para "Without it, we"
 	line "wouldn't be able"
 
-	para "to CUT trees for"
+	para "to cut trees for"
 	line "charcoal."
 
 	para "Thanks, kid!"
@@ -795,17 +795,19 @@ Text_CharcoalMasterIntro:
 	done
 
 Text_CharcoalMasterOutro:
-	text "That's the CUT HM."
-	line "Teach that to a"
+	text "That's the TM"
+	line "for FALSE SWIPE."
 
-	para "#MON to clear"
-	line "small trees."
+	para "Teach that to a"
+	line "#MON for a"
+	cont "special cutting"
 
-	para "Of course, you"
-	line "have to have the"
+	para "technique that"
+	line "will never knock"
+	cont "out the foe."
 
-	para "GYM BADGE from"
-	line "AZALEA to use it."
+	para "It's very useful"
+	line "to catch #MON."
 	done
 
 Text_CharcoalMasterTalkAfter:

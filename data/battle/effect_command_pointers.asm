@@ -42,7 +42,7 @@ BattleCommandPointers:
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
-	dw BattleCommand_OHKO
+	dw BattleCommand_Flinch10Percent
 	dw BattleCommand_Recoil
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
@@ -71,9 +71,9 @@ BattleCommandPointers:
 	dw BattleCommand_Counter
 	dw BattleCommand_Encore
 	dw BattleCommand_PainSplit
-	dw BattleCommand_Snore
+	dw BattleCommand_UTurn
 	dw BattleCommand_Conversion2
-	dw BattleCommand_LockOn
+	dw BattleCommand_Pluck
 	dw BattleCommand_Sketch
 	dw BattleCommand_DefrostOpponent
 	dw BattleCommand_SleepTalk
@@ -82,8 +82,8 @@ BattleCommandPointers:
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
-	dw BattleCommand_TripleKick
-	dw BattleCommand_KickCounter
+	dw BattleCommand_UnusedEffect ; TripleKick
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
 	dw BattleCommand_Hex
@@ -95,10 +95,10 @@ BattleCommandPointers:
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure
-	dw BattleCommand_CheckCurl
-	dw BattleCommand_RolloutPower
+	dw BattleCommand_UnusedEffect ; CheckCurl
+	dw BattleCommand_UnusedEffect ; RolloutPower
 	dw BattleCommand_Revenge
-	dw BattleCommand_FuryCutter
+	dw BattleCommand_UnusedEffect ; FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_Facade
 	dw BattleCommand_Present
@@ -107,13 +107,13 @@ BattleCommandPointers:
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
 	dw BattleCommand_UnusedEffect
-	dw BattleCommand_BatonPass
+	dw BattleCommand_UnusedEffect ; Baton Pass
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_ClearHazards
 	dw BattleCommand_HealMorn
 	dw BattleCommand_HealDay
 	dw BattleCommand_HealNite
-	dw BattleCommand_HiddenPower
+	dw BattleCommand_UnusedEffect ; Hidden Power
 	dw BattleCommand_StartRain
 	dw BattleCommand_StartSun
 	dw BattleCommand_AttackUp
@@ -153,7 +153,7 @@ BattleCommandPointers:
 	dw BattleCommand_StatUpAnim
 	dw BattleCommand_SwitchTurn
 	dw BattleCommand_FakeOut
-	dw BattleCommand_BellyDrum
+	dw BattleCommand_UnusedEffect
 	dw BattleCommand_PsychUp
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_DoubleFlyingDamage
@@ -179,8 +179,18 @@ BattleCommandPointers:
 	dw BattleCommand_TriStatusChance
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
-	dw BattleCommand_Curl
+	dw BattleCommand_UnusedEffect ; Curl
 	dw BattleCommand_Growth
-	dw BattleCommand_CalmMind
-	dw BattleCommand_DragonDance
+	dw BattleCommand_ProwessUp
+	dw BattleCommand_UnusedEffect ; Dragon Dance
+	dw BattleCommand_AttackUp1
+	dw BattleCommand_DefenseUp1
+	dw BattleCommand_SpeedUp1
+	dw BattleCommand_SpecialAttackUp1
+	dw BattleCommand_SpecialDefenseUp1
+	dw BattleCommand_AttackDown1
+	dw BattleCommand_DefenseDown1
+	dw BattleCommand_SpeedDown1
+	dw BattleCommand_SpecialAttackDown1
+	dw BattleCommand_SpecialDefenseDown1
 	assert_table_length NUM_EFFECT_COMMANDS

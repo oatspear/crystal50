@@ -164,7 +164,7 @@ DragonShrine_MapScripts:
 	special RestartMapMusic
 	specialphonecall SPECIALCALL_MASTERBALL
 	setscene SCENE_FINISHED
-	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
+	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_CLAIR_GIVES_HM
 	writetext DragonShrinePlayerReceivedRisingBadgeText
 	promptbutton
 	writetext DragonShrineRisingBadgeExplanationText

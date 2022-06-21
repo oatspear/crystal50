@@ -48,8 +48,8 @@ GoldenrodGymWhitneyScript:
 	end
 
 .StoppedCrying:
-	checkevent EVENT_GOT_TM45_ATTRACT
-	iftrue .GotAttract
+	checkevent EVENT_GOT_HM03_FACADE
+	iftrue .GotFacade
 	checkflag ENGINE_PLAINBADGE
 	iftrue .GotPlainBadge
 	writetext WhitneyWhatDoYouWantText
@@ -64,18 +64,18 @@ GoldenrodGymWhitneyScript:
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton
-	verbosegiveitem TM_ATTRACT
-	iffalse .NoRoomForAttract
-	setevent EVENT_GOT_TM45_ATTRACT
-	writetext WhitneyAttractText
+	verbosegiveitem HM_FACADE
+	iffalse .NoRoomForFacade
+	setevent EVENT_GOT_HM03_FACADE
+	writetext WhitneyFacadeText
 	waitbutton
 	closetext
 	end
 
-.GotAttract:
+.GotFacade:
 	writetext WhitneyGoodCryText
 	waitbutton
-.NoRoomForAttract:
+.NoRoomForFacade:
 	closetext
 	end
 
@@ -244,12 +244,14 @@ WhitneyPlainBadgeText:
 	line "this too!"
 	done
 
-WhitneyAttractText:
-	text "It's ATTRACT!"
+WhitneyFacadeText:
+	text "It's FACADE!"
 	line "It makes full use"
 
 	para "of a #MON's"
-	line "charm."
+	line "strength when"
+	cont "it looks most"
+	cont "vulnerable."
 
 	para "Isn't it just per-"
 	line "fect for a cutie"

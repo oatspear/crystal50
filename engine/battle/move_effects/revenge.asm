@@ -19,9 +19,14 @@ BattleCommand_Revenge:
 
 .revenge
 ; Double the move's power.
+  ld a, d
   sla d
+  and %10000000
+  jr z, .no_overflow
+  ld d, $ff
 
 ; Set a different animation.
+.no_overflow
   ld a, TRUE
   ld [wBattleAnimParam], a
   ret

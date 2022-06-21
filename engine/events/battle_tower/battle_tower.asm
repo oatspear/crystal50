@@ -438,7 +438,7 @@ endr
 
 .not_move
 	dec hl
-	ld a, POUND
+	ld a, TACKLE
 	ld [hli], a
 	xor a
 	ld [hli], a
@@ -968,7 +968,7 @@ BattleTower_RandomlyChooseReward:
 	jr c, .okay
 	sub 6
 .okay
-	add HP_UP
+	add PROTEIN
 	cp LUCKY_PUNCH
 	jr z, .loop
 	push af

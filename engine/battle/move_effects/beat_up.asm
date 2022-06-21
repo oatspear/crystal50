@@ -13,13 +13,13 @@ BattleCommand_BeatUp:
 	ld c, 20
 	call DelayFrames
 	xor a
-	ld [wPlayerRolloutCount], a
+	ld [wPlayerRampageCount], a
 	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .got_mon
 
 .next_mon
-	ld a, [wPlayerRolloutCount]
+	ld a, [wPlayerRampageCount]
 	ld b, a
 	ld a, [wPartyCount]
 	sub b
@@ -86,13 +86,13 @@ BattleCommand_BeatUp:
 	jr nz, .enemy_next_mon
 
 	xor a
-	ld [wEnemyRolloutCount], a
+	ld [wEnemyRampageCount], a
 	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .enemy_got_mon
 
 .enemy_next_mon
-	ld a, [wEnemyRolloutCount]
+	ld a, [wEnemyRampageCount]
 	ld b, a
 	ld a, [wOTPartyCount]
 	sub b

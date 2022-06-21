@@ -31,8 +31,8 @@ MysteryGiftItems:
 	db MAX_ELIXER
 	db MAX_REVIVE
 	db SCOPE_LENS
-	db HP_UP
-	db PP_UP
+	db MOON_STONE
+	db SUN_STONE
 	db RARE_CANDY
 	db BLUESKY_MAIL
 	db MIRAGE_MAIL

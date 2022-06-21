@@ -90,7 +90,7 @@ AI_Setup:
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 
-	cp EFFECT_ATTACK_UP
+	cp EFFECT_OFFENSES_UP
 	jr c, .checkmove
 	cp EFFECT_EVASION_UP + 1
 	jr c, .statup
@@ -100,7 +100,7 @@ AI_Setup:
 	cp EFFECT_EVASION_DOWN + 1
 	jr c, .statdown
 
-	cp EFFECT_ATTACK_UP_2
+	cp EFFECT_OFFENSES_UP_2
 	jr c, .checkmove
 	cp EFFECT_EVASION_UP_2 + 1
 	jr c, .statup
@@ -328,11 +328,10 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ROOST,            AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
-	dbw EFFECT_OHKO,             AI_Smart_Ohko
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
-	dbw EFFECT_SP_DEF_UP_2,      AI_Smart_SpDefenseUp2
+	dbw EFFECT_DEFENSES_UP_2,    AI_Smart_DefensesUp2
 	dbw EFFECT_REFLECT,          AI_Smart_Reflect
 	dbw EFFECT_PARALYZE,         AI_Smart_Paralyze
 	dbw EFFECT_SPEED_DOWN_HIT,   AI_Smart_SpeedDownHit
@@ -344,9 +343,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_COUNTER,          AI_Smart_Counter
 	dbw EFFECT_ENCORE,           AI_Smart_Encore
 	dbw EFFECT_PAIN_SPLIT,       AI_Smart_PainSplit
-	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
-	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
 	dbw EFFECT_DEFROST_OPPONENT, AI_Smart_DefrostOpponent
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
@@ -364,13 +361,10 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_PERISH_SONG,      AI_Smart_PerishSong
 	dbw EFFECT_SANDSTORM,        AI_Smart_Sandstorm
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
-	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
-	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_BRICK_BREAK,      AI_Smart_BrickBreak
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
-	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_MORNING_SUN,      AI_Smart_MorningSun
 	dbw EFFECT_SYNTHESIS,        AI_Smart_Synthesis
@@ -378,21 +372,17 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
-	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
-	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_SKULL_BASH,       AI_Smart_SkullBash
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	dbw EFFECT_GUST,             AI_Smart_Gust
-	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_HAIL,             AI_Smart_Hail
 	dbw EFFECT_GROWTH,           AI_Smart_Growth
-	dbw EFFECT_CALM_MIND,        AI_Smart_CalmMind
 	dbw EFFECT_DRAGON_DANCE,     AI_Smart_DragonDance
 	dbw EFFECT_REVENGE,          AI_Smart_Revenge
 	dbw EFFECT_FACADE,           AI_Smart_Facade
@@ -452,112 +442,8 @@ AI_Smart_LeechHit:
 	inc [hl]
 	ret
 
-AI_Smart_LockOn:
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .player_locked_on
-
-	push hl
-	call AICheckEnemyQuarterHP
-	jr nc, .discourage
-
-	call AICheckEnemyHalfHP
-	jr c, .skip_speed_check
-
-	call AICompareSpeed
-	jr nc, .discourage
-
-.skip_speed_check
-	lda_stat_level [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .maybe_encourage
-	cp BASE_STAT_LEVEL
-	jr nc, .do_nothing
-
-	lda_stat_level [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 1
-	jr c, .maybe_encourage
-	cp BASE_STAT_LEVEL
-	jr c, .do_nothing
-
-	ld hl, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-.checkmove
-	dec c
-	jr z, .discourage
-
-	ld a, [hli]
-	and a
-	jr z, .discourage
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove
-
-	ld a, 1
-	ldh [hBattleTurn], a
-
-	push hl
-	push bc
-	farcall BattleCheckTypeMatchup
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE
-	pop bc
-	pop hl
-	jr c, .checkmove
-
-.do_nothing
-	pop hl
-	ret
-
-.discourage
-	pop hl
-	inc [hl]
-	ret
-
-.maybe_encourage
-	pop hl
-	call AI_50_50
-	ret c
-
-	dec [hl]
-	dec [hl]
-	ret
-
-.player_locked_on
-	push hl
-	ld hl, wEnemyAIMoveScores - 1
-	ld de, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-
-.checkmove2
-	inc hl
-	dec c
-	jr z, .dismiss
-
-	ld a, [de]
-	and a
-	jr z, .dismiss
-
-	inc de
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove2
-
-	dec [hl]
-	dec [hl]
-	jr .checkmove2
-
-.dismiss
-	pop hl
-	jp AIDiscourageMove
-
 AI_Smart_Selfdestruct:
-; Selfdestruct, Explosion
+; Selfdestruct
 
 ; Unless this is the enemy's last Pokemon...
 	push hl
@@ -679,13 +565,9 @@ AI_Smart_EvasionUp:
 	cp b
 	jr c, .discourage
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [wPlayerFuryCutterCount]
-	and a
-	jr nz, .greatly_encourage
-
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
+; Greatly encourage this move if the player is in the middle of a rampage.
+	ld a, [wPlayerSubStatus3]
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .greatly_encourage
 
 .discourage
@@ -810,13 +692,9 @@ AI_Smart_AccuracyDown:
 	cp b
 	jr c, .discourage
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [wPlayerFuryCutterCount]
-	and a
-	jr nz, .greatly_encourage
-
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
+; Greatly encourage this move if the player is in the middle of a rampage.
+	ld a, [wPlayerSubStatus3]
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .greatly_encourage
 
 .discourage
@@ -960,20 +838,6 @@ AI_Smart_Reflect:
 	inc [hl]
 	ret
 
-AI_Smart_Ohko:
-; Dismiss this move if player's level is higher than enemy's level.
-; Else, discourage this move is player's HP is below 50%.
-
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	cp b
-	jp c, AIDiscourageMove
-	call AICheckPlayerHalfHP
-	ret c
-	inc [hl]
-	ret
-
 AI_Smart_TrapTarget:
 ; Wrap, Fire Spin, Infestation, Sand Tomb
 
@@ -983,13 +847,17 @@ AI_Smart_TrapTarget:
 	jr nz, .discourage
 
 ; 50% chance to greatly encourage this move if player is either
-; badly poisoned, in love, or stuck in Rollout.
+; badly poisoned, in love or paralyzed.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	jr nz, .encourage
 
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT
+	and 1 << SUBSTATUS_IN_LOVE
+	jr nz, .encourage
+
+	ld a, [wBattleMonStatus]
+	and 1 << PAR
 	jr nz, .encourage
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
@@ -1058,35 +926,6 @@ AI_Smart_Growth:
 	inc [hl]
 	ret
 
-AI_Smart_CalmMind:
-; Discourage this move if enemy's HP is lower than 50%.
-	call AICheckEnemyHalfHP
-	jr nc, .discourage
-
-; Discourage this move if enemy's special stats level is higher than +1.
-	lda_stat_level [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 2
-	jr nc, .discourage
-	lda_stat_level [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 2
-	jr nc, .discourage
-
-; 80% chance to greatly encourage this move if
-; enemy's Special stats level is lower than +1.
-	cp BASE_STAT_LEVEL + 1
-	ret nc
-
-.encourage
-	call AI_80_20
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-.discourage
-	inc [hl]
-	ret
-
 AI_Smart_DragonDance:
 ; Discourage this move if enemy's HP is lower than 50%.
 	call AICheckEnemyHalfHP
@@ -1116,43 +955,20 @@ AI_Smart_DragonDance:
 	inc [hl]
 	ret
 
-AI_Smart_SpDefenseUp2:
+AI_Smart_DefensesUp2:
 ; Discourage this move if enemy's HP is lower than 50%.
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
-; Discourage this move if enemy's special defense level is higher than +1.
+; Discourage this move if enemy's defense level is raised.
 	lda_stat_level [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Special Defense level is lower than +1,
-;   and the player's Pokémon is Special-oriented.
-	cp BASE_STAT_LEVEL + 1
+; enemy's defense level is lower than base.
+	cp BASE_STAT_LEVEL
 	ret nc
-
-	push hl
-; Get the pointer for the player's Pokémon's base Attack
-	ld a, [wBattleMonSpecies]
-	ld hl, BaseData + BASE_ATK
-	ld bc, BASE_DATA_SIZE
-	call AddNTimes
-; Get the Pokémon's base Attack
-	ld a, BANK(BaseData)
-	call GetFarByte
-	ld d, a
-; Get the pointer for the player's Pokémon's base Special Attack
-	ld bc, BASE_SAT - BASE_ATK
-	add hl, bc
-; Get the Pokémon's base Special Attack
-	ld a, BANK(BaseData)
-	call GetFarByte
-	pop hl
-; If its base Attack is greater than its base Special Attack,
-; don't encourage this move.
-	cp d
-	ret c
 
 .encourage
 	call AI_80_20
@@ -1457,7 +1273,6 @@ AI_Smart_PainSplit:
 	inc [hl]
 	ret
 
-AI_Smart_Snore:
 AI_Smart_SleepTalk:
 ; Greatly encourage this move if enemy is fast asleep.
 ; Greatly discourage this move otherwise.
@@ -1705,9 +1520,13 @@ AI_Smart_MeanLook:
 	jr nz, .encourage
 
 ; 80% chance to greatly encourage this move if the player is either
-; in love, or stuck in Rollout.
+; in love or paralyzed.
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT
+	and 1 << SUBSTATUS_IN_LOVE
+	jr nz, .encourage
+
+	ld a, [wBattleMonStatus]
+	and 1 << PAR
 	jr nz, .encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
@@ -1888,14 +1707,12 @@ AI_Smart_Protect:
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .discourage
 
-; Encourage this move if the player's Fury Cutter is boosted enough.
-	ld a, [wPlayerFuryCutterCount]
-	cp 3
-	jr nc, .encourage
-
-; Encourage this move if the player has charged a two-turn move.
+; Encourage this move if the player has charged a two-turn move
+; or is on a rampage.
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
+	jr nz, .encourage
+	bit SUBSTATUS_RAMPAGE, a
 	jr nz, .encourage
 
 ; Encourage this move if the player is affected by Toxic, Leech Seed, or Curse.
@@ -1908,13 +1725,6 @@ AI_Smart_Protect:
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_CURSE, a
 	jr nz, .encourage
-
-; Discourage this move if the player's Rollout count is not boosted enough.
-	bit SUBSTATUS_ROLLOUT, a
-	jr z, .discourage
-	ld a, [wPlayerRolloutCount]
-	cp 3
-	jr c, .discourage
 
 ; 80% chance to encourage this move otherwise.
 .encourage
@@ -2100,69 +1910,6 @@ AI_Smart_Endure:
 	inc [hl]
 	ret
 
-AI_Smart_FuryCutter:
-; Encourage this move based on Fury Cutter's count.
-
-	ld a, [wEnemyFuryCutterCount]
-	and a
-	jr z, AI_Smart_Rollout
-	dec [hl]
-
-	cp 2
-	jr c, AI_Smart_Rollout
-	dec [hl]
-	dec [hl]
-
-	cp 3
-	jr c, AI_Smart_Rollout
-	dec [hl]
-	dec [hl]
-	dec [hl]
-
-	; fallthrough
-
-AI_Smart_Rollout:
-; Rollout, Fury Cutter
-
-; 80% chance to discourage this move if the enemy is in love, confused, or paralyzed.
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_IN_LOVE, a
-	jr nz, .maybe_discourage
-
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	ld a, [wEnemyMonStatus]
-	bit PAR, a
-	jr nz, .maybe_discourage
-
-; 80% chance to discourage this move if the enemy's HP is below 25%,
-; or if accuracy or evasion modifiers favour the player.
-	call AICheckEnemyQuarterHP
-	jr nc, .maybe_discourage
-
-	lda_stat_level [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL
-	jr c, .maybe_discourage
-	lda_stat_level [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .maybe_discourage
-
-; 80% chance to greatly encourage this move otherwise.
-	call Random
-	cp 79 percent - 1
-	ret nc
-	dec [hl]
-	dec [hl]
-	ret
-
-.maybe_discourage
-	call AI_80_20
-	ret c
-	inc [hl]
-	ret
-
 AI_Smart_Swagger:
 AI_Smart_Attract:
 ; 80% chance to encourage this move during the first turn of player's Pokemon.
@@ -2223,19 +1970,6 @@ AI_Smart_Earthquake:
 	dec [hl]
 	ret
 
-AI_Smart_BatonPass:
-; Discourage this move if the player hasn't shown super-effective moves against the enemy.
-; Consider player's type(s) if its moves are unknown.
-
-	push hl
-	callfar CheckPlayerMoveTypeMatchups
-	ld a, [wEnemyAISwitchScore]
-	cp BASE_AI_SWITCH_SCORE
-	pop hl
-	ret c
-	inc [hl]
-	ret
-
 AI_Smart_BrickBreak:
 ; 80% chance to greatly encourage this move if the player is
 ; behind screens (Reflect, Light Screen effect).
@@ -2283,41 +2017,9 @@ AI_Smart_RapidSpin:
 	ret
 
 AI_Smart_HiddenPower:
-	push hl
-	ld a, 1
-	ldh [hBattleTurn], a
-
-; Calculate Hidden Power's type and base power based on enemy's DVs.
-	callfar HiddenPowerDamage
-	callfar BattleCheckTypeMatchup
-	pop hl
-
-; Discourage Hidden Power if not very effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE
-	jr c, .bad
-
-; Discourage Hidden Power if its base power	is lower than 50.
-	ld a, d
-	cp 50
-	jr c, .bad
-
 ; Encourage Hidden Power if super-effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE + 1
-	jr nc, .good
-
-; Encourage Hidden Power if its base power is 70.
-	ld a, d
-	cp 70
-	ret c
-
-.good
 	dec [hl]
-	ret
-
-.bad
-	inc [hl]
+	dec [hl]
 	ret
 
 AI_Smart_RainDance:
@@ -2411,28 +2113,6 @@ AIGoodWeatherType:
 	ret
 
 INCLUDE "data/battle/ai/sunny_day_moves.asm"
-
-AI_Smart_BellyDrum:
-; Dismiss this move if enemy's attack is raised or if enemy's HP is below 50%.
-; Else, discourage this move if enemy's HP is not full.
-
-	lda_stat_level [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .discourage
-
-	call AICheckEnemyMaxHP
-	ret c
-
-	inc [hl]
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.discourage
-	ld a, [hl]
-	add 5
-	ld [hl], a
-	ret
 
 AI_Smart_PsychUp:
 	push hl
@@ -2594,19 +2274,6 @@ AI_Smart_FutureSight:
 	ret z
 
 	dec [hl]
-	dec [hl]
-	ret
-
-AI_Smart_Stomp:
-; 80% chance to encourage this move if the player has used Minimize.
-
-	ld a, [wPlayerMinimized]
-	and a
-	ret z
-
-	call AI_80_20
-	ret c
-
 	dec [hl]
 	ret
 

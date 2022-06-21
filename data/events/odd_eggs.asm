@@ -90,7 +90,7 @@ OddEggs:
 
 	db CLEFFA
 	db NO_ITEM
-	db POUND, CHARM, 0, 0
+	db TACKLE, CHARM, 0, 0
 	dw 04096 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -116,7 +116,7 @@ OddEggs:
 
 	db CLEFFA
 	db NO_ITEM
-	db POUND, CHARM, 0, 0
+	db TACKLE, CHARM, 0, 0
 	dw 00768 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -194,7 +194,7 @@ OddEggs:
 
 	db SMOOCHUM
 	db NO_ITEM
-	db POUND, LICK, 0, 0
+	db TACKLE, POWDER_SNOW, 0, 0
 	dw 03584 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -220,7 +220,7 @@ OddEggs:
 
 	db SMOOCHUM
 	db NO_ITEM
-	db POUND, LICK, 0, 0
+	db TACKLE, POWDER_SNOW, 0, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -298,7 +298,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
 	dw 03072 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -324,7 +324,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, LEER, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp

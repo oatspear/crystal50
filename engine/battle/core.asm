@@ -301,6 +301,7 @@ HandleBetweenTurnEffects:
 	call HandleScreens
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
+	call HandleRampage
 	call HandleEnergyRecovery
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
@@ -620,20 +621,12 @@ CheckContestBattleOver:
 CheckPlayerLockedIn:
 	ld a, [wPlayerSubStatus4]
 	and 1 << SUBSTATUS_RECHARGE
-	jp nz, .quit
+	jr nz, .quit
 
-	ld hl, wEnemySubStatus3
-	res SUBSTATUS_FLINCHED, [hl]
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_FLINCHED, [hl]
-
-	ld a, [hl]
+	; ld hl, wPlayerSubStatus3
+	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
-	jp nz, .quit
-
-	ld hl, wPlayerSubStatus1
-	bit SUBSTATUS_ROLLOUT, [hl]
-	jp nz, .quit
+	jr nz, .quit
 
 	and a
 	ret
@@ -661,7 +654,7 @@ ParsePlayerAction:
 
 	xor a
 	ld [wMoveSelectionMenuType], a
-	inc a ; POUND
+	inc a ; AIR_CUTTER
 	ld [wFXAnimID], a
 	call MoveSelectionScreen
 	push af
@@ -684,23 +677,13 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerCharging], a
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .continue_fury_cutter
-	xor a
-	ld [wPlayerFuryCutterCount], a
-	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
 	jr z, .continue_protect
-.continue_fury_cutter
-	xor a
-	ld [wPlayerProtectCount], a
-	jr .continue_protect
 
 .locked_in
 	xor a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 
 .continue_protect
@@ -710,7 +693,6 @@ ParsePlayerAction:
 
 .reset_series_counters
 	xor a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	xor a
 	ret
@@ -855,10 +837,6 @@ GetMovePriority:
 ; Exceptions to the priority by effect table.
 ; For now there are only two. If more are added later on, uncomment the
 ; INCLUDE "data/moves/priorities.asm" below and repeat this loop.
-	cp VITAL_THROW
-	ld a, PRIORITY_M1
-	ret z
-	ld a, b
 	cp EXTREMESPEED
 	ld a, PRIORITY_P2
 	ret z
@@ -1519,17 +1497,23 @@ HandleDefrost:
 	bit FRZ, a
 	ret z
 
-	ld a, [wPlayerJustGotFrozen]
-	and a
-	ret nz
-
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .defrost_player
 
-	call BattleRandom
-	cp 20 percent
-	ret nc
+	ld a, [wPlayerJustGotFrozen]
+	and a
+	ret nz
+
+	ld a, [wBattleMonStatus]
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_player
+	dec a
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_player
+
+	ld [wBattleMonStatus], a
+	ret
 
 .defrost_player
 	xor a
@@ -1548,17 +1532,23 @@ HandleDefrost:
 	bit FRZ, a
 	ret z
 
-	ld a, [wEnemyJustGotFrozen]
-	and a
-	ret nz
-
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .defrost_enemy
 
-	call BattleRandom
-	cp 20 percent
-	ret nc
+	ld a, [wEnemyJustGotFrozen]
+	and a
+	ret nz
+
+	ld a, [wEnemyMonStatus]
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_enemy
+	dec a
+	cp 1 << FRZ ; exactly equal means a counter of zero turns
+	jr z, .defrost_enemy
+
+	ld [wEnemyMonStatus], a
+	ret
 
 .defrost_enemy
 	xor a
@@ -1678,6 +1668,70 @@ HandleScreens:
 	ret nz
 	res SCREENS_REFLECT, [hl]
 	ld hl, BattleText_MonsReflectFaded
+	jp StdBattleTextbox
+
+HandleRampage:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .Both
+	call .CheckPlayer
+	jr .CheckEnemy
+
+.Both:
+	call .CheckEnemy
+	; fallthrough
+
+.CheckPlayer:
+	ld hl, wPlayerSubStatus3
+	bit SUBSTATUS_RAMPAGE, [hl]
+	ret z
+
+	call SetPlayerTurn
+	ld a, [wPlayerRampageCount]
+	ld b, a
+	and RAMPAGE_FIRST_TURN
+	ld a, b
+	jr z, .player_rampage
+	and RAMPAGE_COUNTER_MASK
+	ld [wPlayerRampageCount], a
+	jr .rampage_continues
+
+.player_rampage
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
+	dec a
+	ld [wPlayerRampageCount], a
+	jr nz, .rampage_continues
+	jr .rampage_ended
+
+.CheckEnemy:
+	ld hl, wEnemySubStatus3
+	bit SUBSTATUS_RAMPAGE, [hl]
+	ret z
+
+	call SetEnemyTurn
+	ld a, [wEnemyRampageCount]
+	ld b, a
+	and RAMPAGE_FIRST_TURN
+	ld a, b
+	jr z, .enemy_rampage
+	and RAMPAGE_COUNTER_MASK
+	ld [wEnemyRampageCount], a
+	jr .rampage_continues
+
+.enemy_rampage
+	; from this point onward, RAMPAGE_FIRST_TURN is 0
+	dec a
+	ld [wEnemyRampageCount], a
+	jr z, .rampage_ended
+	; fallthrough
+
+.rampage_continues
+	ld hl, BattleText_MonsRampageStarted
+	jp StdBattleTextbox
+
+.rampage_ended
+	res SUBSTATUS_RAMPAGE, [hl]
+	ld hl, BattleText_MonsRampageSubsided
 	jp StdBattleTextbox
 
 HandleStatLevelTimers:
@@ -3776,7 +3830,6 @@ rept 4
 endr
 	ld [hl], a
 	ld [wEnemyDisableCount], a
-	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
 	ld [wEnemyDisabledMove], a
 	ld [wEnemyMinimized], a
@@ -4264,7 +4317,6 @@ endr
 	ld [hli], a
 	ld [hl], a
 	ld [wPlayerDisableCount], a
-	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
@@ -4516,12 +4568,27 @@ UseHeldStatusHealingItem:
 	jr nz, .loop
 	dec hl
 	ld b, [hl]
+	call HealEnemyMonStatus
+	ret c ; return if there is nothing to heal
+	call ItemRecoveryAnim
+	call UseOpponentItem
+	ld a, $1
+	and a
+	ret
+
+HealEnemyMonStatus:
+; requires status to heal in b (e.g., `1 << PSN` or `ALL_STATUS`)
+; return carry if exited early
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and b
-	ret z
+	jr nz, .heal_status
+	scf
+	ret ; return early, no status intersection
+
+.heal_status
 	xor a
-	ld [hl], a
+	ld [hl], a ; reset status (heal)
 	push bc
 	call UpdateOpponentInParty
 	pop bc
@@ -4548,10 +4615,6 @@ UseHeldStatusHealingItem:
 	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
 	rst FarCall
 	call SwitchTurnCore
-	call ItemRecoveryAnim
-	call UseOpponentItem
-	ld a, $1
-	and a
 	ret
 
 INCLUDE "data/battle/held_heal_status.asm"
@@ -4609,20 +4672,20 @@ HandleEnergyRecovery:
 	; fallthrough
 
 .DoPlayer:
-	ld hl, wPlayerMaxEnergy
-	ld a, [wBattleMonStatus]
-	and SLP_BIT
-	jr z, .player_not_asleep
-	ld a, [wBattleMonEnergy]
-	add ENERGY_RECOVERY_SLP
-	cp [hl]
-	jr c, .player_recover
-	ld a, [hl]
-.player_recover
-	ld [wBattleMonEnergy], a
-	ret ; assume only one status condition
-
-.player_not_asleep
+; 	ld hl, wPlayerMaxEnergy
+; 	ld a, [wBattleMonStatus]
+; 	and SLP_BIT
+; 	jr z, .player_not_asleep
+; 	ld a, [wBattleMonEnergy]
+; 	add ENERGY_RECOVERY_SLP
+; 	cp [hl]
+; 	jr c, .player_recover
+; 	ld a, [hl]
+; .player_recover
+; 	ld [wBattleMonEnergy], a
+; 	ret ; assume only one status condition
+;
+; .player_not_asleep
 	ld a, [wBattleMonStatus]
 	and 1 << PSN
 	jr z, .player_done
@@ -4636,20 +4699,20 @@ HandleEnergyRecovery:
 	ret
 
 .DoEnemy:
-	ld hl, wEnemyMaxEnergy
-	ld a, [wEnemyMonStatus]
-	and SLP_BIT
-	jr z, .enemy_not_asleep
-	ld a, [wEnemyMonEnergy]
-	add ENERGY_RECOVERY_SLP
-	cp [hl]
-	jr c, .enemy_recover
-	ld a, [hl]
-.enemy_recover
-	ld [wEnemyMonEnergy], a
-	ret ; assume only one status condition
-
-.enemy_not_asleep
+; 	ld hl, wEnemyMaxEnergy
+; 	ld a, [wEnemyMonStatus]
+; 	and SLP_BIT
+; 	jr z, .enemy_not_asleep
+; 	ld a, [wEnemyMonEnergy]
+; 	add ENERGY_RECOVERY_SLP
+; 	cp [hl]
+; 	jr c, .enemy_recover
+; 	ld a, [hl]
+; .enemy_recover
+; 	ld [wEnemyMonEnergy], a
+; 	ret ; assume only one status condition
+;
+; .enemy_not_asleep
 	ld a, [wEnemyMonStatus]
 	and 1 << PSN
 	jr z, .enemy_done
@@ -4720,7 +4783,7 @@ HandleStatBoostingHeldItems:
 	ld [bc], a
 	ld [de], a
 	call GetItemName
-	ld hl, BattleText_UsersStringBuffer1Activated
+	ld hl, BattleText_UserConsumedStringBuffer1
 	call StdBattleTextbox
 	callfar BattleCommand_StatUpMessage
 	ret
@@ -5460,24 +5523,26 @@ BattleMonEntrance:
 	ret
 
 PassedBattleMonEntrance:
-	ld c, 50
+; altered
+; this version is for use with U-Turn rather than Baton Pass
+	ld c, 32
 	call DelayFrames
 
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
 
-	ld a, [wCurPartyMon]
-	ld [wCurBattleMon], a
-	call AddBattleParticipant
-	call InitBattleMon
-	xor a ; FALSE
-	ld [wApplyStatLevelMultipliersToEnemy], a
-	call ApplyStatLevelMultiplierOnAllStats
-	call SendOutPlayerMon
-	call EmptyBattleTextbox
-	call LoadTilemapToTempTilemap
-	call SetPlayerTurn
+	jp PlayerPartyMonEntrance
+
+PassedEnemyMonEntrance:
+	xor a
+	ld [wEnemySwitchMonIndex], a
+	call NewEnemyMonStatus
+	call ResetEnemyStatLevels
+	call BreakAttraction
+	call EnemySwitch_SetMode
+	call ResetBattleParticipants
+	call SetEnemyTurn
 	jp SpikesDamage
 
 BattleMenu_Run:
@@ -5999,9 +6064,6 @@ ParseEnemyAction:
 	jp nc, ResetVarsForSuccessiveCounters
 	ld [wCurEnemyMoveNum], a
 	ld c, a
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_ROLLOUT, a
-	jp nz, .skip_load
 	ld a, [wEnemySubStatus3]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
@@ -6114,13 +6176,6 @@ ParseEnemyAction:
 
 .raging
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .fury_cutter
-	xor a
-	ld [wEnemyFuryCutterCount], a
-
-.fury_cutter
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
@@ -6135,7 +6190,6 @@ ParseEnemyAction:
 
 ResetVarsForSuccessiveCounters:
 	xor a
-	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
 	ret
 
@@ -6147,10 +6201,6 @@ CheckEnemyLockedIn:
 	ld hl, wEnemySubStatus3
 	ld a, [hl]
 	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
-	ret nz
-
-	ld hl, wEnemySubStatus1
-	bit SUBSTATUS_ROLLOUT, [hl]
 	ret
 
 LinkBattleSendReceiveAction:
@@ -8443,7 +8493,7 @@ CleanUpBattleRAM:
 	ld [wItemsPocketScrollPosition], a
 	ld [wBallsPocketScrollPosition], a
 	ld hl, wPlayerSubStatus1
-	ld b, wEnemyFuryCutterCount - wPlayerSubStatus1
+	ld b, wEnemyProtectCount - wPlayerSubStatus1
 .loop
 	ld [hli], a
 	dec b

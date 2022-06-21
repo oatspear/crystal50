@@ -50,23 +50,23 @@ CianwoodGymChuckScript:
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
-	iftrue .AlreadyGotTM
+	checkevent EVENT_GOT_HM05_BULK_UP
+	iftrue .AlreadyGotHM
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
 	setevent EVENT_BEAT_BLACKBELT_LUNG
 	writetext ChuckExplainBadgeText
 	promptbutton
-	verbosegiveitem TM_DYNAMICPUNCH
+	verbosegiveitem HM_BULK_UP
 	iffalse .BagFull
-	setevent EVENT_GOT_TM01_DYNAMICPUNCH
-	writetext ChuckExplainTMText
+	setevent EVENT_GOT_HM05_BULK_UP
+	writetext ChuckExplainHMText
 	waitbutton
 	closetext
 	end
 
-.AlreadyGotTM:
+.AlreadyGotHM:
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
@@ -215,15 +215,13 @@ ChuckExplainBadgeText:
 	line "too!"
 	done
 
-ChuckExplainTMText:
-	text "That is DYNAMIC-"
-	line "PUNCH."
+ChuckExplainHMText:
+	text "That is BULK UP."
+	line "It toughens up"
+	cont "your #MON,"
 
-	para "It doesn't always"
-	line "hit, but when it"
-
-	para "does, it causes"
-	line "confusion!"
+	para "increasing their"
+	line "battle abilities!"
 	done
 
 ChuckAfterText:

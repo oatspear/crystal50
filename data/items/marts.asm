@@ -8,7 +8,8 @@ Marts:
 	dw MartCianwood
 	dw MartGoldenrod2F1
 	dw MartGoldenrod2F2
-	dw MartGoldenrod3F
+	dw MartGoldenrod3F1
+	dw MartGoldenrod3F2
 	dw MartGoldenrod4F
 	dw MartGoldenrod5F1
 	dw MartGoldenrod5F2
@@ -47,16 +48,21 @@ MartCherrygrove:
 	db -1 ; end
 
 MartCherrygroveDex:
-	db 5 ; # items
+	db 10 ; # items
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
 	db REPEL
+	db TM_SUNNY_DAY
+	db TM_SWEET_SCENT
+	db TM_RAIN_DANCE
+	db TM_AROMATHERAPY
+	db TM_ATTRACT
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartViolet:
-	db 8 ; # items
+	db 10 ; # items
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
@@ -64,11 +70,13 @@ MartViolet:
 	db REPEL
 	db X_DEFEND
 	db X_ATTACK
+	db TM_MUD_SLAP
+	db TM_PLUCK
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartAzalea:
-	db 8 ; # items
+	db 10 ; # items
 	db CHARCOAL
 	db POKE_BALL
 	db POTION
@@ -76,6 +84,8 @@ MartAzalea:
 	db ESCAPE_ROPE
 	db REPEL
 	db SUPER_REPEL
+	db TM_RAIN_DANCE
+	db TM_FALSE_SWIPE
 	db FLOWER_MAIL
 	db -1 ; end
 
@@ -115,7 +125,7 @@ MartGoldenrod2F2:
 	db FLOWER_MAIL
 	db -1 ; end
 
-MartGoldenrod3F:
+MartGoldenrod3F1:
 	db 7 ; # items
 	db X_SPEED
 	db X_SPECIAL
@@ -126,49 +136,83 @@ MartGoldenrod3F:
 	db X_ACCURACY
 	db -1 ; end
 
-MartGoldenrod4F:
-	db 5 ; # items
+MartGoldenrod3F2:
+	db 7 ; # items
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
-	db HP_UP
+	db ZINC
+	db MAGNESIUM
+	db POTASSIUM
+	db -1 ; end
+
+MartGoldenrod4F:
+	db 8 ; # items
+	db MOON_STONE
+	db SUN_STONE
+	db FIRE_STONE
+	db WATER_STONE
+	db THUNDERSTONE
+	db LEAF_STONE
+	db HARD_STONE
+	db EVERSTONE
 	db -1 ; end
 
 MartGoldenrod5F1:
-	db 3 ; # items
+	db 8 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
+	db TM_ROLLOUT
+	db TM_PLAY_ROUGH
+	db TM_PROTECT
+	db TM_AROMATHERAPY
+	db TM_REST
 	db -1 ; end
 
 MartGoldenrod5F2:
-	db 4 ; # items
+	db 9 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
 	db TM_HEADBUTT
+	db TM_ROLLOUT
+	db TM_PLAY_ROUGH
+	db TM_PROTECT
+	db TM_AROMATHERAPY
+	db TM_REST
 	db -1 ; end
 
 MartGoldenrod5F3:
-	db 4 ; # items
+	db 9 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
 	db TM_ROCK_SMASH
+	db TM_ROLLOUT
+	db TM_PLAY_ROUGH
+	db TM_PROTECT
+	db TM_AROMATHERAPY
+	db TM_REST
 	db -1 ; end
 
 MartGoldenrod5F4:
-	db 5 ; # items
+	db 10 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
 	db TM_HEADBUTT
 	db TM_ROCK_SMASH
+	db TM_ROLLOUT
+	db TM_PLAY_ROUGH
+	db TM_PROTECT
+	db TM_AROMATHERAPY
+	db TM_REST
 	db -1 ; end
 
 MartOlivine:
-	db 8 ; # items
+	db 10 ; # items
 	db MOOMOO_MILK
 	db POKE_BALL
 	db GREAT_BALL
@@ -176,11 +220,13 @@ MartOlivine:
 	db HYPER_POTION
 	db REPEL
 	db SUPER_REPEL
+	db TM_IRON_DEFENSE
+	db TM_STEEL_WING
 	db SURF_MAIL
 	db -1 ; end
 
 MartEcruteak:
-	db 8 ; # items
+	db 10 ; # items
 	db SPELL_TAG
 	db POKE_BALL
 	db GREAT_BALL
@@ -189,14 +235,18 @@ MartEcruteak:
 	db SUPER_REPEL
 	db X_SPECIAL
 	db REVIVE
+	db TM_CURSE
+	db TM_HEX
 	db -1 ; end
 
 MartMahogany1:
-	db 4 ; # items
+	db 6 ; # items
 	db TINYMUSHROOM
 	db SLOWPOKETAIL
 	db POKE_BALL
 	db POTION
+	db TM_PAYBACK
+	db TM_THIEF
 	db -1 ; end
 
 MartMahogany2:
@@ -241,26 +291,28 @@ MartViridian:
 	db -1 ; end
 
 MartPewter:
-	db 7 ; # items
+	db 8 ; # items
 	db GREAT_BALL
 	db SUPER_POTION
 	db SUPER_REPEL
-	db ANTIDOTE
-	db PARLYZ_HEAL
-	db AWAKENING
-	db BURN_HEAL
+	db X_DEFEND
+	db IRON
+	db TM_ROCK_SMASH
+	db TM_BULLDOZE
+	db TM_SANDSTORM
 	db -1 ; end
 
 MartCerulean:
-	db 9 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
 	db SUPER_REPEL
-	db FULL_HEAL
 	db X_DEFEND
 	db X_ATTACK
 	db DIRE_HIT
+	db TM_WATER_PULSE
+	db TM_SCALD
 	db SURF_MAIL
 	db -1 ; end
 
@@ -270,21 +322,22 @@ MartLavender:
 	db POTION
 	db SUPER_POTION
 	db MAX_REPEL
-	db ANTIDOTE
-	db PARLYZ_HEAL
-	db AWAKENING
-	db BURN_HEAL
+	db TM_CURSE
+	db TM_CALM_MIND
+	db TM_REST
+	db TM_HEX
 	db -1 ; end
 
 MartVermilion:
-	db 8 ; # items
+	db 9 ; # items
+	db MAGNET
+	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
 	db HYPER_POTION
 	db REVIVE
-	db PARLYZ_HEAL
-	db AWAKENING
-	db BURN_HEAL
+	db TM_RAIN_DANCE
+	db TM_THUNDERPUNCH
 	db LITEBLUEMAIL
 	db -1 ; end
 
@@ -314,28 +367,38 @@ MartCeladon2F2:
 	db -1 ; end
 
 MartCeladon3F:
-	db 5 ; # items
-	db TM_HIDDEN_POWER
+	db 6 ; # items
 	db TM_SUNNY_DAY
-	db TM_PROTECT
-	db TM_RAIN_DANCE
-	db TM_SANDSTORM
+	db TM_SWEET_SCENT
+	db TM_SOLARBEAM
+	db TM_AROMATHERAPY
+	db TM_REST
+	db TM_ATTRACT
 	db -1 ; end
 
 MartCeladon4F:
-	db 3 ; # items
+	db 10 ; # items
 	db POKE_DOLL
 	db LOVELY_MAIL
 	db SURF_MAIL
+	db MOON_STONE
+	db SUN_STONE
+	db FIRE_STONE
+	db WATER_STONE
+	db THUNDERSTONE
+	db LEAF_STONE
+	db EVERSTONE
 	db -1 ; end
 
 MartCeladon5F1:
-	db 5 ; # items
-	db HP_UP
+	db 7 ; # items
 	db PROTEIN
 	db IRON
 	db CARBOS
 	db CALCIUM
+	db ZINC
+	db MAGNESIUM
+	db POTASSIUM
 	db -1 ; end
 
 MartCeladon5F2:
@@ -350,31 +413,37 @@ MartCeladon5F2:
 	db -1 ; end
 
 MartFuchsia:
-	db 7 ; # items
+	db 10 ; # items
+	db POISON_BARB
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
 	db HYPER_POTION
-	db FULL_HEAL
 	db MAX_REPEL
+	db TM_HEADBUTT
+	db TM_ROCK_SMASH
+	db TM_ENDURE
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartSaffron:
-	db 8 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
-	db FULL_HEAL
 	db X_ATTACK
 	db X_DEFEND
+	db X_SPECIAL
+	db TM_NASTY_PLOT
+	db TM_CALM_MIND
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartMtMoon:
-	db 6 ; # items
+	db 7 ; # items
 	db POKE_DOLL
+	db POKE_BALL
 	db FRESH_WATER
 	db SODA_POP
 	db LEMONADE

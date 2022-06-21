@@ -3,6 +3,7 @@ INCLUDE "data/moves/effects_pointers.asm"
 MoveEffects: ; used only for BANK(MoveEffects)
 
 NormalHit:
+HiddenPower:
 	checkobedience
 	usedmovetext
 	doturn
@@ -91,6 +92,28 @@ BurnHit:
 	burntarget
 	endmove
 
+BurnFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	burntarget
+	flinch10percent
+	kingsrock
+	endmove
+
 FreezeHit:
 	checkobedience
 	usedmovetext
@@ -109,6 +132,28 @@ FreezeHit:
 	supereffectivetext
 	checkfaint
 	freezetarget
+	endmove
+
+FreezeFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	freezetarget
+	flinch10percent
+	kingsrock
 	endmove
 
 ParalyzeHit:
@@ -131,6 +176,28 @@ ParalyzeHit:
 	paralyzetarget
 	endmove
 
+ParalyzeFlinchHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	paralyzetarget
+	flinch10percent
+	kingsrock
+	endmove
+
 Selfdestruct:
 	checkobedience
 	usedmovetext
@@ -141,12 +208,12 @@ Selfdestruct:
 	stab
 	damagevariation
 	checkhit
-	selfdestruct
-	moveanimnosub
+	moveanim
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
+	selfdestruct
 	checkfaint
 	kingsrock
 	endmove
@@ -170,26 +237,53 @@ DreamEater:
 	checkfaint
 	endmove
 
-AttackUp:
+OffensesUp:
 	checkobedience
 	usedmovetext
 	doturn
-	attackup
+	attackup1
 	lowersub
 	statupanim
 	raisesub
 	statupmessage
 	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
 	endmove
 
-DefenseUp:
+DefensesUp:
 	checkobedience
 	usedmovetext
 	doturn
-	defenseup
+	defenseup1
 	lowersub
 	statupanim
 	raisesub
+	statupmessage
+	statupfailtext
+	specialdefenseup1
+	statupmessage
+	statupfailtext
+	endmove
+
+ProwessUp:
+	checkobedience
+	usedmovetext
+	doturn
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	defenseup1
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	specialdefenseup1
 	statupmessage
 	statupfailtext
 	endmove
@@ -198,31 +292,7 @@ SpeedUp:
 	checkobedience
 	usedmovetext
 	doturn
-	speedup
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialAttackUp:
-	checkobedience
-	usedmovetext
-	doturn
-	specialattackup
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialDefenseUp:
-	checkobedience
-	usedmovetext
-	doturn
-	specialdefenseup
+	speedup1
 	lowersub
 	statupanim
 	raisesub
@@ -255,7 +325,7 @@ EvasionUp:
 	statupfailtext
 	endmove
 
-AttackUp2:
+OffensesUp2:
 	checkobedience
 	usedmovetext
 	doturn
@@ -265,9 +335,12 @@ AttackUp2:
 	raisesub
 	statupmessage
 	statupfailtext
+	specialattackup2
+	statupmessage
+	statupfailtext
 	endmove
 
-DefenseUp2:
+DefensesUp2:
 	checkobedience
 	usedmovetext
 	doturn
@@ -277,6 +350,9 @@ DefenseUp2:
 	raisesub
 	statupmessage
 	statupfailtext
+	specialdefenseup2
+	statupmessage
+	statupfailtext
 	endmove
 
 SpeedUp2:
@@ -284,30 +360,6 @@ SpeedUp2:
 	usedmovetext
 	doturn
 	speedup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialAttackUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	specialattackup2
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
-
-SpecialDefenseUp2:
-	checkobedience
-	usedmovetext
-	doturn
-	specialdefenseup2
 	lowersub
 	statupanim
 	raisesub
@@ -343,45 +395,64 @@ Growth:
 	checkobedience
 	usedmovetext
 	doturn
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
 	growth
-	endmove
-
-CalmMind:
-	checkobedience
-	usedmovetext
-	doturn
-	calmmind
 	endmove
 
 DragonDance:
 	checkobedience
 	usedmovetext
 	doturn
-	dragondance
+	attackup1
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialattackup1
+	statupmessage
+	statupfailtext
+	speedup1
+	statupmessage
+	statupfailtext
 	endmove
 
-AttackDown:
+OffensesDown:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
-	attackdown
+	attackdown1
 	lowersub
 	statdownanim
 	raisesub
 	statdownmessage
 	statdownfailtext
+	specialattackdown1
+	statdownmessage
+	statdownfailtext
 	endmove
 
-DefenseDown:
+DefensesDown:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
-	defensedown
+	defensedown1
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown1
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -391,33 +462,7 @@ SpeedDown:
 	usedmovetext
 	doturn
 	checkhit
-	speeddown
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialAttackDown:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialattackdown
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialDefenseDown:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialdefensedown
+	speeddown1
 	lowersub
 	statdownanim
 	raisesub
@@ -451,7 +496,7 @@ EvasionDown:
 	statdownfailtext
 	endmove
 
-AttackDown2:
+OffensesDown2:
 	checkobedience
 	usedmovetext
 	doturn
@@ -462,9 +507,12 @@ AttackDown2:
 	raisesub
 	statdownmessage
 	statdownfailtext
+	specialattackdown2
+	statdownmessage
+	statdownfailtext
 	endmove
 
-DefenseDown2:
+DefensesDown2:
 	checkobedience
 	usedmovetext
 	doturn
@@ -473,6 +521,9 @@ DefenseDown2:
 	lowersub
 	statdownanim
 	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown2
 	statdownmessage
 	statdownfailtext
 	endmove
@@ -484,32 +535,6 @@ SpeedDown2:
 	checkhit
 	checkpowder
 	speeddown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialAttackDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialattackdown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
-	endmove
-
-SpecialDefenseDown2:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	specialdefensedown2
 	lowersub
 	statdownanim
 	raisesub
@@ -543,7 +568,7 @@ EvasionDown2:
 	statdownfailtext
 	endmove
 
-AttackDownHit:
+OffensesDownHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -562,9 +587,11 @@ AttackDownHit:
 	checkfaint
 	attackdown
 	statdownmessage
+	specialattackdown
+	statdownmessage
 	endmove
 
-DefenseDownHit:
+DefensesDownHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -582,6 +609,8 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	defensedown
+	statdownmessage
+	specialdefensedown
 	statdownmessage
 	endmove
 
@@ -603,48 +632,6 @@ SpeedDownHit:
 	supereffectivetext
 	checkfaint
 	speeddown
-	statdownmessage
-	endmove
-
-SpecialAttackDownHit:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	specialattackdown
-	statdownmessage
-	endmove
-
-SpecialDefenseDownHit:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	specialdefensedown
 	statdownmessage
 	endmove
 
@@ -690,7 +677,7 @@ EvasionDownHit:
 	statdownmessage
 	endmove
 
-DefenseUpHit:
+DefensesUpHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -708,10 +695,12 @@ DefenseUpHit:
 	supereffectivetext
 	defenseup
 	statupmessage
+	specialdefenseup
+	statupmessage
 	checkfaint
 	endmove
 
-AttackUpHit:
+OffensesUpHit:
 	checkobedience
 	usedmovetext
 	doturn
@@ -728,6 +717,8 @@ AttackUpHit:
 	criticaltext
 	supereffectivetext
 	attackup
+	statupmessage
+	specialattackup
 	statupmessage
 	checkfaint
 	endmove
@@ -797,7 +788,7 @@ Superpower:
 	attackdown
 	statdownmessage
 	statdownfailtext
-	defensedown
+	specialattackdown
 	statdownmessage
 	statdownfailtext
 	switchturn
@@ -933,20 +924,6 @@ FlinchHit:
 	flinchtarget
 	endmove
 
-OHKOHit:
-	checkobedience
-	usedmovetext
-	doturn
-	stab
-	ohko
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	endmove
-
 RecoilHit:
 	checkobedience
 	usedmovetext
@@ -964,6 +941,50 @@ RecoilHit:
 	supereffectivetext
 	recoil
 	checkfaint
+	kingsrock
+	endmove
+
+BurnRecoilHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil
+	checkfaint
+	burntarget
+	kingsrock
+	endmove
+
+ParalyzeRecoilHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil
+	checkfaint
+	paralyzetarget
 	kingsrock
 	endmove
 
@@ -1130,29 +1151,6 @@ DoBurn:
 	checkhit
 	checksafeguard
 	burn
-	endmove
-
-SkyAttack:
-	checkcharge
-	checkobedience
-	doturn
-	charge
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	flinchtarget
-	kingsrock
 	endmove
 
 Revenge:
@@ -1382,42 +1380,12 @@ PainSplit:
 	painsplit
 	endmove
 
-Snore:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	snore
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	flinchtarget
-	kingsrock
-	endmove
-
 Conversion2:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	conversion2
-	endmove
-
-LockOn:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	lockon
 	endmove
 
 Sketch:
@@ -1483,33 +1451,6 @@ HealBell:
 	healbell
 	endmove
 
-TripleKick:
-	checkobedience
-	usedmovetext
-	doturn
-	startloop
-	lowersub
-	checkhit
-	critical
-	damagestats
-	damagecalc
-	triplekick
-	stab
-	damagevariation
-	clearmissdamage
-	moveanimnosub
-	failuretext
-	applydamage
-	criticaltext
-	cleartext
-	supereffectivelooptext
-	checkfaint
-	kickcounter
-	endloop
-	raisesub
-	kingsrock
-	endmove
-
 Thief:
 	checkobedience
 	usedmovetext
@@ -1527,6 +1468,27 @@ Thief:
 	criticaltext
 	supereffectivetext
 	thief
+	checkfaint
+	kingsrock
+	endmove
+
+Pluck:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	pluck
 	checkfaint
 	kingsrock
 	endmove
@@ -1601,27 +1563,6 @@ Endure:
 	endure
 	endmove
 
-Rollout:
-	checkcurl
-	checkobedience
-	doturn
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	checkhit
-	rolloutpower
-	damagevariation
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
-	endmove
-
 Swagger:
 	checkobedience
 	usedmovetext
@@ -1629,6 +1570,7 @@ Swagger:
 	checkhit
 	switchturn
 	attackup2
+	specialattackup2
 	switchturn
 	lowersub
 	statupanim
@@ -1638,26 +1580,6 @@ Swagger:
 	switchturn
 	statupmessage
 	switchturn
-	endmove
-
-FuryCutter:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	checkhit
-	furycutter
-	damagevariation
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
 	endmove
 
 Attract:
@@ -1716,11 +1638,24 @@ SacredFire:
 	burntarget
 	endmove
 
-BatonPass:
+UTurn:
 	checkobedience
 	usedmovetext
 	doturn
-	batonpass
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	uturn
+	checkfaint
+	kingsrock
 	endmove
 
 RapidSpin:
@@ -1770,25 +1705,6 @@ Moonlight:
 	healnite
 	endmove
 
-HiddenPower:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	hiddenpower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	kingsrock
-	endmove
-
 RainDance:
 	checkobedience
 	usedmovetext
@@ -1811,13 +1727,6 @@ FakeOut:
 	fakeout
 	moveanim
 	failuretext
-	endmove
-
-BellyDrum:
-	checkobedience
-	usedmovetext
-	doturn
-	bellydrum
 	endmove
 
 PsychUp:
@@ -1860,6 +1769,7 @@ SkullBash:
 	kingsrock
 	endturn
 	defenseup
+	specialdefenseup
 	statupmessage
 	endmove
 
@@ -1941,27 +1851,6 @@ Gust:
 	checkfaint
 	endmove
 
-Stomp:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	doubleminimizedamage
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	flinchtarget
-	endmove
-
 BodySlam:
 	checkobedience
 	usedmovetext
@@ -2026,6 +1915,27 @@ Thunder:
 	paralyzetarget
 	endmove
 
+Hurricane:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	thunderaccuracy
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	confusetarget
+	endmove
+
 Teleport:
 	checkobedience
 	usedmovetext
@@ -2057,19 +1967,6 @@ BeatUp:
 	beatupfailtext
 	raisesub
 	kingsrock
-	endmove
-
-DefenseCurl:
-	checkobedience
-	usedmovetext
-	doturn
-	defenseup
-	curl
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
 	endmove
 
 Hail:

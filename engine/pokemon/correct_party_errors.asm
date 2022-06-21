@@ -188,7 +188,7 @@ CorrectPartyErrors: ; unreferenced
 	cp NUM_ATTACKS + 1
 	jr c, .moves_loop
 .invalid_move
-	ld [hl], POUND
+	ld [hl], TACKLE
 
 .moves_loop
 	ld a, [hl]

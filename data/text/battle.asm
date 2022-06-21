@@ -138,6 +138,16 @@ BattleText_MonsStatLevelReset:
 	scroll "was reset."
 	autodone
 
+BattleText_MonsRampageStarted:
+	text "<USER>"
+	line "is on a rampage!"
+	autodone
+
+BattleText_MonsRampageSubsided:
+	text "<USER>'s"
+	line "rampage subsided."
+	autodone
+
 BattleText_RainContinuesToFall:
 	text "Rain continues to"
 	line "fall."
@@ -311,12 +321,37 @@ RecoveredUsingText:
 	text "!"
 	autodone
 
+RecoveredSomeHPText:
+	text "<USER>"
+	line "recovered some of"
+	scroll "its health."
+	autodone
+
+BecameHealthyText:
+	text "<USER>"
+	line "became healthy."
+	autodone
+
+RecoveredSomePPText:
+	text "<USER>"
+	line "recovered some of"
+	scroll "its PP."
+	autodone
+
 BattleText_UsersStringBuffer1Activated:
 	text "<USER>'s"
 	line "@"
 	text_ram wStringBuffer1
 	text_start
 	scroll "activated!"
+	autodone
+
+BattleText_UserConsumedStringBuffer1:
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer1
+	text_start
+	scroll "was consumed!"
 	autodone
 
 BattleText_ItemsCantBeUsedHere:
@@ -422,6 +457,11 @@ HurtItselfText:
 
 ConfusedNoMoreText:
 	text "<USER>'s"
+	line "confused no more!"
+	autodone
+
+TargetConfusedNoMoreText:
+	text "<TARGET>'s"
 	line "confused no more!"
 	autodone
 

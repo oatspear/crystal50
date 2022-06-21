@@ -30,26 +30,26 @@ VioletGymFalknerScript:
 	readvar VAR_BADGES
 	scall VioletGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_TM31_MUD_SLAP
-	iftrue .SpeechAfterTM
+	checkevent EVENT_GOT_HM01_ROOST
+	iftrue .SpeechAfterHM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOTHING
 	specialphonecall SPECIALCALL_ASSISTANT
 	writetext FalknerZephyrBadgeText
 	promptbutton
-	verbosegiveitem TM_MUD_SLAP
-	iffalse .NoRoomForMudSlap
-	setevent EVENT_GOT_TM31_MUD_SLAP
-	writetext FalknerTMMudSlapText
+	verbosegiveitem HM_ROOST
+	iffalse .NoRoomForRoost
+	setevent EVENT_GOT_HM01_ROOST
+	writetext FalknerHMRoostText
 	waitbutton
 	closetext
 	end
 
-.SpeechAfterTM:
+.SpeechAfterHM:
 	writetext FalknerFightDoneText
 	waitbutton
-.NoRoomForMudSlap:
+.NoRoomForRoost:
 	closetext
 	end
 
@@ -161,29 +161,35 @@ FalknerZephyrBadgeText:
 	line "take this too."
 	done
 
-FalknerTMMudSlapText:
-	text "By using a TM, a"
-	line "#MON will"
+FalknerHMRoostText:
+	text "By using a HM,"
+	line "you can teach"
+	cont "your #MON"
+	cont "a new move."
 
-	para "instantly learn a"
-	line "new move."
+	para "A HM is better"
+	line "than a TM --"
 
-	para "Think before you"
-	line "act--a TM can be"
-	cont "used only once."
+	para "a TM can be"
+	line "used only once."
 
-	para "TM31 contains"
-	line "MUD-SLAP."
+	para "A HM does not"
+	line "break on use."
 
-	para "It reduces the"
-	line "enemy's accuracy"
+	para "HM01 contains"
+	line "ROOST."
 
-	para "while it causes"
-	line "damage."
+	para "It heals your"
+	line "#MON, but"
 
-	para "In other words, it"
-	line "is both defensive"
-	cont "and offensive."
+	para "they cannot"
+	line "fly for a"
+	cont "short time."
+
+	para "Use it with"
+	line "caution, think"
+	cont "ahead of your"
+	cont "opponents."
 	done
 
 FalknerFightDoneText:

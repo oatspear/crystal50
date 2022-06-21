@@ -11,8 +11,8 @@ Route35GoldenrodGate_MapScripts:
 RandyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HP_UP_FROM_RANDY
-	iftrue .gothpup
+	checkevent EVENT_GOT_TM_AERIAL_ACE_FROM_RANDY
+	iftrue .gottm
 	checkevent EVENT_GAVE_KENYA
 	iftrue .questcomplete
 	checkevent EVENT_GOT_KENYA
@@ -52,10 +52,10 @@ RandyScript:
 .questcomplete
 	writetext Route35GoldenrodGateRandySomethingForYourTroubleText
 	promptbutton
-	verbosegiveitem HP_UP
+	verbosegiveitem TM_AERIAL_ACE
 	iffalse .bagfull
-	setevent EVENT_GOT_HP_UP_FROM_RANDY
-.gothpup
+	setevent EVENT_GOT_TM_AERIAL_ACE_FROM_RANDY
+.gottm
 	writetext Route35GoldenrodGateRandyMyPalWasSnoozingRightText
 	waitbutton
 .bagfull

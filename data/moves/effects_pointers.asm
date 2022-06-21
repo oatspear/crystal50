@@ -11,18 +11,18 @@ MoveEffectsPointers:
 	dw Selfdestruct
 	dw DreamEater
 	dw Roost
-	dw AttackUp
-	dw DefenseUp
+	dw OffensesUp  ; AttackUp
+	dw DefensesUp  ; DefenseUp
 	dw SpeedUp
-	dw SpecialAttackUp
-	dw SpecialDefenseUp
+	dw ProwessUp   ; SpecialAttackUp
+	dw NormalHit   ; SpecialDefenseUp
 	dw AccuracyUp
 	dw EvasionUp
-	dw AttackDown
-	dw DefenseDown
+	dw OffensesDown  ; AttackDown
+	dw DefensesDown  ; DefenseDown
 	dw SpeedDown
-	dw SpecialAttackDown
-	dw SpecialDefenseDown
+	dw NormalHit  ; SpecialAttackDown
+	dw NormalHit  ; SpecialDefenseDown
 	dw AccuracyDown
 	dw EvasionDown
 	dw ResetStats
@@ -38,10 +38,10 @@ MoveEffectsPointers:
 	dw LightScreen
 	dw TriAttack
 	dw Growth
-	dw OHKOHit
-	dw CalmMind
+	dw FreezeFlinchHit
+	dw ParalyzeFlinchHit
 	dw SuperFang
-	dw StaticDamage
+	dw BurnFlinchHit
 	dw TrapTarget
 	dw DragonDance
 	dw MultiHit
@@ -50,32 +50,32 @@ MoveEffectsPointers:
 	dw FocusEnergy
 	dw RecoilHit
 	dw DoConfuse
-	dw AttackUp2
-	dw DefenseUp2
+	dw OffensesUp2  ; AttackUp2
+	dw DefensesUp2  ; DefenseUp2
 	dw SpeedUp2
-	dw SpecialAttackUp2
-	dw SpecialDefenseUp2
+	dw NormalHit  ; SpecialAttackUp2
+	dw NormalHit  ; SpecialDefenseUp2
 	dw AccuracyUp2
 	dw EvasionUp2
 	dw Transform
-	dw AttackDown2
-	dw DefenseDown2
+	dw OffensesDown2  ; AttackDown2
+	dw DefensesDown2  ; DefenseDown2
 	dw SpeedDown2
-	dw SpecialAttackDown2
-	dw SpecialDefenseDown2
+	dw NormalHit  ; SpecialAttackDown2
+	dw NormalHit  ; SpecialDefenseDown2
 	dw AccuracyDown2
 	dw EvasionDown2
 	dw Reflect
 	dw DoPoison
 	dw DoParalyze
-	dw AttackDownHit
-	dw DefenseDownHit
+	dw OffensesDownHit  ; AttackDownHit
+	dw DefensesDownHit  ; DefenseDownHit
 	dw SpeedDownHit
-	dw SpecialAttackDownHit
-	dw SpecialDefenseDownHit
+	dw NormalHit  ; SpecialAttackDownHit
+	dw NormalHit  ; SpecialDefenseDownHit
 	dw AccuracyDownHit
 	dw EvasionDownHit
-	dw SkyAttack
+	dw NormalHit
 	dw ConfuseHit
 	dw Revenge
 	dw BodySlam
@@ -91,9 +91,9 @@ MoveEffectsPointers:
 	dw Counter
 	dw Encore
 	dw PainSplit
-	dw Snore
+	dw UTurn
 	dw Conversion2
-	dw LockOn
+	dw NormalHit ; unused LOCK_ON
 	dw Sketch
 	dw DefrostOpponent
 	dw SleepTalk
@@ -103,7 +103,7 @@ MoveEffectsPointers:
 	dw FalseSwipe
 	dw HealBell
 	dw NormalHit
-	dw TripleKick
+	dw NormalHit ; unused TRIPLE_KICK
 	dw Thief
 	dw MeanLook
 	dw Hex
@@ -116,9 +116,9 @@ MoveEffectsPointers:
 	dw PerishSong
 	dw Sandstorm
 	dw Endure
-	dw Rollout
+	dw NormalHit ; unused ROLLOUT
 	dw Swagger
-	dw FuryCutter
+	dw NormalHit ; unused FuryCutter
 	dw Attract
 	dw BrickBreak
 	dw Present
@@ -126,7 +126,7 @@ MoveEffectsPointers:
 	dw Safeguard
 	dw SacredFire
 	dw Facade
-	dw BatonPass
+	dw Pluck
 	dw DoBurn
 	dw RapidSpin
 	dw NormalHit
@@ -137,11 +137,11 @@ MoveEffectsPointers:
 	dw HiddenPower
 	dw RainDance
 	dw SunnyDay
-	dw DefenseUpHit
-	dw AttackUpHit
+	dw OffensesUpHit  ; AttackUpHit
+	dw DefensesUpHit  ; DefenseUpHit
 	dw AllUpHit
 	dw FakeOut
-	dw BellyDrum
+	dw BurnRecoilHit
 	dw PsychUp
 	dw MirrorCoat
 	dw SkullBash
@@ -149,12 +149,14 @@ MoveEffectsPointers:
 	dw Earthquake
 	dw FutureSight
 	dw Gust
-	dw Stomp
+	dw NormalHit ; Stomp
 	dw Solarbeam
 	dw Thunder
 	dw Teleport
 	dw BeatUp
 	dw Fly
-	dw DefenseCurl
+	dw NormalHit ; DefenseCurl
 	dw FreezeHit ; for Blizzard, purposefully with different EFFECT_* constant
+	dw Hurricane
+	dw ParalyzeRecoilHit
 	assert_table_length NUM_MOVE_EFECTS

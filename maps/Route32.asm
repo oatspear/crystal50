@@ -46,30 +46,24 @@ Route32CooltrainerMScript:
 	faceplayer
 Route32CooltrainerMContinueScene:
 	opentext
-	checkevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
-	iftrue .GotMiracleSeed
+	checkevent EVENT_GOT_SHARP_BEAK_IN_ROUTE_32
+	iftrue .GotSharpBeak
 	checkflag ENGINE_ZEPHYRBADGE
 	iffalse .DontHaveZephyrBadge
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iftrue .GiveMiracleSeed
+	iftrue .GiveSharpBeak
 	writetext Route32CooltrainerMText_AideIsWaiting
 	waitbutton
 	closetext
 	end
 
-.GoToSproutTower: ; unreferenced
-	writetext Route32CooltrainerMText_UnusedSproutTower
-	waitbutton
-	closetext
-	end
-
-.GiveMiracleSeed:
-	writetext Route32CooltrainerMText_HaveThisSeed
+.GiveSharpBeak:
+	writetext Route32CooltrainerMText_HaveThisBeak
 	promptbutton
-	verbosegiveitem MIRACLE_SEED
+	verbosegiveitem SHARP_BEAK
 	iffalse .BagFull
-	setevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
-	sjump .GotMiracleSeed
+	setevent EVENT_GOT_SHARP_BEAK_IN_ROUTE_32
+	sjump .GotSharpBeak
 
 .DontHaveZephyrBadge:
 	writetext Route32CooltrainerMText_VioletGym
@@ -77,7 +71,7 @@ Route32CooltrainerMContinueScene:
 	closetext
 	end
 
-.GotMiracleSeed:
+.GotSharpBeak:
 	writetext Route32CooltrainerMText_ExperiencesShouldBeUseful
 	waitbutton
 .BagFull:
@@ -569,7 +563,7 @@ Route32CooltrainerMText_VioletGym:
 	cont "trainers!"
 	done
 
-Route32CooltrainerMText_HaveThisSeed:
+Route32CooltrainerMText_HaveThisBeak:
 	text "You have some good"
 	line "#MON there."
 
@@ -590,7 +584,7 @@ Route32CooltrainerMText_HaveThisSeed:
 	cont "this."
 
 	para "It increases the"
-	line "power of grass-"
+	line "power of flying-"
 	cont "type moves."
 	done
 

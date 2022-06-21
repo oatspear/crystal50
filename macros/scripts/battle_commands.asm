@@ -42,7 +42,7 @@ ENDM
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
-	command ohko                    ; 26
+	command flinch10percent         ; 26
 	command recoil                  ; 27
 	command mist                    ; 28
 	command focusenergy             ; 29
@@ -71,9 +71,9 @@ ENDM
 	command counter                 ; 40
 	command encore                  ; 41
 	command painsplit               ; 42
-	command snore                   ; 43
+	command uturn                   ; 43
 	command conversion2             ; 44
-	command lockon                  ; 45
+	command pluck                   ; 45
 	command sketch                  ; 46
 	command defrostopponent         ; 47
 	command sleeptalk               ; 48
@@ -82,8 +82,8 @@ ENDM
 	command falseswipe              ; 4b
 	command healbell                ; 4c
 	command kingsrock               ; 4d
-	command triplekick              ; 4e
-	command kickcounter             ; 4f
+	command effect0x4e              ; 4e
+	command effect0x4f              ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
 	command hex                     ; 52
@@ -95,10 +95,10 @@ ENDM
 	command perishsong              ; 58
 	command startsandstorm          ; 59
 	command endure                  ; 5a
-	command checkcurl               ; 5b
-	command rolloutpower            ; 5c
+	command effect0x5b              ; 5b
+	command effect0x5c              ; 5c
 	command revenge                 ; 5d
-	command furycutter              ; 5e
+	command effect0x5e              ; 5e
 	command attract                 ; 5f
 	command facade                  ; 60
 	command present                 ; 61
@@ -107,13 +107,13 @@ ENDM
 	command safeguard               ; 64
 	command checksafeguard          ; 65
 	command effect0x66              ; 66
-	command batonpass               ; 67
+	command effect0x67              ; 67
 	command effect0x68              ; 68
 	command clearhazards            ; 69
 	command healmorn                ; 6a
 	command healday                 ; 6b
 	command healnite                ; 6c
-	command hiddenpower             ; 6d
+	command effect0x6d              ; 6d
 	command startrain               ; 6e
 	command startsun                ; 6f
 	command attackup                ; 70
@@ -153,7 +153,7 @@ ENDM
 	command statupanim              ; 92
 	command switchturn              ; 93
 	command fakeout                 ; 94
-	command bellydrum               ; 95
+	command effect0x95              ; 95
 	command psychup                 ; 96
 	command effect0x97              ; 97
 	command doubleflyingdamage      ; 98
@@ -179,10 +179,20 @@ ENDM
 	command tristatuschance         ; ac
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
-	command curl                    ; af
+	command effect0xaf              ; af
 	command growth                  ; b0
-	command calmmind                ; b1
-	command dragondance             ; b2
+	command prowessup               ; b1
+	command effect0xb2              ; b2
+	command attackup1               ; b3
+	command defenseup1              ; b4
+	command speedup1                ; b5
+	command specialattackup1        ; b6
+	command specialdefenseup1       ; b7
+	command attackdown1             ; b8
+	command defensedown1            ; b9
+	command speeddown1              ; ba
+	command specialattackdown1      ; bb
+	command specialdefensedown1     ; bc
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

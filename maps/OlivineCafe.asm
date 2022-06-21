@@ -11,14 +11,14 @@ OlivineCafe_MapScripts:
 OlivineCafeStrengthSailorScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM04_STRENGTH
-	iftrue .GotStrength
+	checkevent EVENT_GOT_TM27_BRICK_BREAK
+	iftrue .GotBrickBreak
 	writetext OlivineCafeStrengthSailorText
 	promptbutton
-	verbosegiveitem HM_STRENGTH
-	setevent EVENT_GOT_HM04_STRENGTH
-.GotStrength:
-	writetext OlivineCafeStrengthSailorText_GotStrength
+	verbosegiveitem TM_BRICK_BREAK
+	setevent EVENT_GOT_TM27_BRICK_BREAK
+.GotBrickBreak:
+	writetext OlivineCafeStrengthSailorText_GotBrickBreak
 	waitbutton
 	closetext
 	end
@@ -35,15 +35,15 @@ OlivineCafeStrengthSailorText:
 	cont "lightweights!"
 
 	para "They don't have"
-	line "the power to move"
-	cont "boulders aside."
+	line "the power to push"
+	cont "through walls."
 
 	para "Here, use this"
 	line "and teach them"
-	cont "STRENGTH!"
+	cont "BRICK BREAK!"
 	done
 
-OlivineCafeStrengthSailorText_GotStrength:
+OlivineCafeStrengthSailorText_GotBrickBreak:
 	text "On the sea, the"
 	line "only thing you can"
 

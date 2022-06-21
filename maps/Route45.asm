@@ -56,7 +56,7 @@ TrainerBlackbeltKenji:
 	checkevent EVENT_KENJI_ON_BREAK
 	iffalse Route45NumberAcceptedM
 	scall Route45GiftM
-	verbosegiveitem PP_UP
+	verbosegiveitem BLACKBELT_I
 	iffalse .NoRoom
 	clearevent EVENT_KENJI_ON_BREAK
 	special SampleKenjiBreakCountdown
@@ -309,8 +309,8 @@ Route45Elixer:
 Route45MaxPotion:
 	itemball MAX_POTION
 
-Route45HiddenPpUp:
-	hiddenitem PP_UP, EVENT_ROUTE_45_HIDDEN_PP_UP
+Route45HiddenHeavyBall:
+	hiddenitem HEAVY_BALL, EVENT_ROUTE_45_HIDDEN_HEAVY_BALL
 
 HikerErikSeenText:
 	text "Be prepared for"
@@ -539,7 +539,7 @@ Route45_MapEvents:
 
 	def_bg_events
 	bg_event 10,  4, BGEVENT_READ, Route45Sign
-	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenPpUp
+	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenHeavyBall
 
 	def_object_events
 	object_event 10, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerErik, -1

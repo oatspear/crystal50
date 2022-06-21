@@ -157,6 +157,16 @@ BattleCommand_CheckTurn:
 	dec a
 	ld [wBattleMonStatus], a
 
+	; recover energy while sleeping
+	ld hl, wPlayerMaxEnergy
+	ld a, [wBattleMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .recover_energy
+	ld a, [hl]
+.recover_energy
+	ld [wBattleMonEnergy], a
+
 	xor a
 	ld [wNumHits], a
 	ld de, ANIM_SLP
@@ -180,10 +190,8 @@ BattleCommand_CheckTurn:
 	ld hl, FastAsleepText
 	call StdBattleTextbox
 
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypasses sleep.
 	ld a, [wCurPlayerMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 
@@ -338,17 +346,11 @@ BattleCommand_CheckTurn:
 	jp EndTurn
 
 CantMove:
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
-	res SUBSTATUS_ROLLOUT, [hl]
-
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	ld a, [hl]
 	and $ff ^ (1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
 	ld [hl], a
-
-	call ResetFuryCutterCount
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -391,6 +393,16 @@ CheckEnemyTurn:
 	dec a
 	ld [wEnemyMonStatus], a
 
+	; recover energy while asleep
+	ld hl, wEnemyMaxEnergy
+	ld a, [wEnemyMonEnergy]
+	add ENERGY_RECOVERY_SLP
+	cp [hl]
+	jr c, .recover_energy
+	ld a, [hl]
+.recover_energy
+	ld [wEnemyMonEnergy], a
+
 	ld hl, FastAsleepText
 	call StdBattleTextbox
 	xor a
@@ -413,10 +425,8 @@ CheckEnemyTurn:
 	jr .not_asleep
 
 .fast_asleep
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypasses sleep.
 	ld a, [wCurEnemyMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 	call CantMove
@@ -897,9 +907,7 @@ IgnoreSleepOnly:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 
-	; Snore and Sleep Talk bypass sleep.
-	cp SNORE
-	jr z, .CheckSleep
+	; Sleep Talk bypasses sleep.
 	cp SLEEP_TALK
 	jr z, .CheckSleep
 	and a
@@ -1020,11 +1028,9 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
-	db EFFECT_ROLLOUT
 	db EFFECT_RAMPAGE
 	db -1
 
@@ -1121,8 +1127,6 @@ BattleCommand_Critical:
 INCLUDE "data/moves/critical_hit_moves.asm"
 
 INCLUDE "data/battle/critical_hit_chances.asm"
-
-INCLUDE "engine/battle/move_effects/triple_kick.asm"
 
 BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
@@ -1307,6 +1311,15 @@ BattleCommand_Stab:
 	ret
 
 BattleCheckTypeMatchup:
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp HIDDEN_POWER
+	jr nz, .other_moves
+	ld a, SUPER_EFFECTIVE
+	ld [wTypeMatchup], a
+	ret
+
+.other_moves
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
@@ -1474,9 +1487,6 @@ BattleCommand_CheckHit:
 	call .Protect
 	jp nz, .Miss
 
-	call .LockOn
-	ret nz
-
 	call .FlyDigMoves
 	jp nz, .Miss
 
@@ -1639,35 +1649,6 @@ BattleCommand_CheckHit:
 	and a
 	ret
 
-.LockOn:
-; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Bulldoze on a monster that is flying.
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
-	bit SUBSTATUS_LOCK_ON, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
-	ret z
-
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	bit SUBSTATUS_FLYING, a
-	jr z, .LockedOn
-
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-
-	cp EARTHQUAKE
-	ret z
-	cp FISSURE
-	ret z
-	cp BULLDOZE
-	ret z
-
-.LockedOn:
-	ld a, 1
-	and a
-	ret
-
 .FlyDigMoves:
 ; Check for moves that can hit underground/flying opponents.
 ; Return z if the current move can hit the opponent.
@@ -1697,8 +1678,8 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 
 	cp EARTHQUAKE
-	ret z
-	cp FISSURE
+	; ret z
+	; cp EARTH_POWER
 	ret
 
 .ThunderRain:
@@ -1706,8 +1687,11 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_THUNDER
+	jr z, .hits_in_rain
+	cp EFFECT_HURRICANE
 	ret nz
 
+.hits_in_rain
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
 	ret
@@ -1727,8 +1711,8 @@ BattleCommand_CheckHit:
 ; Return z if using Stomp or Body Slam against a Minimized target.
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	cp STOMP
-	ret nz
+	; cp STOMP
+	; ret nz
 	cp BODY_SLAM
 	ret nz
 
@@ -1886,8 +1870,6 @@ BattleCommand_LowerSub:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
@@ -1921,16 +1903,14 @@ BattleCommand_LowerSub:
 .Rampage:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_ROLLOUT
-	jr z, .rollout_rampage
 	cp EFFECT_RAMPAGE
-	jr z, .rollout_rampage
+	jr z, .is_rampage
 
 	ld a, 1
 	and a
 	ret
 
-.rollout_rampage
+.is_rampage
 	ld a, [wSomeoneIsRampaging]
 	and a
 	ld a, 0
@@ -1950,10 +1930,10 @@ BattleCommand_MoveAnimNoSub:
 
 	ldh a, [hBattleTurn]
 	and a
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ld a, BATTLEANIM_ENEMY_DAMAGE
 	jr z, .got_rollout_count
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 	ld a, BATTLEANIM_PLAYER_DAMAGE
 
 .got_rollout_count
@@ -1966,12 +1946,9 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_DOUBLE_HIT
 	jr z, .alternate_anim
-	cp EFFECT_TRIPLE_KICK
-	jr z, .triplekick
+
 	xor a
 	ld [wBattleAnimParam], a
-
-.triplekick
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld e, a
@@ -2067,10 +2044,15 @@ BattleCommand_FailureText:
 ; failuretext
 ; If the move missed or failed, load the appropriate
 ; text, and end the effects of multi-turn or multi-
-; hit moves.
+; hit moves. Also end rampage status.
 	ld a, [wAttackMissed]
 	and a
 	ret z
+
+	; clear rampage status
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVarAddr
+	res SUBSTATUS_RAMPAGE, [hl]
 
 	call GetFailureResultText
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -2319,11 +2301,11 @@ BattleCommand_CriticalText:
 BattleCommand_StartLoop:
 ; startloop
 
-	ld hl, wPlayerRolloutCount
+	ld hl, wPlayerRampageCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld hl, wEnemyRolloutCount
+	ld hl, wEnemyRampageCount
 .ok
 	xor a
 	ld [hl], a
@@ -2428,8 +2410,6 @@ BattleCommand_CheckFaint:
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multiple_hit_raise_sub
-	cp EFFECT_TRIPLE_KICK
-	jr z, .multiple_hit_raise_sub
 	cp EFFECT_BEAT_UP
 	jr nz, .finish
 
@@ -2517,11 +2497,31 @@ PlayerAttackDamage:
 	ld d, a
 	ret z
 
-	ld a, [wEnemyMonStatus]
-	and 1 << FRZ
+	ld a, [wPlayerSubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
-	sla c
-	rl b
+
+	ld a, [wPlayerRampageCount]
+	and RAMPAGE_FIRST_TURN
+	jr nz, .physicalspecialcheck
+
+; boost move power (fixated)
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	ld d, a
+	jr nc, .enemy_rampage
+	ld d, $ff
+	jr .physicalspecialcheck
+
+.enemy_rampage
+	ld a, [wEnemySubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	ld d, a
+	jr nc, .physicalspecialcheck
+	ld d, $ff
 
 .physicalspecialcheck
 	ld a, [hl]
@@ -2536,6 +2536,13 @@ PlayerAttackDamage:
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
+	jr z, .physicalcrit
+	sla c
+	rl b
+
+	; FRZ improves defenses
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
 	jr z, .physicalcrit
 	sla c
 	rl b
@@ -2561,6 +2568,13 @@ PlayerAttackDamage:
 	call SandstormSpDefBoost
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
+	jr z, .specialcrit
+	sla c
+	rl b
+
+	; FRZ improves defenses
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
 	jr z, .specialcrit
 	sla c
 	rl b
@@ -2777,11 +2791,31 @@ EnemyAttackDamage:
 	and a
 	ret z
 
-	ld a, [wBattleMonStatus]
-	and 1 << FRZ
+	ld a, [wEnemySubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
 	jr z, .physicalspecialcheck
-	sla c
-	rl b
+
+	ld a, [wEnemyRampageCount]
+	and RAMPAGE_FIRST_TURN
+	jr nz, .physicalspecialcheck
+
+; boost move power (fixated)
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	ld d, a
+	jr nc, .player_rampage
+	ld d, $ff
+	jr .physicalspecialcheck
+
+.player_rampage
+	ld a, [wPlayerSubStatus3]
+	and 1 << SUBSTATUS_RAMPAGE
+	jr z, .physicalspecialcheck
+	ld a, d
+	add RAMPAGE_POWER_BOOST
+	ld d, a
+	jr nc, .physicalspecialcheck
+	ld d, $ff
 
 .physicalspecialcheck
 	ld a, [hl]
@@ -2796,6 +2830,13 @@ EnemyAttackDamage:
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
+	jr z, .physicalcrit
+	sla c
+	rl b
+
+	; FRZ improves defenses
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
 	jr z, .physicalcrit
 	sla c
 	rl b
@@ -2821,6 +2862,13 @@ EnemyAttackDamage:
 	call SandstormSpDefBoost
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a
+	jr z, .specialcrit
+	sla c
+	rl b
+
+	; FRZ improves defenses
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
 	jr z, .specialcrit
 	sla c
 	rl b
@@ -3303,11 +3351,7 @@ INCLUDE "engine/battle/move_effects/encore.asm"
 
 INCLUDE "engine/battle/move_effects/pain_split.asm"
 
-INCLUDE "engine/battle/move_effects/snore.asm"
-
 INCLUDE "engine/battle/move_effects/conversion2.asm"
-
-INCLUDE "engine/battle/move_effects/lock_on.asm"
 
 INCLUDE "engine/battle/move_effects/sketch.asm"
 
@@ -3606,8 +3650,6 @@ DoSubstituteDamage:
 	cp EFFECT_MULTI_HIT
 	jr z, .ok
 	cp EFFECT_DOUBLE_HIT
-	jr z, .ok
-	cp EFFECT_TRIPLE_KICK
 	jr z, .ok
 	cp EFFECT_BEAT_UP
 	jr z, .ok
@@ -4150,39 +4192,64 @@ BattleCommand_EvasionUp:
 	ld a, EVASION
 	jr BattleCommand_StatUp
 
+BattleCommand_AttackUp1:
+; attackup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | ATTACK
+	jr BattleCommand_StatUp
+
+BattleCommand_DefenseUp1:
+; defenseup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | DEFENSE
+	jr BattleCommand_StatUp
+
+BattleCommand_SpeedUp1:
+; speedup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SPEED
+	jr BattleCommand_StatUp
+
+BattleCommand_SpecialAttackUp1:
+; specialattackup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_ATTACK
+	jr BattleCommand_StatUp
+
+BattleCommand_SpecialDefenseUp1:
+; specialdefenseup1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_DEFENSE
+	jr BattleCommand_StatUp
+
 BattleCommand_AttackUp2:
 ; attackup2
-	ld a, $10 | ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_DefenseUp2:
 ; defenseup2
-	ld a, $10 | DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_SpeedUp2:
 ; speedup2
-	ld a, $10 | SPEED
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SPEED
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialAttackUp2:
 ; specialattackup2
-	ld a, $10 | SP_ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_ATTACK
 	jr BattleCommand_StatUp
 
 BattleCommand_SpecialDefenseUp2:
 ; specialdefenseup2
-	ld a, $10 | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_DEFENSE
 	jr BattleCommand_StatUp
 
 BattleCommand_AccuracyUp2:
 ; accuracyup2
-	ld a, $10 | ACCURACY
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ACCURACY
 	jr BattleCommand_StatUp
 
 BattleCommand_EvasionUp2:
 ; evasionup2
-	ld a, $10 | EVASION
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | EVASION
 	jr BattleCommand_StatUp
 
 BattleCommand_StatUp:
@@ -4230,17 +4297,17 @@ RaiseStat:
 	swap a
 	add e
 	ld e, a
-	inc b
-	ld a, MAX_STAT_LEVEL
-	cp b
-	jr nc, .got_num_stages
-	ld b, a
+	; inc b
+	; ld a, MAX_STAT_LEVEL
+	; cp b
+	; jr nc, .got_num_stages
+	; ld b, a
 
 .got_num_stages
 	apply_stat_level [hl], b, e
 	push hl
 	ld a, c
-	cp $5
+	cp ACCURACY
 	jr nc, .done_calcing_stats
 	ld hl, wBattleMonStats + 1
 	ld de, wPlayerStats
@@ -4362,39 +4429,64 @@ BattleCommand_EvasionDown:
 	ld a, EVASION
 	jr BattleCommand_StatDown
 
+BattleCommand_AttackDown1:
+; attackdown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | ATTACK
+	jr BattleCommand_StatDown
+
+BattleCommand_DefenseDown1:
+; defensedown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | DEFENSE
+	jr BattleCommand_StatDown
+
+BattleCommand_SpeedDown1:
+; speeddown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SPEED
+	jr BattleCommand_StatDown
+
+BattleCommand_SpecialAttackDown1:
+; specialattackdown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_ATTACK
+	jr BattleCommand_StatDown
+
+BattleCommand_SpecialDefenseDown1:
+; specialdefensedown1
+	ld a, STAT_LEVEL_EXTEND_1_TURN | SP_DEFENSE
+	jr BattleCommand_StatDown
+
 BattleCommand_AttackDown2:
 ; attackdown2
-	ld a, $10 | ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_DefenseDown2:
 ; defensedown2
-	ld a, $10 | DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_SpeedDown2:
 ; speeddown2
-	ld a, $10 | SPEED
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SPEED
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialAttackDown2:
 ; specialattackdown2
-	ld a, $10 | SP_ATTACK
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_ATTACK
 	jr BattleCommand_StatDown
 
 BattleCommand_SpecialDefenseDown2:
 ; specialdefensedown2
-	ld a, $10 | SP_DEFENSE
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | SP_DEFENSE
 	jr BattleCommand_StatDown
 
 BattleCommand_AccuracyDown2:
 ; accuracydown2
-	ld a, $10 | ACCURACY
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | ACCURACY
 	jr BattleCommand_StatDown
 
 BattleCommand_EvasionDown2:
 ; evasiondown2
-	ld a, $10 | EVASION
+	ld a, STAT_LEVEL_EXTEND_2_TURNS | EVASION
 
 BattleCommand_StatDown:
 ; statdown
@@ -4441,16 +4533,16 @@ BattleCommand_StatDown:
 	dec b
 	jp z, .CantLower
 
-; Sharply lower the stat if applicable (and apply timer bonus).
+; Sharply lower the stat (apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .GotAmountToLower
 	swap a
-	add STAT_LEVEL_DEFAULT_DURATION
+	add e
 	ld e, a
-	dec b
-	jr nz, .GotAmountToLower
-	inc b
+	; dec b
+	; jr nz, .GotAmountToLower
+	; inc b
 
 .GotAmountToLower:
 ; Accuracy/Evasion reduction don't involve stats.
@@ -4502,15 +4594,15 @@ BattleCommand_StatDown:
 CheckMist:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_ATTACK_DOWN
+	cp EFFECT_OFFENSES_DOWN
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN + 1
 	jr c, .check_mist
-	cp EFFECT_ATTACK_DOWN_2
+	cp EFFECT_OFFENSES_DOWN_2
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_2 + 1
 	jr c, .check_mist
-	cp EFFECT_ATTACK_DOWN_HIT
+	cp EFFECT_OFFENSES_DOWN_HIT
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_HIT + 1
 	jr c, .check_mist
@@ -4690,6 +4782,16 @@ INCLUDE "data/battle/stat_multipliers.asm"
 BattleCommand_AllStatsUp:
 ; allstatsup
 
+; Speed
+	call ResetMiss
+	call BattleCommand_SpeedUp
+	call BattleCommand_StatUpMessage
+
+	; fallthrough
+
+BattleCommand_ProwessUp:
+; prowessup
+
 ; Attack
 	call ResetMiss
 	call BattleCommand_AttackUp
@@ -4698,11 +4800,6 @@ BattleCommand_AllStatsUp:
 ; Defense
 	call ResetMiss
 	call BattleCommand_DefenseUp
-	call BattleCommand_StatUpMessage
-
-; Speed
-	call ResetMiss
-	call BattleCommand_SpeedUp
 	call BattleCommand_StatUpMessage
 
 ; Special Attack
@@ -4743,16 +4840,16 @@ LowerStat:
 	dec b
 	jr z, .cant_lower_anymore
 
-; Sharply lower the stat if applicable (and apply timer bonus).
+; Sharply lower the stat (apply timer bonus).
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
 	swap a
-	add STAT_LEVEL_DEFAULT_DURATION
+	add e
 	ld e, a
-	dec b
-	jr nz, .got_num_stages
-	inc b
+	; dec b
+	; jr nz, .got_num_stages
+	; inc b
 
 .got_num_stages
 	apply_stat_level [hl], b, e
@@ -4819,18 +4916,7 @@ BattleCommand_TriStatusChance:
 	dw BattleCommand_FreezeTarget ; freeze
 	dw BattleCommand_BurnTarget ; burn
 
-BattleCommand_Curl:
-; curl
-	ld a, BATTLE_VARS_SUBSTATUS2
-	call GetBattleVarAddr
-	set SUBSTATUS_CURLED, [hl]
-	ret
-
 INCLUDE "engine/battle/move_effects/growth.asm"
-
-INCLUDE "engine/battle/move_effects/calm_mind.asm"
-
-INCLUDE "engine/battle/move_effects/dragon_dance.asm"
 
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
@@ -4996,30 +5082,34 @@ BattleCommand_CheckPowder:
 BattleCommand_CheckRampage:
 ; checkrampage
 
-	ld de, wPlayerRolloutCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-	ld de, wEnemyRolloutCount
-.player
+; 	ld de, wPlayerRampageCount
+; 	ldh a, [hBattleTurn]
+; 	and a
+; 	jr z, .player
+; 	ld de, wEnemyRampageCount
+; .player
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	bit SUBSTATUS_RAMPAGE, [hl]
 	ret z
-	ld a, [de]
-	dec a
-	ld [de], a
-	jr nz, .continue_rampage
 
-	res SUBSTATUS_RAMPAGE, [hl]
-	set SUBSTATUS_CONFUSED, [hl]
-	call BattleRandom
-	and %00000001
-	inc a
-	inc a
-	inc de ; ConfuseCount
-	ld [de], a
-.continue_rampage
+	; decrementing is done in between turns now
+	; ld a, [de]
+	; dec a
+	; ld [de], a
+	; jr nz, .continue_rampage
+
+	; res SUBSTATUS_RAMPAGE, [hl]
+
+;	set SUBSTATUS_CONFUSED, [hl]
+;	call BattleRandom
+;	and %00000001
+;	inc a
+;	inc a
+;	inc de ; ConfuseCount
+;	ld [de], a
+
+; .continue_rampage
 	ld b, rampage_command
 	jp SkipToBattleCommand
 
@@ -5032,11 +5122,11 @@ BattleCommand_Rampage:
 	and SLP_BIT
 	ret nz
 
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 .ok
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
@@ -5045,6 +5135,8 @@ BattleCommand_Rampage:
 	call BattleRandom
 	and %00000001
 	inc a
+; First turn gets a marker flag
+	or RAMPAGE_FIRST_TURN
 	ld [de], a
 	ld a, 1
 	ld [wSomeoneIsRampaging], a
@@ -5279,12 +5371,12 @@ BattleCommand_EndLoop:
 
 ; Loop back to 'critical'.
 
-	ld de, wPlayerRolloutCount
+	ld de, wPlayerRampageCount
 	ld bc, wPlayerDamageTaken
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .got_addrs
-	ld de, wEnemyRolloutCount
+	ld de, wEnemyRampageCount
 	ld bc, wEnemyDamageTaken
 .got_addrs
 
@@ -5301,20 +5393,9 @@ BattleCommand_EndLoop:
 	jr z, .double_hit
 	ld a, [hl]
 	cp EFFECT_BEAT_UP
-	jr z, .beat_up
-	cp EFFECT_TRIPLE_KICK
-	jr nz, .not_triple_kick
-.reject_triple_kick_sample
-	call BattleRandom
-	and $3
-	jr z, .reject_triple_kick_sample
-	dec a
-	jr nz, .double_hit
-	ld a, 1
-	ld [bc], a
-	jr .done_loop
+	jr nz, .multi_hit
 
-.beat_up
+; .beat_up
 	ldh a, [hBattleTurn]
 	and a
 	jr nz, .check_ot_beat_up
@@ -5340,15 +5421,8 @@ BattleCommand_EndLoop:
 	res SUBSTATUS_IN_LOOP, [hl]
 	ret
 
-.not_triple_kick
-	call BattleRandom
-	and $3
-	cp 2
-	jr c, .got_number_hits
-	call BattleRandom
-	and $3
-.got_number_hits
-	inc a
+.multi_hit
+	ld a, 2
 .double_hit
 	ld [de], a
 	inc a
@@ -5414,15 +5488,32 @@ BattleCommand_FakeOut:
 	and 1 << FRZ | SLP
 	jr nz, .fail
 
-	call CheckOpponentWentFirst
-	jr z, FlinchTarget
+	; call CheckOpponentWentFirst
+	; jr z, FlinchTarget
+	jr FlinchTarget
 
 .fail
 	ld a, 1
 	ld [wAttackMissed], a
 	ret
 
+BattleCommand_Flinch10Percent:
+; flinch10percent
+
+	xor a
+	ld [wEffectFailed], a
+
+	call BattleRandom
+	cp 10 percent
+	jr c, BattleCommand_FlinchTarget
+
+	ld a, TRUE
+	ld [wEffectFailed], a
+	ret
+
 BattleCommand_FlinchTarget:
+; flinchtarget
+
 	call CheckSubstituteOpp
 	ret nz
 
@@ -5431,8 +5522,9 @@ BattleCommand_FlinchTarget:
 	and 1 << FRZ | SLP
 	ret nz
 
-	call CheckOpponentWentFirst
-	ret nz
+	; must comment out to allow flinch going second
+	; call CheckOpponentWentFirst
+	; ret nz
 
 	ld a, [wEffectFailed]
 	and a
@@ -5483,52 +5575,6 @@ BattleCommand_HeldFlinch:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
-	ret
-
-BattleCommand_OHKO:
-; ohko
-
-	call ResetDamage
-	ld a, [wTypeModifier]
-	and $7f
-	jr z, .no_effect
-	ld hl, wEnemyMonLevel
-	ld de, wBattleMonLevel
-	ld bc, wPlayerMoveStruct + MOVE_ACC
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_move_accuracy
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-	ld bc, wEnemyMoveStruct + MOVE_ACC
-.got_move_accuracy
-	ld a, [de]
-	sub [hl]
-	jr c, .no_effect
-	add a
-	ld e, a
-	ld a, [bc]
-	add e
-	jr nc, .finish_ohko
-	ld a, $ff
-.finish_ohko
-	ld [bc], a
-	call BattleCommand_CheckHit
-	ld hl, wCurDamage
-	ld a, $ff
-	ld [hli], a
-	ld [hl], a
-	ld a, $2
-	ld [wCriticalHit], a
-	ret
-
-.no_effect
-	ld a, $ff
-	ld [wCriticalHit], a
-	ld a, $1
-	ld [wAttackMissed], a
 	ret
 
 BattleCommand_CheckCharge:
@@ -5637,10 +5683,6 @@ BattleCommand_Charge:
 	ld hl, .BattleLoweredHeadText
 	jr z, .done
 
-	cp SKY_ATTACK
-	ld hl, .BattleGlowingText
-	jr z, .done
-
 	cp FLY
 	ld hl, .BattleFlewText
 	jr z, .done
@@ -5661,10 +5703,6 @@ BattleCommand_Charge:
 
 .BattleLoweredHeadText:
 	text_far _BattleLoweredHeadText
-	text_end
-
-.BattleGlowingText:
-	text_far _BattleGlowingText
 	text_end
 
 .BattleFlewText:
@@ -5759,7 +5797,7 @@ BattleCommand_Recoil:
 ; We will simplify and just get 1/4 + 1/16, which is slightly less (0.3125).
 	ld a, BATTLE_VARS_MOVE_POWER
 	call GetBattleVar
-	cp 101
+	cp 91
 	jr c, .got_quotient
 	push hl
 	ld h, b
@@ -5861,10 +5899,10 @@ BattleCommand_Confuse:
 
 .not_already_confused
 	call CheckSubstituteOpp
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSwagger_ConfuseHit
 	ld a, [wAttackMissed]
 	and a
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSwagger_ConfuseHit
 BattleCommand_FinishConfusingTarget:
 	ld bc, wEnemyConfuseCount
 	ldh a, [hBattleTurn]
@@ -5884,8 +5922,6 @@ BattleCommand_FinishConfusingTarget:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
-	jr z, .got_effect
-	cp EFFECT_SNORE
 	jr z, .got_effect
 	cp EFFECT_SWAGGER
 	jr z, .got_effect
@@ -5908,12 +5944,10 @@ BattleCommand_FinishConfusingTarget:
 	ld hl, UseConfusionHealingItem
 	jp CallBattleCore
 
-BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
+BattleCommand_Confuse_CheckSwagger_ConfuseHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
-	ret z
-	cp EFFECT_SNORE
 	ret z
 	cp EFFECT_SWAGGER
 	ret z
@@ -6580,12 +6614,8 @@ INCLUDE "engine/battle/move_effects/perish_song.asm"
 
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
-INCLUDE "engine/battle/move_effects/rollout.asm"
-
 BattleCommand_UnusedEffect:
 	ret
-
-INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
 
@@ -6625,7 +6655,9 @@ BattleCommand_CheckSafeguard:
 	call StdBattleTextbox
 	jp EndMoveEffect
 
-INCLUDE "engine/battle/move_effects/baton_pass.asm"
+INCLUDE "engine/battle/move_effects/u_turn.asm"
+
+INCLUDE "engine/battle/move_effects/pluck.asm"
 
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
@@ -6717,13 +6749,9 @@ BattleCommand_TimeBasedHealContinue:
 	dw GetHalfMaxHP
 	dw GetTwoThirdsMaxHP
 
-INCLUDE "engine/battle/move_effects/hidden_power.asm"
-
 INCLUDE "engine/battle/move_effects/rain_dance.asm"
 
 INCLUDE "engine/battle/move_effects/sunny_day.asm"
-
-INCLUDE "engine/battle/move_effects/belly_drum.asm"
 
 INCLUDE "engine/battle/move_effects/psych_up.asm"
 

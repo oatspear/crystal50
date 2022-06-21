@@ -41,19 +41,20 @@ GoldenrodDeptStore4FCooltrainerMText:
 	text "Hey. I love strong"
 	line "#MON."
 
-	para "I feed them PRO-"
-	line "TEIN to crank up"
-	cont "their ATTACK."
+	para "I use elemental"
+	line "stones to make"
+	cont "them evolve."
 	done
 
 GoldenrodDeptStore4FBugCatcherText:
-	text "IRON adds to your"
-	line "#MON's DEFENSE."
+	text "Not all #MON"
+	line "are able to evolve"
+	cont "using stones."
 	done
 
 GoldenrodDeptStore4FGameboyKidText:
 	text "Some #MON"
-	line "evolve only by"
+	line "can evolve by"
 
 	para "being traded via a"
 	line "Game Link cable."
@@ -69,10 +70,11 @@ GoldenrodDeptStore4FGameboyKidText:
 	done
 
 GoldenrodDeptStore4FDirectoryText:
-	text "Let Us Pump Up"
-	line "Your #MON!"
+	text "Achieve True"
+	line "#MON Power!"
 
-	para "4F MEDICINE BOX"
+	para "4F STONE"
+	line "   EMPORIUM"
 	done
 
 GoldenrodDeptStore4F_MapEvents:

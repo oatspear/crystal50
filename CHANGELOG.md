@@ -1,5 +1,50 @@
 # Changelog
 
+## v0.4 (PLA Systems)
+
+### Added
+- Moves: Acid Spray, Air Cutter, Aqua Tail, Astonish, Bulk Up, Charge Beam, Cross Poison, Draining Kiss, Energy Ball, Extrasensory, Fire Fang, Ice Fang, Thunder Fang, Giga Impact, Hurricane, Ice Shard, Iron Head, Leaf Storm, Overheat, Liquidation, Magical Leaf, Mystical Fire, Night Slash, Ominous Wind, Power Gem, Psycho Cut, Shadow Claw, Silver Wind, Snarl, Struggle Bug, Venoshock, Water Pulse, Wild Charge, Wood Hammer, X-Scissor, Scald, U-Turn, Volt Switch, Pluck, Bug Bite, Aromatherapy.
+- TMs to replace removed moves.
+- Evolution stones to Goldenrod and Celadon department stores.
+- Consumable held vitamins: Zinc (Special Defense), Magnesium (Accuracy), Potassium (Evasion).
+- New volcanic map: Mount Mortar B2F.
+
+### Removed
+- Moves: Pound, Mega Punch, Scratch, Vicegrip, Guillotine, Cut, Slam, Mega Kick, Horn Attack, Fury Attack, Horn Drill, Take Down, Thrash, Tail Whip, Leer, Acid, Surf, Psybeam, Peck, Submission, Strength, Mega Drain, Fissure, Amnesia, Kinesis, Sky Attack, Explosion, Fury Swipes, Hyper Fang, Mind Reader, Snore, Scary Face, Zap Cannon, Detect, Lock On, Dynamic Punch, Baton Pass, Defense Curl, Vital Throw, Stomp, Harden, Wing Attack, Psych Up.
+- Temporarily removed egg moves.
+- Temporarily removed the effects of PP Up and traditional Vitamins (HP Up, Protein, Iron, Carbos, Calcium).
+- TMs for moves that were removed.
+
+### Changed
+- Stat boosts only go up or down by one stage, and have variable turn durations, based on the mechanics of Pokémon Legends: Arceus.
+- Many moves received boosts to their effect chances and accuracy.
+- Some weaker moves (e.g., Absorb, Poison Sting) received Power boosts, while most strong moves (e.g., Hydro Pump, Fire Blast) had their Power toned down.
+- Belly Drum changed to boost offensive stats without penalty (same as Swords Dance).
+- Updated Hidden Power to use Legends: Arceus mechanics.
+- Self-destruct inflicts 13/16 (approximately 80%) Max. HP recoil damage.
+- Flinching substatus may carry over to the next turn; Pokémon moving last may flinch the opponent in the following turn.
+- Rampage no longer causes confusion at the end.
+- Rampage increases the move's power by 20 in subsequent turns, but enemy moves also get a 20 power bonus.
+- Rollout and Fury Cutter now use a rampage effect.
+- Multi-hit moves now always hit 3 times.
+- Triple Kick works as a normal multi-hit move.
+- Dragon Dance boosts both attack stats and speed.
+- Growth boosts both attack stats; under harsh sunlight, it also boosts speed.
+- DVs no longer affect stat calculation.
+- Every 4 levels a +1 bonus to all stats is granted.
+- Updated learnsets of all Pokémon to take the new moves into account and to make it more in line with recent games.
+- Machop transfered via Time Capsule now hold Blackbelt.
+- Dragonair and Dragonite transfered via Time Capsule now hold Dragon Fang.
+- Pokémon that previously held TMs when transfered via Time Capsule now hold Oran Berry.
+- Type-boosting items boost moves for 20% damage rather than 10%.
+- Gym leaders reward the player with HMs, rather than TMs.
+- Locations where HMs were previously obtainable now have different items.
+- Freeze now lasts between 2 and 3 turns. Taking damage makes frozen Pokémon thaw sooner (decrements the freeze counter).
+- Changed prices of various items.
+- Protein, Iron, Carbos and Calcium are now consumable held items that boost their respective stat in battle.
+- Improved party rosters for some significant trainers.
+- Pokémon that evolve via happiness now have alternative evolution methods (complementary, not replacing happiness).
+
 ## v0.3 (Custom Changes)
 
 ### Added
@@ -47,6 +92,8 @@
 - Poison (status condition) drains 1 Energy per turn.
 - Sleep (status condition) restores 8 Energy per turn.
 - Energy is fully restored after battle.
+- Wild Pokémon encounters now have wider level ranges, and may include evolved forms.
+- Updated the wild encounter tables for all Johto areas.
 
 ## v0.2 (Set to Level 50)
 

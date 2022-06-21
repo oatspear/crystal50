@@ -226,8 +226,8 @@ WesleyNotWednesdayScript:
 LakeOfRageElixer:
 	itemball ELIXER
 
-LakeOfRageTMDetect:
-	itemball TM_DETECT
+LakeOfRageTMRainDance:
+	itemball TM_RAIN_DANCE
 
 LakeOfRageHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_LAKE_OF_RAGE_HIDDEN_FULL_RESTORE
@@ -495,7 +495,7 @@ LakeOfRage_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7,  3, LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, 1
+	warp_event  7,  3, LAKE_OF_RAGE_ENERGY_BALL_HOUSE, 1
 	warp_event 27, 31, LAKE_OF_RAGE_MAGIKARP_HOUSE, 1
 
 	def_coord_events
@@ -519,4 +519,4 @@ LakeOfRage_MapEvents:
 	object_event 18, 22, SPRITE_GYARADOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RedGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
 	object_event  4,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WesleyScript, EVENT_LAKE_OF_RAGE_WESLEY_OF_WEDNESDAY
 	object_event  7, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageElixer, EVENT_LAKE_OF_RAGE_ELIXER
-	object_event 35,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageTMDetect, EVENT_LAKE_OF_RAGE_TM_DETECT
+	object_event 35,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageTMRainDance, EVENT_LAKE_OF_RAGE_TM_RAIN_DANCE

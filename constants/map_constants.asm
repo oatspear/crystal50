@@ -224,7 +224,7 @@ ENDM
 	endgroup
 
 	newgroup LAKE_OF_RAGE                                         ;  9
-	map_const LAKE_OF_RAGE_HIDDEN_POWER_HOUSE,              4,  4 ;  1
+	map_const LAKE_OF_RAGE_ENERGY_BALL_HOUSE,               4,  4 ;  1
 	map_const LAKE_OF_RAGE_MAGIKARP_HOUSE,                  4,  4 ;  2
 	map_const ROUTE_43_MAHOGANY_GATE,                       5,  4 ;  3
 	map_const ROUTE_43_GATE,                                5,  4 ;  4
