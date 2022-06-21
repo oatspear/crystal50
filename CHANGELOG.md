@@ -42,6 +42,7 @@
 - Freeze now lasts between 2 and 3 turns. Taking damage makes frozen Pokémon thaw sooner (decrements the freeze counter).
 - Changed prices of various items.
 - Protein, Iron, Carbos and Calcium are now consumable held items that boost their respective stat in battle.
+- Improved party rosters for some significant trainers.
 
 ## v0.3 (Custom Changes)
 
