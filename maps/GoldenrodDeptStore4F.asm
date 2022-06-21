@@ -70,10 +70,11 @@ GoldenrodDeptStore4FGameboyKidText:
 	done
 
 GoldenrodDeptStore4FDirectoryText:
-	text "Achieve Your"
-	line "#MON's Potential!"
+	text "Achieve True"
+	line "#MON Power!"
 
-	para "4F STONE MARKET"
+	para "4F STONE"
+	line "   EMPORIUM"
 	done
 
 GoldenrodDeptStore4F_MapEvents:
