@@ -2044,10 +2044,15 @@ BattleCommand_FailureText:
 ; failuretext
 ; If the move missed or failed, load the appropriate
 ; text, and end the effects of multi-turn or multi-
-; hit moves.
+; hit moves. Also end rampage status.
 	ld a, [wAttackMissed]
 	and a
 	ret z
+
+	; clear rampage status
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVarAddr
+	res SUBSTATUS_RAMPAGE, [hl]
 
 	call GetFailureResultText
 	ld a, BATTLE_VARS_MOVE_ANIM
