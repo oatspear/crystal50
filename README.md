@@ -62,10 +62,4 @@ For a full list of changes by version, see the [Changelog](CHANGELOG.md).
 This game is based on the [disassembly of Pokémon Crystal](https://github.com/pret/pokecrystal).
 
 If building the game from source, you can follow the instructions given on the disassembly's repository.
-Otherwise, download a patch from the [releases page](https://github.com/oatspear/crystal50/releases) and apply it on a Pokémon Crystal ROM.
-
-## Community and Feedback
-
-A [Discord server](https://discord.gg/b7GGdFSYDm) is up for this game.
-
-**Issues** can be raised in this repository or in the Discord server.
+Otherwise, download a patch from the [releases page](https://github.com/oatspear/crystal50/releases) and apply it on a Pokémon Crystal ROM (UE V1.0).
