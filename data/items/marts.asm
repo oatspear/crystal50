@@ -37,6 +37,7 @@ Marts:
 	dw MartIndigoPlateau
 	dw MartUnderground
 	dw MartFoodsDrinks
+	dw MartBerries
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -484,6 +485,20 @@ MartFoodsDrinks:
 	db ICE_HEAL
 	db AWAKENING
 	db PARLYZ_HEAL
+	db -1 ; end
+
+MartBerries:
+	db 10 ; # items
+	db ORAN_BERRY
+	db PECHA_BERRY
+	db CHERI_BERRY
+	db ASPEAR_BERRY
+	db RAWST_BERRY
+	db CHESTO_BERRY
+	db PERSIM_BERRY
+	db LUM_BERRY
+	db LEPPA_BERRY
+	db BERRY_JUICE
 	db -1 ; end
 
 DefaultMart:
