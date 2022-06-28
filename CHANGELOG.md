@@ -3,6 +3,7 @@
 ## v0.5 (Balance Patch)
 
 ### Added
+- Berry market at the Berry house on Route 30, north of Cherrygrove.
 
 ### Changed
 - Prices of berries, so they can be bought at Marts.
