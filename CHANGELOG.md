@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5 (Balance Patch)
+
+### Added
+
+### Changed
+- Prices of berries, so they can be bought at Marts.
+
 ## v0.4 (PLA Systems)
 
 ### Added
