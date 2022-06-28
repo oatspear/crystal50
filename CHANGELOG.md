@@ -7,6 +7,7 @@
 
 ### Changed
 - Prices of berries, so they can be bought at Marts.
+- Rival party rosters to raise levels and increase difficulty.
 
 ## v0.4 (PLA Systems)
 
