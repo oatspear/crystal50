@@ -10,7 +10,7 @@
 - Prices of status healing medicine, to be competitive with berries.
 - Prices of X-stat boosting items.
 - Rival party rosters to raise levels and increase difficulty.
-- Levels and teams of gym leaders.
+- Levels and teams of gym leaders and trainers.
 - Trainer Pokémon hold Oran Berry by default.
 - Reduced PP cost for: Metronome, Spite, Mimic.
 
