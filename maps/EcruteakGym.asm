@@ -310,8 +310,8 @@ SagePingBeatenText:
 	done
 
 SagePingAfterBattleText:
-	text "We use only ghost-"
-	line "type #MON."
+	text "We use ghost-type"
+	line "#MON."
 
 	para "No normal-type"
 	line "attack can harm"
