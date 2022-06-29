@@ -8,6 +8,7 @@
 ### Changed
 - Prices of berries, so they can be purchased at a vendor.
 - Prices of status healing medicine, to be competitive with berries.
+- Prices of X-stat boosting items.
 - Rival party rosters to raise levels and increase difficulty.
 
 ## v0.4 (PLA Systems)
