@@ -11,6 +11,7 @@
 - Prices of X-stat boosting items.
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders.
+- Trainer Pokémon hold Oran Berry by default.
 
 ## v0.4 (PLA Systems)
 
