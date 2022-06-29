@@ -12,6 +12,7 @@
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders.
 - Trainer Pokémon hold Oran Berry by default.
+- Reduced PP cost for: Metronome, Spite, Mimic.
 
 ## v0.4 (PLA Systems)
 

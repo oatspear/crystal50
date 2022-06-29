@@ -189,7 +189,7 @@ Moves:
 	move REFLECT,      EFFECT_REFLECT,             0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move ACROBATICS,   EFFECT_ACROBATICS,         55, FLYING,        PHYSICAL, 100,              ENERGY_20_PP,   0
-	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              ENERGY_10_PP,   0
+	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              ENERGY_15_PP,   0
 	move AERIAL_ACE,   EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      150, NORMAL,        PHYSICAL, 100,              ENERGY_5_PP,    0
 	move SEED_BOMB,    EFFECT_NORMAL_HIT,         65, GRASS,         PHYSICAL, 100,              ENERGY_15_PP,   0
@@ -251,7 +251,7 @@ Moves:
 	move AEROBLAST,    EFFECT_NORMAL_HIT,        100, FLYING,        SPECIAL,   95,              ENERGY_5_PP,    0
 	move COTTON_SPORE, EFFECT_SPEED_DOWN_2,        0, GRASS,         STATUS,   100,              ENERGY_20_PP,   0
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
-	move SPITE,        EFFECT_SPITE,               0, GHOST,         STATUS,   100,              ENERGY_10_PP,   0
+	move SPITE,        EFFECT_SPITE,               0, GHOST,         STATUS,   100,              ENERGY_20_PP,   0
 	move POWDER_SNOW,  EFFECT_FREEZE_HIT,         40, ICE,           SPECIAL,  100,              ENERGY_20_PP,  30
 	move PROTECT,      EFFECT_PROTECT,             0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING,      PHYSICAL, 100,              ENERGY_20_PP,   0
