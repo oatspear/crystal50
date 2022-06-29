@@ -10,6 +10,7 @@
 - Prices of status healing medicine, to be competitive with berries.
 - Prices of X-stat boosting items.
 - Rival party rosters to raise levels and increase difficulty.
+- Levels and teams of gym leaders.
 
 ## v0.4 (PLA Systems)
 
