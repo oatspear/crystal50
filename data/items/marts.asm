@@ -498,7 +498,7 @@ MartBerries:
 	db PERSIM_BERRY
 	db LUM_BERRY
 	db LEPPA_BERRY
-	db BERRY_JUICE
+	db SITRUS_BERRY
 	db -1 ; end
 
 DefaultMart:

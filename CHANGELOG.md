@@ -6,7 +6,8 @@
 - Berry market at the Berry house on Route 30, north of Cherrygrove.
 
 ### Changed
-- Prices of berries, so they can be bought at Marts.
+- Prices of berries, so they can be purchased at a vendor.
+- Prices of status healing medicine, to be competitive with berries.
 - Rival party rosters to raise levels and increase difficulty.
 
 ## v0.4 (PLA Systems)
