@@ -13,7 +13,7 @@
 - Levels and teams of gym leaders and gym trainers.
 - Levels and teams of trainers at the Lighthouse.
 - Trainer Pokémon hold Oran Berry by default.
-- Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail.
+- Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
 
 ## v0.4 (PLA Systems)
