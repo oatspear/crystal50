@@ -85,8 +85,7 @@ TrainerTwinsAmyandmay2:
 	opentext
 	writetext TwinsAmyandmay2AfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, SILVERPOWDER, TwinsAmyandmay2TutorText, TwinsAmyandmay2TutorThanksText, TwinsAmyandmay2TutorRefusedText
 
 TrainerBugCatcherBenny:
 	trainer BUG_CATCHER, BUG_CATCHER_BENNY, EVENT_BEAT_BUG_CATCHER_BENNY, BugCatcherBennySeenText, BugCatcherBennyBeatenText, 0, .AfterScript
@@ -308,7 +307,8 @@ TwinsAmyandmay1AfterBattleText:
 	done
 
 TwinsAmyandmay1TutorText:
-	text "Oh! Is that"
+TwinsAmyandmay2TutorText:
+	text "Is that"
 	line "SILVERPOWDER?"
 
 	para "Can I have it?"
@@ -340,6 +340,14 @@ TwinsAmyandmay2AfterBattleText:
 	text "MAY: Our bug #-"
 	line "MON lost! Oh, what"
 	cont "a shame."
+	done
+
+TwinsAmyandmay2TutorThanksText:
+	text "MAY: Thanks a lot!"
+	done
+
+TwinsAmyandmay2TutorRefusedText:
+	text "MAY: Oh, okay."
 	done
 
 AzaleaGymGuideText:
