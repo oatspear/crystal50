@@ -308,7 +308,7 @@ MT01 EQU const_value
 	add_mt FLAMETHROWER
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
-
+	; Gym tutors
 	add_mt STRUGGLE_BUG
 	add_mt BUG_BITE
 	add_mt SILVER_WIND
