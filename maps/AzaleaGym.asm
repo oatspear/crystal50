@@ -73,7 +73,9 @@ TrainerTwinsAmyandmay1:
 .AfterScript:
 	endifjustbattled
 	opentext
-	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, POTION, TwinsAmyandmay1AfterBattleText, TwinsAmyandmay1TutorText, TwinsAmyandmay1TutorThanksText, TwinsAmyandmay1TutorRefusedText
+	writetext TwinsAmyandmay1AfterBattleText
+	waitbutton
+	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, POTION, TwinsAmyandmay1TutorText, TwinsAmyandmay1TutorThanksText, TwinsAmyandmay1TutorRefusedText
 
 TrainerTwinsAmyandmay2:
 	trainer TWINS, AMYANDMAY2, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay2SeenText, TwinsAmyandmay2BeatenText, 0, .AfterScript
@@ -306,15 +308,13 @@ TwinsAmyandmay1AfterBattleText:
 	done
 
 TwinsAmyandmay1TutorText:
-	text "AMY: You even"
-	line "beat BUGSY?"
+	text "Oh! Is that"
+	line "SILVERPOWDER?"
 
-	para "Then we can teach"
-	line "you STRUGGLE BUG,"
-
-	para "in exchange for"
-	line "SILVERPOWDER."
-	cont "Deal?"
+	para "Can I have it?"
+	line "I will teach you"
+	cont "STRUGGLE BUG in"
+	cont "return."
 	done
 
 TwinsAmyandmay1TutorThanksText:

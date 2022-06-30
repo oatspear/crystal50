@@ -1077,19 +1077,25 @@ ENDM
 NUM_EVENT_COMMANDS EQU const_value
 
 gymtutor: MACRO
-	checkevent \1 ; required event flag
-	iffalse .NoTutorAfterText
-	checkitem \3 ; required item for payment
-	iffalse .NoTutorAfterText
-	writetext \5 ; tutoring text
+;\1: required event flag
+;\2: move id
+;\3: required item for payment
+;\4: tutor move text
+;\5: thanks text
+;\6: refused text
+	checkevent \1
+	iffalse .TutorDone
+	checkitem \3
+	iffalse .TutorDone
+	writetext \4
 	yesorno
 	iffalse .TutorRefused
-	setval \2 ; move id
-	special MoveTutor
-	iffalse .TeachMove
+	setval \2
+	special MoveTutor ; returns FALSE if all goes well
+	ifequal FALSE, .TeachMove
 
 .TutorRefused:
-	writetext \7 ; refused text
+	writetext \6
 	waitbutton
 	closetext
 	end
@@ -1102,9 +1108,13 @@ gymtutor: MACRO
 
 .TeachMove:
 	verbosetakeitem \3
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext \5
 	waitbutton
-	writetext \6 ; thanks text
-	waitbutton
+	; fallthrough
+
+.TutorDone:
 	closetext
 	end
 ENDM
