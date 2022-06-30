@@ -33,14 +33,6 @@ MoveTutor:
 	call CloseSubmenu
 	ret
 
-.flamethrower
-	ld a, MT01_MOVE ; FLAMETHROWER
-	ret
-
-.thunderbolt
-	ld a, MT02_MOVE ; THUNDERBOLT
-	ret
-
 CheckCanLearnMoveTutorMove:
 	ld hl, .MenuHeader
 	call LoadMenuHeader

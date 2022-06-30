@@ -261,6 +261,13 @@ _ReceivedItemText::
 	text "."
 	done
 
+_GaveItemText::
+	text "<PLAYER> gave"
+	line "@"
+	text_ram wStringBuffer4
+	text "."
+	done
+
 _PutItemInPocketText::
 	text "<PLAYER> put the"
 	line "@"
