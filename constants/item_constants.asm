@@ -245,7 +245,7 @@ TM01 EQU const_value
 	add_tm ENERGY_BALL  ; d8
 	add_tm THUNDER      ; d9
 	add_tm EARTHQUAKE   ; da
-	add_tm BRICK_BREAK  ; db
+	add_tm BULK_UP      ; db
 	add_tm DIG          ; dc
 	add_tm PSYCHIC_M    ; dd
 	add_tm SCALD        ; de
@@ -289,7 +289,7 @@ HM01 EQU const_value
 	add_hm FURY_CUTTER  ; f6
 	add_hm FACADE       ; f7
 	add_hm SHADOW_BALL  ; f8
-	add_hm BULK_UP      ; f9
+	add_hm BRICK_BREAK  ; f9
 	add_hm IRON_TAIL    ; fa
 	add_hm AVALANCHE    ; fb
 	add_hm DRAGONBREATH ; fc

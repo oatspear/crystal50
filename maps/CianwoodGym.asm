@@ -50,7 +50,7 @@ CianwoodGymChuckScript:
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_HM05_BULK_UP
+	checkevent EVENT_GOT_HM05_BRICK_BREAK
 	iftrue .AlreadyGotHM
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
@@ -58,9 +58,9 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_LUNG
 	writetext ChuckExplainBadgeText
 	promptbutton
-	verbosegiveitem HM_BULK_UP
+	verbosegiveitem HM_BRICK_BREAK
 	iffalse .BagFull
-	setevent EVENT_GOT_HM05_BULK_UP
+	setevent EVENT_GOT_HM05_BRICK_BREAK
 	writetext ChuckExplainHMText
 	waitbutton
 	closetext
@@ -216,12 +216,12 @@ ChuckExplainBadgeText:
 	done
 
 ChuckExplainHMText:
-	text "That is BULK UP."
-	line "It toughens up"
-	cont "your #MON,"
+	text "That is BRICK"
+	line "BREAK!"
 
-	para "increasing their"
-	line "battle abilities!"
+	para "Now your #MON"
+	line "will shatter the"
+	cont "enemy's defenses!"
 	done
 
 ChuckAfterText:

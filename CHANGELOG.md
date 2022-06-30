@@ -13,6 +13,7 @@
 - Levels and teams of gym leaders and trainers.
 - Trainer Pokémon hold Oran Berry by default.
 - Reduced PP cost for: Metronome, Spite, Mimic.
+- Chuck awards Brick Break as a HM, rather than Bulk Up.
 
 ## v0.4 (PLA Systems)
 
