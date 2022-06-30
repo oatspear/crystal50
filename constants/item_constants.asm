@@ -276,7 +276,7 @@ NUM_TMS EQU __tmhm_value__ - 1
 add_hm: MACRO
 ; Defines three constants:
 ; - HM_\1: the item id, starting at $f5
-; - \1_TMNUM: the learnable TM/HM flag, starting at 51
+; - \1_TMNUM: the learnable TM/HM flag, starting at 53
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 	const HM_\1
 HM_VALUE = __tmhm_value__ - NUM_TMS
@@ -297,7 +297,7 @@ NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
 ; Defines two constants:
-; - \1_TMNUM: the learnable TM/HM flag, starting at 59
+; - \1_TMNUM: the learnable TM/HM flag, starting at 61
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
 MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
 MT{02d:MT_VALUE}_MOVE = \1
@@ -308,6 +308,27 @@ MT01 EQU const_value
 	add_mt FLAMETHROWER
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
+
+	add_mt STRUGGLE_BUG
+	add_mt BUG_BITE
+	add_mt SILVER_WIND
+	add_mt INFESTATION
+	add_mt HEAL_BELL
+	add_mt SLASH
+	add_mt DRAIN_KISS
+	add_mt DESTINY_BOND
+	add_mt OMINOUS_WIND
+	add_mt SPITE
+	add_mt WILL_O_WISP
+	add_mt LOW_SWEEP
+	add_mt REVERSAL
+	add_mt AURORA_BEAM
+	add_mt ICE_FANG
+	add_mt ICE_SHARD
+	add_mt OUTRAGE
+	add_mt TWISTER
+	add_mt DRAGON_PULSE
+	add_mt DRAGON_DANCE
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
