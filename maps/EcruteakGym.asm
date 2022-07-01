@@ -428,16 +428,11 @@ MediumGraceAfterBattleText:
 	done
 
 MediumGraceTutorText:
-	text "Hohohoho. A SPELL"
-	line "TAG won't help you"
-	cont "see, but it will"
+	text "A SPELL TAG is the"
+	line "tribute."
 
-	para "summon the WILL-"
-	line "-O-WISP for you"
-	cont "you in no time!"
-
-	para "Would you like"
-	line "to see it?"
+	para "The WILL-O-WISP"
+	cont "will show the way!"
 	done
 
 MediumGraceTutorThanksText:
@@ -445,20 +440,17 @@ MediumGraceTutorThanksText:
 	done
 
 MediumGraceTutorRefusedText:
-	text "You are not ready"
-	line "for the path."
+	text "You are not ready."
 	done
 
 EcruteakGymGuideText:
 	text "The trainers here"
-	line "have secret mo-"
-	cont "tives."
+	line "have secret"
+	cont "motives."
 
 	para "If you win, they"
 	line "may tell you some"
-
-	para "deep secrets about"
-	line "ECRUTEAK."
+	cont "deep secrets."
 	done
 
 EcruteakGymGuideWinText:
@@ -476,8 +468,6 @@ EcruteakGymClosedText:
 
 	para "Sorry, but you'll"
 	line "have to leave."
-
-	para "Hohohoho."
 	done
 
 EcruteakGym_MapEvents:
