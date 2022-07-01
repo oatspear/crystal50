@@ -75,7 +75,7 @@ TrainerTwinsAmyandmay1:
 	opentext
 	writetext TwinsAmyandmay1AfterBattleText
 	waitbutton
-	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, POTION, TwinsAmyandmay1TutorText, TwinsAmyandmay1TutorThanksText, TwinsAmyandmay1TutorRefusedText
+	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, BERRY_JUICE, TwinsAmyandmay1TutorText, TwinsAmyandmay1TutorThanksText, TwinsAmyandmay1TutorRefusedText
 
 TrainerTwinsAmyandmay2:
 	trainer TWINS, AMYANDMAY2, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay2SeenText, TwinsAmyandmay2BeatenText, 0, .AfterScript
@@ -85,7 +85,7 @@ TrainerTwinsAmyandmay2:
 	opentext
 	writetext TwinsAmyandmay2AfterBattleText
 	waitbutton
-	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, SILVERPOWDER, TwinsAmyandmay2TutorText, TwinsAmyandmay2TutorThanksText, TwinsAmyandmay2TutorRefusedText
+	gymtutor EVENT_BEAT_BUGSY, STRUGGLE_BUG, BERRY_JUICE, TwinsAmyandmay2TutorText, TwinsAmyandmay2TutorThanksText, TwinsAmyandmay2TutorRefusedText
 
 TrainerBugCatcherBenny:
 	trainer BUG_CATCHER, BUG_CATCHER_BENNY, EVENT_BEAT_BUG_CATCHER_BENNY, BugCatcherBennySeenText, BugCatcherBennyBeatenText, 0, .AfterScript
@@ -95,8 +95,7 @@ TrainerBugCatcherBenny:
 	opentext
 	writetext BugCatcherBennyAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_BUGSY, BUG_BITE, SITRUS_BERRY, BugCatcherBennyTutorText, BugCatcherBennyTutorThanksText, BugCatcherBennyTutorRefusedText
 
 TrainerBugCatcherAl:
 	trainer BUG_CATCHER, AL, EVENT_BEAT_BUG_CATCHER_AL, BugCatcherAlSeenText, BugCatcherAlBeatenText, 0, .AfterScript
@@ -106,8 +105,7 @@ TrainerBugCatcherAl:
 	opentext
 	writetext BugCatcherAlAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_BUGSY, SILVER_WIND, SILVERPOWDER, BugCatcherAlTutorText, BugCatcherAlTutorThanksText, BugCatcherAlTutorRefusedText
 
 TrainerBugCatcherJosh:
 	trainer BUG_CATCHER, JOSH, EVENT_BEAT_BUG_CATCHER_JOSH, BugCatcherJoshSeenText, BugCatcherJoshBeatenText, 0, .AfterScript
@@ -117,8 +115,7 @@ TrainerBugCatcherJosh:
 	opentext
 	writetext BugCatcherJoshAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_BUGSY, INFESTATION, SILVERPOWDER, BugCatcherJoshTutorText, BugCatcherJoshTutorThanksText, BugCatcherJoshTutorRefusedText
 
 AzaleaGymGuideScript:
 	faceplayer
@@ -245,6 +242,32 @@ BugCatcherBennyAfterBattleText:
 	text "#MON become"
 	line "stronger if they"
 	cont "evolve. Really!"
+
+	para "They also need"
+	line "lots of berries"
+	cont "to grow."
+
+	para "If only I had"
+	line "SITRUS BERRY here…"
+	done
+
+BugCatcherBennyTutorText:
+	text "Do you have some"
+	line "you can spare?"
+
+	para "I'll teach you"
+	line "the move BUG BITE"
+	cont "in return."
+	done
+
+BugCatcherBennyTutorThanksText:
+	text "Thanks a lot!"
+	done
+
+BugCatcherBennyTutorRefusedText:
+	text "Alright… I guess"
+	line "I've got to go"
+	cont "fetch some myself."
 	done
 
 BugCatcherAlSeenText:
@@ -268,6 +291,29 @@ BugCatcherAlAfterBattleText:
 	line "#MON."
 
 	para "I don't know why…"
+
+	para "Maybe using some"
+	line "SILVERPOWDER"
+	cont "will help?"
+	done
+
+BugCatcherAlTutorText:
+	text "Would you share"
+	line "yours with me?"
+
+	para "I'll teach you"
+	line "SILVER WIND as"
+	cont "thanks."
+	done
+
+BugCatcherAlTutorThanksText:
+	text "Yes! I will try"
+	line "my luck now."
+	done
+
+BugCatcherAlTutorRefusedText:
+	text "You don't like"
+	line "them either?"
 	done
 
 BugCatcherJoshSeenText:
@@ -285,9 +331,32 @@ BugCatcherJoshBeatenText:
 	done
 
 BugCatcherJoshAfterBattleText:
-	text "I guess I should"
-	line "teach them better"
-	cont "moves…"
+	text "I guess I cannot"
+	line "win relying just"
+	cont "on INFESTATION…"
+
+	para "Maybe I need"
+	line "SILVERPOWDER, to"
+	cont "boost their power."
+	done
+
+BugCatcherJoshTutorText:
+	text "Do you have some"
+	line "you don't need?"
+
+	para "I could teach you"
+	line "how to be tricky"
+	cont "with INFESTATION."
+	done
+
+BugCatcherJoshTutorThanksText:
+	text "It's an awesome"
+	line "move, isn't it?"
+	done
+
+BugCatcherJoshTutorRefusedText:
+	text "Let me know if you"
+	line "change your mind."
 	done
 
 TwinsAmyandmay1SeenText:
@@ -304,17 +373,19 @@ TwinsAmyandmay1BeatenText:
 TwinsAmyandmay1AfterBattleText:
 	text "AMY: You're"
 	line "really strong!"
+
+	para "But I bet I can"
+	line "make you stronger."
+
+	para "Just get me some"
+	cont "BERRY JUICE! Hehe!"
 	done
 
 TwinsAmyandmay1TutorText:
 TwinsAmyandmay2TutorText:
-	text "Is that"
-	line "SILVERPOWDER?"
-
-	para "Can I have it?"
-	line "I will teach you"
-	cont "STRUGGLE BUG in"
-	cont "return."
+	text "I will teach you"
+	cont "our special move,"
+	cont "STRUGGLE BUG!"
 	done
 
 TwinsAmyandmay1TutorThanksText:
@@ -322,7 +393,7 @@ TwinsAmyandmay1TutorThanksText:
 	done
 
 TwinsAmyandmay1TutorRefusedText:
-	text "AMY: Oh, okay."
+	text "AMY: Oh, okay…"
 	done
 
 TwinsAmyandmay2SeenText:
@@ -340,6 +411,10 @@ TwinsAmyandmay2AfterBattleText:
 	text "MAY: Our bug #-"
 	line "MON lost! Oh, what"
 	cont "a shame."
+
+	para "Some BERRY JUICE"
+	line "would help cheer"
+	cont "us up now…"
 	done
 
 TwinsAmyandmay2TutorThanksText:
@@ -347,7 +422,7 @@ TwinsAmyandmay2TutorThanksText:
 	done
 
 TwinsAmyandmay2TutorRefusedText:
-	text "MAY: Oh, okay."
+	text "MAY: Oh, okay…"
 	done
 
 AzaleaGymGuideText:
