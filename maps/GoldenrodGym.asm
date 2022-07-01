@@ -98,8 +98,7 @@ TrainerLassCarrie:
 	opentext
 	writetext LassCarrieAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_WHITNEY, HEAL_BELL, POKE_DOLL, LassCarrieTutorText, LassCarrieTutorThanksText, LassCarrieTutorRefusedText
 
 WhitneyCriesScript:
 	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
@@ -122,8 +121,7 @@ TrainerLassBridget:
 	opentext
 	writetext LassBridgetAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_WHITNEY, DRAIN_KISS, CALCIUM, LassBridgetTutorText, LassBridgetTutorThanksText, LassBridgetTutorRefusedText
 
 TrainerBeautyVictoria:
 	trainer BEAUTY, VICTORIA, EVENT_BEAT_BEAUTY_VICTORIA, BeautyVictoriaSeenText, BeautyVictoriaBeatenText, 0, .Script
@@ -133,8 +131,7 @@ TrainerBeautyVictoria:
 	opentext
 	writetext BeautyVictoriaAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_WHITNEY, ATTRACT, PECHA_BERRY, BeautyVictoriaTutorText, BeautyVictoriaTutorThanksText, BeautyVictoriaTutorRefusedText
 
 TrainerBeautySamantha:
 	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, BeautySamanthaBeatenText, 0, .Script
@@ -144,8 +141,7 @@ TrainerBeautySamantha:
 	opentext
 	writetext BeautySamanthaAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_WHITNEY, SLASH, PINK_BOW, BeautySamanthaTutorText, BeautySamanthaTutorThanksText, BeautySamanthaTutorRefusedText
 
 GoldenrodGymGuideScript:
 	faceplayer
@@ -280,8 +276,30 @@ LassCarrieBeatenText:
 	done
 
 LassCarrieAfterBattleText:
-	text "Do my #MON"
-	line "think I'm cute?"
+	text "I should get a"
+	line "#DOLL, for my"
+	cont "cute #MON to"
+	cont "play with!"
+	done
+
+LassCarrieTutorText:
+	text "Oh! You have one!"
+	line "Can we have it?"
+
+	para "I'll teach you"
+	line "our cute move,"
+	cont "HEAL BELL!"
+	done
+
+LassCarrieTutorThanksText:
+	text "This move is so"
+	line "cute that it even"
+	cont "heals sick #MON!"
+	done
+
+LassCarrieTutorRefusedText:
+	text "You don't like it?"
+	line "Okay…"
 	done
 
 LassBridgetSeenText:
@@ -306,7 +324,29 @@ LassBridgetAfterBattleText:
 	line "lose, I'll just"
 
 	para "try harder next"
-	line "time!"
+	line "time! Maybe some"
+	cont "CALCIUM will make"
+	cont "my #MON stronger!"
+	done
+
+LassBridgetTutorText:
+	text "If you get me some"
+	line "I will make your"
+	cont "cute #MON strong"
+	cont "too!"
+
+	para "I'll teach them"
+	line "DRAIN KISS!"
+	done
+
+LassBridgetTutorThanksText:
+	text "I knew you would"
+	line "not let us down!"
+	done
+
+LassBridgetTutorRefusedText:
+	text "No? Well, that's"
+	line "also depressing…"
 	done
 
 BridgetWhitneyCriesText:
@@ -335,8 +375,33 @@ BeautyVictoriaBeatenText:
 
 BeautyVictoriaAfterBattleText:
 	text "Wow, you must be"
-	line "good to beat me!"
-	cont "Keep it up!"
+	line "good to break"
+	cont "through ATTRACT!"
+
+	para "I love this move"
+	line "almost as much as"
+	cont "I love PECHA"
+	cont "BERRIES."
+	done
+
+BeautyVictoriaTutorText:
+	text "Oh! You have some!"
+	line "Can I have one?"
+
+	para "I'll let you in on"
+	line "the secrets of"
+	cont "ATTRACT."
+	done
+
+BeautyVictoriaTutorThanksText:
+	text "Thanks!"
+	line "Keep it up!"
+	done
+
+BeautyVictoriaTutorRefusedText:
+	text "Not everyone ap-"
+	line "preciates beauty"
+	cont "the same way."
 	done
 
 BeautySamanthaSeenText:
@@ -354,6 +419,28 @@ BeautySamanthaAfterBattleText:
 	text "I taught MEOWTH"
 	line "moves for taking"
 	cont "on any type…"
+
+	para "They probably need"
+	line "a PINK BOW to get"
+	cont "that extra power…"
+	done
+
+BeautySamanthaTutorText:
+	text "Would you be a"
+	line "cutie and get one"
+	cont "for me?"
+
+	para "I'll teach you our"
+	line "special: SLASH!"
+	done
+
+BeautySamanthaTutorThanksText:
+	text "Even cute #MON"
+	line "hide deadly claws!"
+	done
+
+BeautySamanthaTutorRefusedText:
+	text "Pretty please?"
 	done
 
 GoldenrodGymGuideText:
