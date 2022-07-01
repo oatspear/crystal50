@@ -103,8 +103,7 @@ TrainerSageJeffrey:
 	opentext
 	writetext SageJeffreyAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_MORTY, DESTINY_BOND, ENERGYPOWDER, SageJeffreyTutorText, SageJeffreyTutorThanksText, SageJeffreyTutorRefusedText
 
 TrainerSagePing:
 	trainer SAGE, PING, EVENT_BEAT_SAGE_PING, SagePingSeenText, SagePingBeatenText, 0, .Script
@@ -114,8 +113,7 @@ TrainerSagePing:
 	opentext
 	writetext SagePingAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_MORTY, OMINOUS_WIND, SPELL_TAG, SagePingTutorText, SagePingTutorThanksText, SagePingTutorRefusedText
 
 TrainerMediumMartha:
 	trainer MEDIUM, MARTHA, EVENT_BEAT_MEDIUM_MARTHA, MediumMarthaSeenText, MediumMarthaBeatenText, 0, .Script
@@ -125,8 +123,7 @@ TrainerMediumMartha:
 	opentext
 	writetext MediumMarthaAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_MORTY, SPITE, LEPPA_BERRY, MediumMarthaTutorText, MediumMarthaTutorThanksText, MediumMarthaTutorRefusedText
 
 TrainerMediumGrace:
 	trainer MEDIUM, GRACE, EVENT_BEAT_MEDIUM_GRACE, MediumGraceSeenText, MediumGraceBeatenText, 0, .Script
@@ -136,8 +133,7 @@ TrainerMediumGrace:
 	opentext
 	writetext MediumGraceAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_MORTY, WILL_O_WISP, SPELL_TAG, MediumGraceTutorText, MediumGraceTutorThanksText, MediumGraceTutorRefusedText
 
 EcruteakGymGuideScript:
 	faceplayer
@@ -295,8 +291,37 @@ SageJeffreyBeatenText:
 	done
 
 SageJeffreyAfterBattleText:
-	text "Where did #MON"
-	line "come from?"
+	text "Living a long life"
+	line "sometimes requires"
+	cont "good medicine."
+
+	para "ENERGYPOWDER is"
+	line "bitter, but it"
+	cont "is potent."
+	done
+
+SageJeffreyTutorText:
+	text "DESTINY BOND is a"
+	line "move that can also"
+
+	para "leave a bitter"
+	line "taste on your"
+	cont "opponents."
+
+	para "I can teach it,"
+	line "in exchange for"
+	cont "ENERGYPOWDER."
+	done
+
+SageJeffreyTutorThanksText:
+	text "May your destiny"
+	line "bring you good"
+	cont "fortune."
+	done
+
+SageJeffreyTutorRefusedText:
+	text "It wasn't destined"
+	line "to be."
 	done
 
 SagePingSeenText:
@@ -316,6 +341,29 @@ SagePingAfterBattleText:
 	para "No normal-type"
 	line "attack can harm"
 	cont "them!"
+
+	para "They get stronger"
+	line "with a SPELL TAG."
+	done
+
+SagePingTutorText:
+	text "In exchange for"
+	line "one, I can teach"
+	cont "you OMINOUS WIND."
+
+	para "A move that is"
+	line "certain to spook"
+	cont "any adversary."
+	done
+
+SagePingTutorThanksText:
+	text "Well done,"
+	line "well done."
+	done
+
+SagePingTutorRefusedText:
+	text "Are you afraid of"
+	line "ghosts?"
 	done
 
 MediumMarthaSeenText:
@@ -329,7 +377,34 @@ MediumMarthaBeatenText:
 MediumMarthaAfterBattleText:
 	text "The one who wants"
 	line "to win most--will!"
+
+	para "But winning can be"
+	line "exhausting."
+
+	para "LEPPA BERRIES are"
+	line "good to get that"
+	cont "energy back."
 	done
+
+MediumMarthaTutorText:
+	text "I'm quite tired,"
+	line "actually."
+
+	para "For your LEPPA"
+	line "BERRY, I will"
+
+	para "teach you SPITE,"
+	line "a move drains"
+	cont "energy. Hehehe."
+	done
+
+MediumMarthaTutorThanksText:
+	text "Hohohoho!"
+	line "Invigorating!"
+	done
+
+MediumMarthaTutorRefusedText:
+	text "So tired…"
 
 MediumGraceSeenText:
 	text "Stumped by our in-"
@@ -344,14 +419,34 @@ MediumGraceBeatenText:
 	done
 
 MediumGraceAfterBattleText:
-	text "Fine. I shall tell"
-	line "you the secret of"
-
-	para "the invisible"
-	line "floor."
-
-	para "The path is right"
+	text "The path is right"
 	line "before our eyes!"
+
+	para "Maybe with a"
+	line "SPELL TAG you"
+	cont "could see it too."
+	done
+
+MediumGraceTutorText:
+	text "Hohohoho. A SPELL"
+	line "TAG won't help you"
+	cont "see, but it will"
+
+	para "summon the WILL-"
+	line "-O-WISP for you"
+	cont "you in no time!"
+
+	para "Would you like"
+	line "to see it?"
+	done
+
+MediumGraceTutorThanksText:
+	text "Hohohoho!"
+	done
+
+MediumGraceTutorRefusedText:
+	text "You are not ready"
+	line "for the path."
 	done
 
 EcruteakGymGuideText:
