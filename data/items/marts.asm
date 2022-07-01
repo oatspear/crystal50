@@ -97,7 +97,7 @@ MartCianwood:
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
-	db ETHER
+	db ELIXER
 	db PROTEIN
 	db IRON
 	db CARBOS
