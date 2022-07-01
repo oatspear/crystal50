@@ -91,13 +91,16 @@ MartAzalea:
 	db -1 ; end
 
 MartCianwood:
-	db 6 ; # items
+	db 9 ; # items
 	db BERRY_JUICE
 	db SUPER_POTION
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
 	db ETHER
+	db PROTEIN
+	db IRON
+	db CARBOS
 	db -1 ; end
 
 MartGoldenrod2F1:
