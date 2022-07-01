@@ -115,7 +115,9 @@ MartGoldenrod2F1:
 	db -1 ; end
 
 MartGoldenrod2F2:
-	db 8 ; # items
+	db 10 ; # items
+	db PINK_BOW
+	db POLKADOT_BOW
 	db POKE_BALL
 	db GREAT_BALL
 	db ULTRA_BALL
