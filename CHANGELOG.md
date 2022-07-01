@@ -4,6 +4,7 @@
 
 ### Added
 - Berry market at the Berry house on Route 30, north of Cherrygrove.
+- Move tutors: every Gym trainer will teach their special move in exchange for an item.
 
 ### Changed
 - Prices of berries, so they can be purchased at a vendor.

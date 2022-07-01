@@ -64,8 +64,7 @@ TrainerCooltrainermCody:
 	opentext
 	writetext CooltrainermCodyAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CLAIR, OUTRAGE, DRAGON_FANG, CooltrainermCodyTutorText, CooltrainermCodyTutorThanksText, CooltrainermCodyTutorRefusedText
 
 TrainerCooltrainerfFran:
 	trainer COOLTRAINERF, FRAN, EVENT_BEAT_COOLTRAINERF_FRAN, CooltrainerfFranSeenText, CooltrainerfFranBeatenText, 0, .Script
@@ -75,8 +74,7 @@ TrainerCooltrainerfFran:
 	opentext
 	writetext CooltrainerfFranAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CLAIR, DRAGON_PULSE, DRAGON_SCALE, CooltrainerfFranTutorText, CooltrainerfFranTutorThanksText, CooltrainerfFranTutorRefusedText
 
 CooltrainermCodySeenText:
 	text "It's not as if we"
@@ -98,6 +96,30 @@ CooltrainermCodyAfterBattleText:
 
 	para "our MASTER allows"
 	line "it."
+
+	para "We can still use"
+	line "DRAGON FANGS to"
+	cont "boost dragon-type"
+	cont "moves, though."
+	done
+
+CooltrainermCodyTutorText:
+	text "Wow! You've got"
+	line "a DRAGON FANG!"
+
+	para "Can I have it?"
+	line "I'll teach you"
+
+	para "OUTRAGE, a very"
+	line "powerful move!"
+	done
+
+CooltrainermCodyTutorThanksText:
+	text "Thanks!"
+	done
+
+CooltrainermCodyTutorRefusedText:
+	text "Outrageous!"
 	done
 
 CooltrainerfFranSeenText:
@@ -110,12 +132,36 @@ CooltrainerfFranSeenText:
 	done
 
 CooltrainerfFranBeatenText:
-	text "Awww… I lost…"
+	text "Uh-oh… CLAIR is"
+	line "going to be mad…"
 	done
 
 CooltrainerfFranAfterBattleText:
-	text "Uh-oh… CLAIR is"
-	line "going to be mad…"
+	text "You're strong"
+	line "enough that I can"
+	cont "tell you this--"
+
+	para "A DRAGON SCALE"
+	line "helps some dragons"
+	cont "evolve fully!"
+	done
+
+CooltrainerfFranTutorText:
+	text "But they're so"
+	line "pretty that I love"
+	cont "to collect them."
+
+	para "I can teach you"
+	line "DRAGON PULSE in"
+	cont "exchange for one."
+	done
+
+CooltrainerfFranTutorThanksText:
+	text "Beautiful!"
+	done
+
+CooltrainerfFranTutorRefusedText:
+	text "OK, then…"
 	done
 
 BlackthornGym2FBoulderFellText:
