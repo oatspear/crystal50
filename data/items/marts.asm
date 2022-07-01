@@ -132,7 +132,7 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F1:
-	db 7 ; # items
+	db 8 ; # items
 	db X_SPEED
 	db X_SPECIAL
 	db X_DEFEND
@@ -140,6 +140,7 @@ MartGoldenrod3F1:
 	db DIRE_HIT
 	db GUARD_SPEC
 	db X_ACCURACY
+	db ELIXER
 	db -1 ; end
 
 MartGoldenrod3F2:
@@ -262,25 +263,25 @@ MartMahogany2:
 	db MYSTIC_WATER
 	db FRESH_WATER
 	db POKE_BALL
-	db SUPER_POTION
 	db HYPER_POTION
 	db SUPER_REPEL
 	db REVIVE
+	db ELIXER
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartBlackthorn:
 	db 10 ; # items
+	db DRAGON_FANG
+	db DRAGON_SCALE
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db REVIVE
 	db MAX_REPEL
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
-	db X_SPECIAL
+	db ELIXER
+	db FOCUS_BAND
 	db -1 ; end
 
 MartViridian:
