@@ -92,8 +92,7 @@ TrainerBlackbeltYoshi:
 	opentext
 	writetext BlackbeltYoshiAfterText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CHUCK, LOW_SWEEP, IRON, BlackbeltYoshiTutorText, BlackbeltYoshiTutorThanksText, BlackbeltYoshiTutorRefusedText
 
 TrainerBlackbeltLao:
 	trainer BLACKBELT_T, LAO, EVENT_BEAT_BLACKBELT_LAO, BlackbeltLaoSeenText, BlackbeltLaoBeatenText, 0, .Script
@@ -103,8 +102,7 @@ TrainerBlackbeltLao:
 	opentext
 	writetext BlackbeltLaoAfterText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CHUCK, DRAIN_PUNCH, CARBOS, BlackbeltLaoTutorText, BlackbeltLaoTutorThanksText, BlackbeltLaoTutorRefusedText
 
 TrainerBlackbeltNob:
 	trainer BLACKBELT_T, NOB, EVENT_BEAT_BLACKBELT_NOB, BlackbeltNobSeenText, BlackbeltNobBeatenText, 0, .Script
@@ -114,8 +112,7 @@ TrainerBlackbeltNob:
 	opentext
 	writetext BlackbeltNobAfterText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CHUCK, BULK_UP, PROTEIN, BlackbeltNobTutorText, BlackbeltNobTutorThanksText, BlackbeltNobTutorRefusedText
 
 TrainerBlackbeltLung:
 	trainer BLACKBELT_T, LUNG, EVENT_BEAT_BLACKBELT_LUNG, BlackbeltLungSeenText, BlackbeltLungBeatenText, 0, .Script
@@ -125,8 +122,7 @@ TrainerBlackbeltLung:
 	opentext
 	writetext BlackbeltLungAfterText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CHUCK, REVERSAL, BERRY_JUICE, BlackbeltLungTutorText, BlackbeltLungTutorThanksText, BlackbeltLungTutorRefusedText
 
 CianwoodGymBoulder:
 	jumpstd StrengthBoulderScript
@@ -253,6 +249,29 @@ BlackbeltYoshiAfterText:
 	text "You seem to have a"
 	line "strong bond with"
 	cont "your #MON too!"
+
+	para "Strong like IRON!"
+	done
+
+BlackbeltYoshiTutorText:
+	text "Ha! I see you know"
+	line "what I mean."
+
+	para "Feed some to my"
+	line "#MON, and I will"
+
+	para "show you a"
+	line "LOW SWEEP!"
+	done
+
+BlackbeltYoshiTutorThanksText:
+	text "Bring your foes"
+	line "to the ground!"
+	done
+
+BlackbeltYoshiTutorRefusedText:
+	text "Back to training,"
+	line "then."
 	done
 
 BlackbeltLaoSeenText:
@@ -266,8 +285,31 @@ BlackbeltLaoBeatenText:
 
 BlackbeltLaoAfterText:
 	text "Fighting #MON"
-	line "are afraid of psy-"
-	cont "chics…"
+	line "are afraid of"
+	cont "psychics…"
+
+	para "With CARBOS,"
+	line "we can punch them"
+	cont "before they see"
+	cont "us coming!"
+	done
+
+BlackbeltLaoTutorText:
+	text "Wanna see it?"
+
+	para "Give me CARBOS and"
+	line "I will show you"
+
+	para "a lightning-fast"
+	line "DRAIN PUNCH."
+	done
+
+BlackbeltLaoTutorThanksText:
+	text "Pow! Ha!"
+	done
+
+BlackbeltLaoTutorRefusedText:
+	text "Too bad."
 	done
 
 BlackbeltNobSeenText:
@@ -281,8 +323,30 @@ BlackbeltNobBeatenText:
 	done
 
 BlackbeltNobAfterText:
-	text "I lost! "
+	text "I lost!"
 	line "I'm speechless!"
+
+	para "Better get some"
+	line "PROTEIN to build"
+	cont "more muscle."
+	done
+
+BlackbeltNobTutorText:
+	text "Oh, you have some!"
+	line "If you share it,"
+
+	para "I can show you a"
+	line "training routine"
+	cont "to BULK UP!"
+	done
+
+BlackbeltNobTutorThanksText:
+	text "Stay buff!"
+	done
+
+BlackbeltNobTutorRefusedText:
+	text "Come back if you"
+	line "change your mind."
 	done
 
 BlackbeltLungSeenText:
@@ -299,6 +363,31 @@ BlackbeltLungAfterText:
 	text "My #MON lost…"
 	line "My… my pride is"
 	cont "shattered…"
+
+	para "I need some BERRY"
+	line "JUICE to get back"
+	cont "on my feet."
+	done
+
+BlackbeltLungTutorText:
+	text "Would you share"
+	line "some with me?"
+
+	para "I could teach you"
+	line "the move REVERSAL."
+
+	para "It turns a dire"
+	line "situation into"
+	cont "an advantage."
+	done
+
+BlackbeltLungTutorThanksText:
+	text "Thanks. I feel my"
+	line "pride swelling!"
+	done
+
+BlackbeltLungTutorRefusedText:
+	text "Thanks anyway."
 	done
 
 CianwoodGym_MapEvents:
