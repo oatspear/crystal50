@@ -76,8 +76,7 @@ TrainerSkierRoxanne:
 	opentext
 	writetext SkierRoxanneAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_PRYCE, HAIL, NEVERMELTICE, SkierRoxanneTutorText, SkierRoxanneTutorThanksText, SkierRoxanneTutorRefusedText
 
 TrainerSkierClarissa:
 	trainer SKIER, CLARISSA, EVENT_BEAT_SKIER_CLARISSA, SkierClarissaSeenText, SkierClarissaBeatenText, 0, .Script
@@ -87,8 +86,7 @@ TrainerSkierClarissa:
 	opentext
 	writetext SkierClarissaAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_PRYCE, AURORA_BEAM, LEMONADE, SkierClarissaTutorText, SkierClarissaTutorThanksText, SkierClarissaTutorRefusedText
 
 TrainerBoarderRonald:
 	trainer BOARDER, RONALD, EVENT_BEAT_BOARDER_RONALD, BoarderRonaldSeenText, BoarderRonaldBeatenText, 0, .Script
@@ -98,8 +96,7 @@ TrainerBoarderRonald:
 	opentext
 	writetext BoarderRonaldAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_PRYCE, ICE_FANG, NEVERMELTICE, BoarderRonaldTutorText, BoarderRonaldTutorThanksText, BoarderRonaldTutorRefusedText
 
 TrainerBoarderBrad:
 	trainer BOARDER, BRAD, EVENT_BEAT_BOARDER_BRAD, BoarderBradSeenText, BoarderBradBeatenText, 0, .Script
@@ -109,8 +106,7 @@ TrainerBoarderBrad:
 	opentext
 	writetext BoarderBradAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_PRYCE, ICE_SHARD, FRESH_WATER, BoarderBradTutorText, BoarderBradTutorThanksText, BoarderBradTutorRefusedText
 
 TrainerBoarderDouglas:
 	trainer BOARDER, DOUGLAS, EVENT_BEAT_BOARDER_DOUGLAS, BoarderDouglasSeenText, BoarderDouglasBeatenText, 0, .Script
@@ -120,8 +116,7 @@ TrainerBoarderDouglas:
 	opentext
 	writetext BoarderDouglasAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_PRYCE, ICY_WIND, CARBOS, BoarderDouglasTutorText, BoarderDouglasTutorThanksText, BoarderDouglasTutorRefusedText
 
 MahoganyGymGuideScript:
 	faceplayer
@@ -256,47 +251,74 @@ BoarderRonaldBeatenText:
 	done
 
 BoarderRonaldAfterBattleText:
-	text "I think there's a"
-	line "move a #MON"
+	text "NEVERMELTICE is"
+	line "great for the GYM"
 
-	para "can use while it's"
-	line "frozen."
+	para "floor, but also"
+	cont "for our #MON!"
+	done
+
+BoarderRonaldTutorText:
+	text "Do you have some?"
+	line "We never get too"
+	cont "much of it!"
+
+	para "I'll teach you the"
+	line "chilling ICE FANG!"
+	done
+
+BoarderRonaldTutorThanksText:
+	text "You're so cool!"
+	done
+
+BoarderRonaldTutorRefusedText:
+	text "B-but it's such"
+	line "a cool move!"
 	done
 
 BoarderBradSeenText:
 	text "This GYM has a"
 	line "slippery floor."
 
-	para "It's fun, isn't"
-	line "it?"
+	para "It's great,"
+	line "isn't it?"
 
-	para "But hey--we're"
-	line "not playing games"
-	cont "here!"
+	para "I love boarding"
+	line "with my #MON!"
 	done
 
 BoarderBradBeatenText:
-	text "Do you see how"
-	line "serious we are?"
+	text "I see you're not"
+	line "playing around!"
 	done
 
 BoarderBradAfterBattleText:
-	text "This GYM is great."
-	line "I love boarding"
-	cont "with my #MON!"
+	text "Watch out for the"
+	line "low temperatures."
+
+	para "FRESH WATER will"
+	line "freeze in here!"
+	done
+
+BoarderBradTutorText:
+	text "If you bring me"
+	line "some, I'll show"
+
+	para "you how to turn"
+	line "it into a million"
+	cont "ICE SHARDS!"
+	done
+
+BoarderBradTutorThanksText:
+	text "Cool, isn't it?"
+	done
+
+BoarderBradTutorRefusedText:
+	text "It's a cool trick,"
+	line "I promise!"
 	done
 
 BoarderDouglasSeenText:
-	text "I know PRYCE's"
-	line "secret."
-	done
-
-BoarderDouglasBeatenText:
-	text "OK. I'll tell you"
-	line "PRYCE's secret."
-	done
-
-BoarderDouglasAfterBattleText:
 	text "The secret behind"
 	line "PRYCE's power…"
 
@@ -305,6 +327,40 @@ BoarderDouglasAfterBattleText:
 
 	para "to strengthen his"
 	line "mind and body."
+
+	para "That's how he can"
+	line "withstand the icy"
+	cont "winds of winter!"
+	done
+
+BoarderDouglasBeatenText:
+	text "How did you do it?"
+	done
+
+BoarderDouglasAfterBattleText:
+	text "The icy winds make"
+	line "it harder to move."
+
+	para "That's why I love"
+	line "the speed boost of"
+	cont "CARBOS!"
+	done
+
+BoarderDouglasTutorText:
+	text "Tell you what, for"
+	line "some CARBOS, I can"
+
+	para "teach you how to"
+	line "summon ICY WINDS."
+	done
+
+BoarderDouglasTutorThanksText:
+	text "I'll be faster"
+	line "than ever now!"
+	done
+
+BoarderDouglasTutorRefusedText:
+	text "That's cold."
 	done
 
 SkierRoxanneSeenText:
@@ -321,27 +377,68 @@ SkierRoxanneBeatenText:
 	done
 
 SkierRoxanneAfterBattleText:
-	text "If you don't skate"
-	line "with precision,"
+	text "This ice never"
+	line "melts, just like"
+	cont "NEVERMELTICE!"
 
-	para "you won't get far"
-	line "in this GYM."
+	para "But it still needs"
+	line "repairing, from"
+	cont "all the skating."
+	done
+
+SkierRoxanneTutorText:
+	text "Do you have some"
+	line "you could donate?"
+
+	para "I'll teach you"
+	line "how to summon"
+	cont "powerful HAIL!"
+	done
+
+SkierRoxanneTutorThanksText:
+	text "Great! Now I can"
+	line "ski some more!"
+	done
+
+SkierRoxanneTutorRefusedText:
+	text "Don't you like"
+	line "ice skating?"
 	done
 
 SkierClarissaSeenText:
-	text "Check out my"
-	line "parallel turn!"
+	text "Check out these"
+	line "gorgeous auroras!"
 	done
 
 SkierClarissaBeatenText:
-	text "No! You made me"
-	line "wipe out!"
+	text "No! My lovely"
+	line "winter lights!"
 	done
 
 SkierClarissaAfterBattleText:
-	text "I shouldn't have"
-	line "been bragging"
-	cont "about my skiing…"
+	text "I should pay more"
+	line "attention to the"
+	cont "battles…"
+
+	para "But I just love an"
+	line "ice-cold LEMONADE"
+	cont "while watching"
+	cont "the auroras…"
+	done
+
+SkierClarissaTutorText:
+	text "If you fetch me"
+	line "some, I'll teach"
+	cont "you how to summon"
+	cont "the winter lights!"
+	done
+
+SkierClarissaTutorThanksText:
+	text "Lovely!"
+	done
+
+SkierClarissaTutorRefusedText:
+	text "Shame…"
 	done
 
 MahoganyGymGuideText:
