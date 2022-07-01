@@ -64,6 +64,7 @@ MartCherrygroveDex:
 
 MartViolet:
 	db 10 ; # items
+	db SHARP_BEAK
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
@@ -72,7 +73,6 @@ MartViolet:
 	db X_DEFEND
 	db X_ATTACK
 	db TM_MUD_SLAP
-	db TM_PLUCK
 	db FLOWER_MAIL
 	db -1 ; end
 
