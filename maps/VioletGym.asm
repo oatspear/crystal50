@@ -72,8 +72,7 @@ TrainerBirdKeeperRod:
 	opentext
 	writetext BirdKeeperRodAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_FALKNER, PLUCK, X_ATTACK, BirdKeeperRodTutorText, BirdKeeperRodTutorThanksText, BirdKeeperRodTutorRefusedText
 
 TrainerBirdKeeperAbe:
 	trainer BIRD_KEEPER, ABE, EVENT_BEAT_BIRD_KEEPER_ABE, BirdKeeperAbeSeenText, BirdKeeperAbeBeatenText, 0, .Script
@@ -83,8 +82,7 @@ TrainerBirdKeeperAbe:
 	opentext
 	writetext BirdKeeperAbeAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_FALKNER, PLUCK, X_ATTACK, BirdKeeperAbeTutorText, BirdKeeperAbeTutorThanksText, BirdKeeperAbeTutorRefusedText
 
 VioletGymGuideScript:
 	faceplayer
@@ -229,7 +227,27 @@ BirdKeeperRodAfterBattleText:
 	text "FALKNER's skills"
 	line "are for real!"
 
-	para "Don't get cocky"
+	para "Maybe with an"
+	line "X ATTACK I would"
+	cont "have the power"
+	cont "to beat him."
+	done
+
+BirdKeeperRodTutorText:
+	text "If you get me one,"
+	line "I'll teach you the"
+	cont "move PLUCK. Deal?"
+	done
+
+BirdKeeperRodTutorThanksText:
+	text "Now your #MON"
+	line "will take away"
+	cont "your opponent's"
+	cont "berries! Ha!"
+	done
+
+BirdKeeperRodTutorRefusedText:
+	text "Don't get cocky"
 	line "just because you"
 	cont "beat me!"
 	done
@@ -249,6 +267,28 @@ BirdKeeperAbeAfterBattleText:
 	text "This is pathetic,"
 	line "losing to some"
 	cont "rookie trainer…"
+
+	text "Maybe my birds"
+	line "need a SHARP BEAK…"
+	done
+
+BirdKeeperAbeTutorText:
+	text "You've got one,"
+	line "rookie?"
+
+	para "Hm. Maybe I can"
+	line "make an AERIAL ACE"
+	cont "out of you."
+	done
+
+BirdKeeperAbeTutorThanksText:
+	text "Don't let me down"
+	line "now! Fly high!"
+	done
+
+BirdKeeperAbeTutorRefusedText:
+	text "That's a missed"
+	line "opportunity!"
 	done
 
 VioletGymGuideText:
