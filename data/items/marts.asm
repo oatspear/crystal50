@@ -79,14 +79,14 @@ MartViolet:
 MartAzalea:
 	db 10 ; # items
 	db CHARCOAL
+	db SILVERPOWDER
+	db TM_FALSE_SWIPE
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db REPEL
 	db SUPER_REPEL
-	db TM_RAIN_DANCE
-	db TM_FALSE_SWIPE
 	db FLOWER_MAIL
 	db -1 ; end
 
