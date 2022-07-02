@@ -20,5 +20,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm ENDURE, REST, ATTRACT, FACADE
+	tmhm ENDURE, REST, ATTRACT, FACADE, STRUGGLE_BUG, BUG_BITE
 	; end
