@@ -326,7 +326,7 @@ MT01 EQU const_value
 	add_mt ICE_FANG
 	add_mt ICE_SHARD
 	add_mt OUTRAGE
-	add_mt TWISTER
+	add_mt FIRE_FANG
 	add_mt DRAGON_PULSE
 	add_mt DRAGON_DANCE
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1

@@ -108,7 +108,7 @@ TrainerCooltrainermMike:
 	opentext
 	writetext CooltrainermMikeAfterBattleText
 	waitbutton
-	gymtutor EVENT_BEAT_CLAIR, TWISTER, FRESH_WATER, CooltrainermMikeTutorText, CooltrainermMikeTutorThanksText, CooltrainermMikeTutorRefusedText
+	gymtutor EVENT_BEAT_CLAIR, FIRE_FANG, CHARCOAL, CooltrainermMikeTutorText, CooltrainermMikeTutorThanksText, CooltrainermMikeTutorRefusedText
 
 TrainerCooltrainerfLola:
 	trainer COOLTRAINERF, LOLA, EVENT_BEAT_COOLTRAINERF_LOLA, CooltrainerfLolaSeenText, CooltrainerfLolaBeatenText, 0, .Script
@@ -339,9 +339,10 @@ CooltrainermMikeAfterBattleText:
 	line "Not even the heat"
 	cont "slowed you down."
 
-	para "I could go for a"
-	line "FRESH WATER now,"
-	cont "for sure."
+	para "If I had CHARCOAL,"
+	line "my fire-type moves"
+	cont "would beat you,"
+	cont "for sure!"
 	done
 
 CooltrainermMikeTutorText:
@@ -350,7 +351,7 @@ CooltrainermMikeTutorText:
 
 	para "I'll repay you by"
 	line "teaching you the"
-	cont "move TWISTER."
+	cont "move FIRE FANG."
 	done
 
 CooltrainermMikeTutorThanksText:
