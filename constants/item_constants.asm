@@ -330,6 +330,7 @@ MT01 EQU const_value
 	add_mt THUNDER_FANG
 	add_mt DRAGON_PULSE
 	add_mt DRAGON_DANCE
+	; unused: 4 out of 88 bits (11 bytes)
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
