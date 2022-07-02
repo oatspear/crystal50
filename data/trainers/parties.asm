@@ -311,32 +311,35 @@ LtSurgeGroup:
 ScientistGroup:
 	; SCIENTIST (1)
 	db "ROSS@", TRAINERTYPE_NORMAL
-	db 22, KOFFING
-	db 22, KOFFING
+	db 25, GRIMER
+	db 25, KOFFING
+	db 35, WEEZING
 	db -1 ; end
 
 	; SCIENTIST (2)
 	db "MITCH@", TRAINERTYPE_NORMAL
-	db 24, DITTO
+	db 35, DITTO
+	db 35, DITTO
 	db -1 ; end
 
 	; SCIENTIST (3)
 	db "JED@", TRAINERTYPE_NORMAL
-	db 20, MAGNEMITE
-	db 20, MAGNEMITE
-	db 20, MAGNEMITE
+	db 25, PORYGON
+	db 25, MAGNEMITE
+	db 35, MAGNETON
 	db -1 ; end
 
 	; SCIENTIST (4)
 	db "MARC@", TRAINERTYPE_NORMAL
-	db 27, MAGNEMITE
-	db 27, MAGNEMITE
-	db 27, MAGNEMITE
+	db 35, MAGNEMITE
+	db 35, MAGNETON
+	db 40, MUK
 	db -1 ; end
 
 	; SCIENTIST (5)
-	db "RICH@", TRAINERTYPE_MOVES
-	db 30, PORYGON,    CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
+	db "RICH@", TRAINERTYPE_NORMAL
+	db 30, PORYGON
+	db 40, PORYGON2
 	db -1 ; end
 
 ErikaGroup:
@@ -1278,15 +1281,18 @@ PokemaniacGroup:
 
 GruntMGroup:
 	; GRUNTM (1)
+	; SLOWPOKE WELL
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db 14, KOFFING
+	db 18, VOLTORB
+	db 20, KOFFING
 	db -1 ; end
 
 	; GRUNTM (2)
+	; SLOWPOKE WELL
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db  7, RATTATA
-	db  9, ZUBAT
-	db  9, ZUBAT
+	db 12, RATTATA
+	db 12, ZUBAT
+	db 15, ZUBAT
 	db -1 ; end
 
 	; GRUNTM (3)
@@ -1450,9 +1456,10 @@ GruntMGroup:
 	db -1 ; end
 
 	; GRUNTM (29)
+	; SLOWPOKE WELL
 	db "GRUNT@", TRAINERTYPE_NORMAL
-	db  9, RATTATA
-	db  9, RATTATA
+	db 12, RATTATA
+	db 15, RATTATA
 	db -1 ; end
 
 	; GRUNTM (30)
