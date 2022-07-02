@@ -98,7 +98,7 @@ TrainerCooltrainermPaul:
 	opentext
 	writetext CooltrainermPaulAfterBattleText
 	waitbutton
-	gymtutor EVENT_BEAT_CLAIR, HYPER_BEAM, ELIXER, CooltrainermPaulTutorText, CooltrainermPaulTutorThanksText, CooltrainermPaulTutorRefusedText
+	gymtutor EVENT_BEAT_CLAIR, THUNDER_FANG, MAGNET, CooltrainermPaulTutorText, CooltrainermPaulTutorThanksText, CooltrainermPaulTutorRefusedText
 
 TrainerCooltrainermMike:
 	trainer COOLTRAINERM, MIKE, EVENT_BEAT_COOLTRAINERM_MIKE, CooltrainermMikeSeenText, CooltrainermMikeBeatenText, 0, .Script
@@ -294,13 +294,14 @@ CooltrainermPaulBeatenText:
 	done
 
 CooltrainermPaulAfterBattleText:
-	text "Dragons use a lot"
-	line "of powerful moves,"
-	cont "like HYPER BEAM."
+	text "Dragons use a wide"
+	line "variety of moves."
 
-	para "They might need an"
-	line "ELIXER to restore"
-	cont "energy, though."
+	para "I train my #MON"
+	line "in electric moves."
+
+	para "A MAGNET would be"
+	line "nice to have…"
 	done
 
 CooltrainermPaulTutorText:
@@ -309,11 +310,11 @@ CooltrainermPaulTutorText:
 	cont "have any?"
 
 	para "I can teach you"
-	line "HYPER BEAM."
+	line "THUNDER FANG!"
 	done
 
 CooltrainermPaulTutorThanksText:
-	text "Whew! Thanks!"
+	text "Yeah! Thanks!"
 	done
 
 CooltrainermPaulTutorRefusedText:
