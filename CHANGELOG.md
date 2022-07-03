@@ -12,7 +12,7 @@
 - Prices of X-stat boosting items.
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders and gym trainers.
-- Levels and teams of trainers at the Lighthouse.
+- Levels and teams of trainers at the Lighthouse and Dance Theater.
 - Levels and teams of Team Rocket trainers and bosses.
 - Gave Rocket Executives their proper names.
 - Trainer Pokémon hold Oran Berry by default.

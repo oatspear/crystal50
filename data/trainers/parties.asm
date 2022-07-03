@@ -3438,27 +3438,27 @@ PokefanMGroup:
 KimonoGirlGroup:
 	; KIMONO_GIRL (1)
 	db "NAOKO@", TRAINERTYPE_NORMAL
-	db 17, FLAREON
+	db 25, FLAREON
 	db -1 ; end
 
 	; KIMONO_GIRL (2)
 	db "SAYO@", TRAINERTYPE_NORMAL
-	db 17, ESPEON
+	db 25, ESPEON
 	db -1 ; end
 
 	; KIMONO_GIRL (3)
 	db "ZUKI@", TRAINERTYPE_NORMAL
-	db 17, UMBREON
+	db 25, UMBREON
 	db -1 ; end
 
 	; KIMONO_GIRL (4)
 	db "KUNI@", TRAINERTYPE_NORMAL
-	db 17, VAPOREON
+	db 25, VAPOREON
 	db -1 ; end
 
 	; KIMONO_GIRL (5)
 	db "MIKI@", TRAINERTYPE_NORMAL
-	db 17, JOLTEON
+	db 25, JOLTEON
 	db -1 ; end
 
 TwinsGroup:
