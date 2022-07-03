@@ -1650,8 +1650,8 @@ VoltorbEvosAttacks:
 	db 20, CHARGE_BEAM
 	db 24, SCREECH
 	db 28, LIGHT_SCREEN
-	db 32, MIRROR_COAT
-	db 36, SELFDESTRUCT
+	db 32, SELFDESTRUCT
+	db 36, MIRROR_COAT
 	db 40, THUNDERBOLT
 	db 0 ; no more level-up moves
 
@@ -1665,8 +1665,8 @@ ElectrodeEvosAttacks:
 	db 20, CHARGE_BEAM
 	db 24, SCREECH
 	db 28, LIGHT_SCREEN
-	db 35, MIRROR_COAT
-	db 40, SELFDESTRUCT
+	db 35, SELFDESTRUCT
+	db 40, MIRROR_COAT
 	db 45, THUNDERBOLT
 	db 0 ; no more level-up moves
 
