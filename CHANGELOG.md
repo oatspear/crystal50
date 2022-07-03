@@ -13,6 +13,8 @@
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders and gym trainers.
 - Levels and teams of trainers at the Lighthouse.
+- Levels and teams of Team Rocket trainers and bosses.
+- Gave Rocket Executives their proper names.
 - Trainer Pokémon hold Oran Berry by default.
 - Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
