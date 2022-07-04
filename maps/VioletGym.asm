@@ -82,7 +82,7 @@ TrainerBirdKeeperAbe:
 	opentext
 	writetext BirdKeeperAbeAfterBattleText
 	waitbutton
-	gymtutor EVENT_BEAT_FALKNER, PLUCK, X_ATTACK, BirdKeeperAbeTutorText, BirdKeeperAbeTutorThanksText, BirdKeeperAbeTutorRefusedText
+	gymtutor EVENT_BEAT_FALKNER, AERIAL_ACE, SHARP_BEAK, BirdKeeperAbeTutorText, BirdKeeperAbeTutorThanksText, BirdKeeperAbeTutorRefusedText
 
 VioletGymGuideScript:
 	faceplayer
@@ -268,7 +268,7 @@ BirdKeeperAbeAfterBattleText:
 	line "losing to some"
 	cont "rookie trainer…"
 
-	text "Maybe my birds"
+	para "Maybe my birds"
 	line "need a SHARP BEAK…"
 	done
 
