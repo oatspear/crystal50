@@ -442,40 +442,40 @@ SandshrewEvosAttacks:
 	db EVOLVE_LEVEL, 22, SANDSLASH
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 3, POISON_STING
-	db 6, SAND_ATTACK
-	db 9, ROLLOUT
+	db 1, SAND_ATTACK
+	db 4, POISON_STING
+	db 8, ROLLOUT
+	db 10, RAPID_SPIN
 	db 12, FURY_CUTTER
-	db 15, RAPID_SPIN
-	db 18, BULLDOZE
-	db 21, SPIKES
-	db 24, IRON_DEFENSE
-	db 27, AGILITY
-	db 30, SLASH
-	db 33, DIG
-	db 36, SWORDS_DANCE
-	db 39, SANDSTORM
+	db 14, IRON_DEFENSE
+	db 16, SAND_TOMB
+	db 18, AGILITY
+	db 20, DIG
+	db 25, SLASH
+	db 30, BULLDOZE
+	db 34, SWORDS_DANCE
+	db 38, SANDSTORM
 	db 42, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 SandslashEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, POISON_STING
 	db 1, SAND_ATTACK
-	; db 1, AGILITY
-	db 9, ROLLOUT
+	db 4, POISON_STING
+	db 8, ROLLOUT
+	db 10, RAPID_SPIN
 	db 12, FURY_CUTTER
-	db 15, RAPID_SPIN
-	db 18, BULLDOZE
-	db 21, SPIKES
-	db 26, IRON_DEFENSE
-	db 31, SAND_TOMB
-	db 36, SLASH
-	db 41, DIG
-	db 46, SWORDS_DANCE
-	db 51, SANDSTORM
-	db 56, EARTHQUAKE
+	db 14, IRON_DEFENSE
+	db 16, SAND_TOMB
+	db 18, AGILITY
+	db 20, DIG
+	db 25, SLASH
+	db 33, BULLDOZE
+	db 38, SWORDS_DANCE
+	db 42, SANDSTORM
+	db 48, EARTHQUAKE
+	db LEVEL_EVO, SPIKES
 	db 0 ; no more level-up moves
 
 NidoranFEvosAttacks:
