@@ -7,6 +7,7 @@
 - Move tutors: every Gym trainer will teach their special move in exchange for an item.
 
 ### Changed
+- Level up learnsets of some Pokémon.
 - Prices of berries, so they can be purchased at a vendor.
 - Prices of status healing medicine, to be competitive with berries.
 - Prices of X-stat boosting items.
@@ -19,7 +20,7 @@
 - Trainer Pokémon hold Oran Berry by default.
 - Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
-- Updated Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
+- Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
 
 ## v0.4 (PLA Systems)
 

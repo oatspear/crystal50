@@ -26,19 +26,19 @@ BulbasaurEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 3, VINE_WHIP
-	db 6, GROWTH
-	db 9, LEECH_SEED
-	db 12, RAZOR_LEAF
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
-	db 18, SEED_BOMB
-	db 21, HEADBUTT
-	db 24, SWEET_SCENT
-	db 27, SYNTHESIS
+	db 4, LEECH_SEED
+	db 8, VINE_WHIP
+	db 10, SWEET_SCENT
+	db 12, GROWTH
+	db 14, POISONPOWDER
+	db 16, RAZOR_LEAF
+	db 18, SLEEP_POWDER
+	db 20, HEADBUTT
+	db 25, SEED_BOMB
+	db 30, SYNTHESIS
+	db 35, DOUBLE_EDGE
+	db 40, SOLARBEAM
 	; db 30, WORRY_SEED
-	db 33, DOUBLE_EDGE
-	db 36, SOLARBEAM
 	db 0 ; no more level-up moves
 
 IvysaurEvosAttacks:
@@ -46,19 +46,19 @@ IvysaurEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, VINE_WHIP
-	db 1, GROWTH
-	db 9, LEECH_SEED
-	db 12, RAZOR_LEAF
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
-	db 20, SEED_BOMB
+	db 4, LEECH_SEED
+	db 8, VINE_WHIP
+	db 10, SWEET_SCENT
+	db 12, GROWTH
+	db 14, POISONPOWDER
+	db 18, RAZOR_LEAF
+	db 20, SLEEP_POWDER
 	db 25, HEADBUTT
-	db 30, SWEET_SCENT
+	db 30, SEED_BOMB
 	db 35, SYNTHESIS
+	db 40, DOUBLE_EDGE
+	db 45, SOLARBEAM
 	; db 40, WORRY_SEED
-	db 45, DOUBLE_EDGE
-	db 50, SOLARBEAM
 	db 0 ; no more level-up moves
 
 VenusaurEvosAttacks:
@@ -67,20 +67,20 @@ VenusaurEvosAttacks:
 	; db 1, PETAL_DANCE
 	; db 1, TACKLE
 	db 1, GROWL
-	db 1, VINE_WHIP
-	db 1, GROWTH
-	db 9, LEECH_SEED
-	db 12, RAZOR_LEAF
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
-	db 20, SEED_BOMB
+	db 4, LEECH_SEED
+	db 8, VINE_WHIP
+	db 10, SWEET_SCENT
+	db 12, GROWTH
+	db 14, POISONPOWDER
+	db 18, RAZOR_LEAF
+	db 20, SLEEP_POWDER
 	db 25, HEADBUTT
-	db 30, SWEET_SCENT
-	db 37, SYNTHESIS
-	; db 44, WORRY_SEED
-	db 51, DOUBLE_EDGE
-	db 58, SOLARBEAM
+	db 30, SEED_BOMB
+	db 40, SYNTHESIS
+	db 45, DOUBLE_EDGE
+	db 50, SOLARBEAM
 	db LEVEL_EVO, PETAL_DANCE ; FIXME: PETAL_BLIZZARD
+	; db 44, WORRY_SEED
 	db 0 ; no more level-up moves
 
 CharmanderEvosAttacks:
