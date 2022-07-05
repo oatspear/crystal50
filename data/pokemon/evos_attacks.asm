@@ -3742,11 +3742,11 @@ HoundoomEvosAttacks:
 	db 12, SNARL
 	db 16, BEAT_UP
 	db 20, FIRE_FANG
-	db 24, PAYBACK
-	db 30, NASTY_PLOT
-	db 35, FLAMETHROWER
-	db 40, CRUNCH
-	db 45, DARK_PULSE
+	db 28, PAYBACK
+	db 32, NASTY_PLOT
+	db 38, FLAMETHROWER
+	db 44, CRUNCH
+	db 48, DARK_PULSE
 	db 0 ; no more level-up moves
 
 KingdraEvosAttacks:
