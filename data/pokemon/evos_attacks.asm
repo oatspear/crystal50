@@ -136,18 +136,18 @@ SquirtleEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 3, WATER_GUN
-	db 6, WITHDRAW
-	db 9, RAPID_SPIN
-	db 12, BITE
-	db 15, BUBBLEBEAM ; FIXME: WATER_PULSE
-	db 18, PROTECT
-	db 21, RAIN_DANCE
-	db 24, AQUA_TAIL
-	db 27, CURSE ; FIXME: SHELL_SMASH
+	db 4, WATER_GUN
+	db 8, RAPID_SPIN
+	db 10, WITHDRAW
+	db 16, BUBBLEBEAM ; FIXME: WATER_PULSE
+	db 18, BITE
+	db 20, PROTECT
+	db 24, RAIN_DANCE
+	db 28, AQUA_TAIL
+	db 32, CURSE ; FIXME: SHELL_SMASH
+	db 36, HYDRO_PUMP
+	db 40, SKULL_BASH
 	; db 30, IRON_DEFENSE
-	db 33, HYDRO_PUMP
-	db 36, SKULL_BASH
 	db 0 ; no more level-up moves
 
 WartortleEvosAttacks:
@@ -155,18 +155,18 @@ WartortleEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, WATER_GUN
-	db 1, WITHDRAW
-	db 9, RAPID_SPIN
-	db 12, BITE
-	db 15, BUBBLEBEAM ; FIXME: WATER_PULSE
-	db 20, PROTECT
-	db 25, RAIN_DANCE
+	db 4, WATER_GUN
+	db 8, RAPID_SPIN
+	db 10, WITHDRAW
+	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
+	db 20, BITE
+	db 24, PROTECT
+	db 28, RAIN_DANCE
 	db 30, AQUA_TAIL
 	db 35, CURSE ; FIXME: SHELL_SMASH
+	db 40, HYDRO_PUMP
+	db 45, SKULL_BASH
 	; db 40, IRON_DEFENSE
-	db 45, HYDRO_PUMP
-	db 50, SKULL_BASH
 	db 0 ; no more level-up moves
 
 BlastoiseEvosAttacks:
@@ -174,19 +174,19 @@ BlastoiseEvosAttacks:
 	; db 1, FLASH_CANNON
 	; db 1, TACKLE
 	db 1, GROWL
-	db 1, WATER_GUN
-	db 1, WITHDRAW
-	db 9, RAPID_SPIN
-	db 12, BITE
-	; db 15, WATER_PULSE
-	db 20, PROTECT
-	db 25, RAIN_DANCE
+	db 4, WATER_GUN
+	db 8, RAPID_SPIN
+	db 10, WITHDRAW
+	db 18, BUBBLEBEAM ; FIXME: WATER_PULSE
+	db 20, BITE
+	db 24, PROTECT
+	db 28, RAIN_DANCE
 	db 30, AQUA_TAIL
 	db 35, CURSE ; FIXME: SHELL_SMASH
-	; db 42, IRON_DEFENSE
-	db 49, HYDRO_PUMP
-	db 56, SKULL_BASH
+	db 45, HYDRO_PUMP
+	db 50, SKULL_BASH
 	db LEVEL_EVO, FLASH_CANNON
+	; db 42, IRON_DEFENSE
 	db 0 ; no more level-up moves
 
 CaterpieEvosAttacks:
