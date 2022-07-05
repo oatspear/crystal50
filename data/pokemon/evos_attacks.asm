@@ -1057,7 +1057,7 @@ PoliwrathEvosAttacks:
 	db 1, BUBBLEBEAM
 	db 1, BODY_SLAM
 	db 1, BELLY_DRUM
-	db 60, LIQUIDATION
+	db 50, LIQUIDATION
 	db LEVEL_EVO, BRICK_BREAK
 	db 0 ; no more level-up moves
 
@@ -3044,7 +3044,7 @@ PolitoedEvosAttacks:
 	db 1, BUBBLEBEAM
 	db 1, RAIN_DANCE
 	db 1, BODY_SLAM
-	db 60, LIQUIDATION
+	db 50, LIQUIDATION
 	db LEVEL_EVO, PERISH_SONG
 	db 0 ; no more level-up moves
 
