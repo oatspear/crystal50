@@ -1145,36 +1145,36 @@ BellsproutEvosAttacks:
 	db EVOLVE_LEVEL, 21, WEEPINBELL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
+	db 1, SWEET_SCENT
 	db 4, WRAP
-	db 8, GROWTH
-	db 12, ACID_SPRAY
-	db 15, POISONPOWDER
-	db 15, STUN_SPORE
-	db 20, SLEEP_POWDER
-	db 24, RAZOR_LEAF
-	db 28, SWEET_SCENT
-	db 32, SYNTHESIS
-	db 36, SUNNY_DAY
-	db 40, ENERGY_BALL
-	db 44, POISON_JAB
+	db 8, ACID_SPRAY
+	db 10, GROWTH
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, RAZOR_LEAF
+	db 18, SLEEP_POWDER
+	db 25, SYNTHESIS
+	db 30, SUNNY_DAY
+	db 35, ENERGY_BALL
+	db 40, POISON_JAB
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
 	db EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
+	db 1, SWEET_SCENT
 	db 4, WRAP
-	db 8, GROWTH
-	db 12, ACID_SPRAY
-	db 15, POISONPOWDER
-	db 15, STUN_SPORE
-	db 20, SLEEP_POWDER
-	db 25, RAZOR_LEAF
-	db 30, SWEET_SCENT
-	db 35, SYNTHESIS
-	db 40, SUNNY_DAY
-	db 45, ENERGY_BALL
-	db 50, POISON_JAB
+	db 8, ACID_SPRAY
+	db 10, GROWTH
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, RAZOR_LEAF
+	db 18, SLEEP_POWDER
+	db 28, SYNTHESIS
+	db 34, SUNNY_DAY
+	db 40, ENERGY_BALL
+	db 45, POISON_JAB
 	db 0 ; no more level-up moves
 
 VictreebelEvosAttacks:
