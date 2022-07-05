@@ -11,13 +11,14 @@
 - Prices of berries, so they can be purchased at a vendor.
 - Prices of status healing medicine, to be competitive with berries.
 - Prices of X-stat boosting items.
+- Gave Rocket Executives their proper names.
+- Cool Trainer class name to Ace Trainer.
+- Trainer Pokémon hold Oran Berry by default.
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders and gym trainers.
 - Levels and teams of trainers at the Lighthouse and Dance Theater.
 - Levels and teams of Team Rocket trainers and bosses.
-- Gave Rocket Executives their proper names.
-- Cool Trainer class name to Ace Trainer.
-- Trainer Pokémon hold Oran Berry by default.
+- Ace Trainers have considerably stronger and more balanced teams.
 - Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
 - Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
