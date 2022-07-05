@@ -1013,15 +1013,15 @@ PoliwagEvosAttacks:
 	db 1, HYPNOSIS
 	db 4, WATER_GUN
 	db 8, MUD_SLAP
-	db 12, BUBBLEBEAM
-	db 16, HEADBUTT
-	db 20, BELLY_DRUM
-	db 24, WHIRLPOOL
-	db 28, RAIN_DANCE
-	db 32, BODY_SLAM
-	db 36, EARTH_POWER
-	db 40, HYDRO_PUMP
-	db 44, DOUBLE_EDGE
+	db 10, WHIRLPOOL
+	db 14, BUBBLEBEAM
+	db 18, HEADBUTT
+	db 22, BELLY_DRUM
+	db 26, RAIN_DANCE
+	db 30, BODY_SLAM
+	db 34, EARTH_POWER
+	db 38, HYDRO_PUMP
+	db 42, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwhirlEvosAttacks:
@@ -1033,15 +1033,15 @@ PoliwhirlEvosAttacks:
 	db 1, HYPNOSIS
 	db 4, WATER_GUN
 	db 8, MUD_SLAP
-	db 12, BUBBLEBEAM
-	db 16, HEADBUTT
-	db 20, BELLY_DRUM
-	db 24, WHIRLPOOL
-	db 30, RAIN_DANCE
-	db 35, BODY_SLAM
-	db 40, EARTH_POWER
+	db 10, WHIRLPOOL
+	db 14, BUBBLEBEAM
+	db 18, HEADBUTT
+	db 22, BELLY_DRUM
+	db 28, RAIN_DANCE
+	db 33, BODY_SLAM
+	db 38, EARTH_POWER
 	db 45, HYDRO_PUMP
-	db 50, DOUBLE_EDGE
+	db 48, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwrathEvosAttacks:
