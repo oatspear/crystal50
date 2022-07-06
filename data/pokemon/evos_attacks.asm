@@ -1956,8 +1956,8 @@ SeakingEvosAttacks:
 	db 20, HEADBUTT
 	db 25, RAIN_DANCE
 	db 30, FLAIL
-	db 35, AQUA_TAIL
-	db 40, MEGAHORN
+	db 38, AQUA_TAIL
+	db 45, MEGAHORN
 	db 0 ; no more level-up moves
 
 StaryuEvosAttacks:
