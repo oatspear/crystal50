@@ -1935,10 +1935,11 @@ GoldeenEvosAttacks:
 	db EVOLVE_LEVEL, 33, SEAKING
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 5, SUPERSONIC
-	db 10, WATER_PULSE
-	db 15, HEADBUTT
-	db 20, AGILITY
+	db 4, TACKLE
+	db 8, SUPERSONIC
+	db 12, AGILITY
+	db 16, WATER_PULSE
+	db 20, HEADBUTT
 	db 25, RAIN_DANCE
 	db 30, FLAIL
 	db 35, AQUA_TAIL
@@ -1948,10 +1949,11 @@ GoldeenEvosAttacks:
 SeakingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 5, SUPERSONIC
-	db 10, WATER_PULSE
-	db 15, HEADBUTT
-	db 20, AGILITY
+	db 4, TACKLE
+	db 8, SUPERSONIC
+	db 12, AGILITY
+	db 16, WATER_PULSE
+	db 20, HEADBUTT
 	db 25, RAIN_DANCE
 	db 30, FLAIL
 	db 35, AQUA_TAIL
