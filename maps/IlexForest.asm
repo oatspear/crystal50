@@ -408,11 +408,11 @@ IlexForestXAttack:
 IlexForestAntidote:
 	itemball ANTIDOTE
 
-IlexForestEther:
-	itemball ETHER
+IlexForestSitrusBerry:
+	itemball SITRUS_BERRY
 
-IlexForestHiddenEther:
-	hiddenitem ETHER, EVENT_ILEX_FOREST_HIDDEN_ETHER
+IlexForestHiddenSilverpowder:
+	hiddenitem SILVERPOWDER, EVENT_ILEX_FOREST_HIDDEN_SILVERPOWDER
 
 IlexForestHiddenSuperPotion:
 	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION
@@ -948,7 +948,7 @@ IlexForest_MapEvents:
 
 	def_bg_events
 	bg_event  3, 17, BGEVENT_READ, IlexForestSignpost
-	bg_event 11,  7, BGEVENT_ITEM, IlexForestHiddenEther
+	bg_event 11,  7, BGEVENT_ITEM, IlexForestHiddenSilverpowder
 	bg_event 22, 14, BGEVENT_ITEM, IlexForestHiddenSuperPotion
 	bg_event  1, 17, BGEVENT_ITEM, IlexForestHiddenFullHeal
 	bg_event  8, 22, BGEVENT_UP, IlexForestShrineScript
@@ -964,4 +964,4 @@ IlexForest_MapEvents:
 	object_event 12,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerBugCatcherWayne, -1
 	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestXAttack, EVENT_ILEX_FOREST_X_ATTACK
 	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
-	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
+	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestSitrusBerry, EVENT_ILEX_FOREST_SITRUS_BERRY

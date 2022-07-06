@@ -7,8 +7,8 @@ MountMortar1FOutside_MapScripts:
 
 	def_callbacks
 
-MountMortar1FOutsideEther:
-	itemball ETHER
+MountMortar1FOutsidePotassium:
+	itemball POTASSIUM
 
 MountMortar1FOutsideRevive:
 	itemball REVIVE
@@ -36,5 +36,5 @@ MountMortar1FOutside_MapEvents:
 	bg_event 25, 22, BGEVENT_ITEM, MountMortar1FOutsideHiddenHyperPotion
 
 	def_object_events
-	object_event 13, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideEther, EVENT_MOUNT_MORTAR_1F_OUTSIDE_ETHER
+	object_event 13, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsidePotassium, EVENT_MOUNT_MORTAR_1F_OUTSIDE_POTASSIUM
 	object_event 31, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideRevive, EVENT_MOUNT_MORTAR_1F_OUTSIDE_REVIVE

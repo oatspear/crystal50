@@ -23,6 +23,7 @@
 - Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
 - Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
+- Replaced some items spread out through the overworld that no longer serve any purpose.
 
 ## v0.4 (PLA Systems)
 

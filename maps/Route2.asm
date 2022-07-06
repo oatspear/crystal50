@@ -67,8 +67,8 @@ Route2Elixer:
 Route2FruitTree:
 	fruittree FRUITTREE_ROUTE_2
 
-Route2HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
+Route2HiddenBerryJuice:
+	hiddenitem BERRY_JUICE, EVENT_ROUTE_2_HIDDEN_BERRY_JUICE
 
 Route2HiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_ROUTE_2_HIDDEN_FULL_HEAL
@@ -159,7 +159,7 @@ Route2_MapEvents:
 	def_bg_events
 	bg_event  7, 51, BGEVENT_READ, Route2Sign
 	bg_event 11,  9, BGEVENT_READ, Route2DiglettsCaveSign
-	bg_event  7, 23, BGEVENT_ITEM, Route2HiddenMaxEther
+	bg_event  7, 23, BGEVENT_ITEM, Route2HiddenBerryJuice
 	bg_event  4, 14, BGEVENT_ITEM, Route2HiddenFullHeal
 	bg_event  4, 27, BGEVENT_ITEM, Route2HiddenFullRestore
 	bg_event 11, 30, BGEVENT_ITEM, Route2HiddenRevive
