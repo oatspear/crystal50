@@ -260,9 +260,10 @@ PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 5, SAND_ATTACK
-	db 8, GUST
-	db 12, QUICK_ATTACK
+	db 1, SAND_ATTACK
+	db 5, GUST
+	db 8, QUICK_ATTACK
+	db 12, MUD_SLAP
 	db 16, AERIAL_ACE
 	db 20, TWISTER
 	db 24, WHIRLWIND
@@ -277,8 +278,9 @@ PidgeottoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SAND_ATTACK
-	db 1, GUST
-	db 12, QUICK_ATTACK
+	db 5, GUST
+	db 8, QUICK_ATTACK
+	db 12, MUD_SLAP
 	db 16, AERIAL_ACE
 	db 23, TWISTER
 	db 28, WHIRLWIND
@@ -292,8 +294,9 @@ PidgeotEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SAND_ATTACK
-	db 1, GUST
-	db 1, QUICK_ATTACK
+	db 5, GUST
+	db 8, QUICK_ATTACK
+	db 12, MUD_SLAP
 	db 16, AERIAL_ACE
 	db 23, TWISTER
 	db 28, WHIRLWIND
