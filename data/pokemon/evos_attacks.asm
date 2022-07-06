@@ -807,15 +807,15 @@ VenonatEvosAttacks:
 	db 1, DISABLE
 	db 1, STRUGGLE_BUG
 	db 5, SUPERSONIC
-	db 10, CONFUSION
-	db 15, POISONPOWDER
-	db 20, BUG_BITE
-	db 25, STUN_SPORE
-	db 25, SLEEP_POWDER
+	db 8, POISONPOWDER
+	db 12, BUG_BITE
+	db 14, STUN_SPORE
+	db 16, CONFUSION
+	db 20, SLEEP_POWDER
+	db 25, ZEN_HEADBUTT
 	db 30, LEECH_LIFE
-	db 35, ZEN_HEADBUTT
-	db 40, POISON_JAB
-	db 45, PSYCHIC_M
+	db 35, POISON_JAB
+	db 40, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 VenomothEvosAttacks:
@@ -824,16 +824,17 @@ VenomothEvosAttacks:
 	db 1, DISABLE
 	db 1, STRUGGLE_BUG
 	db 5, SUPERSONIC
-	db 10, CONFUSION
-	db 15, POISONPOWDER
-	db 20, BUG_BITE
-	db 25, STUN_SPORE
-	db 25, SLEEP_POWDER
+	db 8, POISONPOWDER
+	db 12, BUG_BITE
+	db 14, STUN_SPORE
+	db 16, CONFUSION
+	db 20, SLEEP_POWDER
+	db 25, ZEN_HEADBUTT
 	db 30, LEECH_LIFE
-	db 40, ZEN_HEADBUTT
-	db 45, POISON_JAB
-	db 50, PSYCHIC_M
-	db 55, BUG_BUZZ
+	db 35, SILVER_WIND
+	db 40, POISON_JAB
+	db 45, PSYCHIC_M
+	db 50, BUG_BUZZ
 	db LEVEL_EVO, GUST
 	db 0 ; no more level-up moves
 
