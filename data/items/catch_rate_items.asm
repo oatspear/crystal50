@@ -6,7 +6,7 @@ TimeCapsule_CatchRateItems:
 	db ZINC,          LEFTOVERS
 	db MAGNESIUM,     PERSIM_BERRY
 	db POTASSIUM,     SITRUS_BERRY
-	db ITEM_5A,       ORAN_BERRY
+	db LIFE_HERB,     ORAN_BERRY
 	db ITEM_64,       ORAN_BERRY
 	db ITEM_78,       ORAN_BERRY
 	db ITEM_87,       ORAN_BERRY

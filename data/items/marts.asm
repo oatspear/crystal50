@@ -221,11 +221,11 @@ MartGoldenrod5F4:
 MartOlivine:
 	db 10 ; # items
 	db MOOMOO_MILK
+	db METAL_COAT
 	db POKE_BALL
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION
-	db REPEL
 	db SUPER_REPEL
 	db TM_IRON_DEFENSE
 	db TM_STEEL_WING
@@ -324,7 +324,9 @@ MartCerulean:
 	db -1 ; end
 
 MartLavender:
-	db 8 ; # items
+	db 10 ; # items
+	db CLEANSE_TAG
+	db SPELL_TAG
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
@@ -336,8 +338,9 @@ MartLavender:
 	db -1 ; end
 
 MartVermilion:
-	db 9 ; # items
+	db 10 ; # items
 	db MAGNET
+	db BLACKGLASSES
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
@@ -435,12 +438,12 @@ MartFuchsia:
 
 MartSaffron:
 	db 10 ; # items
+	db TWISTEDSPOON
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db X_ATTACK
-	db X_DEFEND
 	db X_SPECIAL
 	db TM_NASTY_PLOT
 	db TM_CALM_MIND
@@ -470,10 +473,11 @@ MartIndigoPlateau:
 	db -1 ; end
 
 MartUnderground:
-	db 4 ; # items
+	db 5 ; # items
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db HEAL_POWDER
+	db LIFE_HERB
 	db REVIVAL_HERB
 	db -1 ; end
 

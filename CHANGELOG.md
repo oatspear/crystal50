@@ -5,6 +5,7 @@
 ### Added
 - Berry market at the Berry house on Route 30, north of Cherrygrove.
 - Move tutors: every Gym trainer will teach their special move in exchange for an item.
+- New item: Life Herb. Bitter herb that revives a Pokémon for its full HP.
 
 ### Changed
 - Level up learnsets of some Pokémon.
@@ -24,6 +25,8 @@
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
 - Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
 - Replaced some items spread out through the overworld that no longer serve any purpose.
+- Improved availability of some useful items.
+- Revival Herb revives for half HP.
 
 ## v0.4 (PLA Systems)
 
