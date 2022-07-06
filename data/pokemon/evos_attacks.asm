@@ -241,10 +241,10 @@ KakunaEvosAttacks:
 
 BeedrillEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, POISON_STING
-	db 1, STRING_SHOT
-	db 1, BUG_BITE
 	db 1, STRUGGLE_BUG
+	db 1, STRING_SHOT
+	db 1, POISON_STING
+	db 1, BUG_BITE
 	db 12, FOCUS_ENERGY
 	db 16, PAYBACK
 	db 20, SWORDS_DANCE
@@ -2737,14 +2737,14 @@ SpinarakEvosAttacks:
 	db 4, ABSORB
 	db 8, INFESTATION
 	db 12, GLARE
-	db 16, NIGHT_SHADE
-	db 20, PIN_MISSILE
-	db 24, DISABLE
-	db 28, NASTY_PLOT
+	db 16, PIN_MISSILE
+	db 18, DISABLE
+	db 20, NASTY_PLOT
+	db 24, NIGHT_SHADE
+	db 28, VENOSHOCK
 	db 32, SUCKER_PUNCH
 	db 36, LEECH_LIFE
-	db 40, VENOSHOCK
-	db 44, POISON_JAB
+	db 40, POISON_JAB
 	db 0 ; no more level-up moves
 
 AriadosEvosAttacks:
@@ -2754,14 +2754,14 @@ AriadosEvosAttacks:
 	db 4, ABSORB
 	db 8, INFESTATION
 	db 12, GLARE
-	db 16, NIGHT_SHADE
-	db 20, PIN_MISSILE
-	db 25, DISABLE
-	db 30, NASTY_PLOT
+	db 16, PIN_MISSILE
+	db 18, DISABLE
+	db 20, NASTY_PLOT
+	db 25, NIGHT_SHADE
+	db 30, VENOSHOCK
 	db 35, SUCKER_PUNCH
 	db 40, LEECH_LIFE
-	db 45, VENOSHOCK
-	db 50, POISON_JAB
+	db 45, POISON_JAB
 	db LEVEL_EVO, TOXIC
 	db 0 ; no more level-up moves
 
