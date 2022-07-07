@@ -2118,6 +2118,7 @@ GyaradosEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, FLAIL
 	db 1, TACKLE
+	db 22, HEADBUTT
 	db 24, WHIRLPOOL
 	db 26, TWISTER
 	db 28, RAIN_DANCE
