@@ -2118,15 +2118,16 @@ GyaradosEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, FLAIL
 	db 1, TACKLE
-	; db 4, WHIRLPOOL
-	db 25, TWISTER
-	db 30, ICE_FANG
-	db 35, RAIN_DANCE
-	db 40, CRUNCH
-	db 40, DRAGON_DANCE
+	db 24, WHIRLPOOL
+	db 26, TWISTER
+	db 28, RAIN_DANCE
+	db 30, WATER_PULSE
+	db 34, ICE_FANG
+	db 38, DRAGON_DANCE
+	db 42, CRUNCH
 	db 45, AQUA_TAIL
-	db 50, HURRICANE
-	db 50, HYDRO_PUMP
+	db 48, HURRICANE
+	db 52, HYDRO_PUMP
 	db 55, HYPER_BEAM
 	db LEVEL_EVO, BITE
 	db 0 ; no more level-up moves
