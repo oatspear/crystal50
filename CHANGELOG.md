@@ -21,7 +21,7 @@
 - Levels and teams of Team Rocket trainers and bosses.
 - Levels and teams of trainers on Routes 26, 27, 30, 31.
 - Ace Trainers have considerably stronger and more balanced teams.
-- Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance.
+- Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance, Hydro Pump, Sucker Punch, Megahorn, Iron Tail, Morning Sun, Synthesis, Moonlight, Cross Chop, Extreme Speed, Beat Up.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
 - Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
 - Replaced some items spread out through the overworld that no longer serve any purpose.
