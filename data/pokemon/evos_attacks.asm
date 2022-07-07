@@ -263,10 +263,11 @@ PidgeyEvosAttacks:
 	db 1, SAND_ATTACK
 	db 5, GUST
 	db 8, QUICK_ATTACK
-	db 12, MUD_SLAP
-	db 16, AERIAL_ACE
-	db 20, TWISTER
-	db 24, WHIRLWIND
+	db 10, MUD_SLAP
+	db 12, TWISTER
+	db 15, AERIAL_ACE
+	db 20, WHIRLWIND
+	db 24, AIR_CUTTER
 	db 28, AGILITY
 	db 32, ROOST
 	db 36, AIR_SLASH
@@ -280,14 +281,15 @@ PidgeottoEvosAttacks:
 	db 1, SAND_ATTACK
 	db 5, GUST
 	db 8, QUICK_ATTACK
-	db 12, MUD_SLAP
-	db 16, AERIAL_ACE
-	db 23, TWISTER
-	db 28, WHIRLWIND
-	db 33, AGILITY
-	db 38, ROOST
-	db 43, AIR_SLASH
-	db 48, HURRICANE
+	db 10, MUD_SLAP
+	db 12, TWISTER
+	db 15, AERIAL_ACE
+	db 22, WHIRLWIND
+	db 28, AIR_CUTTER
+	db 32, AGILITY
+	db 36, ROOST
+	db 40, AIR_SLASH
+	db 45, HURRICANE
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -296,14 +298,15 @@ PidgeotEvosAttacks:
 	db 1, SAND_ATTACK
 	db 5, GUST
 	db 8, QUICK_ATTACK
-	db 12, MUD_SLAP
-	db 16, AERIAL_ACE
-	db 23, TWISTER
-	db 28, WHIRLWIND
-	db 33, AGILITY
+	db 10, MUD_SLAP
+	db 12, TWISTER
+	db 15, AERIAL_ACE
+	db 22, WHIRLWIND
+	db 28, AIR_CUTTER
+	db 32, AGILITY
 	db 40, ROOST
-	db 46, AIR_SLASH
-	db 52, HURRICANE
+	db 44, AIR_SLASH
+	db 48, HURRICANE
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
