@@ -1880,8 +1880,8 @@ TangelaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, WRAP
-	db 5, VINE_WHIP
-	db 10, STUN_SPORE
+	db 5, STUN_SPORE
+	db 10, VINE_WHIP
 	db 15, GROWTH
 	db 20, POISONPOWDER
 	db 25, SLEEP_POWDER
