@@ -3189,8 +3189,8 @@ WooperEvosAttacks:
 	db EVOLVE_LEVEL, 20, QUAGSIRE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, WATER_GUN
-	db 8, MUD_SLAP
+	db 4, MUD_SLAP
+	db 8, WATER_GUN
 	db 12, HEADBUTT
 	db 16, BULLDOZE
 	db 20, RAIN_DANCE
@@ -3205,8 +3205,8 @@ WooperEvosAttacks:
 QuagsireEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, WATER_GUN
-	db 8, MUD_SLAP
+	db 4, MUD_SLAP
+	db 8, WATER_GUN
 	db 12, HEADBUTT
 	db 16, BULLDOZE
 	db 20, RAIN_DANCE
