@@ -2328,7 +2328,7 @@ SailorGroup:
 
 	; SAILOR (10)
 	db "HARRY@", TRAINERTYPE_NORMAL
-	db 19, WOOPER
+	db 21, WOOPER
 	db -1 ; end
 
 	; SAILOR (11)
