@@ -17,7 +17,7 @@
 - Trainer Pokémon hold Oran Berry by default.
 - Rival party rosters to raise levels and increase difficulty.
 - Levels and teams of gym leaders and gym trainers.
-- Levels and teams of trainers at the Lighthouse, Dance Theater, Union Cave, Ilex Forest.
+- Levels and teams of trainers at the Lighthouse, Dance Theater, Union Cave, Ilex Forest, National Park.
 - Levels and teams of Team Rocket trainers and bosses.
 - Levels and teams of trainers on Routes 26, 27, 30, 31, 32, 33, 34, 35.
 - Ace Trainers have considerably stronger and more balanced teams.
