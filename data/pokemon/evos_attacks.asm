@@ -726,9 +726,9 @@ OddishEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
-	db 4, ACID_SPRAY
+	db 4, POISONPOWDER
 	db 8, SWEET_SCENT
-	db 12, POISONPOWDER
+	db 12, ACID_SPRAY
 	db 16, STUN_SPORE
 	db 20, SLEEP_POWDER
 	db 24, TOXIC
@@ -744,9 +744,9 @@ GloomEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, GROWTH
-	db 4, ACID_SPRAY
+	db 4, POISONPOWDER
 	db 8, SWEET_SCENT
-	db 12, POISONPOWDER
+	db 12, ACID_SPRAY
 	db 16, STUN_SPORE
 	db 20, SLEEP_POWDER
 	db 25, TOXIC
