@@ -1376,17 +1376,17 @@ MagnetonEvosAttacks:
 
 FarfetchDEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, PLUCK
 	db 1, SAND_ATTACK
+	db 1, PLUCK
+	db 4, FALSE_SWIPE
 	db 8, FURY_CUTTER
-	db 12, FALSE_SWIPE
+	db 12, AGILITY
 	db 16, AERIAL_ACE
 	db 20, RAZOR_LEAF
-	db 24, AGILITY
-	db 28, AIR_CUTTER
-	db 32, SLASH
-	db 38, SWORDS_DANCE
-	db 44, AIR_SLASH
+	db 25, AIR_CUTTER
+	db 30, SLASH
+	db 35, SWORDS_DANCE
+	db 40, AIR_SLASH
 	; db 65, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
