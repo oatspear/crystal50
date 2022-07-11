@@ -2186,8 +2186,8 @@ VaporeonEvosAttacks:
 	db 5, SAND_ATTACK
 	db 10, QUICK_ATTACK
 	db 15, SWIFT
-	db 20, BITE
 	db 20, HAZE
+	db 20, BITE
 	db 25, WATER_PULSE
 	db 30, AURORA_BEAM
 	db 35, CALM_MIND
