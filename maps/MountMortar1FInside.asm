@@ -110,8 +110,7 @@ SupernerdMarkusAfterBattleText:
 	para "Did you run into a"
 	line "trainer who uses a"
 
-	para "SEADRA that knows"
-	line "WATERFALL?"
+	para "SEADRA?"
 	done
 
 MountMortar1FInside_MapEvents:
