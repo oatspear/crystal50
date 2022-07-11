@@ -419,12 +419,12 @@ PikachuEvosAttacks:
 	db 8, THUNDER_WAVE
 	db 12, NASTY_PLOT
 	db 16, SPARK
-	db 20, DOUBLE_TEAM
-	db 24, AGILITY
-	db 28, SWIFT
+	db 20, AGILITY
+	db 24, SWIFT
+	db 28, IRON_TAIL
 	db 32, THUNDERBOLT
 	db 36, LIGHT_SCREEN
-	db 44, THUNDER
+	db 40, THUNDER
 	db 0 ; no more level-up moves
 
 RaichuEvosAttacks:
@@ -439,7 +439,7 @@ RaichuEvosAttacks:
 	; db 1, THUNDERSHOCK
 	; db 1, GROWL
 	db 1, AGILITY
-	db 1, THUNDERBOLT
+	db 1, IRON_TAIL
 	db 1, QUICK_ATTACK
 	db LEVEL_EVO, THUNDERPUNCH
 	db 0 ; no more level-up moves

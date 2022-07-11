@@ -2288,9 +2288,9 @@ SwimmerFGroup:
 SailorGroup:
 	; SAILOR (1)
 	db "EUGENE@", TRAINERTYPE_NORMAL
-	db 17, POLIWHIRL
-	db 17, RATICATE
-	db 19, KRABBY
+	db 25, POLIWHIRL
+	db 25, RATICATE
+	db 28, KINGLER
 	db -1 ; end
 
 	; SAILOR (2)
@@ -3012,9 +3012,9 @@ PsychicGroup:
 	db -1 ; end
 
 	; PSYCHIC_T (6)
-	db "NORMAN@", TRAINERTYPE_MOVES
-	db 17, SLOWPOKE,   HEADBUTT, CURSE, WATER_GUN, CONFUSION
-	db 20, SLOWPOKE,   HEADBUTT, DISABLE, WATER_PULSE, CONFUSION
+	db "NORMAN@", TRAINERTYPE_NORMAL
+	db 22, SLOWBRO
+	db 22, SLOWKING
 	db -1 ; end
 
 	; PSYCHIC_T (7)
@@ -3547,7 +3547,8 @@ PokefanMGroup:
 
 	; POKEFANM (2)
 	db "DEREK@", TRAINERTYPE_NORMAL
-	db 17, PIKACHU
+	db 25, PIKACHU
+	db 25, PIKACHU
 	db -1 ; end
 
 	; POKEFANM (3)
@@ -3718,7 +3719,12 @@ PokefanFGroup:
 
 	; POKEFANF (2)
 	db "RUTH@", TRAINERTYPE_NORMAL
-	db 17, PIKACHU
+	db 18, PICHU
+	db 20, SMOOCHUM
+	db 18, CLEFFA
+	db 18, IGGLYBUFF
+	db 20, MAGBY
+	db 20, ELEKID
 	db -1 ; end
 
 	; POKEFANF (3)
@@ -3742,7 +3748,8 @@ PokefanFGroup:
 
 	; POKEFANF (6)
 	db "JAIME@", TRAINERTYPE_NORMAL
-	db 16, MEOWTH
+	db 25, MEOWTH
+	db 25, MEOWTH
 	db -1 ; end
 
 RedGroup:

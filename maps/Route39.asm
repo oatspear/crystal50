@@ -243,10 +243,10 @@ PokefanfRuthBeatenText:
 	done
 
 PokefanfRuthAfterBattleText:
-	text "Do you know about"
+	text "Did you know about"
 	line "baby #MON?"
 
-	para "I bet they're just"
+	para "They are just so"
 	line "adorable!"
 	done
 
