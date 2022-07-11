@@ -1830,9 +1830,9 @@ RhyhornEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 6, BULLDOZE
-	db 10, ROCK_SMASH
-	db 14, HEADBUTT
+	db 5, ROCK_SMASH
+	db 10, HEADBUTT
+	db 15, BULLDOZE
 	db 20, BODY_SLAM
 	db 28, ROCK_SLIDE
 	db 32, DOUBLE_EDGE
@@ -1846,9 +1846,9 @@ RhydonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 6, BULLDOZE
-	db 10, ROCK_SMASH
-	db 14, HEADBUTT
+	db 5, ROCK_SMASH
+	db 10, HEADBUTT
+	db 15, BULLDOZE
 	db 20, BODY_SLAM
 	db 28, ROCK_SLIDE
 	db 32, DOUBLE_EDGE
