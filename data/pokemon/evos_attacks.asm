@@ -2008,9 +2008,9 @@ MrMimeEvosAttacks:
 	db 20, LIGHT_SCREEN
 	db 20, REFLECT
 	db 25, SAFEGUARD
-	db 30, CALM_MIND
-	db 35, PSYCHIC_M
-	db 40, ZEN_HEADBUTT
+	db 30, ZEN_HEADBUTT
+	db 35, CALM_MIND
+	db 40, PSYCHIC_M
 	db 45, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
