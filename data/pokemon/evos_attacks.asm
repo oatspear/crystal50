@@ -3826,7 +3826,7 @@ Porygon2EvosAttacks:
 	db 30, TRI_ATTACK
 	db 35, THUNDERBOLT
 	db 40, RECOVER
-	db 50, HYPER_BEAM
+	db 45, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 StantlerEvosAttacks:
