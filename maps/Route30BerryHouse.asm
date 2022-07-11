@@ -16,9 +16,12 @@ Route30BerryHousePokefanMScript:
 	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoom
 	setevent EVENT_GOT_ORAN_BERRY_FROM_ROUTE_30_HOUSE
-.GotBerry:
 	writetext Route30BerrySpeechHouseCheckTreesText
-	waitbutton
+	closetext
+	end
+
+.GotBerry:
+	pokemart MARTTYPE_BERRIES, MART_BERRIES
 .NoRoom:
 	closetext
 	end
@@ -42,6 +45,10 @@ Route30BerrySpeechHouseCheckTreesText:
 	text "Check trees for"
 	line "BERRIES. They just"
 	cont "drop right off."
+
+	para "I can also sell"
+	line "some that I have"
+	cont "planted myself."
 	done
 
 Route30BerryHouse_MapEvents:

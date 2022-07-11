@@ -103,7 +103,16 @@ TrainerType1:
 	ld [wMonType], a
 	push hl
 	predef TryAddMonToParty
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
 	pop hl
+	ld a, ORAN_BERRY
+	ld [de], a
 	jr .loop
 
 TrainerType2:
@@ -123,6 +132,16 @@ TrainerType2:
 
 	push hl
 	predef TryAddMonToParty
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld a, ORAN_BERRY
+	ld [de], a
+
 	ld a, [wOTPartyCount]
 	dec a
 	ld hl, wOTPartyMon1Moves

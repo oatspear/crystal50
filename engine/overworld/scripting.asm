@@ -234,6 +234,7 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_verbosetakeitem            ; aa
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2351,6 +2352,28 @@ Script_checksave:
 	ld a, c
 	ld [wScriptVar], a
 	ret
+
+Script_verbosetakeitem:
+	call Script_takeitem
+	call CurItemName
+	ld de, wStringBuffer1
+	ld a, STRING_BUFFER_4
+	call CopyConvertedText
+	ld b, BANK(TakeItemScript)
+	ld de, TakeItemScript
+	jp ScriptCall
+
+TakeItemScript_DummyFunction:
+	ret
+
+TakeItemScript:
+	callasm TakeItemScript_DummyFunction
+	writetext .GaveItemText
+	end
+
+.GaveItemText:
+	text_far _GaveItemText
+	text_end
 
 Script_checkver_duplicate: ; unreferenced
 	ld a, [.gs_version]

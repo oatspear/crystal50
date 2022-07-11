@@ -128,8 +128,8 @@ TrainerSwimmermMathew:
 Route41Rock: ; unreferenced
 	jumpstd SmashRockScript
 
-Route41HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER
+Route41HiddenMysticWater:
+	hiddenitem MYSTIC_WATER, EVENT_ROUTE_41_HIDDEN_MYSTIC_WATER
 
 SwimmermCharlieSeenText:
 	text "The water's warm"
@@ -350,7 +350,7 @@ Route41_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  9, 35, BGEVENT_ITEM, Route41HiddenMaxEther
+	bg_event  9, 35, BGEVENT_ITEM, Route41HiddenMysticWater
 
 	def_object_events
 	object_event 32,  6, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCharlie, -1

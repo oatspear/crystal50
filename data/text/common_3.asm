@@ -261,6 +261,13 @@ _ReceivedItemText::
 	text "."
 	done
 
+_GaveItemText::
+	text "<PLAYER> gave"
+	line "@"
+	text_ram wStringBuffer4
+	text "."
+	done
+
 _PutItemInPocketText::
 	text "<PLAYER> put the"
 	line "@"
@@ -508,6 +515,7 @@ _HerbalLadyHowManyText::
 	text "How many?"
 	done
 
+_BerryMasterFinalPriceText::
 _HerbalLadyFinalPriceText::
 	text_decimal wItemQuantityChange, 1, 2
 	text " @"
@@ -562,6 +570,7 @@ _BargainShopThanksText::
 	done
 
 _BargainShopPackFullText::
+_BerryMasterPackFullText::
 	text "Uh-oh, your PACK"
 	line "is chock-full."
 	done
@@ -572,6 +581,7 @@ _BargainShopSoldOutText::
 	cont "sold out of it."
 	done
 
+_BerryMasterNoMoneyText::
 _BargainShopNoFundsText::
 	text "Uh-oh, you're"
 	line "short on funds."
@@ -587,6 +597,7 @@ _PharmacyIntroText::
 	line "some medicine?"
 	done
 
+_BerryMasterHowManyText::
 _PharmacyHowManyText::
 	text "How many?"
 	done
@@ -620,6 +631,18 @@ _PharmacyComeAgainText::
 	line "See you around."
 	done
 
+_BerryMasterIntroText::
+	text "Well, hello!"
+	line "How about some"
+	cont "fresh berries?"
+	done
+
+_BerryMasterComeAgainText::
+	text "Check trees for"
+	line "BERRIES. They just"
+	cont "drop right off."
+	done
+
 _NothingToSellText::
 	text "You don't have"
 	line "anything to sell."
@@ -643,6 +666,7 @@ _MartWelcomeText::
 	line "help you?"
 	done
 
+_BerryMasterThanksText::
 _MartThanksText::
 	text "Here you are."
 	line "Thank you!"

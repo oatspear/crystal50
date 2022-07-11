@@ -561,14 +561,6 @@ _PoisonFaintText::
 	line "fainted!"
 	prompt
 
-_PoisonWhiteoutText::
-	text "<PLAYER> is out of"
-	line "useable #MON!"
-
-	para "<PLAYER> whited"
-	line "out!"
-	prompt
-
 _UseSweetScentText::
 	text_ram wStringBuffer3
 	text " used"

@@ -145,8 +145,8 @@ CianwoodCityRock:
 CianwoodCityHiddenRevive:
 	hiddenitem REVIVE, EVENT_CIANWOOD_CITY_HIDDEN_REVIVE
 
-CianwoodCityHiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_CIANWOOD_CITY_HIDDEN_MAX_ETHER
+CianwoodCityHiddenElixer:
+	hiddenitem ELIXER, EVENT_CIANWOOD_CITY_HIDDEN_ELIXER
 
 CianwoodCitySuicuneApproachMovement:
 	set_sliding
@@ -399,7 +399,7 @@ CianwoodCity_MapEvents:
 	bg_event  8, 32, BGEVENT_READ, CianwoodPhotoStudioSign
 	bg_event  8, 24, BGEVENT_READ, CianwoodPokeSeerSign
 	bg_event  4, 19, BGEVENT_ITEM, CianwoodCityHiddenRevive
-	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenMaxEther
+	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenElixer
 
 	def_object_events
 	object_event 21, 37, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1

@@ -1063,4 +1063,58 @@ checksave: MACRO
 	db checksave_command
 ENDM
 
+	const verbosetakeitem_command ; $aa
+verbosetakeitem: MACRO
+if _NARG == 1
+	verbosetakeitem \1, 1
+else
+	db verbosetakeitem_command
+	db \1 ; item
+	db \2 ; quantity
+endc
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value
+
+gymtutor: MACRO
+;\1: required event flag
+;\2: move id
+;\3: required item for payment
+;\4: tutor move text
+;\5: thanks text
+;\6: refused text
+	checkevent \1
+	iffalse .TutorDone
+	checkitem \3
+	iffalse .TutorDone
+	writetext \4
+	yesorno
+	iffalse .TutorRefused
+	setval \2
+	special MoveTutor ; returns FALSE if all goes well
+	ifequal FALSE, .TeachMove
+
+.TutorRefused:
+	writetext \6
+	waitbutton
+	closetext
+	end
+
+.NoTutorAfterText:
+	writetext \4 ; after battle text
+	waitbutton
+	closetext
+	end
+
+.TeachMove:
+	verbosetakeitem \3
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext \5
+	waitbutton
+	; fallthrough
+
+.TutorDone:
+	closetext
+	end
+ENDM

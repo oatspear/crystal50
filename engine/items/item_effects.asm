@@ -108,7 +108,7 @@ ItemEffects:
 	dw NoEffect            ; BIG_MUSHROOM
 	dw NoEffect            ; SILVERPOWDER
 	dw NoEffect            ; BLU_APRICORN
-	dw NoEffect            ; ITEM_5A
+	dw RevivalHerbEffect   ; LIFE_HERB
 	dw NoEffect            ; AMULET_COIN
 	dw NoEffect            ; YLW_APRICORN
 	dw NoEffect            ; GRN_APRICORN
@@ -1559,6 +1559,8 @@ RevivePokemon:
 	ld [wLowHealthAlarm], a
 	ld a, [wCurItem]
 	cp REVIVE
+	jr z, .revive_half_hp
+	cp REVIVAL_HERB
 	jr z, .revive_half_hp
 
 	call ReviveFullHP

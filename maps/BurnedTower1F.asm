@@ -128,8 +128,8 @@ BurnedTower1FMortyScript:
 BurnedTower1FRock:
 	jumpstd SmashRockScript
 
-BurnedTower1FHiddenEther:
-	hiddenitem ETHER, EVENT_BURNED_TOWER_1F_HIDDEN_ETHER
+BurnedTower1FHiddenStardust:
+	hiddenitem STARDUST, EVENT_BURNED_TOWER_1F_HIDDEN_STARDUST
 
 BurnedTower1FHiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_BURNED_TOWER_1F_HIDDEN_ULTRA_BALL
@@ -298,7 +298,7 @@ BurnedTower1F_MapEvents:
 	coord_event 11,  9, SCENE_BURNEDTOWER1F_RIVAL_BATTLE, BurnedTowerRivalBattleScript
 
 	def_bg_events
-	bg_event  8,  7, BGEVENT_ITEM, BurnedTower1FHiddenEther
+	bg_event  8,  7, BGEVENT_ITEM, BurnedTower1FHiddenStardust
 	bg_event 13, 11, BGEVENT_ITEM, BurnedTower1FHiddenUltraBall
 
 	def_object_events

@@ -1,5 +1,33 @@
 # Changelog
 
+## v0.5 (Balance Patch)
+
+### Added
+- Berry market at the Berry house on Route 30, north of Cherrygrove.
+- Move tutors: every Gym trainer will teach their special move in exchange for an item.
+- New item: Life Herb. Bitter herb that revives a Pokémon for its full HP.
+
+### Changed
+- Level up learnsets of some Pokémon.
+- Prices of berries, so they can be purchased at a vendor.
+- Prices of status healing medicine, to be competitive with berries.
+- Prices of X-stat boosting items.
+- Gave Rocket Executives their proper names.
+- Cool Trainer class name to Ace Trainer.
+- Trainer Pokémon hold Oran Berry by default.
+- Rival party rosters to raise levels and increase difficulty.
+- Levels and teams of gym leaders and gym trainers.
+- Levels and teams of trainers throughout Johto.
+- Levels and teams of Team Rocket trainers and bosses.
+- Levels and teams of trainers on Routes 26 and 27.
+- Ace Trainers have considerably stronger and more balanced teams.
+- Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance, Hydro Pump, Sucker Punch, Megahorn, Iron Tail, Morning Sun, Synthesis, Moonlight, Cross Chop, Extreme Speed, Beat Up.
+- Chuck awards Brick Break as a HM, rather than Bulk Up.
+- Mart inventories: Violet City, Azalea City, Goldenrod City, Cianwood City, Mahogany Town, Blackthorn City.
+- Replaced some items spread out through the overworld that no longer serve any purpose.
+- Improved availability of some useful items.
+- Revival Herb revives for half HP.
+
 ## v0.4 (PLA Systems)
 
 ### Added

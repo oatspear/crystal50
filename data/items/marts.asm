@@ -37,6 +37,7 @@ Marts:
 	dw MartIndigoPlateau
 	dw MartUnderground
 	dw MartFoodsDrinks
+	dw MartBerries
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -63,6 +64,7 @@ MartCherrygroveDex:
 
 MartViolet:
 	db 10 ; # items
+	db SHARP_BEAK
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
@@ -71,32 +73,34 @@ MartViolet:
 	db X_DEFEND
 	db X_ATTACK
 	db TM_MUD_SLAP
-	db TM_PLUCK
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartAzalea:
 	db 10 ; # items
 	db CHARCOAL
+	db SILVERPOWDER
+	db TM_FALSE_SWIPE
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db REPEL
 	db SUPER_REPEL
-	db TM_RAIN_DANCE
-	db TM_FALSE_SWIPE
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartCianwood:
-	db 6 ; # items
+	db 9 ; # items
 	db BERRY_JUICE
 	db SUPER_POTION
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
-	db ETHER
+	db ELIXER
+	db PROTEIN
+	db IRON
+	db CARBOS
 	db -1 ; end
 
 MartGoldenrod2F1:
@@ -114,7 +118,9 @@ MartGoldenrod2F1:
 	db -1 ; end
 
 MartGoldenrod2F2:
-	db 8 ; # items
+	db 10 ; # items
+	db PINK_BOW
+	db POLKADOT_BOW
 	db POKE_BALL
 	db GREAT_BALL
 	db ULTRA_BALL
@@ -126,7 +132,7 @@ MartGoldenrod2F2:
 	db -1 ; end
 
 MartGoldenrod3F1:
-	db 7 ; # items
+	db 8 ; # items
 	db X_SPEED
 	db X_SPECIAL
 	db X_DEFEND
@@ -134,6 +140,7 @@ MartGoldenrod3F1:
 	db DIRE_HIT
 	db GUARD_SPEC
 	db X_ACCURACY
+	db ELIXER
 	db -1 ; end
 
 MartGoldenrod3F2:
@@ -214,11 +221,11 @@ MartGoldenrod5F4:
 MartOlivine:
 	db 10 ; # items
 	db MOOMOO_MILK
+	db METAL_COAT
 	db POKE_BALL
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION
-	db REPEL
 	db SUPER_REPEL
 	db TM_IRON_DEFENSE
 	db TM_STEEL_WING
@@ -252,29 +259,29 @@ MartMahogany1:
 MartMahogany2:
 	db 10 ; # items
 	db RAGECANDYBAR
+	db NEVERMELTICE
+	db MYSTIC_WATER
 	db FRESH_WATER
 	db POKE_BALL
-	db SUPER_POTION
 	db HYPER_POTION
-	db ANTIDOTE
-	db PARLYZ_HEAL
 	db SUPER_REPEL
 	db REVIVE
+	db ELIXER
 	db FLOWER_MAIL
 	db -1 ; end
 
 MartBlackthorn:
 	db 10 ; # items
+	db DRAGON_FANG
+	db DRAGON_SCALE
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db REVIVE
 	db MAX_REPEL
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
-	db X_SPECIAL
+	db ELIXER
+	db FOCUS_BAND
 	db -1 ; end
 
 MartViridian:
@@ -317,7 +324,9 @@ MartCerulean:
 	db -1 ; end
 
 MartLavender:
-	db 8 ; # items
+	db 10 ; # items
+	db CLEANSE_TAG
+	db SPELL_TAG
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
@@ -329,8 +338,9 @@ MartLavender:
 	db -1 ; end
 
 MartVermilion:
-	db 9 ; # items
+	db 10 ; # items
 	db MAGNET
+	db BLACKGLASSES
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
@@ -428,12 +438,12 @@ MartFuchsia:
 
 MartSaffron:
 	db 10 ; # items
+	db TWISTEDSPOON
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
 	db X_ATTACK
-	db X_DEFEND
 	db X_SPECIAL
 	db TM_NASTY_PLOT
 	db TM_CALM_MIND
@@ -463,10 +473,11 @@ MartIndigoPlateau:
 	db -1 ; end
 
 MartUnderground:
-	db 4 ; # items
+	db 5 ; # items
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db HEAL_POWDER
+	db LIFE_HERB
 	db REVIVAL_HERB
 	db -1 ; end
 
@@ -484,6 +495,20 @@ MartFoodsDrinks:
 	db ICE_HEAL
 	db AWAKENING
 	db PARLYZ_HEAL
+	db -1 ; end
+
+MartBerries:
+	db 10 ; # items
+	db ORAN_BERRY
+	db PECHA_BERRY
+	db CHERI_BERRY
+	db ASPEAR_BERRY
+	db RAWST_BERRY
+	db CHESTO_BERRY
+	db PERSIM_BERRY
+	db LUM_BERRY
+	db LEPPA_BERRY
+	db SITRUS_BERRY
 	db -1 ; end
 
 DefaultMart:

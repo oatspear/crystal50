@@ -5,6 +5,7 @@
 	const MARTTYPE_BARGAIN
 	const MARTTYPE_PHARMACY
 	const MARTTYPE_ROOFTOP
+	const MARTTYPE_BERRIES
 
 ; Marts indexes (see data/items/marts.asm)
 	const_def
@@ -44,4 +45,5 @@
 	const MART_INDIGO_PLATEAU
 	const MART_UNDERGROUND
 	const MART_FOODS_DRINKS
+	const MART_BERRIES
 NUM_MARTS EQU const_value

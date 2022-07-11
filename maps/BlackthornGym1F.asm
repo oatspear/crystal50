@@ -98,8 +98,7 @@ TrainerCooltrainermPaul:
 	opentext
 	writetext CooltrainermPaulAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CLAIR, THUNDER_FANG, MAGNET, CooltrainermPaulTutorText, CooltrainermPaulTutorThanksText, CooltrainermPaulTutorRefusedText
 
 TrainerCooltrainermMike:
 	trainer COOLTRAINERM, MIKE, EVENT_BEAT_COOLTRAINERM_MIKE, CooltrainermMikeSeenText, CooltrainermMikeBeatenText, 0, .Script
@@ -109,8 +108,7 @@ TrainerCooltrainermMike:
 	opentext
 	writetext CooltrainermMikeAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CLAIR, FIRE_FANG, CHARCOAL, CooltrainermMikeTutorText, CooltrainermMikeTutorThanksText, CooltrainermMikeTutorRefusedText
 
 TrainerCooltrainerfLola:
 	trainer COOLTRAINERF, LOLA, EVENT_BEAT_COOLTRAINERF_LOLA, CooltrainerfLolaSeenText, CooltrainerfLolaBeatenText, 0, .Script
@@ -120,8 +118,7 @@ TrainerCooltrainerfLola:
 	opentext
 	writetext CooltrainerfLolaAfterBattleText
 	waitbutton
-	closetext
-	end
+	gymtutor EVENT_BEAT_CLAIR, DRAGON_DANCE, DRAGON_FANG, CooltrainerfLolaTutorText, CooltrainerfLolaTutorThanksText, CooltrainerfLolaTutorRefusedText
 
 BlackthornGymGuideScript:
 	faceplayer
@@ -297,6 +294,35 @@ CooltrainermPaulBeatenText:
 	done
 
 CooltrainermPaulAfterBattleText:
+	text "Dragons use a wide"
+	line "variety of moves."
+
+	para "I train my #MON"
+	line "in electric moves."
+
+	para "A MAGNET would be"
+	line "nice to have…"
+	done
+
+CooltrainermPaulTutorText:
+	text "Speaking of which,"
+	line "do you happen to"
+	cont "have any?"
+
+	para "I can teach you"
+	line "THUNDER FANG!"
+	done
+
+CooltrainermPaulTutorThanksText:
+	text "Yeah! Thanks!"
+	done
+
+CooltrainermPaulTutorRefusedText:
+	text "Come back when"
+	line "you seek power."
+	done
+
+CooltrainermMikeSeenText:
 	text "LANCE told you"
 	line "that he'd like to"
 
@@ -304,22 +330,37 @@ CooltrainermPaulAfterBattleText:
 	line "Not a chance!"
 	done
 
-CooltrainermMikeSeenText:
-	text "My chance of"
-	line "losing? Not even"
-	cont "one percent!"
-	done
-
 CooltrainermMikeBeatenText:
-	text "That's odd."
+	text "I know why he said"
+	line "that now."
 	done
 
 CooltrainermMikeAfterBattleText:
-	text "I know my short-"
-	line "comings now."
+	text "You're strong."
+	line "Not even the heat"
+	cont "slowed you down."
 
-	para "Thanks for showing"
-	line "me!"
+	para "If I had CHARCOAL,"
+	line "my fire-type moves"
+	cont "would beat you,"
+	cont "for sure!"
+	done
+
+CooltrainermMikeTutorText:
+	text "Do you have some"
+	line "you can spare?"
+
+	para "I'll repay you by"
+	line "teaching you the"
+	cont "move FIRE FANG."
+	done
+
+CooltrainermMikeTutorThanksText:
+	text "You're awesome!"
+	done
+
+CooltrainermMikeTutorRefusedText:
+	text "No? Too bad."
 	done
 
 CooltrainerfLolaSeenText:
@@ -344,6 +385,26 @@ CooltrainerfLolaAfterBattleText:
 	text "Dragons are weak"
 	line "against dragon-"
 	cont "type moves."
+
+	para "DRAGON FANGS make"
+	line "dragons stronger."
+	done
+
+CooltrainerfLolaTutorText:
+	text "If you find one,"
+	line "bring it to me"
+
+	para "and I'll teach you"
+	line "the sacred DRAGON"
+	cont "DANCE."
+	done
+
+CooltrainerfLolaTutorThanksText:
+	text "This is perfect!"
+	done
+
+CooltrainerfLolaTutorRefusedText:
+	text "Your loss!"
 	done
 
 BlackthornGymGuideText:

@@ -111,8 +111,8 @@ Route37FruitTree2:
 Route37FruitTree3:
 	fruittree FRUITTREE_ROUTE_37_3
 
-Route37HiddenEther:
-	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
+Route37HiddenLeppaBerry:
+	hiddenitem LEPPA_BERRY, EVENT_ROUTE_37_HIDDEN_LEPPA_BERRY
 
 TwinsAnnandanne1SeenText:
 	text "ANN: ANNE and I"
@@ -244,7 +244,7 @@ Route37_MapEvents:
 
 	def_bg_events
 	bg_event  5,  3, BGEVENT_READ, Route37Sign
-	bg_event  4,  2, BGEVENT_ITEM, Route37HiddenEther
+	bg_event  4,  2, BGEVENT_ITEM, Route37HiddenLeppaBerry
 
 	def_object_events
 	object_event  6, 12, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1

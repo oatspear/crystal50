@@ -95,7 +95,7 @@
 	const BIG_MUSHROOM ; 57
 	const SILVERPOWDER ; 58
 	const BLU_APRICORN ; 59
-	const ITEM_5A      ; 5a
+	const LIFE_HERB    ; 5a
 	const AMULET_COIN  ; 5b
 	const YLW_APRICORN ; 5c
 	const GRN_APRICORN ; 5d
@@ -245,7 +245,7 @@ TM01 EQU const_value
 	add_tm ENERGY_BALL  ; d8
 	add_tm THUNDER      ; d9
 	add_tm EARTHQUAKE   ; da
-	add_tm BRICK_BREAK  ; db
+	add_tm BULK_UP      ; db
 	add_tm DIG          ; dc
 	add_tm PSYCHIC_M    ; dd
 	add_tm SCALD        ; de
@@ -276,7 +276,7 @@ NUM_TMS EQU __tmhm_value__ - 1
 add_hm: MACRO
 ; Defines three constants:
 ; - HM_\1: the item id, starting at $f5
-; - \1_TMNUM: the learnable TM/HM flag, starting at 51
+; - \1_TMNUM: the learnable TM/HM flag, starting at 53
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 	const HM_\1
 HM_VALUE = __tmhm_value__ - NUM_TMS
@@ -289,7 +289,7 @@ HM01 EQU const_value
 	add_hm FURY_CUTTER  ; f6
 	add_hm FACADE       ; f7
 	add_hm SHADOW_BALL  ; f8
-	add_hm BULK_UP      ; f9
+	add_hm BRICK_BREAK  ; f9
 	add_hm IRON_TAIL    ; fa
 	add_hm AVALANCHE    ; fb
 	add_hm DRAGONBREATH ; fc
@@ -297,7 +297,7 @@ NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
 ; Defines two constants:
-; - \1_TMNUM: the learnable TM/HM flag, starting at 59
+; - \1_TMNUM: the learnable TM/HM flag, starting at 61
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
 MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
 MT{02d:MT_VALUE}_MOVE = \1
@@ -308,6 +308,29 @@ MT01 EQU const_value
 	add_mt FLAMETHROWER
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
+	; Gym tutors
+	add_mt STRUGGLE_BUG
+	add_mt BUG_BITE
+	add_mt SILVER_WIND
+	add_mt INFESTATION
+	add_mt HEAL_BELL
+	add_mt SLASH
+	add_mt DRAIN_KISS
+	add_mt DESTINY_BOND
+	add_mt OMINOUS_WIND
+	add_mt SPITE
+	add_mt WILL_O_WISP
+	add_mt LOW_SWEEP
+	add_mt REVERSAL
+	add_mt AURORA_BEAM
+	add_mt ICE_FANG
+	add_mt ICE_SHARD
+	add_mt OUTRAGE
+	add_mt FIRE_FANG
+	add_mt THUNDER_FANG
+	add_mt DRAGON_PULSE
+	add_mt DRAGON_DANCE
+	; unused: 4 out of 88 bits (11 bytes)
 NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
