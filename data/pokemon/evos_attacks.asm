@@ -1620,30 +1620,34 @@ HypnoEvosAttacks:
 KrabbyEvosAttacks:
 	db EVOLVE_LEVEL, 28, KINGLER
 	db 0 ; no more evolutions
-	db 1, WATER_GUN
-	db 4, FALSE_SWIPE
-	db 8, METAL_CLAW
-	db 12, MUD_SLAP
+	db 1, FALSE_SWIPE
+	db 1, MUD_SLAP
+	db 4, ENDURE
+	db 4, FLAIL
+	db 8, WATER_GUN
+	db 12, ROCK_SMASH
 	db 16, BUBBLEBEAM
-	db 20, IRON_DEFENSE
-	db 24, ENDURE
-	db 28, FLAIL
-	db 34, SWORDS_DANCE
-	db 38, CRABHAMMER
+	db 18, METAL_CLAW
+	db 22, IRON_DEFENSE
+	db 26, DIG
+	db 30, SWORDS_DANCE
+	db 35, CRABHAMMER
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, WATER_GUN
-	db 4, FALSE_SWIPE
-	db 8, METAL_CLAW
-	db 12, MUD_SLAP
+	db 1, FALSE_SWIPE
+	db 1, MUD_SLAP
+	db 4, ENDURE
+	db 4, FLAIL
+	db 8, WATER_GUN
+	db 12, ROCK_SMASH
 	db 16, BUBBLEBEAM
-	db 20, IRON_DEFENSE
-	db 24, ENDURE
-	db 30, FLAIL
-	db 38, SWORDS_DANCE
-	db 44, CRABHAMMER
+	db 18, METAL_CLAW
+	db 22, IRON_DEFENSE
+	db 26, DIG
+	db 33, SWORDS_DANCE
+	db 40, CRABHAMMER
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks:
