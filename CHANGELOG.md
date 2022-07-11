@@ -19,7 +19,7 @@
 - Levels and teams of gym leaders and gym trainers.
 - Levels and teams of trainers at the Lighthouse, Dance Theater, Union Cave, Ilex Forest, National Park.
 - Levels and teams of Team Rocket trainers and bosses.
-- Levels and teams of trainers on Routes 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39.
+- Levels and teams of trainers on Routes 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40.
 - Ace Trainers have considerably stronger and more balanced teams.
 - Reduced PP cost for: Metronome, Spite, Mimic, Iron Tail, Sunny Day, Rain Dance, Hydro Pump, Sucker Punch, Megahorn, Iron Tail, Morning Sun, Synthesis, Moonlight, Cross Chop, Extreme Speed, Beat Up.
 - Chuck awards Brick Break as a HM, rather than Bulk Up.
