@@ -844,36 +844,37 @@ VenomothEvosAttacks:
 DiglettEvosAttacks:
 	db EVOLVE_LEVEL, 26, DUGTRIO
 	db 0 ; no more evolutions
-	db 1, TACKLE
 	db 1, SAND_ATTACK
-	db 4, GROWL
-	db 8, ASTONISH
-	db 12, MUD_SLAP
-	db 16, BULLDOZE
+	db 1, TACKLE
+	db 1, GROWL
+	db 4, ASTONISH
+	db 8, MUD_SLAP
+	db 12, SAND_TOMB
+	db 16, DIG
 	db 20, SUCKER_PUNCH
-	db 24, SLASH
-	db 28, SANDSTORM
-	db 32, DIG
+	db 24, BULLDOZE
+	db 28, SLASH
+	db 32, SANDSTORM
 	db 36, EARTH_POWER
 	db 40, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 DugtrioEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
 	db 1, SAND_ATTACK
-	db 4, GROWL
-	db 8, ASTONISH
-	db 12, MUD_SLAP
-	db 16, BULLDOZE
+	db 1, TACKLE
+	db 1, GROWL
+	db 4, ASTONISH
+	db 8, MUD_SLAP
+	db 12, SAND_TOMB
+	db 16, DIG
 	db 20, SUCKER_PUNCH
-	db 24, SLASH
-	db 30, SANDSTORM
-	db 36, DIG
-	db 42, EARTH_POWER
-	db 48, EARTHQUAKE
-	db 54, TRI_ATTACK
-	db LEVEL_EVO, SAND_TOMB
+	db 24, BULLDOZE
+	db 30, SLASH
+	db 35, SANDSTORM
+	db 40, EARTH_POWER
+	db 45, EARTHQUAKE
+	db LEVEL_EVO, TRI_ATTACK
 	db 0 ; no more level-up moves
 
 MeowthEvosAttacks:
@@ -949,33 +950,33 @@ MankeyEvosAttacks:
 	db EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, FOCUS_ENERGY
+	db 1, FOCUS_ENERGY
+	db 4, MUD_SLAP
 	db 8, ROCK_SMASH
-	db 12, MUD_SLAP
-	db 16, LOW_SWEEP
-	db 20, BULK_UP
-	db 24, SWAGGER
-	db 28, PAYBACK
-	db 32, SCREECH
-	db 36, CROSS_CHOP
+	db 12, LOW_SWEEP
+	db 16, BULK_UP
+	db 20, SWAGGER
+	db 24, PAYBACK
+	db 28, SCREECH
+	db 32, CROSS_CHOP
+	db 36, OUTRAGE
 	db 40, CLOSE_COMBAT
-	db 44, OUTRAGE
 	db 0 ; no more level-up moves
 
 PrimeapeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, FOCUS_ENERGY
+	db 1, FOCUS_ENERGY
+	db 4, MUD_SLAP
 	db 8, ROCK_SMASH
-	db 12, MUD_SLAP
-	db 16, LOW_SWEEP
-	db 20, BULK_UP
-	db 24, SWAGGER
-	db 28, PAYBACK
-	db 35, SCREECH
-	db 40, CROSS_CHOP
+	db 12, LOW_SWEEP
+	db 16, BULK_UP
+	db 20, SWAGGER
+	db 24, PAYBACK
+	db 28, SCREECH
+	db 35, CROSS_CHOP
+	db 40, OUTRAGE
 	db 45, CLOSE_COMBAT
-	db 50, OUTRAGE
 	db 0 ; no more level-up moves
 
 GrowlitheEvosAttacks:
