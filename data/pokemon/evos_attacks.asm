@@ -368,9 +368,9 @@ FearowEvosAttacks:
 	db 18, PAYBACK
 	db 25, NASTY_PLOT
 	db 30, AIR_CUTTER
-	db 35, AGILITY
-	db 40, ROOST
-	db 45, DRILL_PECK
+	db 34, AGILITY
+	db 38, ROOST
+	db 42, DRILL_PECK
 	; db 45, DRILL_RUN
 	db 0 ; no more level-up moves
 
@@ -2677,11 +2677,12 @@ HoothootEvosAttacks:
 	db 4, PLUCK
 	db 8, CONFUSION
 	db 12, HYPNOSIS
-	db 16, REFLECT
+	db 16, AERIAL_ACE
 	db 20, OMINOUS_WIND
-	db 24, ROOST
-	db 28, EXTRASENSORY
-	db 32, DREAM_EATER
+	db 24, DREAM_EATER
+	db 28, REFLECT
+	db 30, ROOST
+	db 32, EXTRASENSORY
 	db 36, DAZZLING_GLEAM ; FIXME: MOONBLAST
 	db 40, AIR_SLASH
 	db 0 ; no more level-up moves
@@ -2693,13 +2694,14 @@ NoctowlEvosAttacks:
 	db 4, PLUCK
 	db 8, CONFUSION
 	db 12, HYPNOSIS
-	db 16, REFLECT
+	db 16, AERIAL_ACE
 	db 20, OMINOUS_WIND
-	db 25, ROOST
-	db 30, EXTRASENSORY
-	db 35, DREAM_EATER
+	db 25, DREAM_EATER
+	db 30, REFLECT
+	db 33, ROOST
+	db 36, EXTRASENSORY
 	db 40, DAZZLING_GLEAM ; FIXME: MOONBLAST
-	db 45, AIR_SLASH
+	db 44, AIR_SLASH
 	db 0 ; no more level-up moves
 
 LedybaEvosAttacks:
