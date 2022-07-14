@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.2
+
+### Fixed
+- Fixed movesets of Pokémon obtained via Odd Egg.
+
 ## v0.5.1
 
 ### Fixed

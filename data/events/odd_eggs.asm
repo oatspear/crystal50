@@ -38,7 +38,7 @@ OddEggs:
 
 	db PICHU
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, 0, 0
+	db THUNDERSHOCK, CHARM, QUICK_ATTACK, 0
 	dw 02048 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -48,7 +48,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 30, 20, 10, 0 ; PP
+	db ENERGY_20_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -64,7 +64,7 @@ OddEggs:
 
 	db PICHU
 	db NO_ITEM
-	db THUNDERSHOCK, CHARM, 0, 0
+	db THUNDERSHOCK, CHARM, QUICK_ATTACK, 0
 	dw 00256 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -74,7 +74,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 30, 20, 10, 0 ; PP
+	db ENERGY_20_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -90,7 +90,7 @@ OddEggs:
 
 	db CLEFFA
 	db NO_ITEM
-	db TACKLE, CHARM, 0, 0
+	db TACKLE, CHARM, SING, 0
 	dw 04096 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -100,7 +100,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 35, 20, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -116,7 +116,7 @@ OddEggs:
 
 	db CLEFFA
 	db NO_ITEM
-	db TACKLE, CHARM, 0, 0
+	db TACKLE, CHARM, SING, 0
 	dw 00768 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -126,7 +126,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 35, 20, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -142,7 +142,7 @@ OddEggs:
 
 	db IGGLYBUFF
 	db NO_ITEM
-	db SING, CHARM, 0, 0
+	db TACKLE, CHARM, SING, 0
 	dw 04096 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -152,7 +152,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 15, 20, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -168,7 +168,7 @@ OddEggs:
 
 	db IGGLYBUFF
 	db NO_ITEM
-	db SING, CHARM, 0, 0
+	db TACKLE, CHARM, SING, 0
 	dw 00768 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -178,7 +178,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 15, 20, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -194,7 +194,7 @@ OddEggs:
 
 	db SMOOCHUM
 	db NO_ITEM
-	db TACKLE, POWDER_SNOW, 0, 0
+	db TACKLE, SWEET_KISS, POWDER_SNOW, 0
 	dw 03584 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -204,7 +204,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 35, 30, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -220,7 +220,7 @@ OddEggs:
 
 	db SMOOCHUM
 	db NO_ITEM
-	db TACKLE, POWDER_SNOW, 0, 0
+	db TACKLE, SWEET_KISS, POWDER_SNOW, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -230,7 +230,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 35, 30, 10, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -246,7 +246,7 @@ OddEggs:
 
 	db MAGBY
 	db NO_ITEM
-	db EMBER, 0, 0, 0
+	db TACKLE, EMBER, SMOKESCREEN, 0
 	dw 02560 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -256,7 +256,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 25, 10, 0, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -272,7 +272,7 @@ OddEggs:
 
 	db MAGBY
 	db NO_ITEM
-	db EMBER, 0, 0, 0
+	db TACKLE, EMBER, SMOKESCREEN, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -282,7 +282,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 25, 10, 0, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -298,7 +298,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, THUNDER_WAVE, 0
 	dw 03072 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -308,7 +308,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 30, 30, 10, 0 ; PP
+	db ENERGY_20_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -324,7 +324,7 @@ OddEggs:
 
 	db ELEKID
 	db NO_ITEM
-	db QUICK_ATTACK, THUNDERSHOCK, 0, 0
+	db QUICK_ATTACK, THUNDERSHOCK, THUNDER_WAVE, 0
 	dw 00512 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -334,7 +334,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 30, 30, 10, 0 ; PP
+	db ENERGY_20_PP, ENERGY_20_PP, ENERGY_20_PP, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -350,7 +350,7 @@ OddEggs:
 
 	db TYROGUE
 	db NO_ITEM
-	db TACKLE, 0, 0, 0
+	db TACKLE, FOCUS_ENERGY, 0, 0
 	dw 02560 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -360,7 +360,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 0, 0, 0, 0 ; DVs
-	db 35, 10, 0, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, 0, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
@@ -376,7 +376,7 @@ OddEggs:
 
 	db TYROGUE
 	db NO_ITEM
-	db TACKLE, 0, 0, 0
+	db TACKLE, FOCUS_ENERGY, 0, 0
 	dw 00256 ; OT ID
 	dt 125 ; Exp
 	; Stat exp
@@ -386,7 +386,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	dn 2, 10, 10, 10 ; DVs
-	db 35, 10, 0, 0 ; PP
+	db ENERGY_30_PP, ENERGY_20_PP, 0, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
