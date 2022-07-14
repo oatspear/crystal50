@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.1
+
+### Fixed
+- Fixed corrupt trainer data in Ecruteak Gym.
+
 ## v0.5 (Balance Patch)
 
 ### Added
