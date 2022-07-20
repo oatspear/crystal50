@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.3
+
+### Fixed
+- Fixed corrupt trainer data in Mount Mortar.
+
 ## v0.5.2
 
 ### Fixed
