@@ -1,4 +1,6 @@
 NPCTrade::
+	ld a, FALSE
+	ld [wScriptVar], a
 	ld a, e
 	ld [wJumptableIndex], a
 	call Trade_GetDialog
@@ -45,6 +47,9 @@ NPCTrade::
 	call PrintText
 
 	call RestartMapMusic
+
+	ld a, TRUE
+	ld [wScriptVar], a
 
 	ld a, TRADE_DIALOG_COMPLETE
 
