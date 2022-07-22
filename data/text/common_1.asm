@@ -1349,8 +1349,6 @@ _ReceiveItemText::
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
-
 _NoCoinsText::
 	text "You have no coins."
 	prompt
