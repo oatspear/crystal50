@@ -14,68 +14,61 @@ SECTION "Egg Moves", ROMX
 INCLUDE "data/pokemon/egg_move_pointers.asm"
 
 BulbasaurEggMoves:
-	db LIGHT_SCREEN
 	db SKULL_BASH
-	db SAFEGUARD
-	db RAZOR_WIND
+	db LEAF_STORM
+	db MAGICAL_LEAF
 	db PETAL_DANCE
 	db -1 ; end
 
 CharmanderEggMoves:
 	db BELLY_DRUM
-	db ANCIENTPOWER
-	db ROCK_SLIDE
-	db BITE
-	db OUTRAGE
+	db METAL_CLAW
 	db BEAT_UP
+	db CRUNCH
+	db DRAGON_DANCE
+	db OUTRAGE
 	db -1 ; end
 
 SquirtleEggMoves:
-	db MIRROR_COAT
-	db HAZE
-	db MIST
-	db CONFUSION
-	db FORESIGHT
+	db AQUA_JET
 	db FLAIL
+	db HAZE
+	db MIRROR_COAT
+	db MIST
 	db -1 ; end
 
 PidgeyEggMoves:
-	db PURSUIT
-	db FAINT_ATTACK
-	db FORESIGHT
+	db AIR_CUTTER
+	db AIR_SLASH
 	db -1 ; end
 
 RattataEggMoves:
-	db SCREECH
-	db FLAME_WHEEL
-	db FURY_SWIPES
 	db BITE
-	db COUNTER
+	db FLAME_WHEEL
+	db REVENGE
 	db REVERSAL
+	db SCREECH
 	db -1 ; end
 
 SpearowEggMoves:
-	db FAINT_ATTACK
-	db FALSE_SWIPE
-	db SCARY_FACE
+	db ASTONISH
 	db QUICK_ATTACK
-	db TRI_ATTACK
+	db WHIRLWIND
 	db -1 ; end
 
 EkansEggMoves:
-	db PURSUIT
-	db SLAM
-	db SPITE
 	db BEAT_UP
-	db CRUNCH
+	db DISABLE
+	db SPITE
+	db SUCKER_PUNCH
 	db -1 ; end
 
 SandshrewEggMoves:
-	db FLAIL
-	db SAFEGUARD
 	db COUNTER
-	db RAPID_SPIN
+	db FLAIL
 	db METAL_CLAW
+	db NIGHT_SLASH
+	db RAPID_SPIN
 	db -1 ; end
 
 NidoranFEggMoves:
