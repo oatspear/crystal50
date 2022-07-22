@@ -525,7 +525,7 @@ IgglybuffEggMoves:
 
 TogepiEggMoves:
 	db PRESENT
-	db MIRROR_MOVE
+	; db MIRROR_MOVE
 	; db PECK
 	; db FORESIGHT
 	db FUTURE_SIGHT
@@ -600,7 +600,7 @@ MurkrowEggMoves:
 	db WHIRLWIND
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db MIRROR_MOVE
+	; db MIRROR_MOVE
 	; db WING_ATTACK
 	; db SKY_ATTACK
 	db -1 ; end
