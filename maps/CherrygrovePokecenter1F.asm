@@ -3,6 +3,7 @@
 	const CHERRYGROVEPOKECENTER1F_FISHER
 	const CHERRYGROVEPOKECENTER1F_GENTLEMAN
 	const CHERRYGROVEPOKECENTER1F_TEACHER
+	const CHERRYGROVEPOKECENTER1F_TRADER
 
 CherrygrovePokecenter1F_MapScripts:
 	def_scene_scripts
@@ -30,6 +31,41 @@ CherrygrovePokecenter1FTeacherScript:
 
 .CommCenterOpen:
 	writetext CherrygrovePokecenter1FTeacherText_CommCenterOpen
+	waitbutton
+	closetext
+	end
+
+CherrygrovePokecenter1FOaksAideScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	iffalse .NoCommCenter
+
+; .TradeBulbasaur:
+	checkevent EVENT_TRADED_BULBASAUR
+	iftrue .TradeCharmander
+	trade NPC_TRADE_OAKS_AIDE1
+	iffalse .Done
+	setevent EVENT_TRADED_BULBASAUR
+	sjump .Done
+
+.TradeCharmander:
+	checkevent EVENT_TRADED_CHARMANDER
+	iftrue .TradeSquirtle
+	trade NPC_TRADE_OAKS_AIDE2
+	iffalse .Done
+	setevent EVENT_TRADED_CHARMANDER
+	sjump .Done
+
+.TradeSquirtle:
+	trade NPC_TRADE_OAKS_AIDE3
+	sjump .Done
+
+.NoCommCenter:
+	writetext CherrygrovePokecenter1FOaksAideText
+	; fallthrough
+
+.Done:
 	waitbutton
 	closetext
 	end
@@ -66,6 +102,15 @@ CherrygrovePokecenter1FTeacherText_CommCenterOpen:
 	line "there already!"
 	done
 
+CherrygrovePokecenter1FOaksAideText:
+	text "I'm here to aid"
+	line "PROF. OAK with"
+	cont "his research."
+
+	para "I could use some"
+	line "help later on."
+	done
+
 CherrygrovePokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -83,3 +128,4 @@ CherrygrovePokecenter1F_MapEvents:
 	object_event  2,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FFisherScript, -1
 	object_event  8,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FGentlemanScript, -1
 	object_event  1,  6, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FTeacherScript, -1
+	object_event  4,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygrovePokecenter1FOaksAideScript, -1
