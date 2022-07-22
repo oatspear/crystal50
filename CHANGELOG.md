@@ -5,6 +5,11 @@
 ### Added
 - Prof. Oak's aide at Cherrygrove's Pokémon Center who will offer Kanto starters for trade.
 
+## v0.5.3
+
+### Fixed
+- Fixed corrupt trainer data in Mount Mortar.
+
 ## v0.5.2
 
 ### Fixed
