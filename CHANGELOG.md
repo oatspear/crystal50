@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.1
+
+### Fixed
+- Slowpoke is now able to evolve to Slowking if its evolution criteria are met.
+
 ## v0.6
 
 ### Added
