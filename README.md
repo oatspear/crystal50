@@ -1,4 +1,4 @@
-# Pokémon Salt Crystal (v0.5)
+# Pokémon Salt Crystal (v0.6)
 
 This is the repository for the development of a Pokémon Crystal ROM hack, named **Pokémon Salt Crystal**.
 The name is both a pun and an abbreviation, seeing as salt forms crystals, whereas the actual intent is to abbreviate *Systems Altered*.
