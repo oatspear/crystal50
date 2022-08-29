@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.2
+
+### Fixed
+- Restored egg moves. Most Pokémon now have moves that they can learn via breeding.
+
 ## v0.6.1
 
 ### Fixed
