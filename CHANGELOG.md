@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7
+
+### Changed
+- Headbutt encounters vary in level and species like regular wild encounters.
+
 ## v0.6.2
 
 ### Fixed
