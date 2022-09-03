@@ -3,7 +3,8 @@
 ## v0.7
 
 ### Changed
-- Headbutt encounters vary in level and species like regular wild encounters.
+- Headbutt and Rock Smash encounters vary in level and species like regular wild encounters.
+- Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 10% to 30%. The chance for good trees has increased from 50% to 70%. Rare trees remain at 80%.
 
 ## v0.6.2
 
