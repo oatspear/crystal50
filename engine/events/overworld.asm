@@ -1491,7 +1491,45 @@ FishFunction:
 	and a
 	jr z, .nonibble
 	ld [wTempWildMonSpecies], a
+
+; Get the minimum level of the wild Pokemon.
 	ld a, e
+	ld b, a
+; Check if we buff the wild mon, and by how much.
+	call Random
+	cp 5 percent
+	jr c, .ok       ; nothing to do, use min. level
+	ld c, 0
+	cp 35 percent   ; +0-2
+	jr c, .buff
+	ld c, 2
+	cp 65 percent   ; +2-4
+	jr c, .buff
+	ld c, 4
+	cp 90 percent   ; +4-6
+	jr c, .buff
+	ld c, 6
+	cp 98 percent   ; +6-8
+	jr c, .buff
+; rare encounter: +8-12
+	ld c, 8
+	ld a, b             ; load min. level
+	add c               ; add min. offset
+	ld d, a
+	ldh a, [hRandomAdd]
+	call SimpleDivide   ; random (mod 8)
+	add d               ; add to level
+	ld b, a
+	jr .ok
+; Apply level buff
+.buff
+	and 1               ; parity bit
+	add c               ; add min. offset
+	add b               ; add to level
+	ld b, a
+; Store the level
+.ok
+	ld a, b
 	ld [wCurPartyLevel], a
 	ld a, BATTLETYPE_FISH
 	ld [wBattleType], a
