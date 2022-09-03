@@ -53,7 +53,7 @@ NUM_MAP_PALETTES EQU const_value
 	const FISHGROUP_WHIRL_ISLANDS
 	const FISHGROUP_QWILFISH
 	const FISHGROUP_REMORAID
-	const FISHGROUP_QWILFISH_NO_SWARM
+	const FISHGROUP_KANTO_COASTAL
 NUM_FISHGROUPS EQU const_value - 1
 
 ; connection directions (see data/maps/data.asm)
