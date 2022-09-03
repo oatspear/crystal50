@@ -25,94 +25,94 @@ FishGroups:
 	assert_table_length NUM_FISHGROUPS
 
 .Shore_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     KRABBY,     10
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, SHELLDER,    5
+	db 100 percent,     KRABBY,      5
 .Shore_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     KRABBY,     20
-	db  90 percent + 1, KRABBY,     20
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     KRABBY,     15
+	db  90 percent + 1, SHELLDER,   15
 	db 100 percent,     time_group 0
 .Shore_Super:
-	db  40 percent,     KRABBY,     40
+	db  40 percent,     KRABBY,     25
 	db  70 percent,     time_group 1
-	db  90 percent + 1, KRABBY,     40
-	db 100 percent,     KINGLER,    40
+	db  90 percent + 1, CLOYSTER,   30
+	db 100 percent,     GYARADOS,   25
 
 .Ocean_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     TENTACOOL,  10
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, REMORAID,    5
+	db 100 percent,     TENTACOOL,   5
 .Ocean_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     TENTACOOL,  20
-	db  90 percent + 1, CHINCHOU,   20
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     TENTACOOL,  15
+	db  80 percent + 1, REMORAID,   15
 	db 100 percent,     time_group 2
 .Ocean_Super:
-	db  40 percent,     CHINCHOU,   40
+	db  40 percent,     REMORAID,   20
 	db  70 percent,     time_group 3
-	db  90 percent + 1, TENTACRUEL, 40
-	db 100 percent,     LANTURN,    40
+	db  90 percent + 1, QWILFISH,   25
+	db 100 percent,     GYARADOS,   25
 
 .Lake_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     GOLDEEN,    10
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, WOOPER,      5
+	db 100 percent,     GOLDEEN,     5
 .Lake_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     GOLDEEN,    20
-	db  90 percent + 1, GOLDEEN,    20
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     GOLDEEN,    15
+	db  90 percent + 1, WOOPER,     15
 	db 100 percent,     time_group 4
 .Lake_Super:
-	db  40 percent,     GOLDEEN,    40
+	db  40 percent,     QUAGSIRE,   25
 	db  70 percent,     time_group 5
-	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     SEAKING,    40
+	db  90 percent + 1, SEAKING,    30
+	db 100 percent,     GYARADOS,   25
 
 .Pond_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   15
-	db 100 percent,     POLIWAG,    10
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, GOLDEEN,     5
+	db 100 percent,     POLIWAG,     5
 .Pond_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     POLIWAG,    20
-	db  90 percent + 1, POLIWAG,    25
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     GOLDEEN,    15
+	db  90 percent + 1, POLIWAG,    15
 	db 100 percent,     time_group 6
 .Pond_Super:
-	db  40 percent,     POLIWAG,    40
+	db  40 percent,     POLIWHIRL,  25
 	db  70 percent,     REMORAID,   20
-	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     REMORAID,   30
+	db  90 percent + 1, time_group 7
+	db 100 percent,     GYARADOS,   25
 
 .Dratini_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     MAGIKARP,   10
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, MAGIKARP,    5
+	db 100 percent,     MAGIKARP,    5
 .Dratini_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     MAGIKARP,   20
-	db  90 percent + 1, MAGIKARP,   20
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     MAGIKARP,   10
+	db  90 percent + 1, GYARADOS,   15
 	db 100 percent,     time_group 8
 .Dratini_Super:
-	db  40 percent,     MAGIKARP,   40
+	db  40 percent,     MAGIKARP,   15
 	db  70 percent,     time_group 9
-	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     DRAGONAIR,  40
+	db  90 percent + 1, GYARADOS,   25
+	db 100 percent,     DRAGONAIR,  30
 
 .Qwilfish_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   5
 	db  85 percent + 1, MAGIKARP,   5
 	db 100 percent,     QWILFISH,   5
 .Qwilfish_Swarm_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     QWILFISH,   20
-	db  90 percent + 1, QWILFISH,   20
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     QWILFISH,   15
+	db  90 percent + 1, QWILFISH,   15
 	db 100 percent,     time_group 10
 .Qwilfish_Swarm_Super:
-	db  40 percent,     QWILFISH,   40
+	db  40 percent,     QWILFISH,   25
 	db  70 percent,     time_group 11
-	db  90 percent + 1, QWILFISH,   40
-	db 100 percent,     QWILFISH,   40
+	db  90 percent + 1, QWILFISH,   25
+	db 100 percent,     GYARADOS,   25
 
 .Remoraid_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -209,18 +209,18 @@ FishGroups:
 
 TimeFishGroups:
 	;  day              nite
-	db CORSOLA,    20,  STARYU,     20 ; 0
-	db CORSOLA,    40,  STARYU,     40 ; 1
-	db SHELLDER,   20,  SHELLDER,   20 ; 2
-	db SHELLDER,   40,  SHELLDER,   40 ; 3
-	db GOLDEEN,    20,  GOLDEEN,    20 ; 4
-	db GOLDEEN,    40,  GOLDEEN,    40 ; 5
-	db POLIWAG,    20,  POLIWAG,    20 ; 6
-	db POLIWAG,    40,  POLIWAG,    40 ; 7
-	db DRATINI,    20,  DRATINI,    20 ; 8
-	db DRATINI,    40,  DRATINI,    40 ; 9
-	db QWILFISH,   20,  QWILFISH,   20 ; 10
-	db QWILFISH,   40,  QWILFISH,   40 ; 11
+	db CORSOLA,    15,  STARYU,     15 ; 0
+	db CORSOLA,    25,  STARYU,     25 ; 1
+	db HORSEA,     15,  CHINCHOU,   15 ; 2
+	db HORSEA,     25,  CHINCHOU,   25 ; 3
+	db GOLDEEN,    15,  SHELLDER,   15 ; 4
+	db GOLDEEN,    25,  SHELLDER,   25 ; 5
+	db TOTODILE,   10,  WOOPER,     15 ; 6
+	db TOTODILE,   15,  QUAGSIRE,   25 ; 7
+	db DRATINI,    15,  DRATINI,    15 ; 8
+	db DRATINI,    25,  DRATINI,    25 ; 9
+	db QWILFISH,   15,  QWILFISH,   15 ; 10
+	db QWILFISH,   25,  QWILFISH,   25 ; 11
 	db REMORAID,   20,  REMORAID,   20 ; 12
 	db REMORAID,   40,  REMORAID,   40 ; 13
 	db GYARADOS,   20,  GYARADOS,   20 ; 14
