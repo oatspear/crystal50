@@ -33,7 +33,7 @@ KantoGrassWildMons:
 	def_grass_wildmons MOUNT_MOON
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 6, ZUBAT
+	db 8, ZUBAT
 	db 8, GEODUDE
 	db 8, SANDSHREW
 	db 12, PARAS
@@ -49,7 +49,7 @@ KantoGrassWildMons:
 	db 8, CLEFAIRY
 	db 8, CLEFAIRY
 	; nite
-	db 6, ZUBAT
+	db 12, ZUBAT
 	db 8, GEODUDE
 	db 8, CLEFAIRY
 	db 12, PARAS
@@ -61,29 +61,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROCK_TUNNEL_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 10, CUBONE
-	db 11, GEODUDE
-	db 12, MACHOP
-	db 12, ZUBAT
-	db 15, MACHOKE
-	db 12, MAROWAK
-	db 12, MAROWAK
+	db 16, CUBONE
+	db 20, GEODUDE
+	db 22, MACHOP
+	db 16, ZUBAT
+	db 20, RHYHORN
+	db 16, SANDSHREW
+	db 25, MAROWAK
 	; day
-	db 10, CUBONE
-	db 11, GEODUDE
-	db 12, MACHOP
-	db 12, ZUBAT
-	db 15, MACHOKE
-	db 12, MAROWAK
-	db 12, MAROWAK
+	db 16, CUBONE
+	db 20, GEODUDE
+	db 22, MACHOP
+	db 16, ZUBAT
+	db 20, RHYHORN
+	db 16, SANDSHREW
+	db 25, MAROWAK
 	; nite
-	db 12, ZUBAT
-	db 11, GEODUDE
-	db 12, GEODUDE
-	db 17, HAUNTER
-	db 15, ZUBAT
-	db 15, ZUBAT
-	db 15, ZUBAT
+	db 19, ZUBAT
+	db 20, GEODUDE
+	db 18, PARAS
+	db 20, ONIX
+	db 25, GOLBAT
+	db 20, HAUNTER
+	db 25, MAROWAK
 	end_grass_wildmons
 
 	def_grass_wildmons ROCK_TUNNEL_B1F
