@@ -214,8 +214,8 @@ TimeFishGroups:
 	db CORSOLA,    25,  STARMIE,    25 ; 1
 	db HORSEA,     15,  CHINCHOU,   15 ; 2
 	db HORSEA,     25,  CHINCHOU,   25 ; 3
-	db GOLDEEN,    15,  SHELLDER,   15 ; 4
-	db GOLDEEN,    25,  SHELLDER,   25 ; 5
+	db SHELLDER,   15,  SHELLDER,   15 ; 4
+	db SHELLDER,   25,  SHELLDER,   25 ; 5
 	db TOTODILE,   10,  WOOPER,     15 ; 6
 	db TOTODILE,   15,  QUAGSIRE,   25 ; 7
 	db DRATINI,    15,  DRATINI,    15 ; 8
