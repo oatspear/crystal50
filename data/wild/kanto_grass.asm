@@ -174,26 +174,26 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 2, PIDGEY
-	db 2, RATTATA
-	db 3, JIGGLYPUFF
 	db 3, PIDGEY
-	db 6, NIDORAN_F
-	db 4, NIDORAN_M
+	db 3, JIGGLYPUFF
+	db 2, RATTATA
 	db 4, FARFETCH_D
+	db 3, PONYTA
+	db 4, TAUROS
 	; day
 	db 2, PIDGEY
-	db 2, DODUO
-	db 3, NIDORAN_F
-	db 4, NIDORAN_M
+	db 3, PIDGEY
+	db 3, JIGGLYPUFF
 	db 2, RATTATA
-	db 3, PONYTA
 	db 4, FARFETCH_D
+	db 3, PONYTA
+	db 4, TAUROS
 	; nite
-	db 2, ODDISH
 	db 2, RATTATA
-	db 3, MEOWTH
-	db 3, DROWZEE
 	db 3, RATTATA
+	db 3, MEOWTH
+	db 2, ODDISH
+	db 3, DROWZEE
 	db 3, JIGGLYPUFF
 	db 4, VULPIX
 	end_grass_wildmons
@@ -205,23 +205,23 @@ KantoGrassWildMons:
 	db 4, PIDGEY
 	db 4, EKANS
 	db 4, RATTATA
-	db 3, WEEDLE
-	db 4, PIKACHU
 	db 4, TANGELA
+	db 4, PIKACHU
+	db 4, EEVEE
 	; day
 	db 3, CATERPIE
 	db 4, PIDGEY
 	db 4, EKANS
-	db 4, TANGELA
 	db 4, RATTATA
+	db 4, TANGELA
 	db 4, PIKACHU
 	db 4, EEVEE
 	; nite
 	db 4, RATTATA
 	db 4, MEOWTH
-	db 4, VULPIX
 	db 4, DROWZEE
 	db 4, ODDISH
+	db 4, VULPIX
 	db 4, VENONAT
 	db 4, TANGELA
 	end_grass_wildmons
@@ -229,27 +229,27 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_3
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 5, SPEAROW
-	db 5, RATTATA
-	db 8, EKANS
-	db 10, RATICATE
-	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 8, SPEAROW
+	db 8, RATTATA
+	db 8, NIDORAN_M
+	db 8, NIDORAN_F
+	db 8, DODUO
+	db 8, SANDSHREW
+	db 10, RHYHORN
 	; day
-	db 5, SPEAROW
-	db 5, RATTATA
+	db 8, SPEAROW
 	db 8, EKANS
-	db 10, RATICATE
-	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 8, NIDORAN_M
+	db 8, NIDORAN_F
+	db 8, DODUO
+	db 8, SANDSHREW
+	db 10, RHYHORN
 	; nite
-	db 5, RATTATA
-	db 10, RATTATA
-	db 10, RATICATE
+	db 8, RATTATA
+	db 8, RATTATA
+	db 6, DIGLETT
 	db 6, ZUBAT
-	db 5, RATTATA
+	db 5, CUBONE
 	db 6, CLEFAIRY
 	db 6, CLEFAIRY
 	end_grass_wildmons
@@ -257,29 +257,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_4
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 5, SPEAROW
-	db 5, RATTATA
-	db 8, EKANS
-	db 10, RATICATE
-	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
-	; day
-	db 5, SPEAROW
-	db 5, RATTATA
-	db 8, EKANS
-	db 10, RATICATE
-	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
-	; nite
-	db 5, RATTATA
+	db 10, SPEAROW
 	db 10, RATTATA
-	db 10, RATICATE
-	db 6, ZUBAT
-	db 5, RATTATA
-	db 6, CLEFAIRY
-	db 6, CLEFAIRY
+	db 10, EKANS
+	db 10, PIDGEY
+	db 10, JIGGLYPUFF
+	db 10, SANDSHREW
+	db 18, SNORLAX
+	; day
+	db 10, SPEAROW
+	db 10, RATTATA
+	db 10, EKANS
+	db 10, PIDGEY
+	db 10, MACHOP
+	db 10, SANDSHREW
+	db 18, SNORLAX
+	; nite
+	db 10, ZUBAT
+	db 10, RATTATA
+	db 10, VENONAT
+	db 10, ODDISH
+	db 10, RATTATA
+	db 8, CLEFAIRY
+	db 8, CLEFAIRY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_5
@@ -705,13 +705,13 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_24
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 8, CATERPIE
-	db 10, CATERPIE
-	db 12, METAPOD
+	db 8, PIDGEY
+	db 10, JIGGLYPUFF
+	db 12, POLIWAG
 	db 12, ABRA
 	db 10, BELLSPROUT
-	db 14, BUTTERFREE
-	db 14, BUTTERFREE
+	db 14, PSYDUCK
+	db 14, FARFETCH_D
 	; day
 	db 8, CATERPIE
 	db 12, SUNKERN
