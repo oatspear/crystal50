@@ -5,7 +5,7 @@ KantoWaterWildMons:
 	def_water_wildmons TOHJO_FALLS
 	db 4 percent ; encounter rate
 	db 20, GOLDEEN
-	db 20, SLOWPOKE
+	db 20, SHELLDER
 	db 28, SEAKING
 	end_water_wildmons
 

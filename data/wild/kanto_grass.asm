@@ -61,11 +61,39 @@ KantoGrassWildMons:
 	def_grass_wildmons ROCK_TUNNEL_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
+	db 12, CUBONE
+	db 16, GEODUDE
+	db 14, MACHOP
+	db 14, ZUBAT
+	db 12, RHYHORN
+	db 12, SANDSHREW
+	db 20, GOLBAT
+	; day
+	db 12, CUBONE
+	db 16, GEODUDE
+	db 14, MACHOP
+	db 14, ZUBAT
+	db 12, RHYHORN
+	db 12, SANDSHREW
+	db 20, GOLBAT
+	; nite
+	db 14, ZUBAT
+	db 16, GEODUDE
+	db 14, PARAS
+	db 12, GASTLY
+	db 16, ONIX
+	db 20, GOLBAT
+	db 20, HAUNTER
+	end_grass_wildmons
+
+	def_grass_wildmons ROCK_TUNNEL_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
 	db 16, CUBONE
 	db 20, GEODUDE
 	db 22, MACHOP
 	db 16, ZUBAT
-	db 20, RHYHORN
+	db 18, RHYHORN
 	db 16, SANDSHREW
 	db 25, MAROWAK
 	; day
@@ -73,7 +101,7 @@ KantoGrassWildMons:
 	db 20, GEODUDE
 	db 22, MACHOP
 	db 16, ZUBAT
-	db 20, RHYHORN
+	db 18, RHYHORN
 	db 16, SANDSHREW
 	db 25, MAROWAK
 	; nite
@@ -86,88 +114,60 @@ KantoGrassWildMons:
 	db 25, MAROWAK
 	end_grass_wildmons
 
-	def_grass_wildmons ROCK_TUNNEL_B1F
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
-	; morn
-	db 12, CUBONE
-	db 14, GEODUDE
-	db 16, ONIX
-	db 12, ZUBAT
-	db 15, MAROWAK
-	db 15, KANGASKHAN
-	db 15, KANGASKHAN
-	; day
-	db 12, CUBONE
-	db 14, GEODUDE
-	db 16, ONIX
-	db 12, ZUBAT
-	db 15, MAROWAK
-	db 15, KANGASKHAN
-	db 15, KANGASKHAN
-	; nite
-	db 12, ZUBAT
-	db 14, GEODUDE
-	db 16, ONIX
-	db 15, ZUBAT
-	db 15, HAUNTER
-	db 15, GOLBAT
-	db 15, GOLBAT
-	end_grass_wildmons
-
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, GRAVELER
-	db 32, RHYHORN
+	db 33, GRAVELER
+	db 34, RHYHORN
 	db 33, ONIX
-	db 34, GOLBAT
-	db 35, SANDSLASH
-	db 35, RHYDON
-	db 35, RHYDON
+	db 33, GOLBAT
+	db 33, SANDSLASH
+	db 33, MACHOKE
+	db 40, HITMONCHAN
 	; day
-	db 34, GRAVELER
-	db 32, RHYHORN
+	db 33, GRAVELER
+	db 34, RHYHORN
 	db 33, ONIX
-	db 34, GOLBAT
-	db 35, SANDSLASH
-	db 35, RHYDON
-	db 35, RHYDON
+	db 33, MACHOKE
+	db 33, DUGTRIO
+	db 33, GOLBAT
+	db 40, HITMONLEE
 	; nite
-	db 34, GOLBAT
-	db 34, GRAVELER
-	db 32, ONIX
-	db 36, GRAVELER
-	db 38, GRAVELER
-	db 40, GRAVELER
-	db 40, GRAVELER
+	db 33, GRAVELER
+	db 33, ONIX
+	db 33, GOLBAT
+	db 33, PARASECT
+	db 33, DUGTRIO
+	db 33, MAROWAK
+	db 40, RHYDON
 	end_grass_wildmons
 
 	def_grass_wildmons TOHJO_FALLS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, ZUBAT
-	db 22, RATICATE
 	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
+	db 22, RATICATE
+	db 21, QUAGSIRE
 	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 23, TEDDIURSA
+	db 20, ZUBAT
+	db 22, HITMONTOP
 	; day
-	db 22, ZUBAT
 	db 22, RATICATE
-	db 24, GOLBAT
 	db 21, SLOWPOKE
-	db 20, RATTATA
+	db 22, PARAS
+	db 24, GOLBAT
 	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 20, ZUBAT
+	db 22, HITMONTOP
 	; nite
-	db 22, ZUBAT
-	db 22, RATICATE
+	db 20, ZUBAT
 	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 21, QUAGSIRE
+	db 22, PARAS
+	db 23, TEDDIURSA
+	db 20, RATICATE
+	db 23, MISDREAVUS
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_1
@@ -175,55 +175,55 @@ KantoGrassWildMons:
 	; morn
 	db 2, PIDGEY
 	db 2, RATTATA
-	db 3, SENTRET
+	db 3, JIGGLYPUFF
 	db 3, PIDGEY
-	db 6, FURRET
-	db 4, PIDGEY
-	db 4, PIDGEY
+	db 6, NIDORAN_F
+	db 4, NIDORAN_M
+	db 4, FARFETCH_D
 	; day
 	db 2, PIDGEY
+	db 2, DODUO
+	db 3, NIDORAN_F
+	db 4, NIDORAN_M
 	db 2, RATTATA
-	db 3, SENTRET
-	db 3, PIDGEY
-	db 6, FURRET
-	db 4, PIDGEY
-	db 4, PIDGEY
+	db 3, PONYTA
+	db 4, FARFETCH_D
 	; nite
-	db 2, HOOTHOOT
+	db 2, ODDISH
 	db 2, RATTATA
+	db 3, MEOWTH
+	db 3, DROWZEE
 	db 3, RATTATA
-	db 3, HOOTHOOT
-	db 6, RATICATE
-	db 4, HOOTHOOT
-	db 4, HOOTHOOT
+	db 3, JIGGLYPUFF
+	db 4, VULPIX
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_2
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, CATERPIE
-	db 3, LEDYBA
-	db 5, PIDGEY
-	db 7, BUTTERFREE
-	db 7, LEDIAN
+	db 4, PIDGEY
+	db 4, EKANS
+	db 4, RATTATA
+	db 3, WEEDLE
 	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, TANGELA
 	; day
 	db 3, CATERPIE
-	db 3, PIDGEY
-	db 5, PIDGEY
-	db 7, BUTTERFREE
-	db 7, PIDGEOTTO
+	db 4, PIDGEY
+	db 4, EKANS
+	db 4, TANGELA
+	db 4, RATTATA
 	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, EEVEE
 	; nite
-	db 3, HOOTHOOT
-	db 3, SPINARAK
-	db 5, HOOTHOOT
-	db 7, NOCTOWL
-	db 7, ARIADOS
-	db 4, NOCTOWL
-	db 4, NOCTOWL
+	db 4, RATTATA
+	db 4, MEOWTH
+	db 4, VULPIX
+	db 4, DROWZEE
+	db 4, ODDISH
+	db 4, VENONAT
+	db 4, TANGELA
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_3
