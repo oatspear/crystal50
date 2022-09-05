@@ -313,57 +313,57 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_6
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, RATTATA
-	db 13, SNUBBULL
-	db 14, MAGNEMITE
-	db 15, RATICATE
+	db 12, PIDGEY
+	db  5, CATERPIE
+	db  5, WEEDLE
+	db 12, RATTATA
 	db 12, JIGGLYPUFF
-	db 15, GRANBULL
-	db 15, GRANBULL
+	db 12, PSYDUCK
+	db 12, FARFETCH_D
 	; day
-	db 13, RATTATA
-	db 13, SNUBBULL
-	db 14, MAGNEMITE
-	db 15, RATICATE
+	db 12, PIDGEY
+	db 12, EKANS
+	db 12, BELLSPROUT
+	db 12, PSYDUCK
 	db 12, JIGGLYPUFF
-	db 15, GRANBULL
-	db 15, GRANBULL
+	db 12, RATTATA
+	db 12, FARFETCH_D
 	; nite
-	db 13, MEOWTH
-	db 13, DROWZEE
-	db 14, MAGNEMITE
-	db 15, PSYDUCK
-	db 12, JIGGLYPUFF
-	db 15, RATICATE
-	db 15, RATICATE
+	db 12, MEOWTH
+	db 12, DROWZEE
+	db 12, POLIWAG
+	db 12, RATTATA
+	db 12, ODDISH
+	db 12, VULPIX
+	db 12, TANGELA
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_7
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, RATTATA
-	db 17, SPEAROW
-	db 18, VULPIX
-	db 18, RATICATE
-	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 12, PIDGEY
+	db 14, RATTATA
+	db 12, VULPIX
+	db 12, ABRA
+	db 14, MAGNEMITE
+	db 14, VOLTORB
+	db 15, MR__MIME
 	; day
-	db 17, RATTATA
-	db 17, SPEAROW
-	db 18, JIGGLYPUFF
-	db 18, VULPIX
-	db 18, RATICATE
-	db 16, ABRA
-	db 16, ABRA
+	db 12, PIDGEY
+	db 14, KOFFING
+	db 14, VOLTORB
+	db 14, MAGNEMITE
+	db 14, RATTATA
+	db 12, PIKACHU
+	db 15, MR__MIME
 	; nite
-	db 17, MEOWTH
-	db 17, MURKROW
-	db 16, VULPIX
-	db 18, HOUNDOUR
-	db 18, RATICATE
-	db 16, ABRA
-	db 18, PERSIAN
+	db 14, MEOWTH
+	db 14, RATTATA
+	db 12, VOLTORB
+	db 12, MAGNEMITE
+	db 14, DROWZEE
+	db 12, ABRA
+	db 15, MR__MIME
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_8
