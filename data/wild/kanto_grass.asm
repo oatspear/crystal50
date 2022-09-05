@@ -343,7 +343,7 @@ KantoGrassWildMons:
 	; morn
 	db 12, PIDGEY
 	db 14, RATTATA
-	db 12, VULPIX
+	db 12, DROWZEE
 	db 12, ABRA
 	db 14, MAGNEMITE
 	db 14, VOLTORB
@@ -369,29 +369,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_8
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 19, PIDGEOTTO
-	db 16, ABRA
-	db 17, GROWLITHE
-	db 17, VULPIX
-	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 14, PIDGEY
+	db 14, JIGGLYPUFF
+	db 14, NIDORAN_F
+	db 14, RATTATA
+	db 14, VULPIX
+	db 12, ABRA
+	db 18, DITTO
 	; day
-	db 19, PIDGEOTTO
-	db 16, ABRA
-	db 17, GROWLITHE
-	db 16, JIGGLYPUFF
-	db 17, VULPIX
-	db 18, KADABRA
-	db 18, KADABRA
+	db 14, PIDGEY
+	db 14, JIGGLYPUFF
+	db 14, NIDORAN_M
+	db 14, EKANS
+	db 14, RATTATA
+	db 12, ABRA
+	db 18, DITTO
 	; nite
-	db 17, MEOWTH
-	db 20, NOCTOWL
-	db 16, VULPIX
-	db 17, HAUNTER
-	db 16, ABRA
-	db 18, KADABRA
-	db 18, KADABRA
+	db 14, MEOWTH
+	db 14, RATTATA
+	db 14, VULPIX
+	db 14, VENONAT
+	db 14, GASTLY
+	db 12, ABRA
+	db 18, DITTO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_9
