@@ -285,29 +285,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_5
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, PIDGEY
-	db 13, SNUBBULL
-	db 15, PIDGEOTTO
-	db 12, ABRA
-	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 10, PIDGEY
+	db 10, RATTATA
+	db 10, VULPIX
+	db 10, JIGGLYPUFF
+	db 10, PIKACHU
+	db  8, ABRA
+	db 10, EEVEE
 	; day
-	db 13, PIDGEY
-	db 13, SNUBBULL
-	db 15, PIDGEOTTO
-	db 12, ABRA
-	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 10, PIDGEY
+	db 10, RATTATA
+	db 10, EKANS
+	db 10, JIGGLYPUFF
+	db 10, VULPIX
+	db  8, ABRA
+	db 10, EEVEE
 	; nite
-	db 13, HOOTHOOT
-	db 13, MEOWTH
-	db 15, NOCTOWL
-	db 12, ABRA
-	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 10, ODDISH
+	db 10, MEOWTH
+	db 10, RATTATA
+	db 10, VENONAT
+	db 10, DROWZEE
+	db  8, ABRA
+	db 12, MR__MIME
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_6
@@ -705,7 +705,7 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_24
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 8, PIDGEY
+	db 8, PIDGEY ; TODO
 	db 10, JIGGLYPUFF
 	db 12, POLIWAG
 	db 12, ABRA
