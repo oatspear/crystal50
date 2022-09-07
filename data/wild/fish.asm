@@ -20,7 +20,7 @@ FishGroups:
 	fishgroup 50 percent + 1, .Dratini_2_Old,        .Dratini_2_Good,        .Dratini_2_Super
 	fishgroup 50 percent + 1, .WhirlIslands_Old,     .WhirlIslands_Good,     .WhirlIslands_Super
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
-	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
+	fishgroup 50 percent + 1, .Kanto_Pond_Old,       .Kanto_Pond_Good,       .Kanto_Pond_Super
 	fishgroup 50 percent + 1, .Kanto_Coastal_Old,    .Kanto_Coastal_Good,    .Kanto_Coastal_Super
 	assert_table_length NUM_FISHGROUPS
 
@@ -193,6 +193,21 @@ FishGroups:
 	db  90 percent + 1, QWILFISH,   25
 	db 100 percent,     GYARADOS,   25
 
+.Kanto_Pond_Old:
+	db  70 percent + 1, MAGIKARP,    5
+	db  85 percent + 1, GOLDEEN,    10
+	db 100 percent,     POLIWAG,    10
+.Kanto_Pond_Good:
+	db  35 percent,     MAGIKARP,   10
+	db  70 percent,     GOLDEEN,    15
+	db  90 percent + 1, POLIWAG,    15
+	db 100 percent,     time_group 22
+.Kanto_Pond_Super:
+	db  40 percent,     GOLDEEN,    30
+	db  70 percent,     time_group 23
+	db  90 percent + 1, GYARADOS,   25
+	db 100 percent,     VAPOREON,   25
+
 .Kanto_Coastal_Old:
 	db  70 percent + 1, MAGIKARP,    5
 	db  85 percent + 1, SHELLDER,   10
@@ -232,3 +247,5 @@ TimeFishGroups:
 	db OCTILLERY,  25,  STARMIE,    25 ; 19
 	db SQUIRTLE,   10,  STARYU,     15 ; 20
 	db SQUIRTLE,   15,  STARMIE,    25 ; 21
+	db SQUIRTLE,   10,  POLIWAG,    15 ; 22
+	db SQUIRTLE,   15,  POLIWHIRL,  25 ; 23
