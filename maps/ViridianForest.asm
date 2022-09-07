@@ -73,23 +73,23 @@ TrainerBugCatcherManuel:
   end
 
 TrainerCooltrainerfJoana:
-  trainer BUG_CATCHER, WAYNE, EVENT_BEAT_BUG_CATCHER_WAYNE, BugCatcherWayneSeenText, BugCatcherWayneBeatenText, 0, .Script
+  trainer COOLTRAINERF, JOANA, EVENT_BEAT_COOLTRAINERF_JOANA, CooltrainerfJoanaSeenText, CooltrainerfJoanaBeatenText, 0, .Script
 
 .Script:
   endifjustbattled
   opentext
-  writetext BugCatcherWayneAfterBattleText
+  writetext CooltrainerfJoanaAfterBattleText
   waitbutton
   closetext
   end
 
 TrainerCooltrainermErick:
-  trainer BUG_CATCHER, WAYNE, EVENT_BEAT_BUG_CATCHER_WAYNE, BugCatcherWayneSeenText, BugCatcherWayneBeatenText, 0, .Script
+  trainer COOLTRAINERM, ERICK, EVENT_BEAT_COOLTRAINERM_ERICK, CooltrainermErickSeenText, CooltrainermErickBeatenText, 0, .Script
 
 .Script:
   endifjustbattled
   opentext
-  writetext BugCatcherWayneAfterBattleText
+  writetext CooltrainermErickAfterBattleText
   waitbutton
   closetext
   end
@@ -215,14 +215,56 @@ BugCatcherManuelSeenText:
 	done
 
 BugCatcherManuelBeatenText:
-	text "What? My awesome"
-  line "bugs lost!"
+	text "I see. Your senses"
+  line "are keen."
 	done
 
 BugCatcherManuelAfterBattleText:
-	text "BUG CATCHERS like"
-	line "me are experts at"
-	cont "catching #MON."
+	text "Bug #MON have"
+	line "great perception"
+	cont "skills."
+
+  para "I will never get"
+  line "lost here."
+	done
+
+CooltrainerfJoanaSeenText:
+	text "This forest is"
+	line "known for its rare"
+  cont "#MON."
+
+  para "Wanna see some?"
+	done
+
+CooltrainerfJoanaBeatenText:
+	text "Oh, no!"
+	done
+
+CooltrainerfJoanaAfterBattleText:
+	text "Dense forests like"
+	line "this hold many"
+	cont "secrets."
+	done
+
+CooltrainermErickSeenText:
+	text "Strong trainers"
+	line "are bound to meet"
+
+  para "in the most inter-"
+  line "esting places."
+	done
+
+CooltrainermErickBeatenText:
+	text "I was right about"
+  line "you."
+	done
+
+CooltrainermErickAfterBattleText:
+	text "Some #MON show"
+	line "up sometimes,"
+
+	para "guarding the berry"
+  line "trees."
 	done
 
 ViridianForest_MapEvents:
