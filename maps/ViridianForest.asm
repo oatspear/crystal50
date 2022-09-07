@@ -109,6 +109,42 @@ ViridianForestCarbos:
 ViridianForestElixer:
 	itemball ELIXER
 
+ViridianForestFruitTree1:
+  setval 1
+  writemem wViridianForestWildMon
+  scall ViridianForestWildTreeMon
+  fruittree FRUITTREE_AZALEA_TOWN
+
+ViridianForestFruitTree2:
+  fruittree FRUITTREE_AZALEA_TOWN
+
+ViridianForestFruitTree3:
+  fruittree FRUITTREE_AZALEA_TOWN
+
+ViridianForestWildTreeMon:
+  readvar VAR_WEEKDAY
+  showemote EMOTE_SHOCK, PLAYER, 15
+  opentext
+  writetext ViridianForestWildCryText
+  pause 15
+  cry PINSIR
+  closetext
+  loadwildmon PINSIR, 30
+  loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
+  startbattle
+  ifequal LOSE, .NotBeaten
+  disappear LAKEOFRAGE_GYARADOS
+.NotBeaten:
+  reloadmapafterbattle
+  opentext
+  giveitem RED_SCALE
+  waitsfx
+  writetext LakeOfRageGotRedScaleText
+  playsound SFX_ITEM
+  waitsfx
+  itemnotify
+  closetext
+
 ViridianForestHiddenSilverpowder:
 	hiddenitem SILVERPOWDER, EVENT_VIRIDIAN_FOREST_HIDDEN_SILVERPOWDER
 
@@ -266,6 +302,12 @@ CooltrainermErickAfterBattleText:
 	para "guarding the berry"
   line "trees."
 	done
+
+ViridianForestWildCryText:
+  text "A growling sound"
+  line "comes toward the"
+  cont "berry tree."
+  done
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
