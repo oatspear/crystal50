@@ -122,7 +122,7 @@ Route2_MapEvents:
 	warp_event 17, 27, ROUTE_2_GATE, 2
 	warp_event 12,  7, DIGLETTS_CAVE, 3
 	warp_event  2,  9, VIRIDIAN_FOREST, 1
-	warp_event  4, 30, VIRIDIAN_FOREST, 2
+	warp_event  4, 30, VIRIDIAN_FOREST, 3
 
 	def_coord_events
 
