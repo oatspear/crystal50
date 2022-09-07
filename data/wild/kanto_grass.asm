@@ -842,4 +842,32 @@ KantoGrassWildMons:
 	db 42, CLEFABLE
 	end_grass_wildmons
 
+	def_grass_wildmons VIRIDIAN_FOREST
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, PIDGEOTTO
+	db 22, NIDORINO
+	db 22, NIDORINA
+	db 22, BUTTERFREE
+	db 22, FARFETCH_D
+	db 22, WEEPINBELL
+	db 28, KANGASKHAN
+	; day
+	db 22, PIDGEOTTO
+	db 22, NIDORINO
+	db 22, NIDORINA
+	db 22, BEEDRILL
+	db 22, FARFETCH_D
+	db 22, WEEPINBELL
+	db 28, KANGASKHAN
+	; nite
+	db 24, VENONAT
+	db 22, HYPNO
+	db 22, RATICATE
+	db 22, GLOOM
+	db 22, POLIWHIRL
+	db 22, WEEPINBELL
+	db 28, VICTREEBEL
+	end_grass_wildmons
+
 	db -1 ; end

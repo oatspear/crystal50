@@ -3011,6 +3011,7 @@ wHallOfFameCount:: db
 wTradeFlags:: flag_array NUM_NPC_TRADES
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
+wBulbasaurPosition::
 wFarfetchdPosition:: db
 
 	ds 13
