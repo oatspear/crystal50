@@ -191,7 +191,6 @@ ViridianForestSignpostText:
 	cont "lost inside."
 	done
 
-
 BugCatcherArthurSeenText:
 	text "I'm on the lookout"
 	line "for rare Bug-type"
@@ -209,6 +208,22 @@ BugCatcherArthurAfterBattleText:
 	cont "catching #MON."
 	done
 
+BugCatcherManuelSeenText:
+	text "You are going to"
+	line "get lost in this"
+  cont "forest."
+	done
+
+BugCatcherManuelBeatenText:
+	text "What? My awesome"
+  line "bugs lost!"
+	done
+
+BugCatcherManuelAfterBattleText:
+	text "BUG CATCHERS like"
+	line "me are experts at"
+	cont "catching #MON."
+	done
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
