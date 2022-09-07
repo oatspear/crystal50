@@ -170,4 +170,11 @@ KantoWaterWildMons:
 	db 28, TENTACRUEL
 	end_water_wildmons
 
+	def_water_wildmons VIRIDIAN_FOREST
+	db 6 percent ; encounter rate
+	db 15, POLIWAG
+	db 15, PSYDUCK
+	db 15, GOLDEEN
+	end_water_wildmons
+
 	db -1 ; end
