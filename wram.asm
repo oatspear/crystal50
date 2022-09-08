@@ -3007,11 +3007,10 @@ wRegisteredItem:: db
 wPlayerState:: db
 
 wHallOfFameCount:: db
-	ds 1
+wViridianForestWildMon:: db
 wTradeFlags:: flag_array NUM_NPC_TRADES
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
-wViridianForestWildMon::
 wFarfetchdPosition:: db
 
 	ds 13
