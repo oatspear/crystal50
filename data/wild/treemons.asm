@@ -73,20 +73,20 @@ TreeMonSet_Route:
 
 TreeMonSet_Kanto:
 ; common
-	db 40, PIDGEY,     14
+	db 35, PIDGEY,     14
 	db 20, EKANS,      12
-	db 15, HOOTHOOT,   12
-	db 10, EXEGGCUTE,  16
-	db 10, PINECO,     10
-	db  5, MANKEY,     10
+	db 15, CATERPIE,    5
+	db 10, EXEGGCUTE,  14
+	db 10, WEEDLE,      5
+	db 10, MANKEY,     12
 	db -1
 ; rare
-	db 40, HOOTHOOT,   12
-	db 20, PINECO,     14
-	db 15, PINSIR,     20
+	db 35, SPEAROW,    12
+	db 20, VENONAT,    14
+	db 15, PINSIR,     16
 	db 10, EXEGGCUTE,  12
 	db 10, WEEPINBELL, 18
-	db  5, MANKEY,     14
+	db 10, MANKEY,     10
 	db -1
 
 TreeMonSet_Lake:
