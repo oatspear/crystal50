@@ -19,6 +19,18 @@ ViridianForest_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .WildMonCallback
 
 .WildMonCallback:
+	; setevent EVENT_BEAT_BUG_CATCHER_ARTHUR
+	; setevent EVENT_BEAT_BUG_CATCHER_MANUEL
+	; setevent EVENT_BEAT_COOLTRAINERF_JOANA
+	; setevent EVENT_BEAT_COOLTRAINERM_ERICK
+	; setflag ENGINE_HIVEBADGE
+	; setflag ENGINE_FOGBADGE
+	; setflag ENGINE_STORMBADGE
+	; opentext
+	; givepoke AERODACTYL, 40
+	; writetext ViridianForestWildCryText
+	; waitbutton
+	; closetext
 	checkflag ENGINE_VIRIDIAN_FOREST_WILD_MON
 	iftrue .Static
 	random 4
@@ -151,22 +163,22 @@ ViridianForestFruitTreeMon:
   ifequal SUNDAY, .LoadMon4
   cry PINSIR
   closetext
-  loadwildmon PINSIR, 32
+  loadwildmon PINSIR, 24
   sjump .GetShinyOdds
 .LoadMon2
   cry KANGASKHAN
   closetext
-  loadwildmon KANGASKHAN, 32
+  loadwildmon KANGASKHAN, 24
   sjump .GetShinyOdds
 .LoadMon3
   cry LICKITUNG
   closetext
-  loadwildmon LICKITUNG, 32
+  loadwildmon LICKITUNG, 24
   sjump .GetShinyOdds
 .LoadMon4
   cry SCYTHER
   closetext
-  loadwildmon SCYTHER, 32
+  loadwildmon SCYTHER, 24
   ; fallthrough
 .GetShinyOdds
 ; 1 in 8 chance to be shiny
@@ -206,6 +218,7 @@ ViridianForestFakeFruitTree:
   ; fallthrough
 .Battle
   writetext ViridianForestTreeMonAttackedText
+  promptbutton
   closetext
   loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
   startbattle
@@ -328,23 +341,23 @@ ViridianForestTreeFullOfMonsText:
   done
 
 ViridianForestTreeMonAttackedText:
-  text "The #MON attacked!"
+  text "The wild #MON"
+  line "attacked!"
   done
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  0, ROUTE_2, 6
-	warp_event  4,  0, ROUTE_2, 6
-	warp_event 17, 53, ROUTE_2, 7
-	warp_event 18, 53, ROUTE_2, 7
+	warp_event  3,  5, ROUTE_2, 6
+	warp_event 15, 52, ROUTE_2, 8
+	warp_event 15, 53, ROUTE_2, 8
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  5,  5, BGEVENT_READ, ViridianForestSignpost
-  bg_event 19, 47, BGEVENT_READ, ViridianForestSignpost
+	bg_event  5,  7, BGEVENT_READ, ViridianForestSignpost
+	bg_event 17, 45, BGEVENT_READ, ViridianForestSignpost
 	bg_event 23, 27, BGEVENT_ITEM, ViridianForestHiddenSilverpowder
 	bg_event 20, 21, BGEVENT_ITEM, ViridianForestHiddenMiracleSeed
 	bg_event 13, 21, BGEVENT_ITEM, ViridianForestHiddenPoisonBarb
