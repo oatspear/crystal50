@@ -11,6 +11,7 @@
 - Headbutt and Fishing encounters have more species variety based on the zones they are in.
 - Surfing encounters have had their species updated based on the zones they are in.
 - Kanto wild encounters on grass have had their species updated based on the zones they are in.
+- Metronome cannot turn into Sucker Punch.
 
 ## v0.6.2
 
