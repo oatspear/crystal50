@@ -943,6 +943,39 @@ CheckUserIsCharging:
 	and a
 	ret
 
+ConsumePP:
+; assumes energy cost in c
+; if b == 0, do not consume if there's not enough PP
+; if b != 0, always consume remaining PP
+; should set carry flag if not enough PP
+; returns current energy in a
+	ld hl, wBattleMonEnergy
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_energy_pointer
+	ld hl, wEnemyMonEnergy
+
+.got_energy_pointer
+	ld a, [hl]
+	sub c
+	jr c, .out_of_pp
+	; all good, consume the energy and store the value
+	ld [hl], a
+	ld c, a
+	ret
+
+.out_of_pp
+	ld a, b
+	and a
+	jr z, .done
+	; consume the remaining energy and store the value
+	xor a
+	ld [hl], a
+	ld c, a
+.done
+	scf
+	ret
+
 BattleCommand_DoTurn:
 	call CheckUserIsCharging
 	ret nz
@@ -989,25 +1022,14 @@ BattleCommand_DoTurn:
 	ld a, [hl]
 	and PP_MASK
 	ld c, a ; got energy cost
+	; ld b, 0 ; do not consume PP if there is not enough
 
 	; consume from battlemon first and check for errors
-	ld hl, wBattleMonEnergy
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_energy_pointer
-	ld hl, wEnemyMonEnergy
-
-.got_energy_pointer
-	ld a, [hl]
-	sub c
-	jr c, .out_of_pp
-
-	; all good, consume the energy and store the value
-	ld [hl], a
+	call ConsumePP
 	ld c, a
-	ret
+	ret nc
 
-.out_of_pp
+; .out_of_pp
 	xor a
 	call BattleCommand_MoveDelay
 ; get move effect
@@ -2094,6 +2116,11 @@ BattleCommand_ApplyDamage:
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
+
+	ld c, ENERGY_DRAIN_ENDURE
+	ld b, 0 ; do not consume energy if there is not enough PP
+	call ConsumePP
+	jr c, .focus_band ; the effect fails if there is not enough PP
 
 	call BattleCommand_FalseSwipe
 	ld b, 0
