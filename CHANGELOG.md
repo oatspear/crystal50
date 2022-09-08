@@ -2,6 +2,9 @@
 
 ## v0.7
 
+### Added
+- Viridian Forest map.
+
 ### Changed
 - Headbutt, Rock Smash and Fishing encounters vary in level and species like regular wild encounters.
 - Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 10% to 30%. The chance for good trees has increased from 50% to 70%. Rare trees remain at 80%.
