@@ -845,29 +845,29 @@ KantoGrassWildMons:
 	def_grass_wildmons VIRIDIAN_FOREST
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, PIDGEOTTO
-	db 22, NIDORINO
-	db 22, NIDORINA
-	db 22, BUTTERFREE
-	db 22, FARFETCH_D
-	db 22, WEEPINBELL
-	db 28, KANGASKHAN
+	db 10, PIDGEY
+	db  4, CATERPIE
+	db  4, WEEDLE
+	db 10, BELLSPROUT
+	db 10, PIKACHU
+	db 10, MANKEY
+	db 12, CHANSEY
 	; day
-	db 22, PIDGEOTTO
-	db 22, NIDORINO
-	db 22, NIDORINA
-	db 22, BEEDRILL
-	db 22, FARFETCH_D
-	db 22, WEEPINBELL
-	db 28, KANGASKHAN
+	db 12, PIDGEY
+	db  5, CATERPIE
+	db  5, WEEDLE
+	db 10, BELLSPROUT
+	db 10, EKANS
+	db 10, TANGELA
+	db 12, CHANSEY
 	; nite
-	db 24, VENONAT
-	db 22, HYPNO
-	db 22, RATICATE
-	db 22, GLOOM
-	db 22, POLIWHIRL
-	db 22, WEEPINBELL
-	db 28, VICTREEBEL
+	db 10, RATTATA
+	db 10, VENONAT
+	db 10, DROWZEE
+	db 12, ODDISH
+	db 10, MEOWTH
+	db 12, TANGELA
+	db 12, EEVEE
 	end_grass_wildmons
 
 	db -1 ; end
