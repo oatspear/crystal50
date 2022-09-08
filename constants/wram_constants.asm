@@ -290,6 +290,10 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS2_MOVE_TUTOR_F                        ; 6
 	const DAILYFLAGS2_BUENAS_PASSWORD_F                   ; 7
 
+; wDailyFlags3::
+	const_def
+	const DAILYFLAGS3_VIRIDIAN_FOREST_WILD_MON_F          ; 0
+
 ; wSwarmFlags::
 	const_def
 	const SWARMFLAGS_BUENAS_PASSWORD_F           ; 0
