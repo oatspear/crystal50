@@ -503,6 +503,7 @@
 	const EVENT_GOT_ODD_EGG
 	const_skip ; unused
 	const EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+; New Salt Crystal events
 	const EVENT_TRADED_BULBASAUR
 	const EVENT_TRADED_CHARMANDER
 ; Unused: next 165 events
