@@ -16,39 +16,55 @@ ViridianForest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .BulbasaurCallback
+	callback MAPCALLBACK_OBJECTS, .WildMonCallback
 
-.BulbasaurCallback:
-	checkevent EVENT_GOT_TM49_FALSE_SWIPE
+.WildMonCallback:
+	checkflag ENGINE_VIRIDIAN_FOREST_WILD_MON
 	iftrue .Static
-	readmem wBulbasaurPosition
+	random 4
 	ifequal  1, .PositionOne
 	ifequal  2, .PositionTwo
 	ifequal  3, .PositionThree
+; else
+  moveobject VIRIDIAN_FOREST_BULBASAUR, 20, 27
+	appear VIRIDIAN_FOREST_BULBASAUR
 .Static:
 	endcallback
 
 .PositionOne:
-	moveobject VIRIDIANFOREST_FARFETCHD, 14, 31
-	appear VIRIDIANFOREST_FARFETCHD
+	moveobject VIRIDIAN_FOREST_BULBASAUR, 3, 38
+	appear VIRIDIAN_FOREST_BULBASAUR
 	endcallback
 
 .PositionTwo:
-	moveobject VIRIDIANFOREST_FARFETCHD, 15, 25
-	appear VIRIDIANFOREST_FARFETCHD
+	moveobject VIRIDIAN_FOREST_BULBASAUR, 27, 51
+	appear VIRIDIAN_FOREST_BULBASAUR
 	endcallback
 
 .PositionThree:
-	moveobject VIRIDIANFOREST_FARFETCHD, 20, 24
-	appear VIRIDIANFOREST_FARFETCHD
+	moveobject VIRIDIAN_FOREST_BULBASAUR, 35, 16
+	appear VIRIDIAN_FOREST_BULBASAUR
 	endcallback
 
-
-
 ViridianForestBulbasaurScript:
+  opentext
+  writetext ViridianForestBulbasaurCryText
+  pause 15
+  cry BULBASAUR
+  closetext
+  loadwildmon BULBASAUR, 12
+  loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
+  random 128
+  ifequal 1, .Battle
+  loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+.Battle:
+  startbattle
+  ifequal LOSE, .NotBeaten
+  disappear VIRIDIAN_FOREST_BULBASAUR
+.NotBeaten:
+  reloadmapafterbattle
+  setflag ENGINE_VIRIDIAN_FOREST_WILD_MON
   end
-
-
 
 TrainerBugCatcherArthur:
   trainer BUG_CATCHER, ARTHUR, EVENT_BEAT_BUG_CATCHER_ARTHUR, BugCatcherArthurSeenText, BugCatcherArthurBeatenText, 0, .Script
@@ -94,9 +110,6 @@ TrainerCooltrainermErick:
   closetext
   end
 
-
-
-
 ViridianForestFullHeal:
 	itemball FULL_HEAL
 
@@ -110,40 +123,94 @@ ViridianForestElixer:
 	itemball ELIXER
 
 ViridianForestFruitTree1:
-  setval 1
-  writemem wViridianForestWildMon
-  scall ViridianForestWildTreeMon
-  fruittree FRUITTREE_AZALEA_TOWN
+  checkflag ENGINE_VIRIDIAN_FOREST_FRUIT_TREE_MON
+  iftrue .NoWildmon
+  scall ViridianForestFruitTreeMon
+.NoWildmon
+  fruittree FRUITTREE_VIRIDIAN_FOREST_1
 
 ViridianForestFruitTree2:
-  fruittree FRUITTREE_AZALEA_TOWN
+  checkflag ENGINE_VIRIDIAN_FOREST_FRUIT_TREE_MON
+  iftrue .NoWildmon
+  scall ViridianForestFruitTreeMon
+.NoWildmon
+  fruittree FRUITTREE_VIRIDIAN_FOREST_2
 
-ViridianForestFruitTree3:
-  fruittree FRUITTREE_AZALEA_TOWN
-
-ViridianForestWildTreeMon:
-  readvar VAR_WEEKDAY
-  showemote EMOTE_SHOCK, PLAYER, 15
+ViridianForestFruitTreeMon:
   opentext
   writetext ViridianForestWildCryText
   pause 15
+  showemote EMOTE_SHOCK, PLAYER, 15
+  readvar VAR_WEEKDAY
+  ; ifequal MONDAY, .LoadMon1
+  ifequal TUESDAY, .LoadMon2
+  ; ifequal WEDNESDAY, .LoadMon1
+  ifequal THURSDAY, .LoadMon3
+  ifequal FRIDAY, .LoadMon2
+  ifequal SATURDAY, .LoadMon3
+  ifequal SUNDAY, .LoadMon4
   cry PINSIR
   closetext
-  loadwildmon PINSIR, 30
-  loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
-  startbattle
-  ifequal LOSE, .NotBeaten
-  disappear LAKEOFRAGE_GYARADOS
-.NotBeaten:
-  reloadmapafterbattle
-  opentext
-  giveitem RED_SCALE
-  waitsfx
-  writetext LakeOfRageGotRedScaleText
-  playsound SFX_ITEM
-  waitsfx
-  itemnotify
+  loadwildmon PINSIR, 32
+  sjump .GetShinyOdds
+.LoadMon2
+  cry KANGASKHAN
   closetext
+  loadwildmon KANGASKHAN, 32
+  sjump .GetShinyOdds
+.LoadMon3
+  cry LICKITUNG
+  closetext
+  loadwildmon LICKITUNG, 32
+  sjump .GetShinyOdds
+.LoadMon4
+  cry SCYTHER
+  closetext
+  loadwildmon SCYTHER, 32
+  ; fallthrough
+.GetShinyOdds
+; 1 in 8 chance to be shiny
+  loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
+  random 8
+  ifequal 1, .Battle
+  loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+.Battle
+  setflag ENGINE_VIRIDIAN_FOREST_FRUIT_TREE_MON
+  startbattle
+  reloadmapafterbattle
+  end
+
+ViridianForestFakeFruitTree:
+  showemote EMOTE_SHOCK, PLAYER, 15
+  opentext
+  writetext ViridianForestTreeFullOfMonsText
+  promptbutton
+  readvar VAR_WEEKDAY
+  ifless TUESDAY, .LoadMon1
+  ifless THURSDAY, .LoadMon2
+  ifless SATURDAY, .LoadMon3
+  cry PIKACHU
+  loadwildmon PIKACHU, 12
+  sjump .Battle
+.LoadMon1
+  cry BUTTERFREE
+  loadwildmon BUTTERFREE, 14
+  sjump .Battle
+.LoadMon2
+  cry BEEDRILL
+  loadwildmon BEEDRILL, 14
+  sjump .Battle
+.LoadMon3
+  cry PIDGEOTTO
+  loadwildmon PIDGEOTTO, 16
+  ; fallthrough
+.Battle
+  writetext ViridianForestTreeMonAttackedText
+  closetext
+  loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+  startbattle
+  reloadmapafterbattle
+  end
 
 ViridianForestHiddenSilverpowder:
 	hiddenitem SILVERPOWDER, EVENT_VIRIDIAN_FOREST_HIDDEN_SILVERPOWDER
@@ -157,63 +224,9 @@ ViridianForestHiddenPoisonBarb:
 ViridianForestSignpost:
 	jumptext ViridianForestSignpostText
 
-
-
-
-ViridianForestShrineScript:
-	checkevent EVENT_FOREST_IS_RESTLESS
-	iftrue .ForestIsRestless
-	sjump .DontDoCelebiEvent
-
-.ForestIsRestless:
-	checkitem GS_BALL
-	iftrue .AskCelebiEvent
-.DontDoCelebiEvent:
-	jumptext Text_ViridianForestShrine
-
-.AskCelebiEvent:
-	opentext
-	writetext Text_ShrineCelebiEvent
-	yesorno
-	iftrue .CelebiEvent
-	closetext
-	end
-
-.CelebiEvent:
-	takeitem GS_BALL
-	clearevent EVENT_FOREST_IS_RESTLESS
-	setevent EVENT_AZALEA_TOWN_KURT
-	disappear VIRIDIANFOREST_LASS
-	clearevent EVENT_ROUTE_34_VIRIDIAN_FOREST_GATE_LASS
-	writetext Text_InsertGSBall
-	waitbutton
-	closetext
-	pause 20
-	showemote EMOTE_SHOCK, PLAYER, 20
-	special FadeOutMusic
-	applymovement PLAYER, ViridianForestPlayerStepsDownMovement
-	pause 30
-	turnobject PLAYER, DOWN
-	pause 20
-	clearflag ENGINE_FOREST_IS_RESTLESS
-	special CelebiShrineEvent
-	loadwildmon CELEBI, 30
-	startbattle
-	reloadmapafterbattle
-	pause 20
-	special CheckCaughtCelebi
-	iffalse .DidntCatchCelebi
-	appear VIRIDIANFOREST_KURT
-	applymovement VIRIDIANFOREST_KURT, ViridianForestKurtStepsUpMovement
-	opentext
-	writetext Text_KurtCaughtCelebi
-	waitbutton
-	closetext
-	applymovement VIRIDIANFOREST_KURT, ViridianFOrestKurtStepsDownMovement
-	disappear VIRIDIANFOREST_KURT
-.DidntCatchCelebi:
-	end
-
+ViridianForestBulbasaurCryText:
+  text "BULBASAUR: Saaaur!"
+  done
 
 ViridianForestSignpostText:
 	text "VIRIDIAN FOREST is"
@@ -309,6 +322,15 @@ ViridianForestWildCryText:
   cont "berry tree."
   done
 
+ViridianForestTreeFullOfMonsText:
+  text "The berry tree is"
+  line "full of #MON!"
+  done
+
+ViridianForestTreeMonAttackedText:
+  text "The #MON attacked!"
+  done
+
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
 
@@ -339,4 +361,4 @@ ViridianForest_MapEvents:
 	object_event 37, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestElixer, EVENT_VIRIDIAN_FOREST_ELIXER
 	object_event  2, 38, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event 27, 50, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree2, -1
-	object_event 35, 15, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree3, -1
+	object_event 35, 15, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFakeFruitTree, -1
