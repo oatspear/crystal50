@@ -843,7 +843,7 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons VIRIDIAN_FOREST
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 2 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 10, PIDGEY
 	db  4, CATERPIE
