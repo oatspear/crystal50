@@ -679,8 +679,6 @@ ParsePlayerAction:
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
-	cp EFFECT_ENDURE
-	jr z, .continue_protect
 
 .locked_in
 	xor a
@@ -694,7 +692,7 @@ ParsePlayerAction:
 .reset_series_counters
 	xor a
 	ld [wPlayerProtectCount], a
-	xor a
+	; xor a
 	ret
 
 HandleEncore:
@@ -881,7 +879,7 @@ Battle_EnemyFirst:
 	ld [wEnemyGoesFirst], a
 	callfar AI_SwitchOrTryItem
 	jr c, .switch_item
-	call EnemyTurn_EndOpponentProtectEndureDestinyBond
+	call EnemyTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -897,7 +895,7 @@ Battle_EnemyFirst:
 	call ResidualDamage
 	jp z, HandleEnemyMonFaint
 	call RefreshBattleHuds
-	call PlayerTurn_EndOpponentProtectEndureDestinyBond
+	call PlayerTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -921,7 +919,7 @@ Battle_PlayerFirst:
 	call SetEnemyTurn
 	callfar AI_SwitchOrTryItem
 	push af
-	call PlayerTurn_EndOpponentProtectEndureDestinyBond
+	call PlayerTurn_EndOpponentProtectDestinyBond
 	pop bc
 	ld a, [wForcedSwitch]
 	and a
@@ -944,7 +942,7 @@ Battle_PlayerFirst:
 	call LoadTilemapToTempTilemap
 	call TryEnemyFlee
 	jp c, WildFled_EnemyFled_LinkBattleCanceled
-	call EnemyTurn_EndOpponentProtectEndureDestinyBond
+	call EnemyTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -964,29 +962,31 @@ Battle_PlayerFirst:
 	ld [wBattlePlayerAction], a
 	ret
 
-PlayerTurn_EndOpponentProtectEndureDestinyBond:
+PlayerTurn_EndOpponentProtectDestinyBond:
 	call SetPlayerTurn
-	call EndUserDestinyBond
+	call EndUserEndureDestinyBond
 	callfar DoPlayerTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jp EndOpponentProtectDestinyBond
 
-EnemyTurn_EndOpponentProtectEndureDestinyBond:
+EnemyTurn_EndOpponentProtectDestinyBond:
 	call SetEnemyTurn
-	call EndUserDestinyBond
+	call EndUserEndureDestinyBond
 	callfar DoEnemyTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jp EndOpponentProtectDestinyBond
 
-EndOpponentProtectEndureDestinyBond:
+EndOpponentProtectDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_PROTECT, [hl]
-	res SUBSTATUS_ENDURE, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	ret
 
-EndUserDestinyBond:
+EndUserEndureDestinyBond:
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_ENDURE, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
