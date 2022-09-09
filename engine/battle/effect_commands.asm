@@ -5797,6 +5797,19 @@ BattleCommand_TrapTarget:
 	dbw INFESTATION, InfestedText      ; 'was INFESTED!'
 	dbw SAND_TOMB,   SandTombTrapText  ; 'was trapped!'
 
+BattleCommand_FailIfTrapped:
+	ld hl, wPlayerWrapCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_trap
+	ld hl, wEnemyWrapCount
+
+.got_trap
+	ld a, [hl]
+	and a
+	ret nz
+	jp BattleEffect_ButItFailed
+
 INCLUDE "engine/battle/move_effects/mist.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"

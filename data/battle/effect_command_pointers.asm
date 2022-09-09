@@ -82,7 +82,7 @@ BattleCommandPointers:
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
-	dw BattleCommand_UnusedEffect ; TripleKick
+	dw BattleCommand_FailIfTrapped
 	dw BattleCommand_UnusedEffect
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap

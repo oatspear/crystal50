@@ -82,7 +82,7 @@ ENDM
 	command falseswipe              ; 4b
 	command healbell                ; 4c
 	command kingsrock               ; 4d
-	command effect0x4e              ; 4e
+	command failiftrapped           ; 4e
 	command effect0x4f              ; 4f
 	command thief                   ; 50
 	command arenatrap               ; 51
