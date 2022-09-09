@@ -2117,11 +2117,29 @@ BattleCommand_ApplyDamage:
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
 
+	; enduring damage using PP
+	call BattleCommand_SwitchTurn
 	ld c, ENERGY_DRAIN_ENDURE
 	ld b, 0 ; do not consume energy if there is not enough PP
 	call ConsumePP
+	push af
+	call BattleCommand_SwitchTurn
+	pop af
 	jr c, .focus_band ; the effect fails if there is not enough PP
 
+; endure: halve incoming damage, ensure at least 1 damage
+	ld a, [wCurDamage]
+	ld b, a
+	ld a, [wCurDamage + 1]
+	ld c, a
+	scf
+	call HalveBC
+	ld a, b
+	ld [wCurDamage], a
+	ld a, c
+	ld [wCurDamage + 1], a
+
+; endure: hang on with at least 1 HP
 	call BattleCommand_FalseSwipe
 	ld b, 0
 	jr nc, .damage
