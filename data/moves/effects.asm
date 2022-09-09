@@ -1559,6 +1559,7 @@ Sandstorm:
 Endure:
 	checkobedience
 	usedmovetext
+	failiftrapped
 	doturn
 	endure
 	endmove
