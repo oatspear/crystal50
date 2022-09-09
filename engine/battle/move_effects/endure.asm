@@ -11,15 +11,8 @@ BattleCommand_Endure:
 	jp StdBattleTextbox
 
 BattleCommand_Endure_Damage:
-; reaction effect of endure to halve incoming taking damage
+; reaction effect of endure before taking damage
 ; called during the attacker's turn
-
-	call BattleCommand_SwitchTurn
-; do not consume energy if there is not enough PP
-	ld b, 0
-	ld c, ENERGY_DRAIN_ENDURE
-	call ConsumePP
-	jr c, .not_enough_pp
 
 ; endure: halve incoming damage, ensure at least 1 damage
 	ld a, [wCurDamage]
@@ -34,12 +27,15 @@ BattleCommand_Endure_Damage:
 	ld [wCurDamage + 1], a
 
 	call BattleCommand_SwitchTurn
-	xor a
-	ret
+; do not consume energy if there is not enough PP
+	ld b, 0
+	ld c, ENERGY_DRAIN_ENDURE
+	call ConsumePP
 
-.not_enough_pp
+; preserve the carry flag before reversing the turns back to normal
+	push af
 	call BattleCommand_SwitchTurn
-	scf
+	pop af
 	ret
 
 BattleCommand_Endure_OnHit:

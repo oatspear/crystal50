@@ -14,7 +14,7 @@
 
 ### Changed (Battle)
 - Metronome cannot turn into Sucker Punch.
-- **Endure (2 PP)** *(Priority Move)* - The Pokémon always survives with at least 1 HP. Damage taken is reduced by half, raises the user's Attack, Special Attack and Speed for 3 turns and consumes an additional 4 PP. Fails if there is not enough PP left. Lasts until the user's next turn.
+- **Endure (2 PP)** *(Priority Move)* - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.
 - Successive uses of Endure no longer have a chance to fail.
 
 ## v0.6.2
