@@ -1,3 +1,9 @@
+GetNextTrainerDataByte:
+	ld a, [wTrainerGroupBank]
+	call GetFarByte
+	inc hl
+	ret
+
 ReadTrainerParty:
 	ld a, [wInBattleTowerBattle]
 	bit 0, a
@@ -33,6 +39,9 @@ ReadTrainerParty:
 	ld hl, TrainerGroups
 	add hl, bc
 	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld [wTrainerGroupBank], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -43,19 +52,19 @@ ReadTrainerParty:
 	dec b
 	jr z, .got_trainer
 .loop
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp -1
 	jr nz, .loop
 	jr .skip_trainer
 .got_trainer
 
 .skip_name
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp "@"
 	jr nz, .skip_name
 
-	ld a, [hli]
-	ld [wMultiPurposeByte1], a
+	call GetNextTrainerDataByte
+	ld [wOtherTrainerType], a
 	ld d, h
 	ld e, l
 	call ReadTrainerPartyPieces
@@ -67,7 +76,7 @@ ReadTrainerParty:
 	ld a, BANK(sMysteryGiftTrainer)
 	call OpenSRAM
 	ld a, TRAINERTYPE_MOVES
-	ld [wMultiPurposeByte1], a
+	ld [wOtherTrainerType], a
 	ld de, sMysteryGiftTrainer
 	call ReadTrainerPartyPieces
 	call CloseSRAM
@@ -79,7 +88,7 @@ ReadTrainerPartyPieces:
 
 .loop
 ; end?
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp -1
 	ret z
 
@@ -87,7 +96,7 @@ ReadTrainerPartyPieces:
 	ld [wCurPartyLevel], a
 
 ; species
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	ld [wCurPartySpecies], a
 
 ; add to party
@@ -98,7 +107,7 @@ ReadTrainerPartyPieces:
 	pop hl
 
 ; item?
-	ld a, [wMultiPurposeByte1]
+	ld a, [wOtherTrainerType]
 	bit TRAINERTYPE_ITEM_F, a
 	jr z, .no_item
 
@@ -111,12 +120,12 @@ ReadTrainerPartyPieces:
 	ld e, l
 	pop hl
 
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	ld [de], a
 .no_item
 
 ; moves?
-	ld a, [wMultiPurposeByte1]
+	ld a, [wOtherTrainerType]
 	bit TRAINERTYPE_MOVES_F, a
 	jr z, .no_moves
 
@@ -131,7 +140,7 @@ ReadTrainerPartyPieces:
 
 	ld b, NUM_MOVES
 .copy_moves
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	ld [de], a
 	inc de
 	dec b
@@ -205,6 +214,8 @@ Battle_GetTrainerName::
 	ld a, [wInBattleTowerBattle]
 	bit 0, a
 	ld hl, wOTPlayerName
+	ld a, BANK(Battle_GetTrainerName)
+	ld [wTrainerGroupBank], a
 	jp nz, CopyTrainerName
 
 	ld a, [wOtherTrainerID]
@@ -237,6 +248,9 @@ GetTrainerName::
 	ld hl, TrainerGroups
 	add hl, bc
 	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld [wTrainerGroupBank], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -247,7 +261,7 @@ GetTrainerName::
 	jr z, CopyTrainerName
 
 .skip
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp $ff
 	jr nz, .skip
 	jr .loop
@@ -256,11 +270,12 @@ CopyTrainerName:
 	ld de, wStringBuffer1
 	push de
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	ld a, [wTrainerGroupBank]
+	call FarCopyBytes
 	pop de
 	ret
 
-INCLUDE "data/trainers/parties.asm"
+INCLUDE "data/trainers/party_pointers.asm"
 
 SetTrainerBattleLevel:
 	ld a, 255
