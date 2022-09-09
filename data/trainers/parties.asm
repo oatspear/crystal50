@@ -1006,16 +1006,12 @@ CooltrainerMGroup:
 	; unused
 	db "ANDY@", TRAINERTYPE_NORMAL
 	db 10, BULBASAUR
-	db 10, CHARMANDER
-	db 10, SQUIRTLE
 	db -1 ; end
 
 	; COOLTRAINERM (15)
 	; unused
 	db "TYLER@", TRAINERTYPE_NORMAL
 	db 10, BULBASAUR
-	db 10, CHARMANDER
-	db 10, SQUIRTLE
 	db -1 ; end
 
 	; COOLTRAINERM (16)
@@ -1040,8 +1036,6 @@ CooltrainerMGroup:
 	; unused
 	db "STEVE@", TRAINERTYPE_NORMAL
 	db 14, BULBASAUR
-	db 14, CHARMANDER
-	db 14, SQUIRTLE
 	db -1 ; end
 
 	; COOLTRAINERM (19)
@@ -1634,7 +1628,6 @@ GruntMGroup:
 	; unused
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 15, RATTATA
-	db 15, RATTATA
 	db -1 ; end
 
 	; GRUNTM (27)
@@ -1661,8 +1654,6 @@ GruntMGroup:
 	; unused
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 25, GOLBAT
-	db 25, GOLBAT
-	db 30, ARBOK
 	db -1 ; end
 
 	; GRUNTM (31)
