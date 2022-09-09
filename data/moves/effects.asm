@@ -993,6 +993,8 @@ Mist:
 	usedmovetext
 	doturn
 	mist
+	evasionup
+	statupmessage
 	endmove
 
 FocusEnergy:
