@@ -1863,18 +1863,21 @@ AI_Smart_Hail:
 	db -1 ; end
 
 AI_Smart_Endure:
-; Greatly discourage this move if the enemy already used Protect.
-	ld a, [wEnemyProtectCount]
-	and a
-	jr nz, .greatly_discourage
-
-; Greatly discourage this move if the enemy's HP is full.
-	call AICheckEnemyMaxHP
+; Greatly discourage this move if the enemy's PP is low.
+	ld a, [wEnemyMonEnergy]
+	cp (ENERGY_DRAIN_ENDURE + ENERGY_DRAIN_ENDURE)
 	jr c, .greatly_discourage
 
-; Discourage this move if the enemy's HP is at least 25%.
-	call AICheckEnemyQuarterHP
-	jr c, .discourage
+; Discourage this move if the enemy's stats are already raised.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
+	lda_stat_level [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
 
 ; If the enemy has Reversal...
 	ld b, EFFECT_REVERSAL
@@ -1891,11 +1894,23 @@ AI_Smart_Endure:
 	ret
 
 .no_reversal
+; If the enemy's stats are lowered, 50% chance to greatly encourage this move.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+	lda_stat_level [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+
 ; If the enemy is not locked on, do nothing.
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
 	ret z
 
+.maybe_greatly_encourage
 ; 50% chance to greatly encourage this move.
 	call AI_50_50
 	ret c

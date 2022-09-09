@@ -16,6 +16,7 @@
 - Metronome cannot turn into Sucker Punch.
 - **Endure (2 PP)** *(Priority Move)* - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.
 - Successive uses of Endure no longer have a chance to fail.
+- The AI is smarter about when to use Endure.
 
 ## v0.6.2
 
