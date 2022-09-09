@@ -5,13 +5,16 @@
 ### Added
 - Viridian Forest map.
 
-### Changed
+### Changed (Overworld)
 - Headbutt, Rock Smash and Fishing encounters vary in level and species like regular wild encounters.
 - Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 10% to 30%. The chance for good trees has increased from 50% to 70%. Rare trees remain at 80%.
 - Headbutt and Fishing encounters have more species variety based on the zones they are in.
 - Surfing encounters have had their species updated based on the zones they are in.
 - Kanto wild encounters on grass have had their species updated based on the zones they are in.
+
+### Changed (Battle)
 - Metronome cannot turn into Sucker Punch.
+- Successive uses of Endure no longer have a chance to fail.
 
 ## v0.6.2
 
