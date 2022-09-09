@@ -39,9 +39,13 @@ ALWAYS_USE         EQU 1 << ALWAYS_USE_F
 UNKNOWN_USE        EQU 1 << UNKNOWN_USE_F
 CONTEXT_USE        EQU 1 << CONTEXT_USE_F
 
-; TrainerTypes indexes (see engine/battle/read_trainer_party.asm)
+; TrainerTypes bits (see engine/battle/read_trainer_party.asm)
 	const_def
-	const TRAINERTYPE_NORMAL
-	const TRAINERTYPE_MOVES
-	const TRAINERTYPE_ITEM
-	const TRAINERTYPE_ITEM_MOVES
+	const TRAINERTYPE_MOVES_F ; 0
+	const TRAINERTYPE_ITEM_F  ; 1
+
+; Trainer party types (see data/trainers/parties.asm)
+TRAINERTYPE_NORMAL     EQU 0
+TRAINERTYPE_MOVES      EQU 1 << TRAINERTYPE_MOVES_F
+TRAINERTYPE_ITEM       EQU 1 << TRAINERTYPE_ITEM_F
+TRAINERTYPE_ITEM_MOVES EQU TRAINERTYPE_MOVES | TRAINERTYPE_ITEM
