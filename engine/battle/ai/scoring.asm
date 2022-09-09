@@ -904,10 +904,10 @@ AI_Smart_Growth:
 
 ; Discourage this move if enemy's (special) attack level is sharply raised.
 	lda_stat_level [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 	lda_stat_level [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 
 ; 80% chance to encourage this move when it's sunny.
@@ -1279,7 +1279,6 @@ AI_Smart_SleepTalk:
 
 	ld a, [wEnemyMonStatus]
 	and SLP_BIT
-	cp 1
 	jr z, .discourage
 
 	dec [hl]
