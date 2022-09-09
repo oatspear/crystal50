@@ -15,6 +15,7 @@
 ### Changed (Battle)
 - Metronome cannot turn into Sucker Punch.
 - Successive uses of Endure no longer have a chance to fail.
+- Endure has a cost of 2 PP on activation.
 
 ## v0.6.2
 

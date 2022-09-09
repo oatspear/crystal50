@@ -181,7 +181,7 @@ Moves:
 	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0 ; FIXME
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100,              ENERGY_20_PP,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,         STATUS,   100,              ENERGY_10_PP,   0
-	move WITHDRAW,     EFFECT_DEFENSES_UP_2,       0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0 ; FIXME
+	move WITHDRAW,     EFFECT_DEFENSES_UP_2,       0, WATER,         STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move SCALD,        EFFECT_BURN_HIT,           65, WATER,        SPECIAL,   100,              ENERGY_15_PP,  20
 	move DRAGON_DANCE, EFFECT_DRAGON_DANCE,        0, DRAGON,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move LIGHT_SCREEN, EFFECT_LIGHT_SCREEN,        0, PSYCHIC_TYPE,  STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
@@ -274,7 +274,7 @@ Moves:
 	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,        PHYSICAL,  85,              ENERGY_10_PP,   0
 	move SANDSTORM,    EFFECT_SANDSTORM,           0, ROCK,          STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
 	move GIGA_DRAIN,   EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100,              ENERGY_10_PP,   0
-	move ENDURE,       EFFECT_ENDURE,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_10_PP,   0
+	move ENDURE,       EFFECT_ENDURE,              0, NORMAL,        STATUS,   PERFECT_ACCURACY, ENERGY_20_PP,   0
 	move CHARM,        EFFECT_OFFENSES_DOWN_2,     0, FAIRY,         STATUS,   100,              ENERGY_20_PP,   0
 	move ROLLOUT,      EFFECT_RAMPAGE,            40, ROCK,          PHYSICAL,  90,              ENERGY_20_PP,   0
 	move FALSE_SWIPE,  EFFECT_FALSE_SWIPE,        40, NORMAL,        PHYSICAL, 100,              ENERGY_30_PP,   0
