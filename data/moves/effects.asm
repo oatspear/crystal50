@@ -1531,6 +1531,7 @@ Curse:
 Protect:
 	checkobedience
 	usedmovetext
+	failiftrapped
 	doturn
 	protect
 	endmove
