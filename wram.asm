@@ -2361,7 +2361,6 @@ wCurPartyLevel:: db
 
 wScrollingMenuListSize:: db
 
-wOtherTrainerType::
 wMultiPurposeByte1:: db
 
 ; used when following a map warp
@@ -2677,7 +2676,6 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-wTrainerGroupBank::  ; this is actually just a single byte
 wMultiPurposeWord1:: dw
 
 wMornEncounterRate::  db
@@ -2772,7 +2770,9 @@ wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
 ENDU
 
-	ds 4
+wOtherTrainerType:: db
+wTrainerGroupBank:: db
+	ds 2
 
 wd430:: ; mobile
 wBattleAction:: db
