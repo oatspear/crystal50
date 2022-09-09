@@ -1619,6 +1619,10 @@ Safeguard:
 	usedmovetext
 	doturn
 	safeguard
+	defenseup
+	statupmessage
+	specialdefenseup
+	statupmessage
 	endmove
 
 SacredFire:
