@@ -13,7 +13,7 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/blissey/front.dimensions"
 	owmoves OVERWORLD_STRENGTH, OVERWORLD_FLASH, \
-	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_HEAL
+	OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_SOFTBOILED
 	db 45 ; energy
 	db 0 ; unused (beta front/back pics)
 	db GROWTH_FAST ; growth rate
