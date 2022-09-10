@@ -22,7 +22,7 @@
 - Increased the PP cost of **Bubble Beam**, **Aurora Beam**, **Low Sweep**, **Seismic Toss**, **Acrobatics**, **Flame Wheel**, **Water Pulse**, **Icy Wind**, **Spark**, **Steel Wing**, **Pain Split**, **Bulldoze**, **Dragon Breath** from 2 to 3.
 - Reduced the PP cost of **Heal Bell**, **Aromatherapy**, **Ancient Power** and **Future Sight** from 4 to 3.
 - Increased the power of **Seed Bomb** from 65 to 70.
-- The AI is smarter about when to use **Endure**, stat increasing moves, and stat decreasing moves.
+- The AI is smarter about when to use **Endure**, status conditions, stat increasing moves, and stat decreasing moves.
 
 ## v0.6.2
 
