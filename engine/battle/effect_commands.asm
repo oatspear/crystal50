@@ -2117,9 +2117,17 @@ BattleCommand_ApplyDamage:
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
 
-	; enduring damage using PP
+; enduring damage using PP
+; the effect fails if there is not enough PP
+	xor a
+	ld [wMultiPurposeByte1], a
 	call BattleCommand_Endure_Damage
-	jr c, .focus_band ; the effect fails if there is not enough PP
+	jr c, .focus_band
+
+; endure: damage raises stats
+; store a flag that we can use after damage
+	ld a, TRUE
+	ld [wMultiPurposeByte1], a
 
 ; endure: hang on with at least 1 HP
 	call BattleCommand_FalseSwipe
@@ -2158,6 +2166,11 @@ BattleCommand_ApplyDamage:
 	call DoPlayerDamage
 
 .done_damage
+; endure: damage raises stats
+	ld a, [wMultiPurposeByte1]
+	and a
+	call nz, BattleCommand_Endure_OnHit
+
 	pop bc
 	ld a, b
 	and a
@@ -2167,8 +2180,7 @@ BattleCommand_ApplyDamage:
 	jr nz, .focus_band_text
 
 	ld hl, EnduredText
-	call StdBattleTextbox
-	jp BattleCommand_Endure_OnHit
+	jp StdBattleTextbox
 
 .focus_band_text
 	call GetOpponentItem
