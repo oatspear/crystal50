@@ -5807,7 +5807,7 @@ BattleCommand_FailIfTrapped:
 .got_trap
 	ld a, [hl]
 	and a
-	ret nz
+	ret z
 	jp BattleEffect_ButItFailed
 
 INCLUDE "engine/battle/move_effects/mist.asm"
