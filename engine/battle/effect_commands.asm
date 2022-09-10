@@ -2112,15 +2112,16 @@ BattleCommand_FailureText:
 BattleCommand_ApplyDamage:
 ; applydamage
 
+; enduring damage using PP
+; the effect fails if there is not enough PP
+	xor a
+	ld [wMultiPurposeByte1], a
+
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
 
-; enduring damage using PP
-; the effect fails if there is not enough PP
-	xor a
-	ld [wMultiPurposeByte1], a
 	call BattleCommand_Endure_Damage
 	jr c, .focus_band
 
