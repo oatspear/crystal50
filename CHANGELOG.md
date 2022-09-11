@@ -22,8 +22,9 @@
 - Increased the PP cost of **Bubble Beam**, **Aurora Beam**, **Low Sweep**, **Seismic Toss**, **Acrobatics**, **Flame Wheel**, **Water Pulse**, **Icy Wind**, **Spark**, **Steel Wing**, **Pain Split**, **Bulldoze**, **Dragon Breath** from 2 to 3.
 - Increased the PP cost of **Cross Poison** from 3 to 4.
 - Increased the PP cost of **Energy Ball**, **Poison Jab**, **Bug Buzz**, **Flamethrower**, **Ice Beam**, **Thunderbolt**, **Iron Head**, **Crunch**, **Shadow Ball**,, **Psychic**, **Earthquake**, **Earth Power**, **Flash Cannon**, **Sludge Bomb**, **X-Scissor**, **Wild Charge**, **Dark Pulse**, **Play Rough** and **Liquidation** from 4 to 5.
-- Reduced the PP cost of **Revenge**, **Avalanche**, **Heal Bell**, **Aromatherapy**, **Ancient Power**, **Dig** and **Future Sight** from 4 to 3.
-- Reduced the cost of **Mimic** from 4 to 2.
+- Decreased the PP cost of **Revenge**, **Avalanche**, **Heal Bell**, **Aromatherapy**, **Ancient Power**, **Dig** and **Future Sight** from 4 to 3.
+- Decreased the PP cost of **Mimic** from 4 to 2.
+- Decreased the PP cost of **Hurricane**, **Blizzard**, **Fire Blast**, **Thunder**, **Stone Edge** and **Self-destruct** from 8 to 6.
 - Increased the power of **Seed Bomb** from 65 to 70.
 - Decreased the power of **Sludge Bomb** from 90 to 80.
 - Increased the power of **Earthquake** from 85 to 90 and increased its accuracy from 95 to 100.
