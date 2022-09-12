@@ -543,12 +543,12 @@ UNION
 wPlayerSafeguardCount:: db
 wPlayerLightScreenCount:: db
 wPlayerReflectCount:: db
-	ds 1
+wPlayerFocusEnergyCount:: db
 
 wEnemySafeguardCount:: db
 wEnemyLightScreenCount:: db
 wEnemyReflectCount:: db
-	ds 1
+wEnemyFocusEnergyCount:: db
 
 NEXTU
 	ds 1

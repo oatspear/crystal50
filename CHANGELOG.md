@@ -13,12 +13,14 @@
 - Kanto wild encounters on grass have had their species updated based on the zones they are in.
 
 ### Changed (Battle)
+- Critical hit probabilities now match Generation 8 tables.
 - **Metronome** cannot turn into **Sucker Punch**.
 - **Endure (2 PP)** *(Priority Move)* - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.
 - Successive uses of **Endure** no longer have a chance to fail.
 - **Protect** and **Endure** fail if the user is trapped with binding moves.
 - **Mist (2 PP)** - Protects the user against stat changes for 5 turns. Raises evasiveness for 3 turns.
 - **Safeguard (3 PP)** - Protects the user's party from status conditions for 5 turns. Raises the user's Defense and Special Defense for 3 turns.
+- **Focus Energy (3 PP)** - Raises critical hit ratio by two stages and makes the user recover 1 PP at the end of the turn, while active. Lasts 5 turns.
 - Increased the PP cost of **Bubble Beam**, **Aurora Beam**, **Low Sweep**, **Seismic Toss**, **Acrobatics**, **Flame Wheel**, **Water Pulse**, **Icy Wind**, **Spark**, **Steel Wing**, **Pain Split**, **Bulldoze**, **Dragon Breath** from 2 to 3.
 - Increased the PP cost of **Cross Poison** from 3 to 4.
 - Increased the PP cost of **Energy Ball**, **Poison Jab**, **Bug Buzz**, **Flamethrower**, **Ice Beam**, **Thunderbolt**, **Iron Head**, **Crunch**, **Shadow Ball**,, **Psychic**, **Earthquake**, **Earth Power**, **Flash Cannon**, **Sludge Bomb**, **X-Scissor**, **Wild Charge**, **Dark Pulse**, **Play Rough** and **Liquidation** from 4 to 5.

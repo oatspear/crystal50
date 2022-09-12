@@ -299,6 +299,7 @@ HandleBetweenTurnEffects:
 	call HandleDefrost
 	call HandleSafeguard
 	call HandleScreens
+	call HandleFocusEnergy
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
 	call HandleRampage
@@ -1566,6 +1567,43 @@ HandleDefrost:
 	call UpdateBattleHuds
 	call SetPlayerTurn
 	ld hl, DefrostedOpponentText
+	jp StdBattleTextbox
+
+HandleFocusEnergy:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player1
+	call .CheckPlayer
+	jr .CheckEnemy
+
+.player1
+	call .CheckEnemy
+.CheckPlayer:
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	ret z
+	ld hl, wPlayerFocusEnergyCount
+	dec [hl]
+	ret nz
+	res SUBSTATUS_FOCUS_ENERGY, a
+	ld [wPlayerSubStatus4], a
+	xor a
+	jr .print
+
+.CheckEnemy:
+	ld a, [wEnemySubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	ret z
+	ld hl, wEnemyFocusEnergyCount
+	dec [hl]
+	ret nz
+	res SUBSTATUS_FOCUS_ENERGY, a
+	ld [wEnemySubStatus4], a
+	ld a, $1
+
+.print
+	ldh [hBattleTurn], a
+	ld hl, BattleText_LostFocusText
 	jp StdBattleTextbox
 
 HandleSafeguard:
@@ -4694,6 +4732,16 @@ HandleEnergyRecovery:
 	jr z, .player_done
 	dec a
 	ld [wBattleMonEnergy], a
+; focus energy
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	jr z, .player_done
+	ld hl, wPlayerMaxEnergy
+	ld a, [wBattleMonEnergy]
+	cp [hl]
+	jr nc, .player_done
+	inc a
+	ld [wBattleMonEnergy], a
 
 .player_done
 	ret
@@ -4720,6 +4768,16 @@ HandleEnergyRecovery:
 	and a
 	jr z, .enemy_done
 	dec a
+	ld [wEnemyMonEnergy], a
+; focus energy
+	ld a, [wEnemySubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	jr z, .enemy_done
+	ld hl, wEnemyMaxEnergy
+	ld a, [wEnemyMonEnergy]
+	cp [hl]
+	jr nc, .enemy_done
+	inc a
 	ld [wEnemyMonEnergy], a
 
 .enemy_done

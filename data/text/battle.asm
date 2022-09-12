@@ -844,6 +844,12 @@ GettingPumpedText:
 	line "getting pumped!"
 	autodone
 
+BattleText_LostFocusText:
+	text_pause
+	text "<USER>'s"
+	line "lost its focus."
+	autodone
+
 RecoilText:
 	text "<USER>'s"
 	line "hit with recoil!"
