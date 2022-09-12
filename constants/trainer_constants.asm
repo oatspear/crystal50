@@ -453,6 +453,7 @@ KRIS EQU __trainer_class__
 	const NORTON
 	const HUGH
 	const MARKUS
+	const HORTON
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_1_CHIKORITA
@@ -523,7 +524,6 @@ KRIS EQU __trainer_class__
 	trainerclass JUGGLER ; 31
 	const IRWIN1
 	const FRITZ
-	const HORTON
 	const IRWIN2
 	const IRWIN3
 	const IRWIN4
@@ -668,16 +668,11 @@ KRIS EQU __trainer_class__
 	const MIKI
 
 	trainerclass TWINS ; 3d
-	const AMYANDMAY1
-	const ANNANDANNE1
-	const ANNANDANNE2
-	const AMYANDMAY2
-	const JOANDZOE1
-	const JOANDZOE2
-	const MEGANDPEG1
-	const MEGANDPEG2
-	const LEAANDPIA1
-	const LEAANDPIA2
+	const AMYANDMAY
+	const ANNANDANNE
+	const JOANDZOE
+	const MEGANDPEG
+	const LEAANDPIA
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1

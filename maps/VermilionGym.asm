@@ -25,7 +25,7 @@ VermilionGymSurgeScript:
 	setevent EVENT_BEAT_LTSURGE
 	setevent EVENT_BEAT_GENTLEMAN_GREGORY
 	setevent EVENT_BEAT_GUITARIST_VINCENT
-	setevent EVENT_BEAT_JUGGLER_HORTON
+	setevent EVENT_BEAT_SUPER_NERD_HORTON
 	opentext
 	writetext ReceivedThunderBadgeText
 	playsound SFX_GET_BADGE
@@ -64,13 +64,13 @@ TrainerGuitaristVincent:
 	closetext
 	end
 
-TrainerJugglerHorton:
-	trainer JUGGLER, HORTON, EVENT_BEAT_JUGGLER_HORTON, JugglerHortonSeenText, JugglerHortonBeatenText, 0, .Script
+TrainerSuperNerdHorton:
+	trainer SUPER_NERD, HORTON, EVENT_BEAT_SUPER_NERD_HORTON, SuperNerdHortonSeenText, SuperNerdHortonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext JugglerHortonAfterBattleText
+	writetext SuperNerdHortonAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -204,18 +204,18 @@ GuitaristVincentAfterBattleText:
 	line "toast…"
 	done
 
-JugglerHortonSeenText:
+SuperNerdHortonSeenText:
 	text "I'm going to take"
 	line "you down! Prepare"
 	cont "to be shocked!"
 	done
 
-JugglerHortonBeatenText:
+SuperNerdHortonBeatenText:
 	text "Gwaaah!"
 	line "I was overpowered…"
 	done
 
-JugglerHortonAfterBattleText:
+SuperNerdHortonAfterBattleText:
 	text "Don't get too com-"
 	line "fortable about"
 
@@ -290,5 +290,5 @@ VermilionGym_MapEvents:
 	object_event  5,  2, SPRITE_SURGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VermilionGymSurgeScript, -1
 	object_event  8,  8, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanGregory, -1
 	object_event  4,  7, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 3, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGuitaristVincent, -1
-	object_event  0, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerJugglerHorton, -1
+	object_event  0, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSuperNerdHorton, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, VermilionGymGuideScript, -1
