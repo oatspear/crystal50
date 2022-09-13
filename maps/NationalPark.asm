@@ -413,9 +413,6 @@ SchoolboyJackTradeMonText:
 
 	para "There are {d:NUM_TMS} kinds"
 	line "of TMs."
-
-	para "Traded #MON"
-	line "level up faster."
 	done
 
 PokefanfBeverly1SeenText:
