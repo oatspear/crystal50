@@ -679,20 +679,6 @@ BattleCommand_CheckObedience:
 	and a
 	ret nz
 
-	; If the monster's id doesn't match the player's,
-	; some conditions need to be met.
-	ld a, MON_ID
-	call BattlePartyAttr
-
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
-
-.obeylevel
 	; The maximum obedience level is constrained by owned badges:
 	ld hl, wJohtoBadges
 
@@ -713,11 +699,11 @@ BattleCommand_CheckObedience:
 
 	; hivebadge
 	bit HIVEBADGE, [hl]
-	ld a, 30
+	ld a, 35
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 10
+	ld a, 25
 
 .getlevel
 ; c = obedience level

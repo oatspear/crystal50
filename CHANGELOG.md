@@ -17,7 +17,6 @@
 - Updated the parties of all Kanto gym trainers.
 - Egg Pokémon hatch at level 2.
 - Traded Pokémon can be renamed.
-- Traded Pokémon no longer received boosted experience.
 
 ### Changed (Battle)
 - Critical hit probabilities now match Generation 8 tables.
@@ -38,6 +37,9 @@
 - Decreased the power of **Sludge Bomb** from 90 to 80.
 - Increased the power of **Earthquake** from 85 to 90 and increased its accuracy from 95 to 100.
 - The AI is smarter about when to use **Endure**, status conditions, stat increasing moves, and stat decreasing moves.
+- Traded Pokémon no longer received boosted experience.
+- Obedience rules apply equally to all Pokémon, traded or otherwise.
+- Without any badges, Pokémon will obey up to level 25.
 
 ## v0.6.2
 
