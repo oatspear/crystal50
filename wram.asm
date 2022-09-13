@@ -543,12 +543,12 @@ UNION
 wPlayerSafeguardCount:: db
 wPlayerLightScreenCount:: db
 wPlayerReflectCount:: db
-	ds 1
+wPlayerFocusEnergyCount:: db
 
 wEnemySafeguardCount:: db
 wEnemyLightScreenCount:: db
 wEnemyReflectCount:: db
-	ds 1
+wEnemyFocusEnergyCount:: db
 
 NEXTU
 	ds 1
@@ -2676,7 +2676,7 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-wMultiPurposeWord1: dw
+wMultiPurposeWord1:: dw
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db
@@ -2770,7 +2770,9 @@ wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
 ENDU
 
-	ds 4
+wOtherTrainerType:: db
+wTrainerGroupBank:: db
+	ds 2
 
 wd430:: ; mobile
 wBattleAction:: db
@@ -3188,7 +3190,8 @@ wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
 wSwarmFlags:: db
-	ds 2
+wDailyFlags3:: db
+	ds 1
 wTimerEventStartDay:: db
 	ds 3
 

@@ -904,10 +904,10 @@ AI_Smart_Growth:
 
 ; Discourage this move if enemy's (special) attack level is sharply raised.
 	lda_stat_level [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 	lda_stat_level [wEnemySAtkLevel]
-	cp BASE_STAT_LEVEL + 2
+	cp BASE_STAT_LEVEL + 1
 	jr nc, .discourage
 
 ; 80% chance to encourage this move when it's sunny.
@@ -1279,7 +1279,6 @@ AI_Smart_SleepTalk:
 
 	ld a, [wEnemyMonStatus]
 	and SLP_BIT
-	cp 1
 	jr z, .discourage
 
 	dec [hl]
@@ -1863,18 +1862,21 @@ AI_Smart_Hail:
 	db -1 ; end
 
 AI_Smart_Endure:
-; Greatly discourage this move if the enemy already used Protect.
-	ld a, [wEnemyProtectCount]
-	and a
-	jr nz, .greatly_discourage
-
-; Greatly discourage this move if the enemy's HP is full.
-	call AICheckEnemyMaxHP
+; Greatly discourage this move if the enemy's PP is low.
+	ld a, [wEnemyMonEnergy]
+	cp (ENERGY_DRAIN_ENDURE + ENERGY_DRAIN_ENDURE)
 	jr c, .greatly_discourage
 
-; Discourage this move if the enemy's HP is at least 25%.
-	call AICheckEnemyQuarterHP
-	jr c, .discourage
+; Discourage this move if the enemy's stats are already raised.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
+	lda_stat_level [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .discourage
 
 ; If the enemy has Reversal...
 	ld b, EFFECT_REVERSAL
@@ -1891,11 +1893,23 @@ AI_Smart_Endure:
 	ret
 
 .no_reversal
+; If the enemy's stats are lowered, 50% chance to greatly encourage this move.
+	lda_stat_level [wEnemyAtkLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+	lda_stat_level [wEnemySAtkLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+	lda_stat_level [wEnemySpdLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .maybe_greatly_encourage
+
 ; If the enemy is not locked on, do nothing.
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
 	ret z
 
+.maybe_greatly_encourage
 ; 50% chance to greatly encourage this move.
 	call AI_50_50
 	ret c
@@ -2815,28 +2829,22 @@ AI_Status:
 
 .normal_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	cp EFFECT_SLEEP
+	jr z, .typeimmunity
 	cp EFFECT_TOXIC
 	jr z, .poisonimmunity
 	cp EFFECT_POISON
 	jr z, .poisonimmunity
-	cp EFFECT_SLEEP
-	jr z, .typeimmunity
 	cp EFFECT_PARALYZE
-	jr z, .typeimmunity
+	jr z, .paralysisimmunity
+	cp EFFECT_BURN
+	jr z, .burnimmunity
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
 	jr z, .checkmove
 
-	jr .typeimmunity
-
-.poisonimmunity
-	ld a, [wBattleMonType1]
-	cp POISON
-	jr z, .immune
-	ld a, [wBattleMonType2]
-	cp POISON
-	jr z, .immune
+	; fallthrough
 
 .typeimmunity
 	push hl
@@ -2856,6 +2864,37 @@ AI_Status:
 .immune
 	call AIDiscourageMove
 	jr .checkmove
+
+.poisonimmunity
+	ld a, [wBattleMonType1]
+	cp POISON
+	jr z, .immune
+	cp STEEL
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp POISON
+	jr z, .immune
+	cp STEEL
+	jr z, .immune
+	jr .typeimmunity
+
+.paralysisimmunity
+	ld a, [wBattleMonType1]
+	cp ELECTRIC
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp ELECTRIC
+	jr z, .immune
+	jr .typeimmunity
+
+.burnimmunity
+	ld a, [wBattleMonType1]
+	cp FIRE
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp FIRE
+	jr z, .immune
+	jr .typeimmunity
 
 
 AI_Risky:

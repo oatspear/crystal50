@@ -993,6 +993,8 @@ Mist:
 	usedmovetext
 	doturn
 	mist
+	evasionup
+	statupmessage
 	endmove
 
 FocusEnergy:
@@ -1531,6 +1533,7 @@ Curse:
 Protect:
 	checkobedience
 	usedmovetext
+	failiftrapped
 	doturn
 	protect
 	endmove
@@ -1559,6 +1562,7 @@ Sandstorm:
 Endure:
 	checkobedience
 	usedmovetext
+	failiftrapped
 	doturn
 	endure
 	endmove
@@ -1615,6 +1619,10 @@ Safeguard:
 	usedmovetext
 	doturn
 	safeguard
+	defenseup
+	statupmessage
+	specialdefenseup
+	statupmessage
 	endmove
 
 SacredFire:

@@ -679,20 +679,6 @@ BattleCommand_CheckObedience:
 	and a
 	ret nz
 
-	; If the monster's id doesn't match the player's,
-	; some conditions need to be met.
-	ld a, MON_ID
-	call BattlePartyAttr
-
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
-
-.obeylevel
 	; The maximum obedience level is constrained by owned badges:
 	ld hl, wJohtoBadges
 
@@ -713,11 +699,11 @@ BattleCommand_CheckObedience:
 
 	; hivebadge
 	bit HIVEBADGE, [hl]
-	ld a, 30
+	ld a, 35
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 10
+	ld a, 25
 
 .getlevel
 ; c = obedience level
@@ -943,6 +929,39 @@ CheckUserIsCharging:
 	and a
 	ret
 
+ConsumePP:
+; assumes energy cost in c
+; if b == 0, do not consume if there's not enough PP
+; if b != 0, always consume remaining PP
+; should set carry flag if not enough PP
+; returns current energy in a
+	ld hl, wBattleMonEnergy
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_energy_pointer
+	ld hl, wEnemyMonEnergy
+
+.got_energy_pointer
+	ld a, [hl]
+	sub c
+	jr c, .out_of_pp
+	; all good, consume the energy and store the value
+	ld [hl], a
+	ld c, a
+	ret
+
+.out_of_pp
+	ld a, b
+	and a
+	jr z, .done
+	; consume the remaining energy and store the value
+	xor a
+	ld [hl], a
+	ld c, a
+.done
+	scf
+	ret
+
 BattleCommand_DoTurn:
 	call CheckUserIsCharging
 	ret nz
@@ -989,25 +1008,14 @@ BattleCommand_DoTurn:
 	ld a, [hl]
 	and PP_MASK
 	ld c, a ; got energy cost
+	; ld b, 0 ; do not consume PP if there is not enough
 
 	; consume from battlemon first and check for errors
-	ld hl, wBattleMonEnergy
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_energy_pointer
-	ld hl, wEnemyMonEnergy
-
-.got_energy_pointer
-	ld a, [hl]
-	sub c
-	jr c, .out_of_pp
-
-	; all good, consume the energy and store the value
-	ld [hl], a
+	call ConsumePP
 	ld c, a
-	ret
+	ret nc
 
-.out_of_pp
+; .out_of_pp
 	xor a
 	call BattleCommand_MoveDelay
 ; get move effect
@@ -1085,7 +1093,8 @@ BattleCommand_Critical:
 	bit SUBSTATUS_FOCUS_ENERGY, a
 	jr z, .CheckCritical
 
-; +1 critical level
+; +2 critical level
+	inc c
 	inc c
 
 .CheckCritical:
@@ -2090,16 +2099,34 @@ BattleCommand_FailureText:
 BattleCommand_ApplyDamage:
 ; applydamage
 
+; enduring damage using PP
+; the effect fails if there is not enough PP
+	xor a
+	ld [wMultiPurposeByte1], a
+
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
 
+	call BattleCommand_Endure_Damage
+	jr c, .endure_faltered
+
+; endure: damage raises stats
+; store a flag that we can use after damage
+	ld a, TRUE
+	ld [wMultiPurposeByte1], a
+
+; endure: hang on with at least 1 HP
 	call BattleCommand_FalseSwipe
 	ld b, 0
 	jr nc, .damage
 	ld b, 1
 	jr .damage
+
+.endure_faltered
+	ld hl, EndureFalteredText
+	call StdBattleTextbox
 
 .focus_band
 	call GetOpponentItem
@@ -2131,6 +2158,11 @@ BattleCommand_ApplyDamage:
 	call DoPlayerDamage
 
 .done_damage
+; endure: damage raises stats
+	ld a, [wMultiPurposeByte1]
+	and a
+	call nz, BattleCommand_Endure_OnHit
+
 	pop bc
 	ld a, b
 	and a
@@ -2138,6 +2170,7 @@ BattleCommand_ApplyDamage:
 
 	dec a
 	jr nz, .focus_band_text
+
 	ld hl, EnduredText
 	jp StdBattleTextbox
 
@@ -5767,6 +5800,19 @@ BattleCommand_TrapTarget:
 	dbw WHIRLPOOL,   WhirlpoolTrapText ; 'was trapped!'
 	dbw INFESTATION, InfestedText      ; 'was INFESTED!'
 	dbw SAND_TOMB,   SandTombTrapText  ; 'was trapped!'
+
+BattleCommand_FailIfTrapped:
+	ld hl, wPlayerWrapCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_trap
+	ld hl, wEnemyWrapCount
+
+.got_trap
+	ld a, [hl]
+	and a
+	ret z
+	jp BattleEffect_ButItFailed
 
 INCLUDE "engine/battle/move_effects/mist.asm"
 

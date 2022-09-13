@@ -150,7 +150,7 @@ TrainerPokefanmColin:
 	end
 
 TrainerTwinsMegandpeg1:
-	trainer TWINS, MEGANDPEG1, EVENT_BEAT_TWINS_MEG_AND_PEG, TwinsMegandpeg1SeenText, TwinsMegandpeg1BeatenText, 0, .Script
+	trainer TWINS, MEGANDPEG, EVENT_BEAT_TWINS_MEG_AND_PEG, TwinsMegandpeg1SeenText, TwinsMegandpeg1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -161,7 +161,7 @@ TrainerTwinsMegandpeg1:
 	end
 
 TrainerTwinsMegandpeg2:
-	trainer TWINS, MEGANDPEG2, EVENT_BEAT_TWINS_MEG_AND_PEG, TwinsMegandpeg2SeenText, TwinsMegandpeg2BeatenText, 0, .Script
+	trainer TWINS, MEGANDPEG, EVENT_BEAT_TWINS_MEG_AND_PEG, TwinsMegandpeg2SeenText, TwinsMegandpeg2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

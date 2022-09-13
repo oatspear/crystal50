@@ -299,6 +299,7 @@ HandleBetweenTurnEffects:
 	call HandleDefrost
 	call HandleSafeguard
 	call HandleScreens
+	call HandleFocusEnergy
 	call HandleStatBoostingHeldItems
 	call HandleHealingItems
 	call HandleRampage
@@ -679,8 +680,6 @@ ParsePlayerAction:
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
-	cp EFFECT_ENDURE
-	jr z, .continue_protect
 
 .locked_in
 	xor a
@@ -694,7 +693,7 @@ ParsePlayerAction:
 .reset_series_counters
 	xor a
 	ld [wPlayerProtectCount], a
-	xor a
+	; xor a
 	ret
 
 HandleEncore:
@@ -881,7 +880,7 @@ Battle_EnemyFirst:
 	ld [wEnemyGoesFirst], a
 	callfar AI_SwitchOrTryItem
 	jr c, .switch_item
-	call EnemyTurn_EndOpponentProtectEndureDestinyBond
+	call EnemyTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -897,7 +896,7 @@ Battle_EnemyFirst:
 	call ResidualDamage
 	jp z, HandleEnemyMonFaint
 	call RefreshBattleHuds
-	call PlayerTurn_EndOpponentProtectEndureDestinyBond
+	call PlayerTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -921,7 +920,7 @@ Battle_PlayerFirst:
 	call SetEnemyTurn
 	callfar AI_SwitchOrTryItem
 	push af
-	call PlayerTurn_EndOpponentProtectEndureDestinyBond
+	call PlayerTurn_EndOpponentProtectDestinyBond
 	pop bc
 	ld a, [wForcedSwitch]
 	and a
@@ -944,7 +943,7 @@ Battle_PlayerFirst:
 	call LoadTilemapToTempTilemap
 	call TryEnemyFlee
 	jp c, WildFled_EnemyFled_LinkBattleCanceled
-	call EnemyTurn_EndOpponentProtectEndureDestinyBond
+	call EnemyTurn_EndOpponentProtectDestinyBond
 	call CheckMobileBattleError
 	ret c
 	ld a, [wForcedSwitch]
@@ -964,29 +963,31 @@ Battle_PlayerFirst:
 	ld [wBattlePlayerAction], a
 	ret
 
-PlayerTurn_EndOpponentProtectEndureDestinyBond:
+PlayerTurn_EndOpponentProtectDestinyBond:
 	call SetPlayerTurn
-	call EndUserDestinyBond
+	call EndUserEndureDestinyBond
 	callfar DoPlayerTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jp EndOpponentProtectDestinyBond
 
-EnemyTurn_EndOpponentProtectEndureDestinyBond:
+EnemyTurn_EndOpponentProtectDestinyBond:
 	call SetEnemyTurn
-	call EndUserDestinyBond
+	call EndUserEndureDestinyBond
 	callfar DoEnemyTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jp EndOpponentProtectDestinyBond
 
-EndOpponentProtectEndureDestinyBond:
+EndOpponentProtectDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_PROTECT, [hl]
-	res SUBSTATUS_ENDURE, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	ret
 
-EndUserDestinyBond:
+EndUserEndureDestinyBond:
+	ld a, BATTLE_VARS_SUBSTATUS1
+	call GetBattleVarAddr
+	res SUBSTATUS_ENDURE, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
@@ -1566,6 +1567,43 @@ HandleDefrost:
 	call UpdateBattleHuds
 	call SetPlayerTurn
 	ld hl, DefrostedOpponentText
+	jp StdBattleTextbox
+
+HandleFocusEnergy:
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player1
+	call .CheckPlayer
+	jr .CheckEnemy
+
+.player1
+	call .CheckEnemy
+.CheckPlayer:
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	ret z
+	ld hl, wPlayerFocusEnergyCount
+	dec [hl]
+	ret nz
+	res SUBSTATUS_FOCUS_ENERGY, a
+	ld [wPlayerSubStatus4], a
+	xor a
+	jr .print
+
+.CheckEnemy:
+	ld a, [wEnemySubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	ret z
+	ld hl, wEnemyFocusEnergyCount
+	dec [hl]
+	ret nz
+	res SUBSTATUS_FOCUS_ENERGY, a
+	ld [wEnemySubStatus4], a
+	ld a, $1
+
+.print
+	ldh [hBattleTurn], a
+	ld hl, BattleText_LostFocusText
 	jp StdBattleTextbox
 
 HandleSafeguard:
@@ -4694,6 +4732,16 @@ HandleEnergyRecovery:
 	jr z, .player_done
 	dec a
 	ld [wBattleMonEnergy], a
+; focus energy
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	jr z, .player_done
+	ld hl, wPlayerMaxEnergy
+	ld a, [wBattleMonEnergy]
+	cp [hl]
+	jr nc, .player_done
+	inc a
+	ld [wBattleMonEnergy], a
 
 .player_done
 	ret
@@ -4720,6 +4768,16 @@ HandleEnergyRecovery:
 	and a
 	jr z, .enemy_done
 	dec a
+	ld [wEnemyMonEnergy], a
+; focus energy
+	ld a, [wEnemySubStatus4]
+	bit SUBSTATUS_FOCUS_ENERGY, a
+	jr z, .enemy_done
+	ld hl, wEnemyMaxEnergy
+	ld a, [wEnemyMonEnergy]
+	cp [hl]
+	jr nc, .enemy_done
+	inc a
 	ld [wEnemyMonEnergy], a
 
 .enemy_done
@@ -6178,8 +6236,6 @@ ParseEnemyAction:
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
-	cp EFFECT_ENDURE
-	ret z
 	xor a
 	ld [wEnemyProtectCount], a
 	ret
@@ -7242,22 +7298,22 @@ GiveExperiencePoints:
 	call Divide
 ; Boost Experience for traded Pokemon
 	pop bc
-	ld hl, MON_ID
-	add hl, bc
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .boosted
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
+	; ld hl, MON_ID
+	; add hl, bc
+	; ld a, [wPlayerID]
+	; cp [hl]
+	; jr nz, .boosted
+	; inc hl
+	; ld a, [wPlayerID + 1]
+	; cp [hl]
 	ld a, 0
-	jr z, .no_boost
+	; jr z, .no_boost
 
-.boosted
-	call BoostExp
-	ld a, 1
+; .boosted
+	; call BoostExp
+	; ld a, 1
 
-.no_boost
+; .no_boost
 ; Boost experience for a Trainer Battle
 	ld [wStringBuffer2 + 2], a
 	ld a, [wBattleMode]

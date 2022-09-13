@@ -10,7 +10,7 @@ TreeMonMaps:
 	treemon_map ROUTE_29,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_30,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_31,                  TREEMON_SET_ROUTE
-	treemon_map ROUTE_32,                  TREEMON_SET_KANTO
+	treemon_map ROUTE_32,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_33,                  TREEMON_SET_TOWN
 	treemon_map ROUTE_34,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_35,                  TREEMON_SET_ROUTE
@@ -38,6 +38,7 @@ TreeMonMaps:
 	treemon_map BLACKTHORN_CITY,           TREEMON_SET_CITY
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_CITY
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
+	treemon_map VIRIDIAN_FOREST,           TREEMON_SET_KANTO
 	db -1
 
 RockMonMaps:

@@ -1,5 +1,46 @@
 # Changelog
 
+## v0.7
+
+### Fixed
+- Breeding should now result in an egg of the correct species.
+
+### Added
+- Viridian Forest map.
+
+### Changed (Overworld)
+- Headbutt, Rock Smash and Fishing encounters vary in level and species like regular wild encounters.
+- Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 10% to 30%. The chance for good trees has increased from 50% to 70%. Rare trees remain at 80%.
+- Headbutt and Fishing encounters have more species variety based on the zones they are in.
+- Surfing encounters have had their species updated based on the zones they are in.
+- Kanto wild encounters on grass have had their species updated based on the zones they are in.
+- Updated the parties of all Kanto gym trainers.
+- Egg Pokémon hatch at level 2.
+- Traded Pokémon can be renamed.
+
+### Changed (Battle)
+- Critical hit probabilities now match Generation 8 tables.
+- **Metronome** cannot turn into **Sucker Punch**.
+- **Endure (2 PP)** *(Priority Move)* - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.
+- Successive uses of **Endure** no longer have a chance to fail.
+- **Protect** and **Endure** fail if the user is trapped with binding moves.
+- **Mist (2 PP)** - Protects the user against stat changes for 5 turns. Raises evasiveness for 3 turns.
+- **Safeguard (3 PP)** - Protects the user's party from status conditions for 5 turns. Raises the user's Defense and Special Defense for 3 turns.
+- **Focus Energy (3 PP)** - Raises critical hit ratio by two stages and makes the user recover 1 PP at the end of the turn, while active. Lasts 5 turns.
+- Increased the PP cost of **Bubble Beam**, **Aurora Beam**, **Low Sweep**, **Seismic Toss**, **Acrobatics**, **Flame Wheel**, **Water Pulse**, **Icy Wind**, **Spark**, **Steel Wing**, **Pain Split**, **Bulldoze**, **Dragon Breath** from 2 to 3.
+- Increased the PP cost of **Cross Poison** from 3 to 4.
+- Increased the PP cost of **Energy Ball**, **Poison Jab**, **Bug Buzz**, **Flamethrower**, **Ice Beam**, **Thunderbolt**, **Iron Head**, **Crunch**, **Shadow Ball**,, **Psychic**, **Earthquake**, **Earth Power**, **Flash Cannon**, **Sludge Bomb**, **X-Scissor**, **Wild Charge**, **Dark Pulse**, **Play Rough** and **Liquidation** from 4 to 5.
+- Decreased the PP cost of **Revenge**, **Avalanche**, **Heal Bell**, **Aromatherapy**, **Ancient Power**, **Dig** and **Future Sight** from 4 to 3.
+- Decreased the PP cost of **Mimic** from 4 to 2.
+- Decreased the PP cost of **Hurricane**, **Blizzard**, **Fire Blast**, **Thunder**, **Stone Edge** and **Self-destruct** from 8 to 6.
+- Increased the power of **Seed Bomb** from 65 to 70.
+- Decreased the power of **Sludge Bomb** from 90 to 80.
+- Increased the power of **Earthquake** from 85 to 90 and increased its accuracy from 95 to 100.
+- The AI is smarter about when to use **Endure**, status conditions, stat increasing moves, and stat decreasing moves.
+- Traded Pokémon no longer received boosted experience.
+- Obedience rules apply equally to all Pokémon, traded or otherwise.
+- Without any badges, Pokémon will obey up to level 25.
+
 ## v0.6.2
 
 ### Fixed

@@ -104,7 +104,7 @@ TrainerCooltrainerfCara:
 	end
 
 TrainerTwinsLeaandpia1:
-	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia1SeenText, TwinsLeaandpia1BeatenText, 0, .Script
+	trainer TWINS, LEAANDPIA, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia1SeenText, TwinsLeaandpia1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -115,7 +115,7 @@ TrainerTwinsLeaandpia1:
 	end
 
 TrainerTwinsLeaandpia2:
-	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
+	trainer TWINS, LEAANDPIA, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

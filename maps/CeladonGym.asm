@@ -81,7 +81,7 @@ TrainerBeautyJulia:
 	end
 
 TrainerTwinsJoAndZoe1:
-	trainer TWINS, JOANDZOE1, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe1SeenText, TwinsJoAndZoe1BeatenText, 0, .Script
+	trainer TWINS, JOANDZOE, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe1SeenText, TwinsJoAndZoe1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -92,7 +92,7 @@ TrainerTwinsJoAndZoe1:
 	end
 
 TrainerTwinsJoAndZoe2:
-	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
+	trainer TWINS, JOANDZOE, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

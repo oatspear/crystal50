@@ -8,11 +8,18 @@ AsleepTreeMonsNite:
 	db KAKUNA
 	db BEEDRILL
 	db SPEAROW
+	db FEAROW
 	db EKANS
 	db EXEGGCUTE
 	db LEDYBA
 	db AIPOM
 	db MANKEY
+	db PRIMEAPE
+	db HERACROSS
+	db SCYTHER
+	db SKARMORY
+	db PIDGEY
+	db PIDGEOTTO
 	db -1 ; end
 
 AsleepTreeMonsDay:
@@ -20,7 +27,11 @@ AsleepTreeMonsDay:
 	db HOOTHOOT
 	db NOCTOWL
 	db SPINARAK
-	db HERACROSS
+	db ARIADOS
+	db GLIGAR
+	db SNEASEL
+	db LEDIAN
+	db MURKROW
 	db -1 ; end
 
 AsleepTreeMonsMorn:
@@ -28,5 +39,6 @@ AsleepTreeMonsMorn:
 	db HOOTHOOT
 	db NOCTOWL
 	db SPINARAK
-	db HERACROSS
+	db ARIADOS
+	db SNEASEL
 	db -1 ; end

@@ -1043,8 +1043,11 @@ BattleTowerElevator_Blocks:
 BattleTowerOutside_Blocks:
 	INCBIN "maps/BattleTowerOutside.blk"
 
-BetaBlank_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaBlank.blk"
+; BetaBlank_Blocks: ; unreferenced
+; 	INCBIN "maps/unused/BetaBlank.blk"
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
+
+ViridianForest_Blocks:
+	INCBIN "maps/ViridianForest.blk"

@@ -24,7 +24,7 @@ Route37_MapScripts:
 	endcallback
 
 TrainerTwinsAnnandanne1:
-	trainer TWINS, ANNANDANNE1, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne1SeenText, TwinsAnnandanne1BeatenText, 0, .Script
+	trainer TWINS, ANNANDANNE, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne1SeenText, TwinsAnnandanne1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -35,7 +35,7 @@ TrainerTwinsAnnandanne1:
 	end
 
 TrainerTwinsAnnandanne2:
-	trainer TWINS, ANNANDANNE2, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne2SeenText, TwinsAnnandanne2BeatenText, 0, .Script
+	trainer TWINS, ANNANDANNE, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne2SeenText, TwinsAnnandanne2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

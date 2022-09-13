@@ -551,6 +551,11 @@ EnduredText:
 	line "ENDURED the hit!"
 	autodone
 
+EndureFalteredText:
+	text "<TARGET>'s'"
+	line "ENDURE faltered."
+	autodone
+
 InLoveWithText:
 	text "<USER>"
 	line "is in love with"
@@ -842,6 +847,12 @@ GettingPumpedText:
 	text_pause
 	text "<USER>'s"
 	line "getting pumped!"
+	autodone
+
+BattleText_LostFocusText:
+	text_pause
+	text "<USER>'s"
+	line "lost its focus."
 	autodone
 
 RecoilText:

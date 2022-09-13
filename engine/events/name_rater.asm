@@ -9,14 +9,11 @@ _NameRater:
 	call PrintText
 	farcall SelectMonFromParty
 	jr c, .cancel
-; He can't rename an egg...
+; He can't rename an egg.
 	ld a, [wCurPartySpecies]
 	cp EGG
 	jr z, .egg
-; ... or a Pokemon you got from a trade.
 	call GetCurNickname
-	call CheckIfMonIsYourOT
-	jr c, .traded
 ; This name is good, but we can do better.  How about it?
 	ld hl, NameRaterBetterNameText
 	call PrintText

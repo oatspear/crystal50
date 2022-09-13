@@ -104,6 +104,7 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+	landmark  48,  58, ViridianForestName
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
@@ -202,7 +203,7 @@ DarkCaveName:        db "DARK CAVE@"
 IlexForestName:      db "ILEX¯FOREST@"
 BurnedTowerName:     db "BURNED¯TOWER@"
 FastShipName:        db "FAST SHIP@"
-ViridianForestName:  db "VIRIDIAN¯FOREST@" ; unreferenced
+ViridianForestName:  db "VIRIDIAN¯FOREST@"
 DiglettsCaveName:    db "DIGLETT'S¯CAVE@"
 TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"

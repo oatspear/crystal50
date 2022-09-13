@@ -910,8 +910,8 @@ SandstormDescription:
 	next "every turn.@"
 
 EndureDescription:
-	db   "Always leaves at"
-	next "least 1HP.@"
+	db   "Survives damage."
+	next "Raises OFFENSES.@"
 
 CharmDescription:
 	db   "Sharply lowers the"
