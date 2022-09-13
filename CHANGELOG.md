@@ -17,6 +17,7 @@
 - Updated the parties of all Kanto gym trainers.
 - Egg Pokémon hatch at level 2.
 - Traded Pokémon can be renamed.
+- Traded Pokémon no longer received boosted experience.
 
 ### Changed (Battle)
 - Critical hit probabilities now match Generation 8 tables.

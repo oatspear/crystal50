@@ -7298,22 +7298,22 @@ GiveExperiencePoints:
 	call Divide
 ; Boost Experience for traded Pokemon
 	pop bc
-	ld hl, MON_ID
-	add hl, bc
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .boosted
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
+	; ld hl, MON_ID
+	; add hl, bc
+	; ld a, [wPlayerID]
+	; cp [hl]
+	; jr nz, .boosted
+	; inc hl
+	; ld a, [wPlayerID + 1]
+	; cp [hl]
 	ld a, 0
-	jr z, .no_boost
+	; jr z, .no_boost
 
-.boosted
-	call BoostExp
-	ld a, 1
+; .boosted
+	; call BoostExp
+	; ld a, 1
 
-.no_boost
+; .no_boost
 ; Boost experience for a Trainer Battle
 	ld [wStringBuffer2 + 2], a
 	ld a, [wBattleMode]
