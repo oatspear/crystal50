@@ -551,6 +551,11 @@ EnduredText:
 	line "ENDURED the hit!"
 	autodone
 
+EndureFalteredText:
+	text "<TARGET>'s'"
+	line "ENDURE faltered."
+	autodone
+
 InLoveWithText:
 	text "<USER>"
 	line "is in love with"

@@ -2124,7 +2124,7 @@ BattleCommand_ApplyDamage:
 	jr z, .focus_band
 
 	call BattleCommand_Endure_Damage
-	jr c, .focus_band
+	jr c, .endure_faltered
 
 ; endure: damage raises stats
 ; store a flag that we can use after damage
@@ -2137,6 +2137,10 @@ BattleCommand_ApplyDamage:
 	jr nc, .damage
 	ld b, 1
 	jr .damage
+
+.endure_faltered
+	ld hl, EndureFalteredText
+	call StdBattleTextbox
 
 .focus_band
 	call GetOpponentItem
