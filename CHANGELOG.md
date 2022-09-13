@@ -12,6 +12,7 @@
 - Surfing encounters have had their species updated based on the zones they are in.
 - Kanto wild encounters on grass have had their species updated based on the zones they are in.
 - Updated the parties of all Kanto gym trainers.
+- Egg Pokémon hatch at level 2.
 
 ### Changed (Battle)
 - Critical hit probabilities now match Generation 8 tables.
