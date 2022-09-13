@@ -6236,8 +6236,6 @@ ParseEnemyAction:
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
-	cp EFFECT_ENDURE
-	ret z
 	xor a
 	ld [wEnemyProtectCount], a
 	ret
