@@ -1,4 +1,4 @@
-# Pokémon Salt Crystal (v0.6)
+# Pokémon Salt Crystal (v0.7)
 
 This is the repository for the development of a Pokémon Crystal ROM hack, named **Pokémon Salt Crystal**.
 The name is both a pun and an abbreviation, seeing as salt forms crystals, whereas the actual intent is to abbreviate *Systems Altered*.
@@ -25,12 +25,21 @@ For a full list of changes by version, see the [Changelog](CHANGELOG.md).
 - **Flinching:** can carry over to the next turn, meaning that Pokémon going second can also flinch the opponent.
 - **Rampage:** lasts 2 to 3 turns; subsequent turns increase the move's Power, but also make the user take more damage.
 - Multi-hit moves now always hit 3 times.
+- **Endure (2 PP)** *(Priority Move)* - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.
+- **Protect** and **Endure** fail if the user is trapped with binding moves.
+- **Mist (2 PP)** - Protects the user against stat changes for 5 turns. Raises evasiveness for 3 turns.
+- **Safeguard (3 PP)** - Protects the user's party from status conditions for 5 turns. Raises the user's Defense and Special Defense for 3 turns.
+- **Focus Energy (3 PP)** - Raises critical hit ratio by two stages and makes the user recover 1 PP at the end of the turn, while active. Lasts 5 turns.
+- Traded Pokémon no longer received boosted experience.
+- Obedience rules apply equally to all Pokémon, traded or otherwise.
 
 ### Pokémon
 
 - Updated the learnsets of all Pokémon to be more on par with current games.
 - HM moves can now be forgotten.
 - Replaced trade and happiness evolutions with evolution via level up while also holding specific items, or evolutions using items.
+- Egg Pokémon hatch at level 2.
+- Traded Pokémon can be renamed.
 
 ### Items
 
@@ -52,10 +61,11 @@ For a full list of changes by version, see the [Changelog](CHANGELOG.md).
 - The availability of field moves is not necessarily tied to the Pokémon being able to use the move in combat (e.g., Pidgey can use Fly as an attacking move, but is too small to carry a person for quick travel).
 - Gym leaders and other significant trainers have had their party rosters updated.
 - Gym leaders reward trainers with thematic HMs.
-- Updated the wild encounter tables of Johto maps.
-- Wild encounters have a wider range of levels and variety of Pokémon, based on the geography of Johto and biology of the Pokémon.
+- Updated the wild encounter tables of Johto and Kanto maps for grass, tree, fishing and surfing encounters.
+- Wild encounters have a wider range of levels and variety of Pokémon, based on the geography of the current map and biology of the Pokémon.
 - Most areas feature a rare wild species and encounters change throughout the different phases of the day.
 - Added a new map: a volcanic cave deep under Mount Mortar.
+- Added a new map: Viridian Forest.
 
 ## Instructions
 
