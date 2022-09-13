@@ -704,11 +704,14 @@ GetPreEvolution:
 	ld a, [hli]
 	and a
 	jr z, .no_evolve ; If we jump, this Pokemon does not evolve into wCurPartySpecies.
+	cp EVOLVE_HOLD ; This evolution type has the extra parameter of item.
+	jr z, .three_params
 	cp EVOLVE_STAT ; This evolution type has the extra parameter of stat comparison.
-	jr nz, .not_tyrogue
-	inc hl
+	jr nz, .only_two_params
 
-.not_tyrogue
+.three_params
+	inc hl
+.only_two_params
 	inc hl
 	ld a, [wCurPartySpecies]
 	cp [hl]

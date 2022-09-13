@@ -2,6 +2,9 @@
 
 ## v0.7
 
+### Fixed
+- Breeding should now result in an egg of the correct species.
+
 ### Added
 - Viridian Forest map.
 
