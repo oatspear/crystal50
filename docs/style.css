@@ -1,0 +1,62 @@
+html {
+  /*background-color: #aadddd;*/
+  /*background-image: linear-gradient(0deg, lightblue, white);*/
+  height: 100%;
+}
+
+.wrapper {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1.0rem 1.5rem;
+}
+
+.wrapper > .title {
+  text-align: center;
+  color: lightblue;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightblue;
+}
+
+.wrapper > .title > img {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: bottom;
+}
+
+.text-center {
+  text-align: center;
+}
+
+section {
+  margin-top: 1.6rem;
+}
+
+section .container.link-list {
+  text-align: center;
+}
+
+section .container.link-list .column {
+  padding: 0.4rem 0;
+}
+
+section .container.link-list .column img,
+section .container.link-list .column a {
+  vertical-align: middle;
+}
+
+section .container.link-list .column > a {
+  display: inline-block;
+  width: 90%;
+  color: inherit;
+  font-weight: bold;
+  border: 2px solid lightblue;
+  border-radius: 4px;
+  padding: 0.4rem;
+}
+
+section .container.link-list .column > a:hover {
+  background-color: lightblue;
+  color: white;
+}
