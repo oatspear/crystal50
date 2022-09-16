@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Pokémon SAlt Crystal - Battle Changes</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <main class="wrapper">
+      <h3 class="title"><img src="../salt-crystal-transparent.png"> Pokémon SAlt Crystal</h3>
+      <p class="text-center">Everything that changed in battle.</p>
+
+      <section>
+        <h4>Levels, Stats and Experience</h4>
+        <ul>
+          <li>All Pokémon play with lv. 50 stats, <strong>at all times</strong>, regardless of the level you see on display.</li>
+          <li>Added the <strong>Fairy type</strong> and changed the types of Pokémon according to generation 8 charts.</li>
+          <li><strong>DVs</strong> and <strong>Stat Experience</strong> were removed from stat calculation. Instead, a slightly less impactful bonus to stats is granted via level up <em>(+1 to all stats every 4 levels)</em>.</li>
+          <li><strong>Badge stat boosts</strong> were removed from the game.</li>
+          <li><strong>Stat levels</strong> have mechanics heavily based on <em>Pokémon Legends: Arceus</em>. They range from -1 to +1 and have a duration in turns, after which they expire. In addition, status moves that boost or hinder stats affect both offensive and defensive stats.</li>
+          <li><strong>Traded Pokémon</strong> no longer received boosted experience.</li>
+          <li><strong>Obedience</strong> rules apply equally to all Pokémon, traded or otherwise.</li>
+          <li>Boosted the <strong>obedience level cap</strong> when the player has no badges to level 25.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Power Points</h4>
+        <ul>
+          <li>PP is now a <strong>single pool of energy</strong> for all moves.</li>
+          <li>The maximum amount of <strong>PP varies per species</strong> and is calculated based on the species' Base Stats <em>(Base Stat Total divided by 12)</em>.</li>
+          <li>PP is fully <strong>restored</strong> at the end of a battle.</li>
+          <li>While in battle, PP can be <strong>restored with items</strong> such as Elixer <em>(on use)</em> or Leppa Berry <em>(held)</em>.</li>
+          <li>Certain <strong>moves</strong> <em>(e.g. Spite)</em> and <strong>status conditions</strong> <em>(e.g. Sleep)</em> affect PP restoration.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Moves and Effects</h4>
+        <ul>
+          <li><strong>Known bugs</strong> from the original Crystal version have been fixed.</li>
+          <li>Mechanics <strong>mostly on par with generation 8</strong> (SwSh, BDSP, PLA): Physical/Special split; updated Power and Accuracy of various moves; etc..</li>
+          <li><strong>Irrelevant moves</strong>, or moves that were <strong>deprecated</strong> in generation 8, were replaced with more useful moves, to promote diversity.</li>
+          <li><strong>Poison</strong> - In addition to dealing damage, it burns a tiny amount of PP <em>(1 PP)</em> every turn.</li>
+          <li><strong>Sleep</strong> - Lasts between 2 and 3 turns. Taking damage wakes the sleeping Pokémon sooner. Restores some PP <em>(4 PP)</em> every turn spent sleeping <em>(select Fight from the menu)</em>.</li>
+          <li><strong>Freeze</strong> - Lasts between 2 and 3 turns. Taking damage thaws the frozen Pokémon sooner. Grants a boost to the defenses of the frozen Pokémon <em>(similar to Reflect and Light Screen, stacks with these effects)</em>. Ends under harsh sunlight.</li>
+          <li><strong>Flinching</strong> - Can carry over to the next turn, meaning that Pokémon going second can also flinch the opponent.</li>
+          <li><strong>Rampage</strong> -  Caused by moves such as Outrage. Locks the user into the move for 2 to 3 turns. Subsequent turns increase the move's Power <em>(+20)</em>, but also make the user take more damage <em>(+20 Power for the opponent)</em>.</li>
+          <li><strong>Multi-hit</strong> moves now always hit 3 times.</li>
+          <li><strong>Critical Hit</strong> probabilities match generation 8 tables.</li>
+          <li><strong>Belly Drum (2 PP)</strong> - Sharply raises Attack and Special Attack.</li>
+          <li><strong>Spite (2 PP)</strong> - Burns 3 PP from the opponent.</li>
+          <li><strong>Endure (2 PP)</strong> <em>(Priority Move)</em> - Direct damage taken is reduced by half until the user's next turn. When taking damage, the user consumes an additional 4 PP to survive with at least 1 HP and raise its Attack, Special Attack and Speed for 3 turns. This additional effect fails if there is not enough PP left.</li>
+          <li><strong>Protect</strong> and <strong>Endure</strong> fail if the user is trapped with binding moves <em>(e.g. Fire Spin or Whirlpool)</em>.</li>
+          <li><strong>Mist (2 PP)</strong> - Protects the user against stat changes for 5 turns. Raises evasiveness for 3 turns.</li>
+          <li><strong>Safeguard (3 PP)</strong> - Protects the user's party from status conditions for 5 turns. Raises the user's Defense and Special Defense for 3 turns.</li>
+          <li><strong>Focus Energy (3 PP)</strong> - Raises critical hit ratio by two stages and makes the user recover 1 PP at the end of the turn, while active. Lasts 5 turns.</li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Made by <a href="https://github.com/oatspear">Santusk Oatspear</a>.
+          Based on the work of the <a href="https://github.com/pret/pokecrystal">Pokémon Reverse Engineering Team</a>.
+        </p>
+
+        <div class="container link-list">
+          <div class="row">
+            <div class="column">
+              <a href="https://www.pokecommunity.com/showthread.php?t=477126" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="-297 175.5 245.8 245.8" style="enable-background:new -297 175.5 245.8 245.8;" xml:space="preserve">
+                  <path d="M-211.7,279.5c0-10.4,8.3-18.7,18.7-18.7h37.4c10.4,0,18.7,8.3,18.7,18.7v13.1h32.9  v-36.5c0-15.5-12.6-28.1-28.1-28.1h-84.2c-15.5,0-28.1,12.6-28.1,28.1v36.5h32.8L-211.7,279.5L-211.7,279.5z M-187.3,272  c-7.3,0-13.1,5.9-13.1,13.1v26.4c0,7.3,5.9,13.1,13.1,13.1h26.3c7.3,0,13.1-5.9,13.1-13.1v-26.4c0-7.3-5.9-13.1-13.1-13.1H-187.3  L-187.3,272z M-104,339v-35.1h-32.8V317c0,10.4-8.3,18.7-18.7,18.7h-37.4c-10.4,0-18.7-8.3-18.7-18.7v-13.1h-32.8v36.5  c0,15.5,12.6,28.1,28.1,28.1h79.6h4.7h50.4L-104,339z" />
+               </svg>
+                PokéCommunity
+              </a>
+            </div>
+
+            <div class="column">
+              <a href="https://discord.gg/b7GGdFSYDm" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+                  <path d="M18.942 5.556a16.299 16.299 0 0 0-4.126-1.297c-.178.321-.385.754-.529 1.097a15.175 15.175 0 0 0-4.573 0 11.583 11.583 0 0 0-.535-1.097 16.274 16.274 0 0 0-4.129 1.3c-2.611 3.946-3.319 7.794-2.965 11.587a16.494 16.494 0 0 0 5.061 2.593 12.65 12.65 0 0 0 1.084-1.785 10.689 10.689 0 0 1-1.707-.831c.143-.106.283-.217.418-.331 3.291 1.539 6.866 1.539 10.118 0 .137.114.277.225.418.331-.541.326-1.114.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595c.415-4.396-.709-8.209-2.973-11.589zM8.678 14.813c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c.001 1.123-.793 2.045-1.798 2.045zm6.644 0c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c0 1.123-.793 2.045-1.798 2.045z"/>
+                </svg>
+                Discord
+              </a>
+            </div>
+
+            <div class="column">
+              <a href="https://github.com/oatspear/crystal50" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
