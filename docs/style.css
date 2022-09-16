@@ -1,6 +1,6 @@
 html {
   /*background-color: #aadddd;*/
-  /*background-image: linear-gradient(0deg, lightblue, white);*/
+  /*background-image: linear-gradient(0deg, lightskyblue, white);*/
   height: 100%;
 }
 
@@ -14,9 +14,9 @@ html {
 
 .wrapper > .title {
   text-align: center;
-  color: lightblue;
+  color: lightskyblue;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid lightblue;
+  border-bottom: 1px solid lightskyblue;
 }
 
 .wrapper > .title > img {
@@ -33,30 +33,60 @@ section {
   margin-top: 1.6rem;
 }
 
-section .container.link-list {
+.container.link-list {
   text-align: center;
 }
 
-section .container.link-list .column {
+.container.link-list .column {
   padding: 0.4rem 0;
 }
 
-section .container.link-list .column img,
-section .container.link-list .column a {
+.container.link-list .column img,
+.container.link-list .column a > span {
   vertical-align: middle;
 }
 
-section .container.link-list .column > a {
+.container.link-list .column > a {
   display: inline-block;
   width: 90%;
   color: inherit;
   font-weight: bold;
-  border: 2px solid lightblue;
-  border-radius: 4px;
   padding: 0.4rem;
 }
 
+section .container.link-list .column > a {
+  border: 2px solid lightskyblue;
+  border-radius: 4px;
+}
+
 section .container.link-list .column > a:hover {
-  background-color: lightblue;
+  background-color: lightskyblue;
   color: white;
+}
+
+section .container.link-list .column > a:hover .icon {
+  fill: white;
+}
+
+footer .container.link-list .column > a:hover {
+  color: lightskyblue;
+}
+
+.footer {
+  margin-top: 8rem;
+  padding: 1rem 2rem 0 2rem;
+  border-top: 1px solid lightskyblue;
+}
+
+a {
+  color: lightskyblue;
+}
+
+.icon {
+  /*color: #606c76;*/
+  color: inherit;
+  fill: lightskyblue;
+  vertical-align: middle;
+  width: 1.5em;
+  height: 1.5em;
 }
