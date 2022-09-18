@@ -48,6 +48,7 @@ logger = logging.getLogger(__name__)
 
 constant_index = {}
 pokemon_index = {}
+item_index = {}
 
 ###############################################################################
 # Constants
@@ -70,10 +71,16 @@ class TreeType(Enum):
 ###############################################################################
 
 
-def get_species_link(species: int, inner_text: str = '{p.name}') -> str:
-    pokemon = pokemon_index[species]
+def get_species_link(number: int, inner_text: str = '{p.name}') -> str:
+    pokemon = pokemon_index[number]
     inner_text = inner_text.format(p=pokemon)
-    return f'<a href="./{species:03}.html">{inner_text}</a>'
+    return f'<a href="./{number:03}.html">{inner_text}</a>'
+
+
+def get_item_link(number: int, inner_text: str = '{i.name}') -> str:
+    item = item_index[number]
+    inner_text = inner_text.format(i=item)
+    return f'<a href="./{number:03}.html">{inner_text}</a>'
 
 
 ###############################################################################
@@ -523,6 +530,10 @@ class PokemonData:
         for e in sorted(self.evolutions.level):
             a = get_species_link(e.species)
             entries.append(f'<li><strong>Level {e.level}</strong> - {a}</li>')
+        for e in sorted(self.evolutions.trade):
+            a = get_species_link(e.species)
+            item = '' if e.item <= 0 else f' (holding {get_item_link(e.item)})'
+            entries.append(f'<li><strong>Trading{item}</strong> - {a}</li>')
         html = '\n'.join(entries)
         return f'<ul>{html}</ul>'
 
