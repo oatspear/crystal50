@@ -18,7 +18,7 @@ import sys
 # Internal State
 ###############################################################################
 
-DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb')
+DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb', 'li')
 
 THIS_PATH = Path(__file__).resolve(strict=True)
 PROJECT_ROOT = THIS_PATH.parent.parent.parent
@@ -30,6 +30,10 @@ EVOS_ATTACKS_POINTERS = POKEMON_DATA_DIR / 'evos_attacks_pointers.asm'
 EVOS_ATTACKS = POKEMON_DATA_DIR / 'evos_attacks.asm'
 POKEMON_NAMES = POKEMON_DATA_DIR / 'names.asm'
 POKEMON_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_constants.asm'
+
+ITEM_DATA_DIR = PROJECT_ROOT / 'data' / 'items'
+ITEM_NAMES = ITEM_DATA_DIR / 'names.asm'
+ITEM_CONSTANTS = PROJECT_ROOT / 'constants' / 'item_constants.asm'
 
 WILD_DATA_DIR = PROJECT_ROOT / 'data' / 'wild'
 WILD_FISH = WILD_DATA_DIR / 'fish.asm'
@@ -148,6 +152,7 @@ def parse_data_parts(text: str) -> List[str]:
 @dataclass
 class AsmDataParser:
     lines: List[str]
+    const_value: int = 0
     _i: int = 0
 
     @classmethod
@@ -158,6 +163,14 @@ class AsmDataParser:
     def reset(self):
         self._i = 0
 
+    def skip_line(self):
+        if self._i < len(self.lines) - 1:
+            self._i += 1
+
+    def rewind_line(self):
+        if self._i > 0:
+            self._i -= 1
+
     def skip_to_table(self, name: str, skip_table_width: bool = True):
         n = len(self.lines)
         while self._i < n:
@@ -167,7 +180,7 @@ class AsmDataParser:
                 if line[len(name)] == ':':
                     if skip_table_width:
                         line = self.lines[self._i]
-                        if line.startswith('table_width'):
+                        if line.startswith(('table_width', 'list_start')):
                             self._i += 1
                     return
         raise KeyError(name)
@@ -176,20 +189,18 @@ class AsmDataParser:
         n = len(self.lines)
         while self._i < n:
             parts = self.lines[self._i].split(maxsplit=2)
+            if len(parts) >= 3:
+                if parts[0] == name:
+                    if parts[1].startswith('EQ'):
+                        return
             self._i += 1
-            if len(parts) < 3:
-                continue
-            if parts[0] == name:
-                if parts[1].startswith('EQ'):
-                    return
         raise KeyError(name)
 
     def rewind_to_const_def(self):
         while self._i >= 0:
             parts = self.lines[self._i].split(maxsplit=1)
-            if len(parts) >= 2:
-                if parts[0] == 'const_def':
-                    return
+            if parts[0] == 'const_def':
+                return
             self._i -= 1
         else:
             self._i = 0
@@ -201,20 +212,20 @@ class AsmDataParser:
         if parts[0] != 'const_def':
             raise RuntimeError(f'parser not in position (was at {self._i})')
         self._i += 1
-        k = 0 if len(parts) == 1 else int(parts[1])
+        self.const_value = 0 if len(parts) == 1 else int(parts[1])
         constants = {}
         n = len(self.lines)
         while self._i < n:
             parts = self.lines[self._i].split(maxsplit=1)
             self._i += 1
             if parts[0] == 'const_skip':
-                k += 1
+                self.const_value += 1
             elif parts[0] == 'const':
                 if len(parts) < 2:
                     raise ValueError(f'malformed const at {self._i - 1}')
                 name = parts[1]
-                constants[name] = k
-                k += 1
+                constants[name] = self.const_value
+                self.const_value += 1
             elif len(parts) > 1 and parts[1].startswith('EQU'):
                 name = parts[0]
                 value = parts[1].split(maxsplit=1)[1]
@@ -225,6 +236,19 @@ class AsmDataParser:
             else:
                 break
         return constants
+
+    def read_while_macro(self, macro: str) -> List[List[str]]:
+        data = []
+        n = len(self.lines)
+        while self._i < n:
+            parts = self.lines[self._i].split(maxsplit=1)
+            if parts[0] != macro:
+                break
+            assert len(parts) == 2, self.lines[self._i]
+            self._i += 1
+            entry = parse_data_parts(parts[1])
+            data.append(entry)
+        return data
 
     def read_while_data(self) -> List[List[str]]:
         data = []
@@ -246,6 +270,8 @@ class AsmDataParser:
             parts = self.lines[self._i].split(maxsplit=1)
             self._i += 1
             if parts[0] == 'assert_table_length':
+                break
+            if parts[0] == 'assert_list_length':
                 break
             data.extend(self.read_while_data())
         return data
@@ -369,28 +395,52 @@ def parse_evolutions_and_levelup_moves():
             if method == '0':
                 break  # no more evolutions
             if method == 'EVOLVE_LEVEL':
-                if len(entries) < 3:
+                if len(entry) < 3:
                     raise ValueError(f'malformed data at {pointer}:{i}')
                 level = int(entry[1])
                 species = constant_index[entry[2]]
                 pokemon.add_levelup_evolution(level, species)
                 pokemon_index[species].pre_evolutions.add(pokemon.number)
             elif method == 'EVOLVE_TRADE':
-                if len(entries) < 3:
+                if len(entry) < 3:
                     raise ValueError(f'malformed data at {pointer}:{i}')
-                pass
+                item = 0 if entry[1] == '-1' else constant_index[entry[1]]
+                species = constant_index[entry[2]]
+                pokemon.add_trade_evolution(item, species)
+                pokemon_index[species].pre_evolutions.add(pokemon.number)
             elif method == 'EVOLVE_HAPPINESS':
-                if len(entries) < 3:
+                if len(entry) < 3:
                     raise ValueError(f'malformed data at {pointer}:{i}')
-                pass
+                species = constant_index[entry[2]]
+                if entry[1] == 'TR_MORN':
+                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
+                elif entry[1] == 'TR_DAY':
+                    pokemon.add_happiness_evolution(Daytime.DAY, species)
+                elif entry[1] == 'TR_MORNDAY':
+                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
+                    pokemon.add_happiness_evolution(Daytime.DAY, species)
+                elif entry[1] == 'TR_NITE':
+                    pokemon.add_happiness_evolution(Daytime.NIGHT, species)
+                else:
+                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
+                    pokemon.add_happiness_evolution(Daytime.DAY, species)
+                    pokemon.add_happiness_evolution(Daytime.NIGHT, species)
+                pokemon_index[species].pre_evolutions.add(pokemon.number)
             elif method == 'EVOLVE_ITEM':
-                if len(entries) < 3:
+                if len(entry) < 3:
                     raise ValueError(f'malformed data at {pointer}:{i}')
-                pass
+                item = constant_index[entry[1]]
+                species = constant_index[entry[2]]
+                pokemon.add_item_evolution(item, species)
+                pokemon_index[species].pre_evolutions.add(pokemon.number)
             elif method == 'EVOLVE_HOLD':
-                if len(entries) < 4:
+                if len(entry) < 4:
                     raise ValueError(f'malformed data at {pointer}:{i}')
-                pass
+                item = constant_index[entry[1]]
+                level = int(entry[2])
+                species = constant_index[entry[3]]
+                pokemon.add_hold_evolution(item, level, species)
+                pokemon_index[species].pre_evolutions.add(pokemon.number)
             else:
                 raise ValueError(f'unknown evolution method: {method} ({pointer}:{i})')
         else:
@@ -470,8 +520,8 @@ class PokemonData:
     def add_levelup_evolution(self, level: int, species: int):
         self.evolutions.add_levelup_evolution(level, species)
 
-    def add_trade_evolution(self, species: int):
-        self.evolutions.trade.add(species)
+    def add_trade_evolution(self, item: int, species: int):
+        self.evolutions.add_trade_evolution(item, species)
 
     def add_happiness_evolution(self, time: Daytime, species: int):
         self.evolutions.add_happiness_evolution(time, species)
@@ -534,6 +584,24 @@ class PokemonData:
             a = get_species_link(e.species)
             item = '' if e.item <= 0 else f' (holding {get_item_link(e.item)})'
             entries.append(f'<li><strong>Trading{item}</strong> - {a}</li>')
+        for species in sorted(self.evolutions.happiness.morning):
+            a = get_species_link(species)
+            entries.append(f'<li><strong>Happiness</strong> (morning) - {a}</li>')
+        for species in sorted(self.evolutions.happiness.day):
+            a = get_species_link(species)
+            entries.append(f'<li><strong>Happiness</strong> (day) - {a}</li>')
+        for species in sorted(self.evolutions.happiness.night):
+            a = get_species_link(species)
+            entries.append(f'<li><strong>Happiness</strong> (night) - {a}</li>')
+        for e in sorted(self.evolutions.item):
+            a = get_species_link(e.species)
+            item = get_item_link(e.item)
+            entries.append(f'<li><strong>Using</strong> {item} - {a}</li>')
+        for e in sorted(self.evolutions.hold):
+            a = get_species_link(e.species)
+            item = get_item_link(e.item)
+            level = f'at <strong>Level {e.level}</strong>'
+            entries.append(f'<li><strong>Holding</strong> {item} {level} - {a}</li>')
         html = '\n'.join(entries)
         return f'<ul>{html}</ul>'
 
@@ -578,6 +646,96 @@ def parse_pokemon_data() -> Dict[int, PokemonData]:
 
 
 ###############################################################################
+# Item Data Parsing
+###############################################################################
+
+
+@dataclass
+class ItemData:
+    number: int
+    name: str
+
+
+def parse_item_constants() -> Dict[str, int]:
+    logger.info(f'parsing item constants from {ITEM_CONSTANTS}')
+    k = 0
+    constants = {}
+
+    parser = AsmDataParser.from_path(ITEM_CONSTANTS)
+    parser.skip_to_constant('NUM_ITEMS')
+    parser.rewind_to_const_def()
+    parser.skip_line()
+    items = parser.read_while_macro('const')
+    for entry in items:
+        assert len(entry) == 1, str(entry)
+        name = entry[0]
+        constants[name] = k
+        k += 1
+
+    parser.skip_to_constant('TM01')
+    parser.skip_line()
+    tms = parser.read_while_macro('add_tm')
+    for entry in tms:
+        assert len(entry) == 1, str(entry)
+        name = f'TM_{entry[0]}'
+        constants[name] = k
+        k += 1
+
+    parser.skip_to_constant('HM01')
+    parser.skip_line()
+    hms = parser.read_while_macro('add_hm')
+    for entry in hms:
+        assert len(entry) == 1, str(entry)
+        name = f'HM_{entry[0]}'
+        constants[name] = k
+        k += 1
+    return constants
+
+
+def parse_item_names() -> Tuple[List[str], List[str], List[str]]:
+    logger.info(f'parsing item names from {ITEM_NAMES}')
+    parser = AsmDataParser.from_path(ITEM_NAMES)
+    parser.skip_to_table('ItemNames')
+    # normal items
+    items = parser.read_data_until_assert()  # List[List[str]]
+    for i in range(len(items)):
+        assert len(items[i]) == 1, str(items[i])
+        name = items[i][0].strip('"@').replace('#', 'Poké')
+        items[i] = name.title()
+    # TMs
+    tms = parser.read_data_until_assert()  # List[List[str]]
+    for i in range(len(tms)):
+        assert len(tms[i]) == 1, str(tms[i])
+        name = tms[i][0].strip('"@').replace('#', 'Poké')
+        tms[i] = name.title()
+    # HMs
+    hms = parser.read_data_until_assert()  # List[List[str]]
+    for i in range(len(hms)):
+        assert len(hms[i]) == 1, str(hms[i])
+        name = hms[i][0].strip('"@').replace('#', 'Poké')
+        hms[i] = name.title()
+    return items, tms, hms
+
+
+def parse_item_data() -> Dict[int, ItemData]:
+    logger.info('parsing item data')
+    data = {}
+    items, tms, hms = parse_item_names()
+    i = 1
+    for name in items:
+        data[i] = ItemData(i, name)
+        i += 1
+    for name in tms:
+        data[i] = ItemData(i, name)
+        i += 1
+    for name in hms:
+        data[i] = ItemData(i, name)
+        i += 1
+    logger.info('done parsing item data')
+    return data
+
+
+###############################################################################
 # Configuration
 ###############################################################################
 
@@ -605,9 +763,15 @@ def main():
     try:
         global constant_index
         constant_index = parse_pokemon_constants()
+        constant_index.update(parse_item_constants())
+
         global pokemon_index
         pokemon_index = parse_pokemon_data()
+        global item_index
+        item_index = parse_item_data()
+
         parse_evolutions_and_levelup_moves()
+
         for pokemon in pokemon_index.values():
             path = POKEDEX_PAGE_DIR / f'{pokemon.number:03}.html'
             logger.info(f'generating HTML page for {pokemon.name}')
