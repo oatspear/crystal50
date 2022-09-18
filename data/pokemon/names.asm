@@ -121,7 +121,7 @@ PokemonNames::
 	db "SEAKING@@@"
 	db "STARYU@@@@"
 	db "STARMIE@@@"
-	db "MR.MIME@@@"
+	db "MR. MIME@@"
 	db "SCYTHER@@@"
 	db "JYNX@@@@@@"
 	db "ELECTABUZZ"
