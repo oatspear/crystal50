@@ -39,6 +39,9 @@ TREE_MAPS = WILD_DATA_DIR / 'treemon_maps.asm'
 WILD_TREES = WILD_DATA_DIR / 'treemons.asm'
 WILD_TREES_SLEEP = WILD_DATA_DIR / 'treemons_asleep.asm'
 
+PAGE_DEX_POKEMON = THIS_PATH.parent / 'dex-pokemon-page.html'
+POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
+
 logger = logging.getLogger(__name__)
 
 ###############################################################################
@@ -225,6 +228,16 @@ class PokemonData:
     # mapping from map id to Habitat
     areas: Dict[int, Habitat] = field(default_factory=habitat_map)
 
+    def print_dex_page(self) -> str:
+        html = PAGE_DEX_POKEMON.read_text(encoding='utf-8')
+        return html.format(
+            number=self.number,
+            name=self.name,
+            html_evolution='This Pokémon does not evolve.',
+            html_wild='This Pokémon is not available in the wild.',
+            html_learnset='This Pokémon does not learn any moves.',
+        )
+
 
 def parse_pokemon_names() -> List[str]:
     parser = AsmDataParser.from_path(POKEMON_NAMES)
@@ -274,7 +287,8 @@ def main():
     try:
         data = parse_pokemon_data()
         for pokemon in data.values():
-            print(f'{pokemon.number:03}: {pokemon.name}')
+            path = POKEDEX_PAGE_DIR / f'{pokemon.number:03}.html'
+            path.write_text(pokemon.print_dex_page(), encoding='utf-8')
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
