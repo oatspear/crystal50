@@ -169,12 +169,73 @@ class AsmDataParser:
 
 
 @dataclass
+class DaytimeEvolutionData:
+    morning: Set[int] = field(default_factory=set)
+    day: Set[int] = field(default_factory=set)
+    night: Set[int] = field(default_factory=set)
+
+
+@dataclass
+class LevelUpEvolutionEntry:
+    level: int
+    species: int
+
+
+@dataclass
+class UseItemEvolutionEntry:
+    item: int
+    species: int
+
+
+@dataclass
+class HoldItemEvolutionEntry:
+    item: int
+    level: int
+    species: int
+
+
+@dataclass
+class EvolutionData:
+    level: Set[LevelUpEvolutionEntry] = field(default_factory=set)
+    trade: Set[int] = field(default_factory=set)
+    happiness: DaytimeEvolutionData = field(default_factory=DaytimeEvolutionData)
+    item: Set[UseItemEvolutionEntry] = field(default_factory=set)
+    hold: Set[HoldItemEvolutionEntry] = field(default_factory=set)
+
+    def add_levelup_evolution(self, level: int, species: int):
+        self.level.add(LevelUpEvolutionEntry(level, species))
+
+    def add_happiness_evolution(self, time: Daytime, species: int):
+        if time == Daytime.MORNING:
+            self.happiness.morning.add(species)
+        elif time == Daytime.DAY:
+            self.happiness.day.add(species)
+        elif time == Daytime.NIGHT:
+            self.happiness.night.add(species)
+
+    def add_item_evolution(self, item: int, species: int):
+        self.item.add(UseItemEvolutionEntry(item, species))
+
+    def add_hold_evolution(self, item: int, level: int, species: int):
+        self.hold.add(HoldItemEvolutionEntry(item, level, species))
+
+
+@dataclass
+class LevelUpLearnsetEntry:
+    level: int
+    move: int
+
+
+@dataclass
 class Learnset:
-    level: Set[Tuple[int, int]] = field(default_factory=set)
+    level: Set[LevelUpLearnsetEntry] = field(default_factory=set)
     tm: Set[int] = field(default_factory=set)
     hm: Set[int] = field(default_factory=set)
     tutor: Set[int] = field(default_factory=set)
     egg: Set[int] = field(default_factory=set)
+
+    def add_levelup_move(self, level: int, move: int):
+        self.level.add(LevelUpLearnsetEntry(level, move))
 
 
 @dataclass
@@ -224,19 +285,63 @@ def habitat_map() -> Dict[int, Habitat]:
 class PokemonData:
     number: int
     name: str
+    evolutions: EvolutionData = field(default_factory=EvolutionData)
     moves: Learnset = field(default_factory=Learnset)
     # mapping from map id to Habitat
     areas: Dict[int, Habitat] = field(default_factory=habitat_map)
+
+    def add_levelup_evolution(self, level: int, species: int):
+        self.evolutions.add_levelup_evolution(level, species)
+
+    def add_trade_evolution(self, species: int):
+        self.evolutions.trade.add(species)
+
+    def add_happiness_evolution(self, time: Daytime, species: int):
+        self.evolutions.add_happiness_evolution(time, species)
+
+    def add_item_evolution(self, item: int, species: int):
+        self.evolutions.add_item_evolution(item, species)
+
+    def add_hold_evolution(self, item: int, level: int, species: int):
+        self.evolutions.add_hold_evolution(item, level, species)
+
+    def add_levelup_move(self, level: int, move: int):
+        entry = LevelUpLearnsetEntry(level, move)
+        self.moves.level.add(entry)
+
+    def add_tm_move(self, move: int):
+        self.moves.tm.add(move)
+
+    def add_hm_move(self, move: int):
+        self.moves.hm.add(move)
+
+    def add_tutor_move(self, move: int):
+        self.moves.tutor.add(move)
+
+    def add_egg_move(self, move: int):
+        self.moves.egg.add(move)
 
     def print_dex_page(self) -> str:
         html = PAGE_DEX_POKEMON.read_text(encoding='utf-8')
         return html.format(
             number=self.number,
             name=self.name,
-            html_evolution='This Pokémon does not evolve.',
-            html_wild='This Pokémon is not available in the wild.',
-            html_learnset='This Pokémon does not learn any moves.',
+            html_evolution=self._html_evolutions(),
+            html_wild=self._html_wild(),
+            html_learnset=self._html_learnset(),
         )
+
+    def _html_evolutions(self) -> str:
+        html = '<p>This Pokémon does not evolve.</p>'
+        return html
+
+    def _html_wild(self) -> str:
+        html = '<p>This Pokémon is not available in the wild.</p>'
+        return html
+
+    def _html_learnset(self) -> str:
+        html = '<p>This Pokémon does not learn any moves.</p>'
+        return html
 
 
 def parse_pokemon_names() -> List[str]:
