@@ -5,10 +5,11 @@
 # Imports
 ###############################################################################
 
-from typing import Optional, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
+from collections import defaultdict
 from dataclasses import dataclass, field
-from enums import Enum
+from enum import Enum
 import logging
 from pathlib import Path
 import sys
@@ -16,6 +17,8 @@ import sys
 ###############################################################################
 # Internal State
 ###############################################################################
+
+DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb')
 
 THIS_PATH = Path(__file__).resolve(strict=True)
 PROJECT_ROOT = THIS_PATH.parent.parent.parent
@@ -52,6 +55,109 @@ class Daytime(Enum):
 class TreeType(Enum):
     COMMON = 0
     RARE = 1
+
+
+###############################################################################
+# Parsing Utilities
+###############################################################################
+
+
+def read_nonempty_lines(path: Path, discard_comments: bool = True) -> List[str]:
+    text = path.read_text(encoding='utf-8')
+    lines = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped:
+            if discard_comments:
+                stripped = discard_line_comment(stripped)
+            lines.append(stripped)
+    return lines
+
+
+def discard_line_comment(line: str) -> str:
+    # split at the comment token
+    line = line.split(';', maxsplit=1)[0]
+    # discard leftover white space
+    return line.rstrip()
+
+
+def parse_data_parts(text: str) -> List[str]:
+    text = text.strip()
+    parts = []
+    k = 0
+    i = 0
+    while i < len(text):
+        if text[i] == '"':
+            # safe to split up to this point
+            parts.extend(s for s in text[k:i].split(','))
+            # consume the string
+            for j in range(i + 1, len(text)):
+                if text[j] == '"':
+                    k = j + 1
+                    parts.append(text[i:k])
+                    break
+            else:
+                raise ValueError(f'malformed text: {text!r}')
+            # consume up until the comma
+            for j in range(k, len(text)):
+                if text[j].isspace():
+                    continue
+                if text[j] != ',':
+                    raise ValueError(f'malformed text: {text!r}')
+                break
+            # consume remaining white space
+            i = j
+            k = j + 1
+        i += 1
+    # parse the leftovers
+    if k < len(text):
+        assert not text[k].isspace(), f'k = {k}'
+        parts.extend(s for s in text[k:].split(','))
+    # remove white space
+    return [s.strip() for s in parts if s.strip()]
+
+
+@dataclass
+class AsmDataParser:
+    lines: List[str]
+    _i: int = 0
+
+    @classmethod
+    def from_path(cls, path: Path) -> 'AsmDataParser':
+        lines = read_nonempty_lines(path, discard_comments=True)
+        return cls(lines)
+
+    def reset(self):
+        self._i = 0
+
+    def skip_to_table(self, name: str, skip_table_width: bool = True):
+        n = len(self.lines)
+        while self._i < n:
+            line = self.lines[self._i]
+            self._i += 1
+            if line.startswith(name):
+                if line[len(name)] == ':':
+                    if skip_table_width:
+                        line = self.lines[self._i]
+                        if line.startswith('table_width'):
+                            self._i += 1
+                    return
+        raise KeyError(name)
+
+    def read_until_assert(self) -> List[List[str]]:
+        data = []
+        n = len(self.lines)
+        while self._i < n:
+            parts = self.lines[self._i].split(maxsplit=1)
+            self._i += 1
+            if parts[0] == 'assert_table_length':
+                break
+            if parts[0] not in DATA_ENTRIES:
+                continue
+            assert len(parts) == 2, self.lines[self._i - 1]
+            entry = parse_data_parts(parts[1])
+            data.append(entry)
+        return data
 
 
 ###############################################################################
@@ -107,13 +213,37 @@ class Habitat:
     rocks: RockEncounterData = field(default_factory=RockEncounterData)
 
 
+def habitat_map() -> Dict[int, Habitat]:
+    return defaultdict(Habitat)
+
+
 @dataclass
 class PokemonData:
     number: int
     name: str
     moves: Learnset = field(default_factory=Learnset)
     # mapping from map id to Habitat
-    areas: Dict[int, ]
+    areas: Dict[int, Habitat] = field(default_factory=habitat_map)
+
+
+def parse_pokemon_names() -> List[str]:
+    parser = AsmDataParser.from_path(POKEMON_NAMES)
+    parser.skip_to_table('PokemonNames')
+    names = parser.read_until_assert()  # List[List[str]]
+    for i in range(len(names)):
+        assert len(names[i]) == 1, str(names[i])
+        name = names[i][0].strip('"@')
+        names[i] = name.title()
+    return names
+
+
+def parse_pokemon_data() -> Dict[int, PokemonData]:
+    data = {}
+    names = parse_pokemon_names()
+    for i in range(len(names)):
+        pokemon = PokemonData(i + 1, names[i])
+        data[pokemon.number] = pokemon
+    return data
 
 
 ###############################################################################
@@ -142,7 +272,9 @@ def configure_logging():
 def main():
     configure_logging()
     try:
-        pass
+        data = parse_pokemon_data()
+        for pokemon in data.values():
+            print(f'{pokemon.number:03}: {pokemon.name}')
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
