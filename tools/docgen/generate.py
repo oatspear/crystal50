@@ -51,6 +51,7 @@ WILD_TREES = WILD_DATA_DIR / 'treemons.asm'
 WILD_TREES_SLEEP = WILD_DATA_DIR / 'treemons_asleep.asm'
 
 PAGE_DEX_POKEMON = THIS_PATH.parent / 'dex-pokemon-page.html'
+PAGE_DEX_POKEMON_BY_TYPE = THIS_PATH.parent / 'dex-pokemon-by-type.html'
 POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
 
 logger = logging.getLogger(__name__)
@@ -117,6 +118,35 @@ def get_move_link(number: int, inner_text: str = '{m.name}') -> str:
     inner_text = inner_text.format(m=move)
     # return f'<a href="./{number:03}.html">{inner_text}</a>'
     return f'<em>{inner_text}</em>'
+
+
+def print_category_pages_pokemon_by_type():
+    logger.info('generating type-based category pages')
+    template = PAGE_DEX_POKEMON_BY_TYPE.read_text(encoding='utf-8')
+
+    categories = {}
+    for t in PokemonType:
+        categories[t] = set()
+    for pokemon in pokemon_index.values():
+        categories[pokemon.type1].add(pokemon.number)
+        categories[pokemon.type2].add(pokemon.number)
+
+    for t in PokemonType:
+        index = categories[t]
+        if not index:
+            continue
+
+        name = t.name.title()
+        logger.info(f'generating HTML page for {name} type')
+        links = ['<ul>']
+        for species in sorted(index):
+            a = get_species_link(species, inner_text='{p.number:03} - {p.name}')
+            links.append(f'<li>{a}</li>')
+        links.append('</ul>')
+        html = template.format(name=name, species_list='\n'.join(links))
+        path = POKEDEX_PAGE_DIR / f'type-{t.name.lower()}.html'
+        path.write_text(html, encoding='utf-8')
+    logger.info('done generating type-based category pages')
 
 
 ###############################################################################
@@ -1032,6 +1062,7 @@ def main():
             path = POKEDEX_PAGE_DIR / f'{pokemon.number:03}.html'
             logger.info(f'generating HTML page for {pokemon.name}')
             path.write_text(pokemon.print_dex_page(), encoding='utf-8')
+        print_category_pages_pokemon_by_type()
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
