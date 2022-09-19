@@ -23,17 +23,21 @@ DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb', 'li')
 THIS_PATH = Path(__file__).resolve(strict=True)
 PROJECT_ROOT = THIS_PATH.parent.parent.parent
 
+POKEMON_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_constants.asm'
 POKEMON_DATA_DIR = PROJECT_ROOT / 'data' / 'pokemon'
 BASE_STATS_DIR = POKEMON_DATA_DIR / 'base_stats'
 EGG_MOVES = POKEMON_DATA_DIR / 'egg_moves.asm'
 EVOS_ATTACKS_POINTERS = POKEMON_DATA_DIR / 'evos_attacks_pointers.asm'
 EVOS_ATTACKS = POKEMON_DATA_DIR / 'evos_attacks.asm'
 POKEMON_NAMES = POKEMON_DATA_DIR / 'names.asm'
-POKEMON_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_constants.asm'
 
+ITEM_CONSTANTS = PROJECT_ROOT / 'constants' / 'item_constants.asm'
 ITEM_DATA_DIR = PROJECT_ROOT / 'data' / 'items'
 ITEM_NAMES = ITEM_DATA_DIR / 'names.asm'
-ITEM_CONSTANTS = PROJECT_ROOT / 'constants' / 'item_constants.asm'
+
+MOVE_CONSTANTS = PROJECT_ROOT / 'constants' / 'move_constants.asm'
+MOVE_DATA_DIR = PROJECT_ROOT / 'data' / 'moves'
+MOVE_NAMES = MOVE_DATA_DIR / 'names.asm'
 
 WILD_DATA_DIR = PROJECT_ROOT / 'data' / 'wild'
 WILD_FISH = WILD_DATA_DIR / 'fish.asm'
@@ -53,6 +57,7 @@ logger = logging.getLogger(__name__)
 constant_index = {}
 pokemon_index = {}
 item_index = {}
+move_index = {}
 
 ###############################################################################
 # Constants
@@ -84,7 +89,15 @@ def get_species_link(number: int, inner_text: str = '{p.name}') -> str:
 def get_item_link(number: int, inner_text: str = '{i.name}') -> str:
     item = item_index[number]
     inner_text = inner_text.format(i=item)
-    return f'<a href="./{number:03}.html">{inner_text}</a>'
+    # return f'<a href="./{number:03}.html">{inner_text}</a>'
+    return f'<em>{inner_text}</em>'
+
+
+def get_move_link(number: int, inner_text: str = '{m.name}') -> str:
+    move = move_index[number]
+    inner_text = inner_text.format(m=move)
+    # return f'<a href="./{number:03}.html">{inner_text}</a>'
+    return f'<em>{inner_text}</em>'
 
 
 ###############################################################################
@@ -349,7 +362,7 @@ class EvolutionData:
         )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, order=True)
 class LevelUpLearnsetEntry:
     level: int
     move: int
@@ -365,6 +378,15 @@ class Learnset:
 
     def add_levelup_move(self, level: int, move: int):
         self.level.add(LevelUpLearnsetEntry(level, move))
+
+    def __len__(self) -> int:
+        return (
+            len(self.level)
+            + len(self.tm)
+            + len(self.hm)
+            + len(self.tutor)
+            + len(self.egg)
+        )
 
 
 def parse_evolutions_and_levelup_moves():
@@ -462,6 +484,12 @@ def parse_evolutions_and_levelup_moves():
             # zero-terminated
             if level == 0:
                 break  # no more moves
+            if len(entry) < 2:
+                raise ValueError(f'malformed data at {pointer}:{i}')
+            move = constant_index[entry[1]]
+            pokemon.add_levelup_move(level, move)
+        # endfor
+    # endfor
 
 
 @dataclass
@@ -610,8 +638,15 @@ class PokemonData:
         return html
 
     def _html_learnset(self) -> str:
-        html = '<p>This Pokémon does not learn any moves.</p>'
-        return html
+        if len(self.moves) == 0:
+            return '<p>This Pokémon does not learn any moves.</p>'
+        entries = []
+        for e in sorted(self.moves.level):
+            a = get_move_link(e.move)
+            level = 'Evo.' if e.level < 0 else e.level
+            entries.append(f'<li><strong>Level {level}</strong> - {a}</li>')
+        html = '\n'.join(entries)
+        return f'<ul>{html}</ul>'
 
 
 def parse_pokemon_constants() -> Dict[str, int]:
@@ -646,7 +681,7 @@ def parse_pokemon_data() -> Dict[int, PokemonData]:
 
 
 ###############################################################################
-# Item Data Parsing
+# Parsing Item Data
 ###############################################################################
 
 
@@ -736,6 +771,57 @@ def parse_item_data() -> Dict[int, ItemData]:
 
 
 ###############################################################################
+# Parsing Move Data
+###############################################################################
+
+
+@dataclass
+class MoveData:
+    number: int
+    name: str
+
+
+def parse_move_constants() -> Dict[str, int]:
+    logger.info(f'parsing move constants from {MOVE_CONSTANTS}')
+    constants = {}
+    parser = AsmDataParser.from_path(MOVE_CONSTANTS)
+    parser.skip_to_constant('NUM_ATTACKS')
+    parser.rewind_to_const_def()
+    parser.skip_line()
+    moves = parser.read_while_macro('const')
+    for i in range(len(moves)):
+        entry = moves[i]
+        assert len(entry) == 1, str(entry)
+        name = entry[0]
+        constants[name] = i
+    return constants
+
+
+def parse_move_names() -> Tuple[List[str]]:
+    logger.info(f'parsing move names from {MOVE_NAMES}')
+    parser = AsmDataParser.from_path(MOVE_NAMES)
+    parser.skip_to_table('MoveNames')
+    moves = parser.read_data_until_assert()  # List[List[str]]
+    for i in range(len(moves)):
+        assert len(moves[i]) == 1, str(moves[i])
+        name = moves[i][0].strip('"@')
+        moves[i] = name.title()
+    return moves
+
+
+def parse_move_data() -> Dict[int, MoveData]:
+    logger.info('parsing move data')
+    data = {}
+    moves = parse_move_names()
+    i = 1
+    for name in moves:
+        data[i] = MoveData(i, name)
+        i += 1
+    logger.info('done parsing move data')
+    return data
+
+
+###############################################################################
 # Configuration
 ###############################################################################
 
@@ -764,11 +850,14 @@ def main():
         global constant_index
         constant_index = parse_pokemon_constants()
         constant_index.update(parse_item_constants())
+        constant_index.update(parse_move_constants())
 
         global pokemon_index
         pokemon_index = parse_pokemon_data()
         global item_index
         item_index = parse_item_data()
+        global move_index
+        move_index = parse_move_data()
 
         parse_evolutions_and_levelup_moves()
 
