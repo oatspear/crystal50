@@ -5,7 +5,7 @@
 # Imports
 ###############################################################################
 
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple, Union
 
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -15,10 +15,10 @@ from pathlib import Path
 import sys
 
 ###############################################################################
-# Internal State
+# Constants
 ###############################################################################
 
-DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb', 'li')
+DATA_ENTRIES = ('db', 'dw', 'dba', 'dwb', 'li', 'dn')
 
 THIS_PATH = Path(__file__).resolve(strict=True)
 PROJECT_ROOT = THIS_PATH.parent.parent.parent
@@ -55,11 +55,6 @@ POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
 
 logger = logging.getLogger(__name__)
 
-constant_index = {}
-pokemon_index = {}
-item_index = {}
-move_index = {}
-
 ###############################################################################
 # Constants
 ###############################################################################
@@ -74,6 +69,29 @@ class Daytime(Enum):
 class TreeType(Enum):
     COMMON = 0
     RARE = 1
+
+
+class PokemonType(Enum):
+    NORMAL = 'NORMAL'
+    FIGHTING = 'FIGHTING'
+    FLYING = 'FLYING'
+    POISON = 'POISON'
+    GROUND = 'GROUND'
+    ROCK = 'ROCK'
+    BIRD = 'BIRD'
+    BUG = 'BUG'
+    GHOST = 'GHOST'
+    STEEL = 'STEEL'
+    CURSE = 'CURSE_TYPE'
+    FIRE = 'FIRE'
+    WATER = 'WATER'
+    GRASS = 'GRASS'
+    ELECTRIC = 'ELECTRIC'
+    PSYCHIC = 'PSYCHIC_TYPE'
+    ICE = 'ICE'
+    DRAGON = 'DRAGON'
+    DARK = 'DARK'
+    FAIRY = 'FAIRY'
 
 
 ###############################################################################
@@ -117,6 +135,13 @@ def read_nonempty_lines(path: Path, discard_comments: bool = True) -> List[str]:
                 if not stripped:
                     continue
             lines.append(stripped)
+    if lines:
+        lines[-1] = lines[-1].rstrip('\\')
+    for i in range(len(lines) - 2, -1, -1):
+        line = lines[i]
+        if line.endswith('\\'):
+            lines[i] = line.rstrip('\\') + lines[i + 1]
+            del lines[i + 1]
     return lines
 
 
@@ -161,6 +186,9 @@ def parse_data_parts(text: str) -> List[str]:
         parts.extend(s for s in text[k:].split(','))
     # remove white space
     return [s.strip() for s in parts if s.strip()]
+
+
+ParseData = Union[List[List[str]], List[str]]
 
 
 @dataclass
@@ -251,20 +279,23 @@ class AsmDataParser:
                 break
         return constants
 
-    def read_while_macro(self, macro: str) -> List[List[str]]:
+    def read_while_macro(self, macro: str, flatten: bool = False) -> ParseData:
         data = []
         n = len(self.lines)
         while self._i < n:
             parts = self.lines[self._i].split(maxsplit=1)
             if parts[0] != macro:
                 break
-            assert len(parts) == 2, self.lines[self._i]
             self._i += 1
-            entry = parse_data_parts(parts[1])
-            data.append(entry)
+            # macro can have zero args
+            if len(parts) == 2:
+                entry = parse_data_parts(parts[1])
+                data.append(entry)
+        if flatten:
+            return [datum for row in data for datum in row]
         return data
 
-    def read_while_data(self) -> List[List[str]]:
+    def read_while_data(self, flatten: bool = False) -> ParseData:
         data = []
         n = len(self.lines)
         while self._i < n:
@@ -275,10 +306,12 @@ class AsmDataParser:
             self._i += 1
             entry = parse_data_parts(parts[1])
             data.append(entry)
+        if flatten:
+            return [datum for row in data for datum in row]
         return data
 
-    def read_data_until_assert(self) -> List[List[str]]:
-        data = self.read_while_data()
+    def read_data_until_assert(self, flatten: bool = False) -> ParseData:
+        data = self.read_while_data(flatten=flatten)
         n = len(self.lines)
         while self._i < n:
             parts = self.lines[self._i].split(maxsplit=1)
@@ -287,7 +320,7 @@ class AsmDataParser:
                 break
             if parts[0] == 'assert_list_length':
                 break
-            data.extend(self.read_while_data())
+            data.extend(self.read_while_data(flatten=flatten))
         return data
 
 
@@ -369,16 +402,28 @@ class LevelUpLearnsetEntry:
     move: int
 
 
+@dataclass(frozen=True, order=True)
+class TMHMLearnsetEntry:
+    number: int
+    move: int
+
+
 @dataclass(frozen=True)
 class Learnset:
     level: Set[LevelUpLearnsetEntry] = field(default_factory=set)
-    tm: Set[int] = field(default_factory=set)
-    hm: Set[int] = field(default_factory=set)
+    tm: Set[TMHMLearnsetEntry] = field(default_factory=set)
+    hm: Set[TMHMLearnsetEntry] = field(default_factory=set)
     tutor: Set[int] = field(default_factory=set)
     egg: Set[int] = field(default_factory=set)
 
     def add_levelup_move(self, level: int, move: int):
         self.level.add(LevelUpLearnsetEntry(level, move))
+
+    def add_tm_move(self, tm: int, move: int):
+        self.tm.add(TMHMLearnsetEntry(tm, move))
+
+    def add_hm_move(self, hm: int, move: int):
+        self.hm.add(TMHMLearnsetEntry(hm, move))
 
     def __len__(self) -> int:
         return (
@@ -394,10 +439,7 @@ def parse_evolutions_and_levelup_moves():
     logger.info(f'parsing evolution/move pointers from {EVOS_ATTACKS_POINTERS}')
     parser = AsmDataParser.from_path(EVOS_ATTACKS_POINTERS)
     parser.skip_to_table('EvosAttacksPointers')
-    pointers = parser.read_data_until_assert()  # List[List[str]]
-    for i in range(len(pointers)):
-        assert len(pointers[i]) == 1, str(pointers[i])
-        pointers[i] = pointers[i][0]
+    pointers: List[str] = parser.read_data_until_assert(flatten=True)
 
     logger.info(f'parsing evolutions/moves from {EVOS_ATTACKS}')
     parser = AsmDataParser.from_path(EVOS_ATTACKS)
@@ -497,10 +539,7 @@ def parse_egg_moves():
     logger.info(f'parsing egg move pointers from {EGG_MOVE_POINTERS}')
     parser = AsmDataParser.from_path(EGG_MOVE_POINTERS)
     parser.skip_to_table('EggMovePointers')
-    pointers = parser.read_data_until_assert()  # List[List[str]]
-    for i in range(len(pointers)):
-        assert len(pointers[i]) == 1, str(pointers[i])
-        pointers[i] = pointers[i][0]
+    pointers: List[str] = parser.read_data_until_assert(flatten=True)
 
     logger.info(f'parsing egg moves from {EGG_MOVES}')
     parser = AsmDataParser.from_path(EGG_MOVES)
@@ -569,6 +608,9 @@ def habitat_map() -> Dict[int, Habitat]:
 class PokemonData:
     number: int
     name: str
+    energy: int = 0
+    type1: PokemonType = PokemonType.NORMAL
+    type2: PokemonType = PokemonType.NORMAL
     pre_evolutions: Set[int] = field(default_factory=set)
     evolutions: EvolutionData = field(default_factory=EvolutionData)
     moves: Learnset = field(default_factory=Learnset)
@@ -591,14 +633,13 @@ class PokemonData:
         self.evolutions.add_hold_evolution(item, level, species)
 
     def add_levelup_move(self, level: int, move: int):
-        entry = LevelUpLearnsetEntry(level, move)
-        self.moves.level.add(entry)
+        self.moves.add_levelup_move(level, move)
 
-    def add_tm_move(self, move: int):
-        self.moves.tm.add(move)
+    def add_tm_move(self, tm: int, move: int):
+        self.moves.add_tm_move(tm, move)
 
-    def add_hm_move(self, move: int):
-        self.moves.hm.add(move)
+    def add_hm_move(self, hm: int, move: int):
+        self.moves.add_hm_move(hm, move)
 
     def add_tutor_move(self, move: int):
         self.moves.tutor.add(move)
@@ -673,9 +714,9 @@ class PokemonData:
         sections = []
         if len(self.moves.level) > 0:
             entries = []
-            for e in sorted(self.moves.level):
-                a = get_move_link(e.move)
-                level = 'Evo.' if e.level < 0 else e.level
+            for m in sorted(self.moves.level):
+                a = get_move_link(m.move)
+                level = 'Evo.' if m.level < 0 else m.level
                 entries.append(f'<li><strong>Level {level}</strong> - {a}</li>')
             html = '\n'.join(entries)
             html = f'<ul>{html}</ul>'
@@ -686,12 +727,12 @@ class PokemonData:
 
         if len(self.moves.tm) + len(self.moves.hm) > 0:
             entries = []
-            for move in sorted(self.moves.tm):
-                a = get_move_link(move)
-                entries.append(f'<li><strong>TM</strong> - {a}</li>')
-            for move in sorted(self.moves.hm):
-                a = get_move_link(move)
-                entries.append(f'<li><strong>HM</strong> - {a}</li>')
+            for m in sorted(self.moves.tm):
+                a = get_move_link(m.move)
+                entries.append(f'<li><strong>TM {m.number:02}</strong> - {a}</li>')
+            for m in sorted(self.moves.hm):
+                a = get_move_link(m.move)
+                entries.append(f'<li><strong>HM {m.number:02}</strong> - {a}</li>')
             html = '\n'.join(entries)
             html = f'<ul>{html}</ul>'
         else:
@@ -725,12 +766,13 @@ class PokemonData:
         return '\n'.join(sections)
 
 
-def parse_pokemon_constants() -> Dict[str, int]:
+def parse_pokemon_constants():
     logger.info(f'parsing pokemon constants from {POKEMON_CONSTANTS}')
     parser = AsmDataParser.from_path(POKEMON_CONSTANTS)
     parser.skip_to_constant('NUM_POKEMON')
     parser.rewind_to_const_def()
-    return parser.read_const_defs()
+    constants = parser.read_const_defs()
+    constant_index.update(constants)
 
 
 def parse_pokemon_names() -> List[str]:
@@ -743,6 +785,49 @@ def parse_pokemon_names() -> List[str]:
         name = names[i][0].strip('"@')
         names[i] = name.title()
     return names
+
+
+def parse_pokemon_base_data():
+    logger.info(f'parsing pokemon base data from {BASE_STATS_DIR}')
+    for path in BASE_STATS_DIR.iterdir():
+        if path.suffix != '.asm':
+            continue
+
+        logger.info(f'parsing base data from {path}')
+        parser = AsmDataParser.from_path(path)
+        # read until graphics
+        data: List[str] = parser.read_while_data(flatten=True)
+        assert len(data) >= 17, f'insufficient data: {data}'
+        name = data[0]
+        species = constant_index[name]
+        pokemon = pokemon_index[species]
+        # skip 6 base stats
+        pokemon.type1 = PokemonType(data[7])
+        pokemon.type2 = PokemonType(data[8])
+
+        parser.skip_line()  # skip graphics
+        data = parser.read_while_macro('owmoves', flatten=True)
+        if data:
+            pass  # TODO
+        else:
+            parser.skip_line()
+            parser.skip_line()
+
+        # PP, growth rate, egg groups
+        data = parser.read_while_data(flatten=True)
+        pokemon.energy = int(data[0])
+
+        # TM/HM learnset
+        data = parser.read_while_macro('tmhm', flatten=True)
+        for name in data:
+            move = constant_index[name]
+            if move in tm_move_index:
+                pokemon.add_tm_move(tm_move_index[move], move)
+            elif move in hm_move_index:
+                pokemon.add_hm_move(hm_move_index[move], move)
+            else:
+                pokemon.add_tutor_move(move)
+    logger.info('done parsing pokemon base data')
 
 
 def parse_pokemon_data() -> Dict[int, PokemonData]:
@@ -767,40 +852,38 @@ class ItemData:
     name: str
 
 
-def parse_item_constants() -> Dict[str, int]:
+def parse_item_constants():
     logger.info(f'parsing item constants from {ITEM_CONSTANTS}')
     k = 0
-    constants = {}
 
     parser = AsmDataParser.from_path(ITEM_CONSTANTS)
     parser.skip_to_constant('NUM_ITEMS')
     parser.rewind_to_const_def()
     parser.skip_line()
-    items = parser.read_while_macro('const')
-    for entry in items:
-        assert len(entry) == 1, str(entry)
-        name = entry[0]
-        constants[name] = k
+    items: List[str] = parser.read_while_macro('const', flatten=True)
+    for name in items:
+        constant_index[name] = k
         k += 1
 
     parser.skip_to_constant('TM01')
     parser.skip_line()
-    tms = parser.read_while_macro('add_tm')
-    for entry in tms:
-        assert len(entry) == 1, str(entry)
-        name = f'TM_{entry[0]}'
-        constants[name] = k
+    tms: List[str] = parser.read_while_macro('add_tm', flatten=True)
+    for i in range(len(tms)):
+        tm = f'TM_{tms[i]}'
+        constant_index[tm] = k
         k += 1
+        move = constant_index[tms[i]]
+        tm_move_index[move] = i + 1
 
     parser.skip_to_constant('HM01')
     parser.skip_line()
-    hms = parser.read_while_macro('add_hm')
-    for entry in hms:
-        assert len(entry) == 1, str(entry)
-        name = f'HM_{entry[0]}'
-        constants[name] = k
+    hms: List[str] = parser.read_while_macro('add_hm', flatten=True)
+    for i in range(len(hms)):
+        hm = f'HM_{hms[i]}'
+        constant_index[hm] = k
         k += 1
-    return constants
+        move = constant_index[hms[i]]
+        hm_move_index[move] = i + 1
 
 
 def parse_item_names() -> Tuple[List[str], List[str], List[str]]:
@@ -808,23 +891,17 @@ def parse_item_names() -> Tuple[List[str], List[str], List[str]]:
     parser = AsmDataParser.from_path(ITEM_NAMES)
     parser.skip_to_table('ItemNames')
     # normal items
-    items = parser.read_data_until_assert()  # List[List[str]]
+    items: List[str] = parser.read_data_until_assert(flatten=True)
     for i in range(len(items)):
-        assert len(items[i]) == 1, str(items[i])
-        name = items[i][0].strip('"@').replace('#', 'Poké')
-        items[i] = name.title()
+        items[i] = items[i].strip('"@').replace('#', 'Poké').title()
     # TMs
-    tms = parser.read_data_until_assert()  # List[List[str]]
+    tms: List[str] = parser.read_data_until_assert(flatten=True)
     for i in range(len(tms)):
-        assert len(tms[i]) == 1, str(tms[i])
-        name = tms[i][0].strip('"@').replace('#', 'Poké')
-        tms[i] = name.title()
+        tms[i] = tms[i].strip('"@').replace('#', 'Poké').title()
     # HMs
-    hms = parser.read_data_until_assert()  # List[List[str]]
+    hms: List[str] = parser.read_data_until_assert(flatten=True)
     for i in range(len(hms)):
-        assert len(hms[i]) == 1, str(hms[i])
-        name = hms[i][0].strip('"@').replace('#', 'Poké')
-        hms[i] = name.title()
+        hms[i] = hms[i].strip('"@').replace('#', 'Poké').title()
     return items, tms, hms
 
 
@@ -857,20 +934,16 @@ class MoveData:
     name: str
 
 
-def parse_move_constants() -> Dict[str, int]:
+def parse_move_constants():
     logger.info(f'parsing move constants from {MOVE_CONSTANTS}')
-    constants = {}
     parser = AsmDataParser.from_path(MOVE_CONSTANTS)
     parser.skip_to_constant('NUM_ATTACKS')
     parser.rewind_to_const_def()
     parser.skip_line()
-    moves = parser.read_while_macro('const')
-    for i in range(len(moves)):
-        entry = moves[i]
-        assert len(entry) == 1, str(entry)
-        name = entry[0]
-        constants[name] = i
-    return constants
+    data: List[str] = parser.read_while_macro('const', flatten=True)
+    for i in range(len(data)):
+        name = data[i]
+        constant_index[name] = i
 
 
 def parse_move_names() -> Tuple[List[str]]:
@@ -920,13 +993,23 @@ def configure_logging():
 ###############################################################################
 
 
+constant_index: Dict[str, int] = {}
+pokemon_index: Dict[int, PokemonData] = {}
+item_index: Dict[int, ItemData] = {}
+move_index: Dict[int, MoveData] = {}
+tm_move_index: Dict[int, int] = {}
+hm_move_index: Dict[int, int] = {}
+
+
 def main():
     configure_logging()
     try:
-        global constant_index
-        constant_index = parse_pokemon_constants()
-        constant_index.update(parse_item_constants())
-        constant_index.update(parse_move_constants())
+        constant_index.clear()
+        tm_move_index.clear()
+        hm_move_index.clear()
+        parse_pokemon_constants()
+        parse_move_constants()
+        parse_item_constants()
 
         global pokemon_index
         pokemon_index = parse_pokemon_data()
@@ -935,6 +1018,7 @@ def main():
         global move_index
         move_index = parse_move_data()
 
+        parse_pokemon_base_data()
         parse_evolutions_and_levelup_moves()
         parse_egg_moves()
 
