@@ -100,6 +100,10 @@ class PokemonType(Enum):
 ###############################################################################
 
 
+def get_type_link(t: PokemonType) -> str:
+    return f'<a href="./type-{t.name.lower()}.html">{t.name.title()}</a>'
+
+
 def get_species_link(number: int, inner_text: str = '{p.name}') -> str:
     pokemon = pokemon_index[number]
     inner_text = inner_text.format(p=pokemon)
@@ -687,12 +691,19 @@ class PokemonData:
         return html.format(
             number=self.number,
             name=self.name,
-            types=self.type_string(),
+            types=self._html_types(),
             html_preevolution=self._html_pre_evolutions(),
             html_evolution=self._html_evolutions(),
             html_wild=self._html_wild(),
             html_learnset=self._html_learnset(),
         )
+
+    def _html_types(self) -> str:
+        a1 = get_type_link(self.type1)
+        if self.type1 == self.type2:
+            return a1
+        a2 = get_type_link(self.type2)
+        return f'{a1} / {a2}'
 
     def _html_pre_evolutions(self) -> str:
         if len(self.pre_evolutions) == 0:
