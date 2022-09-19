@@ -640,13 +640,59 @@ class PokemonData:
     def _html_learnset(self) -> str:
         if len(self.moves) == 0:
             return '<p>This Pokémon does not learn any moves.</p>'
-        entries = []
-        for e in sorted(self.moves.level):
-            a = get_move_link(e.move)
-            level = 'Evo.' if e.level < 0 else e.level
-            entries.append(f'<li><strong>Level {level}</strong> - {a}</li>')
-        html = '\n'.join(entries)
-        return f'<ul>{html}</ul>'
+        sections = []
+        if len(self.moves.level) > 0:
+            entries = []
+            for e in sorted(self.moves.level):
+                a = get_move_link(e.move)
+                level = 'Evo.' if e.level < 0 else e.level
+                entries.append(f'<li><strong>Level {level}</strong> - {a}</li>')
+            html = '\n'.join(entries)
+            html = f'<ul>{html}</ul>'
+        else:
+            html = '<p>No level-up moves.</p>'
+        sections.append('<h5>Level-up Moves</h5>')
+        sections.append(html)
+
+        if len(self.moves.tm) + len(self.moves.hm) > 0:
+            entries = []
+            for move in sorted(self.moves.tm):
+                a = get_move_link(move)
+                entries.append(f'<li><strong>TM</strong> - {a}</li>')
+            for move in sorted(self.moves.hm):
+                a = get_move_link(move)
+                entries.append(f'<li><strong>HM</strong> - {a}</li>')
+            html = '\n'.join(entries)
+            html = f'<ul>{html}</ul>'
+        else:
+            html = '<p>No TM or HM moves.</p>'
+        sections.append('<h5>TM and HM Moves</h5>')
+        sections.append(html)
+
+        if len(self.moves.tutor) > 0:
+            entries = []
+            for move in sorted(self.moves.tutor):
+                a = get_move_link(move)
+                entries.append(f'<li>{a}</li>')
+            html = '\n'.join(entries)
+            html = f'<ul>{html}</ul>'
+        else:
+            html = '<p>No tutor moves.</p>'
+        sections.append('<h5>Tutor Moves</h5>')
+        sections.append(html)
+
+        if len(self.moves.egg) > 0:
+            entries = []
+            for move in sorted(self.moves.egg):
+                a = get_move_link(move)
+                entries.append(f'<li>{a}</li>')
+            html = '\n'.join(entries)
+            html = f'<ul>{html}</ul>'
+        else:
+            html = '<p>No egg moves.</p>'
+        sections.append('<h5>Egg Moves</h5>')
+        sections.append(html)
+        return '\n'.join(sections)
 
 
 def parse_pokemon_constants() -> Dict[str, int]:

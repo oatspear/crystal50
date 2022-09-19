@@ -90,3 +90,8 @@ a {
   width: 1.5em;
   height: 1.5em;
 }
+
+.section-header {
+  border-left: 0.4rem solid lightskyblue;
+  padding-left: 1rem;
+}
