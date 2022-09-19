@@ -647,11 +647,17 @@ class PokemonData:
     def add_egg_move(self, move: int):
         self.moves.egg.add(move)
 
+    def type_string(self) -> str:
+        if self.type1 == self.type2:
+            return self.type1.name.title()
+        return f'{self.type1.name.title()}/{self.type2.name.title()}'
+
     def print_dex_page(self) -> str:
         html = PAGE_DEX_POKEMON.read_text(encoding='utf-8')
         return html.format(
             number=self.number,
             name=self.name,
+            types=self.type_string(),
             html_preevolution=self._html_pre_evolutions(),
             html_evolution=self._html_evolutions(),
             html_wild=self._html_wild(),
