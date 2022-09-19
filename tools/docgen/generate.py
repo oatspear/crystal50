@@ -26,6 +26,7 @@ PROJECT_ROOT = THIS_PATH.parent.parent.parent
 POKEMON_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_constants.asm'
 POKEMON_DATA_DIR = PROJECT_ROOT / 'data' / 'pokemon'
 BASE_STATS_DIR = POKEMON_DATA_DIR / 'base_stats'
+EGG_MOVE_POINTERS = POKEMON_DATA_DIR / 'egg_move_pointers.asm'
 EGG_MOVES = POKEMON_DATA_DIR / 'egg_moves.asm'
 EVOS_ATTACKS_POINTERS = POKEMON_DATA_DIR / 'evos_attacks_pointers.asm'
 EVOS_ATTACKS = POKEMON_DATA_DIR / 'evos_attacks.asm'
@@ -492,6 +493,35 @@ def parse_evolutions_and_levelup_moves():
     # endfor
 
 
+def parse_egg_moves():
+    logger.info(f'parsing egg move pointers from {EGG_MOVE_POINTERS}')
+    parser = AsmDataParser.from_path(EGG_MOVE_POINTERS)
+    parser.skip_to_table('EggMovePointers')
+    pointers = parser.read_data_until_assert()  # List[List[str]]
+    for i in range(len(pointers)):
+        assert len(pointers[i]) == 1, str(pointers[i])
+        pointers[i] = pointers[i][0]
+
+    logger.info(f'parsing egg moves from {EGG_MOVES}')
+    parser = AsmDataParser.from_path(EGG_MOVES)
+    for i in range(len(pointers)):
+        pointer = pointers[i]
+        pokemon = pokemon_index[i + 1]
+        parser.reset()
+        parser.skip_to_table(pointer)
+        entries = parser.read_while_data()
+        for j in range(len(entries)):
+            entry = entries[j]
+            if not entry:
+                raise ValueError(f'malformed data at {pointer}:{j}')
+            if entry[0] == '-1':
+                break  # no more moves
+            move = constant_index[entry[0]]
+            pokemon.add_egg_move(move)
+        # endfor
+    # endfor
+
+
 @dataclass
 class SpeciesEncounter:
     min_level: int
@@ -906,6 +936,7 @@ def main():
         move_index = parse_move_data()
 
         parse_evolutions_and_levelup_moves()
+        parse_egg_moves()
 
         for pokemon in pokemon_index.values():
             path = POKEDEX_PAGE_DIR / f'{pokemon.number:03}.html'
