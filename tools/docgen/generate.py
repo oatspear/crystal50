@@ -41,6 +41,8 @@ MOVE_DATA_DIR = PROJECT_ROOT / 'data' / 'moves'
 MOVE_NAMES = MOVE_DATA_DIR / 'names.asm'
 
 MAP_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_constants.asm'
+MAP_DATA_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_data_constants.asm'
+MAP_DATA = PROJECT_ROOT / 'data' / 'maps' / 'maps.asm'
 
 WILD_DATA_DIR = PROJECT_ROOT / 'data' / 'wild'
 WILD_FISH = WILD_DATA_DIR / 'fish.asm'
@@ -68,6 +70,7 @@ class Daytime(Flag):
     MORNING = auto()
     DAY = auto()
     NIGHT = auto()
+    ANYTIME = MORNING | DAY | NIGHT
 
 
 DAYTIME_CONSTANTS = {
@@ -635,6 +638,22 @@ class MapEncounterData:
     def __len__(self) -> int:
         return len(self.maps)
 
+    def print_html(self) -> str:
+        if len(self) == 0:
+            return '<p>Not available in the wild.</p>'
+        entries = ['<ul>']
+        for map in sorted(self.maps):
+            name = f'<em>{map_index[map]}</em>'
+            e = self.maps[map]
+            if e.min_level != e.max_level:
+                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+            else:
+                level = f'<strong>Lv. {e.min_level}</strong>'
+            p = f'{(100 * e.probability):.2f}'
+            entries.append(f'<li>{level}, {name} ({p}%)</li>')
+        entries.append('</ul>')
+        return '\n'.join(entries)
+
 
 @dataclass(frozen=True)
 class DaytimeEncounterData:
@@ -652,9 +671,9 @@ class DaytimeEncounterData:
     ):
         if time & Daytime.MORNING:
             self.morning.add_encounter(map, min_level, max_level, percent)
-        elif time & Daytime.DAY:
+        if time & Daytime.DAY:
             self.day.add_encounter(map, min_level, max_level, percent)
-        elif time & Daytime.NIGHT:
+        if time & Daytime.NIGHT:
             self.night.add_encounter(map, min_level, max_level, percent)
 
     def __len__(self) -> int:
@@ -716,6 +735,21 @@ class FishingEncounterData:
     def __len__(self) -> int:
         return len(self.old) + len(self.good) + len(self.super)
 
+    def print_html(self) -> str:
+        if len(self) == 0:
+            return '<p>Not available in the wild.</p>'
+        html = []
+        if len(self.old) > 0:
+            html.append('<em>Old Rod</em>')
+            html.append(self.old.print_html())
+        if len(self.good) > 0:
+            html.append('<em>Good Rod</em>')
+            html.append(self.good.print_html())
+        if len(self.super) > 0:
+            html.append('<em>Super Rod</em>')
+            html.append(self.super.print_html())
+        return '\n'.join(html)
+
 
 @dataclass(frozen=True)
 class TreeEncounterData:
@@ -747,8 +781,21 @@ class Habitat:
         if len(self) == 0:
             return '<p>This Pokémon is not available in the wild.</p>'
         sections = []
-        sections.append('<h5>Grass Encounters</h5>')
-        sections.append(self.grass.print_html())
+        if len(self.grass) > 0:
+            sections.append('<h5>Grass Encounters</h5>')
+            sections.append(self.grass.print_html())
+        if len(self.water) > 0:
+            sections.append('<h5>Water Encounters</h5>')
+            sections.append(self.water.print_html())
+        if len(self.fishing) > 0:
+            sections.append('<h5>Fishing Encounters</h5>')
+            sections.append(self.fishing.print_html())
+        if len(self.trees) > 0:
+            sections.append('<h5>Tree Encounters</h5>')
+            #sections.append(self.trees.print_html())
+        if len(self.rocks) > 0:
+            sections.append('<h5>Rock Encounters</h5>')
+            sections.append(self.rocks.print_html())
         return '\n'.join(sections)
 
 
@@ -807,6 +854,21 @@ def calc_encounters(
     return result
 
 
+def register_encounters(
+    map: int,
+    time: Daytime,
+    species: int,
+    min_level: int,
+    probability: float,
+    fun: str,
+):
+    encounters = calc_encounters(species, min_level, probability)
+    for species, min_level, max_level, probability in encounters:
+        pokemon = pokemon_index[species]
+        f = getattr(pokemon, fun)
+        f(map, time, min_level, max_level, probability)
+
+
 def parse_grass_encounters():
     logger.info(f'parsing grass encounter probabilities from {WILD_PROBABILITIES}')
     parser = AsmDataParser.from_path(WILD_PROBABILITIES)
@@ -840,12 +902,14 @@ def parse_grass_encounters():
                 for i in range(len(probabilities)):
                     entry = data[j]
                     assert len(entry) >= 2, str(entry)
-                    min_level = int(entry[0])
-                    species = constant_index[entry[1]]
-                    encounters = calc_encounters(species, min_level, probabilities[i])
-                    for species, min_level, max_level, probability in encounters:
-                        pokemon = pokemon_index[species]
-                        pokemon.add_grass_encounter(map, time, min_level, max_level, probability)
+                    register_encounters(
+                        map,
+                        time,
+                        constant_index[entry[1]],
+                        int(entry[0]),
+                        probabilities[i],
+                        'add_grass_encounter',
+                    )
                     j += 1
 
 
@@ -855,14 +919,109 @@ def parse_water_encounters():
     parser.skip_to_table('WaterMonProbTable')
     data: List[List[str]] = parser.read_while_macro('mon_prob')
     probabilities = []
-    p: int = 0
+    total = 0
     for entry in data:
-        p = int(entry[0]) - p
-        probabilities.append(p / 100.0)
+        p = int(entry[0])
+        probabilities.append((p - total) / 100.0)
+        total = p
+
+    for path in (WILD_JOHTO_WATER, WILD_KANTO_WATER):
+        logger.info(f'parsing water encounters from {path}')
+        parser = AsmDataParser.from_path(path)
+        while True:
+            try:
+                parser.skip_to_macro('def_water_wildmons')
+            except KeyError:
+                break
+            args = parser.read_line_data()
+            map = constant_index[args[0]]
+            parser.skip_line()
+
+            data: List[List[str]] = parser.read_while_data()
+            # the first line is the chance to trigger an encounter
+            if len(data) < (len(probabilities) + 1):
+                raise ValueError(f'malformed data for map {args[0]}')
+            j = 1
+            for i in range(len(probabilities)):
+                entry = data[j]
+                assert len(entry) >= 2, str(entry)
+                register_encounters(
+                    map,
+                    Daytime.ANYTIME,
+                    constant_index[entry[1]],
+                    int(entry[0]),
+                    probabilities[i],
+                    'add_water_encounter',
+                )
+                j += 1
 
 
 def parse_fishing_encounters():
-    pass
+    logger.info(f'parsing fishing encounters from {WILD_FISH}')
+    parser = AsmDataParser.from_path(WILD_FISH)
+    parser.skip_to_table('FishGroups')
+    groups: List[List[str]] = parser.read_while_macro('fishgroup')
+
+    parser.reset()
+    parser.skip_to_table('TimeFishGroups')
+    data: List[List[str]] = parser.read_while_data()
+    timed = []
+    for e in data:
+        sp1 = constant_index[e[0]]
+        lv1 = int(e[1])
+        sp2 = constant_index[e[2]]
+        lv2 = int(e[3])
+        timed.append((sp1, lv1, sp2, lv2))
+
+    for i in range(len(groups)):
+        entry = groups[i]
+        maps = fishgroup_index[i + 1]
+        tables = [
+            (entry[1], 'add_old_rod_encounter'),
+            (entry[2], 'add_good_rod_encounter'),
+            (entry[3], 'add_super_rod_encounter'),
+        ]
+
+        for table, fun in tables:
+            parser.reset()
+            parser.skip_to_table(table)
+            data: List[List[str]] = parser.read_while_data()
+            total = 0
+            for entry in data:
+                p = int(entry[0].split()[0])
+                probability = (p - total) / 100.0
+                total = p
+                if entry[1].startswith('time_group'):
+                    g = entry[1].split(maxsplit=1)[1]
+                    g = int(g)
+                    sp1, lv1, sp2, lv2 = timed[g]
+                    for map in maps:
+                        register_encounters(
+                            map,
+                            Daytime.MORNING | Daytime.DAY,
+                            sp1,
+                            lv1,
+                            probability,
+                            fun,
+                        )
+                        register_encounters(
+                            map,
+                            Daytime.NIGHT,
+                            sp2,
+                            lv2,
+                            probability,
+                            fun,
+                        )
+                else:
+                    for map in maps:
+                        register_encounters(
+                            map,
+                            Daytime.ANYTIME,
+                            constant_index[entry[1]],
+                            int(entry[2]),
+                            probability,
+                            fun,
+                        )
 
 
 def parse_tree_and_rock_encounters():
@@ -1354,6 +1513,37 @@ def parse_map_constants():
             k += 1
 
 
+def parse_map_data_constants():
+    logger.info(f'parsing map data constants from {MAP_DATA_CONSTANTS}')
+    parser = AsmDataParser.from_path(MAP_DATA_CONSTANTS)
+    parser.skip_to_constant('NUM_FISHGROUPS')
+    parser.rewind_to_const_def()
+    parser.skip_line()
+    names: List[str] = parser.read_while_macro('const', flatten=True)
+    for i in range(len(names)):
+        name = names[i]
+        constant_index[name] = i
+        fishgroup_index[i] = []
+
+
+def parse_map_data():
+    # relies on the order of group and map constants
+    logger.info(f'parsing map data from {MAP_DATA}')
+    parser = AsmDataParser.from_path(MAP_DATA)
+    parser.skip_to_table('MapGroupPointers')
+    pointers: List[str] = parser.read_data_until_assert(flatten=True)
+
+    map = 1
+    for pointer in pointers:
+        parser.reset()
+        parser.skip_to_table(pointer)
+        rows: List[List[str]] = parser.read_while_macro('map')
+        for row in rows:
+            fishgroup = constant_index[row[-1]]
+            fishgroup_index[fishgroup].append(map)
+            map += 1
+
+
 ###############################################################################
 # Configuration
 ###############################################################################
@@ -1384,6 +1574,7 @@ move_index: Dict[int, MoveData] = {}
 tm_move_index: Dict[int, int] = {}
 hm_move_index: Dict[int, int] = {}
 map_index: Dict[int, str] = {}
+fishgroup_index: Dict[int, List[int]] = {}
 
 
 def main():
@@ -1399,6 +1590,7 @@ def main():
         parse_move_constants()
         parse_item_constants()
         parse_map_constants()
+        parse_map_data_constants()
 
         global pokemon_index
         pokemon_index = parse_pokemon_data()
@@ -1406,6 +1598,7 @@ def main():
         item_index = parse_item_data()
         global move_index
         move_index = parse_move_data()
+        parse_map_data()
 
         parse_pokemon_base_data()
         parse_evolutions_and_levelup_moves()
