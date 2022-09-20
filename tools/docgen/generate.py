@@ -617,14 +617,14 @@ def parse_egg_moves():
 class SpeciesEncounter:
     min_level: int
     max_level: int
-    probability: int  # percent
+    probability: float
 
 
 @dataclass(frozen=True)
 class MapEncounterData:
     maps: Dict[int, SpeciesEncounter] = field(default_factory=dict)
 
-    def add_encounter(self, map: int, min_level: int, max_level: int, percent: int):
+    def add_encounter(self, map: int, min_level: int, max_level: int, percent: float):
         previous = self.maps.get(map)
         if previous is not None:
             min_level = min(min_level, previous.min_level)
@@ -648,7 +648,7 @@ class DaytimeEncounterData:
         time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         if time & Daytime.MORNING:
             self.morning.add_encounter(map, min_level, max_level, percent)
@@ -677,20 +677,32 @@ class DaytimeEncounterData:
             time = 'morning'
             e = self.morning.maps.get(map)
             if e is not None:
-                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
-                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+                if e.min_level != e.max_level:
+                    level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                else:
+                    level = f'<strong>Lv. {e.min_level}</strong>'
+                p = f'{(100 * e.probability):.2f}'
+                entries.append(f'<li>{level}, {name} ({p}%, {time})</li>')
 
             time = 'day'
             e = self.day.maps.get(map)
             if e is not None:
-                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
-                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+                if e.min_level != e.max_level:
+                    level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                else:
+                    level = f'<strong>Lv. {e.min_level}</strong>'
+                p = f'{(100 * e.probability):.2f}'
+                entries.append(f'<li>{level}, {name} ({p}%, {time})</li>')
 
             time = 'night'
             e = self.night.maps.get(map)
             if e is not None:
-                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
-                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+                if e.min_level != e.max_level:
+                    level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                else:
+                    level = f'<strong>Lv. {e.min_level}</strong>'
+                p = f'{(100 * e.probability):.2f}'
+                entries.append(f'<li>{level}, {name} ({p}%, {time})</li>')
         entries.append('</ul>')
         return '\n'.join(entries)
 
@@ -740,6 +752,61 @@ class Habitat:
         return '\n'.join(sections)
 
 
+def calc_encounters(
+    species: int,
+    level: int,
+    probability: float,
+) -> List[Tuple[int, int, int, float]]:
+    # NOTE: hard-coded levels and percentages for SAlt Crystal
+    chances = [
+        0.2,     # 5% + 15%
+        0.15,    # +15%
+        0.15,    # +15%
+        0.15,    # +15%
+        0.125,   # +12.5%
+        0.125,   # +12.5%
+        0.04,    # +4%
+        0.04,    # +4%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+        0.0025,  # +0.25%
+    ]
+
+    visited = set()
+    result = []
+    stack = [(species, level, level + 15, probability)]
+    while stack:
+        num, min_level, max_level, p = stack.pop()
+        if num in visited:
+            continue
+        visited.add(num)
+
+        pokemon = pokemon_index[num]
+        for e in (pokemon.evolutions.level | pokemon.evolutions.hold):
+            if e.level <= max_level:
+                if e.level > min_level:
+                    i = min_level - level
+                    j = e.level - level
+                    chance = p * sum(chances[i:j])
+                    result.append((num, min_level, e.level - 1, chance))
+                    chance = p * sum(chances[j:])
+                    stack.append((e.species, e.level, max_level, chance))
+                else:
+                    # the current species is skipped
+                    stack.append((e.species, min_level, max_level, p))
+                break  # only the first evolution is chosen
+            else:
+                pass  # range does not reach evolution level
+        else:
+            result.append((num, min_level, max_level, p))
+    return result
+
+
 def parse_grass_encounters():
     logger.info(f'parsing grass encounter probabilities from {WILD_PROBABILITIES}')
     parser = AsmDataParser.from_path(WILD_PROBABILITIES)
@@ -749,7 +816,7 @@ def parse_grass_encounters():
     total = 0
     for entry in data:
         p = int(entry[0])
-        probabilities.append(p - total)
+        probabilities.append((p - total) / 100.0)
         total = p
 
     for path in (WILD_JOHTO_GRASS, WILD_KANTO_GRASS):
@@ -774,11 +841,11 @@ def parse_grass_encounters():
                     entry = data[j]
                     assert len(entry) >= 2, str(entry)
                     min_level = int(entry[0])
-                    max_level = min_level + 12  # FIXME hard-coded
-                    percent = probabilities[i]
                     species = constant_index[entry[1]]
-                    pokemon = pokemon_index[species]
-                    pokemon.add_grass_encounter(map, time, min_level, max_level, percent)
+                    encounters = calc_encounters(species, min_level, probabilities[i])
+                    for species, min_level, max_level, probability in encounters:
+                        pokemon = pokemon_index[species]
+                        pokemon.add_grass_encounter(map, time, min_level, max_level, probability)
                     j += 1
 
 
@@ -850,7 +917,7 @@ class PokemonData:
         time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.grass.add_encounter(map, time, min_level, max_level, percent)
 
@@ -860,7 +927,7 @@ class PokemonData:
         _time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.water.add_encounter(map, min_level, max_level, percent)
 
@@ -870,7 +937,7 @@ class PokemonData:
         time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.fishing.old.add_encounter(map, time, min_level, max_level, percent)
 
@@ -880,7 +947,7 @@ class PokemonData:
         time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.fishing.good.add_encounter(map, time, min_level, max_level, percent)
 
@@ -890,7 +957,7 @@ class PokemonData:
         time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.fishing.super.add_encounter(map, time, min_level, max_level, percent)
 
@@ -900,7 +967,7 @@ class PokemonData:
         _time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.trees.common.add_encounter(map, min_level, max_level, percent)
 
@@ -910,7 +977,7 @@ class PokemonData:
         _time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.trees.rare.add_encounter(map, min_level, max_level, percent)
 
@@ -920,7 +987,7 @@ class PokemonData:
         _time: Daytime,
         min_level: int,
         max_level: int,
-        percent: int,
+        percent: float,
     ):
         self.habitat.rocks.add_encounter(map, min_level, max_level, percent)
 
