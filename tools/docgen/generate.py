@@ -24,6 +24,7 @@ THIS_PATH = Path(__file__).resolve(strict=True)
 PROJECT_ROOT = THIS_PATH.parent.parent.parent
 
 POKEMON_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_constants.asm'
+POKEMON_DATA_CONSTANTS = PROJECT_ROOT / 'constants' / 'pokemon_data_constants.asm'
 POKEMON_DATA_DIR = PROJECT_ROOT / 'data' / 'pokemon'
 BASE_STATS_DIR = POKEMON_DATA_DIR / 'base_stats'
 EGG_MOVE_POINTERS = POKEMON_DATA_DIR / 'egg_move_pointers.asm'
@@ -262,18 +263,21 @@ class AsmDataParser:
         if self._i > 0:
             self._i -= 1
 
-    def skip_to_table(self, name: str, skip_table_width: bool = True):
+    def skip_to_table(self, name: str, skip_table_width: bool = True, fallthrough: bool = True):
         n = len(self.lines)
         while self._i < n:
             line = self.lines[self._i]
             self._i += 1
-            if line.startswith(name):
-                if line[len(name)] == ':':
-                    if skip_table_width:
+            if line.startswith(name + ':'):
+                line = self.lines[self._i]
+                if fallthrough:
+                    while line.endswith(':'):
+                        self._i += 1
                         line = self.lines[self._i]
-                        if line.startswith(('table_width', 'list_start')):
-                            self._i += 1
-                    return
+                if skip_table_width:
+                    if line.startswith(('table_width', 'list_start')):
+                        self._i += 1
+                return
         raise KeyError(name)
 
     def skip_to_constant(self, name: str):
@@ -759,6 +763,18 @@ class TreeEncounterData:
     def __len__(self) -> int:
         return len(self.common) + len(self.rare)
 
+    def print_html(self) -> str:
+        if len(self) == 0:
+            return '<p>Not available in the wild.</p>'
+        html = []
+        if len(self.common) > 0:
+            html.append('<em>Common Trees</em>')
+            html.append(self.common.print_html())
+        if len(self.rare) > 0:
+            html.append('<em>Rare Trees</em>')
+            html.append(self.rare.print_html())
+        return '\n'.join(html)
+
 
 @dataclass(frozen=True)
 class Habitat:
@@ -792,7 +808,7 @@ class Habitat:
             sections.append(self.fishing.print_html())
         if len(self.trees) > 0:
             sections.append('<h5>Tree Encounters</h5>')
-            #sections.append(self.trees.print_html())
+            sections.append(self.trees.print_html())
         if len(self.rocks) > 0:
             sections.append('<h5>Rock Encounters</h5>')
             sections.append(self.rocks.print_html())
@@ -996,36 +1012,88 @@ def parse_fishing_encounters():
                     g = int(g)
                     sp1, lv1, sp2, lv2 = timed[g]
                     for map in maps:
-                        register_encounters(
-                            map,
-                            Daytime.MORNING | Daytime.DAY,
-                            sp1,
-                            lv1,
-                            probability,
-                            fun,
-                        )
-                        register_encounters(
-                            map,
-                            Daytime.NIGHT,
-                            sp2,
-                            lv2,
-                            probability,
-                            fun,
-                        )
+                        time = Daytime.MORNING | Daytime.DAY
+                        register_encounters(map, time, sp1, lv1, probability, fun)
+                        register_encounters(map, Daytime.NIGHT, sp2, lv2, probability, fun)
                 else:
                     for map in maps:
-                        register_encounters(
-                            map,
-                            Daytime.ANYTIME,
-                            constant_index[entry[1]],
-                            int(entry[2]),
-                            probability,
-                            fun,
-                        )
+                        sp = constant_index[entry[1]]
+                        lv = int(entry[2])
+                        register_encounters(map, Daytime.ANYTIME, sp, lv, probability, fun)
 
 
 def parse_tree_and_rock_encounters():
-    pass
+    logger.info(f'parsing tree set constants from {POKEMON_DATA_CONSTANTS}')
+    parser = AsmDataParser.from_path(POKEMON_DATA_CONSTANTS)
+    parser.skip_to_constant('NUM_TREEMON_SETS')
+    parser.rewind_to_const_def()
+    parser.skip_line()
+    tree_sets = parser.read_while_macro('const', flatten=True)
+    tree_sets = {name: i for i, name in enumerate(tree_sets)}
+
+    logger.info(f'parsing tree map data from {TREE_MAPS}')
+    parser = AsmDataParser.from_path(TREE_MAPS)
+    parser.skip_to_table('TreeMonMaps')
+    data: List[List[str]] = parser.read_while_macro('treemon_map')
+    tree_maps = {}
+    for entry in data:
+        map = constant_index[entry[0]]
+        tree = tree_sets[entry[1]]
+        maps = tree_sets.get(tree)
+        if maps is None:
+            maps = []
+            tree_sets[tree] = maps
+        maps.append(map)
+
+    parser.reset()
+    parser.skip_to_table('RockMonMaps')
+    data: List[List[str]] = parser.read_while_macro('treemon_map')
+    rock_maps = {}
+    rock_sets = set()
+    for entry in data:
+        map = constant_index[entry[0]]
+        rock = tree_sets[entry[1]]
+        maps = tree_sets.get(rock)
+        if maps is None:
+            maps = []
+            tree_sets[rock] = maps
+        maps.append(map)
+        rock_sets.add(rock)
+
+    logger.info(f'parsing tree and rock encounters from {WILD_TREES}')
+    parser = AsmDataParser.from_path(WILD_TREES)
+    parser.skip_to_table('TreeMons')
+    pointers = parser.read_data_until_assert(flatten=True)
+
+    for i in range(len(pointers)):
+        maps = tree_sets[i]
+        parser.reset()
+        parser.skip_to_table(pointers[i])
+        entries = parser.read_while_data()
+        if i in rock_sets:
+            fun = 'add_rock_encounter'
+            for row in entries:
+                if row[0] == '-1':
+                    break
+                probability = int(row[0]) / 100.0
+                species = constant_index[row[1]]
+                min_level = int(row[2])
+                for map in maps:
+                    register_encounters(map, Daytime.ANYTIME, species, min_level, probability, fun)
+        else:
+            funs = ['add_rare_tree_encounter', 'add_common_tree_encounter']
+            fun = funs.pop()
+            for row in entries:
+                if row[0] == '-1':
+                    if not funs:
+                        break
+                    fun = funs.pop()
+                    continue
+                probability = int(row[0]) / 100.0
+                species = constant_index[row[1]]
+                min_level = int(row[2])
+                for map in maps:
+                    register_encounters(map, Daytime.ANYTIME, species, min_level, probability, fun)
 
 
 @dataclass
