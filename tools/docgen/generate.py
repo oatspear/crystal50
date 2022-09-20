@@ -9,7 +9,7 @@ from typing import Dict, List, Optional, Set, Tuple, Union
 
 from collections import defaultdict
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import Enum, Flag, auto
 import logging
 from pathlib import Path
 import sys
@@ -40,6 +40,8 @@ MOVE_CONSTANTS = PROJECT_ROOT / 'constants' / 'move_constants.asm'
 MOVE_DATA_DIR = PROJECT_ROOT / 'data' / 'moves'
 MOVE_NAMES = MOVE_DATA_DIR / 'names.asm'
 
+MAP_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_constants.asm'
+
 WILD_DATA_DIR = PROJECT_ROOT / 'data' / 'wild'
 WILD_FISH = WILD_DATA_DIR / 'fish.asm'
 WILD_JOHTO_GRASS = WILD_DATA_DIR / 'johto_grass.asm'
@@ -49,6 +51,7 @@ WILD_KANTO_WATER = WILD_DATA_DIR / 'kanto_water.asm'
 TREE_MAPS = WILD_DATA_DIR / 'treemon_maps.asm'
 WILD_TREES = WILD_DATA_DIR / 'treemons.asm'
 WILD_TREES_SLEEP = WILD_DATA_DIR / 'treemons_asleep.asm'
+WILD_PROBABILITIES = WILD_DATA_DIR / 'probabilities.asm'
 
 PAGE_DEX_POKEMON = THIS_PATH.parent / 'dex-pokemon-page.html'
 PAGE_DEX_POKEMON_BY_TYPE = THIS_PATH.parent / 'dex-pokemon-by-type.html'
@@ -61,10 +64,19 @@ logger = logging.getLogger(__name__)
 ###############################################################################
 
 
-class Daytime(Enum):
-    MORNING = 0
-    DAY = 1
-    NIGHT = 2
+class Daytime(Flag):
+    MORNING = auto()
+    DAY = auto()
+    NIGHT = auto()
+
+
+DAYTIME_CONSTANTS = {
+    'TR_MORN': Daytime.MORNING,
+    'TR_DAY': Daytime.DAY,
+    'TR_NITE': Daytime.NIGHT,
+    'TR_MORNDAY': Daytime.MORNING | Daytime.DAY,
+    'TR_ANYTIME': Daytime.MORNING | Daytime.DAY | Daytime.NIGHT,
+}
 
 
 class TreeType(Enum):
@@ -272,6 +284,16 @@ class AsmDataParser:
             self._i += 1
         raise KeyError(name)
 
+    def skip_to_macro(self, name: str):
+        n = len(self.lines)
+        while self._i < n:
+            parts = self.lines[self._i].split(maxsplit=1)
+            if len(parts) >= 2:
+                if parts[0] == name:
+                    return
+            self._i += 1
+        raise KeyError(name)
+
     def rewind_to_const_def(self):
         while self._i >= 0:
             parts = self.lines[self._i].split(maxsplit=1)
@@ -281,6 +303,13 @@ class AsmDataParser:
         else:
             self._i = 0
             raise RuntimeError('did not find const_def')
+
+    def read_line_data(self) -> List[str]:
+        parts = self.lines[self._i].split(maxsplit=1)
+        # macros can have zero args
+        if len(parts) == 2:
+            return parse_data_parts(parts[1])
+        return []
 
     def read_const_defs(self, allow_eq: bool = True) -> Dict[str, int]:
         parts = self.lines[self._i].split(maxsplit=1)
@@ -407,11 +436,11 @@ class EvolutionData:
         self.trade.add(ItemEvolutionEntry(item, species))
 
     def add_happiness_evolution(self, time: Daytime, species: int):
-        if time == Daytime.MORNING:
+        if time & Daytime.MORNING:
             self.happiness.morning.add(species)
-        elif time == Daytime.DAY:
+        elif time & Daytime.DAY:
             self.happiness.day.add(species)
-        elif time == Daytime.NIGHT:
+        elif time & Daytime.NIGHT:
             self.happiness.night.add(species)
 
     def add_item_evolution(self, item: int, species: int):
@@ -511,19 +540,8 @@ def parse_evolutions_and_levelup_moves():
                 if len(entry) < 3:
                     raise ValueError(f'malformed data at {pointer}:{i}')
                 species = constant_index[entry[2]]
-                if entry[1] == 'TR_MORN':
-                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
-                elif entry[1] == 'TR_DAY':
-                    pokemon.add_happiness_evolution(Daytime.DAY, species)
-                elif entry[1] == 'TR_MORNDAY':
-                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
-                    pokemon.add_happiness_evolution(Daytime.DAY, species)
-                elif entry[1] == 'TR_NITE':
-                    pokemon.add_happiness_evolution(Daytime.NIGHT, species)
-                else:
-                    pokemon.add_happiness_evolution(Daytime.MORNING, species)
-                    pokemon.add_happiness_evolution(Daytime.DAY, species)
-                    pokemon.add_happiness_evolution(Daytime.NIGHT, species)
+                daytime = DAYTIME_CONSTANTS[entry[1]]
+                pokemon.add_happiness_evolution(daytime, species)
                 pokemon_index[species].pre_evolutions.add(pokemon.number)
             elif method == 'EVOLVE_ITEM':
                 if len(entry) < 3:
@@ -595,47 +613,193 @@ def parse_egg_moves():
     # endfor
 
 
-@dataclass
+@dataclass(frozen=True)
 class SpeciesEncounter:
     min_level: int
     max_level: int
-    probability: float
+    probability: int  # percent
 
 
-@dataclass
+@dataclass(frozen=True)
+class MapEncounterData:
+    maps: Dict[int, SpeciesEncounter] = field(default_factory=dict)
+
+    def add_encounter(self, map: int, min_level: int, max_level: int, percent: int):
+        previous = self.maps.get(map)
+        if previous is not None:
+            min_level = min(min_level, previous.min_level)
+            max_level = max(max_level, previous.max_level)
+            percent += previous.probability
+        self.maps[map] = SpeciesEncounter(min_level, max_level, percent)
+
+    def __len__(self) -> int:
+        return len(self.maps)
+
+
+@dataclass(frozen=True)
 class DaytimeEncounterData:
-    morning: Optional[SpeciesEncounter] = None
-    day: Optional[SpeciesEncounter] = None
-    night: Optional[SpeciesEncounter] = None
+    morning: MapEncounterData = field(default_factory=MapEncounterData)
+    day: MapEncounterData = field(default_factory=MapEncounterData)
+    night: MapEncounterData = field(default_factory=MapEncounterData)
+
+    def add_encounter(
+        self,
+        map: int,
+        time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        if time & Daytime.MORNING:
+            self.morning.add_encounter(map, min_level, max_level, percent)
+        elif time & Daytime.DAY:
+            self.day.add_encounter(map, min_level, max_level, percent)
+        elif time & Daytime.NIGHT:
+            self.night.add_encounter(map, min_level, max_level, percent)
+
+    def __len__(self) -> int:
+        return len(self.morning) + len(self.day) + len(self.night)
+
+    def print_html(self) -> str:
+        if len(self) == 0:
+            return '<p>Not available in the wild.</p>'
+        maps = set()
+        for map in self.morning.maps:
+            maps.add(map)
+        for map in self.day.maps:
+            maps.add(map)
+        for map in self.night.maps:
+            maps.add(map)
+
+        entries = ['<ul>']
+        for map in sorted(maps):
+            name = f'<em>{map_index[map]}</em>'
+            time = 'morning'
+            e = self.morning.maps.get(map)
+            if e is not None:
+                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+
+            time = 'day'
+            e = self.day.maps.get(map)
+            if e is not None:
+                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+
+            time = 'night'
+            e = self.night.maps.get(map)
+            if e is not None:
+                level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
+                entries.append(f'<li>{level}, {name} ({e.probability}%, {time})</li>')
+        entries.append('</ul>')
+        return '\n'.join(entries)
 
 
-@dataclass
+@dataclass(frozen=True)
 class FishingEncounterData:
     old: DaytimeEncounterData = field(default_factory=DaytimeEncounterData)
     good: DaytimeEncounterData = field(default_factory=DaytimeEncounterData)
     super: DaytimeEncounterData = field(default_factory=DaytimeEncounterData)
 
+    def __len__(self) -> int:
+        return len(self.old) + len(self.good) + len(self.super)
 
-@dataclass
+
+@dataclass(frozen=True)
 class TreeEncounterData:
-    common: Optional[SpeciesEncounter] = None
-    rare: Optional[SpeciesEncounter] = None
+    common: MapEncounterData = field(default_factory=MapEncounterData)
+    rare: MapEncounterData = field(default_factory=MapEncounterData)
+
+    def __len__(self) -> int:
+        return len(self.common) + len(self.rare)
 
 
-RockEncounterData = TreeEncounterData
-
-
-@dataclass
+@dataclass(frozen=True)
 class Habitat:
     grass: DaytimeEncounterData = field(default_factory=DaytimeEncounterData)
-    water: Optional[SpeciesEncounter] = None
+    water: MapEncounterData = field(default_factory=MapEncounterData)
     fishing: FishingEncounterData = field(default_factory=FishingEncounterData)
     trees: TreeEncounterData = field(default_factory=TreeEncounterData)
-    rocks: RockEncounterData = field(default_factory=RockEncounterData)
+    rocks: MapEncounterData = field(default_factory=MapEncounterData)
+
+    def __len__(self) -> int:
+        return (
+            len(self.grass)
+            + len(self.water)
+            + len(self.fishing)
+            + len(self.trees)
+            + len(self.rocks)
+        )
+
+    def print_html(self) -> str:
+        if len(self) == 0:
+            return '<p>This Pokémon is not available in the wild.</p>'
+        sections = []
+        sections.append('<h5>Grass Encounters</h5>')
+        sections.append(self.grass.print_html())
+        return '\n'.join(sections)
 
 
-def habitat_map() -> Dict[int, Habitat]:
-    return defaultdict(Habitat)
+def parse_grass_encounters():
+    logger.info(f'parsing grass encounter probabilities from {WILD_PROBABILITIES}')
+    parser = AsmDataParser.from_path(WILD_PROBABILITIES)
+    parser.skip_to_table('GrassMonProbTable')
+    data: List[List[str]] = parser.read_while_macro('mon_prob')
+    probabilities = []
+    total = 0
+    for entry in data:
+        p = int(entry[0])
+        probabilities.append(p - total)
+        total = p
+
+    for path in (WILD_JOHTO_GRASS, WILD_KANTO_GRASS):
+        logger.info(f'parsing grass encounters from {path}')
+        parser = AsmDataParser.from_path(path)
+        while True:
+            try:
+                parser.skip_to_macro('def_grass_wildmons')
+            except KeyError:
+                break
+            args = parser.read_line_data()
+            map = constant_index[args[0]]
+            parser.skip_line()
+
+            data: List[List[str]] = parser.read_while_data()
+            # the first line is the chance to trigger an encounter
+            if len(data) < (3 * len(probabilities) + 1):
+                raise ValueError(f'malformed data for map {args[0]}')
+            j = 1
+            for time in (Daytime.MORNING, Daytime.DAY, Daytime.NIGHT):
+                for i in range(len(probabilities)):
+                    entry = data[j]
+                    assert len(entry) >= 2, str(entry)
+                    min_level = int(entry[0])
+                    max_level = min_level + 12  # FIXME hard-coded
+                    percent = probabilities[i]
+                    species = constant_index[entry[1]]
+                    pokemon = pokemon_index[species]
+                    pokemon.add_grass_encounter(map, time, min_level, max_level, percent)
+                    j += 1
+
+
+def parse_water_encounters():
+    logger.info(f'parsing grass encounter probabilities from {WILD_PROBABILITIES}')
+    parser = AsmDataParser.from_path(WILD_PROBABILITIES)
+    parser.skip_to_table('WaterMonProbTable')
+    data: List[List[str]] = parser.read_while_macro('mon_prob')
+    probabilities = []
+    p: int = 0
+    for entry in data:
+        p = int(entry[0]) - p
+        probabilities.append(p / 100.0)
+
+
+def parse_fishing_encounters():
+    pass
+
+
+def parse_tree_and_rock_encounters():
+    pass
 
 
 @dataclass
@@ -648,8 +812,7 @@ class PokemonData:
     pre_evolutions: Set[int] = field(default_factory=set)
     evolutions: EvolutionData = field(default_factory=EvolutionData)
     moves: Learnset = field(default_factory=Learnset)
-    # mapping from map id to Habitat
-    areas: Dict[int, Habitat] = field(default_factory=habitat_map)
+    habitat: Habitat = field(default_factory=Habitat)
 
     def add_levelup_evolution(self, level: int, species: int):
         self.evolutions.add_levelup_evolution(level, species)
@@ -681,6 +844,86 @@ class PokemonData:
     def add_egg_move(self, move: int):
         self.moves.egg.add(move)
 
+    def add_grass_encounter(
+        self,
+        map: int,
+        time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.grass.add_encounter(map, time, min_level, max_level, percent)
+
+    def add_water_encounter(
+        self,
+        map: int,
+        _time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.water.add_encounter(map, min_level, max_level, percent)
+
+    def add_old_rod_encounter(
+        self,
+        map: int,
+        time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.fishing.old.add_encounter(map, time, min_level, max_level, percent)
+
+    def add_good_rod_encounter(
+        self,
+        map: int,
+        time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.fishing.good.add_encounter(map, time, min_level, max_level, percent)
+
+    def add_super_rod_encounter(
+        self,
+        map: int,
+        time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.fishing.super.add_encounter(map, time, min_level, max_level, percent)
+
+    def add_common_tree_encounter(
+        self,
+        map: int,
+        _time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.trees.common.add_encounter(map, min_level, max_level, percent)
+
+    def add_rare_tree_encounter(
+        self,
+        map: int,
+        _time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.trees.rare.add_encounter(map, min_level, max_level, percent)
+
+    def add_rock_encounter(
+        self,
+        map: int,
+        _time: Daytime,
+        min_level: int,
+        max_level: int,
+        percent: int,
+    ):
+        self.habitat.rocks.add_encounter(map, min_level, max_level, percent)
+
     def type_string(self) -> str:
         if self.type1 == self.type2:
             return self.type1.name.title()
@@ -694,7 +937,7 @@ class PokemonData:
             types=self._html_types(),
             html_preevolution=self._html_pre_evolutions(),
             html_evolution=self._html_evolutions(),
-            html_wild=self._html_wild(),
+            html_wild=self.habitat.print_html(),
             html_learnset=self._html_learnset(),
         )
 
@@ -750,10 +993,6 @@ class PokemonData:
             entries.append(f'<li><strong>Holding</strong> {item} {level} - {a}</li>')
         html = '\n'.join(entries)
         return f'<ul>{html}</ul>'
-
-    def _html_wild(self) -> str:
-        html = '<p>This Pokémon is not available in the wild.</p>'
-        return html
 
     def _html_learnset(self) -> str:
         if len(self.moves) == 0:
@@ -1018,6 +1257,37 @@ def parse_move_data() -> Dict[int, MoveData]:
 
 
 ###############################################################################
+# Parsing Map Data
+###############################################################################
+
+
+@dataclass
+class MapData:
+    number: int
+    name: str
+
+
+def parse_map_constants():
+    logger.info(f'parsing map constants from {MAP_CONSTANTS}')
+    parser = AsmDataParser.from_path(MAP_CONSTANTS)
+    k = 1
+    while True:
+        try:
+            parser.skip_to_macro('newgroup')
+        except KeyError:
+            return
+        parser.skip_line()
+        data: List[List[str]] = parser.read_while_macro('map_const')
+        for entry in data:
+            name = entry[0]
+            constant_index[name] = k
+            # FIXME parse landmarks to get names
+            name = name.replace('_', ' ').title()
+            map_index[k] = name
+            k += 1
+
+
+###############################################################################
 # Configuration
 ###############################################################################
 
@@ -1046,17 +1316,22 @@ item_index: Dict[int, ItemData] = {}
 move_index: Dict[int, MoveData] = {}
 tm_move_index: Dict[int, int] = {}
 hm_move_index: Dict[int, int] = {}
+map_index: Dict[int, str] = {}
 
 
 def main():
     configure_logging()
+
+    constant_index.clear()
+    tm_move_index.clear()
+    hm_move_index.clear()
+    map_index.clear()
+
     try:
-        constant_index.clear()
-        tm_move_index.clear()
-        hm_move_index.clear()
         parse_pokemon_constants()
         parse_move_constants()
         parse_item_constants()
+        parse_map_constants()
 
         global pokemon_index
         pokemon_index = parse_pokemon_data()
@@ -1068,6 +1343,10 @@ def main():
         parse_pokemon_base_data()
         parse_evolutions_and_levelup_moves()
         parse_egg_moves()
+        parse_grass_encounters()
+        parse_water_encounters()
+        parse_fishing_encounters()
+        parse_tree_and_rock_encounters()
 
         for pokemon in pokemon_index.values():
             path = POKEDEX_PAGE_DIR / f'{pokemon.number:03}.html'
