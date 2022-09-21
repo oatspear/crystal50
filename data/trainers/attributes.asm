@@ -365,7 +365,6 @@ TrainerClassAttributes:
 ; Twins
 	db NO_ITEM, NO_ITEM ; items
 	db 5 ; base reward
-	dw NO_AI
 	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_OFTEN
 
