@@ -1710,8 +1710,8 @@ class MapData:
 
     def print_html(self) -> str:
         name = f'<h5>{self.name}</h5>'
-        species = ', '.join(get_species_link(s) for s in sorted(self.species))
-        species = f'<p>Available species: {species}</p>'
+        species = ',\n'.join(get_species_link(s) for s in sorted(self.species))
+        species = f'<p>Available species:\n{species}\n</p>'
         return f'{name}\n{species}'
 
 
