@@ -40,6 +40,7 @@ ITEM_NAMES = ITEM_DATA_DIR / 'names.asm'
 MOVE_CONSTANTS = PROJECT_ROOT / 'constants' / 'move_constants.asm'
 MOVE_DATA_DIR = PROJECT_ROOT / 'data' / 'moves'
 MOVE_NAMES = MOVE_DATA_DIR / 'names.asm'
+MOVE_DATA = MOVE_DATA_DIR / 'moves.asm'
 
 MAP_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_constants.asm'
 MAP_DATA_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_data_constants.asm'
@@ -60,6 +61,9 @@ PAGE_DEX_POKEMON = THIS_PATH.parent / 'dex-pokemon-page.html'
 PAGE_DEX_POKEMON_BY_TYPE = THIS_PATH.parent / 'dex-pokemon-by-type.html'
 PAGE_DEX_POKEMON_BY_FIELD_MOVE = THIS_PATH.parent / 'dex-pokemon-by-field-move.html'
 POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
+
+PAGE_DEX_MOVE_INDEX = THIS_PATH.parent / 'dex-move-index.html'
+MOVEDEX_PAGE = PROJECT_ROOT / 'docs' / 'dex' / 'moves' / 'index.html'
 
 logger = logging.getLogger(__name__)
 
@@ -110,6 +114,12 @@ class PokemonType(Enum):
     DRAGON = 'DRAGON'
     DARK = 'DARK'
     FAIRY = 'FAIRY'
+
+
+class MoveCategory(Enum):
+    PHYSICAL = 'PHYSICAL'
+    SPECIAL = 'SPECIAL'
+    STATUS = 'STATUS'
 
 
 ###############################################################################
@@ -201,6 +211,16 @@ def print_category_pages_pokemon_by_field_move():
         path = POKEDEX_PAGE_DIR / f'field-{key}.html'
         path.write_text(html, encoding='utf-8')
     logger.info('done generating field move category pages')
+
+
+def print_move_dex_page():
+    logger.info('generating move index page')
+    template = PAGE_DEX_MOVE_INDEX.read_text(encoding='utf-8')
+    moves = [m.print_html() for m in sorted(move_index.values(), key=lambda v: v.name)]
+    entries = [f'<tr>\n{m}\n</tr>' for m in moves]
+    html = '\n'.join(entries)
+    html = template.format(html_move_table=html)
+    MOVEDEX_PAGE.write_text(html, encoding='utf-8')
 
 
 ###############################################################################
@@ -1558,6 +1578,42 @@ def parse_item_data() -> Dict[int, ItemData]:
 class MoveData:
     number: int
     name: str
+    type: PokemonType = PokemonType.NORMAL
+    power: int = 0
+    accuracy: int = 0
+    category: MoveCategory = MoveCategory.STATUS
+    pp: int = 1
+    effect_chance: int = 0
+
+    def print_html(self) -> str:
+        power = self.power if self.power > 0 else '--'
+        accuracy = self.accuracy if self.accuracy > 0 else '--'
+        chance = f'{self.effect_chance}%' if self.effect_chance > 0 else '--'
+        cells = [
+            f'<td>{self.name}</td>',
+            f'<td>{self.type.name.title()}</td>',
+            f'<td>{self.category.name.title()}</td>',
+            f'<td>{self.pp}</td>',
+            f'<td>{power}</td>',
+            f'<td>{accuracy}</td>',
+            f'<td>{chance}</td>',
+        ]
+        return '\n'.join(cells)
+
+    def print_html_text(self) -> str:
+        name = f'<strong>{self.name}</strong>'
+        tag = f'<em>({self.type.name.title()}, {self.category.name.title()})</em>'
+        details = [f'{self.pp} PP']
+        if self.power > 0:
+            details.append(f'{self.power} Power')
+        if self.accuracy > 0:
+            details.append(f'{self.accuracy} Accuracy')
+        else:
+            details.append(f'Perfect Accuracy')
+        if self.effect_chance > 0:
+            details.append(f'{self.effect_chance}% Effect Chance')
+        details = ', '.join(details)
+        return f'{name} {tag} - {details}'
 
 
 def parse_move_constants():
@@ -1567,6 +1623,8 @@ def parse_move_constants():
     parser.rewind_to_const_def()
     constants = parser.read_const_defs()
     constant_index.update(constants)
+    for c, i in constants.items():
+        move_index[i] = MoveData(i, c)
 
     parser.reset()
     parser.skip_to_constant('NUM_OVERWORLD_MOVES')
@@ -1578,28 +1636,47 @@ def parse_move_constants():
         field_move_index[i] = name
 
 
-def parse_move_names() -> Tuple[List[str]]:
+def parse_move_names():
     logger.info(f'parsing move names from {MOVE_NAMES}')
     parser = AsmDataParser.from_path(MOVE_NAMES)
     parser.skip_to_table('MoveNames')
-    moves = parser.read_data_until_assert()  # List[List[str]]
+    moves = parser.read_data_until_assert(flatten=True)
     for i in range(len(moves)):
-        assert len(moves[i]) == 1, str(moves[i])
-        name = moves[i][0].strip('"@')
-        moves[i] = name.title()
-    return moves
+        name = moves[i].strip('"@')
+        move_index[i+1].name = name.title()
 
 
-def parse_move_data() -> Dict[int, MoveData]:
-    logger.info('parsing move data')
-    data = {}
-    moves = parse_move_names()
-    i = 1
-    for name in moves:
-        data[i] = MoveData(i, name)
-        i += 1
+def parse_move_data():
+    parse_move_names()
+
+    logger.info(f'parsing move data from {MOVE_DATA}')
+    parser = AsmDataParser.from_path(MOVE_DATA)
+    parser.skip_to_table('Moves')
+    data: List[List[str]] = parser.read_while_macro('move')
+
+    for row in data:
+        move = move_index[constant_index[row[0]]]
+        move.power = int(row[2])
+        move.type = PokemonType(row[3])
+        move.category = MoveCategory(row[4])
+        try:
+            move.accuracy = int(row[5])
+        except ValueError:
+            move.accuracy = -1
+        # NOTE hard-coded for SAlt Crystal
+        pp_table = {
+            'ENERGY_30_PP': 1,
+            'ENERGY_20_PP': 2,
+            'ENERGY_15_PP': 3,
+            'ENERGY_10_PP': 4,
+            'ENERGY_8_PP':  5,
+            'ENERGY_7_PP':  6,
+            'ENERGY_6_PP':  7,
+            'ENERGY_5_PP':  8,
+        }
+        move.pp = pp_table[row[6]]
+        move.effect_chance = int(row[7])
     logger.info('done parsing move data')
-    return data
 
 
 ###############################################################################
@@ -1711,8 +1788,7 @@ def main():
         pokemon_index = parse_pokemon_data()
         global item_index
         item_index = parse_item_data()
-        global move_index
-        move_index = parse_move_data()
+        parse_move_data()
         parse_map_data()
 
         parse_pokemon_base_data()
@@ -1729,6 +1805,7 @@ def main():
             path.write_text(pokemon.print_dex_page(), encoding='utf-8')
         print_category_pages_pokemon_by_type()
         print_category_pages_pokemon_by_field_move()
+        print_move_dex_page()
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
