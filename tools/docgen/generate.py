@@ -131,33 +131,33 @@ class MoveCategory(Enum):
 
 
 def get_type_link(t: PokemonType) -> str:
-    return f'<a href="/crystal50/pokemon/type-{t.name.lower()}.html">{t.name.title()}</a>'
+    return f'<a href="/crystal50/dex/pokemon/type-{t.name.lower()}.html">{t.name.title()}</a>'
 
 
 def get_species_link(number: int, inner_text: str = '{p.name}') -> str:
     pokemon = pokemon_index[number]
     inner_text = inner_text.format(p=pokemon)
-    return f'<a href="/crystal50/pokemon/{number:03}.html">{inner_text}</a>'
+    return f'<a href="/crystal50/dex/pokemon/{number:03}.html">{inner_text}</a>'
 
 
 def get_item_link(number: int, inner_text: str = '{i.name}') -> str:
     item = item_index[number]
     inner_text = inner_text.format(i=item)
-    # return f'<a href="/crystal50/items/{number:03}.html">{inner_text}</a>'
+    # return f'<a href="/crystal50/dex/items/{number:03}.html">{inner_text}</a>'
     return f'<em>{inner_text}</em>'
 
 
 def get_move_link(number: int, inner_text: str = '{m.name}') -> str:
     move = move_index[number]
     inner_text = inner_text.format(m=move)
-    # return f'<a href="/crystal50/moves/{number:03}.html">{inner_text}</a>'
+    # return f'<a href="/crystal50/dex/moves/{number:03}.html">{inner_text}</a>'
     return f'<em>{inner_text}</em>'
 
 
 def get_field_move_link(number: int) -> str:
     name = field_move_index[number]
     key = name.lower().replace(' ', '-')
-    return f'<a href="/crystal50/pokemon/field-{key}.html">{name}</a>'
+    return f'<a href="/crystal50/dex/pokemon/field-{key}.html">{name}</a>'
 
 
 def print_category_pages_pokemon_by_type():
