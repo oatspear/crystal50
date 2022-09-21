@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0
+
+### Added
+- Official documentation.
+
+### Changed
+- Slightly improved the AI of several trainer classes.
+
 ## v0.7.1
 
 ### Fixed
