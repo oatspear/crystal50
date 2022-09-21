@@ -131,7 +131,7 @@ TrainerClassAttributes:
 ; Youngster
 	db NO_ITEM, NO_ITEM ; items
 	db 4 ; base reward
-	dw AI_BASIC | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Schoolboy
@@ -149,7 +149,7 @@ TrainerClassAttributes:
 ; Lass
 	db NO_ITEM, NO_ITEM ; items
 	db 6 ; base reward
-	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_OFTEN
 
 ; Janine
@@ -191,7 +191,7 @@ TrainerClassAttributes:
 ; Gentleman
 	db NO_ITEM, NO_ITEM ; items
 	db 18 ; base reward
-	dw AI_BASIC | AI_SETUP | AI_AGGRESSIVE | AI_STATUS
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Skier
@@ -203,7 +203,7 @@ TrainerClassAttributes:
 ; Teacher
 	db NO_ITEM, NO_ITEM ; items
 	db 18 ; base reward
-	dw AI_BASIC | AI_OPPORTUNIST | AI_AGGRESSIVE | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_SMART | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Sabrina
@@ -215,7 +215,7 @@ TrainerClassAttributes:
 ; Bug Catcher
 	db NO_ITEM, NO_ITEM ; items
 	db 4 ; base reward
-	dw AI_BASIC | AI_SETUP | AI_STATUS
+	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Fisher
@@ -239,7 +239,7 @@ TrainerClassAttributes:
 ; Sailor
 	db NO_ITEM, NO_ITEM ; items
 	db 10 ; base reward
-	dw AI_BASIC | AI_OFFENSIVE | AI_OPPORTUNIST | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_OFFENSIVE | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Super Nerd
@@ -257,19 +257,19 @@ TrainerClassAttributes:
 ; Guitarist
 	db NO_ITEM, NO_ITEM ; items
 	db 8 ; base reward
-	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Hiker
 	db NO_ITEM, NO_ITEM ; items
 	db 8 ; base reward
-	dw AI_BASIC | AI_OFFENSIVE | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_OFFENSIVE | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Biker
 	db NO_ITEM, NO_ITEM ; items
 	db 8 ; base reward
-	dw AI_BASIC | AI_TYPES | AI_STATUS | AI_RISKY
+	dw AI_BASIC | AI_AGGRESSIVE | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Blaine
@@ -287,7 +287,7 @@ TrainerClassAttributes:
 ; Firebreather
 	db NO_ITEM, NO_ITEM ; items
 	db 12 ; base reward
-	dw AI_BASIC | AI_SETUP | AI_OFFENSIVE | AI_OPPORTUNIST | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_SETUP | AI_OFFENSIVE | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Juggler
@@ -299,7 +299,7 @@ TrainerClassAttributes:
 ; Blackbelt T
 	db NO_ITEM, NO_ITEM ; items
 	db 6 ; base reward
-	dw AI_BASIC | AI_OFFENSIVE | AI_STATUS | AI_RISKY
+	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_OFFENSIVE | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Executivem
@@ -311,19 +311,19 @@ TrainerClassAttributes:
 ; Psychic T
 	db NO_ITEM, NO_ITEM ; items
 	db 8 ; base reward
-	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Picnicker
 	db NO_ITEM, NO_ITEM ; items
 	db 5 ; base reward
-	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Camper
 	db NO_ITEM, NO_ITEM ; items
 	db 5 ; base reward
-	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_TYPES | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Executivef
@@ -359,13 +359,14 @@ TrainerClassAttributes:
 ; Kimono Girl
 	db NO_ITEM, NO_ITEM ; items
 	db 18 ; base reward
-	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Twins
 	db NO_ITEM, NO_ITEM ; items
 	db 5 ; base reward
 	dw NO_AI
+	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_OFTEN
 
 ; Pokefanf
