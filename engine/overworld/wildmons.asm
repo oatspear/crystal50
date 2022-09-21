@@ -326,7 +326,7 @@ ChooseWildEncounter:
 	ld c, 6
 	cp 98 percent   ; +6-8
 	jr c, .buff
-; rare encounter: +8-12
+; rare encounter: +8-16
 	ld c, 8
 	ld a, b             ; load min. level
 	add c               ; add min. offset

@@ -12,7 +12,7 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/miltank/front.dimensions"
-	owmoves OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_MILKDRINK
+	owmoves OVERWORLD_STRENGTH, OVERWORLD_HEADBUTT, OVERWORLD_ROCK_SMASH, OVERWORLD_MILK_DRINK
 	db 40 ; energy
 	db 0 ; unused (beta front/back pics)
 	db GROWTH_SLOW ; growth rate

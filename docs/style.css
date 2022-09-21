@@ -1,0 +1,101 @@
+html {
+  /*background-color: #aadddd;*/
+  /*background-image: linear-gradient(0deg, lightskyblue, white);*/
+  height: 100%;
+}
+
+.wrapper {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1.0rem 1.5rem;
+}
+
+.wrapper > .title {
+  text-align: center;
+  color: lightskyblue;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightskyblue;
+}
+
+.wrapper > .title > img {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: bottom;
+}
+
+.text-center {
+  text-align: center;
+}
+
+section {
+  margin-top: 1.6rem;
+}
+
+.container.link-list {
+  text-align: center;
+}
+
+.container.link-list .column {
+  padding: 0.4rem 0;
+}
+
+.container.link-list .column img,
+.container.link-list .column a > span {
+  vertical-align: middle;
+}
+
+.container.link-list .column > a {
+  display: inline-block;
+  width: 90%;
+  color: inherit;
+  font-weight: bold;
+  padding: 0.4rem;
+}
+
+section .container.link-list .column > a {
+  border: 2px solid lightskyblue;
+  border-radius: 4px;
+}
+
+section .container.link-list .column > a:hover {
+  background-color: lightskyblue;
+  color: white;
+}
+
+section .container.link-list .column > a:hover .icon {
+  fill: white;
+}
+
+footer .container.link-list .column > a:hover {
+  color: lightskyblue;
+}
+
+.footer {
+  margin-top: 8rem;
+  padding: 1rem 2rem 0 2rem;
+  border-top: 1px solid lightskyblue;
+}
+
+a {
+  color: lightskyblue;
+}
+
+.icon {
+  /*color: #606c76;*/
+  color: inherit;
+  fill: lightskyblue;
+  vertical-align: middle;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.section-header {
+  border-left: 0.4rem solid lightskyblue;
+  padding-left: 1rem;
+}
+
+.pokemon-types {
+  font-size: 2.0rem;
+}

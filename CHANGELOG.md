@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.7.1
+
+### Fixed
+- Rage Candy Bar actually heals status conditions.
+- Self-destruct always causes recoil damage.
+
 ## v0.7
 
 ### Fixed

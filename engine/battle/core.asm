@@ -4784,21 +4784,21 @@ HandleEnergyRecovery:
 	ret
 
 HandleStatBoostingHeldItems:
-; The effects handled here are not used in-game.
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
 	call .DoPlayer
-	jp .DoEnemy
+	jr .DoEnemy
 
 .player_1
 	call .DoEnemy
-	jp .DoPlayer
+	; jr .DoPlayer
+	; fallthrough
 
 .DoPlayer:
 	call GetPartymonItem
 	ld a, $0
-	jp .HandleItem
+	jr .HandleItem
 
 .DoEnemy:
 	call GetOTPartymonItem

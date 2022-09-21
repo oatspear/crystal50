@@ -209,11 +209,11 @@ Selfdestruct:
 	damagevariation
 	checkhit
 	moveanim
+	selfdestruct
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
-	selfdestruct
 	checkfaint
 	kingsrock
 	endmove
