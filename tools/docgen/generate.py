@@ -65,6 +65,9 @@ POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
 PAGE_DEX_MOVE_INDEX = THIS_PATH.parent / 'dex-move-index.html'
 MOVEDEX_PAGE = PROJECT_ROOT / 'docs' / 'dex' / 'moves' / 'index.html'
 
+PAGE_DEX_LOCATION_INDEX = THIS_PATH.parent / 'dex-location-index.html'
+LOCATIONDEX_PAGE = PROJECT_ROOT / 'docs' / 'dex' / 'locations' / 'index.html'
+
 logger = logging.getLogger(__name__)
 
 ###############################################################################
@@ -221,6 +224,20 @@ def print_move_dex_page():
     html = '\n'.join(entries)
     html = template.format(html_move_table=html)
     MOVEDEX_PAGE.write_text(html, encoding='utf-8')
+
+
+def print_location_dex_page():
+    logger.info('generating location index page')
+    template = PAGE_DEX_LOCATION_INDEX.read_text(encoding='utf-8')
+    maps = []
+    for m in sorted(map_index.values(), key=lambda v: v.name):
+        if m.species:
+            maps.append(m.print_html())
+    if not maps:
+        maps.append('<p>There is no location data.</p>')
+    html = '\n'.join(maps)
+    html = template.format(html_map_list=html)
+    LOCATIONDEX_PAGE.write_text(html, encoding='utf-8')
 
 
 ###############################################################################
@@ -701,7 +718,7 @@ class MapEncounterData:
             return '<p>Not available in the wild.</p>'
         entries = ['<ul>']
         for map in sorted(self.maps):
-            name = f'<em>{map_index[map]}</em>'
+            name = f'<em>{map_index[map].name}</em>'
             e = self.maps[map]
             if e.min_level != e.max_level:
                 level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
@@ -750,7 +767,7 @@ class DaytimeEncounterData:
 
         entries = ['<ul>']
         for map in sorted(maps):
-            name = f'<em>{map_index[map]}</em>'
+            name = f'<em>{map_index[map].name}</em>'
             time = 'morning'
             e = self.morning.maps.get(map)
             if e is not None:
@@ -937,6 +954,7 @@ def register_encounters(
         pokemon = pokemon_index[species]
         f = getattr(pokemon, fun)
         f(map, time, min_level, max_level, probability)
+        map_index[map].species.add(species)
 
 
 def parse_grass_encounters():
@@ -1688,6 +1706,13 @@ def parse_move_data():
 class MapData:
     number: int
     name: str
+    species: Set[int] = field(default_factory=set)
+
+    def print_html(self) -> str:
+        name = f'<h5>{self.name}</h5>'
+        species = ', '.join(get_species_link(s) for s in sorted(self.species))
+        species = f'<p>Available species: {species}</p>'
+        return f'{name}\n{species}'
 
 
 def parse_map_constants():
@@ -1706,7 +1731,7 @@ def parse_map_constants():
             constant_index[name] = k
             # FIXME parse landmarks to get names
             name = name.replace('_', ' ').title()
-            map_index[k] = name
+            map_index[k] = MapData(k, name)
             k += 1
 
 
@@ -1770,7 +1795,7 @@ item_index: Dict[int, ItemData] = {}
 move_index: Dict[int, MoveData] = {}
 tm_move_index: Dict[int, int] = {}
 hm_move_index: Dict[int, int] = {}
-map_index: Dict[int, str] = {}
+map_index: Dict[int, MapData] = {}
 fishgroup_index: Dict[int, List[int]] = {}
 field_move_index: Dict[int, str] = {}
 
@@ -1806,6 +1831,7 @@ def main():
         print_category_pages_pokemon_by_type()
         print_category_pages_pokemon_by_field_move()
         print_move_dex_page()
+        print_location_dex_page()
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
