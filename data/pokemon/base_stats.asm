@@ -1,5 +1,5 @@
 ; used in data/pokemon/base_stats/*.asm
-tmhm: MACRO
+MACRO tmhm
 ; initialize bytes to 0
 for n, (NUM_TM_HM_TUTOR + 7) / 8
 _tm{d:n} = 0
@@ -21,7 +21,7 @@ for n, (NUM_TM_HM_TUTOR + 7) / 8
 endr
 ENDM
 
-owmoves: MACRO
+MACRO owmoves
 ; initialize bytes to 0
 _owm0 = 0
 _owm1 = 0

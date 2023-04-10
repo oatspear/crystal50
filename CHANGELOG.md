@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.1
+
+### Changed
+- TMs and HMs in menus display move name instead of move description.
+
 ## v1.0
 
 ### Added

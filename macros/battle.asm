@@ -4,25 +4,25 @@
 ;   top nybble: the actual stat level
 ;   bottom nybble: effect timer (turns remaining)
 
-lda_stat_level: MACRO
+MACRO lda_stat_level
   ld a, \1
   and $f0 ; get the top nybble
   swap a
 ENDM
 
-lda_stat_turns: MACRO
+MACRO lda_stat_turns
   ld a, \1
   and $f ; get the bottom nybble
 ENDM
 
-dec_stat_turns: MACRO
+MACRO dec_stat_turns
   dec \1
 ENDM
 
 ; \1: destination
 ; \2: source of stat level (optional, defaults to a)
 ; \3: number of turns
-apply_stat_level: MACRO
+MACRO apply_stat_level
 if _NARG > 2
   ld a, \2
   swap a
@@ -34,6 +34,6 @@ endc
   ld \1, a
 ENDM
 
-reset_stat_level: MACRO
+MACRO reset_stat_level
   ld \1, (BASE_STAT_LEVEL << 4)
 ENDM

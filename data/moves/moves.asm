@@ -57,7 +57,7 @@
 
 ; Characteristics of each move.
 
-move: MACRO
+MACRO move
 	db \1 ; animation
 	db \2 ; effect
 	db \3 ; power

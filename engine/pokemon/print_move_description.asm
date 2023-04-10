@@ -1,3 +1,17 @@
+PrintMoveName:
+	ld a, [wCurSpecies]
+	and a
+	jr z, .no_move
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	jp PlaceString
+.no_move
+	ld de, .NoMoveString
+	jp PlaceString
+
+.NoMoveString
+	db "------------@"
+
 PrintMoveDescription:
 	push hl
 	ld hl, MoveDescriptions

@@ -1,7 +1,7 @@
 ; Predef routines can be used with the "predef" and "predef_jump" macros.
 ; This preserves registers bc, de, hl and f.
 
-add_predef: MACRO
+MACRO add_predef
 \1Predef::
 	dab \1
 ENDM
@@ -24,6 +24,7 @@ PredefPointers::
 	add_predef CanLearnTMHMMove
 	add_predef GetTMHMMove
 	add_predef LinkTextboxAtHL
+	add_predef PrintMoveName
 	add_predef PrintMoveDescription
 	add_predef UpdatePlayerHUD
 	add_predef PlaceGraphic

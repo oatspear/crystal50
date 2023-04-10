@@ -208,7 +208,7 @@ PrintPartyMonPage1:
 	call PlaceString
 	hlcoord 7, 14
 	ld a, [wTempMonMoves + 0]
-	call PlaceMoveNameString
+	call PrintMoveName
 	call PlaceGenderAndShininess
 	ld hl, wTempMonDVs
 	predef GetUnownLetter
@@ -248,13 +248,13 @@ PrintPartyMonPage2:
 	call CopyBytes
 	hlcoord 7, 0
 	ld a, [wTempMonMoves + 1]
-	call PlaceMoveNameString
+	call PrintMoveName
 	hlcoord 7, 2
 	ld a, [wTempMonMoves + 2]
-	call PlaceMoveNameString
+	call PrintMoveName
 	hlcoord 7, 4
 	ld a, [wTempMonMoves + 3]
-	call PlaceMoveNameString
+	call PrintMoveName
 	hlcoord 7, 7
 	ld de, PrintParty_StatsString
 	call PlaceString
@@ -292,20 +292,21 @@ GetCurPartyMonName:
 	ld d, h
 	ret
 
-PlaceMoveNameString:
-	and a
-	jr z, .no_move
-
-	ld [wNamedObjectIndex], a
-	call GetMoveName
-	jr .got_string
-
-.no_move
-	ld de, PrintParty_NoMoveString
-
-.got_string
-	call PlaceString
-	ret
+; unreferenced
+; PlaceMoveNameString:
+; 	and a
+; 	jr z, .no_move
+;
+; 	ld [wNamedObjectIndex], a
+; 	call GetMoveName
+; 	jr .got_string
+;
+; .no_move
+; 	ld de, PrintParty_NoMoveString
+;
+; .got_string
+; 	call PlaceString
+; 	ret
 
 PlaceGenderAndShininess:
 	farcall GetGender
