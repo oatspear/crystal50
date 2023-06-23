@@ -520,7 +520,8 @@ PokeBallEffect:
 	call SetSeenAndCaughtMon
 	pop af
 	and a
-	jr nz, .skip_pokedex
+	; jr nz, .skip_pokedex
+	jr .skip_pokedex  ; FIXME trying to avoid a bug
 
 	call CheckReceivedDex
 	jr z, .skip_pokedex
