@@ -40,6 +40,7 @@ ITEM_NAMES = ITEM_DATA_DIR / 'names.asm'
 MOVE_CONSTANTS = PROJECT_ROOT / 'constants' / 'move_constants.asm'
 MOVE_DATA_DIR = PROJECT_ROOT / 'data' / 'moves'
 MOVE_NAMES = MOVE_DATA_DIR / 'names.asm'
+MOVE_DATA = MOVE_DATA_DIR / 'moves.asm'
 
 MAP_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_constants.asm'
 MAP_DATA_CONSTANTS = PROJECT_ROOT / 'constants' / 'map_data_constants.asm'
@@ -58,7 +59,14 @@ WILD_PROBABILITIES = WILD_DATA_DIR / 'probabilities.asm'
 
 PAGE_DEX_POKEMON = THIS_PATH.parent / 'dex-pokemon-page.html'
 PAGE_DEX_POKEMON_BY_TYPE = THIS_PATH.parent / 'dex-pokemon-by-type.html'
+PAGE_DEX_POKEMON_BY_FIELD_MOVE = THIS_PATH.parent / 'dex-pokemon-by-field-move.html'
 POKEDEX_PAGE_DIR = PROJECT_ROOT / 'docs' / 'dex' / 'pokemon'
+
+PAGE_DEX_MOVE_INDEX = THIS_PATH.parent / 'dex-move-index.html'
+MOVEDEX_PAGE = PROJECT_ROOT / 'docs' / 'dex' / 'moves' / 'index.html'
+
+PAGE_DEX_LOCATION_INDEX = THIS_PATH.parent / 'dex-location-index.html'
+LOCATIONDEX_PAGE = PROJECT_ROOT / 'docs' / 'dex' / 'locations' / 'index.html'
 
 logger = logging.getLogger(__name__)
 
@@ -111,33 +119,45 @@ class PokemonType(Enum):
     FAIRY = 'FAIRY'
 
 
+class MoveCategory(Enum):
+    PHYSICAL = 'PHYSICAL'
+    SPECIAL = 'SPECIAL'
+    STATUS = 'STATUS'
+
+
 ###############################################################################
 # HTML Utilities
 ###############################################################################
 
 
 def get_type_link(t: PokemonType) -> str:
-    return f'<a href="./type-{t.name.lower()}.html">{t.name.title()}</a>'
+    return f'<a href="/pokemon/type-{t.name.lower()}.html">{t.name.title()}</a>'
 
 
 def get_species_link(number: int, inner_text: str = '{p.name}') -> str:
     pokemon = pokemon_index[number]
     inner_text = inner_text.format(p=pokemon)
-    return f'<a href="./{number:03}.html">{inner_text}</a>'
+    return f'<a href="/pokemon/{number:03}.html">{inner_text}</a>'
 
 
 def get_item_link(number: int, inner_text: str = '{i.name}') -> str:
     item = item_index[number]
     inner_text = inner_text.format(i=item)
-    # return f'<a href="./{number:03}.html">{inner_text}</a>'
+    # return f'<a href="/items/{number:03}.html">{inner_text}</a>'
     return f'<em>{inner_text}</em>'
 
 
 def get_move_link(number: int, inner_text: str = '{m.name}') -> str:
     move = move_index[number]
     inner_text = inner_text.format(m=move)
-    # return f'<a href="./{number:03}.html">{inner_text}</a>'
+    # return f'<a href="/moves/{number:03}.html">{inner_text}</a>'
     return f'<em>{inner_text}</em>'
+
+
+def get_field_move_link(number: int) -> str:
+    name = field_move_index[number]
+    key = name.lower().replace(' ', '-')
+    return f'<a href="/pokemon/field-{key}.html">{name}</a>'
 
 
 def print_category_pages_pokemon_by_type():
@@ -167,6 +187,57 @@ def print_category_pages_pokemon_by_type():
         path = POKEDEX_PAGE_DIR / f'type-{t.name.lower()}.html'
         path.write_text(html, encoding='utf-8')
     logger.info('done generating type-based category pages')
+
+
+def print_category_pages_pokemon_by_field_move():
+    logger.info('generating field move category pages')
+    template = PAGE_DEX_POKEMON_BY_FIELD_MOVE.read_text(encoding='utf-8')
+
+    categories = {i: set() for i in sorted(field_move_index)}
+    for pokemon in pokemon_index.values():
+        for i in pokemon.field_moves:
+            categories[i].add(pokemon.number)
+
+    for i, name in field_move_index.items():
+        index = categories[i]
+        if not index:
+            continue
+
+        logger.info(f'generating HTML page for field move {name}')
+        links = ['<ul>']
+        for species in sorted(index):
+            a = get_species_link(species, inner_text='{p.number:03} - {p.name}')
+            links.append(f'<li>{a}</li>')
+        links.append('</ul>')
+        html = template.format(name=name, species_list='\n'.join(links))
+        key = name.lower().replace(' ', '-')
+        path = POKEDEX_PAGE_DIR / f'field-{key}.html'
+        path.write_text(html, encoding='utf-8')
+    logger.info('done generating field move category pages')
+
+
+def print_move_dex_page():
+    logger.info('generating move index page')
+    template = PAGE_DEX_MOVE_INDEX.read_text(encoding='utf-8')
+    moves = [m.print_html() for m in sorted(move_index.values(), key=lambda v: v.name)]
+    entries = [f'<tr>\n{m}\n</tr>' for m in moves]
+    html = '\n'.join(entries)
+    html = template.format(html_move_table=html)
+    MOVEDEX_PAGE.write_text(html, encoding='utf-8')
+
+
+def print_location_dex_page():
+    logger.info('generating location index page')
+    template = PAGE_DEX_LOCATION_INDEX.read_text(encoding='utf-8')
+    maps = []
+    for m in sorted(map_index.values(), key=lambda v: v.name):
+        if m.species:
+            maps.append(m.print_html())
+    if not maps:
+        maps.append('<p>There is no location data.</p>')
+    html = '\n'.join(maps)
+    html = template.format(html_map_list=html)
+    LOCATIONDEX_PAGE.write_text(html, encoding='utf-8')
 
 
 ###############################################################################
@@ -647,7 +718,7 @@ class MapEncounterData:
             return '<p>Not available in the wild.</p>'
         entries = ['<ul>']
         for map in sorted(self.maps):
-            name = f'<em>{map_index[map]}</em>'
+            name = f'<em>{map_index[map].name}</em>'
             e = self.maps[map]
             if e.min_level != e.max_level:
                 level = f'<strong>Lv. {e.min_level}-{e.max_level}</strong>'
@@ -696,7 +767,7 @@ class DaytimeEncounterData:
 
         entries = ['<ul>']
         for map in sorted(maps):
-            name = f'<em>{map_index[map]}</em>'
+            name = f'<em>{map_index[map].name}</em>'
             time = 'morning'
             e = self.morning.maps.get(map)
             if e is not None:
@@ -883,6 +954,7 @@ def register_encounters(
         pokemon = pokemon_index[species]
         f = getattr(pokemon, fun)
         f(map, time, min_level, max_level, probability)
+        map_index[map].species.add(species)
 
 
 def parse_grass_encounters():
@@ -1107,6 +1179,7 @@ class PokemonData:
     evolutions: EvolutionData = field(default_factory=EvolutionData)
     moves: Learnset = field(default_factory=Learnset)
     habitat: Habitat = field(default_factory=Habitat)
+    field_moves: Set[int] = field(default_factory=set)
 
     def add_levelup_evolution(self, level: int, species: int):
         self.evolutions.add_levelup_evolution(level, species)
@@ -1233,6 +1306,7 @@ class PokemonData:
             html_evolution=self._html_evolutions(),
             html_wild=self.habitat.print_html(),
             html_learnset=self._html_learnset(),
+            html_field=self._html_field_moves(),
         )
 
     def _html_types(self) -> str:
@@ -1345,6 +1419,16 @@ class PokemonData:
         sections.append(html)
         return '\n'.join(sections)
 
+    def _html_field_moves(self) -> str:
+        if len(self.field_moves) == 0:
+            return '<p>This Pokémon does not learn any field moves.</p>'
+        entries = []
+        for move in sorted(self.field_moves):
+            a = get_field_move_link(move)
+            entries.append(f'<li>{a}</li>')
+        html = '\n'.join(entries)
+        return f'<ul>\n{html}\n</ul>'
+
 
 def parse_pokemon_constants():
     logger.info(f'parsing pokemon constants from {POKEMON_CONSTANTS}')
@@ -1388,7 +1472,7 @@ def parse_pokemon_base_data():
         parser.skip_line()  # skip graphics
         data = parser.read_while_macro('owmoves', flatten=True)
         if data:
-            pass  # TODO
+            pokemon.field_moves.update(constant_index[m] for m in data)
         else:
             parser.skip_line()
             parser.skip_line()
@@ -1512,6 +1596,42 @@ def parse_item_data() -> Dict[int, ItemData]:
 class MoveData:
     number: int
     name: str
+    type: PokemonType = PokemonType.NORMAL
+    power: int = 0
+    accuracy: int = 0
+    category: MoveCategory = MoveCategory.STATUS
+    pp: int = 1
+    effect_chance: int = 0
+
+    def print_html(self) -> str:
+        power = self.power if self.power > 0 else '--'
+        accuracy = self.accuracy if self.accuracy > 0 else '--'
+        chance = f'{self.effect_chance}%' if self.effect_chance > 0 else '--'
+        cells = [
+            f'<td>{self.name}</td>',
+            f'<td>{self.type.name.title()}</td>',
+            f'<td>{self.category.name.title()}</td>',
+            f'<td>{self.pp}</td>',
+            f'<td>{power}</td>',
+            f'<td>{accuracy}</td>',
+            f'<td>{chance}</td>',
+        ]
+        return '\n'.join(cells)
+
+    def print_html_text(self) -> str:
+        name = f'<strong>{self.name}</strong>'
+        tag = f'<em>({self.type.name.title()}, {self.category.name.title()})</em>'
+        details = [f'{self.pp} PP']
+        if self.power > 0:
+            details.append(f'{self.power} Power')
+        if self.accuracy > 0:
+            details.append(f'{self.accuracy} Accuracy')
+        else:
+            details.append(f'Perfect Accuracy')
+        if self.effect_chance > 0:
+            details.append(f'{self.effect_chance}% Effect Chance')
+        details = ', '.join(details)
+        return f'{name} {tag} - {details}'
 
 
 def parse_move_constants():
@@ -1519,35 +1639,62 @@ def parse_move_constants():
     parser = AsmDataParser.from_path(MOVE_CONSTANTS)
     parser.skip_to_constant('NUM_ATTACKS')
     parser.rewind_to_const_def()
-    parser.skip_line()
-    data: List[str] = parser.read_while_macro('const', flatten=True)
-    for i in range(len(data)):
-        name = data[i]
-        constant_index[name] = i
+    constants = parser.read_const_defs()
+    constant_index.update(constants)
+    for c, i in constants.items():
+        move_index[i] = MoveData(i, c)
+
+    parser.reset()
+    parser.skip_to_constant('NUM_OVERWORLD_MOVES')
+    parser.rewind_to_const_def()
+    constants = parser.read_const_defs()
+    constant_index.update(constants)
+    for c, i in constants.items():
+        name = c.replace('OVERWORLD_', '').replace('_', ' ').title()
+        field_move_index[i] = name
 
 
-def parse_move_names() -> Tuple[List[str]]:
+def parse_move_names():
     logger.info(f'parsing move names from {MOVE_NAMES}')
     parser = AsmDataParser.from_path(MOVE_NAMES)
     parser.skip_to_table('MoveNames')
-    moves = parser.read_data_until_assert()  # List[List[str]]
+    moves = parser.read_data_until_assert(flatten=True)
     for i in range(len(moves)):
-        assert len(moves[i]) == 1, str(moves[i])
-        name = moves[i][0].strip('"@')
-        moves[i] = name.title()
-    return moves
+        name = moves[i].strip('"@')
+        move_index[i+1].name = name.title()
 
 
-def parse_move_data() -> Dict[int, MoveData]:
-    logger.info('parsing move data')
-    data = {}
-    moves = parse_move_names()
-    i = 1
-    for name in moves:
-        data[i] = MoveData(i, name)
-        i += 1
+def parse_move_data():
+    parse_move_names()
+
+    logger.info(f'parsing move data from {MOVE_DATA}')
+    parser = AsmDataParser.from_path(MOVE_DATA)
+    parser.skip_to_table('Moves')
+    data: List[List[str]] = parser.read_while_macro('move')
+
+    for row in data:
+        move = move_index[constant_index[row[0]]]
+        move.power = int(row[2])
+        move.type = PokemonType(row[3])
+        move.category = MoveCategory(row[4])
+        try:
+            move.accuracy = int(row[5])
+        except ValueError:
+            move.accuracy = -1
+        # NOTE hard-coded for SAlt Crystal
+        pp_table = {
+            'ENERGY_30_PP': 1,
+            'ENERGY_20_PP': 2,
+            'ENERGY_15_PP': 3,
+            'ENERGY_10_PP': 4,
+            'ENERGY_8_PP':  5,
+            'ENERGY_7_PP':  6,
+            'ENERGY_6_PP':  7,
+            'ENERGY_5_PP':  8,
+        }
+        move.pp = pp_table[row[6]]
+        move.effect_chance = int(row[7])
     logger.info('done parsing move data')
-    return data
 
 
 ###############################################################################
@@ -1559,6 +1706,13 @@ def parse_move_data() -> Dict[int, MoveData]:
 class MapData:
     number: int
     name: str
+    species: Set[int] = field(default_factory=set)
+
+    def print_html(self) -> str:
+        name = f'<h5>{self.name}</h5>'
+        species = ',\n'.join(get_species_link(s) for s in sorted(self.species))
+        species = f'<p>Available species:\n{species}\n</p>'
+        return f'{name}\n{species}'
 
 
 def parse_map_constants():
@@ -1577,7 +1731,7 @@ def parse_map_constants():
             constant_index[name] = k
             # FIXME parse landmarks to get names
             name = name.replace('_', ' ').title()
-            map_index[k] = name
+            map_index[k] = MapData(k, name)
             k += 1
 
 
@@ -1641,17 +1795,12 @@ item_index: Dict[int, ItemData] = {}
 move_index: Dict[int, MoveData] = {}
 tm_move_index: Dict[int, int] = {}
 hm_move_index: Dict[int, int] = {}
-map_index: Dict[int, str] = {}
+map_index: Dict[int, MapData] = {}
 fishgroup_index: Dict[int, List[int]] = {}
-
+field_move_index: Dict[int, str] = {}
 
 def main():
     configure_logging()
-
-    constant_index.clear()
-    tm_move_index.clear()
-    hm_move_index.clear()
-    map_index.clear()
 
     try:
         parse_pokemon_constants()
@@ -1664,8 +1813,7 @@ def main():
         pokemon_index = parse_pokemon_data()
         global item_index
         item_index = parse_item_data()
-        global move_index
-        move_index = parse_move_data()
+        parse_move_data()
         parse_map_data()
 
         parse_pokemon_base_data()
@@ -1681,6 +1829,9 @@ def main():
             logger.info(f'generating HTML page for {pokemon.name}')
             path.write_text(pokemon.print_dex_page(), encoding='utf-8')
         print_category_pages_pokemon_by_type()
+        print_category_pages_pokemon_by_field_move()
+        print_move_dex_page()
+        print_location_dex_page()
     except KeyboardInterrupt:
         logger.info('Interrupted manually.')
     except Exception as e:
