@@ -4,6 +4,7 @@
 
 ### Changed
 - TMs and HMs in menus display move name instead of move description.
+- Increased the chance of wild Pokémon having an item: about 29% Item 1 and 16% Item 2.
 
 ## v1.0
 
