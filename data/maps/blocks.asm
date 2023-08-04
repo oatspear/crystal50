@@ -1051,3 +1051,6 @@ GoldenrodDeptStoreRoof_Blocks:
 
 ViridianForest_Blocks:
 	INCBIN "maps/ViridianForest.blk"
+
+IlexForestWildArea_Blocks:
+	INCBIN "maps/IlexForestWildArea.blk"

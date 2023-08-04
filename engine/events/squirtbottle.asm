@@ -9,8 +9,13 @@ _Squirtbottle:
 	reloadmappart
 	special UpdateTimePals
 	callasm .CheckCanUseSquirtbottle
-	iffalse .SquirtbottleNothingScript
+	iffalse .SquirtbottleIlexForestScript
 	farsjump WateredWeirdTreeScript
+
+.SquirtbottleIlexForestScript:
+	callasm .CheckCanUseSquirtbottleIlexForest
+	iffalse .SquirtbottleNothingScript
+	farsjump WateredIlexForestSudowoodoScript
 
 .SquirtbottleNothingScript:
 	jumptext .SquirtbottleNothingText
@@ -28,6 +33,7 @@ _Squirtbottle:
 	cp MAP_ROUTE_36
 	jr nz, .nope
 
+.check_use_on_sudowoodo
 	farcall GetFacingObject
 	jr c, .nope
 
@@ -43,3 +49,13 @@ _Squirtbottle:
 	xor a
 	ld [wScriptVar], a
 	ret
+
+.CheckCanUseSquirtbottleIlexForest:
+	ld a, [wMapGroup]
+	cp GROUP_ILEX_FOREST_WILD_AREA
+	jr nz, .nope
+
+	ld a, [wMapNumber]
+	cp MAP_ILEX_FOREST_WILD_AREA
+	jr nz, .nope
+	jr .check_use_on_sudowoodo

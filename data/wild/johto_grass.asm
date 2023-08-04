@@ -590,6 +590,34 @@ JohtoGrassWildMons:
 	db 14, LEDIAN
 	end_grass_wildmons
 
+	def_grass_wildmons ILEX_FOREST_WILD_AREA
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 11, BELLSPROUT
+	db 10, PIDGEY
+	db 10, LEDYBA
+	db  6, CATERPIE
+	db 12, TANGELA
+	db  8, PIKACHU
+	db 14, YANMA
+	; day
+	db 11, BELLSPROUT
+	db 10, PIDGEY
+	db 10, LEDYBA
+	db  6, WEEDLE
+	db 12, TANGELA
+	db  8, EKANS
+	db 12, FARFETCH_D
+	; nite
+	db 11, ODDISH
+	db 10, HOOTHOOT
+	db 11, SPINARAK
+	db 10, VENONAT
+	db 12, MURKROW
+	db 12, PARAS
+	db 14, LEDIAN
+	end_grass_wildmons
+
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn

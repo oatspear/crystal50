@@ -51,6 +51,13 @@ JohtoWaterWildMons:
 	db 28, GOLDUCK
 	end_water_wildmons
 
+	def_water_wildmons ILEX_FOREST_WILD_AREA
+	db 8 percent ; encounter rate
+	db 20, POLIWAG
+	db 22, PSYDUCK
+	db 32, POLIWRATH
+	end_water_wildmons
+
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate
 	db 15, GOLDEEN
