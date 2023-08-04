@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.0
+
+### Changed
+- New game version logo.
+- Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 30% to 50%. The chance for good trees has increased from 70% to 90%. The chance for rare trees has increased from 80% to 90%.
+- Doubled the chance for a Headbutt tree to be rare (uncommon Pokémon) from 1/10 to 2/10.
+- Increased the chance for a Headbutt tree to be good (common Pokémon, high chance) from 4/10 to 5/10.
+- Reduced the chance for a Headbutt tree to be bad (common Pokémon, low chance) from 5/10 to 3/10.
+
 ## v1.0.1
 
 ### Changed
