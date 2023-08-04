@@ -2,6 +2,9 @@
 
 ## v1.1.0
 
+### Added
+- New map: Ilex Forest Wild Area (high level). This map is accessible through a new passage in the main Ilex Forest map.
+
 ### Changed
 - New game version logo.
 - Headbutting trees is more likely to result in an encounter. The chance for bad trees has increased from 30% to 50%. The chance for good trees has increased from 70% to 90%. The chance for rare trees has increased from 80% to 90%.
