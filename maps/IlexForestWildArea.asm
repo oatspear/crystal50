@@ -12,7 +12,7 @@
 	const ILEXFOREST_WILD_AREA_POKE_BALL2
 	const ILEXFOREST_WILD_AREA_POKE_BALL3
 
-IlexForest_MapScripts:
+IlexForestWildArea_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -55,7 +55,7 @@ IlexForestWildAreaSudowoodoScript:
 	opentext
 	writetext IlexForestWildAreaUseSquirtbottleText
 	yesorno
-	iffalse .DidntUseSquirtbottle
+	iffalse IlexForestWildAreaDidntUseSquirtbottle
 	closetext
 WateredIlexForestSudowoodoScript:: ; export (for when you use Squirtbottle from pack)
 	opentext
@@ -77,7 +77,7 @@ WateredIlexForestSudowoodoScript:: ; export (for when you use Squirtbottle from 
 	reloadmapafterbattle
 	end
 
-.DidntUseSquirtbottle:
+IlexForestWildAreaDidntUseSquirtbottle:
 	closetext
 	end
 
@@ -295,7 +295,7 @@ CooltrainermGaryAfterBattleText:
 	cont "somewhere nearby."
   done
 
-IlexForest_MapEvents:
+IlexForestWildArea_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
