@@ -78,6 +78,7 @@ KRIS EQU __trainer_class__
 	const CAL1
 	const CAL2
 	const CAL3
+	const ILEX_SPIRIT
 
 	trainerclass BRUNO ; d
 	const BRUNO1
@@ -216,6 +217,8 @@ KRIS EQU __trainer_class__
 	const STEVE
 	const ALLEN
 	const DARIN
+	const VICTOR
+	const GARY
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -240,6 +243,7 @@ KRIS EQU __trainer_class__
 	const REENA3
 	const CARA
 	const JOANA
+	const FLORA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
