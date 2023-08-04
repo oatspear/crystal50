@@ -515,6 +515,7 @@ _HerbalLadyHowManyText::
 	text "How many?"
 	done
 
+_ApricornCollectorFinalPriceText::
 _BerryMasterFinalPriceText::
 _HerbalLadyFinalPriceText::
 	text_decimal wItemQuantityChange, 1, 2
@@ -569,6 +570,7 @@ _BargainShopThanksText::
 	text "Thanks."
 	done
 
+_ApricornCollectorPackFullText::
 _BargainShopPackFullText::
 _BerryMasterPackFullText::
 	text "Uh-oh, your PACK"
@@ -581,6 +583,7 @@ _BargainShopSoldOutText::
 	cont "sold out of it."
 	done
 
+_ApricornCollectorNoMoneyText::
 _BerryMasterNoMoneyText::
 _BargainShopNoFundsText::
 	text "Uh-oh, you're"
@@ -597,6 +600,7 @@ _PharmacyIntroText::
 	line "some medicine?"
 	done
 
+_ApricornCollectorHowManyText::
 _BerryMasterHowManyText::
 _PharmacyHowManyText::
 	text "How many?"
@@ -643,6 +647,20 @@ _BerryMasterComeAgainText::
 	cont "drop right off."
 	done
 
+_ApricornCollectorIntroText::
+	text "Well, hello!"
+	line "Are you looking"
+	cont "for apricorns, to"
+	cont "turn into mighty"
+	cont "#BALLS?"
+	done
+
+_ApricornCollectorComeAgainText::
+	text "Feel free to drop"
+	line "by. Or go look for"
+	cont "some trees too!"
+	done
+
 _NothingToSellText::
 	text "You don't have"
 	line "anything to sell."
@@ -666,6 +684,7 @@ _MartWelcomeText::
 	line "help you?"
 	done
 
+_ApricornCollectorThanksText::
 _BerryMasterThanksText::
 _MartThanksText::
 	text "Here you are."

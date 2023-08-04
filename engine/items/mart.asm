@@ -23,6 +23,7 @@ OpenMartDialog::
 	dw Pharmacist
 	dw RooftopSale
 	dw BerryMaster
+	dw ApricornCollector
 
 MartDialog:
 	ld a, MARTTYPE_STANDARD
@@ -80,6 +81,16 @@ BerryMaster:
 	call MartTextbox
 	call BuyMenu
 	ld hl, BerryMasterComeAgainText
+	call MartTextbox
+	ret
+
+ApricornCollector:
+	call FarReadMart
+	call LoadStandardMenuHeader
+	ld hl, ApricornCollectorIntroText
+	call MartTextbox
+	call BuyMenu
+	ld hl, ApricornCollectorComeAgainText
 	call MartTextbox
 	ret
 
@@ -406,6 +417,7 @@ GetMartDialogGroup:
 	dwb .PharmacyPointers, 0
 	dwb .StandardMartPointers, 2
 	dwb .BerryMasterPointers, 0
+	dwb .ApricornCollectorPointers, 0
 
 .StandardMartPointers:
 	dw MartHowManyText
@@ -445,6 +457,14 @@ GetMartDialogGroup:
 	dw BerryMasterNoMoneyText
 	dw BerryMasterPackFullText
 	dw BerryMasterThanksText
+	dw BuyMenuLoop
+
+.ApricornCollectorPointers:
+	dw ApricornCollectorHowManyText
+	dw ApricornCollectorFinalPriceText
+	dw ApricornCollectorNoMoneyText
+	dw ApricornCollectorPackFullText
+	dw ApricornCollectorThanksText
 	dw BuyMenuLoop
 
 BuyMenuLoop:
@@ -731,28 +751,41 @@ BerryMasterIntroText:
 	text_far _BerryMasterIntroText
 	text_end
 
+ApricornCollectorIntroText:
+	text_far _ApricornCollectorIntroText
+	text_end
+
+ApricornCollectorHowManyText:
 BerryMasterHowManyText:
 	text_far _BerryMasterHowManyText
 	text_end
 
+ApricornCollectorFinalPriceText:
 BerryMasterFinalPriceText:
 	text_far _BerryMasterFinalPriceText
 	text_end
 
+ApricornCollectorThanksText:
 BerryMasterThanksText:
 	text_far _BerryMasterThanksText
 	text_end
 
+ApricornCollectorPackFullText:
 BerryMasterPackFullText:
 	text_far _BerryMasterPackFullText
 	text_end
 
+ApricornCollectorNoMoneyText:
 BerryMasterNoMoneyText:
 	text_far _BerryMasterNoMoneyText
 	text_end
 
 BerryMasterComeAgainText:
 	text_far _BerryMasterComeAgainText
+	text_end
+
+ApricornCollectorComeAgainText:
+	text_far _ApricornCollectorComeAgainText
 	text_end
 
 SellMenu:

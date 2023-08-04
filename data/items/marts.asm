@@ -38,6 +38,7 @@ Marts:
 	dw MartUnderground
 	dw MartFoodsDrinks
 	dw MartBerries
+	dw MartApricorns
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -509,6 +510,17 @@ MartBerries:
 	db LUM_BERRY
 	db LEPPA_BERRY
 	db SITRUS_BERRY
+	db -1 ; end
+
+MartApricorns:
+	db 7 ; # items
+	db RED_APRICORN
+	db BLU_APRICORN
+	db YLW_APRICORN
+	db GRN_APRICORN
+	db WHT_APRICORN
+	db BLK_APRICORN
+	db PNK_APRICORN
 	db -1 ; end
 
 DefaultMart:
