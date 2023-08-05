@@ -3,7 +3,7 @@
 ## v1.1.0
 
 ### Added
-- New map: Ilex Forest Wild Area (high level). This map is accessible through a new passage in the main Ilex Forest map.
+- New map: Ilex Forest Wild Area (high level). This map is accessible through new passages in Ilex Forest and Route 32.
 
 ### Changed
 - New game version logo.

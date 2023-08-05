@@ -497,6 +497,9 @@ Route32UnionCaveSign:
 Route32PokecenterSign:
 	jumpstd PokecenterSignScript
 
+Route32WildAreaSign:
+	jumptext Route32WildAreaSignText
+
 Route32HiddenGreatBall:
 	hiddenitem GREAT_BALL, EVENT_ROUTE_32_HIDDEN_GREAT_BALL
 
@@ -914,6 +917,11 @@ Route32UnionCaveSignText:
 	line "AHEAD"
 	done
 
+Route32WildAreaSignText:
+	text "   CAUTION!"
+	line "WILD AREA AHEAD"
+	done
+
 Route32_MapEvents:
 	db 0, 0 ; filler
 
@@ -922,6 +930,8 @@ Route32_MapEvents:
 	warp_event  4,  2, ROUTE_32_RUINS_OF_ALPH_GATE, 3
 	warp_event  4,  3, ROUTE_32_RUINS_OF_ALPH_GATE, 4
 	warp_event  6, 79, UNION_CAVE_1F, 4
+	warp_event  0, 70, ILEX_FOREST_WILD_AREA, 3
+	warp_event  0, 71, ILEX_FOREST_WILD_AREA, 4
 
 	def_coord_events
 	coord_event 18,  8, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
@@ -932,6 +942,7 @@ Route32_MapEvents:
 	bg_event  9,  1, BGEVENT_READ, Route32RuinsSign
 	bg_event 10, 84, BGEVENT_READ, Route32UnionCaveSign
 	bg_event 12, 73, BGEVENT_READ, Route32PokecenterSign
+	bg_event  2, 70, BGEVENT_READ, Route32WildAreaSign
 	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenGreatBall
 	bg_event 11, 40, BGEVENT_ITEM, Route32HiddenSuperPotion
 

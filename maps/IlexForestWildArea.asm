@@ -145,6 +145,9 @@ IlexForestWildAreaHiddenLifeHerb:
 IlexForestWildAreaHiddenBrightPowder:
 	hiddenitem BRIGHTPOWDER, EVENT_ILEX_FOREST_WILD_AREA_HIDDEN_BRIGHTPOWDER
 
+IlexForestWildAreaHiddenNugget:
+	hiddenitem NUGGET, EVENT_ILEX_FOREST_WILD_AREA_HIDDEN_NUGGET
+
 IlexForestWildAreaBoulder: ; unreferenced
 	jumpstd StrengthBoulderScript
 
@@ -211,8 +214,8 @@ IlexForestWildAreaUrsaringCryText:
 	done
 
 IlexForestWildAreaSignpostText:
-	text "CAUTION!"
-	line "Wild area ahead."
+	text "   CAUTION!"
+	line "WILD AREA AHEAD"
 	done
 
 Text_ShrineForestSpiritEvent:
@@ -299,16 +302,20 @@ IlexForestWildArea_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  0, 32, ILEX_FOREST, 4
-	warp_event  0, 33, ILEX_FOREST, 5
+	warp_event  3, 34, ILEX_FOREST, 4
+	warp_event  3, 35, ILEX_FOREST, 5
+	warp_event 37, 26, ROUTE_32, 5
+	warp_event 37, 27, ROUTE_32, 6
 
 	def_coord_events
 
 	def_bg_events
 	bg_event  3, 33, BGEVENT_READ, IlexForestWildAreaSignpost
-	bg_event  3, 34, BGEVENT_ITEM, IlexForestWildAreaHiddenBrightPowder
+	bg_event 35, 27, BGEVENT_READ, IlexForestWildAreaSignpost
+	bg_event  0, 33, BGEVENT_ITEM, IlexForestWildAreaHiddenBrightPowder
 	bg_event 27, 26, BGEVENT_ITEM, IlexForestWildAreaHiddenPoisonBarb
 	bg_event  4,  0, BGEVENT_ITEM, IlexForestWildAreaHiddenLifeHerb
+	bg_event 36, 32, BGEVENT_ITEM, IlexForestWildAreaHiddenNugget
 	bg_event 34,  4, BGEVENT_UP, IlexForestWildAreaShrineScript
 
 	def_object_events
