@@ -21,18 +21,57 @@ IlexForestWildArea_MapScripts:
 .SudowoodoCallback:
 	endcallback
 
-IlexForestWildAreaUrsaringScript:
+IlexForestWildAreaShinyPokemonScript:
+	faceplayer
 	opentext
 	writetext IlexForestWildAreaUrsaringCryText
 	pause 15
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .Pinsir
+	ifequal TUESDAY, .Heracross
+	ifequal WEDNESDAY, .Scyther
+	ifequal THURSDAY, .Primeape
+	ifequal FRIDAY, .Lickitung
+	; ifequal SATURDAY, .Ursaring
+
+.Ursaring
 	cry URSARING
 	closetext
 	loadwildmon URSARING, 35
+	sjump .Battle
+
+.Pinsir
+	cry PINSIR
+	closetext
+	loadwildmon PINSIR, 35
+	sjump .Battle
+
+.Heracross
+	cry HERACROSS
+	closetext
+	loadwildmon HERACROSS, 35
+	sjump .Battle
+
+.Scyther
+	cry SCYTHER
+	closetext
+	loadwildmon SCYTHER, 35
+	sjump .Battle
+
+.Primeape
+	cry PRIMEAPE
+	closetext
+	loadwildmon PRIMEAPE, 35
+	sjump .Battle
+
+.Lickitung
+	cry LICKITUNG
+	closetext
+	loadwildmon LICKITUNG, 35
+	sjump .Battle
+
+.Battle:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
-	; random 4
-	; ifequal 1, .Battle
-	; loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-; .Battle:
 	startbattle
 	ifequal LOSE, .NotBeaten
 	disappear ILEXFOREST_WILD_AREA_URSARING
@@ -319,7 +358,7 @@ IlexForestWildArea_MapEvents:
 	bg_event 34,  4, BGEVENT_UP, IlexForestWildAreaShrineScript
 
 	def_object_events
-	object_event  9, 16, SPRITE_MONSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestWildAreaUrsaringScript, EVENT_ILEX_FOREST_WILD_AREA_URSARING
+	object_event  9, 16, SPRITE_MONSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestWildAreaShinyPokemonScript, EVENT_ILEX_FOREST_WILD_AREA_URSARING
 	object_event  8, 12, SPRITE_SUDOWOODO, SPRITEMOVEDATA_SUDOWOODO, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestWildAreaSudowoodoScript, -1
 	object_event  1, 11, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestWildAreaApricornGuyScript, -1
 	object_event  1,  7, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfFlora, -1
