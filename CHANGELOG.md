@@ -12,6 +12,9 @@
 - Increased the chance for a Headbutt tree to be good (common Pokémon, high chance) from 4/10 to 5/10.
 - Reduced the chance for a Headbutt tree to be bad (common Pokémon, low chance) from 5/10 to 3/10.
 
+### Fixed
+- Item attributes for **Life Herb**.
+
 ## v1.0.1
 
 ### Changed

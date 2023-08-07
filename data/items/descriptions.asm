@@ -90,7 +90,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw TeruSama6Desc
+	dw LifeHerbDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -611,9 +611,6 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-TeruSama6Desc:
-	db   "?@"
-
 AmuletCoinDesc:
 	db   "Doubles monetary"
 	next "earnings. (HOLD)@"
@@ -741,6 +738,7 @@ HealPowderDesc:
 	db   "Cures all status"
 	next "problems. Bitter.@"
 
+LifeHerbDesc:
 RevivalHerbDesc:
 	db   "Revives fainted"
 	next "#MON. Bitter.@"
