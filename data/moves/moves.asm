@@ -191,7 +191,7 @@ Moves:
 	move ACROBATICS,   EFFECT_ACROBATICS,         55, FLYING,        PHYSICAL, 100,              ENERGY_15_PP,   0
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,        STATUS,   100,              ENERGY_15_PP,   0
 	move AERIAL_ACE,   EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, PERFECT_ACCURACY, ENERGY_20_PP,   0
-	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      150, NORMAL,        PHYSICAL, 100,              ENERGY_7_PP,    0
+	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      180, NORMAL,        PHYSICAL, 100,              ENERGY_7_PP,    0
 	move SEED_BOMB,    EFFECT_NORMAL_HIT,         70, GRASS,         PHYSICAL, 100,              ENERGY_15_PP,   0
 	move LICK,         EFFECT_PARALYZE_HIT,       30, GHOST,         PHYSICAL, 100,              ENERGY_20_PP,  30 ; FIXME
 	move SMOG,         EFFECT_POISON_HIT,         30, POISON,        SPECIAL,  100,              ENERGY_20_PP,  50

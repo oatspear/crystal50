@@ -11,6 +11,7 @@
 - Doubled the chance for a Headbutt tree to be rare (uncommon Pokémon) from 1/10 to 2/10.
 - Increased the chance for a Headbutt tree to be good (common Pokémon, high chance) from 4/10 to 5/10.
 - Reduced the chance for a Headbutt tree to be bad (common Pokémon, low chance) from 5/10 to 3/10.
+- Reverted Self-destruct to its original effect.
 
 ### Fixed
 - Item attributes for **Life Herb**.

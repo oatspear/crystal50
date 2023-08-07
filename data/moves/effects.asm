@@ -208,8 +208,8 @@ Selfdestruct:
 	stab
 	damagevariation
 	checkhit
-	moveanim
 	selfdestruct
+	moveanimnosub
 	failuretext
 	applydamage
 	criticaltext

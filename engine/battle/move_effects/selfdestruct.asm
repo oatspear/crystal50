@@ -1,79 +1,29 @@
 BattleCommand_Selfdestruct:
 	farcall StubbedTrainerRankings_Selfdestruct
-	ld hl, wBattleMonMaxHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_hp
-	ld hl, wEnemyMonMaxHP
-.got_hp
-; Hack: this should have been 80% Max. HP recoil damage.
-; We will simplify and just get 13/16, which is slightly more (0.8125).
-	push hl
-	ld a, [hli]
-	ld b, a
-	ld a, [hld]
-	ld c, a
-; divide by 2
-	srl b
-	rr c
-; got 8/16
-	ld l, c
-	ld h, b
-; divide by 4
-	srl b
-	rr c
-; got 12/16
-	add hl, bc
-; divide by 16
-	srl b
-	rr c
-	srl b
-	rr c
-; got 13/16
-	add hl, bc
-	ld c, l
-	ld b, h
-.got_quotient
-	ld a, b
-	or c
-	jr nz, .min_damage
-	inc c
-.min_damage
-	pop hl
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
-	dec hl
-	dec hl
-	ld a, [hl]
-	ld [wHPBuffer2], a
-	sub c
-	ld [hld], a
-	ld [wHPBuffer3], a
-	ld a, [hl]
-	ld [wHPBuffer2 + 1], a
-	sbc b
-	ld [hl], a
-	ld [wHPBuffer3 + 1], a
-	jr nc, .dont_ko
+	ld a, BATTLEANIM_PLAYER_DAMAGE
+	ld [wNumHits], a
+	ld c, 3
+	call DelayFrames
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVarAddr
 	xor a
 	ld [hli], a
-	ld [hl], a
-	ld hl, wHPBuffer3
+	inc hl
 	ld [hli], a
 	ld [hl], a
-.dont_ko
-	hlcoord 10, 9
-	ldh a, [hBattleTurn]
-	and a
-	ld a, 1
-	jr z, .animate_hp_bar
-	hlcoord 2, 2
-	xor a
-.animate_hp_bar
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
-	call RefreshBattleHuds
-	ld hl, RecoilText
-	jp StdBattleTextbox
+	ld a, $1
+	ld [wBattleAnimParam], a
+	call BattleCommand_LowerSub
+	call LoadMoveAnim
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVarAddr
+	res SUBSTATUS_LEECH_SEED, [hl]
+	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	call GetBattleVarAddr
+	res SUBSTATUS_DESTINY_BOND, [hl]
+	call _CheckBattleScene
+	ret nc
+	farcall DrawPlayerHUD
+	farcall DrawEnemyHUD
+	call WaitBGMap
+	jp RefreshBattleHuds
