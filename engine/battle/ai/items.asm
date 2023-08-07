@@ -537,6 +537,7 @@ EnemyUsedFullHeal:
 	ld [wCurEnemyItem], a
 	xor a
 	ld [wEnemyConfuseCount], a
+	ld a, FULL_HEAL
 	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedMaxPotion:
@@ -701,12 +702,6 @@ AI_Switch:
 EnemyWithdrewText:
 	text_far _EnemyWithdrewText
 	text_end
-
-EnemyUsedFullHealRed: ; unreferenced
-	call AIUsedItemSound
-	call AI_HealStatus
-	ld a, FULL_HEAL_RED ; X_SPEED
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 AI_HealStatus:
 	ld a, [wCurOTMon]

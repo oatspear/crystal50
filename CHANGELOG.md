@@ -14,6 +14,7 @@
 
 ### Fixed
 - Item attributes for **Life Herb**.
+- When AI trainers use Full Heal the message displays the correct item name.
 
 ## v1.0.1
 
