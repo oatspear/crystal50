@@ -54,3 +54,7 @@ used_space.png
 
 # macos files
 .DS_STORE
+
+# patch files
+*.ips
+*.ups
