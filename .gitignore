@@ -58,3 +58,6 @@ used_space.png
 # patch files
 *.ips
 *.ups
+
+# scripts
+move-rom.sh
