@@ -198,13 +198,13 @@
 	const ITEM_BE      ; be
 	const ITEM_BF      ; bf
 	const ITEM_C0      ; c0
-NUM_ITEMS EQU const_value - 1
+DEF NUM_ITEMS EQU const_value - 1
 
-__tmhm_value__ = 1
+DEF __tmhm_value__ = 1
 
 MACRO add_tmnum
-\1_TMNUM EQU __tmhm_value__
-__tmhm_value__ = __tmhm_value__ + 1
+DEF \1_TMNUM EQU __tmhm_value__
+DEF __tmhm_value__ = __tmhm_value__ + 1
 ENDM
 
 MACRO add_tm
@@ -213,12 +213,12 @@ MACRO add_tm
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 1
 ; - TM##_MOVE: alias for the move id, equal to the value of \1
 	const TM_\1
-TM{02d:__tmhm_value__}_MOVE = \1
+DEF TM{02d:__tmhm_value__}_MOVE = \1
 	add_tmnum \1
 ENDM
 
 ; see data/moves/tmhm_moves.asm for moves
-TM01 EQU const_value
+DEF TM01 EQU const_value
 	add_tm AERIAL_ACE   ; c1
 	add_tm HEADBUTT     ; c2
 	add_tm CURSE        ; c3
@@ -271,7 +271,7 @@ TM01 EQU const_value
 	add_tm HEX          ; f2
 	add_tm DAZZLING_GLEAM ; f3
 	add_tm X_SCISSOR    ; f4
-NUM_TMS EQU __tmhm_value__ - 1
+DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
 ; Defines three constants:
@@ -279,12 +279,12 @@ MACRO add_hm
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 53
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 	const HM_\1
-HM_VALUE = __tmhm_value__ - NUM_TMS
-HM{02d:HM_VALUE}_MOVE = \1
+DEF HM_VALUE = __tmhm_value__ - NUM_TMS
+DEF HM{02d:HM_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
-HM01 EQU const_value
+DEF HM01 EQU const_value
 	add_hm ROOST        ; f5
 	add_hm FURY_CUTTER  ; f6
 	add_hm FACADE       ; f7
@@ -293,18 +293,18 @@ HM01 EQU const_value
 	add_hm IRON_TAIL    ; fa
 	add_hm AVALANCHE    ; fb
 	add_hm DRAGONBREATH ; fc
-NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
+DEF NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 MACRO add_mt
 ; Defines two constants:
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 61
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
-MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
-MT{02d:MT_VALUE}_MOVE = \1
+DEF MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
+DEF MT{02d:MT_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
-MT01 EQU const_value
+DEF MT01 EQU const_value
 	add_mt FLAMETHROWER
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
@@ -331,16 +331,16 @@ MT01 EQU const_value
 	add_mt DRAGON_PULSE
 	add_mt DRAGON_DANCE
 	; unused: 4 out of 88 bits (11 bytes)
-NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
+DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
-NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
+DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
 
 	const ITEM_FD       ; fd
 
-USE_SCRIPT_VAR EQU $00
-ITEM_FROM_MEM  EQU $ff
+DEF USE_SCRIPT_VAR EQU $00
+DEF ITEM_FROM_MEM  EQU $ff
 
 ; leftovers from red
-SAFARI_BALL    EQU $08 ; MOON_STONE
-MOON_STONE_RED EQU $0a ; BURN_HEAL
-FULL_HEAL_RED  EQU $34 ; X_SPEED
+DEF SAFARI_BALL    EQU $08 ; MOON_STONE
+DEF MOON_STONE_RED EQU $0a ; BURN_HEAL
+DEF FULL_HEAL_RED  EQU $34 ; X_SPEED

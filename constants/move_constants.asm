@@ -260,7 +260,7 @@
 	const DISARMING_VOICE  ; fc
 	const DAZZLING_GLEAM ; fd
 	const PLAY_ROUGH   ; fe
-NUM_ATTACKS EQU const_value - 1
+DEF NUM_ATTACKS EQU const_value - 1
 
 ; Battle animations use the same constants as the moves up to this point
 	const_next $ff
@@ -289,7 +289,7 @@ NUM_ATTACKS EQU const_value - 1
 	const ANIM_SHAKE             ; 114
 	const ANIM_HIT_CONFUSION     ; 115
 	const ANIM_IN_HAIL           ; 116
-NUM_BATTLE_ANIMS EQU const_value - 1
+DEF NUM_BATTLE_ANIMS EQU const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS
 	const_def
@@ -302,7 +302,7 @@ NUM_BATTLE_ANIMS EQU const_value - 1
 	const BATTLEANIM_SHAKE
 	const BATTLEANIM_HIT_CONFUSION
 
-NO_OVERWORLD_MOVES EQU 0
+DEF NO_OVERWORLD_MOVES EQU 0
 
 ; bit flag constants for overworld moves
 	const_def 1
@@ -320,4 +320,4 @@ NO_OVERWORLD_MOVES EQU 0
 	const OVERWORLD_MILK_DRINK  ; 12
 	const OVERWORLD_SOFTBOILED  ; 13
 	const OVERWORLD_SWEET_SCENT ; 14
-NUM_OVERWORLD_MOVES EQU const_value - 1
+DEF NUM_OVERWORLD_MOVES EQU const_value - 1
