@@ -2,14 +2,14 @@
 MACRO tmhm
 ; initialize bytes to 0
 for n, (NUM_TM_HM_TUTOR + 7) / 8
-_tm{d:n} = 0
+DEF _tm{d:n} = 0
 endr
 ; set bits of bytes
 rept _NARG
 	if DEF(\1_TMNUM)
-n = (\1_TMNUM - 1) / 8
-i = (\1_TMNUM - 1) % 8
-_tm{d:n} = _tm{d:n} | (1 << i)
+DEF n = (\1_TMNUM - 1) / 8
+DEF i = (\1_TMNUM - 1) % 8
+DEF _tm{d:n} = _tm{d:n} | (1 << i)
 	else
 		fail "\1 is not a TM, HM, or tutor move"
 	endc
@@ -23,14 +23,14 @@ ENDM
 
 MACRO owmoves
 ; initialize bytes to 0
-_owm0 = 0
-_owm1 = 0
+DEF _owm0 = 0
+DEF _owm1 = 0
 ; set bits of bytes
 rept _NARG
 	if DEF(\1)
-n = (\1 - 1) / 8
-i = (\1 - 1) % 8
-_owm{d:n} = _owm{d:n} | (1 << i)
+DEF n = (\1 - 1) / 8
+DEF i = (\1 - 1) % 8
+DEF _owm{d:n} = _owm{d:n} | (1 << i)
 	else
 		fail "\1 is not an overworld move"
 	endc

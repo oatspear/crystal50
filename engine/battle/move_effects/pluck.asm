@@ -20,8 +20,8 @@ BattleCommand_Pluck:
 ; Can only steal berries.
 
 	ld [wNamedObjectIndex], a
-	ld d, a
-	call ItemIsEdible ; item index is in b
+	ld hl, EdibleItems
+	call IsInByteArray ; item index is returned in b
 	ret nc
 
 	ld a, [wLinkMode]
@@ -33,7 +33,7 @@ BattleCommand_Pluck:
 	ret z
 
 .stealenemyitem
-	call .enemyitem
+	call .enemyitem  ; preserves bc
 	xor a
 	ld [hl], a
 	ld [de], a
@@ -51,35 +51,40 @@ BattleCommand_Pluck:
 ; Can only steal berries.
 
 	ld [wNamedObjectIndex], a
-	ld d, a
-	call ItemIsEdible ; item index is in b
+	ld hl, EdibleItems
+	call IsInByteArray ; item index is returned in b
 	ret nc
 
 ; If the enemy steals your item,
 ; it's gone for good if you don't get it back.
 
-	call .playeritem
+	call .playeritem  ; preserves bc
 	xor a
 	ld [hl], a
 	ld [de], a
 	; fallthrough
 
 .steal_berry
-	call GetItemName
+	call GetItemName  ; preserves hl, bc
+	push bc
 	ld hl, StoleText
 	call StdBattleTextbox
+	pop bc
 
 	ld hl, PluckBerryEffects
 	ld a, b
+	add a  ; each entry is 2 bytes
 	ld b, 0
 	ld c, a
-	sla c ; 2 bytes
 	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 	jp hl
 
 .playeritem
 	ld a, 1
-	call BattlePartyAttr
+	call BattlePartyAttr  ; preserves bc
 	ld d, h
 	ld e, l
 	ld hl, wBattleMonItem
@@ -87,17 +92,12 @@ BattleCommand_Pluck:
 
 .enemyitem
 	ld a, 1
-	call OTPartyAttr
+	call OTPartyAttr  ; preserves bc
 	ld d, h
 	ld e, l
 	ld hl, wEnemyMonItem
 	ret
 
-ItemIsEdible:
-	ld a, d
-	ld hl, EdibleItems
-	ld de, 1
-	jp IsInArray
 
 EdibleItems:
   db ORAN_BERRY

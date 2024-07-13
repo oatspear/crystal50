@@ -48,4 +48,4 @@
 	const MART_FOODS_DRINKS
 	const MART_BERRIES
 	const MART_APRICORNS
-NUM_MARTS EQU const_value
+DEF NUM_MARTS EQU const_value

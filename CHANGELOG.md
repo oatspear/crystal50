@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1
+
+### Fixed
+- The moves **Pluck** and **Bug Bite** should no longer crash the game.
+- Certain Trainers should have back their held items that went missing around version 0.7.
+
 ## v1.1.0
 
 ### Added
