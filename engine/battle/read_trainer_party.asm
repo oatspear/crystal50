@@ -107,10 +107,6 @@ ReadTrainerPartyPieces:
 	pop hl
 
 ; item?
-	ld a, [wOtherTrainerType]
-	bit TRAINERTYPE_ITEM_F, a
-	jr z, .no_item
-
 	push hl
 	ld a, [wOTPartyCount]
 	dec a
@@ -120,9 +116,14 @@ ReadTrainerPartyPieces:
 	ld e, l
 	pop hl
 
+; trainers have Oran Berry by default
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_ITEM_F, a
+	ld a, ORAN_BERRY
+	jr z, .no_item
 	call GetNextTrainerDataByte
-	ld [de], a
 .no_item
+	ld [de], a
 
 ; moves?
 	ld a, [wOtherTrainerType]
